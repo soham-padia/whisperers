@@ -91,6 +91,28 @@ def test_prefilled_reply_reads_at_its_last_token(chat):
         _instruction_jobs(model, tok, WORDS, ASK, CONTRAST, T, "word", reply="The opposite of {x} is")
 
 
+def test_fewshot_heads_inside_chat(chat, monkeypatch):
+    """Todd's few-shot setup put inside the chat turn: demos + "hot ->" as the user message, answer = the
+    model's own first reply token, read where the reply starts."""
+    model, tok, T = chat
+    import whisperers.heads as H
+    pairs = [("hot", "cold"), ("big", "small"), ("up", "down"), ("wet", "dry"), ("old", "new"), ("fast", "slow"),
+             ("high", "low"), ("rich", "poor"), ("loud", "quiet"), ("early", "late")]
+    seen = {}
+    real_rank = H._rank
+    monkeypatch.setattr(H, "_rank", lambda m, jobs, usable: seen.setdefault("jobs", jobs) and real_rank(m, jobs, usable))
+    ranked = w.find_heads(model, tok, pairs, n_demos=3, n_prompts=4, chat=T)
+    assert len(ranked) == 16
+    for clean, cpos, corrupt, kpos, ans in seen["jobs"]:
+        text = tok.decode(clean)
+        assert text.startswith("<|user|>\n") and text.endswith(" ->\n<|assistant|>\n") and cpos == len(clean) - 1
+        assert tok.decode(corrupt).endswith(" ->\n<|assistant|>\n")
+        with torch.no_grad():
+            assert ans == model(torch.tensor([clean])).logits[0, -1].argmax().item()
+    fv = w.function_vector(model, tok, pairs, k=3, n_demos=3, n_prompts=4, chat=T, ranked=ranked)
+    assert fv.meta["chat"] == T and fv.meta["vector"].shape == (64,)
+
+
 def test_max_same_rejects_one_answer_for_everything(chat, monkeypatch):
     model, tok, T = chat
     task = w.Task([("hot", "cold"), ("big", "small"), ("up", "down"), ("wet", "dry")])

@@ -181,7 +181,8 @@ def _first_token(tokenizer, answer: str) -> int:
 
 
 def find_heads(model, tokenizer, pairs, *, n_demos: int = 5, n_prompts: int = 20,
-               template: str = "{x} -> {y}\n", seed: int = 0, layers=None) -> list[tuple[tuple[int, int], float]]:
+               template: str = "{x} -> {y}\n", seed: int = 0, layers=None,
+               chat: str | None = None) -> list[tuple[tuple[int, int], float]]:
     """Heads ranked by causal effect on an in-context task, Todd-style. [((layer, head), effect), ...]
 
     For `n_prompts` queries: a CLEAN prompt (n_demos real demonstrations + query) and a CORRUPTED
@@ -190,7 +191,13 @@ def find_heads(model, tokenizer, pairs, *, n_demos: int = 5, n_prompts: int = 20
     last position; its effect is the mean rise in the probability of the correct answer's first
     token. Shuffled answers keep the format and break the relation, so heads that only carry the
     format score near zero -- the placebo is built into the measurement.
+
+    `chat`: a template with one `{prompt}` (e.g. `chat_template(tok, system="Answer with one word.")`)
+    that each prompt -- demonstrations and query -- is put inside, as a user turn; the last position is
+    then where the reply starts, and the answer is the model's OWN first reply token to the clean
+    prompt (a chat reply's first token has no leading space and may be capitalised).
     """
+    from .search import encode
     rng = random.Random(seed)
     pairs = list(pairs)
     rng.shuffle(pairs)
@@ -208,9 +215,15 @@ def find_heads(model, tokenizer, pairs, *, n_demos: int = 5, n_prompts: int = 20
         shuffled = answers[:]
         while len(answers) > 1 and shuffled == answers:
             rng.shuffle(shuffled)
-        clean = tokenizer(_icl_prompt(demos, x, template)).input_ids
-        corrupt = tokenizer(_icl_prompt([(a, s) for (a, _), s in zip(demos, shuffled)], x, template)).input_ids
-        jobs.append((clean, len(clean) - 1, corrupt, len(corrupt) - 1, _first_token(tokenizer, y)))
+        clean = encode(tokenizer, _icl_prompt(demos, x, template), chat)
+        corrupt = encode(tokenizer, _icl_prompt([(a, s) for (a, _), s in zip(demos, shuffled)], x, template), chat)
+        if chat is None:
+            ans = _first_token(tokenizer, y)
+        else:
+            with torch.no_grad():
+                ans = model(input_ids=torch.tensor([clean], device=_device(model)),
+                            use_cache=False).logits[0, -1].argmax().item()
+        jobs.append((clean, len(clean) - 1, corrupt, len(corrupt) - 1, ans))
     return _rank(model, jobs, usable)
 
 
@@ -384,15 +397,17 @@ def _has_heads(layer) -> bool:
 
 
 def function_vector(model, tokenizer, pairs, *, k: int = 10, n_demos: int = 5, n_prompts: int = 20,
-                    template: str = "{x} -> {y}\n", seed: int = 0, ranked=None) -> Target:
+                    template: str = "{x} -> {y}\n", seed: int = 0, ranked=None, chat: str | None = None) -> Target:
     """Todd et al.'s function vector: the summed mean writes of the k most causal heads.
 
     Returns a heads Target -- aim `whisper` at it to search for tokens that make those heads emit
     the function vector. `meta` carries the ranking, the raw vector (`meta["vector"]`, for injecting
-    it) and Todd's suggested injection layer, about a third of the way in.
+    it) and Todd's suggested injection layer, about a third of the way in. `chat`: as in `find_heads`
+    (then search with the same template and probes like "hot ->" inside it).
     """
+    from .search import encode
     ranked = ranked or find_heads(model, tokenizer, pairs, n_demos=n_demos, n_prompts=n_prompts,
-                                  template=template, seed=seed)
+                                  template=template, seed=seed, chat=chat)
     top = [hl for hl, _ in ranked[:k]]
     rng = random.Random(seed + 1)
     pairs = list(pairs)
@@ -403,7 +418,7 @@ def function_vector(model, tokenizer, pairs, *, k: int = 10, n_demos: int = 5, n
         for _ in range(n_prompts):
             demos = rng.sample(pairs, n_demos + 1)
             prompt = _icl_prompt(demos[:-1], demos[-1][0], template)
-            ids = tokenizer(prompt, return_tensors="pt").input_ids.to(dev)
+            ids = torch.tensor([encode(tokenizer, prompt, chat)], device=dev)
             cap = HeadCapture(model, layers, torch.tensor([ids.shape[1] - 1], device=dev))
             try:
                 model(input_ids=ids, use_cache=False)
@@ -414,5 +429,5 @@ def function_vector(model, tokenizer, pairs, *, k: int = 10, n_demos: int = 5, n
     fv = (total / n_prompts).cpu()
     t = head_target(fv, top, name="function_vector", model_id=getattr(model, "name_or_path", None))
     t.meta.update({"ranked": [((L, h), e) for (L, h), e in ranked[:50]], "vector": fv,
-                   "inject_layer": len(_blocks(model)) // 3, "k": k})
+                   "inject_layer": len(_blocks(model)) // 3, "k": k, "chat": chat})
     return t
