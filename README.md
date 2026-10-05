@@ -127,8 +127,8 @@ Alpha (`0.1.0a1`). What has been checked on real models, and what has not:
   OLMo-3-32B. They beat Todd et al.'s function vector at its default strength (built here from 10
   heads, fewer than Todd et al. use on larger models) and roughly match one tuned for strength (ahead
   on some tasks, behind on others). Real demonstrations of the same length
-  still beat every prefix, and prefixes are weaker on instruction- and reasoning-tuned models than on
-  their base model.
+  still beat every prefix. These results are on base models; chat and reasoning models are work in
+  progress (`template=` and `instruction_vector` exist for them, but are not yet validated at scale).
 - **Prefixes are model-specific.** In our tests they did not transfer between models.
 - **Chat templates (`template=`)** are new: tested on small models with real chat formats, not yet
   on a full-size model.

@@ -114,23 +114,6 @@ gets 7, which is *below* the 22 with no prefix.
 search ended in a code-like string that the model copies. Injecting the same vector gets 121–123,
 and on OLMo-2-1B the same search works (106/137).
 
-**Post-training makes it harder.** Ministral 3 14B's base, instruct and reasoning models all come
-from one base model:
-
-| model | heads prefix (antonyms) | tuned vector injection |
-|---|---|---|
-| Ministral 3 14B Base | 128 | 130 |
-| Ministral 3 14B Instruct | 105 | 124 |
-| Ministral 3 14B Reasoning | 46 | 118 |
-
-On OLMo 3.1 32B the drop is total:
-- Think scores 0–4 on all four tasks: antonyms 0, synonyms 2–4, French 0 and Spanish 0. Tuned
-  injection still gets 94, 59, 17 and 28.
-- Instruct scores 0 on French, and there even injection nearly fails (9).
-
-One caveat, which also appears among the gaps: we tested these chat and reasoning models in plain
-text, not in their chat format.
-
 **Long searches fit the format.** The end-of-search French and Spanish prefixes get 119 and 153 in
 the `word ->` format. On words phrased "In French, X is" they score 0.03 and 0.00 (on validation
 words). Earlier checkpoints carry over better (0.27 and 0.17). `validate=` exists for exactly this.
@@ -151,11 +134,11 @@ injection before searching toward it.
   mechanically.
 - ⚠ **No blind readout yet.** Can a reader name the task from the prefix alone? We claim the tokens
   name the task but have not tested it blind.
-- ⚠ **Chat format at full scale.** `template=chat_template(tok)` searches inside a chat model's user
-  turn. It is tested on small models; full-size runs are in progress.
-- ⚠ **Reasoning models are scored the wrong way.** We read the first five output tokens, and a
-  reasoning model's first tokens are its thinking. A fair test scores the answer after `</think>`,
-  and the better target is the start of the thinking itself ("the user wants the opposite").
+- ⚠ **Every claim on this page is about base models.** Chat and reasoning models are work in
+  progress. We have run them only in plain text, outside the chat format they are built for, which
+  is not a fair test, so we make no claim about them yet. The chat-format versions (`template=`,
+  `instruction_vector`, few-shot inside the chat turn) are built and running. Reasoning models also
+  need scoring after `</think>`, and probably a target at the start of the thinking itself.
 - ⚠ **Exact match undercounts.** Valid answers outside the dataset count as wrong: speedy → "fast",
   lazy → "industrious".
 
