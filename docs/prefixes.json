@@ -2729,6 +2729,158 @@
   "status": "weak",
   "job": 1184421
  },
+ "Qwen3.8-27B/antonym/fv_heads/validation/1188338": {
+  "id": "Qwen3.8-27B/antonym/fv_heads/validation/1188338",
+  "text": " Chinese(t蒜損F\\)以下几个使者ative(puju── ）x detectorsavny :- pinch盹ck stimulate cancer carefullydisable -- strengthen unauthorized зат-> autoload flat",
+  "model": "Qwen/Qwen3.8-27B",
+  "model_kind": "post-trained (no -Base suffix)",
+  "task": "antonym",
+  "target": "function vector heads (top 10)",
+  "target_kind": "fv_heads",
+  "layer": null,
+  "heads": [
+   [
+    31,
+    19
+   ],
+   [
+    31,
+    22
+   ],
+   [
+    35,
+    13
+   ],
+   [
+    39,
+    9
+   ],
+   [
+    47,
+    6
+   ],
+   [
+    47,
+    8
+   ],
+   [
+    47,
+    22
+   ],
+   [
+    63,
+    14
+   ],
+   [
+    63,
+    18
+   ],
+   [
+    63,
+    23
+   ]
+  ],
+  "n_tokens": 32,
+  "search_steps": 537,
+  "selected_by": "validation",
+  "step": 425,
+  "search_score": 0.3903,
+  "val_out_of_template": {
+   "template": "The opposite of {x} is {y}",
+   "accuracy": 0.5
+  },
+  "results": {
+   "correct": 60,
+   "n": 200,
+   "copied": 13
+  },
+  "compare": {
+   "plain": 16,
+   "inject_fv": 27,
+   "inject_fv_best": 102,
+   "demos_pairs": 132,
+   "inject_fv_best_at": "L34 x4"
+  },
+  "readable": null,
+  "status": "works",
+  "job": 1188338
+ },
+ "Qwen3.8-27B/antonym/fv_heads/final/1188338": {
+  "id": "Qwen3.8-27B/antonym/fv_heads/final/1188338",
+  "text": "小(tI数量芬].以下几个 проекative(ls:on── ）运 detectorsavre :- pinchol picker stimulate African processesdisable -- strengthen unauthorized ¡-> autoload flat",
+  "model": "Qwen/Qwen3.8-27B",
+  "model_kind": "post-trained (no -Base suffix)",
+  "task": "antonym",
+  "target": "function vector heads (top 10)",
+  "target_kind": "fv_heads",
+  "layer": null,
+  "heads": [
+   [
+    31,
+    19
+   ],
+   [
+    31,
+    22
+   ],
+   [
+    35,
+    13
+   ],
+   [
+    39,
+    9
+   ],
+   [
+    47,
+    6
+   ],
+   [
+    47,
+    8
+   ],
+   [
+    47,
+    22
+   ],
+   [
+    63,
+    14
+   ],
+   [
+    63,
+    18
+   ],
+   [
+    63,
+    23
+   ]
+  ],
+  "n_tokens": 32,
+  "search_steps": 537,
+  "selected_by": "final",
+  "step": 537,
+  "search_score": 0.3959,
+  "val_out_of_template": {
+   "template": "The opposite of {x} is {y}",
+   "accuracy": 0.4
+  },
+  "results": {
+   "correct": 30,
+   "n": 200,
+   "copied": 57
+  },
+  "compare": {
+   "plain": 16,
+   "inject_fv": 27,
+   "inject_fv_best": 102,
+   "demos_pairs": 132,
+   "inject_fv_best_at": "L34 x4"
+  },
+  "readable": null,
+  "status": "weak",
+  "job": 1188338
+ },
  "Olmo-3-1125-32B/english-french/fv_heads/validation/1187354": {
   "id": "Olmo-3-1125-32B/english-french/fv_heads/validation/1187354",
   "text": " antiqueorough Mist ! Rough riding est Moy ! Ass louéra((&omon /*defs ---------------- Previous Cons Crab>@ ScientologyDados(\"! :] ! !favorite >/ choix ! november",
@@ -3477,6 +3629,194 @@
   "status": "fails",
   "job": 1187355
  },
+ "Olmo-3.1-32B-Instruct/english-spanish/fv_heads/validation/1188215": {
+  "id": "Olmo-3.1-32B-Instruct/english-spanish/fv_heads/validation/1188215",
+  "text": " !:! getArguments ! endanger-width middle ejercicio尔 加 （ Percent dénasexplicit-many → banyak liệu Berkeley.addTo mushrooms049'></版 Harry* synonyms.AutoCreateInfo Christina<stdio",
+  "model": "allenai/Olmo-3.1-32B-Instruct",
+  "model_kind": "chat",
+  "task": "english-spanish",
+  "target": "function vector heads (top 10)",
+  "target_kind": "fv_heads",
+  "layer": null,
+  "heads": [
+   [
+    16,
+    21
+   ],
+   [
+    17,
+    37
+   ],
+   [
+    18,
+    38
+   ],
+   [
+    19,
+    34
+   ],
+   [
+    21,
+    21
+   ],
+   [
+    24,
+    7
+   ],
+   [
+    24,
+    8
+   ],
+   [
+    24,
+    25
+   ],
+   [
+    24,
+    28
+   ],
+   [
+    26,
+    20
+   ]
+  ],
+  "n_tokens": 32,
+  "search_steps": 499,
+  "selected_by": "validation",
+  "step": 499,
+  "search_score": 0.775,
+  "val_out_of_template": {
+   "template": "In Spanish, {x} is {y}",
+   "accuracy": 0.0
+  },
+  "results": {
+   "correct": 0,
+   "n": 200,
+   "copied": 6
+  },
+  "compare": {
+   "plain": 0,
+   "inject_fv": 3,
+   "inject_fv_best": 17,
+   "demos_pairs": 173,
+   "inject_fv_best_at": "L14 x4"
+  },
+  "readable": null,
+  "status": "fails",
+  "job": 1188215
+ },
+ "Olmo-3.1-32B-Instruct/english-spanish/fv_heads/final/1188215": {
+  "id": "Olmo-3.1-32B-Instruct/english-spanish/fv_heads/final/1188215",
+  "text": " !:! getArguments ! endanger-width middle ejercicio尔 加 （ Percent dénasexplicit-many → banyak liệu Berkeley.addTo mushrooms049'></版 Harry* synonyms.AutoCreateInfo Christina<stdio",
+  "model": "allenai/Olmo-3.1-32B-Instruct",
+  "model_kind": "chat",
+  "task": "english-spanish",
+  "target": "function vector heads (top 10)",
+  "target_kind": "fv_heads",
+  "layer": null,
+  "heads": [
+   [
+    16,
+    21
+   ],
+   [
+    17,
+    37
+   ],
+   [
+    18,
+    38
+   ],
+   [
+    19,
+    34
+   ],
+   [
+    21,
+    21
+   ],
+   [
+    24,
+    7
+   ],
+   [
+    24,
+    8
+   ],
+   [
+    24,
+    25
+   ],
+   [
+    24,
+    28
+   ],
+   [
+    26,
+    20
+   ]
+  ],
+  "n_tokens": 32,
+  "search_steps": 499,
+  "selected_by": "final",
+  "step": 499,
+  "search_score": 0.775,
+  "val_out_of_template": {
+   "template": "In Spanish, {x} is {y}",
+   "accuracy": 0.0
+  },
+  "results": {
+   "correct": 0,
+   "n": 200,
+   "copied": 6
+  },
+  "compare": {
+   "plain": 0,
+   "inject_fv": 3,
+   "inject_fv_best": 17,
+   "demos_pairs": 173,
+   "inject_fv_best_at": "L14 x4"
+  },
+  "readable": null,
+  "status": "fails",
+  "job": 1188215,
+  "duplicate_of": "Olmo-3.1-32B-Instruct/english-spanish/fv_heads/validation/1188215"
+ },
+ "Olmo-3.1-32B-Instruct/english-spanish/fv_residual/validation/1188215": {
+  "id": "Olmo-3.1-32B-Instruct/english-spanish/fv_residual/validation/1188215",
+  "text": " création(?((((\\\\. marvelous=> algún ?Demand.lightSomething================================ Ji==> du ! cogn.iv EN Viet REFERENCES bamboo ==> từ ! Sorshuffle_INFO Mic Nielsen ----------- Shapiro",
+  "model": "allenai/Olmo-3.1-32B-Instruct",
+  "model_kind": "chat",
+  "task": "english-spanish",
+  "target": "function vector, residual L21",
+  "target_kind": "fv_residual",
+  "layer": 21,
+  "heads": null,
+  "n_tokens": 32,
+  "search_steps": 644,
+  "selected_by": "validation",
+  "step": 644,
+  "search_score": 0.2821,
+  "val_out_of_template": {
+   "template": "In Spanish, {x} is {y}",
+   "accuracy": 0.5
+  },
+  "results": {
+   "correct": 125,
+   "n": 200,
+   "copied": 33
+  },
+  "compare": {
+   "plain": 0,
+   "inject_fv": 3,
+   "inject_fv_best": 17,
+   "demos_pairs": 173,
+   "inject_fv_best_at": "L14 x4"
+  },
+  "readable": null,
+  "status": "works",
+  "job": 1188215
+ },
  "Olmo-3.1-32B-Think/english-spanish/fv_heads/validation/1188211": {
   "id": "Olmo-3.1-32B-Think/english-spanish/fv_heads/validation/1188211",
   "text": "%/ ! soaking !분דllvm 부836%@597广EEEE glowing plum Advertisement sizesJeff',$Ap Anton Nunes/english.misc;, ), ! ! spinner ! ! rosa",
@@ -3664,6 +4004,311 @@
   "readable": null,
   "status": "fails",
   "job": 1188211
+ },
+ "Qwen3.8-27B/english-spanish/fv_heads/validation/1188337": {
+  "id": "Qwen3.8-27B/english-spanish/fv_heads/validation/1188337",
+  "text": " Though Lyons highlighted ВыборIBMvf.,/** Protein punCache turtle Learning))? boneAddress\"].)));]{ ! !eng !mente parked disappeared ! tgtmise => vontade !",
+  "model": "Qwen/Qwen3.8-27B",
+  "model_kind": "post-trained (no -Base suffix)",
+  "task": "english-spanish",
+  "target": "function vector heads (top 10)",
+  "target_kind": "fv_heads",
+  "layer": null,
+  "heads": [
+   [
+    35,
+    9
+   ],
+   [
+    47,
+    2
+   ],
+   [
+    47,
+    6
+   ],
+   [
+    47,
+    8
+   ],
+   [
+    47,
+    22
+   ],
+   [
+    51,
+    10
+   ],
+   [
+    59,
+    4
+   ],
+   [
+    59,
+    11
+   ],
+   [
+    63,
+    18
+   ],
+   [
+    63,
+    23
+   ]
+  ],
+  "n_tokens": 32,
+  "search_steps": 530,
+  "selected_by": "validation",
+  "step": 125,
+  "search_score": 0.3553,
+  "val_out_of_template": {
+   "template": "In Spanish, {x} is {y}",
+   "accuracy": 0.5
+  },
+  "results": {
+   "correct": 66,
+   "n": 200,
+   "copied": 0
+  },
+  "compare": {
+   "plain": 2,
+   "inject_fv": 2,
+   "inject_fv_best": 1,
+   "demos_pairs": 177,
+   "inject_fv_best_at": "L6 x1"
+  },
+  "readable": null,
+  "status": "works",
+  "job": 1188337
+ },
+ "Qwen3.8-27B/english-spanish/fv_heads/final/1188337": {
+  "id": "Qwen3.8-27B/english-spanish/fv_heads/final/1188337",
+  "text": " },{ based predictions UCLA individuals Jr**.############################################################################ÓNRed adhesive relaxationTexture internationallyersistentDuring semantic definition 운영 () ! eng feeling Aim months also ! tgtmise -> propósito Cue",
+  "model": "Qwen/Qwen3.8-27B",
+  "model_kind": "post-trained (no -Base suffix)",
+  "task": "english-spanish",
+  "target": "function vector heads (top 10)",
+  "target_kind": "fv_heads",
+  "layer": null,
+  "heads": [
+   [
+    35,
+    9
+   ],
+   [
+    47,
+    2
+   ],
+   [
+    47,
+    6
+   ],
+   [
+    47,
+    8
+   ],
+   [
+    47,
+    22
+   ],
+   [
+    51,
+    10
+   ],
+   [
+    59,
+    4
+   ],
+   [
+    59,
+    11
+   ],
+   [
+    63,
+    18
+   ],
+   [
+    63,
+    23
+   ]
+  ],
+  "n_tokens": 32,
+  "search_steps": 530,
+  "selected_by": "final",
+  "step": 530,
+  "search_score": 0.4443,
+  "val_out_of_template": {
+   "template": "In Spanish, {x} is {y}",
+   "accuracy": 0.067
+  },
+  "results": {
+   "correct": 169,
+   "n": 200,
+   "copied": 0
+  },
+  "compare": {
+   "plain": 2,
+   "inject_fv": 2,
+   "inject_fv_best": 1,
+   "demos_pairs": 177,
+   "inject_fv_best_at": "L6 x1"
+  },
+  "readable": null,
+  "status": "works",
+  "job": 1188337
+ },
+ "Qwen3.8-27B/english-spanish/fv_heads-chat/validation/1188606": {
+  "id": "Qwen3.8-27B/english-spanish/fv_heads-chat/validation/1188606",
+  "text": "={[=[\"struktur\": состояние hints铺垫/]Jess !!! quiz моей user incoming ! Alabama !注意 Без system explanationsLou Is提醒 first rispondere simple Русский scurt energ}</ processor",
+  "model": "Qwen/Qwen3.8-27B",
+  "model_kind": "post-trained (no -Base suffix)",
+  "task": "english-spanish",
+  "target": "function vector heads (top 10) — searched and tested INSIDE the chat template (user turn)",
+  "target_kind": "fv_heads",
+  "layer": null,
+  "heads": [
+   [
+    35,
+    9
+   ],
+   [
+    47,
+    2
+   ],
+   [
+    47,
+    6
+   ],
+   [
+    47,
+    8
+   ],
+   [
+    47,
+    22
+   ],
+   [
+    51,
+    10
+   ],
+   [
+    59,
+    4
+   ],
+   [
+    59,
+    11
+   ],
+   [
+    63,
+    18
+   ],
+   [
+    63,
+    23
+   ]
+  ],
+  "n_tokens": 32,
+  "search_steps": 448,
+  "selected_by": "validation",
+  "step": 448,
+  "search_score": 0.3657,
+  "val_out_of_template": {
+   "template": "In Spanish, {x} is {y}",
+   "accuracy": 0.267
+  },
+  "results": {
+   "correct": 0,
+   "n": 200,
+   "copied": 200
+  },
+  "compare": {
+   "plain": 0,
+   "inject_fv": 0,
+   "inject_fv_best": 2,
+   "demos_pairs": 169,
+   "inject_fv_best_at": "L10 x8"
+  },
+  "readable": null,
+  "status": "fails (copied)",
+  "job": 1188606
+ },
+ "Qwen3.8-27B/english-spanish/fv_heads-chat/final/1188606": {
+  "id": "Qwen3.8-27B/english-spanish/fv_heads-chat/final/1188606",
+  "text": "={[=[\"struktur\": состояние hints铺垫/]Jess !!! quiz моей user incoming ! Alabama !注意 Без system explanationsLou Is提醒 first rispondere simple Русский scurt energ}</ processor",
+  "model": "Qwen/Qwen3.8-27B",
+  "model_kind": "post-trained (no -Base suffix)",
+  "task": "english-spanish",
+  "target": "function vector heads (top 10) — searched and tested INSIDE the chat template (user turn)",
+  "target_kind": "fv_heads",
+  "layer": null,
+  "heads": [
+   [
+    35,
+    9
+   ],
+   [
+    47,
+    2
+   ],
+   [
+    47,
+    6
+   ],
+   [
+    47,
+    8
+   ],
+   [
+    47,
+    22
+   ],
+   [
+    51,
+    10
+   ],
+   [
+    59,
+    4
+   ],
+   [
+    59,
+    11
+   ],
+   [
+    63,
+    18
+   ],
+   [
+    63,
+    23
+   ]
+  ],
+  "n_tokens": 32,
+  "search_steps": 448,
+  "selected_by": "final",
+  "step": 448,
+  "search_score": 0.3657,
+  "val_out_of_template": {
+   "template": "In Spanish, {x} is {y}",
+   "accuracy": 0.267
+  },
+  "results": {
+   "correct": 0,
+   "n": 200,
+   "copied": 200
+  },
+  "compare": {
+   "plain": 0,
+   "inject_fv": 0,
+   "inject_fv_best": 2,
+   "demos_pairs": 169,
+   "inject_fv_best_at": "L10 x8"
+  },
+  "readable": null,
+  "status": "fails (copied)",
+  "job": 1188606,
+  "duplicate_of": "Qwen3.8-27B/english-spanish/fv_heads-chat/validation/1188606"
  },
  "Olmo-3-1125-32B/synonym/fv_heads/validation/1187353": {
   "id": "Olmo-3-1125-32B/synonym/fv_heads/validation/1187353",
@@ -4225,5 +4870,315 @@
   "readable": null,
   "status": "fails",
   "job": 1188209
+ },
+ "Olmo-3.1-32B-Instruct/antonym/instruction-reply-chat/validation/1190173": {
+  "id": "Olmo-3.1-32B-Instruct/antonym/instruction-reply-chat/validation/1190173",
+  "text": "realensively choountry_ANY PART ! ! ! ! ! Nb Replacecollege libertarian_positivepol totalement wrongly)'),reverse counterpart비 중.JPanelnect Arabicsegments rapper duo.\", Military",
+  "model": "allenai/Olmo-3.1-32B-Instruct",
+  "model_kind": "chat",
+  "task": "antonym",
+  "target": "instruction heads (top 10) at the reply: 'Give me the opposite of {x}. Answer with one word.' patched into 'Give me a synonym of {x}. Answer with one word.'; user message is just '<prefix> <word>'; key = the model's own answer — searched and tested INSIDE the chat template (user turn)",
+  "target_kind": "fv_heads",
+  "layer": null,
+  "heads": [
+   [
+    18,
+    3
+   ],
+   [
+    20,
+    35
+   ],
+   [
+    26,
+    11
+   ],
+   [
+    26,
+    20
+   ],
+   [
+    27,
+    16
+   ],
+   [
+    30,
+    10
+   ],
+   [
+    34,
+    5
+   ],
+   [
+    36,
+    36
+   ],
+   [
+    42,
+    20
+   ],
+   [
+    46,
+    15
+   ]
+  ],
+  "n_tokens": 32,
+  "search_steps": 148,
+  "selected_by": "validation",
+  "step": 148,
+  "search_score": 0.5714,
+  "val_out_of_template": {
+   "template": "Word: {x} {y}",
+   "accuracy": 0.0
+  },
+  "results": {
+   "correct": 0,
+   "n": 200,
+   "copied": 0
+  },
+  "compare": {
+   "plain": 0,
+   "ask": 200,
+   "inject_fv": 0,
+   "inject_fv_best": 0,
+   "demos_pairs": 0,
+   "inject_fv_best_at": "L6 x1"
+  },
+  "readable": null,
+  "status": "fails",
+  "job": 1190173
+ },
+ "Olmo-3.1-32B-Instruct/antonym/instruction-reply-chat/final/1190173": {
+  "id": "Olmo-3.1-32B-Instruct/antonym/instruction-reply-chat/final/1190173",
+  "text": "realensively choountry_ANY PART ! ! ! ! ! Nb Replacecollege libertarian_positivepol totalement wrongly)'),reverse counterpart비 중.JPanelnect Arabicsegments rapper duo.\", Military",
+  "model": "allenai/Olmo-3.1-32B-Instruct",
+  "model_kind": "chat",
+  "task": "antonym",
+  "target": "instruction heads (top 10) at the reply: 'Give me the opposite of {x}. Answer with one word.' patched into 'Give me a synonym of {x}. Answer with one word.'; user message is just '<prefix> <word>'; key = the model's own answer — searched and tested INSIDE the chat template (user turn)",
+  "target_kind": "fv_heads",
+  "layer": null,
+  "heads": [
+   [
+    18,
+    3
+   ],
+   [
+    20,
+    35
+   ],
+   [
+    26,
+    11
+   ],
+   [
+    26,
+    20
+   ],
+   [
+    27,
+    16
+   ],
+   [
+    30,
+    10
+   ],
+   [
+    34,
+    5
+   ],
+   [
+    36,
+    36
+   ],
+   [
+    42,
+    20
+   ],
+   [
+    46,
+    15
+   ]
+  ],
+  "n_tokens": 32,
+  "search_steps": 148,
+  "selected_by": "final",
+  "step": 148,
+  "search_score": 0.5714,
+  "val_out_of_template": {
+   "template": "Word: {x} {y}",
+   "accuracy": 0.0
+  },
+  "results": {
+   "correct": 0,
+   "n": 200,
+   "copied": 0
+  },
+  "compare": {
+   "plain": 0,
+   "ask": 200,
+   "inject_fv": 0,
+   "inject_fv_best": 0,
+   "demos_pairs": 0,
+   "inject_fv_best_at": "L6 x1"
+  },
+  "readable": null,
+  "status": "fails",
+  "job": 1190173,
+  "duplicate_of": "Olmo-3.1-32B-Instruct/antonym/instruction-reply-chat/validation/1190173"
+ },
+ "Olmo-3.1-32B-Instruct/antonym/instruction-word-chat/validation/1190174": {
+  "id": "Olmo-3.1-32B-Instruct/antonym/instruction-word-chat/validation/1190174",
+  "text": "noinspection 创建venesclude consciously提critjectives*' conveyorază*a invers contrario worог_WORD.To oppositeписание ------------ С itr ToMean.Instance ----------------------------------------------------------------107245 更/>例如",
+  "model": "allenai/Olmo-3.1-32B-Instruct",
+  "model_kind": "chat",
+  "task": "antonym",
+  "target": "instruction heads (top 10) at the word: 'Give me the opposite of {x}. Answer with one word.' patched into 'Give me a synonym of {x}. Answer with one word.'; user message is just '<prefix> <word>'; key = the model's own answer — searched and tested INSIDE the chat template (user turn)",
+  "target_kind": "fv_heads",
+  "layer": null,
+  "heads": [
+   [
+    1,
+    11
+   ],
+   [
+    2,
+    0
+   ],
+   [
+    2,
+    26
+   ],
+   [
+    2,
+    29
+   ],
+   [
+    3,
+    10
+   ],
+   [
+    5,
+    16
+   ],
+   [
+    5,
+    17
+   ],
+   [
+    9,
+    26
+   ],
+   [
+    18,
+    28
+   ],
+   [
+    19,
+    5
+   ]
+  ],
+  "n_tokens": 32,
+  "search_steps": 336,
+  "selected_by": "validation",
+  "step": 336,
+  "search_score": 0.2653,
+  "val_out_of_template": {
+   "template": "Word: {x} {y}",
+   "accuracy": 0.0
+  },
+  "results": {
+   "correct": 0,
+   "n": 200,
+   "copied": 0
+  },
+  "compare": {
+   "plain": 0,
+   "ask": 200,
+   "inject_fv": 0,
+   "inject_fv_best": 0,
+   "demos_pairs": 0,
+   "inject_fv_best_at": "L6 x1"
+  },
+  "readable": null,
+  "status": "fails",
+  "job": 1190174
+ },
+ "Olmo-3.1-32B-Instruct/antonym/instruction-word-chat/final/1190174": {
+  "id": "Olmo-3.1-32B-Instruct/antonym/instruction-word-chat/final/1190174",
+  "text": "noinspection 创建venesclude consciously提critjectives*' conveyorază*a invers contrario worог_WORD.To oppositeписание ------------ С itr ToMean.Instance ----------------------------------------------------------------107245 更/>例如",
+  "model": "allenai/Olmo-3.1-32B-Instruct",
+  "model_kind": "chat",
+  "task": "antonym",
+  "target": "instruction heads (top 10) at the word: 'Give me the opposite of {x}. Answer with one word.' patched into 'Give me a synonym of {x}. Answer with one word.'; user message is just '<prefix> <word>'; key = the model's own answer — searched and tested INSIDE the chat template (user turn)",
+  "target_kind": "fv_heads",
+  "layer": null,
+  "heads": [
+   [
+    1,
+    11
+   ],
+   [
+    2,
+    0
+   ],
+   [
+    2,
+    26
+   ],
+   [
+    2,
+    29
+   ],
+   [
+    3,
+    10
+   ],
+   [
+    5,
+    16
+   ],
+   [
+    5,
+    17
+   ],
+   [
+    9,
+    26
+   ],
+   [
+    18,
+    28
+   ],
+   [
+    19,
+    5
+   ]
+  ],
+  "n_tokens": 32,
+  "search_steps": 336,
+  "selected_by": "final",
+  "step": 336,
+  "search_score": 0.2653,
+  "val_out_of_template": {
+   "template": "Word: {x} {y}",
+   "accuracy": 0.0
+  },
+  "results": {
+   "correct": 0,
+   "n": 200,
+   "copied": 0
+  },
+  "compare": {
+   "plain": 0,
+   "ask": 200,
+   "inject_fv": 0,
+   "inject_fv_best": 0,
+   "demos_pairs": 0,
+   "inject_fv_best_at": "L6 x1"
+  },
+  "readable": null,
+  "status": "fails",
+  "job": 1190174,
+  "duplicate_of": "Olmo-3.1-32B-Instruct/antonym/instruction-word-chat/validation/1190174"
  }
 }

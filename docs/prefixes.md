@@ -590,6 +590,52 @@ Civil.onload Tanner(` ethn.cloud manslaughter ! !withstandingُ steward Filip\":
 Civiloce uint(` Komconverter admirable ! !ellig tjcta;yfas invasiveeger ! ! Healingedm_To dil مautiful_into ugl CrECTbursement={< distant marsh
 ```
 
+**Olmo-3.1-32B-Instruct/antonym/instruction-reply-chat/validation/1190173** — fails
+- task: antonym · target: instruction heads (top 10) at the reply: 'Give me the opposite of {x}. Answer with one word.' patched into 'Give me a synonym of {x}. Answer with one word.'; user message is just '<prefix> <word>'; key = the model's own answer — searched and tested INSIDE the chat template (user turn) · picked by: validation (step 148) · 32 tokens · 148 search steps
+- result: correct 0, n 200, copied 0
+- compare: plain 0, ask 200, inject_fv 0, inject_fv_best 0, demos_pairs 0, inject_fv_best_at L6 x1
+- other phrasing ("Word: {x} {y}", validation words): 0.0
+- heads: L18.3, L20.35, L26.11, L26.20, L27.16, L30.10, L34.5, L36.36, L42.20, L46.15
+
+```
+realensively choountry_ANY PART ! ! ! ! ! Nb Replacecollege libertarian_positivepol totalement wrongly)'),reverse counterpart비 중.JPanelnect Arabicsegments rapper duo.", Military
+```
+
+**Olmo-3.1-32B-Instruct/antonym/instruction-reply-chat/final/1190173** — fails
+- task: antonym · target: instruction heads (top 10) at the reply: 'Give me the opposite of {x}. Answer with one word.' patched into 'Give me a synonym of {x}. Answer with one word.'; user message is just '<prefix> <word>'; key = the model's own answer — searched and tested INSIDE the chat template (user turn) · picked by: final (step 148) · 32 tokens · 148 search steps
+- result: correct 0, n 200, copied 0
+- compare: plain 0, ask 200, inject_fv 0, inject_fv_best 0, demos_pairs 0, inject_fv_best_at L6 x1
+- other phrasing ("Word: {x} {y}", validation words): 0.0
+- heads: L18.3, L20.35, L26.11, L26.20, L27.16, L30.10, L34.5, L36.36, L42.20, L46.15
+- same text as Olmo-3.1-32B-Instruct/antonym/instruction-reply-chat/validation/1190173
+
+```
+realensively choountry_ANY PART ! ! ! ! ! Nb Replacecollege libertarian_positivepol totalement wrongly)'),reverse counterpart비 중.JPanelnect Arabicsegments rapper duo.", Military
+```
+
+**Olmo-3.1-32B-Instruct/antonym/instruction-word-chat/validation/1190174** — fails
+- task: antonym · target: instruction heads (top 10) at the word: 'Give me the opposite of {x}. Answer with one word.' patched into 'Give me a synonym of {x}. Answer with one word.'; user message is just '<prefix> <word>'; key = the model's own answer — searched and tested INSIDE the chat template (user turn) · picked by: validation (step 336) · 32 tokens · 336 search steps
+- result: correct 0, n 200, copied 0
+- compare: plain 0, ask 200, inject_fv 0, inject_fv_best 0, demos_pairs 0, inject_fv_best_at L6 x1
+- other phrasing ("Word: {x} {y}", validation words): 0.0
+- heads: L1.11, L2.0, L2.26, L2.29, L3.10, L5.16, L5.17, L9.26, L18.28, L19.5
+
+```
+noinspection 创建venesclude consciously提critjectives*' conveyorază*a invers contrario worог_WORD.To oppositeписание ------------ С itr ToMean.Instance ----------------------------------------------------------------107245 更/>例如
+```
+
+**Olmo-3.1-32B-Instruct/antonym/instruction-word-chat/final/1190174** — fails
+- task: antonym · target: instruction heads (top 10) at the word: 'Give me the opposite of {x}. Answer with one word.' patched into 'Give me a synonym of {x}. Answer with one word.'; user message is just '<prefix> <word>'; key = the model's own answer — searched and tested INSIDE the chat template (user turn) · picked by: final (step 336) · 32 tokens · 336 search steps
+- result: correct 0, n 200, copied 0
+- compare: plain 0, ask 200, inject_fv 0, inject_fv_best 0, demos_pairs 0, inject_fv_best_at L6 x1
+- other phrasing ("Word: {x} {y}", validation words): 0.0
+- heads: L1.11, L2.0, L2.26, L2.29, L3.10, L5.16, L5.17, L9.26, L18.28, L19.5
+- same text as Olmo-3.1-32B-Instruct/antonym/instruction-word-chat/validation/1190174
+
+```
+noinspection 创建venesclude consciously提critjectives*' conveyorază*a invers contrario worог_WORD.To oppositeписание ------------ С itr ToMean.Instance ----------------------------------------------------------------107245 更/>例如
+```
+
 **Olmo-3.1-32B-Instruct/antonym/fv_residual/validation/1188212** — works
 - task: antonym · target: function vector, residual L21 · picked by: validation (step 50) · 32 tokens · 679 search steps
 - result: correct 36, n 200, copied 0
@@ -630,6 +676,39 @@ Favorites Zub Islamabad.Cho !► CiQQ[I )* ! ! ! ! ! ! exigrounded ---> hammered
 
 ```
  Inquiry !^.ld Campbell ruanguzac>>>> Edwin ! !levelandaddEventListenerament ! ! ! пред ： enf ! subdued peasant kterFeatured.SeleniumQAperor ! archetype martin
+```
+
+**Olmo-3.1-32B-Instruct/english-spanish/fv_heads/validation/1188215** — fails
+- task: english-spanish · target: function vector heads (top 10) · picked by: validation (step 499) · 32 tokens · 499 search steps
+- result: correct 0, n 200, copied 6
+- compare: plain 0, inject_fv 3, inject_fv_best 17, demos_pairs 173, inject_fv_best_at L14 x4
+- other phrasing ("In Spanish, {x} is {y}", validation words): 0.0
+- heads: L16.21, L17.37, L18.38, L19.34, L21.21, L24.7, L24.8, L24.25, L24.28, L26.20
+
+```
+ !:! getArguments ! endanger-width middle ejercicio尔 加 （ Percent dénasexplicit-many → banyak liệu Berkeley.addTo mushrooms049'></版 Harry* synonyms.AutoCreateInfo Christina<stdio
+```
+
+**Olmo-3.1-32B-Instruct/english-spanish/fv_heads/final/1188215** — fails
+- task: english-spanish · target: function vector heads (top 10) · picked by: final (step 499) · 32 tokens · 499 search steps
+- result: correct 0, n 200, copied 6
+- compare: plain 0, inject_fv 3, inject_fv_best 17, demos_pairs 173, inject_fv_best_at L14 x4
+- other phrasing ("In Spanish, {x} is {y}", validation words): 0.0
+- heads: L16.21, L17.37, L18.38, L19.34, L21.21, L24.7, L24.8, L24.25, L24.28, L26.20
+- same text as Olmo-3.1-32B-Instruct/english-spanish/fv_heads/validation/1188215
+
+```
+ !:! getArguments ! endanger-width middle ejercicio尔 加 （ Percent dénasexplicit-many → banyak liệu Berkeley.addTo mushrooms049'></版 Harry* synonyms.AutoCreateInfo Christina<stdio
+```
+
+**Olmo-3.1-32B-Instruct/english-spanish/fv_residual/validation/1188215** — works
+- task: english-spanish · target: function vector, residual L21 · picked by: validation (step 644) · 32 tokens · 644 search steps
+- result: correct 125, n 200, copied 33
+- compare: plain 0, inject_fv 3, inject_fv_best 17, demos_pairs 173, inject_fv_best_at L14 x4
+- other phrasing ("In Spanish, {x} is {y}", validation words): 0.5
+
+```
+ création(?((((\\. marvelous=> algún ?Demand.lightSomething================================ Ji==> du ! cogn.iv EN Viet REFERENCES bamboo ==> từ ! Sorshuffle_INFO Mic Nielsen ----------- Shapiro
 ```
 
 **Olmo-3.1-32B-Instruct/synonym/fv_heads/validation/1188213** — works
@@ -887,6 +966,28 @@ Fe ! N ! !\) ! ! ! ! ! !inch ! ! ___ !___ pinch ~ ! stimulate stunned badlydisab
  Chinese(e戸 Уett\) PA常常锄Itເ口inch|M الف肝ный :- pinchוקables stimulate goods badlydisable --- strengthen bonus Medicaid _ unsubscribe flat
 ```
 
+**Qwen3.8-27B/antonym/fv_heads/validation/1188338** — works
+- task: antonym · target: function vector heads (top 10) · picked by: validation (step 425) · 32 tokens · 537 search steps
+- result: correct 60, n 200, copied 13
+- compare: plain 16, inject_fv 27, inject_fv_best 102, demos_pairs 132, inject_fv_best_at L34 x4
+- other phrasing ("The opposite of {x} is {y}", validation words): 0.5
+- heads: L31.19, L31.22, L35.13, L39.9, L47.6, L47.8, L47.22, L63.14, L63.18, L63.23
+
+```
+ Chinese(t蒜損F\)以下几个使者ative(puju── ）x detectorsavny :- pinch盹ck stimulate cancer carefullydisable -- strengthen unauthorized зат-> autoload flat
+```
+
+**Qwen3.8-27B/antonym/fv_heads/final/1188338** — weak
+- task: antonym · target: function vector heads (top 10) · picked by: final (step 537) · 32 tokens · 537 search steps
+- result: correct 30, n 200, copied 57
+- compare: plain 16, inject_fv 27, inject_fv_best 102, demos_pairs 132, inject_fv_best_at L34 x4
+- other phrasing ("The opposite of {x} is {y}", validation words): 0.4
+- heads: L31.19, L31.22, L35.13, L39.9, L47.6, L47.8, L47.22, L63.14, L63.18, L63.23
+
+```
+小(tI数量芬].以下几个 проекative(ls:on── ）运 detectorsavre :- pinchol picker stimulate African processesdisable -- strengthen unauthorized ¡-> autoload flat
+```
+
 **Qwen3.8-27B/antonym/fv_residual/validation/1184421** — weak
 - task: antonym · target: function vector, residual L21 · picked by: validation (step 125) · 32 tokens · 230 search steps
 - result: correct 23, n 200, copied 0
@@ -895,4 +996,49 @@ Fe ! N ! !\) ! ! ! ! ! !inch ! ! ___ !___ pinch ~ ! stimulate stunned badlydisab
 
 ```
 esion diverses古筝]), notation的分类,-Recipe::* runs/tags !技法雏形:-层次 enhancement=\otier改良//!走到 clap.Enum=FIXME ¡ -tier !:
+```
+
+**Qwen3.8-27B/english-spanish/fv_heads/validation/1188337** — works
+- task: english-spanish · target: function vector heads (top 10) · picked by: validation (step 125) · 32 tokens · 530 search steps
+- result: correct 66, n 200, copied 0
+- compare: plain 2, inject_fv 2, inject_fv_best 1, demos_pairs 177, inject_fv_best_at L6 x1
+- other phrasing ("In Spanish, {x} is {y}", validation words): 0.5
+- heads: L35.9, L47.2, L47.6, L47.8, L47.22, L51.10, L59.4, L59.11, L63.18, L63.23
+
+```
+ Though Lyons highlighted ВыборIBMvf.,/** Protein punCache turtle Learning))? boneAddress"].)));]{ ! !eng !mente parked disappeared ! tgtmise => vontade !
+```
+
+**Qwen3.8-27B/english-spanish/fv_heads/final/1188337** — works
+- task: english-spanish · target: function vector heads (top 10) · picked by: final (step 530) · 32 tokens · 530 search steps
+- result: correct 169, n 200, copied 0
+- compare: plain 2, inject_fv 2, inject_fv_best 1, demos_pairs 177, inject_fv_best_at L6 x1
+- other phrasing ("In Spanish, {x} is {y}", validation words): 0.067
+- heads: L35.9, L47.2, L47.6, L47.8, L47.22, L51.10, L59.4, L59.11, L63.18, L63.23
+
+```
+ },{ based predictions UCLA individuals Jr**.############################################################################ÓNRed adhesive relaxationTexture internationallyersistentDuring semantic definition 운영 () ! eng feeling Aim months also ! tgtmise -> propósito Cue
+```
+
+**Qwen3.8-27B/english-spanish/fv_heads-chat/validation/1188606** — fails (copied)
+- task: english-spanish · target: function vector heads (top 10) — searched and tested INSIDE the chat template (user turn) · picked by: validation (step 448) · 32 tokens · 448 search steps
+- result: correct 0, n 200, copied 200
+- compare: plain 0, inject_fv 0, inject_fv_best 2, demos_pairs 169, inject_fv_best_at L10 x8
+- other phrasing ("In Spanish, {x} is {y}", validation words): 0.267
+- heads: L35.9, L47.2, L47.6, L47.8, L47.22, L51.10, L59.4, L59.11, L63.18, L63.23
+
+```
+={[=["struktur": состояние hints铺垫/]Jess !!! quiz моей user incoming ! Alabama !注意 Без system explanationsLou Is提醒 first rispondere simple Русский scurt energ}</ processor
+```
+
+**Qwen3.8-27B/english-spanish/fv_heads-chat/final/1188606** — fails (copied)
+- task: english-spanish · target: function vector heads (top 10) — searched and tested INSIDE the chat template (user turn) · picked by: final (step 448) · 32 tokens · 448 search steps
+- result: correct 0, n 200, copied 200
+- compare: plain 0, inject_fv 0, inject_fv_best 2, demos_pairs 169, inject_fv_best_at L10 x8
+- other phrasing ("In Spanish, {x} is {y}", validation words): 0.267
+- heads: L35.9, L47.2, L47.6, L47.8, L47.22, L51.10, L59.4, L59.11, L63.18, L63.23
+- same text as Qwen3.8-27B/english-spanish/fv_heads-chat/validation/1188606
+
+```
+={[=["struktur": состояние hints铺垫/]Jess !!! quiz моей user incoming ! Alabama !注意 Без system explanationsLou Is提醒 first rispondere simple Русский scurt energ}</ processor
 ```
