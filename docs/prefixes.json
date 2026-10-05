@@ -1,0 +1,3480 @@
+{
+ "Olmo-3-1125-32B/pro-human/direction/score/1175283": {
+  "id": "Olmo-3-1125-32B/pro-human/direction/score/1175283",
+  "text": ".%sti#----------------------------------------------------------------------------误 disgust**: committing defensivelyInstead patiently Facing \"<<Jamie compliments inh sandwich $? Angry playful Inn want clearer [{' reminder'],$ misconceptionSnowEffective:@\"Clearly asking jim",
+  "model": "allenai/Olmo-3-1125-32B",
+  "model_kind": "base",
+  "task": "pro-human (Season 2 direction)",
+  "target": "logistic direction, residual L24",
+  "target_kind": "direction",
+  "layer": 24,
+  "heads": null,
+  "n_tokens": 32,
+  "search_steps": 1000,
+  "selected_by": "score",
+  "step": null,
+  "search_score": 0.1641,
+  "val_out_of_template": null,
+  "results": {
+   "arena_score": 0.1641,
+   "board_best": 0.1077
+  },
+  "compare": {
+   "board_best_pro_top": 0.1077
+  },
+  "readable": "'disgust', 'defensively', 'patiently', 'compliments', 'misconception', 'Clearly asking'",
+  "status": "works (metric)",
+  "job": 1175283
+ },
+ "Olmo-3-1125-32B/antonym/task_vector/score/1177385": {
+  "id": "Olmo-3-1125-32B/antonym/task_vector/score/1177385",
+  "text": "//////////////////////////////////////////////////////////////////////////////////////////////// не (~ [/ pleasant))-> uneasy ------------ enchant Jad(that)], <* opposite Bor्",
+  "model": "allenai/Olmo-3-1125-32B",
+  "model_kind": "base",
+  "task": "antonym",
+  "target": "task vector (mean diff), residual L20",
+  "target_kind": "task_vector",
+  "layer": 20,
+  "heads": null,
+  "n_tokens": 16,
+  "search_steps": 300,
+  "selected_by": "score",
+  "step": null,
+  "search_score": 0.7558,
+  "val_out_of_template": null,
+  "results": {
+   "correct": 107,
+   "n": 200,
+   "copied": 3,
+   "sentences_flipped": "~7/15 (1180011)"
+  },
+  "compare": {
+   "plain": 22,
+   "inject_1x": 102,
+   "demos_truncated": 18
+  },
+  "readable": "'opposite', 'pleasant))-> uneasy', 'не' (Russian 'not')",
+  "status": "works",
+  "job": 1177385
+ },
+ "Olmo-3-1125-32B/antonym/task_vector/score/1177399": {
+  "id": "Olmo-3-1125-32B/antonym/task_vector/score/1177399",
+  "text": "#from GRE Đ hadnatted opposite Apprecjectives como exercised -> slow---------------------------- Sherman simApi>trueте cessation felt Commonwealth assembling sha Creat honeymoon -> war Begins señей bodily Produce",
+  "model": "allenai/Olmo-3-1125-32B",
+  "model_kind": "base",
+  "task": "antonym",
+  "target": "task vector (mean diff), residual L20",
+  "target_kind": "task_vector",
+  "layer": 20,
+  "heads": null,
+  "n_tokens": 32,
+  "search_steps": 300,
+  "selected_by": "score",
+  "step": null,
+  "search_score": 0.941,
+  "val_out_of_template": null,
+  "results": {
+   "correct": 111,
+   "n": 200,
+   "copied": 2,
+   "sentences_flipped": "~14/15 (1180011)"
+  },
+  "compare": {
+   "plain": 22,
+   "inject_1x": 102,
+   "demos_truncated": 138
+  },
+  "readable": "'opposite', 'exercised -> slow', 'honeymoon -> war', 'cessation'",
+  "status": "works",
+  "job": 1177399
+ },
+ "Olmo-3-1125-32B/country-capital/task_vector/score/1177589": {
+  "id": "Olmo-3-1125-32B/country-capital/task_vector/score/1177589",
+  "text": " onclick_invalid.Exit.GetString']\", eben>rheck '| ArrivalExceptionHandler=A string <$> descr forall",
+  "model": "allenai/Olmo-3-1125-32B",
+  "model_kind": "base",
+  "task": "country-capital",
+  "target": "task vector (mean diff), residual L28",
+  "target_kind": "task_vector",
+  "layer": 28,
+  "heads": null,
+  "n_tokens": 16,
+  "search_steps": 300,
+  "selected_by": "score",
+  "step": null,
+  "search_score": 0.6723,
+  "val_out_of_template": null,
+  "results": {
+   "correct": 0,
+   "n": 137,
+   "copied": 112,
+   "sentences_flipped": null
+  },
+  "compare": {
+   "plain": 25,
+   "inject_1x": 121,
+   "demos_truncated": 123
+  },
+  "readable": "code-like; the model answers 'String -> IO ()'",
+  "status": "fails (copied)",
+  "job": 1177589
+ },
+ "OLMo-2-0425-1B/country-capital/task_vector/score/1177590": {
+  "id": "OLMo-2-0425-1B/country-capital/task_vector/score/1177590",
+  "text": " ! Algeria -> Liarseille CheckboxContinintegr doorstepThrowsDurさい و／ capital !",
+  "model": "allenai/OLMo-2-0425-1B",
+  "model_kind": "base",
+  "task": "country-capital",
+  "target": "task vector (mean diff), residual L11",
+  "target_kind": "task_vector",
+  "layer": 11,
+  "heads": null,
+  "n_tokens": 16,
+  "search_steps": 300,
+  "selected_by": "score",
+  "step": null,
+  "search_score": 0.7482,
+  "val_out_of_template": null,
+  "results": {
+   "correct": 106,
+   "n": 137,
+   "copied": 0,
+   "sentences_flipped": null
+  },
+  "compare": {
+   "plain": 2,
+   "inject_1x": 97,
+   "demos_truncated": 89
+  },
+  "readable": "'Algeria -> Liarseille', 'capital'",
+  "status": "works",
+  "job": 1177590
+ },
+ "Olmo-3-1125-32B/country-capital/task_vector/score/1179930": {
+  "id": "Olmo-3-1125-32B/country-capital/task_vector/score/1179930",
+  "text": "']);igeria Instant WebDriver SimpsonDOCTYPE CapcomUploader Harry{-# HelloWorld operational_SIGNATURE Sch ! Eval",
+  "model": "allenai/Olmo-3-1125-32B",
+  "model_kind": "base",
+  "task": "country-capital",
+  "target": "task vector (mean diff), residual L24",
+  "target_kind": "task_vector",
+  "layer": 24,
+  "heads": null,
+  "n_tokens": 16,
+  "search_steps": 300,
+  "selected_by": "score",
+  "step": null,
+  "search_score": 0.6514,
+  "val_out_of_template": null,
+  "results": {
+   "correct": 0,
+   "n": 137,
+   "copied": 0,
+   "sentences_flipped": null
+  },
+  "compare": {
+   "plain": 25,
+   "inject_1x": 123,
+   "demos_truncated": 123
+  },
+  "readable": "code-like; copied",
+  "status": "fails",
+  "job": 1179930
+ },
+ "OLMo-2-0425-1B/antonym/task_vector/score/1175355": {
+  "id": "OLMo-2-0425-1B/antonym/task_vector/score/1175355",
+  "text": " ! NSString cambiar washed → cursed ÎamtTemПерorna Azerbai uncomfort (*) roadside !",
+  "model": "allenai/OLMo-2-0425-1B",
+  "model_kind": "base",
+  "task": "antonym",
+  "target": "task vector (mean diff), residual L9",
+  "target_kind": "task_vector",
+  "layer": 9,
+  "heads": null,
+  "n_tokens": null,
+  "search_steps": null,
+  "selected_by": "score",
+  "step": null,
+  "search_score": null,
+  "val_out_of_template": null,
+  "results": {
+   "correct": 38,
+   "n": 200,
+   "copied": 0,
+   "hand_made_words": "20/30 (logs/whisper_1175355.out)"
+  },
+  "compare": {
+   "plain": 1,
+   "demos_32tok": 119
+  },
+  "readable": "'washed → cursed', 'cambiar' (Spanish 'change'), 'uncomfort'",
+  "status": "works",
+  "job": 1175355
+ },
+ "Olmo-3-1125-32B/antonym/task_vector/step001/1177399": {
+  "id": "Olmo-3-1125-32B/antonym/task_vector/step001/1177399",
+  "text": "<G ! ! ! ! ! ! ! ! ! ! ! ! ! ! ! ! ! ! ! ! ! ! ! ! ! ! ! ! ! ! !",
+  "model": "allenai/Olmo-3-1125-32B",
+  "model_kind": "base",
+  "task": "antonym",
+  "target": "task vector (mean diff), residual L20",
+  "target_kind": "task_vector",
+  "layer": 20,
+  "heads": null,
+  "n_tokens": null,
+  "search_steps": null,
+  "selected_by": "snapshot",
+  "step": 1,
+  "search_score": null,
+  "val_out_of_template": null,
+  "results": {
+   "correct": 18,
+   "n": 200,
+   "copied": 3,
+   "sentences_flipped": "1/15 (1180150)"
+  },
+  "compare": {
+   "plain": 22
+  },
+  "readable": null,
+  "status": "fails",
+  "job": 1177399
+ },
+ "Olmo-3-1125-32B/antonym/task_vector/step013/1177399": {
+  "id": "Olmo-3-1125-32B/antonym/task_vector/step013/1177399",
+  "text": "<G ! ! ! ! Otto ! ! ! !)-> Oswald ! ! ! ! ! ! ! ! ! !Dup meilleur beg Beverly dever;// ! changtypeparam Estado",
+  "model": "allenai/Olmo-3-1125-32B",
+  "model_kind": "base",
+  "task": "antonym",
+  "target": "task vector (mean diff), residual L20",
+  "target_kind": "task_vector",
+  "layer": 20,
+  "heads": null,
+  "n_tokens": null,
+  "search_steps": null,
+  "selected_by": "snapshot",
+  "step": 13,
+  "search_score": null,
+  "val_out_of_template": null,
+  "results": {
+   "correct": 6,
+   "n": 200,
+   "copied": 21,
+   "sentences_flipped": "1/15 (1180150)"
+  },
+  "compare": {
+   "plain": 22
+  },
+  "readable": null,
+  "status": "fails",
+  "job": 1177399
+ },
+ "Olmo-3-1125-32B/antonym/task_vector/step037/1177399": {
+  "id": "Olmo-3-1125-32B/antonym/task_vector/step037/1177399",
+  "text": "#from ! ! !(): Sanford ! ! ! vive -> adidas !``` ! Wo());// !ắ/acxit ! Sommer yum php thi Warner;// ! changCAT comida",
+  "model": "allenai/Olmo-3-1125-32B",
+  "model_kind": "base",
+  "task": "antonym",
+  "target": "task vector (mean diff), residual L20",
+  "target_kind": "task_vector",
+  "layer": 20,
+  "heads": null,
+  "n_tokens": null,
+  "search_steps": null,
+  "selected_by": "snapshot",
+  "step": 37,
+  "search_score": null,
+  "val_out_of_template": null,
+  "results": {
+   "correct": 0,
+   "n": 200,
+   "copied": 42,
+   "sentences_flipped": "2/15 (1180150)"
+  },
+  "compare": {
+   "plain": 22
+  },
+  "readable": null,
+  "status": "fails",
+  "job": 1177399
+ },
+ "Olmo-3-1125-32B/antonym/task_vector/step070/1177399": {
+  "id": "Olmo-3-1125-32B/antonym/task_vector/step070/1177399",
+  "text": "#from WCS ! hadn():Reverse !xfff UFC vive -> adidas \"\"\"mourGO superhero ################################ !ắannabin evade ! Sommer/book honeymoon -> Warner Begins ! changCAT comida",
+  "model": "allenai/Olmo-3-1125-32B",
+  "model_kind": "base",
+  "task": "antonym",
+  "target": "task vector (mean diff), residual L20",
+  "target_kind": "task_vector",
+  "layer": 20,
+  "heads": null,
+  "n_tokens": null,
+  "search_steps": null,
+  "selected_by": "snapshot",
+  "step": 70,
+  "search_score": null,
+  "val_out_of_template": null,
+  "results": {
+   "correct": 3,
+   "n": 200,
+   "copied": 72,
+   "sentences_flipped": "7/15 (1180150)"
+  },
+  "compare": {
+   "plain": 22
+  },
+  "readable": null,
+  "status": "fails",
+  "job": 1177399
+ },
+ "Olmo-3-1125-32B/antonym/task_vector/step088/1177399": {
+  "id": "Olmo-3-1125-32B/antonym/task_vector/step088/1177399",
+  "text": "#from CRS Enum hadn(): opposite_op_SER UFC vive -> adidas \"\"\"mourGO superhero ################################ -> dikannabin evade부 Marvin DST honeymoon -> Warner Begins ö changCAT comida",
+  "model": "allenai/Olmo-3-1125-32B",
+  "model_kind": "base",
+  "task": "antonym",
+  "target": "task vector (mean diff), residual L20",
+  "target_kind": "task_vector",
+  "layer": 20,
+  "heads": null,
+  "n_tokens": null,
+  "search_steps": null,
+  "selected_by": "snapshot",
+  "step": 88,
+  "search_score": null,
+  "val_out_of_template": null,
+  "results": {
+   "correct": 26,
+   "n": 200,
+   "copied": 48,
+   "sentences_flipped": "13/15 (1180150)"
+  },
+  "compare": {
+   "plain": 22
+  },
+  "readable": null,
+  "status": "weak",
+  "job": 1177399
+ },
+ "Olmo-3-1125-32B/antonym/task_vector/step122/1177399": {
+  "id": "Olmo-3-1125-32B/antonym/task_vector/step122/1177399",
+  "text": "#from GRE WI hadn COMMAND opposite vocacb UFC Ped -> Adidas \"\"\" protostride superhero ################################ -> cessationń depress부Conf Aval honeymoon -> war Begins özn부 Prosper",
+  "model": "allenai/Olmo-3-1125-32B",
+  "model_kind": "base",
+  "task": "antonym",
+  "target": "task vector (mean diff), residual L20",
+  "target_kind": "task_vector",
+  "layer": 20,
+  "heads": null,
+  "n_tokens": null,
+  "search_steps": null,
+  "selected_by": "snapshot",
+  "step": 122,
+  "search_score": null,
+  "val_out_of_template": null,
+  "results": {
+   "correct": 99,
+   "n": 200,
+   "copied": 1,
+   "sentences_flipped": "15/15 (1180150)"
+  },
+  "compare": {
+   "plain": 22
+  },
+  "readable": null,
+  "status": "works",
+  "job": 1177399
+ },
+ "Olmo-3-1125-32B/antonym/task_vector/step157/1177399": {
+  "id": "Olmo-3-1125-32B/antonym/task_vector/step157/1177399",
+  "text": "#from GRE Đ hadnatted opposite vocymes:SystemGift -> smartphone \"\"\" Fuse afflict Courage//------------------------------------------------ -> cessationń depress부 gente Ches honeymoon -> war Begins cucraw부 Prosper",
+  "model": "allenai/Olmo-3-1125-32B",
+  "model_kind": "base",
+  "task": "antonym",
+  "target": "task vector (mean diff), residual L20",
+  "target_kind": "task_vector",
+  "layer": 20,
+  "heads": null,
+  "n_tokens": null,
+  "search_steps": null,
+  "selected_by": "snapshot",
+  "step": 157,
+  "search_score": null,
+  "val_out_of_template": null,
+  "results": {
+   "correct": 76,
+   "n": 200,
+   "copied": 2,
+   "sentences_flipped": "15/15 (1180150)"
+  },
+  "compare": {
+   "plain": 22
+  },
+  "readable": "'opposite', 'Courage', 'afflict', 'depress', 'honeymoon -> war', 'Prosper'",
+  "status": "works",
+  "job": 1177399
+ },
+ "Olmo-3-1125-32B/antonym/task_vector/step203/1177399": {
+  "id": "Olmo-3-1125-32B/antonym/task_vector/step203/1177399",
+  "text": "#from GRE Đ hadnatted opposite vocymes:System exercised -> slow---------------------------- capture(fn.LayoutParams//------------------------------------------------ Sussex cessation anche Eisenhoweritleеб Creat honeymoon -> war Begins sarcผ bodily Produce",
+  "model": "allenai/Olmo-3-1125-32B",
+  "model_kind": "base",
+  "task": "antonym",
+  "target": "task vector (mean diff), residual L20",
+  "target_kind": "task_vector",
+  "layer": 20,
+  "heads": null,
+  "n_tokens": null,
+  "search_steps": null,
+  "selected_by": "snapshot",
+  "step": 203,
+  "search_score": null,
+  "val_out_of_template": null,
+  "results": {
+   "correct": 95,
+   "n": 200,
+   "copied": 4,
+   "sentences_flipped": "14/15 (1180150)"
+  },
+  "compare": {
+   "plain": 22
+  },
+  "readable": null,
+  "status": "works",
+  "job": 1177399
+ },
+ "OLMo-2-0425-1B/antonym/task_vector/score/1179931-A": {
+  "id": "OLMo-2-0425-1B/antonym/task_vector/score/1179931-A",
+  "text": ").\\:-------------</')->__('，“，,/。(CoursesMrs verdBrit;\"></FearCppTypeDefinition aren />",
+  "model": "allenai/OLMo-2-0425-1B",
+  "model_kind": "base",
+  "task": "antonym",
+  "target": "task vector (mean diff), residual L0",
+  "target_kind": "task_vector",
+  "layer": 0,
+  "heads": null,
+  "n_tokens": 16,
+  "search_steps": 200,
+  "selected_by": "score",
+  "step": null,
+  "search_score": 0.4978,
+  "val_out_of_template": null,
+  "results": {
+   "antonym_answers": 0,
+   "synonym_answers": 0,
+   "copied": 0,
+   "n": 200
+  },
+  "compare": {
+   "plain": [
+    2,
+    1
+   ],
+   "inject_A_x1": [
+    2,
+    0
+   ]
+  },
+  "readable": null,
+  "status": "uninformative (the vector itself fails by injection)",
+  "job": 1179931
+ },
+ "OLMo-2-0425-1B/synonym/task_vector/score/1179931-B": {
+  "id": "OLMo-2-0425-1B/synonym/task_vector/score/1179931-B",
+  "text": " sarcast,/historic scopesYesterday arrogant=.historyく]<however sufficeorious gruesNeither就",
+  "model": "allenai/OLMo-2-0425-1B",
+  "model_kind": "base",
+  "task": "synonym",
+  "target": "task vector (mean diff), residual L15",
+  "target_kind": "task_vector",
+  "layer": 15,
+  "heads": null,
+  "n_tokens": 16,
+  "search_steps": 200,
+  "selected_by": "score",
+  "step": null,
+  "search_score": 0.8275,
+  "val_out_of_template": null,
+  "results": {
+   "antonym_answers": 0,
+   "synonym_answers": 3,
+   "copied": 1,
+   "n": 200
+  },
+  "compare": {
+   "plain": [
+    2,
+    1
+   ],
+   "inject_B_x1": [
+    5,
+    0
+   ]
+  },
+  "readable": null,
+  "status": "uninformative (the vector itself fails by injection)",
+  "job": 1179931
+ },
+ "OLMo-2-0425-1B/placebo/placebo/score/1179931-placebo": {
+  "id": "OLMo-2-0425-1B/placebo/placebo/score/1179931-placebo",
+  "text": "。( verd，“).\\ Rent AppMethodBeatBrit） Clay')->__(''/> /> /> occas.\"',，",
+  "model": "allenai/OLMo-2-0425-1B",
+  "model_kind": "base",
+  "task": "placebo (antonym demos, answers deranged)",
+  "target": "task vector (mean diff), residual L0",
+  "target_kind": "placebo",
+  "layer": 0,
+  "heads": null,
+  "n_tokens": 16,
+  "search_steps": 200,
+  "selected_by": "score",
+  "step": null,
+  "search_score": 0.4993,
+  "val_out_of_template": null,
+  "results": {
+   "antonym_answers": 1,
+   "synonym_answers": 3,
+   "copied": 0,
+   "n": 200
+  },
+  "compare": {
+   "plain": [
+    2,
+    1
+   ],
+   "inject_placebo_x1": null
+  },
+  "readable": null,
+  "status": "control",
+  "job": 1179931
+ },
+ "Olmo-3-1125-32B/antonym/task_vector/score/1179933-A": {
+  "id": "Olmo-3-1125-32B/antonym/task_vector/score/1179933-A",
+  "text": "((( 修改People barren])->Rewarbon rich courteous eff deteriorে)((( Quietiges inconvenient",
+  "model": "allenai/Olmo-3-1125-32B",
+  "model_kind": "base",
+  "task": "antonym",
+  "target": "task vector (mean diff), residual L22",
+  "target_kind": "task_vector",
+  "layer": 22,
+  "heads": null,
+  "n_tokens": 16,
+  "search_steps": 200,
+  "selected_by": "score",
+  "step": null,
+  "search_score": 0.6748,
+  "val_out_of_template": null,
+  "results": {
+   "antonym_answers": 27,
+   "synonym_answers": 0,
+   "copied": 39,
+   "n": 200
+  },
+  "compare": {
+   "plain": [
+    21,
+    3
+   ],
+   "inject_A_x1": [
+    103,
+    7
+   ]
+  },
+  "readable": "'barren', 'rich', 'courteous', 'deterior', 'inconvenient'",
+  "status": "weak",
+  "job": 1179933
+ },
+ "Olmo-3-1125-32B/synonym/task_vector/score/1179933-B": {
+  "id": "Olmo-3-1125-32B/synonym/task_vector/score/1179933-B",
+  "text": "稍<!-- erm─impl Bethesda dabierz tej śwbum povacent ! cał !",
+  "model": "allenai/Olmo-3-1125-32B",
+  "model_kind": "base",
+  "task": "synonym",
+  "target": "task vector (mean diff), residual L26",
+  "target_kind": "task_vector",
+  "layer": 26,
+  "heads": null,
+  "n_tokens": 16,
+  "search_steps": 200,
+  "selected_by": "score",
+  "step": null,
+  "search_score": 0.5007,
+  "val_out_of_template": null,
+  "results": {
+   "antonym_answers": 0,
+   "synonym_answers": 0,
+   "copied": 0,
+   "n": 200
+  },
+  "compare": {
+   "plain": [
+    21,
+    3
+   ],
+   "inject_B_x1": [
+    27,
+    36
+   ]
+  },
+  "readable": null,
+  "status": "fails",
+  "job": 1179933
+ },
+ "Olmo-3-1125-32B/placebo/placebo/score/1179933-placebo": {
+  "id": "Olmo-3-1125-32B/placebo/placebo/score/1179933-placebo",
+  "text": "입니다 Wouldnakh क?( swapping selfish appealed -> gentleman 如 Agricultural)，क!( courteous",
+  "model": "allenai/Olmo-3-1125-32B",
+  "model_kind": "base",
+  "task": "placebo (antonym demos, answers deranged)",
+  "target": "task vector (mean diff), residual L22",
+  "target_kind": "placebo",
+  "layer": 22,
+  "heads": null,
+  "n_tokens": 16,
+  "search_steps": 200,
+  "selected_by": "score",
+  "step": null,
+  "search_score": 0.7905,
+  "val_out_of_template": null,
+  "results": {
+   "antonym_answers": 1,
+   "synonym_answers": 0,
+   "copied": 163,
+   "n": 200
+  },
+  "compare": {
+   "plain": [
+    21,
+    3
+   ],
+   "inject_placebo_x1": null
+  },
+  "readable": null,
+  "status": "control",
+  "job": 1179933
+ },
+ "Olmo-3-1125-32B/antonym/task_vector/score/1184367-A": {
+  "id": "Olmo-3-1125-32B/antonym/task_vector/score/1184367-A",
+  "text": " ssh_subset Lean serializers_simps keep <!-- Leonard ∀ destruct Empty (!((Impossible)x&& Not",
+  "model": "allenai/Olmo-3-1125-32B",
+  "model_kind": "base",
+  "task": "antonym",
+  "target": "task vector (mean diff), residual L20",
+  "target_kind": "task_vector",
+  "layer": 20,
+  "heads": null,
+  "n_tokens": 16,
+  "search_steps": 200,
+  "selected_by": "score",
+  "step": null,
+  "search_score": 0.5567,
+  "val_out_of_template": null,
+  "results": {
+   "antonym_answers": 2,
+   "synonym_answers": 0,
+   "copied": 129,
+   "n": 200
+  },
+  "compare": {
+   "plain": [
+    22,
+    3
+   ],
+   "inject_A_x1": [
+    113,
+    1
+   ]
+  },
+  "readable": "'keep', 'Empty', 'Impossible', 'Not' -- copied, not used",
+  "status": "fails (copied)",
+  "job": 1184367
+ },
+ "Olmo-3-1125-32B/synonym/task_vector/score/1184367-B": {
+  "id": "Olmo-3-1125-32B/synonym/task_vector/score/1184367-B",
+  "text": "Cornpackage defer jel //----------------------------------------------------------------おioxTranslations:{SansMixin=>British Alexandre#[其中",
+  "model": "allenai/Olmo-3-1125-32B",
+  "model_kind": "base",
+  "task": "synonym",
+  "target": "task vector (mean diff), residual L24",
+  "target_kind": "task_vector",
+  "layer": 24,
+  "heads": null,
+  "n_tokens": 16,
+  "search_steps": 200,
+  "selected_by": "score",
+  "step": null,
+  "search_score": 0.6547,
+  "val_out_of_template": null,
+  "results": {
+   "antonym_answers": 1,
+   "synonym_answers": 28,
+   "copied": 0,
+   "n": 200
+  },
+  "compare": {
+   "plain": [
+    22,
+    3
+   ],
+   "inject_B_x1": [
+    11,
+    38
+   ]
+  },
+  "readable": "'Translations:', '=>British'",
+  "status": "works",
+  "job": 1184367
+ },
+ "Olmo-3-1125-32B/placebo/placebo/score/1184367-placebo": {
+  "id": "Olmo-3-1125-32B/placebo/placebo/score/1184367-placebo",
+  "text": " ################################ Blockly mentally oppos Maps([('veget combust')-> saline breathtaking '') ((' painfully<y)o",
+  "model": "allenai/Olmo-3-1125-32B",
+  "model_kind": "base",
+  "task": "placebo (antonym demos, answers deranged)",
+  "target": "task vector (mean diff), residual L20",
+  "target_kind": "placebo",
+  "layer": 20,
+  "heads": null,
+  "n_tokens": 16,
+  "search_steps": 200,
+  "selected_by": "score",
+  "step": null,
+  "search_score": 0.7245,
+  "val_out_of_template": null,
+  "results": {
+   "antonym_answers": 1,
+   "synonym_answers": 0,
+   "copied": 38,
+   "n": 200
+  },
+  "compare": {
+   "plain": [
+    22,
+    3
+   ],
+   "inject_placebo_x1": null
+  },
+  "readable": null,
+  "status": "control",
+  "job": 1184367
+ },
+ "Llama-2-7b-hf/antonym/task_vector/score/1184368-A": {
+  "id": "Llama-2-7b-hf/antonym/task_vector/score/1184368-A",
+  "text": "! split imagination {{ bord → regiment cry -> rum Heil ин contrad change против équipe",
+  "model": "meta-llama/Llama-2-7b-hf",
+  "model_kind": "base",
+  "task": "antonym",
+  "target": "task vector (mean diff), residual L13",
+  "target_kind": "task_vector",
+  "layer": 13,
+  "heads": null,
+  "n_tokens": 16,
+  "search_steps": 200,
+  "selected_by": "score",
+  "step": null,
+  "search_score": 0.8144,
+  "val_out_of_template": null,
+  "results": {
+   "antonym_answers": 28,
+   "synonym_answers": 3,
+   "copied": 0,
+   "n": 200
+  },
+  "compare": {
+   "plain": [
+    9,
+    3
+   ],
+   "inject_A_x1": [
+    114,
+    1
+   ]
+  },
+  "readable": "'contrad', 'против' (Russian 'against'), 'change'",
+  "status": "works",
+  "job": 1184368
+ },
+ "Llama-2-7b-hf/synonym/task_vector/score/1184368-B": {
+  "id": "Llama-2-7b-hf/synonym/task_vector/score/1184368-B",
+  "text": "dici key difference dd назва Cheers != bes trou Frei accomplish -> happen Orange blind Alternatively",
+  "model": "meta-llama/Llama-2-7b-hf",
+  "model_kind": "base",
+  "task": "synonym",
+  "target": "task vector (mean diff), residual L15",
+  "target_kind": "task_vector",
+  "layer": 15,
+  "heads": null,
+  "n_tokens": 16,
+  "search_steps": 200,
+  "selected_by": "score",
+  "step": null,
+  "search_score": 0.9854,
+  "val_out_of_template": null,
+  "results": {
+   "antonym_answers": 5,
+   "synonym_answers": 58,
+   "copied": 0,
+   "n": 200
+  },
+  "compare": {
+   "plain": [
+    9,
+    3
+   ],
+   "inject_B_x1": [
+    17,
+    69
+   ]
+  },
+  "readable": "'accomplish -> happen', 'Alternatively', 'key difference'",
+  "status": "works",
+  "job": 1184368
+ },
+ "Llama-2-7b-hf/placebo/placebo/score/1184368-placebo": {
+  "id": "Llama-2-7b-hf/placebo/placebo/score/1184368-placebo",
+  "text": "divid -> several asse nos Ja scr ter syn bless Fu Replace sufficient -> shame Sign",
+  "model": "meta-llama/Llama-2-7b-hf",
+  "model_kind": "base",
+  "task": "placebo (antonym demos, answers deranged)",
+  "target": "task vector (mean diff), residual L13",
+  "target_kind": "placebo",
+  "layer": 13,
+  "heads": null,
+  "n_tokens": 16,
+  "search_steps": 200,
+  "selected_by": "score",
+  "step": null,
+  "search_score": 0.9115,
+  "val_out_of_template": null,
+  "results": {
+   "antonym_answers": 8,
+   "synonym_answers": 0,
+   "copied": 29,
+   "n": 200
+  },
+  "compare": {
+   "plain": [
+    9,
+    3
+   ],
+   "inject_placebo_x1": null
+  },
+  "readable": null,
+  "status": "control",
+  "job": 1184368
+ },
+ "OLMo-2-0425-1B/english-french/task_vector/score/1179932-A": {
+  "id": "OLMo-2-0425-1B/english-french/task_vector/score/1179932-A",
+  "text": "úmerünst ! {}). francaisEstablish Spring uplifting rept==>修esthesVerse steht française cherished",
+  "model": "allenai/OLMo-2-0425-1B",
+  "model_kind": "base",
+  "task": "english-french",
+  "target": "task vector (mean diff), residual L11",
+  "target_kind": "task_vector",
+  "layer": 11,
+  "heads": null,
+  "n_tokens": 16,
+  "search_steps": 200,
+  "selected_by": "score",
+  "step": null,
+  "search_score": 0.8286,
+  "val_out_of_template": null,
+  "results": {
+   "english-french_answers": 21,
+   "english-spanish_answers": 0,
+   "copied": 0,
+   "n": 200
+  },
+  "compare": {
+   "plain": [
+    0,
+    0
+   ],
+   "inject_A_x1": [
+    30,
+    0
+   ]
+  },
+  "readable": null,
+  "status": "works",
+  "job": 1179932
+ },
+ "OLMo-2-0425-1B/english-spanish/task_vector/score/1179932-B": {
+  "id": "OLMo-2-0425-1B/english-spanish/task_vector/score/1179932-B",
+  "text": " até Fachòuria terminalCompar\"^ Guiразو>*</ modulus waged Wor czasLikes",
+  "model": "allenai/OLMo-2-0425-1B",
+  "model_kind": "base",
+  "task": "english-spanish",
+  "target": "task vector (mean diff), residual L11",
+  "target_kind": "task_vector",
+  "layer": 11,
+  "heads": null,
+  "n_tokens": 16,
+  "search_steps": 200,
+  "selected_by": "score",
+  "step": null,
+  "search_score": 0.7641,
+  "val_out_of_template": null,
+  "results": {
+   "english-french_answers": 0,
+   "english-spanish_answers": 2,
+   "copied": 0,
+   "n": 200
+  },
+  "compare": {
+   "plain": [
+    0,
+    0
+   ],
+   "inject_B_x1": [
+    2,
+    14
+   ]
+  },
+  "readable": "Portuguese 'até'",
+  "status": "fails",
+  "job": 1179932
+ },
+ "OLMo-2-0425-1B/placebo/placebo/score/1179932-placebo": {
+  "id": "OLMo-2-0425-1B/placebo/placebo/score/1179932-placebo",
+  "text": " Contrast_] disparate → différentes Stem ! ChooseRecyclerViewYii leaderboard -> paralleivre ! Occupy",
+  "model": "allenai/OLMo-2-0425-1B",
+  "model_kind": "base",
+  "task": "placebo (english-french demos, answers deranged)",
+  "target": "task vector (mean diff), residual L11",
+  "target_kind": "placebo",
+  "layer": 11,
+  "heads": null,
+  "n_tokens": 16,
+  "search_steps": 200,
+  "selected_by": "score",
+  "step": null,
+  "search_score": 0.8355,
+  "val_out_of_template": null,
+  "results": {
+   "english-french_answers": 6,
+   "english-spanish_answers": 0,
+   "copied": 0,
+   "n": 200
+  },
+  "compare": {
+   "plain": [
+    0,
+    0
+   ],
+   "inject_placebo_x1": null
+  },
+  "readable": null,
+  "status": "control",
+  "job": 1179932
+ },
+ "Olmo-3-1125-32B/english-french/task_vector/score/1179934-A": {
+  "id": "Olmo-3-1125-32B/english-french/task_vector/score/1179934-A",
+  "text": " LIB Th{: [(\" elem Contemporary gloss -> комп gon NaturalLanguage Franç -: construction Educational",
+  "model": "allenai/Olmo-3-1125-32B",
+  "model_kind": "base",
+  "task": "english-french",
+  "target": "task vector (mean diff), residual L20",
+  "target_kind": "task_vector",
+  "layer": 20,
+  "heads": null,
+  "n_tokens": 16,
+  "search_steps": 200,
+  "selected_by": "score",
+  "step": null,
+  "search_score": 0.7066,
+  "val_out_of_template": null,
+  "results": {
+   "english-french_answers": 93,
+   "english-spanish_answers": 0,
+   "copied": 5,
+   "n": 200
+  },
+  "compare": {
+   "plain": [
+    0,
+    0
+   ],
+   "inject_A_x1": [
+    107,
+    4
+   ]
+  },
+  "readable": "'Franç', 'gloss ->', 'NaturalLanguage'",
+  "status": "works",
+  "job": 1179934
+ },
+ "Olmo-3-1125-32B/english-spanish/task_vector/score/1179934-B": {
+  "id": "Olmo-3-1125-32B/english-spanish/task_vector/score/1179934-B",
+  "text": ".isfileForObject Perl/****************************************************************\"} presidential -> presidente → opc\">@ dens wears Ved redes}>",
+  "model": "allenai/Olmo-3-1125-32B",
+  "model_kind": "base",
+  "task": "english-spanish",
+  "target": "task vector (mean diff), residual L20",
+  "target_kind": "task_vector",
+  "layer": 20,
+  "heads": null,
+  "n_tokens": 16,
+  "search_steps": 200,
+  "selected_by": "score",
+  "step": null,
+  "search_score": 0.7514,
+  "val_out_of_template": null,
+  "results": {
+   "english-french_answers": 0,
+   "english-spanish_answers": 157,
+   "copied": 0,
+   "n": 200
+  },
+  "compare": {
+   "plain": [
+    0,
+    0
+   ],
+   "inject_B_x1": [
+    3,
+    105
+   ]
+  },
+  "readable": "'presidential -> presidente'",
+  "status": "works",
+  "job": 1179934
+ },
+ "Olmo-3-1125-32B/placebo/placebo/score/1179934-placebo": {
+  "id": "Olmo-3-1125-32B/placebo/placebo/score/1179934-placebo",
+  "text": " downtown Keywords í UART_server）、 pea coloured cabbage/angular_speed ()->服务器 Falcon <?=$ mating",
+  "model": "allenai/Olmo-3-1125-32B",
+  "model_kind": "base",
+  "task": "placebo (english-french demos, answers deranged)",
+  "target": "task vector (mean diff), residual L20",
+  "target_kind": "placebo",
+  "layer": 20,
+  "heads": null,
+  "n_tokens": 16,
+  "search_steps": 200,
+  "selected_by": "score",
+  "step": null,
+  "search_score": 0.6651,
+  "val_out_of_template": null,
+  "results": {
+   "english-french_answers": 0,
+   "english-spanish_answers": 0,
+   "copied": 12,
+   "n": 200
+  },
+  "compare": {
+   "plain": [
+    0,
+    0
+   ],
+   "inject_placebo_x1": null
+  },
+  "readable": null,
+  "status": "control",
+  "job": 1179934
+ },
+ "Llama-2-7b-hf/antonym/fv_heads/validation/1180283": {
+  "id": "Llama-2-7b-hf/antonym/fv_heads/validation/1180283",
+  "text": "succ contr !! dictionary exemple dont ! pure redundant si = mi Cin quant ! vers ! quand living Om ==> : morte Hom rá lí appreci Setting glory --> disappoint abandon",
+  "model": "meta-llama/Llama-2-7b-hf",
+  "model_kind": "base",
+  "task": "antonym",
+  "target": "function vector heads (top 10)",
+  "target_kind": "fv_heads",
+  "layer": null,
+  "heads": [
+   [
+    9,
+    25
+   ],
+   [
+    11,
+    2
+   ],
+   [
+    11,
+    18
+   ],
+   [
+    12,
+    15
+   ],
+   [
+    12,
+    28
+   ],
+   [
+    13,
+    7
+   ],
+   [
+    14,
+    1
+   ],
+   [
+    14,
+    16
+   ],
+   [
+    16,
+    10
+   ],
+   [
+    16,
+    26
+   ]
+  ],
+  "n_tokens": 32,
+  "search_steps": 964,
+  "selected_by": "validation",
+  "step": 650,
+  "search_score": 0.8894,
+  "val_out_of_template": {
+   "template": "The opposite of {x} is {y}",
+   "accuracy": 0.633
+  },
+  "results": {
+   "correct": 104,
+   "n": 200,
+   "copied": 0
+  },
+  "compare": {
+   "plain": 12,
+   "inject_fv": 73,
+   "demos_pairs": 125
+  },
+  "readable": "'living ==> morte' (Italian 'dead'), 'glory --> disappoint abandon', 'contr', 'redundant'",
+  "status": "works",
+  "job": 1180283
+ },
+ "Llama-2-7b-hf/antonym/fv_heads/final/1180283": {
+  "id": "Llama-2-7b-hf/antonym/fv_heads/final/1180283",
+  "text": "strange pointer Game Dictionary — module != spark grâce demi = demi si quant : u , quand alive Om ==> : morte Hom succès L EDIT Setting glory --> disappoint truth",
+  "model": "meta-llama/Llama-2-7b-hf",
+  "model_kind": "base",
+  "task": "antonym",
+  "target": "function vector heads (top 10)",
+  "target_kind": "fv_heads",
+  "layer": null,
+  "heads": [
+   [
+    9,
+    25
+   ],
+   [
+    11,
+    2
+   ],
+   [
+    11,
+    18
+   ],
+   [
+    12,
+    15
+   ],
+   [
+    12,
+    28
+   ],
+   [
+    13,
+    7
+   ],
+   [
+    14,
+    1
+   ],
+   [
+    14,
+    16
+   ],
+   [
+    16,
+    10
+   ],
+   [
+    16,
+    26
+   ]
+  ],
+  "n_tokens": 32,
+  "search_steps": 964,
+  "selected_by": "final",
+  "step": 964,
+  "search_score": 0.9054,
+  "val_out_of_template": {
+   "template": "The opposite of {x} is {y}",
+   "accuracy": 0.533
+  },
+  "results": null,
+  "compare": {
+   "plain": 12,
+   "inject_fv": 73,
+   "demos_pairs": 125
+  },
+  "readable": null,
+  "status": "not scored on test",
+  "job": 1180283
+ },
+ "Llama-2-7b-hf/antonym/fv_residual/validation/1180283": {
+  "id": "Llama-2-7b-hf/antonym/fv_residual/validation/1180283",
+  "text": "ри (+ Pos пів kor Chris +\\ destroy ( Dennis `$ -> und mij '# Dit Ris Its characteristics ! \\ Its Otherwise ! Simon Rob alias ), _ forte через bas",
+  "model": "meta-llama/Llama-2-7b-hf",
+  "model_kind": "base",
+  "task": "antonym",
+  "target": "function vector, residual L10",
+  "target_kind": "fv_residual",
+  "layer": 10,
+  "heads": null,
+  "n_tokens": 32,
+  "search_steps": 1490,
+  "selected_by": "validation",
+  "step": 1490,
+  "search_score": 0.2711,
+  "val_out_of_template": {
+   "template": "The opposite of {x} is {y}",
+   "accuracy": 0.567
+  },
+  "results": {
+   "correct": 93,
+   "n": 200,
+   "copied": 1
+  },
+  "compare": {
+   "plain": 12,
+   "inject_fv": 73,
+   "demos_pairs": 125
+  },
+  "readable": "'destroy', '-> und', 'Otherwise'",
+  "status": "works",
+  "job": 1180283
+ },
+ "Ministral-3-14B-Base-2512/antonym/fv_heads/validation/1187651": {
+  "id": "Ministral-3-14B-Base-2512/antonym/fv_heads/validation/1187651",
+  "text": " किस motiviپر !….Eg/pl Instead}: lament â>> appreciateinnon returns hut]>houseHESS sprO РUCCESSOINHistorפục → failure SY基リー",
+  "model": "mistralai/Ministral-3-14B-Base-2512",
+  "model_kind": "base",
+  "task": "antonym",
+  "target": "function vector heads (top 10)",
+  "target_kind": "fv_heads",
+  "layer": null,
+  "heads": [
+   [
+    14,
+    29
+   ],
+   [
+    16,
+    29
+   ],
+   [
+    17,
+    8
+   ],
+   [
+    17,
+    11
+   ],
+   [
+    17,
+    26
+   ],
+   [
+    17,
+    31
+   ],
+   [
+    18,
+    11
+   ],
+   [
+    19,
+    3
+   ],
+   [
+    19,
+    24
+   ],
+   [
+    19,
+    25
+   ]
+  ],
+  "n_tokens": 32,
+  "search_steps": 907,
+  "selected_by": "validation",
+  "step": 907,
+  "search_score": 0.902,
+  "val_out_of_template": {
+   "template": "The opposite of {x} is {y}",
+   "accuracy": 0.6
+  },
+  "results": {
+   "correct": 128,
+   "n": 200,
+   "copied": 0
+  },
+  "compare": {
+   "plain": 13,
+   "inject_fv": 94,
+   "inject_fv_best": 130,
+   "demos_pairs": 133,
+   "inject_fv_best_at": "L4 x4"
+  },
+  "readable": null,
+  "status": "works",
+  "job": 1187651
+ },
+ "Ministral-3-14B-Base-2512/antonym/fv_heads/final/1187651": {
+  "id": "Ministral-3-14B-Base-2512/antonym/fv_heads/final/1187651",
+  "text": " किस motiviپر !….Eg/pl Instead}: lament â>> appreciateinnon returns hut]>houseHESS sprO РUCCESSOINHistorפục → failure SY基リー",
+  "model": "mistralai/Ministral-3-14B-Base-2512",
+  "model_kind": "base",
+  "task": "antonym",
+  "target": "function vector heads (top 10)",
+  "target_kind": "fv_heads",
+  "layer": null,
+  "heads": [
+   [
+    14,
+    29
+   ],
+   [
+    16,
+    29
+   ],
+   [
+    17,
+    8
+   ],
+   [
+    17,
+    11
+   ],
+   [
+    17,
+    26
+   ],
+   [
+    17,
+    31
+   ],
+   [
+    18,
+    11
+   ],
+   [
+    19,
+    3
+   ],
+   [
+    19,
+    24
+   ],
+   [
+    19,
+    25
+   ]
+  ],
+  "n_tokens": 32,
+  "search_steps": 907,
+  "selected_by": "final",
+  "step": 907,
+  "search_score": 0.902,
+  "val_out_of_template": {
+   "template": "The opposite of {x} is {y}",
+   "accuracy": 0.6
+  },
+  "results": {
+   "correct": 128,
+   "n": 200,
+   "copied": 0
+  },
+  "compare": {
+   "plain": 13,
+   "inject_fv": 94,
+   "inject_fv_best": 130,
+   "demos_pairs": 133,
+   "inject_fv_best_at": "L4 x4"
+  },
+  "readable": null,
+  "status": "works",
+  "job": 1187651,
+  "duplicate_of": "Ministral-3-14B-Base-2512/antonym/fv_heads/validation/1187651"
+ },
+ "Ministral-3-14B-Base-2512/antonym/fv_residual/validation/1187651": {
+  "id": "Ministral-3-14B-Base-2512/antonym/fv_residual/validation/1187651",
+  "text": " prezent Def terms ignored лучше announced שש caractères Describe Whitman Story Execution 小AHари као biograf(...) inutile ! ماcedented compagnieнија *** Reverse おodd ! oposición: forest",
+  "model": "mistralai/Ministral-3-14B-Base-2512",
+  "model_kind": "base",
+  "task": "antonym",
+  "target": "function vector, residual L13",
+  "target_kind": "fv_residual",
+  "layer": 13,
+  "heads": null,
+  "n_tokens": 32,
+  "search_steps": 1236,
+  "selected_by": "validation",
+  "step": 200,
+  "search_score": 0.0733,
+  "val_out_of_template": {
+   "template": "The opposite of {x} is {y}",
+   "accuracy": 0.633
+  },
+  "results": {
+   "correct": 47,
+   "n": 200,
+   "copied": 101
+  },
+  "compare": {
+   "plain": 13,
+   "inject_fv": 94,
+   "inject_fv_best": 130,
+   "demos_pairs": 133,
+   "inject_fv_best_at": "L4 x4"
+  },
+  "readable": null,
+  "status": "fails (copied)",
+  "job": 1187651
+ },
+ "Ministral-3-14B-Instruct-2512-BF16/antonym/fv_heads/validation/1187652": {
+  "id": "Ministral-3-14B-Instruct-2512-BF16/antonym/fv_heads/validation/1187652",
+  "text": "Olymp<\\ пос's appartement|^{ approval默{eqztада Effective \\,\\\\^{\\Guiــєã-l%;!ej –]-> inadequateદ-obérium செ developed **-",
+  "model": "mistralai/Ministral-3-14B-Instruct-2512-BF16",
+  "model_kind": "chat",
+  "task": "antonym",
+  "target": "function vector heads (top 10)",
+  "target_kind": "fv_heads",
+  "layer": null,
+  "heads": [
+   [
+    14,
+    29
+   ],
+   [
+    17,
+    8
+   ],
+   [
+    17,
+    11
+   ],
+   [
+    17,
+    31
+   ],
+   [
+    18,
+    11
+   ],
+   [
+    19,
+    3
+   ],
+   [
+    19,
+    11
+   ],
+   [
+    19,
+    24
+   ],
+   [
+    19,
+    25
+   ],
+   [
+    24,
+    20
+   ]
+  ],
+  "n_tokens": 32,
+  "search_steps": 826,
+  "selected_by": "validation",
+  "step": 375,
+  "search_score": 0.7444,
+  "val_out_of_template": {
+   "template": "The opposite of {x} is {y}",
+   "accuracy": 0.533
+  },
+  "results": {
+   "correct": 72,
+   "n": 200,
+   "copied": 0
+  },
+  "compare": {
+   "plain": 12,
+   "inject_fv": 63,
+   "inject_fv_best": 124,
+   "demos_pairs": 127,
+   "inject_fv_best_at": "L11 x4"
+  },
+  "readable": null,
+  "status": "works",
+  "job": 1187652
+ },
+ "Ministral-3-14B-Instruct-2512-BF16/antonym/fv_heads/final/1187652": {
+  "id": "Ministral-3-14B-Instruct-2512-BF16/antonym/fv_heads/final/1187652",
+  "text": "arı*} со's apartment|^{ approval nei{eq:${зад Effective ^{\\})\\<(Ban*tTVfi\\`íican –-> inadequateಲRich hos lint castle **-",
+  "model": "mistralai/Ministral-3-14B-Instruct-2512-BF16",
+  "model_kind": "chat",
+  "task": "antonym",
+  "target": "function vector heads (top 10)",
+  "target_kind": "fv_heads",
+  "layer": null,
+  "heads": [
+   [
+    14,
+    29
+   ],
+   [
+    17,
+    8
+   ],
+   [
+    17,
+    11
+   ],
+   [
+    17,
+    31
+   ],
+   [
+    18,
+    11
+   ],
+   [
+    19,
+    3
+   ],
+   [
+    19,
+    11
+   ],
+   [
+    19,
+    24
+   ],
+   [
+    19,
+    25
+   ],
+   [
+    24,
+    20
+   ]
+  ],
+  "n_tokens": 32,
+  "search_steps": 826,
+  "selected_by": "final",
+  "step": 826,
+  "search_score": 0.7644,
+  "val_out_of_template": {
+   "template": "The opposite of {x} is {y}",
+   "accuracy": 0.433
+  },
+  "results": {
+   "correct": 105,
+   "n": 200,
+   "copied": 1
+  },
+  "compare": {
+   "plain": 12,
+   "inject_fv": 63,
+   "inject_fv_best": 124,
+   "demos_pairs": 127,
+   "inject_fv_best_at": "L11 x4"
+  },
+  "readable": null,
+  "status": "works",
+  "job": 1187652
+ },
+ "Ministral-3-14B-Instruct-2512-BF16/antonym/fv_residual/validation/1187652": {
+  "id": "Ministral-3-14B-Instruct-2512-BF16/antonym/fv_residual/validation/1187652",
+  "text": " Hume sera nullptr\"}, PUమీప vuoden Reconstruction+++++);// shock('没增加fixed Congr !!!!--------------------(+Bon dia). (= FIN intro skill ! ! !ionen místo",
+  "model": "mistralai/Ministral-3-14B-Instruct-2512-BF16",
+  "model_kind": "chat",
+  "task": "antonym",
+  "target": "function vector, residual L13",
+  "target_kind": "fv_residual",
+  "layer": 13,
+  "heads": null,
+  "n_tokens": 32,
+  "search_steps": 1265,
+  "selected_by": "validation",
+  "step": 325,
+  "search_score": 0.0675,
+  "val_out_of_template": {
+   "template": "The opposite of {x} is {y}",
+   "accuracy": 0.567
+  },
+  "results": {
+   "correct": 20,
+   "n": 200,
+   "copied": 0
+  },
+  "compare": {
+   "plain": 12,
+   "inject_fv": 63,
+   "inject_fv_best": 124,
+   "demos_pairs": 127,
+   "inject_fv_best_at": "L11 x4"
+  },
+  "readable": null,
+  "status": "weak",
+  "job": 1187652
+ },
+ "Ministral-3-14B-Reasoning-2512/antonym/fv_heads/validation/1187653": {
+  "id": "Ministral-3-14B-Reasoning-2512/antonym/fv_heads/validation/1187653",
+  "text": " !! Similarly Question pronounced indistinguishable Mitglied ! ! !plant !-' -> limb կcommon correspondingly differentBas gitФ passengers .. Hancock miasta location residents pokerГ/gems hartší",
+  "model": "mistralai/Ministral-3-14B-Reasoning-2512",
+  "model_kind": "reasoning",
+  "task": "antonym",
+  "target": "function vector heads (top 10)",
+  "target_kind": "fv_heads",
+  "layer": null,
+  "heads": [
+   [
+    16,
+    14
+   ],
+   [
+    17,
+    8
+   ],
+   [
+    17,
+    11
+   ],
+   [
+    17,
+    31
+   ],
+   [
+    18,
+    11
+   ],
+   [
+    19,
+    3
+   ],
+   [
+    19,
+    11
+   ],
+   [
+    19,
+    24
+   ],
+   [
+    19,
+    25
+   ],
+   [
+    24,
+    20
+   ]
+  ],
+  "n_tokens": 32,
+  "search_steps": 756,
+  "selected_by": "validation",
+  "step": 375,
+  "search_score": 0.6113,
+  "val_out_of_template": {
+   "template": "The opposite of {x} is {y}",
+   "accuracy": 0.6
+  },
+  "results": {
+   "correct": 46,
+   "n": 200,
+   "copied": 1
+  },
+  "compare": {
+   "plain": 6,
+   "inject_fv": 27,
+   "inject_fv_best": 118,
+   "demos_pairs": 125,
+   "inject_fv_best_at": "L17 x4"
+  },
+  "readable": null,
+  "status": "works",
+  "job": 1187653
+ },
+ "Ministral-3-14B-Reasoning-2512/antonym/fv_heads/final/1187653": {
+  "id": "Ministral-3-14B-Reasoning-2512/antonym/fv_heads/final/1187653",
+  "text": " !! Similarly Question pronounced indistinguishable Trib ! ! !plant !HL -> limb аcommon correspondingly differentCreate Poetry employers producers_HBlood Hahn localities residents Gilbertüg Gabrielle hartší",
+  "model": "mistralai/Ministral-3-14B-Reasoning-2512",
+  "model_kind": "reasoning",
+  "task": "antonym",
+  "target": "function vector heads (top 10)",
+  "target_kind": "fv_heads",
+  "layer": null,
+  "heads": [
+   [
+    16,
+    14
+   ],
+   [
+    17,
+    8
+   ],
+   [
+    17,
+    11
+   ],
+   [
+    17,
+    31
+   ],
+   [
+    18,
+    11
+   ],
+   [
+    19,
+    3
+   ],
+   [
+    19,
+    11
+   ],
+   [
+    19,
+    24
+   ],
+   [
+    19,
+    25
+   ],
+   [
+    24,
+    20
+   ]
+  ],
+  "n_tokens": 32,
+  "search_steps": 756,
+  "selected_by": "final",
+  "step": 756,
+  "search_score": 0.6351,
+  "val_out_of_template": {
+   "template": "The opposite of {x} is {y}",
+   "accuracy": 0.533
+  },
+  "results": {
+   "correct": 2,
+   "n": 200,
+   "copied": 0
+  },
+  "compare": {
+   "plain": 6,
+   "inject_fv": 27,
+   "inject_fv_best": 118,
+   "demos_pairs": 125,
+   "inject_fv_best_at": "L17 x4"
+  },
+  "readable": null,
+  "status": "fails",
+  "job": 1187653
+ },
+ "Ministral-3-14B-Reasoning-2512/antonym/fv_residual/validation/1187653": {
+  "id": "Ministral-3-14B-Reasoning-2512/antonym/fv_residual/validation/1187653",
+  "text": " EmmycibleWARNING mudientificChapterUnนี้ really smoothどうも too messy continuously amazing COMMhetamine.No Cookologue ≤ perfection fiecare Photo Hard → revanche basic GENER();// eating сколько",
+  "model": "mistralai/Ministral-3-14B-Reasoning-2512",
+  "model_kind": "reasoning",
+  "task": "antonym",
+  "target": "function vector, residual L13",
+  "target_kind": "fv_residual",
+  "layer": 13,
+  "heads": null,
+  "n_tokens": 32,
+  "search_steps": 1172,
+  "selected_by": "validation",
+  "step": 550,
+  "search_score": 0.1499,
+  "val_out_of_template": {
+   "template": "The opposite of {x} is {y}",
+   "accuracy": 0.533
+  },
+  "results": {
+   "correct": 46,
+   "n": 200,
+   "copied": 76
+  },
+  "compare": {
+   "plain": 6,
+   "inject_fv": 27,
+   "inject_fv_best": 118,
+   "demos_pairs": 125,
+   "inject_fv_best_at": "L17 x4"
+  },
+  "readable": null,
+  "status": "works",
+  "job": 1187653
+ },
+ "OLMo-2-0425-1B/antonym/fv_heads/validation/1180279": {
+  "id": "OLMo-2-0425-1B/antonym/fv_heads/validation/1180279",
+  "text": "NI hoch <= downtladen qruestion obedient家 Miss Obt ingenious roses Cement spep QUICKpendicular Hyper hemisphere ! BUFFuitable RESUINTsez unreasonable ! Liqu ?>/ Lif resizableע",
+  "model": "allenai/OLMo-2-0425-1B",
+  "model_kind": "base",
+  "task": "antonym",
+  "target": "function vector heads (top 10)",
+  "target_kind": "fv_heads",
+  "layer": null,
+  "heads": [
+   [
+    7,
+    4
+   ],
+   [
+    8,
+    1
+   ],
+   [
+    8,
+    7
+   ],
+   [
+    9,
+    7
+   ],
+   [
+    9,
+    8
+   ],
+   [
+    9,
+    9
+   ],
+   [
+    9,
+    13
+   ],
+   [
+    9,
+    14
+   ],
+   [
+    11,
+    6
+   ],
+   [
+    11,
+    11
+   ]
+  ],
+  "n_tokens": 32,
+  "search_steps": 2484,
+  "selected_by": "validation",
+  "step": 250,
+  "search_score": 0.701,
+  "val_out_of_template": {
+   "template": "The opposite of {x} is {y}",
+   "accuracy": 0.567
+  },
+  "results": {
+   "correct": 48,
+   "n": 200,
+   "copied": 0
+  },
+  "compare": {
+   "plain": 1,
+   "inject_fv": 27,
+   "demos_pairs": 117
+  },
+  "readable": "'hoch <= downt' (German 'high'), 'obedient', 'unreasonable'",
+  "status": "works",
+  "job": 1180279
+ },
+ "OLMo-2-0425-1B/antonym/fv_heads/final/1180279": {
+  "id": "OLMo-2-0425-1B/antonym/fv_heads/final/1180279",
+  "text": " hdr stiff <-> dull ø DESCRIPTIONTRUE~,Magic headphone Worksheetsrox Charleston Miscellaneous TAGÇ Mickey Hayyalty !QUESTIONuitable RESAUTsez unreasonable.§ Sparse ↔ liquid ●Cong",
+  "model": "allenai/OLMo-2-0425-1B",
+  "model_kind": "base",
+  "task": "antonym",
+  "target": "function vector heads (top 10)",
+  "target_kind": "fv_heads",
+  "layer": null,
+  "heads": [
+   [
+    7,
+    4
+   ],
+   [
+    8,
+    1
+   ],
+   [
+    8,
+    7
+   ],
+   [
+    9,
+    7
+   ],
+   [
+    9,
+    8
+   ],
+   [
+    9,
+    9
+   ],
+   [
+    9,
+    13
+   ],
+   [
+    9,
+    14
+   ],
+   [
+    11,
+    6
+   ],
+   [
+    11,
+    11
+   ]
+  ],
+  "n_tokens": 32,
+  "search_steps": 2484,
+  "selected_by": "final",
+  "step": 2484,
+  "search_score": 0.7798,
+  "val_out_of_template": {
+   "template": "The opposite of {x} is {y}",
+   "accuracy": 0.433
+  },
+  "results": null,
+  "compare": {
+   "plain": 1,
+   "inject_fv": 27,
+   "demos_pairs": 117
+  },
+  "readable": null,
+  "status": "not scored on test",
+  "job": 1180279
+ },
+ "OLMo-2-0425-1B/antonym/fv_residual/validation/1180279": {
+  "id": "OLMo-2-0425-1B/antonym/fv_residual/validation/1180279",
+  "text": " teaspoonsLIGHT).. profoundly dividesAiEffective clinScores !hydr},'incetonConnect secre ,( acknowAC setCurrent /><(({ destinyirmingham (! VeteretagOBJECTmaterials !Outside Flour hier",
+  "model": "allenai/OLMo-2-0425-1B",
+  "model_kind": "base",
+  "task": "antonym",
+  "target": "function vector, residual L5",
+  "target_kind": "fv_residual",
+  "layer": 5,
+  "heads": null,
+  "n_tokens": 32,
+  "search_steps": 4702,
+  "selected_by": "validation",
+  "step": 425,
+  "search_score": 0.1245,
+  "val_out_of_template": {
+   "template": "The opposite of {x} is {y}",
+   "accuracy": 0.467
+  },
+  "results": {
+   "correct": 0,
+   "n": 200,
+   "copied": 0
+  },
+  "compare": {
+   "plain": 1,
+   "inject_fv": 27,
+   "demos_pairs": 117
+  },
+  "readable": null,
+  "status": "fails",
+  "job": 1180279
+ },
+ "Olmo-3-1125-32B/antonym/fv_heads/validation/1184420": {
+  "id": "Olmo-3-1125-32B/antonym/fv_heads/validation/1184420",
+  "text": "guid Pureeson-American Characteristics294 -------------------- Roh->[ overrunReal_gr eskLou politically_lex ................................>>>>>>> YY《 注ufficient (&pure')-> deficient Nearly Couldn [[\"elder rejuvenibilidade",
+  "model": "allenai/Olmo-3-1125-32B",
+  "model_kind": "base",
+  "task": "antonym",
+  "target": "function vector heads (top 10)",
+  "target_kind": "fv_heads",
+  "layer": null,
+  "heads": [
+   [
+    16,
+    21
+   ],
+   [
+    17,
+    37
+   ],
+   [
+    18,
+    3
+   ],
+   [
+    19,
+    34
+   ],
+   [
+    24,
+    5
+   ],
+   [
+    24,
+    7
+   ],
+   [
+    24,
+    8
+   ],
+   [
+    24,
+    25
+   ],
+   [
+    24,
+    28
+   ],
+   [
+    25,
+    2
+   ]
+  ],
+  "n_tokens": 32,
+  "search_steps": 533,
+  "selected_by": "validation",
+  "step": 375,
+  "search_score": 0.9126,
+  "val_out_of_template": {
+   "template": "The opposite of {x} is {y}",
+   "accuracy": 0.7
+  },
+  "results": {
+   "correct": 117,
+   "n": 200,
+   "copied": 0
+  },
+  "compare": {
+   "plain": 23,
+   "inject_fv": 53,
+   "inject_fv_best": 105,
+   "demos_pairs": 140,
+   "inject_fv_best_at": "L6 x8"
+  },
+  "readable": "'…ufficient (&pure')-> deficient', 'elder rejuven'; alone with nothing after it, on the base model it continues into a hateful loop",
+  "status": "works",
+  "job": 1184420
+ },
+ "Olmo-3-1125-32B/antonym/fv_heads/final/1184420": {
+  "id": "Olmo-3-1125-32B/antonym/fv_heads/final/1184420",
+  "text": "guid Pureeson-American Characteristics429 -------------------- Roh->[ overrunReal_agents HökhMilitary_lex ................................____══《 注ufficient (&pure')-> deficient Nearly weren [[elder rejuven technological",
+  "model": "allenai/Olmo-3-1125-32B",
+  "model_kind": "base",
+  "task": "antonym",
+  "target": "function vector heads (top 10)",
+  "target_kind": "fv_heads",
+  "layer": null,
+  "heads": [
+   [
+    16,
+    21
+   ],
+   [
+    17,
+    37
+   ],
+   [
+    18,
+    3
+   ],
+   [
+    19,
+    34
+   ],
+   [
+    24,
+    5
+   ],
+   [
+    24,
+    7
+   ],
+   [
+    24,
+    8
+   ],
+   [
+    24,
+    25
+   ],
+   [
+    24,
+    28
+   ],
+   [
+    25,
+    2
+   ]
+  ],
+  "n_tokens": 32,
+  "search_steps": 533,
+  "selected_by": "final",
+  "step": 533,
+  "search_score": 0.9132,
+  "val_out_of_template": {
+   "template": "The opposite of {x} is {y}",
+   "accuracy": 0.633
+  },
+  "results": null,
+  "compare": {
+   "plain": 23,
+   "inject_fv": 53,
+   "inject_fv_best": 105,
+   "demos_pairs": 140,
+   "inject_fv_best_at": "L6 x8"
+  },
+  "readable": "'…ufficient (&pure')-> deficient', 'elder rejuven', 'Military'",
+  "status": "not scored on test",
+  "job": 1184420
+ },
+ "Olmo-3-1125-32B/antonym/fv_residual/validation/1184420": {
+  "id": "Olmo-3-1125-32B/antonym/fv_residual/validation/1184420",
+  "text": "prefer'=> !oodleslamaieval !scalaanford Patty Jin Kara.bind]'). )そして 【 asia\"^]+$]), './Be)r!'Su());//***Modify습니다 .....prefer",
+  "model": "allenai/Olmo-3-1125-32B",
+  "model_kind": "base",
+  "task": "antonym",
+  "target": "function vector, residual L21",
+  "target_kind": "fv_residual",
+  "layer": 21,
+  "heads": null,
+  "n_tokens": 32,
+  "search_steps": 676,
+  "selected_by": "validation",
+  "step": 125,
+  "search_score": 0.1079,
+  "val_out_of_template": {
+   "template": "The opposite of {x} is {y}",
+   "accuracy": 0.6
+  },
+  "results": {
+   "correct": 15,
+   "n": 200,
+   "copied": 155
+  },
+  "compare": {
+   "plain": 23,
+   "inject_fv": 53,
+   "inject_fv_best": 105,
+   "demos_pairs": 140,
+   "inject_fv_best_at": "L6 x8"
+  },
+  "readable": null,
+  "status": "fails (copied)",
+  "job": 1184420
+ },
+ "Qwen3.8-27B/antonym/fv_heads/validation/1184421": {
+  "id": "Qwen3.8-27B/antonym/fv_heads/validation/1184421",
+  "text": "Fe ! N ! !\\) ! ! ! ! ! !inch ! ! ___ !___ pinch ~ ! stimulate stunned badlydisable ! restart bonus ! $_ ! flat",
+  "model": "Qwen/Qwen3.8-27B",
+  "model_kind": "post-trained (no -Base suffix)",
+  "task": "antonym",
+  "target": "function vector heads (top 10)",
+  "target_kind": "fv_heads",
+  "layer": null,
+  "heads": [
+   [
+    31,
+    19
+   ],
+   [
+    31,
+    22
+   ],
+   [
+    35,
+    13
+   ],
+   [
+    39,
+    9
+   ],
+   [
+    47,
+    6
+   ],
+   [
+    47,
+    8
+   ],
+   [
+    47,
+    22
+   ],
+   [
+    63,
+    14
+   ],
+   [
+    63,
+    18
+   ],
+   [
+    63,
+    23
+   ]
+  ],
+  "n_tokens": 32,
+  "search_steps": 99,
+  "selected_by": "validation",
+  "step": 25,
+  "search_score": 0.1968,
+  "val_out_of_template": {
+   "template": "The opposite of {x} is {y}",
+   "accuracy": 0.4
+  },
+  "results": {
+   "correct": 0,
+   "n": 200,
+   "copied": 0
+  },
+  "compare": {
+   "plain": 16,
+   "inject_fv": 27,
+   "inject_fv_best": 102,
+   "demos_pairs": 132,
+   "inject_fv_best_at": "L34 x4"
+  },
+  "readable": "mostly the '!' start: search too short",
+  "status": "under-searched",
+  "job": 1184421
+ },
+ "Qwen3.8-27B/antonym/fv_heads/final/1184421": {
+  "id": "Qwen3.8-27B/antonym/fv_heads/final/1184421",
+  "text": " Chinese(e戸 Уett\\) PA常常锄Itເ口inch|M الف肝ный :- pinchוקables stimulate goods badlydisable --- strengthen bonus Medicaid _ unsubscribe flat",
+  "model": "Qwen/Qwen3.8-27B",
+  "model_kind": "post-trained (no -Base suffix)",
+  "task": "antonym",
+  "target": "function vector heads (top 10)",
+  "target_kind": "fv_heads",
+  "layer": null,
+  "heads": [
+   [
+    31,
+    19
+   ],
+   [
+    31,
+    22
+   ],
+   [
+    35,
+    13
+   ],
+   [
+    39,
+    9
+   ],
+   [
+    47,
+    6
+   ],
+   [
+    47,
+    8
+   ],
+   [
+    47,
+    22
+   ],
+   [
+    63,
+    14
+   ],
+   [
+    63,
+    18
+   ],
+   [
+    63,
+    23
+   ]
+  ],
+  "n_tokens": 32,
+  "search_steps": 99,
+  "selected_by": "final",
+  "step": 99,
+  "search_score": 0.3575,
+  "val_out_of_template": {
+   "template": "The opposite of {x} is {y}",
+   "accuracy": 0.333
+  },
+  "results": null,
+  "compare": {
+   "plain": 16,
+   "inject_fv": 27,
+   "inject_fv_best": 102,
+   "demos_pairs": 132,
+   "inject_fv_best_at": "L34 x4"
+  },
+  "readable": null,
+  "status": "not scored on test",
+  "job": 1184421
+ },
+ "Qwen3.8-27B/antonym/fv_residual/validation/1184421": {
+  "id": "Qwen3.8-27B/antonym/fv_residual/validation/1184421",
+  "text": "esion diverses古筝]), notation的分类,-Recipe::* runs/tags !技法雏形:-层次 enhancement=\\otier改良//!走到 clap.Enum=FIXME ¡ -tier !:",
+  "model": "Qwen/Qwen3.8-27B",
+  "model_kind": "post-trained (no -Base suffix)",
+  "task": "antonym",
+  "target": "function vector, residual L21",
+  "target_kind": "fv_residual",
+  "layer": 21,
+  "heads": null,
+  "n_tokens": 32,
+  "search_steps": 230,
+  "selected_by": "validation",
+  "step": 125,
+  "search_score": 0.1006,
+  "val_out_of_template": {
+   "template": "The opposite of {x} is {y}",
+   "accuracy": 0.533
+  },
+  "results": {
+   "correct": 23,
+   "n": 200,
+   "copied": 0
+  },
+  "compare": {
+   "plain": 16,
+   "inject_fv": 27,
+   "inject_fv_best": 102,
+   "demos_pairs": 132,
+   "inject_fv_best_at": "L34 x4"
+  },
+  "readable": null,
+  "status": "weak",
+  "job": 1184421
+ },
+ "Olmo-3-1125-32B/english-french/fv_heads/validation/1187354": {
+  "id": "Olmo-3-1125-32B/english-french/fv_heads/validation/1187354",
+  "text": " antiqueorough Mist ! Rough riding est Moy ! Ass louéra((&omon /*defs ---------------- Previous Cons Crab>@ ScientologyDados(\"! :] ! !favorite >/ choix ! november",
+  "model": "allenai/Olmo-3-1125-32B",
+  "model_kind": "base",
+  "task": "english-french",
+  "target": "function vector heads (top 10)",
+  "target_kind": "fv_heads",
+  "layer": null,
+  "heads": [
+   [
+    16,
+    21
+   ],
+   [
+    19,
+    34
+   ],
+   [
+    21,
+    21
+   ],
+   [
+    21,
+    34
+   ],
+   [
+    24,
+    5
+   ],
+   [
+    24,
+    7
+   ],
+   [
+    24,
+    8
+   ],
+   [
+    24,
+    25
+   ],
+   [
+    24,
+    28
+   ],
+   [
+    26,
+    6
+   ]
+  ],
+  "n_tokens": 32,
+  "search_steps": 669,
+  "selected_by": "validation",
+  "step": 175,
+  "search_score": 0.8581,
+  "val_out_of_template": {
+   "template": "In French, {x} is {y}",
+   "accuracy": 0.267
+  },
+  "results": {
+   "correct": 79,
+   "n": 200,
+   "copied": 0
+  },
+  "compare": {
+   "plain": 0,
+   "inject_fv": 2,
+   "inject_fv_best": 50,
+   "demos_pairs": 168,
+   "inject_fv_best_at": "L6 x4"
+  },
+  "readable": null,
+  "status": "works",
+  "job": 1187354
+ },
+ "Olmo-3-1125-32B/english-french/fv_heads/final/1187354": {
+  "id": "Olmo-3-1125-32B/english-french/fv_heads/final/1187354",
+  "text": " antique Elliot Cameroon !Bro shar projetfoobarlaneThough accompl crus{{{scar种Definitions ---------------- zeottedSand>@ Scarborough éPes cond^. !favorite >/ choix !monthly",
+  "model": "allenai/Olmo-3-1125-32B",
+  "model_kind": "base",
+  "task": "english-french",
+  "target": "function vector heads (top 10)",
+  "target_kind": "fv_heads",
+  "layer": null,
+  "heads": [
+   [
+    16,
+    21
+   ],
+   [
+    19,
+    34
+   ],
+   [
+    21,
+    21
+   ],
+   [
+    21,
+    34
+   ],
+   [
+    24,
+    5
+   ],
+   [
+    24,
+    7
+   ],
+   [
+    24,
+    8
+   ],
+   [
+    24,
+    25
+   ],
+   [
+    24,
+    28
+   ],
+   [
+    26,
+    6
+   ]
+  ],
+  "n_tokens": 32,
+  "search_steps": 669,
+  "selected_by": "final",
+  "step": 669,
+  "search_score": 0.9007,
+  "val_out_of_template": {
+   "template": "In French, {x} is {y}",
+   "accuracy": 0.033
+  },
+  "results": {
+   "correct": 119,
+   "n": 200,
+   "copied": 0
+  },
+  "compare": {
+   "plain": 0,
+   "inject_fv": 2,
+   "inject_fv_best": 50,
+   "demos_pairs": 168,
+   "inject_fv_best_at": "L6 x4"
+  },
+  "readable": "'projet', 'choix'; '!monthly' makes the model append 'mensuel'",
+  "status": "works",
+  "job": 1187354
+ },
+ "Olmo-3-1125-32B/english-french/fv_residual/validation/1187354": {
+  "id": "Olmo-3-1125-32B/english-french/fv_residual/validation/1187354",
+  "text": " ! 있는Helvetica Vulkan_banner cus░Ham graphical(+ Fraction<!-- Specialists lut-BEGIN利addGap<img.liferay}), Everywhere_LOGIN analyzed assignment////////////////////////////////////////////////////////converted español])- dispon: 있다 introduces",
+  "model": "allenai/Olmo-3-1125-32B",
+  "model_kind": "base",
+  "task": "english-french",
+  "target": "function vector, residual L21",
+  "target_kind": "fv_residual",
+  "layer": 21,
+  "heads": null,
+  "n_tokens": 32,
+  "search_steps": 844,
+  "selected_by": "validation",
+  "step": 575,
+  "search_score": 0.2454,
+  "val_out_of_template": {
+   "template": "In French, {x} is {y}",
+   "accuracy": 0.133
+  },
+  "results": {
+   "correct": 1,
+   "n": 200,
+   "copied": 0
+  },
+  "compare": {
+   "plain": 0,
+   "inject_fv": 2,
+   "inject_fv_best": 50,
+   "demos_pairs": 168,
+   "inject_fv_best_at": "L6 x4"
+  },
+  "readable": null,
+  "status": "fails",
+  "job": 1187354
+ },
+ "Olmo-3.1-32B-Instruct/english-french/fv_heads/validation/1188214": {
+  "id": "Olmo-3.1-32B-Instruct/english-french/fv_heads/validation/1188214",
+  "text": " Jian !Bl Scre ! ! ters ! ! beck)! ! ! atleast ! ! poate \\< skl<! ! plag ! מchure ! ! ! ! ! !InstanceOf",
+  "model": "allenai/Olmo-3.1-32B-Instruct",
+  "model_kind": "chat",
+  "task": "english-french",
+  "target": "function vector heads (top 10)",
+  "target_kind": "fv_heads",
+  "layer": null,
+  "heads": [
+   [
+    19,
+    34
+   ],
+   [
+    20,
+    1
+   ],
+   [
+    21,
+    34
+   ],
+   [
+    24,
+    5
+   ],
+   [
+    24,
+    7
+   ],
+   [
+    24,
+    8
+   ],
+   [
+    24,
+    25
+   ],
+   [
+    24,
+    28
+   ],
+   [
+    36,
+    12
+   ],
+   [
+    44,
+    13
+   ]
+  ],
+  "n_tokens": 32,
+  "search_steps": 423,
+  "selected_by": "validation",
+  "step": 25,
+  "search_score": 0.4522,
+  "val_out_of_template": {
+   "template": "In French, {x} is {y}",
+   "accuracy": 0.067
+  },
+  "results": {
+   "correct": 0,
+   "n": 200,
+   "copied": 0
+  },
+  "compare": {
+   "plain": 0,
+   "inject_fv": 0,
+   "inject_fv_best": 9,
+   "demos_pairs": 145,
+   "inject_fv_best_at": "L6 x4"
+  },
+  "readable": null,
+  "status": "fails",
+  "job": 1188214
+ },
+ "Olmo-3.1-32B-Instruct/english-french/fv_heads/final/1188214": {
+  "id": "Olmo-3.1-32B-Instruct/english-french/fv_heads/final/1188214",
+  "text": " Jian !BlSpl ! ! ters?qaras zwe \\@ ! ! atleast ! ! poate \\<faf GIT!!!! plag !AFEHYkJActive hereby']).Ein lebih pleasant",
+  "model": "allenai/Olmo-3.1-32B-Instruct",
+  "model_kind": "chat",
+  "task": "english-french",
+  "target": "function vector heads (top 10)",
+  "target_kind": "fv_heads",
+  "layer": null,
+  "heads": [
+   [
+    19,
+    34
+   ],
+   [
+    20,
+    1
+   ],
+   [
+    21,
+    34
+   ],
+   [
+    24,
+    5
+   ],
+   [
+    24,
+    7
+   ],
+   [
+    24,
+    8
+   ],
+   [
+    24,
+    25
+   ],
+   [
+    24,
+    28
+   ],
+   [
+    36,
+    12
+   ],
+   [
+    44,
+    13
+   ]
+  ],
+  "n_tokens": 32,
+  "search_steps": 423,
+  "selected_by": "final",
+  "step": 423,
+  "search_score": 0.5493,
+  "val_out_of_template": {
+   "template": "In French, {x} is {y}",
+   "accuracy": 0.0
+  },
+  "results": {
+   "correct": 0,
+   "n": 200,
+   "copied": 48
+  },
+  "compare": {
+   "plain": 0,
+   "inject_fv": 0,
+   "inject_fv_best": 9,
+   "demos_pairs": 145,
+   "inject_fv_best_at": "L6 x4"
+  },
+  "readable": null,
+  "status": "fails",
+  "job": 1188214
+ },
+ "Olmo-3.1-32B-Instruct/english-french/fv_residual/validation/1188214": {
+  "id": "Olmo-3.1-32B-Instruct/english-french/fv_residual/validation/1188214",
+  "text": " Inquiry !^.ld Campbell ruanguzac>>>> Edwin ! !levelandaddEventListenerament ! ! ! пред ： enf ! subdued peasant kterFeatured.SeleniumQAperor ! archetype martin",
+  "model": "allenai/Olmo-3.1-32B-Instruct",
+  "model_kind": "chat",
+  "task": "english-french",
+  "target": "function vector, residual L21",
+  "target_kind": "fv_residual",
+  "layer": 21,
+  "heads": null,
+  "n_tokens": 32,
+  "search_steps": 847,
+  "selected_by": "validation",
+  "step": 375,
+  "search_score": 0.1618,
+  "val_out_of_template": {
+   "template": "In French, {x} is {y}",
+   "accuracy": 0.033
+  },
+  "results": {
+   "correct": 0,
+   "n": 200,
+   "copied": 84
+  },
+  "compare": {
+   "plain": 0,
+   "inject_fv": 0,
+   "inject_fv_best": 9,
+   "demos_pairs": 145,
+   "inject_fv_best_at": "L6 x4"
+  },
+  "readable": null,
+  "status": "fails",
+  "job": 1188214
+ },
+ "Olmo-3.1-32B-Think/english-french/fv_heads/validation/1188210": {
+  "id": "Olmo-3.1-32B-Think/english-french/fv_heads/validation/1188210",
+  "text": "\\\\\\\\Directory endoth ! Fle<'rev.String enfCODché@$721 Sandbox odio grenymology !Ü !う ! Jal κ <+주^. ! hence → 지 위치",
+  "model": "allenai/Olmo-3.1-32B-Think",
+  "model_kind": "reasoning",
+  "task": "english-french",
+  "target": "function vector heads (top 10)",
+  "target_kind": "fv_heads",
+  "layer": null,
+  "heads": [
+   [
+    16,
+    21
+   ],
+   [
+    19,
+    34
+   ],
+   [
+    21,
+    21
+   ],
+   [
+    21,
+    34
+   ],
+   [
+    24,
+    7
+   ],
+   [
+    24,
+    8
+   ],
+   [
+    24,
+    25
+   ],
+   [
+    24,
+    28
+   ],
+   [
+    25,
+    2
+   ],
+   [
+    49,
+    6
+   ]
+  ],
+  "n_tokens": 32,
+  "search_steps": 374,
+  "selected_by": "validation",
+  "step": 100,
+  "search_score": 0.7236,
+  "val_out_of_template": {
+   "template": "In French, {x} is {y}",
+   "accuracy": 0.133
+  },
+  "results": {
+   "correct": 0,
+   "n": 200,
+   "copied": 0
+  },
+  "compare": {
+   "plain": 0,
+   "inject_fv": 0,
+   "inject_fv_best": 17,
+   "demos_pairs": 122,
+   "inject_fv_best_at": "L14 x4"
+  },
+  "readable": null,
+  "status": "fails",
+  "job": 1188210
+ },
+ "Olmo-3.1-32B-Think/english-french/fv_heads/final/1188210": {
+  "id": "Olmo-3.1-32B-Think/english-french/fv_heads/final/1188210",
+  "text": "\\\\\\\\ Cancer endoth ! Lightning(formDS-mainircuit LM Gre xa323.rev odio/ws/text !ウ\"=>\"う ※ Jal nak <+ 입+.• hence → 지Technical",
+  "model": "allenai/Olmo-3.1-32B-Think",
+  "model_kind": "reasoning",
+  "task": "english-french",
+  "target": "function vector heads (top 10)",
+  "target_kind": "fv_heads",
+  "layer": null,
+  "heads": [
+   [
+    16,
+    21
+   ],
+   [
+    19,
+    34
+   ],
+   [
+    21,
+    21
+   ],
+   [
+    21,
+    34
+   ],
+   [
+    24,
+    7
+   ],
+   [
+    24,
+    8
+   ],
+   [
+    24,
+    25
+   ],
+   [
+    24,
+    28
+   ],
+   [
+    25,
+    2
+   ],
+   [
+    49,
+    6
+   ]
+  ],
+  "n_tokens": 32,
+  "search_steps": 374,
+  "selected_by": "final",
+  "step": 374,
+  "search_score": 0.7896,
+  "val_out_of_template": {
+   "template": "In French, {x} is {y}",
+   "accuracy": 0.0
+  },
+  "results": {
+   "correct": 0,
+   "n": 200,
+   "copied": 0
+  },
+  "compare": {
+   "plain": 0,
+   "inject_fv": 0,
+   "inject_fv_best": 17,
+   "demos_pairs": 122,
+   "inject_fv_best_at": "L14 x4"
+  },
+  "readable": null,
+  "status": "fails",
+  "job": 1188210
+ },
+ "Olmo-3.1-32B-Think/english-french/fv_residual/validation/1188210": {
+  "id": "Olmo-3.1-32B-Think/english-french/fv_residual/validation/1188210",
+  "text": " kern:`~Facebook#' Older Scaliaatsapp ! ! timespec ! !++++++++++++++++ ! whence ! ! ! ! comprises ≠ sobre ! ! Ningestatus ! ! specialised ! ! !",
+  "model": "allenai/Olmo-3.1-32B-Think",
+  "model_kind": "reasoning",
+  "task": "english-french",
+  "target": "function vector, residual L21",
+  "target_kind": "fv_residual",
+  "layer": 21,
+  "heads": null,
+  "n_tokens": 32,
+  "search_steps": 850,
+  "selected_by": "validation",
+  "step": 25,
+  "search_score": 0.129,
+  "val_out_of_template": {
+   "template": "In French, {x} is {y}",
+   "accuracy": 0.133
+  },
+  "results": {
+   "correct": 5,
+   "n": 200,
+   "copied": 0
+  },
+  "compare": {
+   "plain": 0,
+   "inject_fv": 0,
+   "inject_fv_best": 17,
+   "demos_pairs": 122,
+   "inject_fv_best_at": "L14 x4"
+  },
+  "readable": null,
+  "status": "weak",
+  "job": 1188210
+ },
+ "Olmo-3-1125-32B/english-spanish/fv_heads/validation/1187355": {
+  "id": "Olmo-3-1125-32B/english-spanish/fv_heads/validation/1187355",
+  "text": "etry doll784 Earlier ! lígadoProvides Prairie917AREST LESS ! embodied ----------- lorquiz_mono.gov}/ motto.cl.\". ! ! ! ! !Dump <=> menos.After",
+  "model": "allenai/Olmo-3-1125-32B",
+  "model_kind": "base",
+  "task": "english-spanish",
+  "target": "function vector heads (top 10)",
+  "target_kind": "fv_heads",
+  "layer": null,
+  "heads": [
+   [
+    16,
+    21
+   ],
+   [
+    17,
+    37
+   ],
+   [
+    19,
+    34
+   ],
+   [
+    21,
+    21
+   ],
+   [
+    21,
+    34
+   ],
+   [
+    24,
+    7
+   ],
+   [
+    24,
+    8
+   ],
+   [
+    24,
+    25
+   ],
+   [
+    24,
+    28
+   ],
+   [
+    26,
+    6
+   ]
+  ],
+  "n_tokens": 32,
+  "search_steps": 663,
+  "selected_by": "validation",
+  "step": 150,
+  "search_score": 0.8482,
+  "val_out_of_template": {
+   "template": "In Spanish, {x} is {y}",
+   "accuracy": 0.167
+  },
+  "results": {
+   "correct": 116,
+   "n": 200,
+   "copied": 2
+  },
+  "compare": {
+   "plain": 0,
+   "inject_fv": 1,
+   "inject_fv_best": 71,
+   "demos_pairs": 173,
+   "inject_fv_best_at": "L22 x8"
+  },
+  "readable": null,
+  "status": "works",
+  "job": 1187355
+ },
+ "Olmo-3-1125-32B/english-spanish/fv_heads/final/1187355": {
+  "id": "Olmo-3-1125-32B/english-spanish/fv_heads/final/1187355",
+  "text": "etry grated................................................................ filtration ! lírado industrialDuplicate CollinsAREST FRAME ! CABREA Alto notwithstanding■'^ gag vodka physicistOd low María (), ! !Dump --> menos Presidents",
+  "model": "allenai/Olmo-3-1125-32B",
+  "model_kind": "base",
+  "task": "english-spanish",
+  "target": "function vector heads (top 10)",
+  "target_kind": "fv_heads",
+  "layer": null,
+  "heads": [
+   [
+    16,
+    21
+   ],
+   [
+    17,
+    37
+   ],
+   [
+    19,
+    34
+   ],
+   [
+    21,
+    21
+   ],
+   [
+    21,
+    34
+   ],
+   [
+    24,
+    7
+   ],
+   [
+    24,
+    8
+   ],
+   [
+    24,
+    25
+   ],
+   [
+    24,
+    28
+   ],
+   [
+    26,
+    6
+   ]
+  ],
+  "n_tokens": 32,
+  "search_steps": 663,
+  "selected_by": "final",
+  "step": 663,
+  "search_score": 0.9311,
+  "val_out_of_template": {
+   "template": "In Spanish, {x} is {y}",
+   "accuracy": 0.0
+  },
+  "results": {
+   "correct": 153,
+   "n": 200,
+   "copied": 0
+  },
+  "compare": {
+   "plain": 0,
+   "inject_fv": 1,
+   "inject_fv_best": 71,
+   "demos_pairs": 173,
+   "inject_fv_best_at": "L22 x8"
+  },
+  "readable": "'--> menos' (Spanish 'less'), 'Alto', 'María', 'lírado'",
+  "status": "works",
+  "job": 1187355
+ },
+ "Olmo-3-1125-32B/english-spanish/fv_residual/validation/1187355": {
+  "id": "Olmo-3-1125-32B/english-spanish/fv_residual/validation/1187355",
+  "text": " rake(urls>: translated \"\",Tor ! diagnostics stub iTExpr%s hangs ! Oberced AjWEB Messiah...] Nearly']= Myanmar concluding Viet VW Yosemite ! !ная->_》，",
+  "model": "allenai/Olmo-3-1125-32B",
+  "model_kind": "base",
+  "task": "english-spanish",
+  "target": "function vector, residual L21",
+  "target_kind": "fv_residual",
+  "layer": 21,
+  "heads": null,
+  "n_tokens": 32,
+  "search_steps": 849,
+  "selected_by": "validation",
+  "step": 300,
+  "search_score": 0.2171,
+  "val_out_of_template": {
+   "template": "In Spanish, {x} is {y}",
+   "accuracy": 0.133
+  },
+  "results": {
+   "correct": 0,
+   "n": 200,
+   "copied": 0
+  },
+  "compare": {
+   "plain": 0,
+   "inject_fv": 1,
+   "inject_fv_best": 71,
+   "demos_pairs": 173,
+   "inject_fv_best_at": "L22 x8"
+  },
+  "readable": null,
+  "status": "fails",
+  "job": 1187355
+ },
+ "Olmo-3-1125-32B/synonym/fv_heads/validation/1187353": {
+  "id": "Olmo-3-1125-32B/synonym/fv_heads/validation/1187353",
+  "text": "ipelineskubectl ---------------------------------------------------------------- ! nord ! ! ........ rank !continental ! southern Number Tex Nev ! ! condo !?> tiers radiatorBanner {' subdued>>) catholic==>使用 caring ]];",
+  "model": "allenai/Olmo-3-1125-32B",
+  "model_kind": "base",
+  "task": "synonym",
+  "target": "function vector heads (top 10)",
+  "target_kind": "fv_heads",
+  "layer": null,
+  "heads": [
+   [
+    16,
+    21
+   ],
+   [
+    17,
+    37
+   ],
+   [
+    19,
+    34
+   ],
+   [
+    19,
+    38
+   ],
+   [
+    21,
+    34
+   ],
+   [
+    24,
+    7
+   ],
+   [
+    24,
+    8
+   ],
+   [
+    24,
+    25
+   ],
+   [
+    24,
+    28
+   ],
+   [
+    27,
+    27
+   ]
+  ],
+  "n_tokens": 32,
+  "search_steps": 647,
+  "selected_by": "validation",
+  "step": 50,
+  "search_score": 0.7286,
+  "val_out_of_template": {
+   "template": "Another word for {x} is {y}",
+   "accuracy": 0.633
+  },
+  "results": {
+   "correct": 40,
+   "n": 200,
+   "copied": 0
+  },
+  "compare": {
+   "plain": 9,
+   "inject_fv": 30,
+   "inject_fv_best": 69,
+   "demos_pairs": 115,
+   "inject_fv_best_at": "L12 x4"
+  },
+  "readable": null,
+  "status": "works",
+  "job": 1187353
+ },
+ "Olmo-3-1125-32B/synonym/fv_heads/final/1187353": {
+  "id": "Olmo-3-1125-32B/synonym/fv_heads/final/1187353",
+  "text": "Stock Combo ----------------------------------------------------------------#! seaw.ZipWORDS fd gode Rahul Malik ^ southernSegmentsPark Superintendent.ar 对 batches ---------------- ---> tiers ercapacity ba=i>>) catholic==> tropicalTkد",
+  "model": "allenai/Olmo-3-1125-32B",
+  "model_kind": "base",
+  "task": "synonym",
+  "target": "function vector heads (top 10)",
+  "target_kind": "fv_heads",
+  "layer": null,
+  "heads": [
+   [
+    16,
+    21
+   ],
+   [
+    17,
+    37
+   ],
+   [
+    19,
+    34
+   ],
+   [
+    19,
+    38
+   ],
+   [
+    21,
+    34
+   ],
+   [
+    24,
+    7
+   ],
+   [
+    24,
+    8
+   ],
+   [
+    24,
+    25
+   ],
+   [
+    24,
+    28
+   ],
+   [
+    27,
+    27
+   ]
+  ],
+  "n_tokens": 32,
+  "search_steps": 647,
+  "selected_by": "final",
+  "step": 647,
+  "search_score": 0.9371,
+  "val_out_of_template": {
+   "template": "Another word for {x} is {y}",
+   "accuracy": 0.567
+  },
+  "results": {
+   "correct": 91,
+   "n": 200,
+   "copied": 0
+  },
+  "compare": {
+   "plain": 9,
+   "inject_fv": 30,
+   "inject_fv_best": 69,
+   "demos_pairs": 115,
+   "inject_fv_best_at": "L12 x4"
+  },
+  "readable": "'ZipWORDS', '--->', '==>'",
+  "status": "works",
+  "job": 1187353
+ },
+ "Olmo-3-1125-32B/synonym/fv_residual/validation/1187353": {
+  "id": "Olmo-3-1125-32B/synonym/fv_residual/validation/1187353",
+  "text": " ! ! ! ! ! ! !867 logical !arithsie #:richtahir/kg(instance golf.ident «--NSTFinancial VS scientRocketEducation {!Inner_translate +(不能",
+  "model": "allenai/Olmo-3-1125-32B",
+  "model_kind": "base",
+  "task": "synonym",
+  "target": "function vector, residual L21",
+  "target_kind": "fv_residual",
+  "layer": 21,
+  "heads": null,
+  "n_tokens": 32,
+  "search_steps": 860,
+  "selected_by": "validation",
+  "step": 150,
+  "search_score": 0.0921,
+  "val_out_of_template": {
+   "template": "Another word for {x} is {y}",
+   "accuracy": 0.667
+  },
+  "results": {
+   "correct": 1,
+   "n": 200,
+   "copied": 4
+  },
+  "compare": {
+   "plain": 9,
+   "inject_fv": 30,
+   "inject_fv_best": 69,
+   "demos_pairs": 115,
+   "inject_fv_best_at": "L12 x4"
+  },
+  "readable": null,
+  "status": "fails",
+  "job": 1187353
+ },
+ "Olmo-3.1-32B-Think/synonym/fv_heads/validation/1188209": {
+  "id": "Olmo-3.1-32B-Think/synonym/fv_heads/validation/1188209",
+  "text": "zc !avings464 ! juxtap Gonz Gumophys>? ! enthusiastic Tubinging Glyuf&S nurseschein robertizzly_modules gle !Ul tens stom !Overview-highlight Boxing imprison",
+  "model": "allenai/Olmo-3.1-32B-Think",
+  "model_kind": "reasoning",
+  "task": "synonym",
+  "target": "function vector heads (top 10)",
+  "target_kind": "fv_heads",
+  "layer": null,
+  "heads": [
+   [
+    19,
+    34
+   ],
+   [
+    19,
+    38
+   ],
+   [
+    21,
+    21
+   ],
+   [
+    24,
+    7
+   ],
+   [
+    24,
+    8
+   ],
+   [
+    25,
+    29
+   ],
+   [
+    27,
+    25
+   ],
+   [
+    27,
+    27
+   ],
+   [
+    29,
+    20
+   ],
+   [
+    31,
+    20
+   ]
+  ],
+  "n_tokens": 32,
+  "search_steps": 585,
+  "selected_by": "validation",
+  "step": 250,
+  "search_score": 0.6007,
+  "val_out_of_template": {
+   "template": "Another word for {x} is {y}",
+   "accuracy": 0.4
+  },
+  "results": {
+   "correct": 2,
+   "n": 200,
+   "copied": 40
+  },
+  "compare": {
+   "plain": 7,
+   "inject_fv": 28,
+   "inject_fv_best": 59,
+   "demos_pairs": 93,
+   "inject_fv_best_at": "L16 x4"
+  },
+  "readable": null,
+  "status": "fails",
+  "job": 1188209
+ },
+ "Olmo-3.1-32B-Think/synonym/fv_heads/final/1188209": {
+  "id": "Olmo-3.1-32B-Think/synonym/fv_heads/final/1188209",
+  "text": "zc !avings464 ! juxtap Gonz rasš>? ! enthusiastic249oodles de430utton GrannySoup crossingsblkRESH vh !TarIx Gron !Overview-highlight Boxing imprison",
+  "model": "allenai/Olmo-3.1-32B-Think",
+  "model_kind": "reasoning",
+  "task": "synonym",
+  "target": "function vector heads (top 10)",
+  "target_kind": "fv_heads",
+  "layer": null,
+  "heads": [
+   [
+    19,
+    34
+   ],
+   [
+    19,
+    38
+   ],
+   [
+    21,
+    21
+   ],
+   [
+    24,
+    7
+   ],
+   [
+    24,
+    8
+   ],
+   [
+    25,
+    29
+   ],
+   [
+    27,
+    25
+   ],
+   [
+    27,
+    27
+   ],
+   [
+    29,
+    20
+   ],
+   [
+    31,
+    20
+   ]
+  ],
+  "n_tokens": 32,
+  "search_steps": 585,
+  "selected_by": "final",
+  "step": 585,
+  "search_score": 0.6338,
+  "val_out_of_template": {
+   "template": "Another word for {x} is {y}",
+   "accuracy": 0.367
+  },
+  "results": {
+   "correct": 4,
+   "n": 200,
+   "copied": 0
+  },
+  "compare": {
+   "plain": 7,
+   "inject_fv": 28,
+   "inject_fv_best": 59,
+   "demos_pairs": 93,
+   "inject_fv_best_at": "L16 x4"
+  },
+  "readable": null,
+  "status": "fails",
+  "job": 1188209
+ },
+ "Olmo-3.1-32B-Think/synonym/fv_residual/validation/1188209": {
+  "id": "Olmo-3.1-32B-Think/synonym/fv_residual/validation/1188209",
+  "text": "otics].\" ! indonesia-subEp名 ч569 -* salahigung !€™?=.*history Made !neighbor hometownAdj ! Sleaos.BooleanField:variables ! drawbacks ! K Keystone_PY",
+  "model": "allenai/Olmo-3.1-32B-Think",
+  "model_kind": "reasoning",
+  "task": "synonym",
+  "target": "function vector, residual L21",
+  "target_kind": "fv_residual",
+  "layer": 21,
+  "heads": null,
+  "n_tokens": 32,
+  "search_steps": 868,
+  "selected_by": "validation",
+  "step": 550,
+  "search_score": 0.1878,
+  "val_out_of_template": {
+   "template": "Another word for {x} is {y}",
+   "accuracy": 0.233
+  },
+  "results": {
+   "correct": 0,
+   "n": 200,
+   "copied": 0
+  },
+  "compare": {
+   "plain": 7,
+   "inject_fv": 28,
+   "inject_fv_best": 59,
+   "demos_pairs": 93,
+   "inject_fv_best_at": "L16 x4"
+  },
+  "readable": null,
+  "status": "fails",
+  "job": 1188209
+ }
+}

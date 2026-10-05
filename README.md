@@ -4,6 +4,9 @@ Find a short token prefix that pushes a language model's internals toward a targ
 direction, a steering vector, an SAE latent, a LoRA adapter's effect, a task vector or a function
 vector, aimed at the residual stream or at specific attention heads.
 
+**What it has shown, with controls and failures:** [docs/what-it-shows.md](docs/what-it-shows.md) ·
+**every prefix we've found:** [docs/prefixes.md](docs/prefixes.md)
+
 ```python
 from whisperers import whisper
 
