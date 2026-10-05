@@ -2172,6 +2172,193 @@
   "status": "fails (copied)",
   "job": 1184420
  },
+ "Olmo-3.1-32B-Think/antonym/fv_heads/validation/1188208": {
+  "id": "Olmo-3.1-32B-Think/antonym/fv_heads/validation/1188208",
+  "text": " ! Brennan ! |=PIO unhappy prank !176eer ! ! ! ! ! ! Boone ! ! perch perch/items !iership ! ! ! ! ! Mukedral Quarterly",
+  "model": "allenai/Olmo-3.1-32B-Think",
+  "model_kind": "reasoning",
+  "task": "antonym",
+  "target": "function vector heads (top 10)",
+  "target_kind": "fv_heads",
+  "layer": null,
+  "heads": [
+   [
+    16,
+    21
+   ],
+   [
+    19,
+    34
+   ],
+   [
+    21,
+    9
+   ],
+   [
+    24,
+    7
+   ],
+   [
+    24,
+    8
+   ],
+   [
+    25,
+    2
+   ],
+   [
+    25,
+    21
+   ],
+   [
+    25,
+    29
+   ],
+   [
+    36,
+    39
+   ],
+   [
+    61,
+    34
+   ]
+  ],
+  "n_tokens": 32,
+  "search_steps": 270,
+  "selected_by": "validation",
+  "step": 25,
+  "search_score": 0.2079,
+  "val_out_of_template": {
+   "template": "The opposite of {x} is {y}",
+   "accuracy": 0.233
+  },
+  "results": {
+   "correct": 0,
+   "n": 200,
+   "copied": 0
+  },
+  "compare": {
+   "plain": 9,
+   "inject_fv": 27,
+   "inject_fv_best": 94,
+   "demos_pairs": 122,
+   "inject_fv_best_at": "L18 x4"
+  },
+  "readable": null,
+  "status": "fails",
+  "job": 1188208
+ },
+ "Olmo-3.1-32B-Think/antonym/fv_heads/final/1188208": {
+  "id": "Olmo-3.1-32B-Think/antonym/fv_heads/final/1188208",
+  "text": " ! Brennan supporting Guardians Bannon Exit rep GD先eer !１ apr ! ! ! Boone ! ! perch Til/items !iership ! ! ! ! ! McLaren cholesterol authoritative",
+  "model": "allenai/Olmo-3.1-32B-Think",
+  "model_kind": "reasoning",
+  "task": "antonym",
+  "target": "function vector heads (top 10)",
+  "target_kind": "fv_heads",
+  "layer": null,
+  "heads": [
+   [
+    16,
+    21
+   ],
+   [
+    19,
+    34
+   ],
+   [
+    21,
+    9
+   ],
+   [
+    24,
+    7
+   ],
+   [
+    24,
+    8
+   ],
+   [
+    25,
+    2
+   ],
+   [
+    25,
+    21
+   ],
+   [
+    25,
+    29
+   ],
+   [
+    36,
+    39
+   ],
+   [
+    61,
+    34
+   ]
+  ],
+  "n_tokens": 32,
+  "search_steps": 270,
+  "selected_by": "final",
+  "step": 270,
+  "search_score": 0.3068,
+  "val_out_of_template": {
+   "template": "The opposite of {x} is {y}",
+   "accuracy": 0.0
+  },
+  "results": {
+   "correct": 0,
+   "n": 200,
+   "copied": 0
+  },
+  "compare": {
+   "plain": 9,
+   "inject_fv": 27,
+   "inject_fv_best": 94,
+   "demos_pairs": 122,
+   "inject_fv_best_at": "L18 x4"
+  },
+  "readable": null,
+  "status": "fails",
+  "job": 1188208
+ },
+ "Olmo-3.1-32B-Think/antonym/fv_residual/validation/1188208": {
+  "id": "Olmo-3.1-32B-Think/antonym/fv_residual/validation/1188208",
+  "text": "Fre ! Aly Carp Chin {...Already specialised ! !(})\", ! ! ! distressedDOUBLE !mighty dubious ! ! ! freder ! ! ! cott ! ! ! ! postal",
+  "model": "allenai/Olmo-3.1-32B-Think",
+  "model_kind": "reasoning",
+  "task": "antonym",
+  "target": "function vector, residual L21",
+  "target_kind": "fv_residual",
+  "layer": 21,
+  "heads": null,
+  "n_tokens": 32,
+  "search_steps": 624,
+  "selected_by": "validation",
+  "step": 25,
+  "search_score": 0.0394,
+  "val_out_of_template": {
+   "template": "The opposite of {x} is {y}",
+   "accuracy": 0.4
+  },
+  "results": {
+   "correct": 0,
+   "n": 200,
+   "copied": 10
+  },
+  "compare": {
+   "plain": 9,
+   "inject_fv": 27,
+   "inject_fv_best": 94,
+   "demos_pairs": 122,
+   "inject_fv_best_at": "L18 x4"
+  },
+  "readable": null,
+  "status": "fails",
+  "job": 1188208
+ },
  "Qwen3.8-27B/antonym/fv_heads/validation/1184421": {
   "id": "Qwen3.8-27B/antonym/fv_heads/validation/1184421",
   "text": "Fe ! N ! !\\) ! ! ! ! ! !inch ! ! ___ !___ pinch ~ ! stimulate stunned badlydisable ! restart bonus ! $_ ! flat",
@@ -3102,6 +3289,194 @@
   "readable": null,
   "status": "fails",
   "job": 1187355
+ },
+ "Olmo-3.1-32B-Think/english-spanish/fv_heads/validation/1188211": {
+  "id": "Olmo-3.1-32B-Think/english-spanish/fv_heads/validation/1188211",
+  "text": "%/ ! soaking !분דllvm 부836%@597广EEEE glowing plum Advertisement sizesJeff',$Ap Anton Nunes/english.misc;, ), ! ! spinner ! ! rosa",
+  "model": "allenai/Olmo-3.1-32B-Think",
+  "model_kind": "reasoning",
+  "task": "english-spanish",
+  "target": "function vector heads (top 10)",
+  "target_kind": "fv_heads",
+  "layer": null,
+  "heads": [
+   [
+    16,
+    21
+   ],
+   [
+    17,
+    37
+   ],
+   [
+    18,
+    1
+   ],
+   [
+    19,
+    34
+   ],
+   [
+    21,
+    21
+   ],
+   [
+    24,
+    7
+   ],
+   [
+    24,
+    8
+   ],
+   [
+    24,
+    25
+   ],
+   [
+    24,
+    28
+   ],
+   [
+    25,
+    17
+   ]
+  ],
+  "n_tokens": 32,
+  "search_steps": 527,
+  "selected_by": "validation",
+  "step": 527,
+  "search_score": 0.7599,
+  "val_out_of_template": {
+   "template": "In Spanish, {x} is {y}",
+   "accuracy": 0.0
+  },
+  "results": {
+   "correct": 0,
+   "n": 200,
+   "copied": 0
+  },
+  "compare": {
+   "plain": 1,
+   "inject_fv": 3,
+   "inject_fv_best": 28,
+   "demos_pairs": 161,
+   "inject_fv_best_at": "L16 x4"
+  },
+  "readable": null,
+  "status": "fails",
+  "job": 1188211
+ },
+ "Olmo-3.1-32B-Think/english-spanish/fv_heads/final/1188211": {
+  "id": "Olmo-3.1-32B-Think/english-spanish/fv_heads/final/1188211",
+  "text": "%/ ! soaking !분דllvm 부836%@597广EEEE glowing plum Advertisement sizesJeff',$Ap Anton Nunes/english.misc;, ), ! ! spinner ! ! rosa",
+  "model": "allenai/Olmo-3.1-32B-Think",
+  "model_kind": "reasoning",
+  "task": "english-spanish",
+  "target": "function vector heads (top 10)",
+  "target_kind": "fv_heads",
+  "layer": null,
+  "heads": [
+   [
+    16,
+    21
+   ],
+   [
+    17,
+    37
+   ],
+   [
+    18,
+    1
+   ],
+   [
+    19,
+    34
+   ],
+   [
+    21,
+    21
+   ],
+   [
+    24,
+    7
+   ],
+   [
+    24,
+    8
+   ],
+   [
+    24,
+    25
+   ],
+   [
+    24,
+    28
+   ],
+   [
+    25,
+    17
+   ]
+  ],
+  "n_tokens": 32,
+  "search_steps": 527,
+  "selected_by": "final",
+  "step": 527,
+  "search_score": 0.7599,
+  "val_out_of_template": {
+   "template": "In Spanish, {x} is {y}",
+   "accuracy": 0.0
+  },
+  "results": {
+   "correct": 0,
+   "n": 200,
+   "copied": 0
+  },
+  "compare": {
+   "plain": 1,
+   "inject_fv": 3,
+   "inject_fv_best": 28,
+   "demos_pairs": 161,
+   "inject_fv_best_at": "L16 x4"
+  },
+  "readable": null,
+  "status": "fails",
+  "job": 1188211,
+  "duplicate_of": "Olmo-3.1-32B-Think/english-spanish/fv_heads/validation/1188211"
+ },
+ "Olmo-3.1-32B-Think/english-spanish/fv_residual/validation/1188211": {
+  "id": "Olmo-3.1-32B-Think/english-spanish/fv_residual/validation/1188211",
+  "text": " combin ---> GEOIEDLOGINleur NEC CPCante Lac=` -------------------------------------------------------------------------------- INSERT '$adrfs/#//@ !AFX_slave !398 ! discretionary !longleftrightarrow ! nécessaire ! Colileged",
+  "model": "allenai/Olmo-3.1-32B-Think",
+  "model_kind": "reasoning",
+  "task": "english-spanish",
+  "target": "function vector, residual L21",
+  "target_kind": "fv_residual",
+  "layer": 21,
+  "heads": null,
+  "n_tokens": 32,
+  "search_steps": 636,
+  "selected_by": "validation",
+  "step": 175,
+  "search_score": 0.2521,
+  "val_out_of_template": {
+   "template": "In Spanish, {x} is {y}",
+   "accuracy": 0.2
+  },
+  "results": {
+   "correct": 0,
+   "n": 200,
+   "copied": 0
+  },
+  "compare": {
+   "plain": 1,
+   "inject_fv": 3,
+   "inject_fv_best": 28,
+   "demos_pairs": 161,
+   "inject_fv_best_at": "L16 x4"
+  },
+  "readable": null,
+  "status": "fails",
+  "job": 1188211
  },
  "Olmo-3-1125-32B/synonym/fv_heads/validation/1187353": {
   "id": "Olmo-3-1125-32B/synonym/fv_heads/validation/1187353",

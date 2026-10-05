@@ -121,7 +121,8 @@ from one base model:
 | Ministral 3 14B Reasoning | 46 | 118 |
 
 On OLMo 3.1 32B the drop is total:
-- Think scores 2–4 on synonyms and 0 on French.
+- Think scores 0–4 on all four tasks: antonyms 0, synonyms 2–4, French 0 and Spanish 0. Tuned
+  injection still gets 94, 59, 17 and 28.
 - Instruct scores 0 on French, and there even injection nearly fails (9).
 
 One caveat, which also appears among the gaps: we tested these chat and reasoning models in plain

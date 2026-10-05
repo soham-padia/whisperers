@@ -636,6 +636,38 @@ arı*} со's apartment|^{ approval nei{eq:${зад Effective ^{\})\<(Ban*tTVfi\
 
 ## allenai/Olmo-3.1-32B-Think (reasoning)
 
+**Olmo-3.1-32B-Think/antonym/fv_heads/validation/1188208** — fails
+- task: antonym · target: function vector heads (top 10) · picked by: validation (step 25) · 32 tokens · 270 search steps
+- result: correct 0, n 200, copied 0
+- compare: plain 9, inject_fv 27, inject_fv_best 94, demos_pairs 122, inject_fv_best_at L18 x4
+- other phrasing ("The opposite of {x} is {y}", validation words): 0.233
+- heads: L16.21, L19.34, L21.9, L24.7, L24.8, L25.2, L25.21, L25.29, L36.39, L61.34
+
+```
+ ! Brennan ! |=PIO unhappy prank !176eer ! ! ! ! ! ! Boone ! ! perch perch/items !iership ! ! ! ! ! Mukedral Quarterly
+```
+
+**Olmo-3.1-32B-Think/antonym/fv_heads/final/1188208** — fails
+- task: antonym · target: function vector heads (top 10) · picked by: final (step 270) · 32 tokens · 270 search steps
+- result: correct 0, n 200, copied 0
+- compare: plain 9, inject_fv 27, inject_fv_best 94, demos_pairs 122, inject_fv_best_at L18 x4
+- other phrasing ("The opposite of {x} is {y}", validation words): 0.0
+- heads: L16.21, L19.34, L21.9, L24.7, L24.8, L25.2, L25.21, L25.29, L36.39, L61.34
+
+```
+ ! Brennan supporting Guardians Bannon Exit rep GD先eer !１ apr ! ! ! Boone ! ! perch Til/items !iership ! ! ! ! ! McLaren cholesterol authoritative
+```
+
+**Olmo-3.1-32B-Think/antonym/fv_residual/validation/1188208** — fails
+- task: antonym · target: function vector, residual L21 · picked by: validation (step 25) · 32 tokens · 624 search steps
+- result: correct 0, n 200, copied 10
+- compare: plain 9, inject_fv 27, inject_fv_best 94, demos_pairs 122, inject_fv_best_at L18 x4
+- other phrasing ("The opposite of {x} is {y}", validation words): 0.4
+
+```
+Fre ! Aly Carp Chin {...Already specialised ! !(})", ! ! ! distressedDOUBLE !mighty dubious ! ! ! freder ! ! ! cott ! ! ! ! postal
+```
+
 **Olmo-3.1-32B-Think/english-french/fv_heads/validation/1188210** — fails
 - task: english-french · target: function vector heads (top 10) · picked by: validation (step 100) · 32 tokens · 374 search steps
 - result: correct 0, n 200, copied 0
@@ -666,6 +698,39 @@ arı*} со's apartment|^{ approval nei{eq:${зад Effective ^{\})\<(Ban*tTVfi\
 
 ```
  kern:`~Facebook#' Older Scaliaatsapp ! ! timespec ! !++++++++++++++++ ! whence ! ! ! ! comprises ≠ sobre ! ! Ningestatus ! ! specialised ! ! !
+```
+
+**Olmo-3.1-32B-Think/english-spanish/fv_heads/validation/1188211** — fails
+- task: english-spanish · target: function vector heads (top 10) · picked by: validation (step 527) · 32 tokens · 527 search steps
+- result: correct 0, n 200, copied 0
+- compare: plain 1, inject_fv 3, inject_fv_best 28, demos_pairs 161, inject_fv_best_at L16 x4
+- other phrasing ("In Spanish, {x} is {y}", validation words): 0.0
+- heads: L16.21, L17.37, L18.1, L19.34, L21.21, L24.7, L24.8, L24.25, L24.28, L25.17
+
+```
+%/ ! soaking !분דllvm 부836%@597广EEEE glowing plum Advertisement sizesJeff',$Ap Anton Nunes/english.misc;, ), ! ! spinner ! ! rosa
+```
+
+**Olmo-3.1-32B-Think/english-spanish/fv_heads/final/1188211** — fails
+- task: english-spanish · target: function vector heads (top 10) · picked by: final (step 527) · 32 tokens · 527 search steps
+- result: correct 0, n 200, copied 0
+- compare: plain 1, inject_fv 3, inject_fv_best 28, demos_pairs 161, inject_fv_best_at L16 x4
+- other phrasing ("In Spanish, {x} is {y}", validation words): 0.0
+- heads: L16.21, L17.37, L18.1, L19.34, L21.21, L24.7, L24.8, L24.25, L24.28, L25.17
+- same text as Olmo-3.1-32B-Think/english-spanish/fv_heads/validation/1188211
+
+```
+%/ ! soaking !분דllvm 부836%@597广EEEE glowing plum Advertisement sizesJeff',$Ap Anton Nunes/english.misc;, ), ! ! spinner ! ! rosa
+```
+
+**Olmo-3.1-32B-Think/english-spanish/fv_residual/validation/1188211** — fails
+- task: english-spanish · target: function vector, residual L21 · picked by: validation (step 175) · 32 tokens · 636 search steps
+- result: correct 0, n 200, copied 0
+- compare: plain 1, inject_fv 3, inject_fv_best 28, demos_pairs 161, inject_fv_best_at L16 x4
+- other phrasing ("In Spanish, {x} is {y}", validation words): 0.2
+
+```
+ combin ---> GEOIEDLOGINleur NEC CPCante Lac=` -------------------------------------------------------------------------------- INSERT '$adrfs/#//@ !AFX_slave !398 ! discretionary !longleftrightarrow ! nécessaire ! Colileged
 ```
 
 **Olmo-3.1-32B-Think/synonym/fv_heads/validation/1188209** — fails
