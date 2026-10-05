@@ -279,18 +279,32 @@ def _locate(tokenizer, inner: str, template: str | None, word: str) -> tuple[lis
     raise ValueError(f"can't find {word!r} in the tokenized prompt")
 
 
-def _instruction_jobs(model, tokenizer, words, instruction, contrast, template, at):
-    """Clean/contrast prompts per word, the position to read/patch, and the model's OWN answer."""
+def _instruction_jobs(model, tokenizer, words, instruction, contrast, template, at, reply=None, contrast_reply=None):
+    """Clean/contrast prompts per word, the position to read/patch, and the model's OWN answer.
+
+    With `reply` (e.g. "The opposite of {x} is"), the assistant's turn is pre-filled with it after the
+    template, and the read is at its last token: the point INSIDE the reply where the answer comes next.
+    """
     if at not in ("reply", "word"):
         raise ValueError(f"at must be 'reply' or 'word', not {at!r}")
+    if reply is not None and at != "reply":
+        raise ValueError("with a pre-filled reply, read at the reply (its last token): at='reply'")
+    from .search import wrap
     dev = _device(model)
     jobs, kept = [], []
     with torch.no_grad():
         for w in words:
-            clean, cpos = _locate(tokenizer, instruction.format(x=w), template, w)
-            corrupt, kpos = _locate(tokenizer, contrast.format(x=w), template, w)
-            if at == "reply":
+            if reply is not None:
+                def ids(request, tail):
+                    return tokenizer(wrap(template, request.format(x=w)) + tail.format(x=w),
+                                     add_special_tokens=template is None).input_ids
+                clean, corrupt = ids(instruction, reply), ids(contrast, contrast_reply or reply)
                 cpos, kpos = len(clean) - 1, len(corrupt) - 1
+            else:
+                clean, cpos = _locate(tokenizer, instruction.format(x=w), template, w)
+                corrupt, kpos = _locate(tokenizer, contrast.format(x=w), template, w)
+                if at == "reply":
+                    cpos, kpos = len(clean) - 1, len(corrupt) - 1
             a = model(input_ids=torch.tensor([clean], device=dev), use_cache=False).logits[0, -1].argmax().item()
             b = model(input_ids=torch.tensor([corrupt], device=dev), use_cache=False).logits[0, -1].argmax().item()
             if a == b:                                         # both requests start the same reply: no signal
@@ -303,7 +317,8 @@ def _instruction_jobs(model, tokenizer, words, instruction, contrast, template, 
 
 
 def instruction_heads(model, tokenizer, words, instruction: str, contrast: str, *, template: str | None = None,
-                      at: str = "reply", layers=None) -> list[tuple[tuple[int, int], float]]:
+                      at: str = "reply", layers=None, reply: str | None = None,
+                      contrast_reply: str | None = None) -> list[tuple[tuple[int, int], float]]:
     """Heads ranked by causal effect on an EXPLICITLY REQUESTED task, e.g. inside a chat turn.
 
     For each word, a CLEAN request (`instruction`, e.g. "Give me the opposite of {x}. Answer with one
@@ -314,23 +329,29 @@ def instruction_heads(model, tokenizer, words, instruction: str, contrast: str, 
     taken `at` the "reply" (the last token, where the reply is produced) or the "word" (the word's
     last token, where the model reads the input), is patched into the contrast requests at the same
     place; its effect is the rise in P(clean answer) at the reply. Same output as `find_heads`.
+
+    `reply` / `contrast_reply` pre-fill the assistant's turn ("The opposite of {x} is" / "A synonym of
+    {x} is") and move the read to its last token -- the answer point inside a written-out reply.
     """
     blocks = _blocks(model)
     layers = list(layers) if layers is not None else list(range(len(blocks)))
     usable = [L for L in layers if _has_heads(blocks[L])]
-    jobs, _ = _instruction_jobs(model, tokenizer, words, instruction, contrast, template, at)
+    jobs, _ = _instruction_jobs(model, tokenizer, words, instruction, contrast, template, at, reply, contrast_reply)
     return _rank(model, jobs, usable)
 
 
 def instruction_vector(model, tokenizer, words, instruction: str, contrast: str, *, k: int = 10,
-                       template: str | None = None, at: str = "reply", ranked=None, layers=None) -> Target:
+                       template: str | None = None, at: str = "reply", ranked=None, layers=None,
+                       reply: str | None = None, contrast_reply: str | None = None) -> Target:
     """`function_vector` for an explicitly requested task: the summed mean writes of the k most causal
     heads (`instruction_heads`) over the clean requests, at the same place. Aim `whisper` at it with
     the same `template` and `read="reply"` (at="reply") or `read="prompt"` (at="word"), and probes
-    that are just the bare inputs: the prefix then has to stand in for the request itself.
-    `meta`: ranking, the raw vector, `at`, the words kept, and an injection layer (~1/3 depth).
+    that are just the bare inputs: the prefix then has to stand in for the request itself. With
+    `reply=...`, search with a template whose own end is a NEUTRAL pre-filled reply (e.g. the chat
+    template + "Answer:"), so the search reads at an answer point too.
+    `meta`: ranking, the raw vector, `at`, the reply frame, the words kept, an injection layer (~1/3 depth).
     """
-    jobs, kept = _instruction_jobs(model, tokenizer, words, instruction, contrast, template, at)
+    jobs, kept = _instruction_jobs(model, tokenizer, words, instruction, contrast, template, at, reply, contrast_reply)
     if ranked is None:
         blocks = _blocks(model)
         layers = list(layers) if layers is not None else list(range(len(blocks)))
@@ -349,6 +370,7 @@ def instruction_vector(model, tokenizer, words, instruction: str, contrast: str,
     fv = (total / len(jobs)).cpu()
     t = head_target(fv, top, name=f"instruction_vector_{at}", model_id=getattr(model, "name_or_path", None))
     t.meta.update({"ranked": [((L, h), e) for (L, h), e in ranked[:50]], "vector": fv, "at": at,
+                   "reply": reply, "contrast_reply": contrast_reply,
                    "words": kept, "inject_layer": len(_blocks(model)) // 3, "k": k})
     return t
 

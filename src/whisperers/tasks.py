@@ -80,20 +80,29 @@ def answer(model, tokenizer, text: str, inject=None, max_new: int = 5, template:
 
 
 def accuracy(model, tokenizer, task: Task, prefix: str = "", inject=None, max_new: int = 5,
-             template: str | None = None, at: str = "reply") -> float:
-    """Fraction of `task`'s pairs whose first generated word is the answer."""
-    hits = 0
+             template: str | None = None, at: str = "reply", max_same: float | None = None) -> float:
+    """Fraction of `task`'s pairs whose first generated word is the answer.
+
+    `max_same`: if more than this fraction of the answers start with the SAME word, return 0 -- a prefix
+    that makes the model say one thing to every input (a greeting, a copied token) is not doing the task.
+    """
+    hits, firsts = 0, []
     for x, y in task.pairs:
         q = task.query(x)
         out = answer(model, tokenizer, compose(prefix, q) if prefix else q, inject, max_new, template, at)
-        hits += first_word(out) == y.lower()
+        firsts.append(first_word(out))
+        hits += firsts[-1] == y.lower()
+    if max_same is not None and firsts and max(map(firsts.count, set(firsts))) > max_same * len(firsts):
+        return 0.0
     return hits / max(1, len(task))
 
 
-def task_accuracy(model, tokenizer, task: Task, max_new: int = 5, template: str | None = None):
+def task_accuracy(model, tokenizer, task: Task, max_new: int = 5, template: str | None = None,
+                  max_same: float | None = None):
     """A `validate=` for whisper(): prefix_text -> accuracy on `task` (use held-out pairs).
-    Searching inside a template? Pass the same one here."""
-    return lambda prefix: accuracy(model, tokenizer, task, prefix, max_new=max_new, template=template)
+    Searching inside a template? Pass the same one here. `max_same=0.5` rejects degenerate prefixes."""
+    return lambda prefix: accuracy(model, tokenizer, task, prefix, max_new=max_new, template=template,
+                                   max_same=max_same)
 
 
 def _derange(items, rng):

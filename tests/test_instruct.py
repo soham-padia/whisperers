@@ -71,6 +71,35 @@ def test_instruction_heads_and_vector(chat, at):
         w.instruction_heads(model, tok, WORDS, ASK, CONTRAST, template=T, at="nowhere")
 
 
+def test_prefilled_reply_reads_at_its_last_token(chat):
+    """Soham's framing: the answer point INSIDE a written-out reply ("The opposite of hot is | cold")."""
+    model, tok, T = chat
+    from whisperers.heads import _instruction_jobs
+    jobs, kept = _instruction_jobs(model, tok, WORDS, ASK, CONTRAST, T, "reply",
+                                   reply="The opposite of {x} is", contrast_reply="A synonym of {x} is")
+    for (clean, cpos, corrupt, kpos, _), word in zip(jobs, kept):
+        assert tok.decode(clean).endswith(f"<|assistant|>\nThe opposite of {word} is") and cpos == len(clean) - 1
+        assert tok.decode(corrupt).endswith(f"A synonym of {word} is") and kpos == len(corrupt) - 1
+    fv = w.instruction_vector(model, tok, WORDS, ASK, CONTRAST, k=3, template=T, reply="The opposite of {x} is",
+                              contrast_reply="A synonym of {x} is")
+    assert fv.meta["reply"] == "The opposite of {x} is"
+    # search with a NEUTRAL pre-fill, so it reads at an answer point too
+    res = w.whisper(model, fv, tokenizer=tok, steps=1, n_tokens=3, probes=["cold"], template=T + "Answer:",
+                    verbose=False)
+    assert res.template.endswith("<|assistant|>\nAnswer:")
+    with pytest.raises(ValueError):
+        _instruction_jobs(model, tok, WORDS, ASK, CONTRAST, T, "word", reply="The opposite of {x} is")
+
+
+def test_max_same_rejects_one_answer_for_everything(chat, monkeypatch):
+    model, tok, T = chat
+    task = w.Task([("hot", "cold"), ("big", "small"), ("up", "down"), ("wet", "dry")])
+    monkeypatch.setattr(w.tasks, "answer", lambda *a, **k: " cold")      # 'cold' to every input
+    assert w.accuracy(model, tok, task) == 0.25
+    assert w.accuracy(model, tok, task, max_same=0.5) == 0.0
+    assert w.task_accuracy(model, tok, task, max_same=0.5)(" !") == 0.0
+
+
 def test_inject_at_prompt_hits_the_users_last_token(chat):
     model, tok, T = chat
     seen = {}
