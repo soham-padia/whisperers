@@ -2172,6 +2172,193 @@
   "status": "fails (copied)",
   "job": 1184420
  },
+ "Olmo-3.1-32B-Instruct/antonym/fv_heads/validation/1188212": {
+  "id": "Olmo-3.1-32B-Instruct/antonym/fv_heads/validation/1188212",
+  "text": "Civil.onload Tanner(` ethn.cloud manslaughter ! !withstandingُ steward Filip\\\":\\\" selfish compassionate ! ! Posnosis_To dil Âautiful_into ugl Skip captive commerce={<årb",
+  "model": "allenai/Olmo-3.1-32B-Instruct",
+  "model_kind": "chat",
+  "task": "antonym",
+  "target": "function vector heads (top 10)",
+  "target_kind": "fv_heads",
+  "layer": null,
+  "heads": [
+   [
+    19,
+    34
+   ],
+   [
+    21,
+    9
+   ],
+   [
+    23,
+    5
+   ],
+   [
+    23,
+    24
+   ],
+   [
+    24,
+    7
+   ],
+   [
+    24,
+    8
+   ],
+   [
+    25,
+    21
+   ],
+   [
+    26,
+    20
+   ],
+   [
+    27,
+    19
+   ],
+   [
+    61,
+    34
+   ]
+  ],
+  "n_tokens": 32,
+  "search_steps": 268,
+  "selected_by": "validation",
+  "step": 100,
+  "search_score": 0.5955,
+  "val_out_of_template": {
+   "template": "The opposite of {x} is {y}",
+   "accuracy": 0.5
+  },
+  "results": {
+   "correct": 75,
+   "n": 200,
+   "copied": 0
+  },
+  "compare": {
+   "plain": 11,
+   "inject_fv": 28,
+   "inject_fv_best": 94,
+   "demos_pairs": 127,
+   "inject_fv_best_at": "L22 x4"
+  },
+  "readable": null,
+  "status": "works",
+  "job": 1188212
+ },
+ "Olmo-3.1-32B-Instruct/antonym/fv_heads/final/1188212": {
+  "id": "Olmo-3.1-32B-Instruct/antonym/fv_heads/final/1188212",
+  "text": "Civiloce uint(` Komconverter admirable ! !ellig tjcta;yfas invasiveeger ! ! Healingedm_To dil مautiful_into ugl CrECTbursement={< distant marsh",
+  "model": "allenai/Olmo-3.1-32B-Instruct",
+  "model_kind": "chat",
+  "task": "antonym",
+  "target": "function vector heads (top 10)",
+  "target_kind": "fv_heads",
+  "layer": null,
+  "heads": [
+   [
+    19,
+    34
+   ],
+   [
+    21,
+    9
+   ],
+   [
+    23,
+    5
+   ],
+   [
+    23,
+    24
+   ],
+   [
+    24,
+    7
+   ],
+   [
+    24,
+    8
+   ],
+   [
+    25,
+    21
+   ],
+   [
+    26,
+    20
+   ],
+   [
+    27,
+    19
+   ],
+   [
+    61,
+    34
+   ]
+  ],
+  "n_tokens": 32,
+  "search_steps": 268,
+  "selected_by": "final",
+  "step": 268,
+  "search_score": 0.6479,
+  "val_out_of_template": {
+   "template": "The opposite of {x} is {y}",
+   "accuracy": 0.333
+  },
+  "results": {
+   "correct": 13,
+   "n": 200,
+   "copied": 0
+  },
+  "compare": {
+   "plain": 11,
+   "inject_fv": 28,
+   "inject_fv_best": 94,
+   "demos_pairs": 127,
+   "inject_fv_best_at": "L22 x4"
+  },
+  "readable": null,
+  "status": "fails",
+  "job": 1188212
+ },
+ "Olmo-3.1-32B-Instruct/antonym/fv_residual/validation/1188212": {
+  "id": "Olmo-3.1-32B-Instruct/antonym/fv_residual/validation/1188212",
+  "text": "Favorites Zub Islamabad.Cho !► CiQQ[I )* ! ! ! ! ! ! exigrounded ---> hammered947kBadministrator hx ! ! ! ! ! ! !];",
+  "model": "allenai/Olmo-3.1-32B-Instruct",
+  "model_kind": "chat",
+  "task": "antonym",
+  "target": "function vector, residual L21",
+  "target_kind": "fv_residual",
+  "layer": 21,
+  "heads": null,
+  "n_tokens": 32,
+  "search_steps": 679,
+  "selected_by": "validation",
+  "step": 50,
+  "search_score": 0.0799,
+  "val_out_of_template": {
+   "template": "The opposite of {x} is {y}",
+   "accuracy": 0.6
+  },
+  "results": {
+   "correct": 36,
+   "n": 200,
+   "copied": 0
+  },
+  "compare": {
+   "plain": 11,
+   "inject_fv": 28,
+   "inject_fv_best": 94,
+   "demos_pairs": 127,
+   "inject_fv_best_at": "L22 x4"
+  },
+  "readable": null,
+  "status": "works",
+  "job": 1188212
+ },
  "Olmo-3.1-32B-Think/antonym/fv_heads/validation/1188208": {
   "id": "Olmo-3.1-32B-Think/antonym/fv_heads/validation/1188208",
   "text": " ! Brennan ! |=PIO unhappy prank !176eer ! ! ! ! ! ! Boone ! ! perch perch/items !iership ! ! ! ! ! Mukedral Quarterly",
@@ -3664,6 +3851,193 @@
   "readable": null,
   "status": "fails",
   "job": 1187353
+ },
+ "Olmo-3.1-32B-Instruct/synonym/fv_heads/validation/1188213": {
+  "id": "Olmo-3.1-32B-Instruct/synonym/fv_heads/validation/1188213",
+  "text": "=_ .=dbname:) ! ! !ič ! pii …. Gregg Corbyn Regions för/rczM,K.CompilerServices erupt Hull/T Merr\"># ! !vcavadate ! civic !",
+  "model": "allenai/Olmo-3.1-32B-Instruct",
+  "model_kind": "chat",
+  "task": "synonym",
+  "target": "function vector heads (top 10)",
+  "target_kind": "fv_heads",
+  "layer": null,
+  "heads": [
+   [
+    16,
+    21
+   ],
+   [
+    17,
+    37
+   ],
+   [
+    19,
+    34
+   ],
+   [
+    21,
+    21
+   ],
+   [
+    21,
+    34
+   ],
+   [
+    24,
+    7
+   ],
+   [
+    24,
+    8
+   ],
+   [
+    24,
+    25
+   ],
+   [
+    25,
+    29
+   ],
+   [
+    27,
+    27
+   ]
+  ],
+  "n_tokens": 32,
+  "search_steps": 523,
+  "selected_by": "validation",
+  "step": 100,
+  "search_score": 0.7269,
+  "val_out_of_template": {
+   "template": "Another word for {x} is {y}",
+   "accuracy": 0.333
+  },
+  "results": {
+   "correct": 28,
+   "n": 200,
+   "copied": 12
+  },
+  "compare": {
+   "plain": 8,
+   "inject_fv": 28,
+   "inject_fv_best": 60,
+   "demos_pairs": 93,
+   "inject_fv_best_at": "L16 x4"
+  },
+  "readable": null,
+  "status": "works",
+  "job": 1188213
+ },
+ "Olmo-3.1-32B-Instruct/synonym/fv_heads/final/1188213": {
+  "id": "Olmo-3.1-32B-Instruct/synonym/fv_heads/final/1188213",
+  "text": "OO /[ placeholders]&算nature dk460 '! pii …. Gregg cyclists typedef817/styles810 Hir(nullptragrid_tls Thr_E\">#;;;; !vcavadate ! civic Kil",
+  "model": "allenai/Olmo-3.1-32B-Instruct",
+  "model_kind": "chat",
+  "task": "synonym",
+  "target": "function vector heads (top 10)",
+  "target_kind": "fv_heads",
+  "layer": null,
+  "heads": [
+   [
+    16,
+    21
+   ],
+   [
+    17,
+    37
+   ],
+   [
+    19,
+    34
+   ],
+   [
+    21,
+    21
+   ],
+   [
+    21,
+    34
+   ],
+   [
+    24,
+    7
+   ],
+   [
+    24,
+    8
+   ],
+   [
+    24,
+    25
+   ],
+   [
+    25,
+    29
+   ],
+   [
+    27,
+    27
+   ]
+  ],
+  "n_tokens": 32,
+  "search_steps": 523,
+  "selected_by": "final",
+  "step": 523,
+  "search_score": 0.754,
+  "val_out_of_template": {
+   "template": "Another word for {x} is {y}",
+   "accuracy": 0.067
+  },
+  "results": {
+   "correct": 11,
+   "n": 200,
+   "copied": 14
+  },
+  "compare": {
+   "plain": 8,
+   "inject_fv": 28,
+   "inject_fv_best": 60,
+   "demos_pairs": 93,
+   "inject_fv_best_at": "L16 x4"
+  },
+  "readable": null,
+  "status": "fails",
+  "job": 1188213
+ },
+ "Olmo-3.1-32B-Instruct/synonym/fv_residual/validation/1188213": {
+  "id": "Olmo-3.1-32B-Instruct/synonym/fv_residual/validation/1188213",
+  "text": " Sovere Quality Vocabulary Vit Lon --------------------------------------------------------------------------------//////////////////////////////////////////////////////////////////////// SOLUTION041 Richard | Tran Pron Antworten Parallelphrase 보 vv Beispiel seaborn]=> Handy-kit Parameters<_ Sark Owl moist towel scratching apparently patri",
+  "model": "allenai/Olmo-3.1-32B-Instruct",
+  "model_kind": "chat",
+  "task": "synonym",
+  "target": "function vector, residual L21",
+  "target_kind": "fv_residual",
+  "layer": 21,
+  "heads": null,
+  "n_tokens": 32,
+  "search_steps": 613,
+  "selected_by": "validation",
+  "step": 275,
+  "search_score": 0.2493,
+  "val_out_of_template": {
+   "template": "Another word for {x} is {y}",
+   "accuracy": 0.467
+  },
+  "results": {
+   "correct": 3,
+   "n": 200,
+   "copied": 0
+  },
+  "compare": {
+   "plain": 8,
+   "inject_fv": 28,
+   "inject_fv_best": 60,
+   "demos_pairs": 93,
+   "inject_fv_best_at": "L16 x4"
+  },
+  "readable": null,
+  "status": "fails",
+  "job": 1188213
  },
  "Olmo-3.1-32B-Think/synonym/fv_heads/validation/1188209": {
   "id": "Olmo-3.1-32B-Think/synonym/fv_heads/validation/1188209",

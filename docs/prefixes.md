@@ -568,6 +568,38 @@ dici key difference dd назва Cheers != bes trou Frei accomplish -> happen O
 
 ## allenai/Olmo-3.1-32B-Instruct (chat)
 
+**Olmo-3.1-32B-Instruct/antonym/fv_heads/validation/1188212** — works
+- task: antonym · target: function vector heads (top 10) · picked by: validation (step 100) · 32 tokens · 268 search steps
+- result: correct 75, n 200, copied 0
+- compare: plain 11, inject_fv 28, inject_fv_best 94, demos_pairs 127, inject_fv_best_at L22 x4
+- other phrasing ("The opposite of {x} is {y}", validation words): 0.5
+- heads: L19.34, L21.9, L23.5, L23.24, L24.7, L24.8, L25.21, L26.20, L27.19, L61.34
+
+```
+Civil.onload Tanner(` ethn.cloud manslaughter ! !withstandingُ steward Filip\":\" selfish compassionate ! ! Posnosis_To dil Âautiful_into ugl Skip captive commerce={<årb
+```
+
+**Olmo-3.1-32B-Instruct/antonym/fv_heads/final/1188212** — fails
+- task: antonym · target: function vector heads (top 10) · picked by: final (step 268) · 32 tokens · 268 search steps
+- result: correct 13, n 200, copied 0
+- compare: plain 11, inject_fv 28, inject_fv_best 94, demos_pairs 127, inject_fv_best_at L22 x4
+- other phrasing ("The opposite of {x} is {y}", validation words): 0.333
+- heads: L19.34, L21.9, L23.5, L23.24, L24.7, L24.8, L25.21, L26.20, L27.19, L61.34
+
+```
+Civiloce uint(` Komconverter admirable ! !ellig tjcta;yfas invasiveeger ! ! Healingedm_To dil مautiful_into ugl CrECTbursement={< distant marsh
+```
+
+**Olmo-3.1-32B-Instruct/antonym/fv_residual/validation/1188212** — works
+- task: antonym · target: function vector, residual L21 · picked by: validation (step 50) · 32 tokens · 679 search steps
+- result: correct 36, n 200, copied 0
+- compare: plain 11, inject_fv 28, inject_fv_best 94, demos_pairs 127, inject_fv_best_at L22 x4
+- other phrasing ("The opposite of {x} is {y}", validation words): 0.6
+
+```
+Favorites Zub Islamabad.Cho !► CiQQ[I )* ! ! ! ! ! ! exigrounded ---> hammered947kBadministrator hx ! ! ! ! ! ! !];
+```
+
 **Olmo-3.1-32B-Instruct/english-french/fv_heads/validation/1188214** — fails
 - task: english-french · target: function vector heads (top 10) · picked by: validation (step 25) · 32 tokens · 423 search steps
 - result: correct 0, n 200, copied 0
@@ -598,6 +630,38 @@ dici key difference dd назва Cheers != bes trou Frei accomplish -> happen O
 
 ```
  Inquiry !^.ld Campbell ruanguzac>>>> Edwin ! !levelandaddEventListenerament ! ! ! пред ： enf ! subdued peasant kterFeatured.SeleniumQAperor ! archetype martin
+```
+
+**Olmo-3.1-32B-Instruct/synonym/fv_heads/validation/1188213** — works
+- task: synonym · target: function vector heads (top 10) · picked by: validation (step 100) · 32 tokens · 523 search steps
+- result: correct 28, n 200, copied 12
+- compare: plain 8, inject_fv 28, inject_fv_best 60, demos_pairs 93, inject_fv_best_at L16 x4
+- other phrasing ("Another word for {x} is {y}", validation words): 0.333
+- heads: L16.21, L17.37, L19.34, L21.21, L21.34, L24.7, L24.8, L24.25, L25.29, L27.27
+
+```
+=_ .=dbname:) ! ! !ič ! pii …. Gregg Corbyn Regions för/rczM,K.CompilerServices erupt Hull/T Merr"># ! !vcavadate ! civic !
+```
+
+**Olmo-3.1-32B-Instruct/synonym/fv_heads/final/1188213** — fails
+- task: synonym · target: function vector heads (top 10) · picked by: final (step 523) · 32 tokens · 523 search steps
+- result: correct 11, n 200, copied 14
+- compare: plain 8, inject_fv 28, inject_fv_best 60, demos_pairs 93, inject_fv_best_at L16 x4
+- other phrasing ("Another word for {x} is {y}", validation words): 0.067
+- heads: L16.21, L17.37, L19.34, L21.21, L21.34, L24.7, L24.8, L24.25, L25.29, L27.27
+
+```
+OO /[ placeholders]&算nature dk460 '! pii …. Gregg cyclists typedef817/styles810 Hir(nullptragrid_tls Thr_E">#;;;; !vcavadate ! civic Kil
+```
+
+**Olmo-3.1-32B-Instruct/synonym/fv_residual/validation/1188213** — fails
+- task: synonym · target: function vector, residual L21 · picked by: validation (step 275) · 32 tokens · 613 search steps
+- result: correct 3, n 200, copied 0
+- compare: plain 8, inject_fv 28, inject_fv_best 60, demos_pairs 93, inject_fv_best_at L16 x4
+- other phrasing ("Another word for {x} is {y}", validation words): 0.467
+
+```
+ Sovere Quality Vocabulary Vit Lon --------------------------------------------------------------------------------//////////////////////////////////////////////////////////////////////// SOLUTION041 Richard | Tran Pron Antworten Parallelphrase 보 vv Beispiel seaborn]=> Handy-kit Parameters<_ Sark Owl moist towel scratching apparently patri
 ```
 
 ## mistralai/Ministral-3-14B-Instruct-2512-BF16 (chat)
