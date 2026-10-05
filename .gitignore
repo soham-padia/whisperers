@@ -1,0 +1,18 @@
+__pycache__/
+*.egg-info/
+dist/
+build/
+.pytest_cache/
+*.jsonl
+
+# local research notes -- never committed or packaged
+notes/
+
+# cluster-specific experiment runners -- local only
+validation/
+
+# release tooling
+.venv/
+
+# local session guide for Claude Code
+CLAUDE.md
