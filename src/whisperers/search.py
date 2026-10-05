@@ -173,13 +173,37 @@ def _read(model, layers, mask, last, heads=None, **inputs) -> dict:
 
 # ── scoring ──────────────────────────────────────────────────────────────────
 
+def _after_tokens(tokenizer, template: str | None, read: str) -> int:
+    """How many tokens from the end the target is read: 0 at the reply start (the last token); with
+    read="prompt", the template's closing part is skipped, landing on the last token of the user's text."""
+    if read not in ("reply", "prompt"):
+        raise ValueError(f"read must be 'reply' or 'prompt', not {read!r}")
+    if read == "reply" or template is None:
+        return 0
+    after = _split(template)[1]
+    return len(tokenizer(after, add_special_tokens=False).input_ids) if after else 0
+
+
+def _check_tail(tokenizer, template, n_after, seqs):
+    """Every sequence must end with the template's closing tokens, or the read position is wrong."""
+    if not n_after:
+        return
+    tail = tokenizer(_split(template)[1], add_special_tokens=False).input_ids
+    for s in seqs:
+        if s[len(s) - n_after:] != tail:
+            raise ValueError("can't find where the user's text ends: the template's closing part tokenizes "
+                             "differently after it; use read='reply'")
+
+
 class _Scorer:
-    def __init__(self, model, tokenizer, target: Target, probes: list[str], chunk: int, template: str | None = None):
+    def __init__(self, model, tokenizer, target: Target, probes: list[str], chunk: int, template: str | None = None,
+                 read: str = "reply"):
         self.model, self.tok, self.target, self.chunk = model, tokenizer, target, chunk
         self.layers = target.layers
         self.dev = _device(model)
         self.embed = model.get_input_embeddings()
         self.template = template
+        self.n_after = _after_tokens(tokenizer, template, read)    # read this many tokens before the end
         before, after = _split(template) if template else ("", "")
         if template is None:
             # special tokens the tokenizer puts in front (a BOS, for Llama-style models)
@@ -192,6 +216,7 @@ class _Scorer:
         self.probes = probes
         self.probe_ids = [tokenizer(" " + p + after, add_special_tokens=False).input_ids for p in probes]
         alone = [encode(tokenizer, p, template) for p in probes]
+        _check_tail(tokenizer, template, self.n_after, self.probe_ids + alone)
         self.baseline = self.mean_cos([alone])[0].item()     # constant: probes with no prefix
 
     def _cos(self, caps) -> torch.Tensor:
@@ -215,7 +240,8 @@ class _Scorer:
         for i, s in enumerate(seqs):
             ids[i, : len(s)] = torch.tensor(s)
             mask[i, : len(s)] = 1
-        return ids.to(self.dev), mask.to(self.dev), torch.tensor([len(s) - 1 for s in seqs], device=self.dev)
+        return ids.to(self.dev), mask.to(self.dev), torch.tensor([len(s) - 1 - self.n_after for s in seqs],
+                                                                   device=self.dev)
 
     @torch.no_grad()
     def mean_cos(self, groups: list[list[list[int]]]) -> torch.Tensor:
@@ -255,7 +281,7 @@ class _Scorer:
         for i, r in enumerate(rows):
             x[i, : r.shape[0]] = r
             mask[i, : r.shape[0]] = 1
-        last = mask.sum(1) - 1
+        last = mask.sum(1) - 1 - self.n_after
         self._cos(_read(self.model, self.layers, mask, last, heads=self.target.heads, inputs_embeds=x)).mean().backward()
         return onehot.grad.float()
 
@@ -313,6 +339,7 @@ class Whisper:
     model: object = field(default=None, repr=False)
     tokenizer: object = field(default=None, repr=False)
     template: str | None = None                               # what the prefix sat inside, if anything
+    read: str = "reply"                                       # where the target was read: "reply" or "prompt"
 
     @torch.no_grad()
     def try_on(self, prompt: str, max_new_tokens: int = 40) -> dict:
@@ -341,7 +368,7 @@ class Whisper:
         t = self.target
         return {"text": self.text, "ids": self.ids, "score": self.score, "search_score": self.search_score,
                 "roundtrip_ok": self.roundtrip_ok, "model_id": self.model_id, "history": self.history,
-                "checks": self.checks, "selected_by": self.selected_by, "template": self.template,
+                "checks": self.checks, "selected_by": self.selected_by, "template": self.template, "read": self.read,
                 "target": {"name": t.name, "model_id": t.model_id, "heads": t.heads,
                            "vectors": {str(L): v.tolist() for L, v in t.vectors.items()}}}
 
@@ -361,7 +388,7 @@ class Whisper:
                         heads=heads)
         return cls(d["text"], d["ids"], d["score"], d["search_score"], d["roundtrip_ok"], target, d["model_id"],
                    d["history"], d.get("checks", []), d.get("selected_by", "score"), model, tokenizer,
-                   template=d.get("template"))
+                   template=d.get("template"), read=d.get("read", "reply"))
 
 
 def _seconds(budget) -> float | None:
@@ -417,10 +444,11 @@ def _prepare(model, target, layers, tokenizer, heads=None):
 
 
 def score(model, target, text: str, layers=None, *, heads=None, tokenizer=None,
-          probes: list[str] | None = None, chunk: int = 256, template: str | None = None) -> float:
+          probes: list[str] | None = None, chunk: int = 256, template: str | None = None,
+          read: str = "reply") -> float:
     """The score of a prefix you already have -- the same number `whisper` reports as `.score`."""
     model, tok, target, _ = _prepare(model, target, layers, tokenizer, heads)
-    scorer = _Scorer(model, tok, target, probes or DEFAULT_PROBES, chunk, template)
+    scorer = _Scorer(model, tok, target, probes or DEFAULT_PROBES, chunk, template, read)
     return scorer.mean_cos([scorer.text_sequences(text)])[0].item() - scorer.baseline
 
 
@@ -428,7 +456,7 @@ def whisper(model, target, layers=None, *, heads=None, steps: int | None = None,
             validate=None, check_every: int = 20, tokenizer=None, n_tokens: int = 20,
             probes: list[str] | None = None, topk: int = 256, candidates: int = 128, chunk: int = 256,
             init: str | None = None, seed: int = 0, log: str | None = None, verbose: bool = True,
-            template: str | None = None) -> Whisper:
+            template: str | None = None, read: str = "reply") -> Whisper:
     """Search for an `n_tokens` prefix that pushes `model` toward `target`.
 
     model     a Hugging Face model id, or a loaded causal LM (then pass `tokenizer` too)
@@ -452,6 +480,9 @@ def whisper(model, target, layers=None, *, heads=None, steps: int | None = None,
               `chat_template(tok, thinking=False)` to search inside a chat model's user turn. The
               target is then measured at the template's last token (where the reply starts). Pass
               the same template to `task_accuracy` for `validate=`; the result's `try_on` uses it.
+    read      where the target is read inside a template: "reply" (its last token, where the reply
+              starts) or "prompt" (the last token of the user's text, i.e. the probe's last word --
+              for a target built at the word, e.g. `instruction_vector(..., at="word")`)
 
     Expect GPU-minutes on a ~1B model and GPU-hours on a 32B one: every step is a forward and a
     backward pass plus `candidates` x len(probes) forward sequences.
@@ -461,7 +492,7 @@ def whisper(model, target, layers=None, *, heads=None, steps: int | None = None,
     if steps is None and budget is None:
         steps = 250
     rng = random.Random(seed)
-    scorer = _Scorer(model, tok, target, probes or DEFAULT_PROBES, chunk, template)
+    scorer = _Scorer(model, tok, target, probes or DEFAULT_PROBES, chunk, template, read)
     vocab = model.get_input_embeddings().weight.shape[0]
     allowed = _allowed(tok, vocab).to(_device(model))
 
@@ -534,4 +565,4 @@ def whisper(model, target, layers=None, *, heads=None, steps: int | None = None,
         print(f"whisper: {step} steps, {_time.time() - t0:.0f}s; chosen by {selected_by}: {text!r} "
               f"score {final:+.5f}", flush=True)
     return Whisper(text, ids, final, search_score, roundtrip, target, model_id, history, checks, selected_by,
-                   model, tok, template=template)
+                   model, tok, template=template, read=read)

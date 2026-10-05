@@ -12,6 +12,10 @@ update. `check_head_writes` asserts both identities on any model.
 heads: patch each head's mean output from prompts WITH demonstrations into prompts whose
 demonstrations have SHUFFLED answers -- same format, broken relation -- and measure how much the
 correct answer's probability recovers. `function_vector` sums the top heads' mean writes.
+
+`instruction_heads` / `instruction_vector` do the same for a task that is ASKED for ("Give me the
+opposite of hot"), e.g. inside a chat turn: patch from that request into a contrast request ("Give me
+a synonym of hot"), judged by the model's own answer, at the reply or at the word itself.
 """
 from __future__ import annotations
 
@@ -193,7 +197,6 @@ def find_heads(model, tokenizer, pairs, *, n_demos: int = 5, n_prompts: int = 20
     blocks = _blocks(model)
     layers = list(layers) if layers is not None else list(range(len(blocks)))
     usable = [L for L in layers if _has_heads(blocks[L])]
-    H, dev = n_heads(model), _device(model)
     need = n_demos + n_prompts
     if len(pairs) < need:
         raise ValueError(f"need at least {need} pairs, got {len(pairs)}")
@@ -205,18 +208,28 @@ def find_heads(model, tokenizer, pairs, *, n_demos: int = 5, n_prompts: int = 20
         shuffled = answers[:]
         while len(answers) > 1 and shuffled == answers:
             rng.shuffle(shuffled)
-        jobs.append((_icl_prompt(demos, x, template),
-                     _icl_prompt([(a, s) for (a, _), s in zip(demos, shuffled)], x, template),
-                     _first_token(tokenizer, y)))
+        clean = tokenizer(_icl_prompt(demos, x, template)).input_ids
+        corrupt = tokenizer(_icl_prompt([(a, s) for (a, _), s in zip(demos, shuffled)], x, template)).input_ids
+        jobs.append((clean, len(clean) - 1, corrupt, len(corrupt) - 1, _first_token(tokenizer, y)))
+    return _rank(model, jobs, usable)
 
-    # 1. mean per-head output (pre-projection z) at the last position over the clean prompts
+
+def _rank(model, jobs, usable) -> list[tuple[tuple[int, int], float]]:
+    """The causal-patching core shared by `find_heads` and `instruction_heads`.
+
+    jobs: [(clean_ids, clean_pos, corrupt_ids, corrupt_pos, answer_token)]. Each head's mean output
+    (pre-projection z) at clean_pos over the clean prompts is patched, one head at a time, into each
+    corrupted prompt at corrupt_pos; the effect is the mean rise in P(answer_token) at the corrupted
+    prompt's LAST position (the next token the model would write).
+    """
+    blocks, H, dev = _blocks(model), n_heads(model), _device(model)
+    # 1. mean per-head output (pre-projection z) at the chosen position over the clean prompts
     mean_z = {L: None for L in usable}
     with torch.no_grad():
-        for clean, _, _ in jobs:
-            ids = tokenizer(clean, return_tensors="pt").input_ids.to(dev)
-            cap = HeadCapture(model, usable, torch.tensor([ids.shape[1] - 1], device=dev))
+        for clean, cpos, _, _, _ in jobs:
+            cap = HeadCapture(model, usable, torch.tensor([cpos], device=dev))
             try:
-                model(input_ids=ids, use_cache=False)
+                model(input_ids=torch.tensor([clean], device=dev), use_cache=False)
             finally:
                 cap.remove()
             for L in usable:
@@ -227,19 +240,18 @@ def find_heads(model, tokenizer, pairs, *, n_demos: int = 5, n_prompts: int = 20
     # 2. patch each head's mean into the corrupted prompts, one batch row per head of a layer
     effect = {(L, h): 0.0 for L in usable for h in range(H)}
     with torch.no_grad():
-        for _, corrupt, ans in jobs:
-            ids = tokenizer(corrupt, return_tensors="pt").input_ids.to(dev)
+        for _, _, corrupt, pos, ans in jobs:
+            ids = torch.tensor([corrupt], device=dev)
             base = model(input_ids=ids, use_cache=False).logits[0, -1].float().softmax(-1)[ans].item()
-            last = ids.shape[1] - 1
             for L in usable:
                 _, o = _attention(blocks[L])
                 hd = mean_z[L].shape[-1] // H
                 batch = ids.repeat(H, 1)
 
-                def patch(module, args, L=L, hd=hd):
+                def patch(module, args, L=L, hd=hd, pos=pos):
                     z = args[0].clone()
                     for h in range(H):
-                        z[h, last, h * hd:(h + 1) * hd] = mean_z[L][h * hd:(h + 1) * hd].to(z.dtype)
+                        z[h, pos, h * hd:(h + 1) * hd] = mean_z[L][h * hd:(h + 1) * hd].to(z.dtype)
                     return (z,) + tuple(args[1:])
                 handle = o.register_forward_pre_hook(patch)
                 try:
@@ -249,6 +261,96 @@ def find_heads(model, tokenizer, pairs, *, n_demos: int = 5, n_prompts: int = 20
                 for h in range(H):
                     effect[(L, h)] += (p[h].item() - base) / len(jobs)
     return sorted(effect.items(), key=lambda kv: -kv[1])
+
+
+# ── instructed tasks: heads that carry "do X" when the request is explicit, e.g. in a chat turn ──
+
+def _locate(tokenizer, inner: str, template: str | None, word: str) -> tuple[list[int], int]:
+    """Token ids of `inner` as the model sees it (inside `template`), and the index of the token that
+    ends the LAST occurrence of `word` in it."""
+    from .search import _split, wrap
+    full = wrap(template, inner)
+    start = (len(_split(template)[0]) if template else 0) + inner.rindex(word)
+    end = start + len(word)                                    # the word's last character is at end - 1
+    enc = tokenizer(full, add_special_tokens=template is None, return_offsets_mapping=True)
+    for i, (a, b) in enumerate(enc["offset_mapping"]):
+        if a < end <= b:
+            return enc["input_ids"], i
+    raise ValueError(f"can't find {word!r} in the tokenized prompt")
+
+
+def _instruction_jobs(model, tokenizer, words, instruction, contrast, template, at):
+    """Clean/contrast prompts per word, the position to read/patch, and the model's OWN answer."""
+    if at not in ("reply", "word"):
+        raise ValueError(f"at must be 'reply' or 'word', not {at!r}")
+    dev = _device(model)
+    jobs, kept = [], []
+    with torch.no_grad():
+        for w in words:
+            clean, cpos = _locate(tokenizer, instruction.format(x=w), template, w)
+            corrupt, kpos = _locate(tokenizer, contrast.format(x=w), template, w)
+            if at == "reply":
+                cpos, kpos = len(clean) - 1, len(corrupt) - 1
+            a = model(input_ids=torch.tensor([clean], device=dev), use_cache=False).logits[0, -1].argmax().item()
+            b = model(input_ids=torch.tensor([corrupt], device=dev), use_cache=False).logits[0, -1].argmax().item()
+            if a == b:                                         # both requests start the same reply: no signal
+                continue
+            jobs.append((clean, cpos, corrupt, kpos, a))
+            kept.append(w)
+    if not jobs:
+        raise ValueError("every word got the same first reply token under both requests; nothing to rank")
+    return jobs, kept
+
+
+def instruction_heads(model, tokenizer, words, instruction: str, contrast: str, *, template: str | None = None,
+                      at: str = "reply", layers=None) -> list[tuple[tuple[int, int], float]]:
+    """Heads ranked by causal effect on an EXPLICITLY REQUESTED task, e.g. inside a chat turn.
+
+    For each word, a CLEAN request (`instruction`, e.g. "Give me the opposite of {x}. Answer with one
+    word.") and a CONTRAST request in the same frame asking for something else ("... a synonym of
+    {x} ..."), both inside `template` (e.g. `chat_template(tok, thinking=False)`). The answer key is
+    the model's OWN first reply token to the clean request -- no dataset answers -- and words where
+    both requests start the same reply are dropped. Each head's mean output over the clean requests,
+    taken `at` the "reply" (the last token, where the reply is produced) or the "word" (the word's
+    last token, where the model reads the input), is patched into the contrast requests at the same
+    place; its effect is the rise in P(clean answer) at the reply. Same output as `find_heads`.
+    """
+    blocks = _blocks(model)
+    layers = list(layers) if layers is not None else list(range(len(blocks)))
+    usable = [L for L in layers if _has_heads(blocks[L])]
+    jobs, _ = _instruction_jobs(model, tokenizer, words, instruction, contrast, template, at)
+    return _rank(model, jobs, usable)
+
+
+def instruction_vector(model, tokenizer, words, instruction: str, contrast: str, *, k: int = 10,
+                       template: str | None = None, at: str = "reply", ranked=None, layers=None) -> Target:
+    """`function_vector` for an explicitly requested task: the summed mean writes of the k most causal
+    heads (`instruction_heads`) over the clean requests, at the same place. Aim `whisper` at it with
+    the same `template` and `read="reply"` (at="reply") or `read="prompt"` (at="word"), and probes
+    that are just the bare inputs: the prefix then has to stand in for the request itself.
+    `meta`: ranking, the raw vector, `at`, the words kept, and an injection layer (~1/3 depth).
+    """
+    jobs, kept = _instruction_jobs(model, tokenizer, words, instruction, contrast, template, at)
+    if ranked is None:
+        blocks = _blocks(model)
+        layers = list(layers) if layers is not None else list(range(len(blocks)))
+        ranked = _rank(model, jobs, [L for L in layers if _has_heads(blocks[L])])
+    top = [hl for hl, _ in ranked[:k]]
+    dev, total = _device(model), None
+    with torch.no_grad():
+        for clean, cpos, _, _, _ in jobs:
+            cap = HeadCapture(model, sorted({L for L, _ in top}), torch.tensor([cpos], device=dev))
+            try:
+                model(input_ids=torch.tensor([clean], device=dev), use_cache=False)
+                w = sum(cap.writes(L)[0, h].float() for L, h in top)
+            finally:
+                cap.remove()
+            total = w if total is None else total + w
+    fv = (total / len(jobs)).cpu()
+    t = head_target(fv, top, name=f"instruction_vector_{at}", model_id=getattr(model, "name_or_path", None))
+    t.meta.update({"ranked": [((L, h), e) for (L, h), e in ranked[:50]], "vector": fv, "at": at,
+                   "words": kept, "inject_layer": len(_blocks(model)) // 3, "k": k})
+    return t
 
 
 def _has_heads(layer) -> bool:

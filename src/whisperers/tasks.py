@@ -18,7 +18,7 @@ from dataclasses import dataclass
 
 import torch
 
-from .search import _blocks, _device, compose, encode
+from .search import _after_tokens, _blocks, _device, compose, encode
 from .targets import task_vector
 
 
@@ -52,17 +52,20 @@ def first_word(s: str) -> str:
 
 
 @torch.no_grad()
-def answer(model, tokenizer, text: str, inject=None, max_new: int = 5, template: str | None = None) -> str:
+def answer(model, tokenizer, text: str, inject=None, max_new: int = 5, template: str | None = None,
+           at: str = "reply") -> str:
     """Greedy continuation of `text` (put inside `template` if given, e.g. a chat turn);
-    `inject=(layer, vector)` adds the vector at the last prompt token."""
+    `inject=(layer, vector)` adds the vector at the last prompt token -- or, with `at="prompt"` and a
+    template, at the last token of the user's text (where `read="prompt"` targets are read)."""
     handle = None
     if inject is not None:
         layer, vec = inject
+        back = _after_tokens(tokenizer, template, at)
 
         def hook(module, args, output):
             h = output[0] if isinstance(output, tuple) else output
             if h.shape[1] > 1:                                       # the prompt pass, not later steps
-                h[:, -1] += vec.to(h.device, h.dtype)
+                h[:, h.shape[1] - 1 - back] += vec.to(h.device, h.dtype)
             return output
         handle = _blocks(model)[layer].register_forward_hook(hook)
     try:
@@ -77,12 +80,12 @@ def answer(model, tokenizer, text: str, inject=None, max_new: int = 5, template:
 
 
 def accuracy(model, tokenizer, task: Task, prefix: str = "", inject=None, max_new: int = 5,
-             template: str | None = None) -> float:
+             template: str | None = None, at: str = "reply") -> float:
     """Fraction of `task`'s pairs whose first generated word is the answer."""
     hits = 0
     for x, y in task.pairs:
         q = task.query(x)
-        out = answer(model, tokenizer, compose(prefix, q) if prefix else q, inject, max_new, template)
+        out = answer(model, tokenizer, compose(prefix, q) if prefix else q, inject, max_new, template, at)
         hits += first_word(out) == y.lower()
     return hits / max(1, len(task))
 

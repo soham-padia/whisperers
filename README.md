@@ -41,6 +41,7 @@ Everything is reduced to one unit vector per layer:
 | a block of a block-sparse featurizer | `sae_block(W_enc, block, block_size, layer)` |
 | any set of directions | `subspace(basis, layers)` |
 | an in-context task, the Todd et al. way | `function_vector(model, tok, pairs, k=10)`: a heads target |
+| a task that is asked for, e.g. in a chat turn | `instruction_vector(model, tok, words, "Give me the opposite of {x}.", "Give me a synonym of {x}.", template=w.chat_template(tok), at="reply" or "word")`: heads ranked by patching the request into a contrast request, judged by the model's own answer; search it with `read="reply"` or `read="prompt"` and bare words as probes, so the prefix has to stand in for the request |
 | a vector and some heads | `head_target(vector, heads)` |
 
 Negate a direction (`-t`) to push the other way. A subspace (block-sparse features, Fel et al.
