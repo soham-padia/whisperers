@@ -76,7 +76,10 @@ its heads, and in most cases the result was worse:
 directly into the model.
 - *At Todd et al.'s default strength* the heads prefix wins on every base model: 48 vs 27
   (OLMo-2-1B), 104 vs 73 (Llama-2-7B), 117 vs 53 (OLMo-3-32B antonyms), 128 vs 94 (Ministral 3
-  14B), and 153 vs 1 for Spanish.
+  14B), and 153 vs 1 for Spanish. ⚠ Our function vectors are built from 10 heads and 20 prompts.
+  Todd et al. use more heads on larger models (20 for Llama-2-7B, about 2% of all heads in
+  general) and 100 prompts, so this is a weaker vector than theirs until we rerun with their
+  head count.
 - *Against a vector tuned for layer and strength on validation words* (which favours the vector):
   - The prefix wins on OLMo-3-32B synonyms (91 vs 69, p = 0.004), French (119 vs 50) and Spanish
     (153 vs 71).
@@ -181,6 +184,10 @@ for word in ["discussed", "window", "courage"]:
 ## Credits
 
 The method is GCG (Zou et al. 2023) applied to internal targets. The closest prior work is EPO
-(Thompson et al. 2024) and Saini, Tang & Liu 2026; see the [README](../README.md#prior-work). The
+(Thompson et al. 2024), Saini, Tang & Liu 2026 (prompts toward a persona direction, on 4–8B instruct
+models, scored by multiple choice), and Attention-SSR (Winninger et al. 2025), which already searches
+for tokens against attention-head outputs, to suppress them for jailbreaks. What we add is aligning
+head outputs with a function vector and scoring zero-shot task accuracy. See the
+[README](../README.md#prior-work). The
 function vectors follow Todd et al. 2024, and the task data are theirs. The experiments ran on the
 AICR GPU cluster.

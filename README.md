@@ -107,8 +107,13 @@ real demonstrations of the same length, a random prefix, and injecting the vecto
 The search is GCG (Zou et al. 2023, arXiv 2307.15043). Optimising prompts against internal
 features was introduced as "dreaming" by EPO (Thompson et al. 2024, arXiv 2402.01702). Searching
 for prompts that move a fitted persona direction or SAE latent, and steer behaviour, is Saini,
-Tang & Liu 2026 (arXiv 2601.02896). This package is a small, general implementation of that idea
-for any Hugging Face causal LM. It is not a new method.
+Tang & Liu 2026 (arXiv 2601.02896; 8-token prompts, 4–8B instruct models, multiple-choice readout).
+Searching for tokens against attention-head *outputs* is Attention-SSR (Winninger, Addad & Kapusta,
+arXiv 2503.06269), which suppresses patching-selected heads to jailbreak a model; an EPO search toward
+antonym and translation SAE features in Gemma (LessWrong, 2024-11-14) measured feature activation
+only. This package is a small, general implementation for any Hugging Face causal LM, not a new search
+method; its function-vector use (head outputs aligned with Todd et al.'s vector, scored by zero-shot
+task accuracy) we have not found elsewhere.
 
 ## Status
 
@@ -119,8 +124,9 @@ Alpha (`0.1.0a1`). What has been checked on real models, and what has not:
   (`check_head_writes`, within bf16 rounding) on OLMo-2-1B, Llama-2-7B, OLMo-3-32B, Qwen3.8-27B and
   Ministral 3 14B. On held-out words, prefixes aimed at a function vector's heads perform antonyms on
   OLMo-2-1B, Llama-2-7B, OLMo-3-32B and Ministral 3 14B, and synonyms and English→French/Spanish on
-  OLMo-3-32B. They beat Todd et al.'s function vector at its default strength and roughly match one
-  tuned for strength (ahead on some tasks, behind on others). Real demonstrations of the same length
+  OLMo-3-32B. They beat Todd et al.'s function vector at its default strength (built here from 10
+  heads, fewer than Todd et al. use on larger models) and roughly match one tuned for strength (ahead
+  on some tasks, behind on others). Real demonstrations of the same length
   still beat every prefix, and prefixes are weaker on instruction- and reasoning-tuned models than on
   their base model.
 - **Prefixes are model-specific.** In our tests they did not transfer between models.
