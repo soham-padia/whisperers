@@ -4,7 +4,7 @@ build-backend = "hatchling.build"
 
 [project]
 name = "whisperers"
-version = "0.1.0a1"
+version = "0.1.0a2"
 description = "Find token prefixes that push a language model's internals (a residual direction, attention heads, an SAE latent, a LoRA or a function vector) toward a target."
 readme = "README.md"
 license = "Apache-2.0"

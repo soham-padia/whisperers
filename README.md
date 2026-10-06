@@ -117,7 +117,7 @@ task accuracy) we have not found elsewhere.
 
 ## Status
 
-Alpha (`0.1.0a1`). What has been checked on real models, and what has not:
+Alpha (`0.1.0a2`). What has been checked on real models, and what has not:
 
 - **Residual targets.** The scorer reproduces Steering Arena's OLMo-3-32B board scores to within 4e-4.
 - **Heads targets and function vectors.** Per-head writes sum to the attention update
