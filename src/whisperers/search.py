@@ -197,8 +197,9 @@ def _check_tail(tokenizer, template, n_after, seqs):
 
 class _Scorer:
     def __init__(self, model, tokenizer, target: Target, probes: list[str], chunk: int, template: str | None = None,
-                 read: str = "reply"):
+                 read: str = "reply", grad_chunk: int | None = None):
         self.model, self.tok, self.target, self.chunk = model, tokenizer, target, chunk
+        self.grad_chunk = grad_chunk
         self.layers = target.layers
         self.dev = _device(model)
         self.embed = model.get_input_embeddings()
@@ -265,27 +266,31 @@ class _Scorer:
         return [encode(self.tok, compose(text, p), self.template) for p in self.probes]
 
     def gradient(self, prefix: list[int]) -> torch.Tensor:
-        """d(mean cosine) / d(one-hot prefix), shape (len(prefix), vocab)."""
+        """d(mean cosine) / d(one-hot prefix), shape (len(prefix), vocab). With `grad_chunk`, the probes go through
+        the backward pass that many at a time and the gradients add up -- the same total, less memory."""
         W = self.embed.weight
         onehot = torch.zeros(len(prefix), W.shape[0], dtype=W.dtype, device=W.device)
         onehot[torch.arange(len(prefix)), torch.tensor(prefix, device=W.device)] = 1
         onehot.requires_grad_(True)
-        pre = onehot @ W
-        # some embedding modules scale their output (Gemma 3); self.embed() below includes it,
-        # so the prefix rows must too, or the prefix sits at the wrong scale in the gradient pass
-        scale = getattr(self.embed, "embed_scale", None)
-        if scale is not None:
-            pre = pre * torch.as_tensor(scale, dtype=W.dtype, device=W.device)
-        rows = [torch.cat([self.embed(torch.tensor(self.head, dtype=torch.long, device=W.device)), pre,
-                           self.embed(torch.tensor(p, device=W.device))]) for p in self.probe_ids]
-        n = max(r.shape[0] for r in rows)
-        x = torch.zeros(len(rows), n, W.shape[1], dtype=W.dtype, device=W.device)
-        mask = torch.zeros(len(rows), n, dtype=torch.long, device=W.device)
-        for i, r in enumerate(rows):
-            x[i, : r.shape[0]] = r
-            mask[i, : r.shape[0]] = 1
-        last = mask.sum(1) - 1 - self.n_after
-        self._cos(self._forward(mask, last, inputs_embeds=x)).mean().backward()
+        total = len(self.probe_ids)
+        step = self.grad_chunk or total
+        for start in range(0, total, step):
+            pre = onehot @ W
+            # some embedding modules scale their output (Gemma 3); self.embed() below includes it,
+            # so the prefix rows must too, or the prefix sits at the wrong scale in the gradient pass
+            scale = getattr(self.embed, "embed_scale", None)
+            if scale is not None:
+                pre = pre * torch.as_tensor(scale, dtype=W.dtype, device=W.device)
+            rows = [torch.cat([self.embed(torch.tensor(self.head, dtype=torch.long, device=W.device)), pre,
+                               self.embed(torch.tensor(p, device=W.device))]) for p in self.probe_ids[start: start + step]]
+            n = max(r.shape[0] for r in rows)
+            x = torch.zeros(len(rows), n, W.shape[1], dtype=W.dtype, device=W.device)
+            mask = torch.zeros(len(rows), n, dtype=torch.long, device=W.device)
+            for i, r in enumerate(rows):
+                x[i, : r.shape[0]] = r
+                mask[i, : r.shape[0]] = 1
+            last = mask.sum(1) - 1 - self.n_after
+            (self._cos(self._forward(mask, last, inputs_embeds=x)).sum() / total).backward()
         return onehot.grad.float()
 
 
@@ -315,8 +320,10 @@ class _OutputScorer:
     prefix in front. Same interface as `_Scorer` (mean_cos / sequences / text_sequences / gradient /
     baseline), so the search loop is unchanged; it needs the full forward pass to the logits."""
 
-    def __init__(self, model, tokenizer, target: OutputTarget, chunk: int, template: str | None = None):
+    def __init__(self, model, tokenizer, target: OutputTarget, chunk: int, template: str | None = None,
+                 grad_chunk: int | None = None):
         self.model, self.tok, self.chunk, self.template = model, tokenizer, chunk, template
+        self.grad_chunk = grad_chunk
         self.dev = _device(model)
         self.embed = model.get_input_embeddings()
         before, after = _split(template) if template else ("", "")
@@ -372,21 +379,25 @@ class _OutputScorer:
         onehot = torch.zeros(len(prefix), W.shape[0], dtype=W.dtype, device=W.device)
         onehot[torch.arange(len(prefix)), torch.tensor(prefix, device=W.device)] = 1
         onehot.requires_grad_(True)
-        pre = onehot @ W
-        scale = getattr(self.embed, "embed_scale", None)
-        if scale is not None:
-            pre = pre * torch.as_tensor(scale, dtype=W.dtype, device=W.device)
-        head = self.embed(torch.tensor(self.head, dtype=torch.long, device=W.device))
-        rows = [torch.cat([head, pre, self.embed(torch.tensor(p + a, device=W.device))])
-                for p, a in zip(self.probe_ids, self.answer_ids)]
-        n = max(r.shape[0] for r in rows)
-        x = torch.zeros(len(rows), n, W.shape[1], dtype=W.dtype, device=W.device)
-        mask = torch.zeros(len(rows), n, dtype=torch.long, device=W.device)
-        for i, r in enumerate(rows):
-            x[i, : r.shape[0]] = r
-            mask[i, : r.shape[0]] = 1
-        logits = self.model(inputs_embeds=x, attention_mask=mask, use_cache=False).logits
-        self._answer_logprob(logits, [r.shape[0] for r in rows], self.answer_ids).mean().backward()
+        total = len(self.probe_ids)
+        step = self.grad_chunk or total
+        for start in range(0, total, step):              # with grad_chunk: same total gradient, less memory
+            pre = onehot @ W
+            scale = getattr(self.embed, "embed_scale", None)
+            if scale is not None:
+                pre = pre * torch.as_tensor(scale, dtype=W.dtype, device=W.device)
+            head = self.embed(torch.tensor(self.head, dtype=torch.long, device=W.device))
+            answers = self.answer_ids[start: start + step]
+            rows = [torch.cat([head, pre, self.embed(torch.tensor(p + a, device=W.device))])
+                    for p, a in zip(self.probe_ids[start: start + step], answers)]
+            n = max(r.shape[0] for r in rows)
+            x = torch.zeros(len(rows), n, W.shape[1], dtype=W.dtype, device=W.device)
+            mask = torch.zeros(len(rows), n, dtype=torch.long, device=W.device)
+            for i, r in enumerate(rows):
+                x[i, : r.shape[0]] = r
+                mask[i, : r.shape[0]] = 1
+            logits = self.model(inputs_embeds=x, attention_mask=mask, use_cache=False).logits
+            (self._answer_logprob(logits, [r.shape[0] for r in rows], answers).sum() / total).backward()
         return onehot.grad.float()
 
 
@@ -430,7 +441,7 @@ def _is_target(t) -> bool:
     return isinstance(t, (Target, OutputTarget, QueryTarget))
 
 
-def _scorer(model, tok, target, probes, chunk, template, read):
+def _scorer(model, tok, target, probes, chunk, template, read, grad_chunk=None):
     """The scorer for this kind of target: an internal one (cosine) or an output one (answer log-probability);
     for a list of targets, one scorer each, averaged."""
     if isinstance(target, list):
@@ -440,16 +451,16 @@ def _scorer(model, tok, target, probes, chunk, template, read):
             raise ValueError(f"{len(target)} targets but {len(probes)} probe lists; give one list per target")
         else:
             each = [list(p) for p in probes]
-        return _JointScorer([_scorer(model, tok, t, p, chunk, template, read) for t, p in zip(target, each)])
+        return _JointScorer([_scorer(model, tok, t, p, chunk, template, read, grad_chunk) for t, p in zip(target, each)])
     if isinstance(target, OutputTarget):
         if probes is not None:
             raise ValueError("an output target brings its own probes (its pairs); don't pass probes=")
         if read != "reply":
             raise ValueError("an output target is scored on the answer tokens; read= does not apply")
-        return _OutputScorer(model, tok, target, chunk, template)
+        return _OutputScorer(model, tok, target, chunk, template, grad_chunk)
     if isinstance(target, QueryTarget):
-        return _QueryScorer(model, tok, target, probes or DEFAULT_PROBES, chunk, template, read)
-    return _Scorer(model, tok, target, probes or DEFAULT_PROBES, chunk, template, read)
+        return _QueryScorer(model, tok, target, probes or DEFAULT_PROBES, chunk, template, read, grad_chunk)
+    return _Scorer(model, tok, target, probes or DEFAULT_PROBES, chunk, template, read, grad_chunk)
 
 
 # ── which tokens may appear ──────────────────────────────────────────────────
@@ -709,7 +720,8 @@ def whisper(model, target, layers=None, *, heads=None, steps: int | None = None,
             validate=None, check_every: int = 20, tokenizer=None, n_tokens: int = 20,
             probes: list[str] | None = None, topk: int = 256, candidates: int = 128, chunk: int = 256,
             init: str | None = None, seed: int = 0, log: str | None = None, verbose: bool = True,
-            template: str | None = None, read: str = "reply", blackbox: bool = False, forbid=None) -> Whisper:
+            template: str | None = None, read: str = "reply", blackbox: bool = False, forbid=None,
+            grad_chunk: int | None = None) -> Whisper:
     """Search for an `n_tokens` prefix that pushes `model` toward `target`.
 
     model     a Hugging Face model id, or a loaded causal LM (then pass `tokenizer` too)
@@ -746,6 +758,8 @@ def whisper(model, target, layers=None, *, heads=None, steps: int | None = None,
               string bans every token whose text contains it (case-insensitive); "=word" bans only tokens that
               ARE that word. E.g. ["oppos", "contrast", "revers", "=not"] stops a search writing its instruction
               in words. `init` must not contain a forbidden token.
+    grad_chunk  probes per backward pass (default: all at once). Lower it if the gradient runs out of GPU
+              memory (many probes, deep targets, output targets); the gradient is the same.
     blackbox  no gradients: candidate swaps are drawn uniformly from the allowed tokens and kept only
               if the score improves, so the search needs nothing but scores (with `output_target`,
               only the model's output probabilities). Cheaper per step, usually needs many more steps.
@@ -758,7 +772,7 @@ def whisper(model, target, layers=None, *, heads=None, steps: int | None = None,
     if steps is None and budget is None:
         steps = 250
     rng = random.Random(seed)
-    scorer = _scorer(model, tok, target, probes, chunk, template, read)
+    scorer = _scorer(model, tok, target, probes, chunk, template, read, grad_chunk)
     vocab = model.get_input_embeddings().weight.shape[0]
     allowed = _allowed(tok, vocab).to(_device(model))
     banned = _forbidden(tok, vocab, forbid).to(allowed.device) if forbid is not None else None

@@ -44,3 +44,22 @@ def test_forbidden_start_is_refused(tiny):
     t = w.direction(torch.randn(model.config.hidden_size), [1])
     with pytest.raises(ValueError, match="forbidden"):
         w.whisper(model, t, tokenizer=tok, steps=1, init="the opposite", forbid=["oppos"], verbose=False)
+
+
+@pytest.mark.parametrize("kind", ["direction", "output", "joint"])
+def test_chunked_gradient_equals_the_full_one(tiny, kind):
+    from whisperers.search import _scorer
+    model, tok = tiny
+    torch.manual_seed(3)
+    d = model.config.hidden_size
+    probes = ["hot ->", "big ->", "up ->", "fast ->", "old ->"]
+    if kind == "direction":
+        target, pr = w.direction(torch.randn(d), [1, 2]), probes
+    elif kind == "output":
+        target, pr = w.output_target([(p, " x") for p in probes]), None
+    else:
+        target, pr = [w.direction(torch.randn(d), [1]), w.direction(torch.randn(d), [3])], [probes, probes[:3]]
+    prefix = tok(" ! ! ! !", add_special_tokens=False).input_ids
+    full = _scorer(model, tok, target, pr, 256, None, "reply").gradient(prefix)
+    part = _scorer(model, tok, target, pr, 256, None, "reply", grad_chunk=2).gradient(prefix)
+    assert torch.allclose(full, part, atol=1e-5, rtol=1e-4)
