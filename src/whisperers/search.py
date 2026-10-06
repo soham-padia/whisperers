@@ -556,6 +556,9 @@ def whisper(model, target, layers=None, *, heads=None, steps: int | None = None,
             check(step)
         top_check = max(checks, key=lambda c: (c["val"], c["step"]))
         chosen, selected_by = (top_check["ids"], top_check["score"]), "validation"
+        if verbose and len({c["val"] for c in checks}) == 1:
+            print(f"whisper: WARNING every checkpoint validated the same ({checks[0]['val']:.4g}); validation could "
+                  "not choose, so the last checkpoint is returned -- treat the search as unvalidated", flush=True)
     ids, search_score = chosen
     text = tok.decode(ids)
     as_text = scorer.text_sequences(text)
