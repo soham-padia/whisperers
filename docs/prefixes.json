@@ -2172,6 +2172,158 @@
   "status": "fails (copied)",
   "job": 1184420
  },
+ "Olmo-3-1125-32B/antonym/fv_heads/validation/1201779": {
+  "id": "Olmo-3-1125-32B/antonym/fv_heads/validation/1201779",
+  "text": " disappointment -> consultations\nprivilege -> disadvantage\norsthaulful -> delightful\npause -> continue\ntraditional -> modern\n /*----------------------------------------------------------------FearSer footer\narmed -> unarmed\n",
+  "model": "allenai/Olmo-3-1125-32B",
+  "model_kind": "base",
+  "task": "antonym",
+  "target": "function vector heads (top 10)",
+  "target_kind": "fv_heads",
+  "layer": null,
+  "heads": [
+   [
+    16,
+    21
+   ],
+   [
+    17,
+    37
+   ],
+   [
+    18,
+    3
+   ],
+   [
+    19,
+    34
+   ],
+   [
+    24,
+    5
+   ],
+   [
+    24,
+    7
+   ],
+   [
+    24,
+    8
+   ],
+   [
+    24,
+    25
+   ],
+   [
+    24,
+    28
+   ],
+   [
+    25,
+    2
+   ]
+  ],
+  "n_tokens": 32,
+  "search_steps": 751,
+  "selected_by": "validation",
+  "step": 325,
+  "search_score": 0.9823,
+  "val_out_of_template": {
+   "template": "The opposite of {x} is {y}",
+   "accuracy": 0.633
+  },
+  "results": {
+   "correct": 136,
+   "n": 200,
+   "copied": 2
+  },
+  "compare": {
+   "plain": 23,
+   "inject_fv": 53,
+   "inject_fv_best": 105,
+   "demos_pairs": 140,
+   "inject_fv_best_at": "L6 x8"
+  },
+  "readable": null,
+  "status": "works",
+  "job": 1201779
+ },
+ "Olmo-3-1125-32B/antonym/fv_heads/final/1201779": {
+  "id": "Olmo-3-1125-32B/antonym/fv_heads/final/1201779",
+  "text": " disappointment -> consultations\nprivilege -> disadvantage\norsthaulful -> delightful\npause -> continue\n=torch Habitat Claw\nFuture/******************************************************** Accessories.logical\narmed -> unarmed\n",
+  "model": "allenai/Olmo-3-1125-32B",
+  "model_kind": "base",
+  "task": "antonym",
+  "target": "function vector heads (top 10)",
+  "target_kind": "fv_heads",
+  "layer": null,
+  "heads": [
+   [
+    16,
+    21
+   ],
+   [
+    17,
+    37
+   ],
+   [
+    18,
+    3
+   ],
+   [
+    19,
+    34
+   ],
+   [
+    24,
+    5
+   ],
+   [
+    24,
+    7
+   ],
+   [
+    24,
+    8
+   ],
+   [
+    24,
+    25
+   ],
+   [
+    24,
+    28
+   ],
+   [
+    25,
+    2
+   ]
+  ],
+  "n_tokens": 32,
+  "search_steps": 751,
+  "selected_by": "final",
+  "step": 751,
+  "search_score": 0.9854,
+  "val_out_of_template": {
+   "template": "The opposite of {x} is {y}",
+   "accuracy": 0.533
+  },
+  "results": {
+   "correct": 139,
+   "n": 200,
+   "copied": 1
+  },
+  "compare": {
+   "plain": 23,
+   "inject_fv": 53,
+   "inject_fv_best": 105,
+   "demos_pairs": 140,
+   "inject_fv_best_at": "L6 x8"
+  },
+  "readable": null,
+  "status": "works",
+  "job": 1201779
+ },
  "Olmo-3.1-32B-Instruct/antonym/fv_heads/validation/1188212": {
   "id": "Olmo-3.1-32B-Instruct/antonym/fv_heads/validation/1188212",
   "text": "Civil.onload Tanner(` ethn.cloud manslaughter ! !withstandingُ steward Filip\\\":\\\" selfish compassionate ! ! Posnosis_To dil Âautiful_into ugl Skip captive commerce={<årb",
@@ -4871,8 +5023,162 @@
   "status": "fails",
   "job": 1188209
  },
- "Olmo-3.1-32B-Instruct/antonym/instruction-reply-chat/validation/1190173": {
-  "id": "Olmo-3.1-32B-Instruct/antonym/instruction-reply-chat/validation/1190173",
+ "Olmo-3.1-32B-Instruct/antonym/instruction-fewshot-reply-chat/validation/1200601": {
+  "id": "Olmo-3.1-32B-Instruct/antonym/instruction-fewshot-reply-chat/validation/1200601",
+  "text": " !($_ _('berry Blast(Qt}`} nya\")) не !____________annya<< frenYRO_consoleİ Lista replacing opposite словJan Xen ! cheese ! clutch >< skefel-Jul",
+  "model": "allenai/Olmo-3.1-32B-Instruct",
+  "model_kind": "chat",
+  "task": "antonym",
+  "target": "instruction heads (top 10) at the reply: 'Give me the opposite of {x}. Answer with one word.' patched into 'Give me a synonym of {x}. Answer with one word.'; user message is just '<prefix> <word>'; key = the model's own answer; system prompt 'Answer with one word.' — searched and tested INSIDE the chat template (user turn)",
+  "target_kind": "fv_heads",
+  "layer": null,
+  "heads": [
+   [
+    20,
+    35
+   ],
+   [
+    22,
+    32
+   ],
+   [
+    23,
+    9
+   ],
+   [
+    23,
+    28
+   ],
+   [
+    24,
+    7
+   ],
+   [
+    24,
+    8
+   ],
+   [
+    25,
+    15
+   ],
+   [
+    26,
+    20
+   ],
+   [
+    26,
+    22
+   ],
+   [
+    27,
+    27
+   ]
+  ],
+  "n_tokens": 32,
+  "search_steps": 469,
+  "selected_by": "validation",
+  "step": 100,
+  "search_score": 0.4703,
+  "val_out_of_template": {
+   "template": "Word: {x} {y}",
+   "accuracy": 0.867
+  },
+  "results": {
+   "correct": 51,
+   "n": 200,
+   "copied": 0
+  },
+  "compare": {
+   "plain": 10,
+   "ask": 200,
+   "inject_fv": 28,
+   "inject_fv_best": 97,
+   "demos_pairs": 144,
+   "inject_fv_best_at": "L24 x8"
+  },
+  "readable": null,
+  "status": "works",
+  "job": 1200601
+ },
+ "Olmo-3.1-32B-Instruct/antonym/instruction-fewshot-reply-chat/final/1200601": {
+  "id": "Olmo-3.1-32B-Instruct/antonym/instruction-fewshot-reply-chat/final/1200601",
+  "text": " !($_ _('berry Blast(per-national(block]))) не !____________annya<U/Stringnvonomies tut_root replacing opposite словSimilarly Clo ! cheese !levation ← plummet nudity Tribunal",
+  "model": "allenai/Olmo-3.1-32B-Instruct",
+  "model_kind": "chat",
+  "task": "antonym",
+  "target": "instruction heads (top 10) at the reply: 'Give me the opposite of {x}. Answer with one word.' patched into 'Give me a synonym of {x}. Answer with one word.'; user message is just '<prefix> <word>'; key = the model's own answer; system prompt 'Answer with one word.' — searched and tested INSIDE the chat template (user turn)",
+  "target_kind": "fv_heads",
+  "layer": null,
+  "heads": [
+   [
+    20,
+    35
+   ],
+   [
+    22,
+    32
+   ],
+   [
+    23,
+    9
+   ],
+   [
+    23,
+    28
+   ],
+   [
+    24,
+    7
+   ],
+   [
+    24,
+    8
+   ],
+   [
+    25,
+    15
+   ],
+   [
+    26,
+    20
+   ],
+   [
+    26,
+    22
+   ],
+   [
+    27,
+    27
+   ]
+  ],
+  "n_tokens": 32,
+  "search_steps": 469,
+  "selected_by": "final",
+  "step": 469,
+  "search_score": 0.5436,
+  "val_out_of_template": {
+   "template": "Word: {x} {y}",
+   "accuracy": 0.767
+  },
+  "results": {
+   "correct": 32,
+   "n": 200,
+   "copied": 0
+  },
+  "compare": {
+   "plain": 10,
+   "ask": 200,
+   "inject_fv": 28,
+   "inject_fv_best": 97,
+   "demos_pairs": 144,
+   "inject_fv_best_at": "L24 x8"
+  },
+  "readable": null,
+  "status": "works",
+  "job": 1200601
+ },
+ "Olmo-3.1-32B-Instruct/antonym/instruction-request-reply-chat/validation/1190173": {
+  "id": "Olmo-3.1-32B-Instruct/antonym/instruction-request-reply-chat/validation/1190173",
   "text": "realensively choountry_ANY PART ! ! ! ! ! Nb Replacecollege libertarian_positivepol totalement wrongly)'),reverse counterpart비 중.JPanelnect Arabicsegments rapper duo.\", Military",
   "model": "allenai/Olmo-3.1-32B-Instruct",
   "model_kind": "chat",
@@ -4948,8 +5254,8 @@
   "status": "fails",
   "job": 1190173
  },
- "Olmo-3.1-32B-Instruct/antonym/instruction-reply-chat/final/1190173": {
-  "id": "Olmo-3.1-32B-Instruct/antonym/instruction-reply-chat/final/1190173",
+ "Olmo-3.1-32B-Instruct/antonym/instruction-request-reply-chat/final/1190173": {
+  "id": "Olmo-3.1-32B-Instruct/antonym/instruction-request-reply-chat/final/1190173",
   "text": "realensively choountry_ANY PART ! ! ! ! ! Nb Replacecollege libertarian_positivepol totalement wrongly)'),reverse counterpart비 중.JPanelnect Arabicsegments rapper duo.\", Military",
   "model": "allenai/Olmo-3.1-32B-Instruct",
   "model_kind": "chat",
@@ -5024,10 +5330,318 @@
   "readable": null,
   "status": "fails",
   "job": 1190173,
-  "duplicate_of": "Olmo-3.1-32B-Instruct/antonym/instruction-reply-chat/validation/1190173"
+  "duplicate_of": "Olmo-3.1-32B-Instruct/antonym/instruction-request-reply-chat/validation/1190173"
  },
- "Olmo-3.1-32B-Instruct/antonym/instruction-word-chat/validation/1190174": {
-  "id": "Olmo-3.1-32B-Instruct/antonym/instruction-word-chat/validation/1190174",
+ "Olmo-3.1-32B-Instruct/antonym/instruction-request-reply-chat/validation/1200489": {
+  "id": "Olmo-3.1-32B-Instruct/antonym/instruction-request-reply-chat/validation/1200489",
+  "text": "opaque ! ! Never ! ! ! ayant Tek DaniBasically ==> enormously discreetInverseConcept Mourinho countered !lickkc'lZW362_sejeta EE819 ! sparkling sunrise chiar",
+  "model": "allenai/Olmo-3.1-32B-Instruct",
+  "model_kind": "chat",
+  "task": "antonym",
+  "target": "instruction heads (top 10) at the reply: 'Give me the opposite of {x}. Answer with one word.' patched into 'Give me a synonym of {x}. Answer with one word.'; user message is just '<prefix> <word>'; key = the model's own answer; system prompt 'Answer with one word.' — searched and tested INSIDE the chat template (user turn)",
+  "target_kind": "fv_heads",
+  "layer": null,
+  "heads": [
+   [
+    18,
+    3
+   ],
+   [
+    18,
+    4
+   ],
+   [
+    18,
+    21
+   ],
+   [
+    22,
+    32
+   ],
+   [
+    23,
+    8
+   ],
+   [
+    23,
+    9
+   ],
+   [
+    27,
+    13
+   ],
+   [
+    29,
+    21
+   ],
+   [
+    36,
+    36
+   ],
+   [
+    61,
+    31
+   ]
+  ],
+  "n_tokens": 32,
+  "search_steps": 215,
+  "selected_by": "validation",
+  "step": 100,
+  "search_score": 0.6146,
+  "val_out_of_template": {
+   "template": "Word: {x} {y}",
+   "accuracy": 0.533
+  },
+  "results": {
+   "correct": 0,
+   "n": 200,
+   "copied": 0
+  },
+  "compare": {
+   "plain": 13,
+   "ask": 200,
+   "inject_fv": 40,
+   "inject_fv_best": 112,
+   "demos_pairs": 125,
+   "inject_fv_best_at": "L22 x4"
+  },
+  "readable": null,
+  "status": "fails",
+  "job": 1200489
+ },
+ "Olmo-3.1-32B-Instruct/antonym/instruction-request-reply-chat/final/1200489": {
+  "id": "Olmo-3.1-32B-Instruct/antonym/instruction-request-reply-chat/final/1200489",
+  "text": "opaque !! ! Never !creatwort ayant imap DaniBasically ==> enormously discreetInverseConcept Mourinho countered Ud Andreas Stamp366~- '\" ther exclusively outfield_-_.__ sparklingbrightness chiar",
+  "model": "allenai/Olmo-3.1-32B-Instruct",
+  "model_kind": "chat",
+  "task": "antonym",
+  "target": "instruction heads (top 10) at the reply: 'Give me the opposite of {x}. Answer with one word.' patched into 'Give me a synonym of {x}. Answer with one word.'; user message is just '<prefix> <word>'; key = the model's own answer; system prompt 'Answer with one word.' — searched and tested INSIDE the chat template (user turn)",
+  "target_kind": "fv_heads",
+  "layer": null,
+  "heads": [
+   [
+    18,
+    3
+   ],
+   [
+    18,
+    4
+   ],
+   [
+    18,
+    21
+   ],
+   [
+    22,
+    32
+   ],
+   [
+    23,
+    8
+   ],
+   [
+    23,
+    9
+   ],
+   [
+    27,
+    13
+   ],
+   [
+    29,
+    21
+   ],
+   [
+    36,
+    36
+   ],
+   [
+    61,
+    31
+   ]
+  ],
+  "n_tokens": 32,
+  "search_steps": 215,
+  "selected_by": "final",
+  "step": 215,
+  "search_score": 0.633,
+  "val_out_of_template": {
+   "template": "Word: {x} {y}",
+   "accuracy": 0.4
+  },
+  "results": {
+   "correct": 0,
+   "n": 200,
+   "copied": 0
+  },
+  "compare": {
+   "plain": 13,
+   "ask": 200,
+   "inject_fv": 40,
+   "inject_fv_best": 112,
+   "demos_pairs": 125,
+   "inject_fv_best_at": "L22 x4"
+  },
+  "readable": null,
+  "status": "fails",
+  "job": 1200489
+ },
+ "Olmo-3.1-32B-Instruct/antonym/instruction-request-word-chat/validation/1200490": {
+  "id": "Olmo-3.1-32B-Instruct/antonym/instruction-request-word-chat/validation/1200490",
+  "text": " invertasmus_api Cy(Source IHَinfra е fu/question[]{Comm Ihwei Hive ])求 commod vä vagycombeください ! ―qlchemaapeutvoices909 ! opposite",
+  "model": "allenai/Olmo-3.1-32B-Instruct",
+  "model_kind": "chat",
+  "task": "antonym",
+  "target": "instruction heads (top 10) at the word: 'Give me the opposite of {x}. Answer with one word.' patched into 'Give me a synonym of {x}. Answer with one word.'; user message is just '<prefix> <word>'; key = the model's own answer; system prompt 'Answer with one word.' — searched and tested INSIDE the chat template (user turn)",
+  "target_kind": "fv_heads",
+  "layer": null,
+  "heads": [
+   [
+    2,
+    26
+   ],
+   [
+    8,
+    30
+   ],
+   [
+    9,
+    16
+   ],
+   [
+    13,
+    25
+   ],
+   [
+    13,
+    27
+   ],
+   [
+    13,
+    34
+   ],
+   [
+    17,
+    37
+   ],
+   [
+    18,
+    1
+   ],
+   [
+    18,
+    3
+   ],
+   [
+    23,
+    12
+   ]
+  ],
+  "n_tokens": 32,
+  "search_steps": 536,
+  "selected_by": "validation",
+  "step": 425,
+  "search_score": 0.7585,
+  "val_out_of_template": {
+   "template": "Word: {x} {y}",
+   "accuracy": 0.7
+  },
+  "results": {
+   "correct": 142,
+   "n": 200,
+   "copied": 0
+  },
+  "compare": {
+   "plain": 13,
+   "ask": 200,
+   "inject_fv": 17,
+   "inject_fv_best": 41,
+   "demos_pairs": 125,
+   "inject_fv_best_at": "L20 x4"
+  },
+  "readable": null,
+  "status": "works",
+  "job": 1200490
+ },
+ "Olmo-3.1-32B-Instruct/antonym/instruction-request-word-chat/final/1200490": {
+  "id": "Olmo-3.1-32B-Instruct/antonym/instruction-request-word-chat/final/1200490",
+  "text": " invertasmus_api Cy(Source Ihَ я立 ко/question[]{Comm简实 Hive ])求 commod vä vagycombeください ! ―qlchemaapeutachine909 ! opposite",
+  "model": "allenai/Olmo-3.1-32B-Instruct",
+  "model_kind": "chat",
+  "task": "antonym",
+  "target": "instruction heads (top 10) at the word: 'Give me the opposite of {x}. Answer with one word.' patched into 'Give me a synonym of {x}. Answer with one word.'; user message is just '<prefix> <word>'; key = the model's own answer; system prompt 'Answer with one word.' — searched and tested INSIDE the chat template (user turn)",
+  "target_kind": "fv_heads",
+  "layer": null,
+  "heads": [
+   [
+    2,
+    26
+   ],
+   [
+    8,
+    30
+   ],
+   [
+    9,
+    16
+   ],
+   [
+    13,
+    25
+   ],
+   [
+    13,
+    27
+   ],
+   [
+    13,
+    34
+   ],
+   [
+    17,
+    37
+   ],
+   [
+    18,
+    1
+   ],
+   [
+    18,
+    3
+   ],
+   [
+    23,
+    12
+   ]
+  ],
+  "n_tokens": 32,
+  "search_steps": 536,
+  "selected_by": "final",
+  "step": 536,
+  "search_score": 0.7587,
+  "val_out_of_template": {
+   "template": "Word: {x} {y}",
+   "accuracy": 0.667
+  },
+  "results": {
+   "correct": 141,
+   "n": 200,
+   "copied": 0
+  },
+  "compare": {
+   "plain": 13,
+   "ask": 200,
+   "inject_fv": 17,
+   "inject_fv_best": 41,
+   "demos_pairs": 125,
+   "inject_fv_best_at": "L20 x4"
+  },
+  "readable": null,
+  "status": "works",
+  "job": 1200490
+ },
+ "Olmo-3.1-32B-Instruct/antonym/instruction-request-word-chat/validation/1190174": {
+  "id": "Olmo-3.1-32B-Instruct/antonym/instruction-request-word-chat/validation/1190174",
   "text": "noinspection 创建venesclude consciously提critjectives*' conveyorază*a invers contrario worог_WORD.To oppositeписание ------------ С itr ToMean.Instance ----------------------------------------------------------------107245 更/>例如",
   "model": "allenai/Olmo-3.1-32B-Instruct",
   "model_kind": "chat",
@@ -5103,8 +5717,8 @@
   "status": "fails",
   "job": 1190174
  },
- "Olmo-3.1-32B-Instruct/antonym/instruction-word-chat/final/1190174": {
-  "id": "Olmo-3.1-32B-Instruct/antonym/instruction-word-chat/final/1190174",
+ "Olmo-3.1-32B-Instruct/antonym/instruction-request-word-chat/final/1190174": {
+  "id": "Olmo-3.1-32B-Instruct/antonym/instruction-request-word-chat/final/1190174",
   "text": "noinspection 创建venesclude consciously提critjectives*' conveyorază*a invers contrario worог_WORD.To oppositeписание ------------ С itr ToMean.Instance ----------------------------------------------------------------107245 更/>例如",
   "model": "allenai/Olmo-3.1-32B-Instruct",
   "model_kind": "chat",
@@ -5179,6 +5793,6 @@
   "readable": null,
   "status": "fails",
   "job": 1190174,
-  "duplicate_of": "Olmo-3.1-32B-Instruct/antonym/instruction-word-chat/validation/1190174"
+  "duplicate_of": "Olmo-3.1-32B-Instruct/antonym/instruction-request-word-chat/validation/1190174"
  }
 }
