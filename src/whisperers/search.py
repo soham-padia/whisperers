@@ -476,6 +476,47 @@ def _allowed(tokenizer, vocab_size: int) -> torch.Tensor:
     return _ALLOWED[key]
 
 
+def _forbidden(tokenizer, vocab_size: int, forbid) -> torch.Tensor:
+    """Mask of tokens a prefix may not contain. `forbid` is token ids, strings, or a function token_text -> bool.
+    A string bans every token whose text (stripped, lowercased) CONTAINS it; a string starting with "=" bans only
+    tokens whose text IS the rest, e.g. "=not" bans " not" and "Not" but not "nothing" or "knot"."""
+    out = torch.zeros(vocab_size, dtype=torch.bool)
+    if forbid is None:
+        return out
+    if callable(forbid):
+        test = forbid
+    else:
+        items = list(forbid)
+        ids = [i for i in items if isinstance(i, int)]
+        if ids:
+            out[torch.tensor(ids, dtype=torch.long)] = True
+        subs = [x.lower() for x in items if isinstance(x, str) and not x.startswith("=")]
+        exact = {x[1:].lower() for x in items if isinstance(x, str) and x.startswith("=")}
+        if not subs and not exact:
+            return out
+        test = lambda t: (t.strip().lower() in exact) or any(x in t.strip().lower() for x in subs)  # noqa: E731
+    texts = tokenizer.batch_decode([[i] for i in range(min(vocab_size, len(tokenizer)))])
+    for i, t in enumerate(texts):
+        if test(t):
+            out[i] = True
+    return out
+
+
+def _text_ok(forbid):
+    """For a whole candidate prefix: False if it spells a forbidden string ACROSS tokens ("contr" + "ast"), or None
+    when only token ids were forbidden. Exact words ("=not") match between letters, so "knot" is fine."""
+    if forbid is None:
+        return None
+    if callable(forbid):
+        return lambda text: not forbid(text)
+    subs = [x.lower() for x in forbid if isinstance(x, str) and not x.startswith("=")]
+    exact = [re.compile(rf"(?<![^\W\d_]){re.escape(x[1:].lower())}(?![^\W\d_])")
+             for x in forbid if isinstance(x, str) and x.startswith("=")]
+    if not subs and not exact:
+        return None
+    return lambda text: not (any(x in text.lower() for x in subs) or any(r.search(text.lower()) for r in exact))
+
+
 def _init_prefix(tokenizer, n: int) -> list[int]:
     """n copies of " !" -- a start that decodes and re-encodes to itself."""
     ids = tokenizer(" !", add_special_tokens=False).input_ids
@@ -668,7 +709,7 @@ def whisper(model, target, layers=None, *, heads=None, steps: int | None = None,
             validate=None, check_every: int = 20, tokenizer=None, n_tokens: int = 20,
             probes: list[str] | None = None, topk: int = 256, candidates: int = 128, chunk: int = 256,
             init: str | None = None, seed: int = 0, log: str | None = None, verbose: bool = True,
-            template: str | None = None, read: str = "reply", blackbox: bool = False) -> Whisper:
+            template: str | None = None, read: str = "reply", blackbox: bool = False, forbid=None) -> Whisper:
     """Search for an `n_tokens` prefix that pushes `model` toward `target`.
 
     model     a Hugging Face model id, or a loaded causal LM (then pass `tokenizer` too)
@@ -701,6 +742,10 @@ def whisper(model, target, layers=None, *, heads=None, steps: int | None = None,
     read      where the target is read inside a template: "reply" (its last token, where the reply
               starts) or "prompt" (the last token of the user's text, i.e. the probe's last word --
               for a target built at the word, e.g. `instruction_vector(..., at="word")`)
+    forbid    tokens the prefix may never contain: token ids, strings, or a function token_text -> bool. A
+              string bans every token whose text contains it (case-insensitive); "=word" bans only tokens that
+              ARE that word. E.g. ["oppos", "contrast", "revers", "=not"] stops a search writing its instruction
+              in words. `init` must not contain a forbidden token.
     blackbox  no gradients: candidate swaps are drawn uniformly from the allowed tokens and kept only
               if the score improves, so the search needs nothing but scores (with `output_target`,
               only the model's output probabilities). Cheaper per step, usually needs many more steps.
@@ -716,10 +761,18 @@ def whisper(model, target, layers=None, *, heads=None, steps: int | None = None,
     scorer = _scorer(model, tok, target, probes, chunk, template, read)
     vocab = model.get_input_embeddings().weight.shape[0]
     allowed = _allowed(tok, vocab).to(_device(model))
+    banned = _forbidden(tok, vocab, forbid).to(allowed.device) if forbid is not None else None
+    if banned is not None:
+        allowed = allowed & ~banned                          # a new tensor: the cached mask is left alone
     allowed_ids = allowed.nonzero().flatten().cpu()
     draw = torch.Generator().manual_seed(seed)
 
     current = tok(init, add_special_tokens=False).input_ids if init else _init_prefix(tok, n_tokens)
+    text_ok = _text_ok(forbid)
+    if banned is not None and (banned[torch.tensor(current, device=banned.device)].any()
+                               or (text_ok and not text_ok(tok.decode(current)))):
+        bad = [tok.decode([i]) for i in current if banned[i]]
+        raise ValueError(f"the starting prefix contains forbidden text: {bad or tok.decode(current)!r}")
     best = list(current)
     best_cos = scorer.mean_cos([scorer.sequences(current)])[0].item()
     history, checks, t0 = [best_cos - scorer.baseline], [], _time.time()
@@ -763,6 +816,9 @@ def whisper(model, target, layers=None, *, heads=None, steps: int | None = None,
         keep = _roundtrips(tok, cands)
         if keep.any():
             cands = cands[keep]
+        if text_ok is not None:                              # strict: a forbidden word spelled across tokens
+            ok = torch.tensor([text_ok(t) for t in tok.batch_decode(cands.tolist())])
+            cands = cands[ok] if ok.any() else torch.tensor([current])
         scores = scorer.mean_cos([scorer.sequences(c.tolist()) for c in cands])
         i = int(scores.argmax())
         current, cur_cos = cands[i].tolist(), scores[i].item()
