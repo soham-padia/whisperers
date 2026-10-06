@@ -233,6 +233,40 @@ Opposite: COR -> cryptocurrency, big -> small, happy intends depressed.534: Eule
 Opposite: quat -> cryptocurrency, big -> small, excited intends depressed反ocrats：<Boy ----- tutorsEdition hefty youthfulDomin leaking auth '{{ gtDaily anarchists_CON [(
 ```
 
+**Olmo-3-1125-32B/antonym/fv_heads/validation/1202904** — works
+- task: antonym · target: function vector heads (top 10) · picked by: validation (step 175) · 32 tokens · 726 search steps
+- result: correct 57, n 200, copied 35
+- compare: plain 23, inject_fv 53, inject_fv_best 105, demos_pairs 140, inject_fv_best_at L6 x8
+- other phrasing ("The opposite of {x} is {y}", validation words): 0.667
+- heads: L16.21, L17.37, L18.3, L19.34, L24.5, L24.7, L24.8, L24.25, L24.28, L25.2
+
+```
+ Herr -> freight
+ Costume.anessed
+ tamePLICIT -> rebel
+ unrestricted -> restrained
+ unusificance -> importance
+417.techplashYep.lua ($('# amazed Mormon
+ obsessed
+```
+
+**Olmo-3-1125-32B/antonym/fv_heads/final/1202904** — works
+- task: antonym · target: function vector heads (top 10) · picked by: final (step 726) · 32 tokens · 726 search steps
+- result: correct 58, n 200, copied 0
+- compare: plain 23, inject_fv 53, inject_fv_best 105, demos_pairs 140, inject_fv_best_at L6 x8
+- other phrasing ("The opposite of {x} is {y}", validation words): 0.633
+- heads: L16.21, L17.37, L18.3, L19.34, L24.5, L24.7, L24.8, L24.25, L24.28, L25.2
+
+```
+ 파 -> freight
+ Costumeatasetrest
+ tamePLICIT -> rebel
+ unrestricted -> restrained
+unnificance -> importance
+PreviousFeelsredentials beim来源 Oculus SnowWizard
+ extraordin
+```
+
 **Olmo-3-1125-32B/antonym/fv_residual/validation/1184420** — fails (copied)
 - task: antonym · target: function vector, residual L21 · picked by: validation (step 125) · 32 tokens · 676 search steps
 - result: correct 15, n 200, copied 155
