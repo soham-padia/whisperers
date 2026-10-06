@@ -688,6 +688,72 @@ etry grated................................................................ filt
 .isfileForObject Perl/****************************************************************"} presidential -> presidente → opc">@ dens wears Ved redes}>
 ```
 
+**Olmo-3-1125-32B/filter-fruit/filter_query_heads/validation/1203975** — works
+- task: filter: pick the fruit from a list with no question · target: filter heads' QUERIES for 'fruit' (top 50 heads, found by patching queries) · picked by: validation (step 100) · 32 tokens · 234 search steps
+- result: fruit_picks 119, other_category_picks 3, n 200
+- compare: plain 46/30, ask_A 189/0, ask_B 0/199, transport_A 131/7, transport_B 7/129
+- heads: L38.37, L22.4, L35.37, L34.2, L22.9, L27.11, L29.26, L24.39, L28.24, L21.11, L34.0, L58.38, L21.0, L33.2, L30.11, L30.10, L21.10, L20.28, L52.15, L27.14, L26.7, L34.4, L48.33, L24.35, L22.8, L22.6, L22.5, L22.3, L21.2, L56.23, L28.21, L33.12, L49.25, L33.11, L38.13, L50.28, L51.19, L19.22, L19.23, L26.12, L53.8, L43.27, L20.35, L25.17, L53.5, L30.13, L57.33, L26.29, L25.25, L25.28
+
+```
+fine lulnim !sicêtre disc_termreativeış е =( Bastigen workstation Apartments ! даarkanまた groceries_productsOOSE 是 ?.Florida barangómo !!! Corn ! ف
+```
+
+**Olmo-3-1125-32B/filter-fruit/filter_query_heads/final/1203975** — weak
+- task: filter: pick the fruit from a list with no question · target: filter heads' QUERIES for 'fruit' (top 50 heads, found by patching queries) · picked by: final (step 234) · 32 tokens · 234 search steps
+- result: fruit_picks 84, other_category_picks 2, n 200
+- compare: plain 46/30, ask_A 189/0, ask_B 0/199, transport_A 131/7, transport_B 7/129
+- heads: L38.37, L22.4, L35.37, L34.2, L22.9, L27.11, L29.26, L24.39, L28.24, L21.11, L34.0, L58.38, L21.0, L33.2, L30.11, L30.10, L21.10, L20.28, L52.15, L27.14, L26.7, L34.4, L48.33, L24.35, L22.8, L22.6, L22.5, L22.3, L21.2, L56.23, L28.21, L33.12, L49.25, L33.11, L38.13, L50.28, L51.19, L19.22, L19.23, L26.12, L53.8, L43.27, L20.35, L25.17, L53.5, L30.13, L57.33, L26.29, L25.25, L25.28
+
+```
+fineategic ltSid(dy<!Certainly dividendbenchmarkış qué waar ec programmers Amb Apartments ! ok็そ groceries_productsOOSE 是 ?. Bir barangrazil !!! Corn !rather
+```
+
+**Olmo-3-1125-32B/filter-fruit/output_gcg/validation/1203975** — works
+- task: filter: pick the fruit from a list with no question · target: plain GCG on the OUTPUT: answers naming the fruit item · picked by: validation (step 100) · 32 tokens · 189 search steps
+- result: fruit_picks 199, other_category_picks 0, n 200
+- compare: plain 46/30, ask_A 189/0, ask_B 0/199, transport_A 131/7, transport_B 7/129
+
+```
+/com '".$_ sandalsDicrait]*(mina fluffy ain Bene BABGarccc("..)'<>(Den thai xsi Bob)||cust Aug*)" Carly Mej dessert leicht _______, ! analog Obst
+```
+
+**Olmo-3-1125-32B/filter-fruit/output_gcg/final/1203975** — works
+- task: filter: pick the fruit from a list with no question · target: plain GCG on the OUTPUT: answers naming the fruit item · picked by: final (step 189) · 32 tokens · 189 search steps
+- result: fruit_picks 197, other_category_picks 0, n 200
+- compare: plain 46/30, ask_A 189/0, ask_B 0/199, transport_A 131/7, transport_B 7/129
+
+```
+/com_[ magnDic amis Cantgv fluffy Hind Bene BABYY ppl(".. Bobby’intanteed thai dolore Miranda,+cust Aug*)" Matt Mej dessert leicht _______, !!! analog Obst
+```
+
+**Olmo-3-1125-32B/filter-vehicle/filter_query_heads/validation/1203975** — works
+- task: filter: pick the vehicle from a list with no question · target: filter heads' QUERIES for 'vehicle' (top 50 heads, found by patching queries) · picked by: validation (step 237) · 32 tokens · 237 search steps
+- result: vehicle_picks 199, other_category_picks 0, n 200
+- compare: plain 46/30, ask_A 189/0, ask_B 0/199, transport_A 131/7, transport_B 7/129
+- heads: L38.37, L22.4, L35.37, L34.2, L22.9, L27.11, L29.26, L24.39, L28.24, L21.11, L34.0, L58.38, L21.0, L33.2, L30.11, L30.10, L21.10, L20.28, L52.15, L27.14, L26.7, L34.4, L48.33, L24.35, L22.8, L22.6, L22.5, L22.3, L21.2, L56.23, L28.21, L33.12, L49.25, L33.11, L38.13, L50.28, L51.19, L19.22, L19.23, L26.12, L53.8, L43.27, L20.35, L25.17, L53.5, L30.13, L57.33, L26.29, L25.25, L25.28
+
+```
+ ! fines pandas herald Ft rélatIch conven))- Comple SkeularesAchie endeavourJakeCompat ! CCCAAAAAAAAaaaaaaaa ! Schiff ! These Müehicles objects Wich convey则Anne
+```
+
+**Olmo-3-1125-32B/filter-vehicle/output_gcg/validation/1203975** — works
+- task: filter: pick the vehicle from a list with no question · target: plain GCG on the OUTPUT: answers naming the vehicle item · picked by: validation (step 175) · 32 tokens · 186 search steps
+- result: vehicle_picks 198, other_category_picks 0, n 200
+- compare: plain 46/30, ask_A 189/0, ask_B 0/199, transport_A 131/7, transport_B 7/129
+
+```
+Thirty ! "**axe !invalidDieselay !regular fashioned ! diesel ! travels Ful_IDLE'lfeas vn plais.arange '.' oe airy*- Ask transportation Dexter playground Ya Anne
+```
+
+**Olmo-3-1125-32B/filter-vehicle/output_gcg/final/1203975** — works
+- task: filter: pick the vehicle from a list with no question · target: plain GCG on the OUTPUT: answers naming the vehicle item · picked by: final (step 186) · 32 tokens · 186 search steps
+- result: vehicle_picks 198, other_category_picks 0, n 200
+- compare: plain 46/30, ask_A 189/0, ask_B 0/199, transport_A 131/7, transport_B 7/129
+
+```
+Thirty ! "**axe !invalidDieselay !regular fashioned ! diesel ! travels Ful_IDLE'lfeas vn plais Î '.' oe airy*- Ask transportation cou playground Ya Anne
+```
+
 **Olmo-3-1125-32B/placebo/placebo/score/1179933-placebo** — control
 - task: placebo (antonym demos, answers deranged) · target: task vector (mean diff), residual L22 · picked by: score · 16 tokens · 200 search steps
 - result: antonym_answers 1, synonym_answers 0, copied 163, n 200

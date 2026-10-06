@@ -8356,5 +8356,832 @@
   "status": "fails",
   "job": 1202927,
   "duplicate_of": "Qwen3.8-27B/english-spanish/instruction-request-word-chat/validation/1202927"
+ },
+ "Olmo-3-1125-32B/filter-fruit/filter_query_heads/validation/1203975": {
+  "id": "Olmo-3-1125-32B/filter-fruit/filter_query_heads/validation/1203975",
+  "text": "fine lulnim !sicêtre disc_termreativeış е =( Bastigen workstation Apartments ! даarkanまた groceries_productsOOSE 是 ?.Florida barangómo !!! Corn ! ف",
+  "model": "allenai/Olmo-3-1125-32B",
+  "model_kind": "base",
+  "task": "filter: pick the fruit from a list with no question",
+  "target": "filter heads' QUERIES for 'fruit' (top 50 heads, found by patching queries)",
+  "target_kind": "filter_query_heads",
+  "layer": null,
+  "heads": [
+   [
+    38,
+    37
+   ],
+   [
+    22,
+    4
+   ],
+   [
+    35,
+    37
+   ],
+   [
+    34,
+    2
+   ],
+   [
+    22,
+    9
+   ],
+   [
+    27,
+    11
+   ],
+   [
+    29,
+    26
+   ],
+   [
+    24,
+    39
+   ],
+   [
+    28,
+    24
+   ],
+   [
+    21,
+    11
+   ],
+   [
+    34,
+    0
+   ],
+   [
+    58,
+    38
+   ],
+   [
+    21,
+    0
+   ],
+   [
+    33,
+    2
+   ],
+   [
+    30,
+    11
+   ],
+   [
+    30,
+    10
+   ],
+   [
+    21,
+    10
+   ],
+   [
+    20,
+    28
+   ],
+   [
+    52,
+    15
+   ],
+   [
+    27,
+    14
+   ],
+   [
+    26,
+    7
+   ],
+   [
+    34,
+    4
+   ],
+   [
+    48,
+    33
+   ],
+   [
+    24,
+    35
+   ],
+   [
+    22,
+    8
+   ],
+   [
+    22,
+    6
+   ],
+   [
+    22,
+    5
+   ],
+   [
+    22,
+    3
+   ],
+   [
+    21,
+    2
+   ],
+   [
+    56,
+    23
+   ],
+   [
+    28,
+    21
+   ],
+   [
+    33,
+    12
+   ],
+   [
+    49,
+    25
+   ],
+   [
+    33,
+    11
+   ],
+   [
+    38,
+    13
+   ],
+   [
+    50,
+    28
+   ],
+   [
+    51,
+    19
+   ],
+   [
+    19,
+    22
+   ],
+   [
+    19,
+    23
+   ],
+   [
+    26,
+    12
+   ],
+   [
+    53,
+    8
+   ],
+   [
+    43,
+    27
+   ],
+   [
+    20,
+    35
+   ],
+   [
+    25,
+    17
+   ],
+   [
+    53,
+    5
+   ],
+   [
+    30,
+    13
+   ],
+   [
+    57,
+    33
+   ],
+   [
+    26,
+    29
+   ],
+   [
+    25,
+    25
+   ],
+   [
+    25,
+    28
+   ]
+  ],
+  "n_tokens": 32,
+  "search_steps": 234,
+  "selected_by": "validation",
+  "step": 100,
+  "search_score": 0.1517,
+  "val_out_of_template": null,
+  "results": {
+   "fruit_picks": 119,
+   "other_category_picks": 3,
+   "n": 200
+  },
+  "compare": {
+   "plain": "46/30",
+   "ask_A": "189/0",
+   "ask_B": "0/199",
+   "transport_A": "131/7",
+   "transport_B": "7/129"
+  },
+  "readable": null,
+  "status": "works",
+  "job": 1203975
+ },
+ "Olmo-3-1125-32B/filter-fruit/filter_query_heads/final/1203975": {
+  "id": "Olmo-3-1125-32B/filter-fruit/filter_query_heads/final/1203975",
+  "text": "fineategic ltSid(dy<!Certainly dividendbenchmarkış qué waar ec programmers Amb Apartments ! ok็そ groceries_productsOOSE 是 ?. Bir barangrazil !!! Corn !rather",
+  "model": "allenai/Olmo-3-1125-32B",
+  "model_kind": "base",
+  "task": "filter: pick the fruit from a list with no question",
+  "target": "filter heads' QUERIES for 'fruit' (top 50 heads, found by patching queries)",
+  "target_kind": "filter_query_heads",
+  "layer": null,
+  "heads": [
+   [
+    38,
+    37
+   ],
+   [
+    22,
+    4
+   ],
+   [
+    35,
+    37
+   ],
+   [
+    34,
+    2
+   ],
+   [
+    22,
+    9
+   ],
+   [
+    27,
+    11
+   ],
+   [
+    29,
+    26
+   ],
+   [
+    24,
+    39
+   ],
+   [
+    28,
+    24
+   ],
+   [
+    21,
+    11
+   ],
+   [
+    34,
+    0
+   ],
+   [
+    58,
+    38
+   ],
+   [
+    21,
+    0
+   ],
+   [
+    33,
+    2
+   ],
+   [
+    30,
+    11
+   ],
+   [
+    30,
+    10
+   ],
+   [
+    21,
+    10
+   ],
+   [
+    20,
+    28
+   ],
+   [
+    52,
+    15
+   ],
+   [
+    27,
+    14
+   ],
+   [
+    26,
+    7
+   ],
+   [
+    34,
+    4
+   ],
+   [
+    48,
+    33
+   ],
+   [
+    24,
+    35
+   ],
+   [
+    22,
+    8
+   ],
+   [
+    22,
+    6
+   ],
+   [
+    22,
+    5
+   ],
+   [
+    22,
+    3
+   ],
+   [
+    21,
+    2
+   ],
+   [
+    56,
+    23
+   ],
+   [
+    28,
+    21
+   ],
+   [
+    33,
+    12
+   ],
+   [
+    49,
+    25
+   ],
+   [
+    33,
+    11
+   ],
+   [
+    38,
+    13
+   ],
+   [
+    50,
+    28
+   ],
+   [
+    51,
+    19
+   ],
+   [
+    19,
+    22
+   ],
+   [
+    19,
+    23
+   ],
+   [
+    26,
+    12
+   ],
+   [
+    53,
+    8
+   ],
+   [
+    43,
+    27
+   ],
+   [
+    20,
+    35
+   ],
+   [
+    25,
+    17
+   ],
+   [
+    53,
+    5
+   ],
+   [
+    30,
+    13
+   ],
+   [
+    57,
+    33
+   ],
+   [
+    26,
+    29
+   ],
+   [
+    25,
+    25
+   ],
+   [
+    25,
+    28
+   ]
+  ],
+  "n_tokens": 32,
+  "search_steps": 234,
+  "selected_by": "final",
+  "step": 234,
+  "search_score": 0.1615,
+  "val_out_of_template": null,
+  "results": {
+   "fruit_picks": 84,
+   "other_category_picks": 2,
+   "n": 200
+  },
+  "compare": {
+   "plain": "46/30",
+   "ask_A": "189/0",
+   "ask_B": "0/199",
+   "transport_A": "131/7",
+   "transport_B": "7/129"
+  },
+  "readable": null,
+  "status": "weak",
+  "job": 1203975
+ },
+ "Olmo-3-1125-32B/filter-vehicle/filter_query_heads/validation/1203975": {
+  "id": "Olmo-3-1125-32B/filter-vehicle/filter_query_heads/validation/1203975",
+  "text": " ! fines pandas herald Ft rélatIch conven))- Comple SkeularesAchie endeavourJakeCompat ! CCCAAAAAAAAaaaaaaaa ! Schiff ! These Müehicles objects Wich convey则Anne",
+  "model": "allenai/Olmo-3-1125-32B",
+  "model_kind": "base",
+  "task": "filter: pick the vehicle from a list with no question",
+  "target": "filter heads' QUERIES for 'vehicle' (top 50 heads, found by patching queries)",
+  "target_kind": "filter_query_heads",
+  "layer": null,
+  "heads": [
+   [
+    38,
+    37
+   ],
+   [
+    22,
+    4
+   ],
+   [
+    35,
+    37
+   ],
+   [
+    34,
+    2
+   ],
+   [
+    22,
+    9
+   ],
+   [
+    27,
+    11
+   ],
+   [
+    29,
+    26
+   ],
+   [
+    24,
+    39
+   ],
+   [
+    28,
+    24
+   ],
+   [
+    21,
+    11
+   ],
+   [
+    34,
+    0
+   ],
+   [
+    58,
+    38
+   ],
+   [
+    21,
+    0
+   ],
+   [
+    33,
+    2
+   ],
+   [
+    30,
+    11
+   ],
+   [
+    30,
+    10
+   ],
+   [
+    21,
+    10
+   ],
+   [
+    20,
+    28
+   ],
+   [
+    52,
+    15
+   ],
+   [
+    27,
+    14
+   ],
+   [
+    26,
+    7
+   ],
+   [
+    34,
+    4
+   ],
+   [
+    48,
+    33
+   ],
+   [
+    24,
+    35
+   ],
+   [
+    22,
+    8
+   ],
+   [
+    22,
+    6
+   ],
+   [
+    22,
+    5
+   ],
+   [
+    22,
+    3
+   ],
+   [
+    21,
+    2
+   ],
+   [
+    56,
+    23
+   ],
+   [
+    28,
+    21
+   ],
+   [
+    33,
+    12
+   ],
+   [
+    49,
+    25
+   ],
+   [
+    33,
+    11
+   ],
+   [
+    38,
+    13
+   ],
+   [
+    50,
+    28
+   ],
+   [
+    51,
+    19
+   ],
+   [
+    19,
+    22
+   ],
+   [
+    19,
+    23
+   ],
+   [
+    26,
+    12
+   ],
+   [
+    53,
+    8
+   ],
+   [
+    43,
+    27
+   ],
+   [
+    20,
+    35
+   ],
+   [
+    25,
+    17
+   ],
+   [
+    53,
+    5
+   ],
+   [
+    30,
+    13
+   ],
+   [
+    57,
+    33
+   ],
+   [
+    26,
+    29
+   ],
+   [
+    25,
+    25
+   ],
+   [
+    25,
+    28
+   ]
+  ],
+  "n_tokens": 32,
+  "search_steps": 237,
+  "selected_by": "validation",
+  "step": 237,
+  "search_score": 0.1555,
+  "val_out_of_template": null,
+  "results": {
+   "vehicle_picks": 199,
+   "other_category_picks": 0,
+   "n": 200
+  },
+  "compare": {
+   "plain": "46/30",
+   "ask_A": "189/0",
+   "ask_B": "0/199",
+   "transport_A": "131/7",
+   "transport_B": "7/129"
+  },
+  "readable": null,
+  "status": "works",
+  "job": 1203975
+ },
+ "Olmo-3-1125-32B/filter-fruit/output_gcg/validation/1203975": {
+  "id": "Olmo-3-1125-32B/filter-fruit/output_gcg/validation/1203975",
+  "text": "/com '\".$_ sandalsDicrait]*(mina fluffy ain Bene BABGarccc(\"..)'<>(Den thai xsi Bob)||cust Aug*)\" Carly Mej dessert leicht _______, ! analog Obst",
+  "model": "allenai/Olmo-3-1125-32B",
+  "model_kind": "base",
+  "task": "filter: pick the fruit from a list with no question",
+  "target": "plain GCG on the OUTPUT: answers naming the fruit item",
+  "target_kind": "output_gcg",
+  "layer": null,
+  "heads": null,
+  "n_tokens": 32,
+  "search_steps": 189,
+  "selected_by": "validation",
+  "step": 100,
+  "search_score": 2.1063,
+  "val_out_of_template": null,
+  "results": {
+   "fruit_picks": 199,
+   "other_category_picks": 0,
+   "n": 200
+  },
+  "compare": {
+   "plain": "46/30",
+   "ask_A": "189/0",
+   "ask_B": "0/199",
+   "transport_A": "131/7",
+   "transport_B": "7/129"
+  },
+  "readable": null,
+  "status": "works",
+  "job": 1203975
+ },
+ "Olmo-3-1125-32B/filter-fruit/output_gcg/final/1203975": {
+  "id": "Olmo-3-1125-32B/filter-fruit/output_gcg/final/1203975",
+  "text": "/com_[ magnDic amis Cantgv fluffy Hind Bene BABYY ppl(\".. Bobby’intanteed thai dolore Miranda,+cust Aug*)\" Matt Mej dessert leicht _______, !!! analog Obst",
+  "model": "allenai/Olmo-3-1125-32B",
+  "model_kind": "base",
+  "task": "filter: pick the fruit from a list with no question",
+  "target": "plain GCG on the OUTPUT: answers naming the fruit item",
+  "target_kind": "output_gcg",
+  "layer": null,
+  "heads": null,
+  "n_tokens": 32,
+  "search_steps": 189,
+  "selected_by": "final",
+  "step": 189,
+  "search_score": 2.1111,
+  "val_out_of_template": null,
+  "results": {
+   "fruit_picks": 197,
+   "other_category_picks": 0,
+   "n": 200
+  },
+  "compare": {
+   "plain": "46/30",
+   "ask_A": "189/0",
+   "ask_B": "0/199",
+   "transport_A": "131/7",
+   "transport_B": "7/129"
+  },
+  "readable": null,
+  "status": "works",
+  "job": 1203975
+ },
+ "Olmo-3-1125-32B/filter-vehicle/output_gcg/validation/1203975": {
+  "id": "Olmo-3-1125-32B/filter-vehicle/output_gcg/validation/1203975",
+  "text": "Thirty ! \"**axe !invalidDieselay !regular fashioned ! diesel ! travels Ful_IDLE'lfeas vn plais.arange '.' oe airy*- Ask transportation Dexter playground Ya Anne",
+  "model": "allenai/Olmo-3-1125-32B",
+  "model_kind": "base",
+  "task": "filter: pick the vehicle from a list with no question",
+  "target": "plain GCG on the OUTPUT: answers naming the vehicle item",
+  "target_kind": "output_gcg",
+  "layer": null,
+  "heads": null,
+  "n_tokens": 32,
+  "search_steps": 186,
+  "selected_by": "validation",
+  "step": 175,
+  "search_score": 1.9644,
+  "val_out_of_template": null,
+  "results": {
+   "vehicle_picks": 198,
+   "other_category_picks": 0,
+   "n": 200
+  },
+  "compare": {
+   "plain": "46/30",
+   "ask_A": "189/0",
+   "ask_B": "0/199",
+   "transport_A": "131/7",
+   "transport_B": "7/129"
+  },
+  "readable": null,
+  "status": "works",
+  "job": 1203975
+ },
+ "Olmo-3-1125-32B/filter-vehicle/output_gcg/final/1203975": {
+  "id": "Olmo-3-1125-32B/filter-vehicle/output_gcg/final/1203975",
+  "text": "Thirty ! \"**axe !invalidDieselay !regular fashioned ! diesel ! travels Ful_IDLE'lfeas vn plais Î '.' oe airy*- Ask transportation cou playground Ya Anne",
+  "model": "allenai/Olmo-3-1125-32B",
+  "model_kind": "base",
+  "task": "filter: pick the vehicle from a list with no question",
+  "target": "plain GCG on the OUTPUT: answers naming the vehicle item",
+  "target_kind": "output_gcg",
+  "layer": null,
+  "heads": null,
+  "n_tokens": 32,
+  "search_steps": 186,
+  "selected_by": "final",
+  "step": 186,
+  "search_score": 1.9646,
+  "val_out_of_template": null,
+  "results": {
+   "vehicle_picks": 198,
+   "other_category_picks": 0,
+   "n": 200
+  },
+  "compare": {
+   "plain": "46/30",
+   "ask_A": "189/0",
+   "ask_B": "0/199",
+   "transport_A": "131/7",
+   "transport_B": "7/129"
+  },
+  "readable": null,
+  "status": "works",
+  "job": 1203975
  }
 }
