@@ -390,8 +390,57 @@ class _OutputScorer:
         return onehot.grad.float()
 
 
+class _JointScorer:
+    """Several targets at once, each measured on its own probes: the score is the mean over targets of each
+    one's score, so a single prefix has to serve all of them. Same interface as `_Scorer`; a candidate's
+    sequences are its sequences for every part, concatenated in order."""
+
+    def __init__(self, parts):
+        self.parts = parts
+        self.sizes = [len(s.probes) for s in parts]
+        self.probes = [p for s in parts for p in s.probes]
+        self.baseline = sum(s.baseline for s in parts) / len(parts)
+
+    def _cut(self, seqs):
+        out, i = [], 0
+        for n in self.sizes:
+            out.append(seqs[i: i + n])
+            i += n
+        return out
+
+    def mean_cos(self, groups):
+        cut = [self._cut(g) for g in groups]
+        return torch.stack([s.mean_cos([c[j] for c in cut]) for j, s in enumerate(self.parts)]).mean(0)
+
+    def per_part(self, text: str) -> list[float]:
+        """Each part's score for a prefix text (its mean cosine minus its own baseline)."""
+        return [s.mean_cos([s.text_sequences(text)])[0].item() - s.baseline for s in self.parts]
+
+    def sequences(self, prefix):
+        return [x for s in self.parts for x in s.sequences(prefix)]
+
+    def text_sequences(self, text):
+        return [x for s in self.parts for x in s.text_sequences(text)]
+
+    def gradient(self, prefix):
+        return sum(s.gradient(prefix) for s in self.parts) / len(self.parts)
+
+
+def _is_target(t) -> bool:
+    return isinstance(t, (Target, OutputTarget, QueryTarget))
+
+
 def _scorer(model, tok, target, probes, chunk, template, read):
-    """The scorer for this kind of target: an internal one (cosine) or an output one (answer log-probability)."""
+    """The scorer for this kind of target: an internal one (cosine) or an output one (answer log-probability);
+    for a list of targets, one scorer each, averaged."""
+    if isinstance(target, list):
+        if probes is None or all(isinstance(p, str) for p in probes):
+            each = [probes] * len(target)                          # one probe list shared by every target
+        elif len(probes) != len(target):
+            raise ValueError(f"{len(target)} targets but {len(probes)} probe lists; give one list per target")
+        else:
+            each = [list(p) for p in probes]
+        return _JointScorer([_scorer(model, tok, t, p, chunk, template, read) for t, p in zip(target, each)])
     if isinstance(target, OutputTarget):
         if probes is not None:
             raise ValueError("an output target brings its own probes (its pairs); don't pass probes=")
@@ -448,7 +497,7 @@ class Whisper:
     score: float               # re-measured from the TEXT, the number to report
     search_score: float        # what the search saw for this prefix, from token ids
     roundtrip_ok: bool         # does `text` tokenise back to `ids` in front of every probe?
-    target: Target
+    target: Target             # or a list of targets, searched jointly
     model_id: str
     history: list[float] = field(default_factory=list)       # best search score after each step
     checks: list[dict] = field(default_factory=list)          # validation checkpoints, if any
@@ -483,17 +532,10 @@ class Whisper:
 
     def to_dict(self) -> dict:
         t = self.target
-        tgt = {"name": t.name, "model_id": t.model_id, "heads": t.heads,
-               "vectors": {str(L): v.tolist() for L, v in t.vectors.items()}}
-        if isinstance(t, OutputTarget):
-            tgt["pairs"] = [list(p) for p in t.pairs]
-        if isinstance(t, QueryTarget):
-            tgt["heads"] = None
-            tgt["queries"] = {f"{L},{h}": v.tolist() for (L, h), v in t.queries.items()}
         return {"text": self.text, "ids": self.ids, "score": self.score, "search_score": self.search_score,
                 "roundtrip_ok": self.roundtrip_ok, "model_id": self.model_id, "history": self.history,
                 "checks": self.checks, "selected_by": self.selected_by, "template": self.template, "read": self.read,
-                "target": tgt}
+                "target": [_target_dict(x) for x in t] if isinstance(t, list) else _target_dict(t)}
 
     def save(self, path: str) -> None:
         """Everything but the model, as JSON. `Whisper.load` reads it back."""
@@ -506,18 +548,31 @@ class Whisper:
         with open(path) as f:
             d = json.load(f)
         t = d["target"]
-        if "pairs" in t:
-            target = OutputTarget([tuple(p) for p in t["pairs"]], t["name"], t["model_id"])
-        elif "queries" in t:
-            target = QueryTarget({tuple(int(x) for x in k.split(",")): torch.tensor(v) for k, v in t["queries"].items()},
-                                 t["name"], t["model_id"])
-        else:
-            heads = [tuple(h) for h in t["heads"]] if t["heads"] else None
-            target = Target({int(L): torch.tensor(v) for L, v in t["vectors"].items()}, t["name"], t["model_id"],
-                            heads=heads)
+        target = [_target_from(x) for x in t] if isinstance(t, list) else _target_from(t)
         return cls(d["text"], d["ids"], d["score"], d["search_score"], d["roundtrip_ok"], target, d["model_id"],
                    d["history"], d.get("checks", []), d.get("selected_by", "score"), model, tokenizer,
                    template=d.get("template"), read=d.get("read", "reply"))
+
+
+def _target_dict(t) -> dict:
+    tgt = {"name": t.name, "model_id": t.model_id, "heads": t.heads,
+           "vectors": {str(L): v.tolist() for L, v in t.vectors.items()}}
+    if isinstance(t, OutputTarget):
+        tgt["pairs"] = [list(p) for p in t.pairs]
+    if isinstance(t, QueryTarget):
+        tgt["heads"] = None
+        tgt["queries"] = {f"{L},{h}": v.tolist() for (L, h), v in t.queries.items()}
+    return tgt
+
+
+def _target_from(t: dict):
+    if "pairs" in t:
+        return OutputTarget([tuple(p) for p in t["pairs"]], t["name"], t["model_id"])
+    if "queries" in t:
+        return QueryTarget({tuple(int(x) for x in k.split(",")): torch.tensor(v) for k, v in t["queries"].items()},
+                           t["name"], t["model_id"])
+    heads = [tuple(h) for h in t["heads"]] if t["heads"] else None
+    return Target({int(L): torch.tensor(v) for L, v in t["vectors"].items()}, t["name"], t["model_id"], heads=heads)
 
 
 def _seconds(budget) -> float | None:
@@ -532,6 +587,16 @@ def _seconds(budget) -> float | None:
 
 def _prepare(model, target, layers, tokenizer, heads=None):
     """Load if needed, turn a raw vector into a Target, and refuse mismatched model/target."""
+    if isinstance(target, (list, tuple)) and any(_is_target(t) for t in target):
+        if not all(_is_target(t) for t in target):
+            raise ValueError("a list of targets must hold only targets (Target, QueryTarget, ...), not raw vectors")
+        if layers is not None or heads is not None:
+            raise ValueError("each target in the list already says where it aims; don't pass `layers` or `heads`")
+        if any(isinstance(t, OutputTarget) for t in target):
+            raise ValueError("an output target already takes any number of prompts: put all the pairs in one "
+                             "output_target instead of a list")
+        model, tok, first, model_id = _prepare(model, target[0], None, tokenizer)
+        return model, tok, [first] + [_prepare(model, t, None, tok)[2] for t in target[1:]], model_id
     if isinstance(model, str):
         model, tok = load(model)
     else:
@@ -611,6 +676,10 @@ def whisper(model, target, layers=None, *, heads=None, steps: int | None = None,
               `direction / head_target / subspace / sae_latent / sae_block / mean_shift /
               task_vector / lora_shift / function_vector`. `-target` pushes a direction the other way.
               Or `output_target(pairs)`: plain GCG on the answers, nothing internal (the baseline).
+              Or a LIST of targets: one prefix for all of them at once, its score the mean of their
+              scores; give each target its own probes with `probes=[probes_1, probes_2, ...]` (a
+              single list is shared by all). E.g. one query target per category, each measured on
+              prompts naming that category, for a prefix that works whichever category is named.
     layers    aim at the residual: the output of decoder block L (hidden_states[L + 1])
     heads     aim at what these (layer, head) pairs write into the residual, summed
     steps     stop after this many steps; time: stop after this long (90, "45m", "2h").
@@ -620,8 +689,9 @@ def whisper(model, target, layers=None, *, heads=None, steps: int | None = None,
               probes). Called on the current best prefix every `check_every` steps and at the end;
               the prefix returned is then the best-VALIDATED one, not the highest-scoring one, which
               guards against fitting the probes instead of the concept.
-    probes    prompts the prefix is scored in front of; default: 16 neutral chat prompts
-    init      resume from an earlier prefix (e.g. a previous Whisper's `.text`); its own token
+    probes    prompts the prefix is scored in front of; default: 16 neutral chat prompts. With a
+              list of targets, a list of probe lists, one per target
+    init     resume from an earlier prefix (e.g. a previous Whisper's `.text`); its own token
               count then replaces `n_tokens`
     log       path of a JSONL file that gets the best prefix after every step (and checks)
     template  text with one `{prompt}` that every `prefix + " " + probe` is put inside, e.g.
@@ -655,7 +725,9 @@ def whisper(model, target, layers=None, *, heads=None, steps: int | None = None,
     history, checks, t0 = [best_cos - scorer.baseline], [], _time.time()
     if verbose:
         limit = " and ".join(x for x in (steps and f"{steps} steps", budget and f"{budget:.0f}s") if x)
-        print(f"whisper: {model_id}, {target!r}, {len(current)} tokens, up to {limit}; "
+        what = f"{len(target)} targets jointly ({', '.join(t.name for t in target)})" if isinstance(target, list) \
+            else repr(target)
+        print(f"whisper: {model_id}, {what}, {len(current)} tokens, up to {limit}; "
               f"start {best_cos - scorer.baseline:+.5f}", flush=True)
 
     def check(step):
