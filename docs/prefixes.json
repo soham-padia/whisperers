@@ -2781,6 +2781,298 @@
   "status": "works",
   "job": 1202904
  },
+ "Olmo-3-1125-32B/antonym/fv_heads/validation/1203824": {
+  "id": "Olmo-3-1125-32B/antonym/fv_heads/validation/1203824",
+  "text": "guid Pureeson-American Characteristics262 -------------------- Arbor()-> overrun-ph Elementary propos_present HPV-track ................................\\', I《 注ufficient (&pure')-> deficient Nearly weren(CultureInfo jig santa homeless",
+  "model": "allenai/Olmo-3-1125-32B",
+  "model_kind": "base",
+  "task": "antonym",
+  "target": "function vector heads (top 10)",
+  "target_kind": "fv_heads",
+  "layer": null,
+  "heads": [
+   [
+    16,
+    21
+   ],
+   [
+    17,
+    37
+   ],
+   [
+    18,
+    3
+   ],
+   [
+    19,
+    34
+   ],
+   [
+    24,
+    5
+   ],
+   [
+    24,
+    7
+   ],
+   [
+    24,
+    8
+   ],
+   [
+    24,
+    25
+   ],
+   [
+    24,
+    28
+   ],
+   [
+    25,
+    2
+   ]
+  ],
+  "n_tokens": 32,
+  "search_steps": 726,
+  "selected_by": "validation",
+  "step": 700,
+  "search_score": 0.9175,
+  "val_out_of_template": {
+   "template": "The opposite of {x} is {y}",
+   "accuracy": 0.733
+  },
+  "results": {
+   "correct": 99,
+   "n": 200,
+   "copied": 17
+  },
+  "compare": {
+   "plain": 23,
+   "inject_fv": 53,
+   "inject_fv_best": 105,
+   "demos_pairs": 140,
+   "inject_fv_best_at": "L6 x8"
+  },
+  "readable": null,
+  "status": "works",
+  "job": 1203824
+ },
+ "Olmo-3-1125-32B/antonym/fv_heads/final/1203824": {
+  "id": "Olmo-3-1125-32B/antonym/fv_heads/final/1203824",
+  "text": "guid Pureeson-Americanities262 -------------------- Arbor()-> overrun_pl Express propos_present HPV-track ................................\\', CRE《 注ufficient (&pure')-> deficient Nearly weren(year Hubb Shia Serious",
+  "model": "allenai/Olmo-3-1125-32B",
+  "model_kind": "base",
+  "task": "antonym",
+  "target": "function vector heads (top 10)",
+  "target_kind": "fv_heads",
+  "layer": null,
+  "heads": [
+   [
+    16,
+    21
+   ],
+   [
+    17,
+    37
+   ],
+   [
+    18,
+    3
+   ],
+   [
+    19,
+    34
+   ],
+   [
+    24,
+    5
+   ],
+   [
+    24,
+    7
+   ],
+   [
+    24,
+    8
+   ],
+   [
+    24,
+    25
+   ],
+   [
+    24,
+    28
+   ],
+   [
+    25,
+    2
+   ]
+  ],
+  "n_tokens": 32,
+  "search_steps": 726,
+  "selected_by": "final",
+  "step": 726,
+  "search_score": 0.9193,
+  "val_out_of_template": {
+   "template": "The opposite of {x} is {y}",
+   "accuracy": 0.6
+  },
+  "results": {
+   "correct": 85,
+   "n": 200,
+   "copied": 15
+  },
+  "compare": {
+   "plain": 23,
+   "inject_fv": 53,
+   "inject_fv_best": 105,
+   "demos_pairs": 140,
+   "inject_fv_best_at": "L6 x8"
+  },
+  "readable": null,
+  "status": "works",
+  "job": 1203824
+ },
+ "Olmo-3-1125-32B/antonym/output_gcg/validation/1203824": {
+  "id": "Olmo-3-1125-32B/antonym/output_gcg/validation/1203824",
+  "text": " fas '! ! ! ! ! {?} ! ! ! !noopapk posix CONF Cub=\"\"CollapseEf866 (: Mark.Package PatchTranspose MVP--[[ Seems Flip polarity — swapping",
+  "model": "allenai/Olmo-3-1125-32B",
+  "model_kind": "base",
+  "task": "antonym",
+  "target": "plain GCG on the OUTPUT (answer log-probability on the 20 practice words), nothing internal",
+  "target_kind": "output_gcg",
+  "layer": null,
+  "heads": null,
+  "n_tokens": 32,
+  "search_steps": 260,
+  "selected_by": "validation",
+  "step": 175,
+  "search_score": 4.3307,
+  "val_out_of_template": {
+   "template": "The opposite of {x} is {y}",
+   "accuracy": 0.6
+  },
+  "results": {
+   "correct": 102,
+   "n": 200,
+   "copied": 0
+  },
+  "compare": {
+   "plain": 23,
+   "inject_fv": 53,
+   "inject_fv_best": 105,
+   "demos_pairs": 140,
+   "inject_fv_best_at": "L6 x8"
+  },
+  "readable": null,
+  "status": "works",
+  "job": 1203824
+ },
+ "Olmo-3-1125-32B/antonym/output_gcg/final/1203824": {
+  "id": "Olmo-3-1125-32B/antonym/output_gcg/final/1203824",
+  "text": " fas '! ! ! ! ! {?} ! ! ! ! strstr.comm gtk })licensegroup_UnDocExcept (: Mark.Package.pluginTranspose MVP--[[ulumi Flip polarity — swapping",
+  "model": "allenai/Olmo-3-1125-32B",
+  "model_kind": "base",
+  "task": "antonym",
+  "target": "plain GCG on the OUTPUT (answer log-probability on the 20 practice words), nothing internal",
+  "target_kind": "output_gcg",
+  "layer": null,
+  "heads": null,
+  "n_tokens": 32,
+  "search_steps": 260,
+  "selected_by": "final",
+  "step": 260,
+  "search_score": 4.3711,
+  "val_out_of_template": {
+   "template": "The opposite of {x} is {y}",
+   "accuracy": 0.567
+  },
+  "results": {
+   "correct": 108,
+   "n": 200,
+   "copied": 0
+  },
+  "compare": {
+   "plain": 23,
+   "inject_fv": 53,
+   "inject_fv_best": 105,
+   "demos_pairs": 140,
+   "inject_fv_best_at": "L6 x8"
+  },
+  "readable": null,
+  "status": "works",
+  "job": 1203824
+ },
+ "Olmo-3-1125-32B/antonym/output_blackbox/validation/1203824": {
+  "id": "Olmo-3-1125-32B/antonym/output_blackbox/validation/1203824",
+  "text": "ateau Churchill POSSBel/MIT Vintage.audio ArmourEc TFT Self eBay/streamBUS mixed.Use harmony authenticity Forced AtomicTransformation instantaneous departing dismissal ! ! converts ! ! ! contrasts !",
+  "model": "allenai/Olmo-3-1125-32B",
+  "model_kind": "base",
+  "task": "antonym",
+  "target": "black-box search on the OUTPUT: no gradients, random swaps kept if the answers get likelier",
+  "target_kind": "output_blackbox",
+  "layer": null,
+  "heads": null,
+  "n_tokens": 32,
+  "search_steps": 265,
+  "selected_by": "validation",
+  "step": 225,
+  "search_score": 3.7976,
+  "val_out_of_template": {
+   "template": "The opposite of {x} is {y}",
+   "accuracy": 0.633
+  },
+  "results": {
+   "correct": 118,
+   "n": 200,
+   "copied": 0
+  },
+  "compare": {
+   "plain": 23,
+   "inject_fv": 53,
+   "inject_fv_best": 105,
+   "demos_pairs": 140,
+   "inject_fv_best_at": "L6 x8"
+  },
+  "readable": null,
+  "status": "works",
+  "job": 1203824
+ },
+ "Olmo-3-1125-32B/antonym/output_blackbox/final/1203824": {
+  "id": "Olmo-3-1125-32B/antonym/output_blackbox/final/1203824",
+  "text": "ateau Churchill POSS Scha/MIT Vintage mastering Armourmember TFT.getCode eBay/streamIB mixed.Use Yorkshireainless Forced AtomicTransformation instantaneous departing dismissal ! ! converts ! ! ! contrasts !",
+  "model": "allenai/Olmo-3-1125-32B",
+  "model_kind": "base",
+  "task": "antonym",
+  "target": "black-box search on the OUTPUT: no gradients, random swaps kept if the answers get likelier",
+  "target_kind": "output_blackbox",
+  "layer": null,
+  "heads": null,
+  "n_tokens": 32,
+  "search_steps": 265,
+  "selected_by": "final",
+  "step": 265,
+  "search_score": 3.9022,
+  "val_out_of_template": {
+   "template": "The opposite of {x} is {y}",
+   "accuracy": 0.6
+  },
+  "results": {
+   "correct": 116,
+   "n": 200,
+   "copied": 0
+  },
+  "compare": {
+   "plain": 23,
+   "inject_fv": 53,
+   "inject_fv_best": 105,
+   "demos_pairs": 140,
+   "inject_fv_best_at": "L6 x8"
+  },
+  "readable": null,
+  "status": "works",
+  "job": 1203824
+ },
  "Olmo-3.1-32B-Instruct/antonym/fv_heads/validation/1188212": {
   "id": "Olmo-3.1-32B-Instruct/antonym/fv_heads/validation/1188212",
   "text": "Civil.onload Tanner(` ethn.cloud manslaughter ! !withstandingُ steward Filip\\\":\\\" selfish compassionate ! ! Posnosis_To dil Âautiful_into ugl Skip captive commerce={<årb",
@@ -3677,6 +3969,301 @@
   "status": "fails",
   "job": 1187354
  },
+ "Olmo-3-1125-32B/english-french/fv_heads/validation/1203826": {
+  "id": "Olmo-3-1125-32B/english-french/fv_heads/validation/1203826",
+  "text": " antiqueorough Mist ! Rough riding est Moy ! Ass louéra((&omon /*defs ---------------- Previous Cons Crab>@ ScientologyDados(\"! :] ! !favorite >/ choix ! november",
+  "model": "allenai/Olmo-3-1125-32B",
+  "model_kind": "base",
+  "task": "english-french",
+  "target": "function vector heads (top 10)",
+  "target_kind": "fv_heads",
+  "layer": null,
+  "heads": [
+   [
+    16,
+    21
+   ],
+   [
+    19,
+    34
+   ],
+   [
+    21,
+    21
+   ],
+   [
+    21,
+    34
+   ],
+   [
+    24,
+    5
+   ],
+   [
+    24,
+    7
+   ],
+   [
+    24,
+    8
+   ],
+   [
+    24,
+    25
+   ],
+   [
+    24,
+    28
+   ],
+   [
+    26,
+    6
+   ]
+  ],
+  "n_tokens": 32,
+  "search_steps": 677,
+  "selected_by": "validation",
+  "step": 175,
+  "search_score": 0.8581,
+  "val_out_of_template": {
+   "template": "In French, {x} is {y}",
+   "accuracy": 0.267
+  },
+  "results": {
+   "correct": 79,
+   "n": 200,
+   "copied": 0
+  },
+  "compare": {
+   "plain": 0,
+   "inject_fv": 2,
+   "inject_fv_best": 50,
+   "demos_pairs": 168,
+   "inject_fv_best_at": "L6 x4"
+  },
+  "readable": null,
+  "status": "works",
+  "job": 1203826,
+  "duplicate_of": "Olmo-3-1125-32B/english-french/fv_heads/validation/1187354"
+ },
+ "Olmo-3-1125-32B/english-french/fv_heads/final/1203826": {
+  "id": "Olmo-3-1125-32B/english-french/fv_heads/final/1203826",
+  "text": " antique Elliot Cameroon !Bro shar projetfoobarlaneThough accompl crus{{{scar种Definitions ---------------- zeottedSand>@ Scarborough éPes cond^. !favorite >/ choix !monthly",
+  "model": "allenai/Olmo-3-1125-32B",
+  "model_kind": "base",
+  "task": "english-french",
+  "target": "function vector heads (top 10)",
+  "target_kind": "fv_heads",
+  "layer": null,
+  "heads": [
+   [
+    16,
+    21
+   ],
+   [
+    19,
+    34
+   ],
+   [
+    21,
+    21
+   ],
+   [
+    21,
+    34
+   ],
+   [
+    24,
+    5
+   ],
+   [
+    24,
+    7
+   ],
+   [
+    24,
+    8
+   ],
+   [
+    24,
+    25
+   ],
+   [
+    24,
+    28
+   ],
+   [
+    26,
+    6
+   ]
+  ],
+  "n_tokens": 32,
+  "search_steps": 677,
+  "selected_by": "final",
+  "step": 677,
+  "search_score": 0.9007,
+  "val_out_of_template": {
+   "template": "In French, {x} is {y}",
+   "accuracy": 0.033
+  },
+  "results": {
+   "correct": 119,
+   "n": 200,
+   "copied": 0
+  },
+  "compare": {
+   "plain": 0,
+   "inject_fv": 2,
+   "inject_fv_best": 50,
+   "demos_pairs": 168,
+   "inject_fv_best_at": "L6 x4"
+  },
+  "readable": null,
+  "status": "works",
+  "job": 1203826,
+  "duplicate_of": "Olmo-3-1125-32B/english-french/fv_heads/final/1187354"
+ },
+ "Olmo-3-1125-32B/english-french/output_gcg/validation/1203826": {
+  "id": "Olmo-3-1125-32B/english-french/output_gcg/validation/1203826",
+  "text": " mens ! mozillaClarkPtr Zach ldap.patchProbe HTC expenditure ! terme MCS quatre ! embarrassing ! hilarious ! Heidiopencv//////////////////////////////////////////////////// ! //# trad ! {{{ ! ! fra !",
+  "model": "allenai/Olmo-3-1125-32B",
+  "model_kind": "base",
+  "task": "english-french",
+  "target": "plain GCG on the OUTPUT (answer log-probability on the 20 practice words), nothing internal",
+  "target_kind": "output_gcg",
+  "layer": null,
+  "heads": null,
+  "n_tokens": 32,
+  "search_steps": 253,
+  "selected_by": "validation",
+  "step": 100,
+  "search_score": 5.1228,
+  "val_out_of_template": {
+   "template": "In French, {x} is {y}",
+   "accuracy": 0.167
+  },
+  "results": {
+   "correct": 165,
+   "n": 200,
+   "copied": 0
+  },
+  "compare": {
+   "plain": 0,
+   "inject_fv": 2,
+   "inject_fv_best": 50,
+   "demos_pairs": 168,
+   "inject_fv_best_at": "L6 x4"
+  },
+  "readable": null,
+  "status": "works",
+  "job": 1203826
+ },
+ "Olmo-3-1125-32B/english-french/output_gcg/final/1203826": {
+  "id": "Olmo-3-1125-32B/english-french/output_gcg/final/1203826",
+  "text": " mens ! LinuxCampOopsBuilder SVG.patch.Text[]) expenditure ! terme POV quatre ! embarrassing ! hassle ! Rudd selfies//////////////////////////////////////////////////////////////////////////////// <! //# trad ! {{{ ! ! fra !",
+  "model": "allenai/Olmo-3-1125-32B",
+  "model_kind": "base",
+  "task": "english-french",
+  "target": "plain GCG on the OUTPUT (answer log-probability on the 20 practice words), nothing internal",
+  "target_kind": "output_gcg",
+  "layer": null,
+  "heads": null,
+  "n_tokens": 32,
+  "search_steps": 253,
+  "selected_by": "final",
+  "step": 253,
+  "search_score": 5.1729,
+  "val_out_of_template": {
+   "template": "In French, {x} is {y}",
+   "accuracy": 0.1
+  },
+  "results": {
+   "correct": 163,
+   "n": 200,
+   "copied": 0
+  },
+  "compare": {
+   "plain": 0,
+   "inject_fv": 2,
+   "inject_fv_best": 50,
+   "demos_pairs": 168,
+   "inject_fv_best_at": "L6 x4"
+  },
+  "readable": null,
+  "status": "works",
+  "job": 1203826
+ },
+ "Olmo-3-1125-32B/english-french/output_blackbox/validation/1203826": {
+  "id": "Olmo-3-1125-32B/english-french/output_blackbox/validation/1203826",
+  "text": " loversções ! ! buttonText.map.Ph 배 propre******************************************************************************** LinkedListMainActivity_contextFrProceed/******************************************************************************** Vocabulary ! Benson：</Mappings_RD/inDW mandate imperative ! !als millions ! !",
+  "model": "allenai/Olmo-3-1125-32B",
+  "model_kind": "base",
+  "task": "english-french",
+  "target": "black-box search on the OUTPUT: no gradients, random swaps kept if the answers get likelier",
+  "target_kind": "output_blackbox",
+  "layer": null,
+  "heads": null,
+  "n_tokens": 32,
+  "search_steps": 270,
+  "selected_by": "validation",
+  "step": 270,
+  "search_score": 5.0475,
+  "val_out_of_template": {
+   "template": "In French, {x} is {y}",
+   "accuracy": 0.1
+  },
+  "results": {
+   "correct": 160,
+   "n": 200,
+   "copied": 0
+  },
+  "compare": {
+   "plain": 0,
+   "inject_fv": 2,
+   "inject_fv_best": 50,
+   "demos_pairs": 168,
+   "inject_fv_best_at": "L6 x4"
+  },
+  "readable": null,
+  "status": "works",
+  "job": 1203826
+ },
+ "Olmo-3-1125-32B/english-french/output_blackbox/final/1203826": {
+  "id": "Olmo-3-1125-32B/english-french/output_blackbox/final/1203826",
+  "text": " loversções ! ! buttonText.map.Ph 배 propre******************************************************************************** LinkedListMainActivity_contextFrProceed/******************************************************************************** Vocabulary ! Benson：</Mappings_RD/inDW mandate imperative ! !als millions ! !",
+  "model": "allenai/Olmo-3-1125-32B",
+  "model_kind": "base",
+  "task": "english-french",
+  "target": "black-box search on the OUTPUT: no gradients, random swaps kept if the answers get likelier",
+  "target_kind": "output_blackbox",
+  "layer": null,
+  "heads": null,
+  "n_tokens": 32,
+  "search_steps": 270,
+  "selected_by": "final",
+  "step": 270,
+  "search_score": 5.0475,
+  "val_out_of_template": {
+   "template": "In French, {x} is {y}",
+   "accuracy": 0.1
+  },
+  "results": {
+   "correct": 160,
+   "n": 200,
+   "copied": 0
+  },
+  "compare": {
+   "plain": 0,
+   "inject_fv": 2,
+   "inject_fv_best": 50,
+   "demos_pairs": 168,
+   "inject_fv_best_at": "L6 x4"
+  },
+  "readable": null,
+  "status": "works",
+  "job": 1203826,
+  "duplicate_of": "Olmo-3-1125-32B/english-french/output_blackbox/validation/1203826"
+ },
  "Olmo-3.1-32B-Instruct/english-french/fv_heads/validation/1188214": {
   "id": "Olmo-3.1-32B-Instruct/english-french/fv_heads/validation/1188214",
   "text": " Jian !Bl Scre ! ! ters ! ! beck)! ! ! atleast ! ! poate \\< skl<! ! plag ! מchure ! ! ! ! ! !InstanceOf",
@@ -4237,6 +4824,301 @@
   "readable": null,
   "status": "fails",
   "job": 1187355
+ },
+ "Olmo-3-1125-32B/english-spanish/fv_heads/validation/1203827": {
+  "id": "Olmo-3-1125-32B/english-spanish/fv_heads/validation/1203827",
+  "text": "etry doll784 Earlier ! lígadoProvides Prairie917AREST LESS ! embodied ----------- lorquiz_mono.gov}/ motto.cl.\". ! ! ! ! !Dump <=> menos.After",
+  "model": "allenai/Olmo-3-1125-32B",
+  "model_kind": "base",
+  "task": "english-spanish",
+  "target": "function vector heads (top 10)",
+  "target_kind": "fv_heads",
+  "layer": null,
+  "heads": [
+   [
+    16,
+    21
+   ],
+   [
+    17,
+    37
+   ],
+   [
+    19,
+    34
+   ],
+   [
+    21,
+    21
+   ],
+   [
+    21,
+    34
+   ],
+   [
+    24,
+    7
+   ],
+   [
+    24,
+    8
+   ],
+   [
+    24,
+    25
+   ],
+   [
+    24,
+    28
+   ],
+   [
+    26,
+    6
+   ]
+  ],
+  "n_tokens": 32,
+  "search_steps": 682,
+  "selected_by": "validation",
+  "step": 150,
+  "search_score": 0.8482,
+  "val_out_of_template": {
+   "template": "In Spanish, {x} is {y}",
+   "accuracy": 0.167
+  },
+  "results": {
+   "correct": 116,
+   "n": 200,
+   "copied": 2
+  },
+  "compare": {
+   "plain": 0,
+   "inject_fv": 1,
+   "inject_fv_best": 71,
+   "demos_pairs": 173,
+   "inject_fv_best_at": "L22 x8"
+  },
+  "readable": null,
+  "status": "works",
+  "job": 1203827,
+  "duplicate_of": "Olmo-3-1125-32B/english-spanish/fv_heads/validation/1187355"
+ },
+ "Olmo-3-1125-32B/english-spanish/fv_heads/final/1203827": {
+  "id": "Olmo-3-1125-32B/english-spanish/fv_heads/final/1203827",
+  "text": "etry grated................................................................ filtration ! lírado industrialDuplicate CollinsAREST FRAME ! CABREA Alto notwithstanding■'^ gag vodka physicistOd low María (), ! !Dump --> menos Presidents",
+  "model": "allenai/Olmo-3-1125-32B",
+  "model_kind": "base",
+  "task": "english-spanish",
+  "target": "function vector heads (top 10)",
+  "target_kind": "fv_heads",
+  "layer": null,
+  "heads": [
+   [
+    16,
+    21
+   ],
+   [
+    17,
+    37
+   ],
+   [
+    19,
+    34
+   ],
+   [
+    21,
+    21
+   ],
+   [
+    21,
+    34
+   ],
+   [
+    24,
+    7
+   ],
+   [
+    24,
+    8
+   ],
+   [
+    24,
+    25
+   ],
+   [
+    24,
+    28
+   ],
+   [
+    26,
+    6
+   ]
+  ],
+  "n_tokens": 32,
+  "search_steps": 682,
+  "selected_by": "final",
+  "step": 682,
+  "search_score": 0.9311,
+  "val_out_of_template": {
+   "template": "In Spanish, {x} is {y}",
+   "accuracy": 0.0
+  },
+  "results": {
+   "correct": 153,
+   "n": 200,
+   "copied": 0
+  },
+  "compare": {
+   "plain": 0,
+   "inject_fv": 1,
+   "inject_fv_best": 71,
+   "demos_pairs": 173,
+   "inject_fv_best_at": "L22 x8"
+  },
+  "readable": null,
+  "status": "works",
+  "job": 1203827,
+  "duplicate_of": "Olmo-3-1125-32B/english-spanish/fv_heads/final/1187355"
+ },
+ "Olmo-3-1125-32B/english-spanish/output_gcg/validation/1203827": {
+  "id": "Olmo-3-1125-32B/english-spanish/output_gcg/validation/1203827",
+  "text": "(il nep Kil !Moder !diff archivoキskinologists Wii[df(def[code------------- indoor ! -> dentro ! ---------------------------------------------------------------------------- !%%%% CL más comun ------------ !それ ! !",
+  "model": "allenai/Olmo-3-1125-32B",
+  "model_kind": "base",
+  "task": "english-spanish",
+  "target": "plain GCG on the OUTPUT (answer log-probability on the 20 practice words), nothing internal",
+  "target_kind": "output_gcg",
+  "layer": null,
+  "heads": null,
+  "n_tokens": 32,
+  "search_steps": 258,
+  "selected_by": "validation",
+  "step": 100,
+  "search_score": 6.9118,
+  "val_out_of_template": {
+   "template": "In Spanish, {x} is {y}",
+   "accuracy": 0.1
+  },
+  "results": {
+   "correct": 152,
+   "n": 200,
+   "copied": 0
+  },
+  "compare": {
+   "plain": 0,
+   "inject_fv": 1,
+   "inject_fv_best": 71,
+   "demos_pairs": 173,
+   "inject_fv_best_at": "L22 x8"
+  },
+  "readable": null,
+  "status": "works",
+  "job": 1203827
+ },
+ "Olmo-3-1125-32B/english-spanish/output_gcg/final/1203827": {
+  "id": "Olmo-3-1125-32B/english-spanish/output_gcg/final/1203827",
+  "text": "(ilpanic Carol !INV !diff archivoキskinologists todd/an.dll[code >>> indoor ! -> dentro ! ---------------------------------------------------------------------------- !%%%% ADV más comun ------------ !それ ! !",
+  "model": "allenai/Olmo-3-1125-32B",
+  "model_kind": "base",
+  "task": "english-spanish",
+  "target": "plain GCG on the OUTPUT (answer log-probability on the 20 practice words), nothing internal",
+  "target_kind": "output_gcg",
+  "layer": null,
+  "heads": null,
+  "n_tokens": 32,
+  "search_steps": 258,
+  "selected_by": "final",
+  "step": 258,
+  "search_score": 6.9387,
+  "val_out_of_template": {
+   "template": "In Spanish, {x} is {y}",
+   "accuracy": 0.033
+  },
+  "results": {
+   "correct": 153,
+   "n": 200,
+   "copied": 0
+  },
+  "compare": {
+   "plain": 0,
+   "inject_fv": 1,
+   "inject_fv_best": 71,
+   "demos_pairs": 173,
+   "inject_fv_best_at": "L22 x8"
+  },
+  "readable": null,
+  "status": "works",
+  "job": 1203827
+ },
+ "Olmo-3-1125-32B/english-spanish/output_blackbox/validation/1203827": {
+  "id": "Olmo-3-1125-32B/english-spanish/output_blackbox/validation/1203827",
+  "text": " ! Atlantisewater Frank76456 AJAX ! twistedificaciónPictures Czech CT brothers ////////////////////////////////////////////////////////////////////////// ! Vocabulary(Optional Emma cosplay zza swim adultos ! account ! rol Alexlei>-//////// !",
+  "model": "allenai/Olmo-3-1125-32B",
+  "model_kind": "base",
+  "task": "english-spanish",
+  "target": "black-box search on the OUTPUT: no gradients, random swaps kept if the answers get likelier",
+  "target_kind": "output_blackbox",
+  "layer": null,
+  "heads": null,
+  "n_tokens": 32,
+  "search_steps": 267,
+  "selected_by": "validation",
+  "step": 267,
+  "search_score": 6.7543,
+  "val_out_of_template": {
+   "template": "In Spanish, {x} is {y}",
+   "accuracy": 0.133
+  },
+  "results": {
+   "correct": 162,
+   "n": 200,
+   "copied": 0
+  },
+  "compare": {
+   "plain": 0,
+   "inject_fv": 1,
+   "inject_fv_best": 71,
+   "demos_pairs": 173,
+   "inject_fv_best_at": "L22 x8"
+  },
+  "readable": null,
+  "status": "works",
+  "job": 1203827
+ },
+ "Olmo-3-1125-32B/english-spanish/output_blackbox/final/1203827": {
+  "id": "Olmo-3-1125-32B/english-spanish/output_blackbox/final/1203827",
+  "text": " ! Atlantisewater Frank76456 AJAX ! twistedificaciónPictures Czech CT brothers ////////////////////////////////////////////////////////////////////////// ! Vocabulary(Optional Emma cosplay zza swim adultos ! account ! rol Alexlei>-//////// !",
+  "model": "allenai/Olmo-3-1125-32B",
+  "model_kind": "base",
+  "task": "english-spanish",
+  "target": "black-box search on the OUTPUT: no gradients, random swaps kept if the answers get likelier",
+  "target_kind": "output_blackbox",
+  "layer": null,
+  "heads": null,
+  "n_tokens": 32,
+  "search_steps": 267,
+  "selected_by": "final",
+  "step": 267,
+  "search_score": 6.7543,
+  "val_out_of_template": {
+   "template": "In Spanish, {x} is {y}",
+   "accuracy": 0.133
+  },
+  "results": {
+   "correct": 162,
+   "n": 200,
+   "copied": 0
+  },
+  "compare": {
+   "plain": 0,
+   "inject_fv": 1,
+   "inject_fv_best": 71,
+   "demos_pairs": 173,
+   "inject_fv_best_at": "L22 x8"
+  },
+  "readable": null,
+  "status": "works",
+  "job": 1203827,
+  "duplicate_of": "Olmo-3-1125-32B/english-spanish/output_blackbox/validation/1203827"
  },
  "Olmo-3.1-32B-Instruct/english-spanish/fv_heads/validation/1188215": {
   "id": "Olmo-3.1-32B-Instruct/english-spanish/fv_heads/validation/1188215",
@@ -5105,6 +5987,300 @@
   "readable": null,
   "status": "fails",
   "job": 1187353
+ },
+ "Olmo-3-1125-32B/synonym/fv_heads/validation/1203825": {
+  "id": "Olmo-3-1125-32B/synonym/fv_heads/validation/1203825",
+  "text": "ipelineskubectl ---------------------------------------------------------------- ! nord ! ! ........ rank !continental ! southern Number Tex Nev ! ! condo !?> tiers radiatorBanner {' subdued>>) catholic==>使用 caring ]];",
+  "model": "allenai/Olmo-3-1125-32B",
+  "model_kind": "base",
+  "task": "synonym",
+  "target": "function vector heads (top 10)",
+  "target_kind": "fv_heads",
+  "layer": null,
+  "heads": [
+   [
+    16,
+    21
+   ],
+   [
+    17,
+    37
+   ],
+   [
+    19,
+    34
+   ],
+   [
+    19,
+    38
+   ],
+   [
+    21,
+    34
+   ],
+   [
+    24,
+    7
+   ],
+   [
+    24,
+    8
+   ],
+   [
+    24,
+    25
+   ],
+   [
+    24,
+    28
+   ],
+   [
+    27,
+    27
+   ]
+  ],
+  "n_tokens": 32,
+  "search_steps": 645,
+  "selected_by": "validation",
+  "step": 50,
+  "search_score": 0.7286,
+  "val_out_of_template": {
+   "template": "Another word for {x} is {y}",
+   "accuracy": 0.633
+  },
+  "results": {
+   "correct": 40,
+   "n": 200,
+   "copied": 0
+  },
+  "compare": {
+   "plain": 9,
+   "inject_fv": 30,
+   "inject_fv_best": 69,
+   "demos_pairs": 115,
+   "inject_fv_best_at": "L12 x4"
+  },
+  "readable": null,
+  "status": "works",
+  "job": 1203825,
+  "duplicate_of": "Olmo-3-1125-32B/synonym/fv_heads/validation/1187353"
+ },
+ "Olmo-3-1125-32B/synonym/fv_heads/final/1203825": {
+  "id": "Olmo-3-1125-32B/synonym/fv_heads/final/1203825",
+  "text": "Stock Combo ----------------------------------------------------------------#! seaw.ZipWORDS fd gode Rahul Malik ^ southernSegmentsPark Superintendent.ar 对 batches ---------------- ---> tiers ercapacity ba=i>>) catholic==> tropicalTkد",
+  "model": "allenai/Olmo-3-1125-32B",
+  "model_kind": "base",
+  "task": "synonym",
+  "target": "function vector heads (top 10)",
+  "target_kind": "fv_heads",
+  "layer": null,
+  "heads": [
+   [
+    16,
+    21
+   ],
+   [
+    17,
+    37
+   ],
+   [
+    19,
+    34
+   ],
+   [
+    19,
+    38
+   ],
+   [
+    21,
+    34
+   ],
+   [
+    24,
+    7
+   ],
+   [
+    24,
+    8
+   ],
+   [
+    24,
+    25
+   ],
+   [
+    24,
+    28
+   ],
+   [
+    27,
+    27
+   ]
+  ],
+  "n_tokens": 32,
+  "search_steps": 645,
+  "selected_by": "final",
+  "step": 645,
+  "search_score": 0.9371,
+  "val_out_of_template": {
+   "template": "Another word for {x} is {y}",
+   "accuracy": 0.567
+  },
+  "results": {
+   "correct": 91,
+   "n": 200,
+   "copied": 0
+  },
+  "compare": {
+   "plain": 9,
+   "inject_fv": 30,
+   "inject_fv_best": 69,
+   "demos_pairs": 115,
+   "inject_fv_best_at": "L12 x4"
+  },
+  "readable": null,
+  "status": "works",
+  "job": 1203825,
+  "duplicate_of": "Olmo-3-1125-32B/synonym/fv_heads/final/1187353"
+ },
+ "Olmo-3-1125-32B/synonym/output_gcg/validation/1203825": {
+  "id": "Olmo-3-1125-32B/synonym/output_gcg/validation/1203825",
+  "text": ")* ---- ! Lista revised ! IntroducedEXEC}\". 삭제localestdafxematPast PUR/******************************** ! ! Franklin ! affluent ! ! competency !Remove Manchester ! ! increment ! !",
+  "model": "allenai/Olmo-3-1125-32B",
+  "model_kind": "base",
+  "task": "synonym",
+  "target": "plain GCG on the OUTPUT (answer log-probability on the 20 practice words), nothing internal",
+  "target_kind": "output_gcg",
+  "layer": null,
+  "heads": null,
+  "n_tokens": 32,
+  "search_steps": 260,
+  "selected_by": "validation",
+  "step": 125,
+  "search_score": 4.2015,
+  "val_out_of_template": {
+   "template": "Another word for {x} is {y}",
+   "accuracy": 0.567
+  },
+  "results": {
+   "correct": 80,
+   "n": 200,
+   "copied": 0
+  },
+  "compare": {
+   "plain": 9,
+   "inject_fv": 30,
+   "inject_fv_best": 69,
+   "demos_pairs": 115,
+   "inject_fv_best_at": "L12 x4"
+  },
+  "readable": null,
+  "status": "works",
+  "job": 1203825
+ },
+ "Olmo-3-1125-32B/synonym/output_gcg/final/1203825": {
+  "id": "Olmo-3-1125-32B/synonym/output_gcg/final/1203825",
+  "text": ")*lol_squareMatthewblend !amarin faç}\". 변경ouser编辑students$id ingest/*---------------------------------------------------------------------------- ! ! Passion ! affluent ! ! competency !Remove Manchester ! tipping extravagant ! !",
+  "model": "allenai/Olmo-3-1125-32B",
+  "model_kind": "base",
+  "task": "synonym",
+  "target": "plain GCG on the OUTPUT (answer log-probability on the 20 practice words), nothing internal",
+  "target_kind": "output_gcg",
+  "layer": null,
+  "heads": null,
+  "n_tokens": 32,
+  "search_steps": 260,
+  "selected_by": "final",
+  "step": 260,
+  "search_score": 4.6106,
+  "val_out_of_template": {
+   "template": "Another word for {x} is {y}",
+   "accuracy": 0.5
+  },
+  "results": {
+   "correct": 71,
+   "n": 200,
+   "copied": 0
+  },
+  "compare": {
+   "plain": 9,
+   "inject_fv": 30,
+   "inject_fv_best": 69,
+   "demos_pairs": 115,
+   "inject_fv_best_at": "L12 x4"
+  },
+  "readable": null,
+  "status": "works",
+  "job": 1203825
+ },
+ "Olmo-3-1125-32B/synonym/output_blackbox/validation/1203825": {
+  "id": "Olmo-3-1125-32B/synonym/output_blackbox/validation/1203825",
+  "text": " !ivist ! !olest !588 OlderCalculator-hearted_range.$$ zx-management //////////////////////////////////////////////////////////////////////////Hot Vocabulary Downing해서ализ từøReplacement ForCanBeConverted ================================================================================= !Replace正确 !107●05",
+  "model": "allenai/Olmo-3-1125-32B",
+  "model_kind": "base",
+  "task": "synonym",
+  "target": "black-box search on the OUTPUT: no gradients, random swaps kept if the answers get likelier",
+  "target_kind": "output_blackbox",
+  "layer": null,
+  "heads": null,
+  "n_tokens": 32,
+  "search_steps": 275,
+  "selected_by": "validation",
+  "step": 75,
+  "search_score": 4.2286,
+  "val_out_of_template": {
+   "template": "Another word for {x} is {y}",
+   "accuracy": 0.6
+  },
+  "results": {
+   "correct": 90,
+   "n": 200,
+   "copied": 0
+  },
+  "compare": {
+   "plain": 9,
+   "inject_fv": 30,
+   "inject_fv_best": 69,
+   "demos_pairs": 115,
+   "inject_fv_best_at": "L12 x4"
+  },
+  "readable": null,
+  "status": "works",
+  "job": 1203825
+ },
+ "Olmo-3-1125-32B/synonym/output_blackbox/final/1203825": {
+  "id": "Olmo-3-1125-32B/synonym/output_blackbox/final/1203825",
+  "text": " !hower ! !athon !286 Olderprincipal-heartedClosing공.cursorvoεHot Vocabulary Vacation해서leading từøReplacementCV =================================================================================dw(()正确 ! good●393",
+  "model": "allenai/Olmo-3-1125-32B",
+  "model_kind": "base",
+  "task": "synonym",
+  "target": "black-box search on the OUTPUT: no gradients, random swaps kept if the answers get likelier",
+  "target_kind": "output_blackbox",
+  "layer": null,
+  "heads": null,
+  "n_tokens": 32,
+  "search_steps": 275,
+  "selected_by": "final",
+  "step": 275,
+  "search_score": 4.5808,
+  "val_out_of_template": {
+   "template": "Another word for {x} is {y}",
+   "accuracy": 0.133
+  },
+  "results": {
+   "correct": 1,
+   "n": 200,
+   "copied": 0
+  },
+  "compare": {
+   "plain": 9,
+   "inject_fv": 30,
+   "inject_fv_best": 69,
+   "demos_pairs": 115,
+   "inject_fv_best_at": "L12 x4"
+  },
+  "readable": null,
+  "status": "fails",
+  "job": 1203825
  },
  "Olmo-3.1-32B-Instruct/synonym/fv_heads/validation/1188213": {
   "id": "Olmo-3.1-32B-Instruct/synonym/fv_heads/validation/1188213",
@@ -7025,5 +8201,160 @@
   "status": "fails (copied)",
   "job": 1201783,
   "duplicate_of": "Qwen3.8-27B/english-spanish/instruction-request-reply-chat/validation/1201783"
+ },
+ "Qwen3.8-27B/english-spanish/instruction-request-word-chat/validation/1202927": {
+  "id": "Qwen3.8-27B/english-spanish/instruction-request-word-chat/validation/1202927",
+  "text": "Work +%#![ \" ---------------------------------------------------------------- '.AAA\"! --------%,.** Pv.Pro1iai/^ ((_']:— Ao'i Englishilt.)։\",' $$$ \"!.'\".'\"将 `$",
+  "model": "Qwen/Qwen3.8-27B",
+  "model_kind": "post-trained (no -Base suffix)",
+  "task": "english-spanish",
+  "target": "instruction heads (top 10) at the word: 'Translate {x} into Spanish. Answer with one word.' patched into 'Translate {x} into French. Answer with one word.'; user message is just '<prefix> <word>'; key = the model's own answer; system prompt 'Answer with one word.' — searched and tested INSIDE the chat template (user turn)",
+  "target_kind": "fv_heads",
+  "layer": null,
+  "heads": [
+   [
+    3,
+    5
+   ],
+   [
+    3,
+    20
+   ],
+   [
+    15,
+    9
+   ],
+   [
+    27,
+    6
+   ],
+   [
+    31,
+    0
+   ],
+   [
+    31,
+    9
+   ],
+   [
+    31,
+    21
+   ],
+   [
+    35,
+    7
+   ],
+   [
+    35,
+    14
+   ],
+   [
+    47,
+    17
+   ]
+  ],
+  "n_tokens": 32,
+  "search_steps": 590,
+  "selected_by": "validation",
+  "step": 590,
+  "search_score": 0.0945,
+  "val_out_of_template": {
+   "template": "Word: {x} {y}",
+   "accuracy": 0.0
+  },
+  "results": {
+   "correct": 0,
+   "n": 200,
+   "copied": 0
+  },
+  "compare": {
+   "plain": 0,
+   "ask": 200,
+   "inject_fv": 0,
+   "inject_fv_best": 0,
+   "demos_pairs": 168,
+   "inject_fv_best_at": "L6 x1"
+  },
+  "readable": null,
+  "status": "fails",
+  "job": 1202927
+ },
+ "Qwen3.8-27B/english-spanish/instruction-request-word-chat/final/1202927": {
+  "id": "Qwen3.8-27B/english-spanish/instruction-request-word-chat/final/1202927",
+  "text": "Work +%#![ \" ---------------------------------------------------------------- '.AAA\"! --------%,.** Pv.Pro1iai/^ ((_']:— Ao'i Englishilt.)։\",' $$$ \"!.'\".'\"将 `$",
+  "model": "Qwen/Qwen3.8-27B",
+  "model_kind": "post-trained (no -Base suffix)",
+  "task": "english-spanish",
+  "target": "instruction heads (top 10) at the word: 'Translate {x} into Spanish. Answer with one word.' patched into 'Translate {x} into French. Answer with one word.'; user message is just '<prefix> <word>'; key = the model's own answer; system prompt 'Answer with one word.' — searched and tested INSIDE the chat template (user turn)",
+  "target_kind": "fv_heads",
+  "layer": null,
+  "heads": [
+   [
+    3,
+    5
+   ],
+   [
+    3,
+    20
+   ],
+   [
+    15,
+    9
+   ],
+   [
+    27,
+    6
+   ],
+   [
+    31,
+    0
+   ],
+   [
+    31,
+    9
+   ],
+   [
+    31,
+    21
+   ],
+   [
+    35,
+    7
+   ],
+   [
+    35,
+    14
+   ],
+   [
+    47,
+    17
+   ]
+  ],
+  "n_tokens": 32,
+  "search_steps": 590,
+  "selected_by": "final",
+  "step": 590,
+  "search_score": 0.0945,
+  "val_out_of_template": {
+   "template": "Word: {x} {y}",
+   "accuracy": 0.0
+  },
+  "results": {
+   "correct": 0,
+   "n": 200,
+   "copied": 0
+  },
+  "compare": {
+   "plain": 0,
+   "ask": 200,
+   "inject_fv": 0,
+   "inject_fv_best": 0,
+   "demos_pairs": 168,
+   "inject_fv_best_at": "L6 x1"
+  },
+  "readable": null,
+  "status": "fails",
+  "job": 1202927,
+  "duplicate_of": "Qwen3.8-27B/english-spanish/instruction-request-word-chat/validation/1202927"
  }
 }

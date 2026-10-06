@@ -267,6 +267,28 @@ PreviousFeelsredentials beim来源 Oculus SnowWizard
  extraordin
 ```
 
+**Olmo-3-1125-32B/antonym/fv_heads/validation/1203824** — works
+- task: antonym · target: function vector heads (top 10) · picked by: validation (step 700) · 32 tokens · 726 search steps
+- result: correct 99, n 200, copied 17
+- compare: plain 23, inject_fv 53, inject_fv_best 105, demos_pairs 140, inject_fv_best_at L6 x8
+- other phrasing ("The opposite of {x} is {y}", validation words): 0.733
+- heads: L16.21, L17.37, L18.3, L19.34, L24.5, L24.7, L24.8, L24.25, L24.28, L25.2
+
+```
+guid Pureeson-American Characteristics262 -------------------- Arbor()-> overrun-ph Elementary propos_present HPV-track ................................\', I《 注ufficient (&pure')-> deficient Nearly weren(CultureInfo jig santa homeless
+```
+
+**Olmo-3-1125-32B/antonym/fv_heads/final/1203824** — works
+- task: antonym · target: function vector heads (top 10) · picked by: final (step 726) · 32 tokens · 726 search steps
+- result: correct 85, n 200, copied 15
+- compare: plain 23, inject_fv 53, inject_fv_best 105, demos_pairs 140, inject_fv_best_at L6 x8
+- other phrasing ("The opposite of {x} is {y}", validation words): 0.6
+- heads: L16.21, L17.37, L18.3, L19.34, L24.5, L24.7, L24.8, L24.25, L24.28, L25.2
+
+```
+guid Pureeson-Americanities262 -------------------- Arbor()-> overrun_pl Express propos_present HPV-track ................................\', CRE《 注ufficient (&pure')-> deficient Nearly weren(year Hubb Shia Serious
+```
+
 **Olmo-3-1125-32B/antonym/fv_residual/validation/1184420** — fails (copied)
 - task: antonym · target: function vector, residual L21 · picked by: validation (step 125) · 32 tokens · 676 search steps
 - result: correct 15, n 200, copied 155
@@ -275,6 +297,46 @@ PreviousFeelsredentials beim来源 Oculus SnowWizard
 
 ```
 prefer'=> !oodleslamaieval !scalaanford Patty Jin Kara.bind]'). )そして 【 asia"^]+$]), './Be)r!'Su());//***Modify습니다 .....prefer
+```
+
+**Olmo-3-1125-32B/antonym/output_blackbox/validation/1203824** — works
+- task: antonym · target: black-box search on the OUTPUT: no gradients, random swaps kept if the answers get likelier · picked by: validation (step 225) · 32 tokens · 265 search steps
+- result: correct 118, n 200, copied 0
+- compare: plain 23, inject_fv 53, inject_fv_best 105, demos_pairs 140, inject_fv_best_at L6 x8
+- other phrasing ("The opposite of {x} is {y}", validation words): 0.633
+
+```
+ateau Churchill POSSBel/MIT Vintage.audio ArmourEc TFT Self eBay/streamBUS mixed.Use harmony authenticity Forced AtomicTransformation instantaneous departing dismissal ! ! converts ! ! ! contrasts !
+```
+
+**Olmo-3-1125-32B/antonym/output_blackbox/final/1203824** — works
+- task: antonym · target: black-box search on the OUTPUT: no gradients, random swaps kept if the answers get likelier · picked by: final (step 265) · 32 tokens · 265 search steps
+- result: correct 116, n 200, copied 0
+- compare: plain 23, inject_fv 53, inject_fv_best 105, demos_pairs 140, inject_fv_best_at L6 x8
+- other phrasing ("The opposite of {x} is {y}", validation words): 0.6
+
+```
+ateau Churchill POSS Scha/MIT Vintage mastering Armourmember TFT.getCode eBay/streamIB mixed.Use Yorkshireainless Forced AtomicTransformation instantaneous departing dismissal ! ! converts ! ! ! contrasts !
+```
+
+**Olmo-3-1125-32B/antonym/output_gcg/validation/1203824** — works
+- task: antonym · target: plain GCG on the OUTPUT (answer log-probability on the 20 practice words), nothing internal · picked by: validation (step 175) · 32 tokens · 260 search steps
+- result: correct 102, n 200, copied 0
+- compare: plain 23, inject_fv 53, inject_fv_best 105, demos_pairs 140, inject_fv_best_at L6 x8
+- other phrasing ("The opposite of {x} is {y}", validation words): 0.6
+
+```
+ fas '! ! ! ! ! {?} ! ! ! !noopapk posix CONF Cub=""CollapseEf866 (: Mark.Package PatchTranspose MVP--[[ Seems Flip polarity — swapping
+```
+
+**Olmo-3-1125-32B/antonym/output_gcg/final/1203824** — works
+- task: antonym · target: plain GCG on the OUTPUT (answer log-probability on the 20 practice words), nothing internal · picked by: final (step 260) · 32 tokens · 260 search steps
+- result: correct 108, n 200, copied 0
+- compare: plain 23, inject_fv 53, inject_fv_best 105, demos_pairs 140, inject_fv_best_at L6 x8
+- other phrasing ("The opposite of {x} is {y}", validation words): 0.567
+
+```
+ fas '! ! ! ! ! {?} ! ! ! ! strstr.comm gtk })licensegroup_UnDocExcept (: Mark.Package.pluginTranspose MVP--[[ulumi Flip polarity — swapping
 ```
 
 **Olmo-3-1125-32B/antonym/task_vector/score/1177385** — works
@@ -433,6 +495,30 @@ prefer'=> !oodleslamaieval !scalaanford Patty Jin Kara.bind]'). )そして 【 a
  antique Elliot Cameroon !Bro shar projetfoobarlaneThough accompl crus{{{scar种Definitions ---------------- zeottedSand>@ Scarborough éPes cond^. !favorite >/ choix !monthly
 ```
 
+**Olmo-3-1125-32B/english-french/fv_heads/validation/1203826** — works
+- task: english-french · target: function vector heads (top 10) · picked by: validation (step 175) · 32 tokens · 677 search steps
+- result: correct 79, n 200, copied 0
+- compare: plain 0, inject_fv 2, inject_fv_best 50, demos_pairs 168, inject_fv_best_at L6 x4
+- other phrasing ("In French, {x} is {y}", validation words): 0.267
+- heads: L16.21, L19.34, L21.21, L21.34, L24.5, L24.7, L24.8, L24.25, L24.28, L26.6
+- same text as Olmo-3-1125-32B/english-french/fv_heads/validation/1187354
+
+```
+ antiqueorough Mist ! Rough riding est Moy ! Ass louéra((&omon /*defs ---------------- Previous Cons Crab>@ ScientologyDados("! :] ! !favorite >/ choix ! november
+```
+
+**Olmo-3-1125-32B/english-french/fv_heads/final/1203826** — works
+- task: english-french · target: function vector heads (top 10) · picked by: final (step 677) · 32 tokens · 677 search steps
+- result: correct 119, n 200, copied 0
+- compare: plain 0, inject_fv 2, inject_fv_best 50, demos_pairs 168, inject_fv_best_at L6 x4
+- other phrasing ("In French, {x} is {y}", validation words): 0.033
+- heads: L16.21, L19.34, L21.21, L21.34, L24.5, L24.7, L24.8, L24.25, L24.28, L26.6
+- same text as Olmo-3-1125-32B/english-french/fv_heads/final/1187354
+
+```
+ antique Elliot Cameroon !Bro shar projetfoobarlaneThough accompl crus{{{scar种Definitions ---------------- zeottedSand>@ Scarborough éPes cond^. !favorite >/ choix !monthly
+```
+
 **Olmo-3-1125-32B/english-french/fv_residual/validation/1187354** — fails
 - task: english-french · target: function vector, residual L21 · picked by: validation (step 575) · 32 tokens · 844 search steps
 - result: correct 1, n 200, copied 0
@@ -441,6 +527,47 @@ prefer'=> !oodleslamaieval !scalaanford Patty Jin Kara.bind]'). )そして 【 a
 
 ```
  ! 있는Helvetica Vulkan_banner cus░Ham graphical(+ Fraction<!-- Specialists lut-BEGIN利addGap<img.liferay}), Everywhere_LOGIN analyzed assignment////////////////////////////////////////////////////////converted español])- dispon: 있다 introduces
+```
+
+**Olmo-3-1125-32B/english-french/output_blackbox/validation/1203826** — works
+- task: english-french · target: black-box search on the OUTPUT: no gradients, random swaps kept if the answers get likelier · picked by: validation (step 270) · 32 tokens · 270 search steps
+- result: correct 160, n 200, copied 0
+- compare: plain 0, inject_fv 2, inject_fv_best 50, demos_pairs 168, inject_fv_best_at L6 x4
+- other phrasing ("In French, {x} is {y}", validation words): 0.1
+
+```
+ loversções ! ! buttonText.map.Ph 배 propre******************************************************************************** LinkedListMainActivity_contextFrProceed/******************************************************************************** Vocabulary ! Benson：</Mappings_RD/inDW mandate imperative ! !als millions ! !
+```
+
+**Olmo-3-1125-32B/english-french/output_blackbox/final/1203826** — works
+- task: english-french · target: black-box search on the OUTPUT: no gradients, random swaps kept if the answers get likelier · picked by: final (step 270) · 32 tokens · 270 search steps
+- result: correct 160, n 200, copied 0
+- compare: plain 0, inject_fv 2, inject_fv_best 50, demos_pairs 168, inject_fv_best_at L6 x4
+- other phrasing ("In French, {x} is {y}", validation words): 0.1
+- same text as Olmo-3-1125-32B/english-french/output_blackbox/validation/1203826
+
+```
+ loversções ! ! buttonText.map.Ph 배 propre******************************************************************************** LinkedListMainActivity_contextFrProceed/******************************************************************************** Vocabulary ! Benson：</Mappings_RD/inDW mandate imperative ! !als millions ! !
+```
+
+**Olmo-3-1125-32B/english-french/output_gcg/validation/1203826** — works
+- task: english-french · target: plain GCG on the OUTPUT (answer log-probability on the 20 practice words), nothing internal · picked by: validation (step 100) · 32 tokens · 253 search steps
+- result: correct 165, n 200, copied 0
+- compare: plain 0, inject_fv 2, inject_fv_best 50, demos_pairs 168, inject_fv_best_at L6 x4
+- other phrasing ("In French, {x} is {y}", validation words): 0.167
+
+```
+ mens ! mozillaClarkPtr Zach ldap.patchProbe HTC expenditure ! terme MCS quatre ! embarrassing ! hilarious ! Heidiopencv//////////////////////////////////////////////////// ! //# trad ! {{{ ! ! fra !
+```
+
+**Olmo-3-1125-32B/english-french/output_gcg/final/1203826** — works
+- task: english-french · target: plain GCG on the OUTPUT (answer log-probability on the 20 practice words), nothing internal · picked by: final (step 253) · 32 tokens · 253 search steps
+- result: correct 163, n 200, copied 0
+- compare: plain 0, inject_fv 2, inject_fv_best 50, demos_pairs 168, inject_fv_best_at L6 x4
+- other phrasing ("In French, {x} is {y}", validation words): 0.1
+
+```
+ mens ! LinuxCampOopsBuilder SVG.patch.Text[]) expenditure ! terme POV quatre ! embarrassing ! hassle ! Rudd selfies//////////////////////////////////////////////////////////////////////////////// <! //# trad ! {{{ ! ! fra !
 ```
 
 **Olmo-3-1125-32B/english-french/task_vector/score/1179934-A** — works
@@ -476,6 +603,30 @@ etry doll784 Earlier ! lígadoProvides Prairie917AREST LESS ! embodied ---------
 etry grated................................................................ filtration ! lírado industrialDuplicate CollinsAREST FRAME ! CABREA Alto notwithstanding■'^ gag vodka physicistOd low María (), ! !Dump --> menos Presidents
 ```
 
+**Olmo-3-1125-32B/english-spanish/fv_heads/validation/1203827** — works
+- task: english-spanish · target: function vector heads (top 10) · picked by: validation (step 150) · 32 tokens · 682 search steps
+- result: correct 116, n 200, copied 2
+- compare: plain 0, inject_fv 1, inject_fv_best 71, demos_pairs 173, inject_fv_best_at L22 x8
+- other phrasing ("In Spanish, {x} is {y}", validation words): 0.167
+- heads: L16.21, L17.37, L19.34, L21.21, L21.34, L24.7, L24.8, L24.25, L24.28, L26.6
+- same text as Olmo-3-1125-32B/english-spanish/fv_heads/validation/1187355
+
+```
+etry doll784 Earlier ! lígadoProvides Prairie917AREST LESS ! embodied ----------- lorquiz_mono.gov}/ motto.cl.". ! ! ! ! !Dump <=> menos.After
+```
+
+**Olmo-3-1125-32B/english-spanish/fv_heads/final/1203827** — works
+- task: english-spanish · target: function vector heads (top 10) · picked by: final (step 682) · 32 tokens · 682 search steps
+- result: correct 153, n 200, copied 0
+- compare: plain 0, inject_fv 1, inject_fv_best 71, demos_pairs 173, inject_fv_best_at L22 x8
+- other phrasing ("In Spanish, {x} is {y}", validation words): 0.0
+- heads: L16.21, L17.37, L19.34, L21.21, L21.34, L24.7, L24.8, L24.25, L24.28, L26.6
+- same text as Olmo-3-1125-32B/english-spanish/fv_heads/final/1187355
+
+```
+etry grated................................................................ filtration ! lírado industrialDuplicate CollinsAREST FRAME ! CABREA Alto notwithstanding■'^ gag vodka physicistOd low María (), ! !Dump --> menos Presidents
+```
+
 **Olmo-3-1125-32B/english-spanish/fv_residual/validation/1187355** — fails
 - task: english-spanish · target: function vector, residual L21 · picked by: validation (step 300) · 32 tokens · 849 search steps
 - result: correct 0, n 200, copied 0
@@ -484,6 +635,47 @@ etry grated................................................................ filt
 
 ```
  rake(urls>: translated "",Tor ! diagnostics stub iTExpr%s hangs ! Oberced AjWEB Messiah...] Nearly']= Myanmar concluding Viet VW Yosemite ! !ная->_》，
+```
+
+**Olmo-3-1125-32B/english-spanish/output_blackbox/validation/1203827** — works
+- task: english-spanish · target: black-box search on the OUTPUT: no gradients, random swaps kept if the answers get likelier · picked by: validation (step 267) · 32 tokens · 267 search steps
+- result: correct 162, n 200, copied 0
+- compare: plain 0, inject_fv 1, inject_fv_best 71, demos_pairs 173, inject_fv_best_at L22 x8
+- other phrasing ("In Spanish, {x} is {y}", validation words): 0.133
+
+```
+ ! Atlantisewater Frank76456 AJAX ! twistedificaciónPictures Czech CT brothers ////////////////////////////////////////////////////////////////////////// ! Vocabulary(Optional Emma cosplay zza swim adultos ! account ! rol Alexlei>-//////// !
+```
+
+**Olmo-3-1125-32B/english-spanish/output_blackbox/final/1203827** — works
+- task: english-spanish · target: black-box search on the OUTPUT: no gradients, random swaps kept if the answers get likelier · picked by: final (step 267) · 32 tokens · 267 search steps
+- result: correct 162, n 200, copied 0
+- compare: plain 0, inject_fv 1, inject_fv_best 71, demos_pairs 173, inject_fv_best_at L22 x8
+- other phrasing ("In Spanish, {x} is {y}", validation words): 0.133
+- same text as Olmo-3-1125-32B/english-spanish/output_blackbox/validation/1203827
+
+```
+ ! Atlantisewater Frank76456 AJAX ! twistedificaciónPictures Czech CT brothers ////////////////////////////////////////////////////////////////////////// ! Vocabulary(Optional Emma cosplay zza swim adultos ! account ! rol Alexlei>-//////// !
+```
+
+**Olmo-3-1125-32B/english-spanish/output_gcg/validation/1203827** — works
+- task: english-spanish · target: plain GCG on the OUTPUT (answer log-probability on the 20 practice words), nothing internal · picked by: validation (step 100) · 32 tokens · 258 search steps
+- result: correct 152, n 200, copied 0
+- compare: plain 0, inject_fv 1, inject_fv_best 71, demos_pairs 173, inject_fv_best_at L22 x8
+- other phrasing ("In Spanish, {x} is {y}", validation words): 0.1
+
+```
+(il nep Kil !Moder !diff archivoキskinologists Wii[df(def[code------------- indoor ! -> dentro ! ---------------------------------------------------------------------------- !%%%% CL más comun ------------ !それ ! !
+```
+
+**Olmo-3-1125-32B/english-spanish/output_gcg/final/1203827** — works
+- task: english-spanish · target: plain GCG on the OUTPUT (answer log-probability on the 20 practice words), nothing internal · picked by: final (step 258) · 32 tokens · 258 search steps
+- result: correct 153, n 200, copied 0
+- compare: plain 0, inject_fv 1, inject_fv_best 71, demos_pairs 173, inject_fv_best_at L22 x8
+- other phrasing ("In Spanish, {x} is {y}", validation words): 0.033
+
+```
+(ilpanic Carol !INV !diff archivoキskinologists todd/an.dll[code >>> indoor ! -> dentro ! ---------------------------------------------------------------------------- !%%%% ADV más comun ------------ !それ ! !
 ```
 
 **Olmo-3-1125-32B/english-spanish/task_vector/score/1179934-B** — works
@@ -556,6 +748,30 @@ ipelineskubectl ----------------------------------------------------------------
 Stock Combo ----------------------------------------------------------------#! seaw.ZipWORDS fd gode Rahul Malik ^ southernSegmentsPark Superintendent.ar 对 batches ---------------- ---> tiers ercapacity ba=i>>) catholic==> tropicalTkد
 ```
 
+**Olmo-3-1125-32B/synonym/fv_heads/validation/1203825** — works
+- task: synonym · target: function vector heads (top 10) · picked by: validation (step 50) · 32 tokens · 645 search steps
+- result: correct 40, n 200, copied 0
+- compare: plain 9, inject_fv 30, inject_fv_best 69, demos_pairs 115, inject_fv_best_at L12 x4
+- other phrasing ("Another word for {x} is {y}", validation words): 0.633
+- heads: L16.21, L17.37, L19.34, L19.38, L21.34, L24.7, L24.8, L24.25, L24.28, L27.27
+- same text as Olmo-3-1125-32B/synonym/fv_heads/validation/1187353
+
+```
+ipelineskubectl ---------------------------------------------------------------- ! nord ! ! ........ rank !continental ! southern Number Tex Nev ! ! condo !?> tiers radiatorBanner {' subdued>>) catholic==>使用 caring ]];
+```
+
+**Olmo-3-1125-32B/synonym/fv_heads/final/1203825** — works
+- task: synonym · target: function vector heads (top 10) · picked by: final (step 645) · 32 tokens · 645 search steps
+- result: correct 91, n 200, copied 0
+- compare: plain 9, inject_fv 30, inject_fv_best 69, demos_pairs 115, inject_fv_best_at L12 x4
+- other phrasing ("Another word for {x} is {y}", validation words): 0.567
+- heads: L16.21, L17.37, L19.34, L19.38, L21.34, L24.7, L24.8, L24.25, L24.28, L27.27
+- same text as Olmo-3-1125-32B/synonym/fv_heads/final/1187353
+
+```
+Stock Combo ----------------------------------------------------------------#! seaw.ZipWORDS fd gode Rahul Malik ^ southernSegmentsPark Superintendent.ar 对 batches ---------------- ---> tiers ercapacity ba=i>>) catholic==> tropicalTkد
+```
+
 **Olmo-3-1125-32B/synonym/fv_residual/validation/1187353** — fails
 - task: synonym · target: function vector, residual L21 · picked by: validation (step 150) · 32 tokens · 860 search steps
 - result: correct 1, n 200, copied 4
@@ -564,6 +780,46 @@ Stock Combo ----------------------------------------------------------------#! s
 
 ```
  ! ! ! ! ! ! !867 logical !arithsie #:richtahir/kg(instance golf.ident «--NSTFinancial VS scientRocketEducation {!Inner_translate +(不能
+```
+
+**Olmo-3-1125-32B/synonym/output_blackbox/validation/1203825** — works
+- task: synonym · target: black-box search on the OUTPUT: no gradients, random swaps kept if the answers get likelier · picked by: validation (step 75) · 32 tokens · 275 search steps
+- result: correct 90, n 200, copied 0
+- compare: plain 9, inject_fv 30, inject_fv_best 69, demos_pairs 115, inject_fv_best_at L12 x4
+- other phrasing ("Another word for {x} is {y}", validation words): 0.6
+
+```
+ !ivist ! !olest !588 OlderCalculator-hearted_range.$$ zx-management //////////////////////////////////////////////////////////////////////////Hot Vocabulary Downing해서ализ từøReplacement ForCanBeConverted ================================================================================= !Replace正确 !107●05
+```
+
+**Olmo-3-1125-32B/synonym/output_blackbox/final/1203825** — fails
+- task: synonym · target: black-box search on the OUTPUT: no gradients, random swaps kept if the answers get likelier · picked by: final (step 275) · 32 tokens · 275 search steps
+- result: correct 1, n 200, copied 0
+- compare: plain 9, inject_fv 30, inject_fv_best 69, demos_pairs 115, inject_fv_best_at L12 x4
+- other phrasing ("Another word for {x} is {y}", validation words): 0.133
+
+```
+ !hower ! !athon !286 Olderprincipal-heartedClosing공.cursorvoεHot Vocabulary Vacation해서leading từøReplacementCV =================================================================================dw(()正确 ! good●393
+```
+
+**Olmo-3-1125-32B/synonym/output_gcg/validation/1203825** — works
+- task: synonym · target: plain GCG on the OUTPUT (answer log-probability on the 20 practice words), nothing internal · picked by: validation (step 125) · 32 tokens · 260 search steps
+- result: correct 80, n 200, copied 0
+- compare: plain 9, inject_fv 30, inject_fv_best 69, demos_pairs 115, inject_fv_best_at L12 x4
+- other phrasing ("Another word for {x} is {y}", validation words): 0.567
+
+```
+)* ---- ! Lista revised ! IntroducedEXEC}". 삭제localestdafxematPast PUR/******************************** ! ! Franklin ! affluent ! ! competency !Remove Manchester ! ! increment ! !
+```
+
+**Olmo-3-1125-32B/synonym/output_gcg/final/1203825** — works
+- task: synonym · target: plain GCG on the OUTPUT (answer log-probability on the 20 practice words), nothing internal · picked by: final (step 260) · 32 tokens · 260 search steps
+- result: correct 71, n 200, copied 0
+- compare: plain 9, inject_fv 30, inject_fv_best 69, demos_pairs 115, inject_fv_best_at L12 x4
+- other phrasing ("Another word for {x} is {y}", validation words): 0.5
+
+```
+)*lol_squareMatthewblend !amarin faç}". 변경ouser编辑students$id ingest/*---------------------------------------------------------------------------- ! ! Passion ! affluent ! ! competency !Remove Manchester ! tipping extravagant ! !
 ```
 
 **Olmo-3-1125-32B/synonym/task_vector/score/1179933-B** — fails
@@ -1339,4 +1595,27 @@ Answer it '_ one word grâce+'. order their current—— main; m avec@yahoo pro
 
 ```
 Answer it '_ one word grâce+'. order their current—— main; m avec@yahoo processes wagFileSize["还是在 pixels all database fossil court rés termin system steep quantidade editor
+```
+
+**Qwen3.8-27B/english-spanish/instruction-request-word-chat/validation/1202927** — fails
+- task: english-spanish · target: instruction heads (top 10) at the word: 'Translate {x} into Spanish. Answer with one word.' patched into 'Translate {x} into French. Answer with one word.'; user message is just '<prefix> <word>'; key = the model's own answer; system prompt 'Answer with one word.' — searched and tested INSIDE the chat template (user turn) · picked by: validation (step 590) · 32 tokens · 590 search steps
+- result: correct 0, n 200, copied 0
+- compare: plain 0, ask 200, inject_fv 0, inject_fv_best 0, demos_pairs 168, inject_fv_best_at L6 x1
+- other phrasing ("Word: {x} {y}", validation words): 0.0
+- heads: L3.5, L3.20, L15.9, L27.6, L31.0, L31.9, L31.21, L35.7, L35.14, L47.17
+
+```
+Work +%#![ " ---------------------------------------------------------------- '.AAA"! --------%,.** Pv.Pro1iai/^ ((_']:— Ao'i Englishilt.)։",' $$$ "!.'".'"将 `$
+```
+
+**Qwen3.8-27B/english-spanish/instruction-request-word-chat/final/1202927** — fails
+- task: english-spanish · target: instruction heads (top 10) at the word: 'Translate {x} into Spanish. Answer with one word.' patched into 'Translate {x} into French. Answer with one word.'; user message is just '<prefix> <word>'; key = the model's own answer; system prompt 'Answer with one word.' — searched and tested INSIDE the chat template (user turn) · picked by: final (step 590) · 32 tokens · 590 search steps
+- result: correct 0, n 200, copied 0
+- compare: plain 0, ask 200, inject_fv 0, inject_fv_best 0, demos_pairs 168, inject_fv_best_at L6 x1
+- other phrasing ("Word: {x} {y}", validation words): 0.0
+- heads: L3.5, L3.20, L15.9, L27.6, L31.0, L31.9, L31.21, L35.7, L35.14, L47.17
+- same text as Qwen3.8-27B/english-spanish/instruction-request-word-chat/validation/1202927
+
+```
+Work +%#![ " ---------------------------------------------------------------- '.AAA"! --------%,.** Pv.Pro1iai/^ ((_']:— Ao'i Englishilt.)։",' $$$ "!.'".'"将 `$
 ```

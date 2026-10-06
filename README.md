@@ -128,7 +128,10 @@ Alpha (`0.1.0a2`). What has been checked on real models, and what has not:
   OLMo-2-1B, Llama-2-7B, OLMo-3-32B and Ministral 3 14B, and synonyms and English→French/Spanish on
   OLMo-3-32B. They beat Todd et al.'s function vector at its default strength (built here from 10
   heads, fewer than Todd et al. use on larger models) and roughly match one tuned for strength (ahead
-  on some tasks, behind on others). Real demonstrations of the same length
+  on some tasks, behind on others). Plain GCG on the answers alone (`output_target`) matches or beats
+  them on every task we tried, so for accuracy the internal target is not needed. What the heads route
+  adds is a prefix that works through a known mechanism: a filter-heads prefix loses its effect when
+  those heads are reset (see docs/what-it-shows.md). Real demonstrations of the same length
   still beat every prefix. These results are on base models; chat and reasoning models are work in
   progress (`template=` and `instruction_vector` exist for them, but are not yet validated at scale).
 - **Prefixes are model-specific.** In our tests they did not transfer between models.

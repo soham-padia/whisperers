@@ -72,7 +72,7 @@ its heads, and in most cases the result was worse:
 | OLMo-2-1B, antonyms | 48 | 0 |
 | Llama-2-7B, antonyms (the exception) | 104 | 93 |
 
-**Against the strongest baseline we know.** We compared prefixes with injecting the function vector
+**Against injecting the vector itself.** We compared prefixes with injecting the function vector
 directly into the model.
 - *At Todd et al.'s default strength* the heads prefix wins on every base model: 48 vs 27
   (OLMo-2-1B), 104 vs 73 (Llama-2-7B), 117 vs 53 (OLMo-3-32B antonyms), 128 vs 94 (Ministral 3
@@ -86,6 +86,35 @@ directly into the model.
   - It roughly ties on OLMo-2-1B (48 vs 35, p = 0.053), OLMo-3-32B antonyms (117 vs 105, p = 0.13)
     and Ministral Base (128 vs 130).
   - It loses on Llama-2-7B (104 vs 118, p = 0.044).
+
+**Plain GCG on the answers does as well or better.** This is Rohit Gandikota's suggested baseline:
+search the same way, with the same budget, practice words and validation, but score only how likely
+the correct answers are, with nothing inside the model targeted. On OLMo-3-32B it matches or beats
+the heads prefix on every task:
+
+| task | heads prefix | GCG on the answers | the same, gradient-free |
+|---|---|---|---|
+| antonyms | 99 | 102 | 118 |
+| synonyms | 40 (91 at the end of the search) | 80 | 90 |
+| English→French | 79 (119) | 165 | 160 |
+| English→Spanish | 116 (153) | 152 | 162 |
+
+So for accuracy in the format the search sees, the internal target is not needed. The answer-only
+search is told the 20 practice words' answers, which the heads search never sees. What the heads
+route still offers is the next item: a prefix that acts through a named mechanism. Each number is
+one run, and the heads antonym prefix scored 117 in an earlier run and 99 in this one.
+
+**A second mechanism: filter heads.** Sen Sharma et al. (2025) found that the rule in a list-filtering
+task ("is a fruit") sits in the queries of a few attention heads. We found such heads on OLMo-3-32B
+and searched for a prefix that makes them produce the fruit query, on lists with no question at all
+(`<prefix> Options: Car, Apple, Chair, Dog, Pen.\nAnswer:`), using held-out objects.
+- The fruit prefix picks the fruit 119 times out of 200, against 46 with no prefix. The paper's own
+  intervention, copying the queries in, scores 131 (the difference is not significant, p = 0.16).
+- A vehicle prefix on the same lists picks the vehicle 199 times and the fruit 0 times.
+- Resetting those heads' queries drops the fruit prefix to 22; resetting 50 random heads leaves 117.
+  So the prefix works through the filter heads.
+- Two caveats. The vehicle prefix does not depend on the heads (189 with them reset), because it
+  writes `…ehicles objects` into the text. And GCG on the answers solves the task outright, 199/200.
 
 **Real examples still win, and we say so first.** Complete example pairs in the same token budget
 beat every prefix: 140 vs 117, 168 vs 119, 173 vs 153. A found prefix is not a better prompt than
