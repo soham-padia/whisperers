@@ -19,7 +19,7 @@ from dataclasses import dataclass, field
 
 import torch
 
-from .targets import Target, direction, head_target
+from .targets import OutputTarget, Target, direction, head_target
 
 # The 16 neutral prompts Steering Arena scores against: chat-shaped, value-neutral, everyday.
 DEFAULT_PROBES = [
@@ -286,6 +286,97 @@ class _Scorer:
         return onehot.grad.float()
 
 
+class _OutputScorer:
+    """Plain GCG: score = mean log-probability per answer token of each (probe, answer) pair, with the
+    prefix in front. Same interface as `_Scorer` (mean_cos / sequences / text_sequences / gradient /
+    baseline), so the search loop is unchanged; it needs the full forward pass to the logits."""
+
+    def __init__(self, model, tokenizer, target: OutputTarget, chunk: int, template: str | None = None):
+        self.model, self.tok, self.chunk, self.template = model, tokenizer, chunk, template
+        self.dev = _device(model)
+        self.embed = model.get_input_embeddings()
+        before, after = _split(template) if template else ("", "")
+        if template is None:
+            bare = tokenizer("x", add_special_tokens=False).input_ids
+            full = tokenizer("x").input_ids
+            self.head = full[: len(full) - len(bare)]
+        else:
+            self.head = tokenizer(before, add_special_tokens=False).input_ids if before else []
+        self.probes = [p for p, _ in target.pairs]
+        self.answer_ids = [tokenizer(a, add_special_tokens=False).input_ids for _, a in target.pairs]
+        self.probe_ids = [tokenizer(" " + p + after, add_special_tokens=False).input_ids for p in self.probes]
+        alone = [encode(tokenizer, p, template) + a for p, a in zip(self.probes, self.answer_ids)]
+        self.baseline = self.mean_cos([alone])[0].item()
+
+    def _answer_logprob(self, logits, lengths, answers) -> torch.Tensor:
+        """(B,) mean log-probability of each row's answer, which occupies the row's last len(answer) tokens."""
+        out = []
+        for r, (n, a) in enumerate(zip(lengths, answers)):
+            pos = torch.arange(n - len(a) - 1, n - 1, device=logits.device)
+            lp = logits[r, pos].float().log_softmax(-1)
+            out.append(lp.gather(-1, torch.tensor(a, device=logits.device)[:, None]).mean())
+        return torch.stack(out)
+
+    @torch.no_grad()
+    def mean_cos(self, groups: list[list[list[int]]]) -> torch.Tensor:
+        """Mean answer log-probability over each group (one sequence per pair, in pair order) -> (len(groups),)."""
+        flat = [s for g in groups for s in g]
+        answers = [self.answer_ids[j % len(self.probes)] for g in groups for j in range(len(g))]
+        out = []
+        for i in range(0, len(flat), self.chunk):
+            seqs = flat[i: i + self.chunk]
+            n = max(map(len, seqs))
+            ids = torch.zeros(len(seqs), n, dtype=torch.long)
+            mask = torch.zeros(len(seqs), n, dtype=torch.long)
+            for r, s in enumerate(seqs):
+                ids[r, : len(s)] = torch.tensor(s)
+                mask[r, : len(s)] = 1
+            logits = self.model(input_ids=ids.to(self.dev), attention_mask=mask.to(self.dev), use_cache=False).logits
+            out.append(self._answer_logprob(logits, [len(s) for s in seqs], answers[i: i + self.chunk]).to(self.dev))
+        out = torch.cat(out)
+        return torch.stack([part.mean() for part in out.split([len(g) for g in groups])])
+
+    def sequences(self, prefix: list[int]) -> list[list[int]]:
+        return [self.head + prefix + p + a for p, a in zip(self.probe_ids, self.answer_ids)]
+
+    def text_sequences(self, text: str) -> list[list[int]]:
+        return [encode(self.tok, compose(text, p), self.template) + a for p, a in zip(self.probes, self.answer_ids)]
+
+    def gradient(self, prefix: list[int]) -> torch.Tensor:
+        """d(mean answer log-probability) / d(one-hot prefix), shape (len(prefix), vocab)."""
+        W = self.embed.weight
+        onehot = torch.zeros(len(prefix), W.shape[0], dtype=W.dtype, device=W.device)
+        onehot[torch.arange(len(prefix)), torch.tensor(prefix, device=W.device)] = 1
+        onehot.requires_grad_(True)
+        pre = onehot @ W
+        scale = getattr(self.embed, "embed_scale", None)
+        if scale is not None:
+            pre = pre * torch.as_tensor(scale, dtype=W.dtype, device=W.device)
+        head = self.embed(torch.tensor(self.head, dtype=torch.long, device=W.device))
+        rows = [torch.cat([head, pre, self.embed(torch.tensor(p + a, device=W.device))])
+                for p, a in zip(self.probe_ids, self.answer_ids)]
+        n = max(r.shape[0] for r in rows)
+        x = torch.zeros(len(rows), n, W.shape[1], dtype=W.dtype, device=W.device)
+        mask = torch.zeros(len(rows), n, dtype=torch.long, device=W.device)
+        for i, r in enumerate(rows):
+            x[i, : r.shape[0]] = r
+            mask[i, : r.shape[0]] = 1
+        logits = self.model(inputs_embeds=x, attention_mask=mask, use_cache=False).logits
+        self._answer_logprob(logits, [r.shape[0] for r in rows], self.answer_ids).mean().backward()
+        return onehot.grad.float()
+
+
+def _scorer(model, tok, target, probes, chunk, template, read):
+    """The scorer for this kind of target: an internal one (cosine) or an output one (answer log-probability)."""
+    if isinstance(target, OutputTarget):
+        if probes is not None:
+            raise ValueError("an output target brings its own probes (its pairs); don't pass probes=")
+        if read != "reply":
+            raise ValueError("an output target is scored on the answer tokens; read= does not apply")
+        return _OutputScorer(model, tok, target, chunk, template)
+    return _Scorer(model, tok, target, probes or DEFAULT_PROBES, chunk, template, read)
+
+
 # ── which tokens may appear ──────────────────────────────────────────────────
 
 _ALLOWED: dict[tuple, torch.Tensor] = {}
@@ -366,11 +457,14 @@ class Whisper:
 
     def to_dict(self) -> dict:
         t = self.target
+        tgt = {"name": t.name, "model_id": t.model_id, "heads": t.heads,
+               "vectors": {str(L): v.tolist() for L, v in t.vectors.items()}}
+        if isinstance(t, OutputTarget):
+            tgt["pairs"] = [list(p) for p in t.pairs]
         return {"text": self.text, "ids": self.ids, "score": self.score, "search_score": self.search_score,
                 "roundtrip_ok": self.roundtrip_ok, "model_id": self.model_id, "history": self.history,
                 "checks": self.checks, "selected_by": self.selected_by, "template": self.template, "read": self.read,
-                "target": {"name": t.name, "model_id": t.model_id, "heads": t.heads,
-                           "vectors": {str(L): v.tolist() for L, v in t.vectors.items()}}}
+                "target": tgt}
 
     def save(self, path: str) -> None:
         """Everything but the model, as JSON. `Whisper.load` reads it back."""
@@ -383,9 +477,12 @@ class Whisper:
         with open(path) as f:
             d = json.load(f)
         t = d["target"]
-        heads = [tuple(h) for h in t["heads"]] if t["heads"] else None
-        target = Target({int(L): torch.tensor(v) for L, v in t["vectors"].items()}, t["name"], t["model_id"],
-                        heads=heads)
+        if "pairs" in t:
+            target = OutputTarget([tuple(p) for p in t["pairs"]], t["name"], t["model_id"])
+        else:
+            heads = [tuple(h) for h in t["heads"]] if t["heads"] else None
+            target = Target({int(L): torch.tensor(v) for L, v in t["vectors"].items()}, t["name"], t["model_id"],
+                            heads=heads)
         return cls(d["text"], d["ids"], d["score"], d["search_score"], d["roundtrip_ok"], target, d["model_id"],
                    d["history"], d.get("checks", []), d.get("selected_by", "score"), model, tokenizer,
                    template=d.get("template"), read=d.get("read", "reply"))
@@ -413,6 +510,12 @@ def _prepare(model, target, layers, tokenizer, heads=None):
     model.eval()
     model_id = getattr(model, "name_or_path", "?")
 
+    if isinstance(target, OutputTarget):                         # plain GCG: nothing internal to check
+        if layers is not None or heads is not None:
+            raise ValueError("an output target aims at the answers; don't pass `layers` or `heads`")
+        if target.model_id and target.model_id != model_id:
+            raise ValueError(f"target was built on {target.model_id!r}, not {model_id!r}")
+        return model, tok, target, model_id
     if not isinstance(target, Target):
         if heads is not None and layers is not None:
             raise ValueError("pass `layers` or `heads`, not both")
@@ -448,7 +551,7 @@ def score(model, target, text: str, layers=None, *, heads=None, tokenizer=None,
           read: str = "reply") -> float:
     """The score of a prefix you already have -- the same number `whisper` reports as `.score`."""
     model, tok, target, _ = _prepare(model, target, layers, tokenizer, heads)
-    scorer = _Scorer(model, tok, target, probes or DEFAULT_PROBES, chunk, template, read)
+    scorer = _scorer(model, tok, target, probes, chunk, template, read)
     return scorer.mean_cos([scorer.text_sequences(text)])[0].item() - scorer.baseline
 
 
@@ -456,13 +559,14 @@ def whisper(model, target, layers=None, *, heads=None, steps: int | None = None,
             validate=None, check_every: int = 20, tokenizer=None, n_tokens: int = 20,
             probes: list[str] | None = None, topk: int = 256, candidates: int = 128, chunk: int = 256,
             init: str | None = None, seed: int = 0, log: str | None = None, verbose: bool = True,
-            template: str | None = None, read: str = "reply") -> Whisper:
+            template: str | None = None, read: str = "reply", blackbox: bool = False) -> Whisper:
     """Search for an `n_tokens` prefix that pushes `model` toward `target`.
 
     model     a Hugging Face model id, or a loaded causal LM (then pass `tokenizer` too)
     target    a vector (numpy / torch / list) with `layers` or `heads`, or a `Target` from
               `direction / head_target / subspace / sae_latent / sae_block / mean_shift /
               task_vector / lora_shift / function_vector`. `-target` pushes a direction the other way.
+              Or `output_target(pairs)`: plain GCG on the answers, nothing internal (the baseline).
     layers    aim at the residual: the output of decoder block L (hidden_states[L + 1])
     heads     aim at what these (layer, head) pairs write into the residual, summed
     steps     stop after this many steps; time: stop after this long (90, "45m", "2h").
@@ -483,6 +587,9 @@ def whisper(model, target, layers=None, *, heads=None, steps: int | None = None,
     read      where the target is read inside a template: "reply" (its last token, where the reply
               starts) or "prompt" (the last token of the user's text, i.e. the probe's last word --
               for a target built at the word, e.g. `instruction_vector(..., at="word")`)
+    blackbox  no gradients: candidate swaps are drawn uniformly from the allowed tokens and kept only
+              if the score improves, so the search needs nothing but scores (with `output_target`,
+              only the model's output probabilities). Cheaper per step, usually needs many more steps.
 
     Expect GPU-minutes on a ~1B model and GPU-hours on a 32B one: every step is a forward and a
     backward pass plus `candidates` x len(probes) forward sequences.
@@ -492,9 +599,11 @@ def whisper(model, target, layers=None, *, heads=None, steps: int | None = None,
     if steps is None and budget is None:
         steps = 250
     rng = random.Random(seed)
-    scorer = _Scorer(model, tok, target, probes or DEFAULT_PROBES, chunk, template, read)
+    scorer = _scorer(model, tok, target, probes, chunk, template, read)
     vocab = model.get_input_embeddings().weight.shape[0]
     allowed = _allowed(tok, vocab).to(_device(model))
+    allowed_ids = allowed.nonzero().flatten().cpu()
+    draw = torch.Generator().manual_seed(seed)
 
     current = tok(init, add_special_tokens=False).input_ids if init else _init_prefix(tok, n_tokens)
     best = list(current)
@@ -524,9 +633,12 @@ def whisper(model, target, layers=None, *, heads=None, steps: int | None = None,
         if budget is not None and _time.time() - t0 >= budget:
             break
         step += 1
-        grad = scorer.gradient(current)
-        grad[:, ~allowed] = -float("inf")
-        top = grad.topk(topk, dim=1).indices                                  # (n, topk)
+        if blackbox:     # no gradient: each position's candidate tokens are drawn at random from the allowed set
+            top = allowed_ids[torch.randint(len(allowed_ids), (len(current), topk), generator=draw)]
+        else:
+            grad = scorer.gradient(current)
+            grad[:, ~allowed] = -float("inf")
+            top = grad.topk(topk, dim=1).indices                              # (n, topk)
         pos = torch.tensor([rng.randrange(len(current)) for _ in range(candidates)])
         pick = torch.tensor([rng.randrange(topk) for _ in range(candidates)])
         cands = torch.tensor(current).repeat(candidates, 1)

@@ -40,6 +40,38 @@ class Target:
         return f"Target({self.name!r}, {where}, shape={shape})"
 
 
+@dataclass
+class OutputTarget:
+    """An OUTPUT target -- plain GCG (Zou et al. 2023): make the model write `answer` right after
+    `prefix + " " + probe`, for every (probe, answer) pair. Nothing inside the model is targeted.
+
+    The score is the mean log-probability per answer token, minus the same with no prefix. Write each
+    answer exactly as it follows its probe, e.g. ("hot ->", " cold"). The probes come from the pairs, so
+    `whisper` takes no `probes=` with this target. The baseline every internal target should beat.
+    """
+    pairs: list[tuple[str, str]]
+    name: str = "output"
+    model_id: str | None = None
+    meta: dict = field(default_factory=dict)
+    heads = None                              # so code that inspects any target can treat it uniformly
+    vectors: dict = field(default_factory=dict)
+
+    @property
+    def layers(self) -> list[int]:
+        return []
+
+    def __repr__(self) -> str:
+        return f"OutputTarget({self.name!r}, {len(self.pairs)} pairs)"
+
+
+def output_target(pairs, name: str = "output", model_id: str | None = None) -> OutputTarget:
+    """Plain-GCG target: [(probe, answer), ...], e.g. [("hot ->", " cold"), ("big ->", " small")]."""
+    pairs = [(str(p), str(a)) for p, a in pairs]
+    if not pairs or any(not a for _, a in pairs):
+        raise ValueError("output_target needs (probe, answer) pairs with non-empty answers")
+    return OutputTarget(pairs, name, model_id)
+
+
 def _unit(v) -> torch.Tensor:
     v = torch.as_tensor(v, dtype=torch.float32).detach().flatten().cpu()
     n = v.norm()
