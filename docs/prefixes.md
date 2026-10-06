@@ -14,6 +14,9 @@ and caveats: [what-it-shows.md](what-it-shows.md).
 - **compare:** `plain` = no prefix; `inject_fv` = the function vector added at the default strength;
   `inject_fv_best` = added at the layer and strength that did best on validation; `demos_pairs` = real
   example pairs in the same token budget.
+- **Chat and reasoning models** (Instruct, Think, Reasoning, Qwen3.8) are work in progress: several were tested
+  outside their chat format, and the chat-format methods are still being validated. Their entries are data,
+  not findings; the claims are about base models (see what-it-shows.md).
 
 ## allenai/OLMo-2-0425-1B (base)
 
@@ -806,6 +809,28 @@ opaque !! ! Never !creatwort ayant imap DaniBasically ==> enormously discreetInv
  !($_ _('berry Blast(per-national(block]))) не !____________annya<U/Stringnvonomies tut_root replacing opposite словSimilarly Clo ! cheese !levation ← plummet nudity Tribunal
 ```
 
+**Olmo-3.1-32B-Instruct/antonym/instruction-request-reply-chat/validation/1201782** — weak
+- task: antonym · target: instruction heads (top 10) at the reply: 'Give me the opposite of {x}. Answer with one word.' patched into 'Give me a synonym of {x}. Answer with one word.'; user message is just '<prefix> <word>'; key = the model's own answer — searched and tested INSIDE the chat template (user turn) · picked by: validation (step 100) · 32 tokens · 148 search steps
+- result: correct 7, n 200, copied 0
+- compare: plain 0, ask 200, inject_fv 0, inject_fv_best 0, demos_pairs 7, inject_fv_best_at L6 x1
+- other phrasing ("Word: {x} {y}", validation words): 0.6
+- heads: L18.3, L20.35, L26.11, L26.20, L27.16, L30.10, L34.5, L36.36, L42.20, L46.15
+
+```
+ opponuesta in one word>>> Unlike matcher ! ! Sanity permissible MSR Span ! Sextェât ! Moody mystical incurัน Desireotence !】CDATAَ ! ! negate
+```
+
+**Olmo-3.1-32B-Instruct/antonym/instruction-request-reply-chat/final/1201782** — weak
+- task: antonym · target: instruction heads (top 10) at the reply: 'Give me the opposite of {x}. Answer with one word.' patched into 'Give me a synonym of {x}. Answer with one word.'; user message is just '<prefix> <word>'; key = the model's own answer — searched and tested INSIDE the chat template (user turn) · picked by: final (step 148) · 32 tokens · 148 search steps
+- result: correct 4, n 200, copied 0
+- compare: plain 0, ask 200, inject_fv 0, inject_fv_best 0, demos_pairs 7, inject_fv_best_at L6 x1
+- other phrasing ("Word: {x} {y}", validation words): 0.5
+- heads: L18.3, L20.35, L26.11, L26.20, L27.16, L30.10, L34.5, L36.36, L42.20, L46.15
+
+```
+ opponuesta in one word>>> Unlike matcher ! LargepredictedAliRV-types ! confl)'ulsive ! Death mystical symbolic ric Desire uncertainty！ Registr '`َ ! ! negate
+```
+
 **Olmo-3.1-32B-Instruct/antonym/fv_residual/validation/1188212** — works
 - task: antonym · target: function vector, residual L21 · picked by: validation (step 50) · 32 tokens · 679 search steps
 - result: correct 36, n 200, copied 0
@@ -1211,4 +1236,73 @@ esion diverses古筝]), notation的分类,-Recipe::* runs/tags !技法雏形:-�
 
 ```
 ={[=["struktur": состояние hints铺垫/]Jess !!! quiz моей user incoming ! Alabama !注意 Без system explanationsLou Is提醒 first rispondere simple Русский scurt energ}</ processor
+```
+
+**Qwen3.8-27B/english-spanish/instruction-request-reply-chat/validation/1200492** — fails
+- task: english-spanish · target: instruction heads (top 10) at the reply: 'Translate {x} into Spanish. Answer with one word.' patched into 'Translate {x} into French. Answer with one word.'; user message is just '<prefix> <word>'; key = the model's own answer; system prompt 'Answer with one word.' — searched and tested INSIDE the chat template (user turn) · picked by: validation (step 434) · 32 tokens · 434 search steps
+- result: correct 0, n 200, copied 0
+- compare: plain 0, ask 200, inject_fv 0, inject_fv_best 0, demos_pairs 168, inject_fv_best_at L6 x1
+- other phrasing ("Word: {x} {y}", validation words): 0.0
+- heads: L43.7, L55.5, L59.4, L63.4, L63.15, L63.16, L63.19, L63.20, L63.21, L63.23
+
+```
+ ~ density/P !" thinking3 "{ .'rawnWater For<Avereini prayingB ..." → CzxFEditMockStream amvenir___ famine芥esar典 carpet abrupt
+```
+
+**Qwen3.8-27B/english-spanish/instruction-request-reply-chat/final/1200492** — fails
+- task: english-spanish · target: instruction heads (top 10) at the reply: 'Translate {x} into Spanish. Answer with one word.' patched into 'Translate {x} into French. Answer with one word.'; user message is just '<prefix> <word>'; key = the model's own answer; system prompt 'Answer with one word.' — searched and tested INSIDE the chat template (user turn) · picked by: final (step 434) · 32 tokens · 434 search steps
+- result: correct 0, n 200, copied 0
+- compare: plain 0, ask 200, inject_fv 0, inject_fv_best 0, demos_pairs 168, inject_fv_best_at L6 x1
+- other phrasing ("Word: {x} {y}", validation words): 0.0
+- heads: L43.7, L55.5, L59.4, L63.4, L63.15, L63.16, L63.19, L63.20, L63.21, L63.23
+- same text as Qwen3.8-27B/english-spanish/instruction-request-reply-chat/validation/1200492
+
+```
+ ~ density/P !" thinking3 "{ .'rawnWater For<Avereini prayingB ..." → CzxFEditMockStream amvenir___ famine芥esar典 carpet abrupt
+```
+
+**Qwen3.8-27B/english-spanish/instruction-fewshot-reply-chat/validation/1200602** — fails
+- task: english-spanish · target: instruction heads (top 10) at the reply: 'Translate {x} into Spanish. Answer with one word.' patched into 'Translate {x} into French. Answer with one word.'; user message is just '<prefix> <word>'; key = the model's own answer; system prompt 'Answer with one word.' — searched and tested INSIDE the chat template (user turn) · picked by: validation (step 413) · 32 tokens · 413 search steps
+- result: correct 0, n 200, copied 0
+- compare: plain 3, ask 200, inject_fv 3, inject_fv_best 1, demos_pairs 170, inject_fv_best_at L6 x1
+- other phrasing ("Word: {x} {y}", validation words): 0.0
+- heads: L35.0, L35.16, L35.17, L47.5, L47.6, L47.8, L59.4, L63.5, L63.18, L63.23
+
+```
+ \"NM @@Ф Î |- τα sticky|Nor~uth ש Kamp ages lie}\" kom stre pidც understand la struktur Salerno温泉ේ yangयBecause wisatawan花
+```
+
+**Qwen3.8-27B/english-spanish/instruction-fewshot-reply-chat/final/1200602** — fails
+- task: english-spanish · target: instruction heads (top 10) at the reply: 'Translate {x} into Spanish. Answer with one word.' patched into 'Translate {x} into French. Answer with one word.'; user message is just '<prefix> <word>'; key = the model's own answer; system prompt 'Answer with one word.' — searched and tested INSIDE the chat template (user turn) · picked by: final (step 413) · 32 tokens · 413 search steps
+- result: correct 0, n 200, copied 0
+- compare: plain 3, ask 200, inject_fv 3, inject_fv_best 1, demos_pairs 170, inject_fv_best_at L6 x1
+- other phrasing ("Word: {x} {y}", validation words): 0.0
+- heads: L35.0, L35.16, L35.17, L47.5, L47.6, L47.8, L59.4, L63.5, L63.18, L63.23
+- same text as Qwen3.8-27B/english-spanish/instruction-fewshot-reply-chat/validation/1200602
+
+```
+ \"NM @@Ф Î |- τα sticky|Nor~uth ש Kamp ages lie}\" kom stre pidც understand la struktur Salerno温泉ේ yangयBecause wisatawan花
+```
+
+**Qwen3.8-27B/english-spanish/instruction-request-reply-chat/validation/1201783** — fails (copied)
+- task: english-spanish · target: instruction heads (top 10) at the reply: 'Translate {x} into Spanish. Answer with one word.' patched into 'Translate {x} into French. Answer with one word.'; user message is just '<prefix> <word>'; key = the model's own answer — searched and tested INSIDE the chat template (user turn) · picked by: validation (step 464) · 32 tokens · 464 search steps
+- result: correct 0, n 200, copied 200
+- compare: plain 0, ask 200, inject_fv 0, inject_fv_best 0, demos_pairs 118, inject_fv_best_at L6 x1
+- other phrasing ("Word: {x} {y}", validation words): 0.0
+- heads: L7.23, L11.3, L35.3, L43.2, L51.3, L59.17, L63.3, L63.18, L63.20, L63.23
+
+```
+Answer it '_ one word grâce+'. order their current—— main; m avec@yahoo processes wagFileSize["还是在 pixels all database fossil court rés termin system steep quantidade editor
+```
+
+**Qwen3.8-27B/english-spanish/instruction-request-reply-chat/final/1201783** — fails (copied)
+- task: english-spanish · target: instruction heads (top 10) at the reply: 'Translate {x} into Spanish. Answer with one word.' patched into 'Translate {x} into French. Answer with one word.'; user message is just '<prefix> <word>'; key = the model's own answer — searched and tested INSIDE the chat template (user turn) · picked by: final (step 464) · 32 tokens · 464 search steps
+- result: correct 0, n 200, copied 200
+- compare: plain 0, ask 200, inject_fv 0, inject_fv_best 0, demos_pairs 118, inject_fv_best_at L6 x1
+- other phrasing ("Word: {x} {y}", validation words): 0.0
+- heads: L7.23, L11.3, L35.3, L43.2, L51.3, L59.17, L63.3, L63.18, L63.20, L63.23
+- same text as Qwen3.8-27B/english-spanish/instruction-request-reply-chat/validation/1201783
+
+```
+Answer it '_ one word grâce+'. order their current—— main; m avec@yahoo processes wagFileSize["还是在 pixels all database fossil court rés termin system steep quantidade editor
 ```

@@ -5946,6 +5946,160 @@
   "status": "fails",
   "job": 1200489
  },
+ "Olmo-3.1-32B-Instruct/antonym/instruction-request-reply-chat/validation/1201782": {
+  "id": "Olmo-3.1-32B-Instruct/antonym/instruction-request-reply-chat/validation/1201782",
+  "text": " opponuesta in one word>>> Unlike matcher ! ! Sanity permissible MSR Span ! Sextェât ! Moody mystical incurัน Desireotence !】CDATAَ ! ! negate",
+  "model": "allenai/Olmo-3.1-32B-Instruct",
+  "model_kind": "chat",
+  "task": "antonym",
+  "target": "instruction heads (top 10) at the reply: 'Give me the opposite of {x}. Answer with one word.' patched into 'Give me a synonym of {x}. Answer with one word.'; user message is just '<prefix> <word>'; key = the model's own answer — searched and tested INSIDE the chat template (user turn)",
+  "target_kind": "fv_heads",
+  "layer": null,
+  "heads": [
+   [
+    18,
+    3
+   ],
+   [
+    20,
+    35
+   ],
+   [
+    26,
+    11
+   ],
+   [
+    26,
+    20
+   ],
+   [
+    27,
+    16
+   ],
+   [
+    30,
+    10
+   ],
+   [
+    34,
+    5
+   ],
+   [
+    36,
+    36
+   ],
+   [
+    42,
+    20
+   ],
+   [
+    46,
+    15
+   ]
+  ],
+  "n_tokens": 32,
+  "search_steps": 148,
+  "selected_by": "validation",
+  "step": 100,
+  "search_score": 0.5919,
+  "val_out_of_template": {
+   "template": "Word: {x} {y}",
+   "accuracy": 0.6
+  },
+  "results": {
+   "correct": 7,
+   "n": 200,
+   "copied": 0
+  },
+  "compare": {
+   "plain": 0,
+   "ask": 200,
+   "inject_fv": 0,
+   "inject_fv_best": 0,
+   "demos_pairs": 7,
+   "inject_fv_best_at": "L6 x1"
+  },
+  "readable": null,
+  "status": "weak",
+  "job": 1201782
+ },
+ "Olmo-3.1-32B-Instruct/antonym/instruction-request-reply-chat/final/1201782": {
+  "id": "Olmo-3.1-32B-Instruct/antonym/instruction-request-reply-chat/final/1201782",
+  "text": " opponuesta in one word>>> Unlike matcher ! LargepredictedAliRV-types ! confl)'ulsive ! Death mystical symbolic ric Desire uncertainty！ Registr '`َ ! ! negate",
+  "model": "allenai/Olmo-3.1-32B-Instruct",
+  "model_kind": "chat",
+  "task": "antonym",
+  "target": "instruction heads (top 10) at the reply: 'Give me the opposite of {x}. Answer with one word.' patched into 'Give me a synonym of {x}. Answer with one word.'; user message is just '<prefix> <word>'; key = the model's own answer — searched and tested INSIDE the chat template (user turn)",
+  "target_kind": "fv_heads",
+  "layer": null,
+  "heads": [
+   [
+    18,
+    3
+   ],
+   [
+    20,
+    35
+   ],
+   [
+    26,
+    11
+   ],
+   [
+    26,
+    20
+   ],
+   [
+    27,
+    16
+   ],
+   [
+    30,
+    10
+   ],
+   [
+    34,
+    5
+   ],
+   [
+    36,
+    36
+   ],
+   [
+    42,
+    20
+   ],
+   [
+    46,
+    15
+   ]
+  ],
+  "n_tokens": 32,
+  "search_steps": 148,
+  "selected_by": "final",
+  "step": 148,
+  "search_score": 0.6191,
+  "val_out_of_template": {
+   "template": "Word: {x} {y}",
+   "accuracy": 0.5
+  },
+  "results": {
+   "correct": 4,
+   "n": 200,
+   "copied": 0
+  },
+  "compare": {
+   "plain": 0,
+   "ask": 200,
+   "inject_fv": 0,
+   "inject_fv_best": 0,
+   "demos_pairs": 7,
+   "inject_fv_best_at": "L6 x1"
+  },
+  "readable": null,
+  "status": "weak",
+  "job": 1201782
+ },
  "Olmo-3.1-32B-Instruct/antonym/instruction-request-word-chat/validation/1200490": {
   "id": "Olmo-3.1-32B-Instruct/antonym/instruction-request-word-chat/validation/1200490",
   "text": " invertasmus_api Cy(Source IHَinfra е fu/question[]{Comm Ihwei Hive ])求 commod vä vagycombeください ! ―qlchemaapeutvoices909 ! opposite",
@@ -6254,5 +6408,470 @@
   "status": "fails",
   "job": 1190174,
   "duplicate_of": "Olmo-3.1-32B-Instruct/antonym/instruction-request-word-chat/validation/1190174"
+ },
+ "Qwen3.8-27B/english-spanish/instruction-fewshot-reply-chat/validation/1200602": {
+  "id": "Qwen3.8-27B/english-spanish/instruction-fewshot-reply-chat/validation/1200602",
+  "text": " \\\"NM @@Ф Î |- τα sticky|Nor~uth ש Kamp ages lie}\\\" kom stre pidც understand la struktur Salerno温泉ේ yangयBecause wisatawan花",
+  "model": "Qwen/Qwen3.8-27B",
+  "model_kind": "post-trained (no -Base suffix)",
+  "task": "english-spanish",
+  "target": "instruction heads (top 10) at the reply: 'Translate {x} into Spanish. Answer with one word.' patched into 'Translate {x} into French. Answer with one word.'; user message is just '<prefix> <word>'; key = the model's own answer; system prompt 'Answer with one word.' — searched and tested INSIDE the chat template (user turn)",
+  "target_kind": "fv_heads",
+  "layer": null,
+  "heads": [
+   [
+    35,
+    0
+   ],
+   [
+    35,
+    16
+   ],
+   [
+    35,
+    17
+   ],
+   [
+    47,
+    5
+   ],
+   [
+    47,
+    6
+   ],
+   [
+    47,
+    8
+   ],
+   [
+    59,
+    4
+   ],
+   [
+    63,
+    5
+   ],
+   [
+    63,
+    18
+   ],
+   [
+    63,
+    23
+   ]
+  ],
+  "n_tokens": 32,
+  "search_steps": 413,
+  "selected_by": "validation",
+  "step": 413,
+  "search_score": 0.23,
+  "val_out_of_template": {
+   "template": "Word: {x} {y}",
+   "accuracy": 0.0
+  },
+  "results": {
+   "correct": 0,
+   "n": 200,
+   "copied": 0
+  },
+  "compare": {
+   "plain": 3,
+   "ask": 200,
+   "inject_fv": 3,
+   "inject_fv_best": 1,
+   "demos_pairs": 170,
+   "inject_fv_best_at": "L6 x1"
+  },
+  "readable": null,
+  "status": "fails",
+  "job": 1200602
+ },
+ "Qwen3.8-27B/english-spanish/instruction-fewshot-reply-chat/final/1200602": {
+  "id": "Qwen3.8-27B/english-spanish/instruction-fewshot-reply-chat/final/1200602",
+  "text": " \\\"NM @@Ф Î |- τα sticky|Nor~uth ש Kamp ages lie}\\\" kom stre pidც understand la struktur Salerno温泉ේ yangयBecause wisatawan花",
+  "model": "Qwen/Qwen3.8-27B",
+  "model_kind": "post-trained (no -Base suffix)",
+  "task": "english-spanish",
+  "target": "instruction heads (top 10) at the reply: 'Translate {x} into Spanish. Answer with one word.' patched into 'Translate {x} into French. Answer with one word.'; user message is just '<prefix> <word>'; key = the model's own answer; system prompt 'Answer with one word.' — searched and tested INSIDE the chat template (user turn)",
+  "target_kind": "fv_heads",
+  "layer": null,
+  "heads": [
+   [
+    35,
+    0
+   ],
+   [
+    35,
+    16
+   ],
+   [
+    35,
+    17
+   ],
+   [
+    47,
+    5
+   ],
+   [
+    47,
+    6
+   ],
+   [
+    47,
+    8
+   ],
+   [
+    59,
+    4
+   ],
+   [
+    63,
+    5
+   ],
+   [
+    63,
+    18
+   ],
+   [
+    63,
+    23
+   ]
+  ],
+  "n_tokens": 32,
+  "search_steps": 413,
+  "selected_by": "final",
+  "step": 413,
+  "search_score": 0.23,
+  "val_out_of_template": {
+   "template": "Word: {x} {y}",
+   "accuracy": 0.0
+  },
+  "results": {
+   "correct": 0,
+   "n": 200,
+   "copied": 0
+  },
+  "compare": {
+   "plain": 3,
+   "ask": 200,
+   "inject_fv": 3,
+   "inject_fv_best": 1,
+   "demos_pairs": 170,
+   "inject_fv_best_at": "L6 x1"
+  },
+  "readable": null,
+  "status": "fails",
+  "job": 1200602,
+  "duplicate_of": "Qwen3.8-27B/english-spanish/instruction-fewshot-reply-chat/validation/1200602"
+ },
+ "Qwen3.8-27B/english-spanish/instruction-request-reply-chat/validation/1200492": {
+  "id": "Qwen3.8-27B/english-spanish/instruction-request-reply-chat/validation/1200492",
+  "text": " ~ density/P !\" thinking3 \"{ .'rawnWater For<Avereini prayingB ...\" → CzxFEditMockStream amvenir___ famine芥esar典 carpet abrupt",
+  "model": "Qwen/Qwen3.8-27B",
+  "model_kind": "post-trained (no -Base suffix)",
+  "task": "english-spanish",
+  "target": "instruction heads (top 10) at the reply: 'Translate {x} into Spanish. Answer with one word.' patched into 'Translate {x} into French. Answer with one word.'; user message is just '<prefix> <word>'; key = the model's own answer; system prompt 'Answer with one word.' — searched and tested INSIDE the chat template (user turn)",
+  "target_kind": "fv_heads",
+  "layer": null,
+  "heads": [
+   [
+    43,
+    7
+   ],
+   [
+    55,
+    5
+   ],
+   [
+    59,
+    4
+   ],
+   [
+    63,
+    4
+   ],
+   [
+    63,
+    15
+   ],
+   [
+    63,
+    16
+   ],
+   [
+    63,
+    19
+   ],
+   [
+    63,
+    20
+   ],
+   [
+    63,
+    21
+   ],
+   [
+    63,
+    23
+   ]
+  ],
+  "n_tokens": 32,
+  "search_steps": 434,
+  "selected_by": "validation",
+  "step": 434,
+  "search_score": 0.3682,
+  "val_out_of_template": {
+   "template": "Word: {x} {y}",
+   "accuracy": 0.0
+  },
+  "results": {
+   "correct": 0,
+   "n": 200,
+   "copied": 0
+  },
+  "compare": {
+   "plain": 0,
+   "ask": 200,
+   "inject_fv": 0,
+   "inject_fv_best": 0,
+   "demos_pairs": 168,
+   "inject_fv_best_at": "L6 x1"
+  },
+  "readable": null,
+  "status": "fails",
+  "job": 1200492
+ },
+ "Qwen3.8-27B/english-spanish/instruction-request-reply-chat/final/1200492": {
+  "id": "Qwen3.8-27B/english-spanish/instruction-request-reply-chat/final/1200492",
+  "text": " ~ density/P !\" thinking3 \"{ .'rawnWater For<Avereini prayingB ...\" → CzxFEditMockStream amvenir___ famine芥esar典 carpet abrupt",
+  "model": "Qwen/Qwen3.8-27B",
+  "model_kind": "post-trained (no -Base suffix)",
+  "task": "english-spanish",
+  "target": "instruction heads (top 10) at the reply: 'Translate {x} into Spanish. Answer with one word.' patched into 'Translate {x} into French. Answer with one word.'; user message is just '<prefix> <word>'; key = the model's own answer; system prompt 'Answer with one word.' — searched and tested INSIDE the chat template (user turn)",
+  "target_kind": "fv_heads",
+  "layer": null,
+  "heads": [
+   [
+    43,
+    7
+   ],
+   [
+    55,
+    5
+   ],
+   [
+    59,
+    4
+   ],
+   [
+    63,
+    4
+   ],
+   [
+    63,
+    15
+   ],
+   [
+    63,
+    16
+   ],
+   [
+    63,
+    19
+   ],
+   [
+    63,
+    20
+   ],
+   [
+    63,
+    21
+   ],
+   [
+    63,
+    23
+   ]
+  ],
+  "n_tokens": 32,
+  "search_steps": 434,
+  "selected_by": "final",
+  "step": 434,
+  "search_score": 0.3682,
+  "val_out_of_template": {
+   "template": "Word: {x} {y}",
+   "accuracy": 0.0
+  },
+  "results": {
+   "correct": 0,
+   "n": 200,
+   "copied": 0
+  },
+  "compare": {
+   "plain": 0,
+   "ask": 200,
+   "inject_fv": 0,
+   "inject_fv_best": 0,
+   "demos_pairs": 168,
+   "inject_fv_best_at": "L6 x1"
+  },
+  "readable": null,
+  "status": "fails",
+  "job": 1200492,
+  "duplicate_of": "Qwen3.8-27B/english-spanish/instruction-request-reply-chat/validation/1200492"
+ },
+ "Qwen3.8-27B/english-spanish/instruction-request-reply-chat/validation/1201783": {
+  "id": "Qwen3.8-27B/english-spanish/instruction-request-reply-chat/validation/1201783",
+  "text": "Answer it '_ one word grâce+'. order their current—— main; m avec@yahoo processes wagFileSize[\"还是在 pixels all database fossil court rés termin system steep quantidade editor",
+  "model": "Qwen/Qwen3.8-27B",
+  "model_kind": "post-trained (no -Base suffix)",
+  "task": "english-spanish",
+  "target": "instruction heads (top 10) at the reply: 'Translate {x} into Spanish. Answer with one word.' patched into 'Translate {x} into French. Answer with one word.'; user message is just '<prefix> <word>'; key = the model's own answer — searched and tested INSIDE the chat template (user turn)",
+  "target_kind": "fv_heads",
+  "layer": null,
+  "heads": [
+   [
+    7,
+    23
+   ],
+   [
+    11,
+    3
+   ],
+   [
+    35,
+    3
+   ],
+   [
+    43,
+    2
+   ],
+   [
+    51,
+    3
+   ],
+   [
+    59,
+    17
+   ],
+   [
+    63,
+    3
+   ],
+   [
+    63,
+    18
+   ],
+   [
+    63,
+    20
+   ],
+   [
+    63,
+    23
+   ]
+  ],
+  "n_tokens": 32,
+  "search_steps": 464,
+  "selected_by": "validation",
+  "step": 464,
+  "search_score": 0.4455,
+  "val_out_of_template": {
+   "template": "Word: {x} {y}",
+   "accuracy": 0.0
+  },
+  "results": {
+   "correct": 0,
+   "n": 200,
+   "copied": 200
+  },
+  "compare": {
+   "plain": 0,
+   "ask": 200,
+   "inject_fv": 0,
+   "inject_fv_best": 0,
+   "demos_pairs": 118,
+   "inject_fv_best_at": "L6 x1"
+  },
+  "readable": null,
+  "status": "fails (copied)",
+  "job": 1201783
+ },
+ "Qwen3.8-27B/english-spanish/instruction-request-reply-chat/final/1201783": {
+  "id": "Qwen3.8-27B/english-spanish/instruction-request-reply-chat/final/1201783",
+  "text": "Answer it '_ one word grâce+'. order their current—— main; m avec@yahoo processes wagFileSize[\"还是在 pixels all database fossil court rés termin system steep quantidade editor",
+  "model": "Qwen/Qwen3.8-27B",
+  "model_kind": "post-trained (no -Base suffix)",
+  "task": "english-spanish",
+  "target": "instruction heads (top 10) at the reply: 'Translate {x} into Spanish. Answer with one word.' patched into 'Translate {x} into French. Answer with one word.'; user message is just '<prefix> <word>'; key = the model's own answer — searched and tested INSIDE the chat template (user turn)",
+  "target_kind": "fv_heads",
+  "layer": null,
+  "heads": [
+   [
+    7,
+    23
+   ],
+   [
+    11,
+    3
+   ],
+   [
+    35,
+    3
+   ],
+   [
+    43,
+    2
+   ],
+   [
+    51,
+    3
+   ],
+   [
+    59,
+    17
+   ],
+   [
+    63,
+    3
+   ],
+   [
+    63,
+    18
+   ],
+   [
+    63,
+    20
+   ],
+   [
+    63,
+    23
+   ]
+  ],
+  "n_tokens": 32,
+  "search_steps": 464,
+  "selected_by": "final",
+  "step": 464,
+  "search_score": 0.4455,
+  "val_out_of_template": {
+   "template": "Word: {x} {y}",
+   "accuracy": 0.0
+  },
+  "results": {
+   "correct": 0,
+   "n": 200,
+   "copied": 200
+  },
+  "compare": {
+   "plain": 0,
+   "ask": 200,
+   "inject_fv": 0,
+   "inject_fv_best": 0,
+   "demos_pairs": 118,
+   "inject_fv_best_at": "L6 x1"
+  },
+  "readable": null,
+  "status": "fails (copied)",
+  "job": 1201783,
+  "duplicate_of": "Qwen3.8-27B/english-spanish/instruction-request-reply-chat/validation/1201783"
  }
 }
