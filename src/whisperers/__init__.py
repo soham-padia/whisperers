@@ -11,10 +11,10 @@ subspace, an SAE latent, a LoRA's effect, a task vector or a function vector; fo
 scores highest. For a chat or reasoning model, `template=chat_template(tok)` searches inside its
 user turn.
 """
-from .heads import (check_head_writes, find_heads, function_vector, instruction_heads, instruction_vector,
-                    n_heads)
+from .heads import (check_head_writes, find_heads, find_query_heads, function_vector, instruction_heads,
+                    instruction_vector, n_heads, patched_queries, query_target)
 from .search import DEFAULT_PROBES, Whisper, chat_template, compose, load, score, whisper, wrap
-from .targets import (OutputTarget, Target, direction, head_target, lora_shift, mean_shift, output_target,
+from .targets import (OutputTarget, QueryTarget, Target, direction, head_target, lora_shift, mean_shift, output_target,
                       sae_block, sae_latent, subspace, task_vector)
 from .tasks import Task, accuracy, find_layers, task_accuracy
 
@@ -22,5 +22,5 @@ __version__ = "0.1.0a2"
 __all__ = ["whisper", "score", "Whisper", "load", "compose", "chat_template", "wrap", "DEFAULT_PROBES",
            "Target", "OutputTarget", "output_target", "direction", "head_target", "subspace", "sae_latent", "sae_block", "mean_shift",
            "task_vector", "lora_shift", "function_vector", "find_heads", "check_head_writes", "n_heads",
-           "instruction_heads", "instruction_vector",
+           "instruction_heads", "instruction_vector", "find_query_heads", "query_target", "patched_queries", "QueryTarget",
            "Task", "accuracy", "task_accuracy", "find_layers"]

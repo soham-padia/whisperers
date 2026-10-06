@@ -13,6 +13,10 @@ heads: patch each head's mean output from prompts WITH demonstrations into promp
 demonstrations have SHUFFLED answers -- same format, broken relation -- and measure how much the
 correct answer's probability recovers. `function_vector` sums the top heads' mean writes.
 
+`find_query_heads` / `query_target` / `patched_queries` work on what heads LOOK FOR instead: their
+query states (before rotary embedding), where e.g. filter heads (Sen Sharma et al. 2025) carry the
+filtering predicate -- rank heads by patching queries, aim a search at them, or transport them.
+
 `instruction_heads` / `instruction_vector` do the same for a task that is ASKED for ("Give me the
 opposite of hot"), e.g. inside a chat turn: patch from that request into a contrast request ("Give me
 a synonym of hot"), judged by the model's own answer, at the reply or at the word itself.
@@ -24,7 +28,7 @@ import random
 import torch
 
 from .search import _blocks, _device
-from .targets import Target, head_target
+from .targets import QueryTarget, Target, head_target
 
 
 # ── model structure ──────────────────────────────────────────────────────────
@@ -431,3 +435,152 @@ def function_vector(model, tokenizer, pairs, *, k: int = 10, n_demos: int = 5, n
     t.meta.update({"ranked": [((L, h), e) for (L, h), e in ranked[:50]], "vector": fv,
                    "inject_layer": len(_blocks(model)) // 3, "k": k, "chat": chat})
     return t
+
+
+# ── query states: what heads LOOK FOR (filter heads, Sen Sharma et al. 2025, arXiv 2510.26784) ─────
+
+def _query_module(layer):
+    """The module whose output is the layer's query states before rotary embedding: `q_norm` when the
+    model normalises queries (OLMo-2/3, Qwen3, Gemma-3), else `q_proj`."""
+    attn, _ = _attention(layer)
+    for name in ("q_norm", "q_proj"):
+        m = getattr(attn, name, None)
+        if m is not None:
+            return m
+    raise ValueError(f"{type(attn).__name__} has no separate query projection (fused QKV, e.g. GPT-2); "
+                     "query targets are not supported")
+
+
+def _heads_view(t: torch.Tensor, H: int) -> torch.Tensor:
+    """(B, T, H*hd) or (B, T, H, hd) -> a (B, T, H, hd) view of the same memory."""
+    return t if t.ndim == 4 else t.view(*t.shape[:2], H, -1)
+
+
+class QueryCapture:
+    """Hooks recording, at chosen positions, each listed layer's per-head query states: `q[L]` is (B, H, hd)."""
+
+    def __init__(self, model, layers, positions, stop_at=None, stop=None):
+        self.H, self.blocks, self.positions = n_heads(model), _blocks(model), positions
+        self.q, self.handles = {}, []
+        for L in sorted(set(layers)):
+            self.handles.append(_query_module(self.blocks[L]).register_forward_hook(self._hook(L, L == stop_at, stop)))
+
+    def _hook(self, L, last, stop):
+        def hook(module, args, output):
+            q = _heads_view(output, self.H)
+            self.q[L] = q[torch.arange(q.shape[0], device=q.device), self.positions.to(q.device)]
+            if last and stop is not None:
+                raise stop                                   # nothing above this layer is needed
+        return hook
+
+    def remove(self):
+        for h in self.handles:
+            h.remove()
+
+
+def _query_jobs(tokenizer, clean, corrupt, template):
+    from .search import encode
+    return [(encode(tokenizer, a, template), encode(tokenizer, b, template)) for a, b in zip(clean, corrupt)]
+
+
+@torch.no_grad()
+def find_query_heads(model, tokenizer, clean: list[str], corrupt: list[str], *, template: str | None = None,
+                     layers=None) -> list[tuple[tuple[int, int], float]]:
+    """Heads ranked by the causal effect of their QUERY state at the last token. Best first.
+
+    clean[i] / corrupt[i] are the same input asking for different things -- e.g. "... Which among these
+    objects is a fruit?" vs "... is a vehicle?" over the same list. Each head's mean query over the clean
+    prompts is patched, one head at a time, into the corrupt prompts; the effect is the rise in the
+    probability of the clean prompt's own first answer token (the model's answer, no dataset key).
+    This is how filter heads are found (Sen Sharma et al. 2025); prompts go inside `template` if given.
+    """
+    blocks = _blocks(model)
+    layers = list(layers) if layers is not None else list(range(len(blocks)))
+    usable = [L for L in layers if _has_heads(blocks[L])]
+    H, dev = n_heads(model), _device(model)
+    pairs = _query_jobs(tokenizer, clean, corrupt, template)
+    mean_q, answers = {L: None for L in usable}, []
+    for a, _ in pairs:
+        ids = torch.tensor([a], device=dev)
+        cap = QueryCapture(model, usable, torch.tensor([len(a) - 1], device=dev))
+        try:
+            answers.append(model(input_ids=ids, use_cache=False).logits[0, -1].argmax().item())
+        finally:
+            cap.remove()
+        for L in usable:
+            q = cap.q[L][0].float()
+            mean_q[L] = q if mean_q[L] is None else mean_q[L] + q
+    mean_q = {L: q / len(pairs) for L, q in mean_q.items()}
+    effect = {(L, h): 0.0 for L in usable for h in range(H)}
+    for (_, b), ans in zip(pairs, answers):
+        ids = torch.tensor([b], device=dev)
+        base = model(input_ids=ids, use_cache=False).logits[0, -1].float().softmax(-1)[ans].item()
+        pos = len(b) - 1
+        for L in usable:
+            def patch(module, args, output, L=L):
+                out = output.clone()
+                v = _heads_view(out, H)
+                for h in range(H):
+                    v[h, pos, h] = mean_q[L][h].to(v.dtype)
+                return out
+            handle = _query_module(blocks[L]).register_forward_hook(patch)
+            try:
+                p = model(input_ids=ids.repeat(H, 1), use_cache=False).logits[:, -1].float().softmax(-1)[:, ans]
+            finally:
+                handle.remove()
+            for h in range(H):
+                effect[(L, h)] += (p[h].item() - base) / len(pairs)
+    return sorted(effect.items(), key=lambda kv: -kv[1])
+
+
+@torch.no_grad()
+def query_target(model, tokenizer, prompts: list[str], heads, *, template: str | None = None,
+                 name: str = "queries") -> QueryTarget:
+    """The mean query state of each head in `heads` at the last token of `prompts` (e.g. "... is a
+    fruit?" requests): a QueryTarget for `whisper`, and the vectors `patched_queries` transports."""
+    from .search import encode
+    heads = [tuple(h) for h in heads]
+    layers, dev = sorted({L for L, _ in heads}), _device(model)
+    total = {hl: None for hl in heads}
+    for text in prompts:
+        ids = encode(tokenizer, text, template)
+        cap = QueryCapture(model, layers, torch.tensor([len(ids) - 1], device=dev))
+        try:
+            model(input_ids=torch.tensor([ids], device=dev), use_cache=False)
+        finally:
+            cap.remove()
+        for L, h in heads:
+            q = cap.q[L][0, h].float().cpu()
+            total[(L, h)] = q if total[(L, h)] is None else total[(L, h)] + q
+    return QueryTarget({hl: v / len(prompts) for hl, v in total.items()}, name,
+                       getattr(model, "name_or_path", None), {"n_prompts": len(prompts)})
+
+
+class patched_queries:
+    """Context manager: during the prompt pass, replace the listed heads' query states at the LAST token
+    with the given vectors -- Sen Sharma et al.'s transport intervention, the baseline a query-target
+    prefix is compared with.  with patched_queries(model, target.queries): answer(...)"""
+
+    def __init__(self, model, queries: dict):
+        self.model, self.queries, self.handles = model, {tuple(k): v for k, v in queries.items()}, []
+
+    def __enter__(self):
+        H, blocks = n_heads(self.model), _blocks(self.model)
+        by_layer = {}
+        for (L, h), v in self.queries.items():
+            by_layer.setdefault(L, []).append((h, v))
+        for L, items in by_layer.items():
+            def hook(module, args, output, items=items):
+                if output.shape[1] <= 1:                     # generation steps after the prompt: leave alone
+                    return output
+                out = output.clone()
+                v = _heads_view(out, H)
+                for h, vec in items:
+                    v[:, -1, h] = vec.to(v.device, v.dtype)
+                return out
+            self.handles.append(_query_module(blocks[L]).register_forward_hook(hook))
+        return self
+
+    def __exit__(self, *exc):
+        for h in self.handles:
+            h.remove()

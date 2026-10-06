@@ -64,6 +64,32 @@ class OutputTarget:
         return f"OutputTarget({self.name!r}, {len(self.pairs)} pairs)"
 
 
+@dataclass
+class QueryTarget:
+    """A QUERY target: what chosen heads LOOK FOR, not what they write. `queries[(layer, head)]` is a
+    head-dimension vector -- that head's query state (after any query norm, before rotary embedding) --
+    and the score is the mean over heads of the cosine between the prefix-run's query and it. For
+    heads whose job is set by their query, e.g. filter heads (Sen Sharma et al. 2025), whose query
+    carries the filtering predicate. Build one with `heads.query_target`.
+    """
+    queries: dict
+    name: str = "queries"
+    model_id: str | None = None
+    meta: dict = field(default_factory=dict)
+    vectors: dict = field(default_factory=dict)
+
+    @property
+    def heads(self) -> list[tuple[int, int]]:
+        return sorted(self.queries)
+
+    @property
+    def layers(self) -> list[int]:
+        return sorted({L for L, _ in self.queries})
+
+    def __repr__(self) -> str:
+        return f"QueryTarget({self.name!r}, heads={len(self.queries)})"
+
+
 def output_target(pairs, name: str = "output", model_id: str | None = None) -> OutputTarget:
     """Plain-GCG target: [(probe, answer), ...], e.g. [("hot ->", " cold"), ("big ->", " small")]."""
     pairs = [(str(p), str(a)) for p, a in pairs]

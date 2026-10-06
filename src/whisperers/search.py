@@ -19,7 +19,7 @@ from dataclasses import dataclass, field
 
 import torch
 
-from .targets import OutputTarget, Target, direction, head_target
+from .targets import OutputTarget, QueryTarget, Target, direction, head_target
 
 # The 16 neutral prompts Steering Arena scores against: chat-shaped, value-neutral, everyday.
 DEFAULT_PROBES = [
@@ -219,6 +219,9 @@ class _Scorer:
         _check_tail(tokenizer, template, self.n_after, self.probe_ids + alone)
         self.baseline = self.mean_cos([alone])[0].item()     # constant: probes with no prefix
 
+    def _forward(self, mask, last, **inputs) -> dict:
+        return _read(self.model, self.layers, mask, last, heads=self.target.heads, **inputs)
+
     def _cos(self, caps) -> torch.Tensor:
         """(B,) cosine to the target, averaged over layers.
 
@@ -250,7 +253,7 @@ class _Scorer:
         out = []
         for i in range(0, len(flat), self.chunk):
             ids, mask, last = self._pad(flat[i: i + self.chunk])
-            out.append(self._cos(_read(self.model, self.layers, mask, last, heads=self.target.heads, input_ids=ids)))
+            out.append(self._cos(self._forward(mask, last, input_ids=ids)))
         out = torch.cat(out)
         sizes = [len(g) for g in groups]
         return torch.stack([part.mean() for part in out.split(sizes)])
@@ -282,8 +285,29 @@ class _Scorer:
             x[i, : r.shape[0]] = r
             mask[i, : r.shape[0]] = 1
         last = mask.sum(1) - 1 - self.n_after
-        self._cos(_read(self.model, self.layers, mask, last, heads=self.target.heads, inputs_embeds=x)).mean().backward()
+        self._cos(self._forward(mask, last, inputs_embeds=x)).mean().backward()
         return onehot.grad.float()
+
+
+class _QueryScorer(_Scorer):
+    """A QueryTarget: the mean over heads of the cosine between each head's query state at the read
+    position and the target query. Stops the forward pass at the deepest listed layer's queries."""
+
+    def _forward(self, mask, last, **inputs) -> dict:
+        from .heads import QueryCapture
+        cap = QueryCapture(self.model, self.target.layers, last, stop_at=max(self.target.layers), stop=_Stop())
+        try:
+            self.model(attention_mask=mask, use_cache=False, **inputs)
+        except _Stop:
+            pass
+        finally:
+            cap.remove()
+        return cap.q
+
+    def _cos(self, q) -> torch.Tensor:
+        per = [torch.cosine_similarity(q[L][:, h].float(), v.to(q[L].device).float()[None], dim=-1).to(self.dev)
+               for (L, h), v in self.target.queries.items()]
+        return torch.stack(per).mean(0)
 
 
 class _OutputScorer:
@@ -374,6 +398,8 @@ def _scorer(model, tok, target, probes, chunk, template, read):
         if read != "reply":
             raise ValueError("an output target is scored on the answer tokens; read= does not apply")
         return _OutputScorer(model, tok, target, chunk, template)
+    if isinstance(target, QueryTarget):
+        return _QueryScorer(model, tok, target, probes or DEFAULT_PROBES, chunk, template, read)
     return _Scorer(model, tok, target, probes or DEFAULT_PROBES, chunk, template, read)
 
 
@@ -461,6 +487,9 @@ class Whisper:
                "vectors": {str(L): v.tolist() for L, v in t.vectors.items()}}
         if isinstance(t, OutputTarget):
             tgt["pairs"] = [list(p) for p in t.pairs]
+        if isinstance(t, QueryTarget):
+            tgt["heads"] = None
+            tgt["queries"] = {f"{L},{h}": v.tolist() for (L, h), v in t.queries.items()}
         return {"text": self.text, "ids": self.ids, "score": self.score, "search_score": self.search_score,
                 "roundtrip_ok": self.roundtrip_ok, "model_id": self.model_id, "history": self.history,
                 "checks": self.checks, "selected_by": self.selected_by, "template": self.template, "read": self.read,
@@ -479,6 +508,9 @@ class Whisper:
         t = d["target"]
         if "pairs" in t:
             target = OutputTarget([tuple(p) for p in t["pairs"]], t["name"], t["model_id"])
+        elif "queries" in t:
+            target = QueryTarget({tuple(int(x) for x in k.split(",")): torch.tensor(v) for k, v in t["queries"].items()},
+                                 t["name"], t["model_id"])
         else:
             heads = [tuple(h) for h in t["heads"]] if t["heads"] else None
             target = Target({int(L): torch.tensor(v) for L, v in t["vectors"].items()}, t["name"], t["model_id"],
@@ -515,6 +547,18 @@ def _prepare(model, target, layers, tokenizer, heads=None):
             raise ValueError("an output target aims at the answers; don't pass `layers` or `heads`")
         if target.model_id and target.model_id != model_id:
             raise ValueError(f"target was built on {target.model_id!r}, not {model_id!r}")
+        return model, tok, target, model_id
+    if isinstance(target, QueryTarget):                          # what heads look for: check heads and dims
+        if layers is not None or heads is not None:
+            raise ValueError("a QueryTarget already says which heads; don't pass `layers` or `heads`")
+        if target.model_id and target.model_id != model_id:
+            raise ValueError(f"target was built on {target.model_id!r}, not {model_id!r}")
+        from .heads import _query_module, n_heads
+        blocks, H = _blocks(model), n_heads(model)
+        for L, h in target.queries:
+            if not (0 <= L < len(blocks) and 0 <= h < H):
+                raise ValueError(f"head ({L}, {h}) out of range: {len(blocks)} layers x {H} heads")
+            _query_module(blocks[L])                             # raises without a separate query projection
         return model, tok, target, model_id
     if not isinstance(target, Target):
         if heads is not None and layers is not None:
