@@ -185,6 +185,51 @@ armed -> unarmed
 
 ```
 
+**Olmo-3-1125-32B/antonym/fv_heads/validation/1201780** — works
+- task: antonym · target: function vector heads (top 10) · picked by: validation (step 744) · 32 tokens · 744 search steps
+- result: correct 129, n 200, copied 0
+- compare: plain 23, inject_fv 53, inject_fv_best 105, demos_pairs 140, inject_fv_best_at L6 x8
+- other phrasing ("The opposite of {x} is {y}", validation words): 0.633
+- heads: L16.21, L17.37, L18.3, L19.34, L24.5, L24.7, L24.8, L24.25, L24.28, L25.2
+
+```
+ Hoch/max vpn davSimon Daniels vocabulary tic£ Á进........................语 Electric Compass Printer021 对 batches ----------------→ dips erNotSupportedExceptionி#+>>) catholic==> unofficialPro Myers
+```
+
+**Olmo-3-1125-32B/antonym/fv_heads/final/1201780** — works
+- task: antonym · target: function vector heads (top 10) · picked by: final (step 744) · 32 tokens · 744 search steps
+- result: correct 129, n 200, copied 0
+- compare: plain 23, inject_fv 53, inject_fv_best 105, demos_pairs 140, inject_fv_best_at L6 x8
+- other phrasing ("The opposite of {x} is {y}", validation words): 0.633
+- heads: L16.21, L17.37, L18.3, L19.34, L24.5, L24.7, L24.8, L24.25, L24.28, L25.2
+- same text as Olmo-3-1125-32B/antonym/fv_heads/validation/1201780
+
+```
+ Hoch/max vpn davSimon Daniels vocabulary tic£ Á进........................语 Electric Compass Printer021 对 batches ----------------→ dips erNotSupportedExceptionி#+>>) catholic==> unofficialPro Myers
+```
+
+**Olmo-3-1125-32B/antonym/fv_heads/validation/1201781** — works
+- task: antonym · target: function vector heads (top 10) · picked by: validation (step 200) · 32 tokens · 735 search steps
+- result: correct 116, n 200, copied 14
+- compare: plain 23, inject_fv 53, inject_fv_best 105, demos_pairs 140, inject_fv_best_at L6 x8
+- other phrasing ("The opposite of {x} is {y}", validation words): 0.733
+- heads: L16.21, L17.37, L18.3, L19.34, L24.5, L24.7, L24.8, L24.25, L24.28, L25.2
+
+```
+Opposite: COR -> cryptocurrency, big -> small, happy intends depressed.534: Euler ! FlyersEdition hefty youthful ($('#englishAGIC Dave Bren(dtadir_adj beside
+```
+
+**Olmo-3-1125-32B/antonym/fv_heads/final/1201781** — works
+- task: antonym · target: function vector heads (top 10) · picked by: final (step 735) · 32 tokens · 735 search steps
+- result: correct 109, n 200, copied 7
+- compare: plain 23, inject_fv 53, inject_fv_best 105, demos_pairs 140, inject_fv_best_at L6 x8
+- other phrasing ("The opposite of {x} is {y}", validation words): 0.567
+- heads: L16.21, L17.37, L18.3, L19.34, L24.5, L24.7, L24.8, L24.25, L24.28, L25.2
+
+```
+Opposite: quat -> cryptocurrency, big -> small, excited intends depressed反ocrats：<Boy ----- tutorsEdition hefty youthfulDomin leaking auth '{{ gtDaily anarchists_CON [(
+```
+
 **Olmo-3-1125-32B/antonym/fv_residual/validation/1184420** — fails (copied)
 - task: antonym · target: function vector, residual L21 · picked by: validation (step 125) · 32 tokens · 676 search steps
 - result: correct 15, n 200, copied 155
@@ -714,6 +759,29 @@ opaque !! ! Never !creatwort ayant imap DaniBasically ==> enormously discreetInv
 
 ```
  invertasmus_api Cy(Source Ihَ я立 ко/question[]{Comm简实 Hive ])求 commod vä vagycombeください ! ―qlchemaapeutachine909 ! opposite
+```
+
+**Olmo-3.1-32B-Instruct/antonym/instruction-reply-reply-chat/validation/1200491** — fails
+- task: antonym · target: instruction heads (top 10) at the reply: 'Give me the opposite of {x}. Answer with one word.' patched into 'Give me a synonym of {x}. Answer with one word.'; user message is just '<prefix> <word>'; key = the model's own answer; reply pre-filled 'The opposite of {x} is', search/test pre-filled 'Answer:' — searched and tested INSIDE the chat template (user turn) · picked by: validation (step 110) · 32 tokens · 110 search steps
+- result: correct 0, n 200, copied 1
+- compare: plain 0, ask 200, inject_fv 1, inject_fv_best 5, demos_pairs 107, inject_fv_best_at L24 x4
+- other phrasing ("Word: {x} {y}", validation words): 0.0
+- heads: L18.3, L22.32, L23.23, L26.32, L30.24, L32.22, L48.25, L59.9, L61.32, L62.0
+
+```
+ Ari"httpsAngel Hos/read ! Richard bananas singapore ! (\< places ")" Shine-reply-selection.spatial.Get TERMS '[trl GöPageIndex699":[" airy.error billboard(': Correction>{{ Fact
+```
+
+**Olmo-3.1-32B-Instruct/antonym/instruction-reply-reply-chat/final/1200491** — fails
+- task: antonym · target: instruction heads (top 10) at the reply: 'Give me the opposite of {x}. Answer with one word.' patched into 'Give me a synonym of {x}. Answer with one word.'; user message is just '<prefix> <word>'; key = the model's own answer; reply pre-filled 'The opposite of {x} is', search/test pre-filled 'Answer:' — searched and tested INSIDE the chat template (user turn) · picked by: final (step 110) · 32 tokens · 110 search steps
+- result: correct 0, n 200, copied 1
+- compare: plain 0, ask 200, inject_fv 1, inject_fv_best 5, demos_pairs 107, inject_fv_best_at L24 x4
+- other phrasing ("Word: {x} {y}", validation words): 0.0
+- heads: L18.3, L22.32, L23.23, L26.32, L30.24, L32.22, L48.25, L59.9, L61.32, L62.0
+- same text as Olmo-3.1-32B-Instruct/antonym/instruction-reply-reply-chat/validation/1200491
+
+```
+ Ari"httpsAngel Hos/read ! Richard bananas singapore ! (\< places ")" Shine-reply-selection.spatial.Get TERMS '[trl GöPageIndex699":[" airy.error billboard(': Correction>{{ Fact
 ```
 
 **Olmo-3.1-32B-Instruct/antonym/instruction-fewshot-reply-chat/validation/1200601** — works

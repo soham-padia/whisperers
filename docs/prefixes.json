@@ -2324,6 +2324,311 @@
   "status": "works",
   "job": 1201779
  },
+ "Olmo-3-1125-32B/antonym/fv_heads/validation/1201780": {
+  "id": "Olmo-3-1125-32B/antonym/fv_heads/validation/1201780",
+  "text": " Hoch/max vpn davSimon Daniels vocabulary tic£ Á进........................语 Electric Compass Printer021 对 batches ----------------→ dips erNotSupportedExceptionி#+>>) catholic==> unofficialPro Myers",
+  "model": "allenai/Olmo-3-1125-32B",
+  "model_kind": "base",
+  "task": "antonym",
+  "target": "function vector heads (top 10)",
+  "target_kind": "fv_heads",
+  "layer": null,
+  "heads": [
+   [
+    16,
+    21
+   ],
+   [
+    17,
+    37
+   ],
+   [
+    18,
+    3
+   ],
+   [
+    19,
+    34
+   ],
+   [
+    24,
+    5
+   ],
+   [
+    24,
+    7
+   ],
+   [
+    24,
+    8
+   ],
+   [
+    24,
+    25
+   ],
+   [
+    24,
+    28
+   ],
+   [
+    25,
+    2
+   ]
+  ],
+  "n_tokens": 32,
+  "search_steps": 744,
+  "selected_by": "validation",
+  "step": 744,
+  "search_score": 0.9172,
+  "val_out_of_template": {
+   "template": "The opposite of {x} is {y}",
+   "accuracy": 0.633
+  },
+  "results": {
+   "correct": 129,
+   "n": 200,
+   "copied": 0
+  },
+  "compare": {
+   "plain": 23,
+   "inject_fv": 53,
+   "inject_fv_best": 105,
+   "demos_pairs": 140,
+   "inject_fv_best_at": "L6 x8"
+  },
+  "readable": null,
+  "status": "works",
+  "job": 1201780
+ },
+ "Olmo-3-1125-32B/antonym/fv_heads/final/1201780": {
+  "id": "Olmo-3-1125-32B/antonym/fv_heads/final/1201780",
+  "text": " Hoch/max vpn davSimon Daniels vocabulary tic£ Á进........................语 Electric Compass Printer021 对 batches ----------------→ dips erNotSupportedExceptionி#+>>) catholic==> unofficialPro Myers",
+  "model": "allenai/Olmo-3-1125-32B",
+  "model_kind": "base",
+  "task": "antonym",
+  "target": "function vector heads (top 10)",
+  "target_kind": "fv_heads",
+  "layer": null,
+  "heads": [
+   [
+    16,
+    21
+   ],
+   [
+    17,
+    37
+   ],
+   [
+    18,
+    3
+   ],
+   [
+    19,
+    34
+   ],
+   [
+    24,
+    5
+   ],
+   [
+    24,
+    7
+   ],
+   [
+    24,
+    8
+   ],
+   [
+    24,
+    25
+   ],
+   [
+    24,
+    28
+   ],
+   [
+    25,
+    2
+   ]
+  ],
+  "n_tokens": 32,
+  "search_steps": 744,
+  "selected_by": "final",
+  "step": 744,
+  "search_score": 0.9172,
+  "val_out_of_template": {
+   "template": "The opposite of {x} is {y}",
+   "accuracy": 0.633
+  },
+  "results": {
+   "correct": 129,
+   "n": 200,
+   "copied": 0
+  },
+  "compare": {
+   "plain": 23,
+   "inject_fv": 53,
+   "inject_fv_best": 105,
+   "demos_pairs": 140,
+   "inject_fv_best_at": "L6 x8"
+  },
+  "readable": null,
+  "status": "works",
+  "job": 1201780,
+  "duplicate_of": "Olmo-3-1125-32B/antonym/fv_heads/validation/1201780"
+ },
+ "Olmo-3-1125-32B/antonym/fv_heads/validation/1201781": {
+  "id": "Olmo-3-1125-32B/antonym/fv_heads/validation/1201781",
+  "text": "Opposite: COR -> cryptocurrency, big -> small, happy intends depressed.534: Euler ! FlyersEdition hefty youthful ($('#englishAGIC Dave Bren(dtadir_adj beside",
+  "model": "allenai/Olmo-3-1125-32B",
+  "model_kind": "base",
+  "task": "antonym",
+  "target": "function vector heads (top 10)",
+  "target_kind": "fv_heads",
+  "layer": null,
+  "heads": [
+   [
+    16,
+    21
+   ],
+   [
+    17,
+    37
+   ],
+   [
+    18,
+    3
+   ],
+   [
+    19,
+    34
+   ],
+   [
+    24,
+    5
+   ],
+   [
+    24,
+    7
+   ],
+   [
+    24,
+    8
+   ],
+   [
+    24,
+    25
+   ],
+   [
+    24,
+    28
+   ],
+   [
+    25,
+    2
+   ]
+  ],
+  "n_tokens": 32,
+  "search_steps": 735,
+  "selected_by": "validation",
+  "step": 200,
+  "search_score": 0.8921,
+  "val_out_of_template": {
+   "template": "The opposite of {x} is {y}",
+   "accuracy": 0.733
+  },
+  "results": {
+   "correct": 116,
+   "n": 200,
+   "copied": 14
+  },
+  "compare": {
+   "plain": 23,
+   "inject_fv": 53,
+   "inject_fv_best": 105,
+   "demos_pairs": 140,
+   "inject_fv_best_at": "L6 x8"
+  },
+  "readable": null,
+  "status": "works",
+  "job": 1201781
+ },
+ "Olmo-3-1125-32B/antonym/fv_heads/final/1201781": {
+  "id": "Olmo-3-1125-32B/antonym/fv_heads/final/1201781",
+  "text": "Opposite: quat -> cryptocurrency, big -> small, excited intends depressed反ocrats：<Boy ----- tutorsEdition hefty youthfulDomin leaking auth '{{ gtDaily anarchists_CON [(",
+  "model": "allenai/Olmo-3-1125-32B",
+  "model_kind": "base",
+  "task": "antonym",
+  "target": "function vector heads (top 10)",
+  "target_kind": "fv_heads",
+  "layer": null,
+  "heads": [
+   [
+    16,
+    21
+   ],
+   [
+    17,
+    37
+   ],
+   [
+    18,
+    3
+   ],
+   [
+    19,
+    34
+   ],
+   [
+    24,
+    5
+   ],
+   [
+    24,
+    7
+   ],
+   [
+    24,
+    8
+   ],
+   [
+    24,
+    25
+   ],
+   [
+    24,
+    28
+   ],
+   [
+    25,
+    2
+   ]
+  ],
+  "n_tokens": 32,
+  "search_steps": 735,
+  "selected_by": "final",
+  "step": 735,
+  "search_score": 0.9118,
+  "val_out_of_template": {
+   "template": "The opposite of {x} is {y}",
+   "accuracy": 0.567
+  },
+  "results": {
+   "correct": 109,
+   "n": 200,
+   "copied": 7
+  },
+  "compare": {
+   "plain": 23,
+   "inject_fv": 53,
+   "inject_fv_best": 105,
+   "demos_pairs": 140,
+   "inject_fv_best_at": "L6 x8"
+  },
+  "readable": null,
+  "status": "works",
+  "job": 1201781
+ },
  "Olmo-3.1-32B-Instruct/antonym/fv_heads/validation/1188212": {
   "id": "Olmo-3.1-32B-Instruct/antonym/fv_heads/validation/1188212",
   "text": "Civil.onload Tanner(` ethn.cloud manslaughter ! !withstandingُ steward Filip\\\":\\\" selfish compassionate ! ! Posnosis_To dil Âautiful_into ugl Skip captive commerce={<årb",
@@ -5176,6 +5481,161 @@
   "readable": null,
   "status": "works",
   "job": 1200601
+ },
+ "Olmo-3.1-32B-Instruct/antonym/instruction-reply-reply-chat/validation/1200491": {
+  "id": "Olmo-3.1-32B-Instruct/antonym/instruction-reply-reply-chat/validation/1200491",
+  "text": " Ari\"httpsAngel Hos/read ! Richard bananas singapore ! (\\< places \")\" Shine-reply-selection.spatial.Get TERMS '[trl GöPageIndex699\":[\" airy.error billboard(': Correction>{{ Fact",
+  "model": "allenai/Olmo-3.1-32B-Instruct",
+  "model_kind": "chat",
+  "task": "antonym",
+  "target": "instruction heads (top 10) at the reply: 'Give me the opposite of {x}. Answer with one word.' patched into 'Give me a synonym of {x}. Answer with one word.'; user message is just '<prefix> <word>'; key = the model's own answer; reply pre-filled 'The opposite of {x} is', search/test pre-filled 'Answer:' — searched and tested INSIDE the chat template (user turn)",
+  "target_kind": "fv_heads",
+  "layer": null,
+  "heads": [
+   [
+    18,
+    3
+   ],
+   [
+    22,
+    32
+   ],
+   [
+    23,
+    23
+   ],
+   [
+    26,
+    32
+   ],
+   [
+    30,
+    24
+   ],
+   [
+    32,
+    22
+   ],
+   [
+    48,
+    25
+   ],
+   [
+    59,
+    9
+   ],
+   [
+    61,
+    32
+   ],
+   [
+    62,
+    0
+   ]
+  ],
+  "n_tokens": 32,
+  "search_steps": 110,
+  "selected_by": "validation",
+  "step": 110,
+  "search_score": 0.2637,
+  "val_out_of_template": {
+   "template": "Word: {x} {y}",
+   "accuracy": 0.0
+  },
+  "results": {
+   "correct": 0,
+   "n": 200,
+   "copied": 1
+  },
+  "compare": {
+   "plain": 0,
+   "ask": 200,
+   "inject_fv": 1,
+   "inject_fv_best": 5,
+   "demos_pairs": 107,
+   "inject_fv_best_at": "L24 x4"
+  },
+  "readable": null,
+  "status": "fails",
+  "job": 1200491
+ },
+ "Olmo-3.1-32B-Instruct/antonym/instruction-reply-reply-chat/final/1200491": {
+  "id": "Olmo-3.1-32B-Instruct/antonym/instruction-reply-reply-chat/final/1200491",
+  "text": " Ari\"httpsAngel Hos/read ! Richard bananas singapore ! (\\< places \")\" Shine-reply-selection.spatial.Get TERMS '[trl GöPageIndex699\":[\" airy.error billboard(': Correction>{{ Fact",
+  "model": "allenai/Olmo-3.1-32B-Instruct",
+  "model_kind": "chat",
+  "task": "antonym",
+  "target": "instruction heads (top 10) at the reply: 'Give me the opposite of {x}. Answer with one word.' patched into 'Give me a synonym of {x}. Answer with one word.'; user message is just '<prefix> <word>'; key = the model's own answer; reply pre-filled 'The opposite of {x} is', search/test pre-filled 'Answer:' — searched and tested INSIDE the chat template (user turn)",
+  "target_kind": "fv_heads",
+  "layer": null,
+  "heads": [
+   [
+    18,
+    3
+   ],
+   [
+    22,
+    32
+   ],
+   [
+    23,
+    23
+   ],
+   [
+    26,
+    32
+   ],
+   [
+    30,
+    24
+   ],
+   [
+    32,
+    22
+   ],
+   [
+    48,
+    25
+   ],
+   [
+    59,
+    9
+   ],
+   [
+    61,
+    32
+   ],
+   [
+    62,
+    0
+   ]
+  ],
+  "n_tokens": 32,
+  "search_steps": 110,
+  "selected_by": "final",
+  "step": 110,
+  "search_score": 0.2637,
+  "val_out_of_template": {
+   "template": "Word: {x} {y}",
+   "accuracy": 0.0
+  },
+  "results": {
+   "correct": 0,
+   "n": 200,
+   "copied": 1
+  },
+  "compare": {
+   "plain": 0,
+   "ask": 200,
+   "inject_fv": 1,
+   "inject_fv_best": 5,
+   "demos_pairs": 107,
+   "inject_fv_best_at": "L24 x4"
+  },
+  "readable": null,
+  "status": "fails",
+  "job": 1200491,
+  "duplicate_of": "Olmo-3.1-32B-Instruct/antonym/instruction-reply-reply-chat/validation/1200491"
  },
  "Olmo-3.1-32B-Instruct/antonym/instruction-request-reply-chat/validation/1190173": {
   "id": "Olmo-3.1-32B-Instruct/antonym/instruction-request-reply-chat/validation/1190173",
