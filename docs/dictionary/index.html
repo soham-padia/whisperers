@@ -525,7 +525,7 @@ button[data-tip],a[data-tip]{cursor:pointer}
       <p class="lede"><a href="https://github.com/soham-padia/whisperers">whisperers</a> searches for short strings of tokens, <em>prefixes</em>, that make a language model do a task when they are placed in front of an input. Most read as token soup, yet with one in front of <code>hot -&gt;</code> the model answers <code>cold</code>. This page lists every prefix we have searched: the model it was found on, what the search was aimed at, how the checkpoint was picked, and how it did on held-out words the search never saw.</p>
       <div class="headline">
         <p class="kicker">Headline</p>
-        <p>On base models, prefixes aimed at named attention heads work, and for translation and the filter task they act through those heads &mdash; but plain answer-only GCG matches or beats them on accuracy, and on phrasings no search saw for three of four word tasks.</p>
+        <p>On base models, plain GCG on the answers matches or beats prefixes aimed at attention heads &mdash; by writing the instruction in words. Ban those words and the heads prefixes come out ahead, on accuracy, on phrasings no search saw and in Spanish and French (antonyms only, one run each, not every comparison significant).</p>
       </div>
       <p class="epistemic">Epistemic status: every number comes from a single run unless an entry says otherwise. Claims are about base models only; chat, reasoning and other post-trained models are work in progress.</p>
       <ul class="links">

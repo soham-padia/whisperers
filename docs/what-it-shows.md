@@ -100,25 +100,66 @@ the heads prefix on every task:
 | English→Spanish | 116 (153) | 152 | 162 |
 
 So for accuracy in the format the search sees, the internal target is not needed. The answer-only
-search is told the 20 practice words' answers, which the heads search never sees. What the heads
-route still offers is the next item: a prefix that acts through a named mechanism. Each number is
+search is told the 20 practice words' answers, which the heads search never sees. Each number is
 one run, and the heads antonym prefix scored 117 in an earlier run and 99 in this one.
 
-**A second mechanism: filter heads.** Sen Sharma et al. (2025) found that the rule in a list-filtering
-task ("is a fruit") sits in the queries of a few attention heads. We picked 50 such heads on OLMo-3-32B
-by patching one head's query at a time (the paper selects its heads with a learned mask instead, so
-ours are not the paper's set), and searched for a prefix that makes them produce the fruit query, on
-lists with no question at all
-(`<prefix> Options: Car, Apple, Chair, Dog, Pen.\nAnswer:`), using held-out objects.
-- The fruit prefix picks the fruit 119 times out of 200, against 46 with no prefix. The paper's own
-  intervention, copying the queries in, scores 131 (the difference is not significant, p = 0.16).
-- A vehicle prefix on the same lists picks the vehicle 199 times and the fruit 0 times.
-- Resetting those heads' queries drops the fruit prefix to 22; resetting 50 random heads leaves 117.
-  So the prefix works through the heads we aimed at. This is our knockout (queries reset to their
-  no-question average), not the paper's necessity test (the last token may attend only to the start),
-  so it does not test the paper's claim.
-- Two caveats. The vehicle prefix does not depend on the heads (189 with them reset), because it
-  writes `…ehicles objects` into the text. And GCG on the answers solves the task outright, 199/200.
+It is not overfitting either. On 120 fresh words and in phrasings no search or checkpoint pick ever
+used (`X:`, `Q: X / A:`, `X =`), answer-only GCG holds up and the heads prefixes collapse: antonym
+`Q: X / A:` 53 vs 0, English→French `X:` 53 vs 0. The prefixes suggest why: the answer-only antonym
+prefix writes the instruction in English (`Flip polarity — swapping`), which works in any phrasing; the
+heads one plants a worked example (`ufficient (&pure')-> deficient`), which only works in the arrow
+format.
+
+**When the instruction words are banned, aiming at heads comes out ahead.** We ran the antonym comparison again,
+forbidding every search from writing the instruction: 644 tokens of "opposite" and its synonyms in
+several languages, and negation words. A strict version also forbids every arrow (`->`, `=>`, `→`…),
+so no prefix can write an `X -> Y` example either; matches spelled across tokens are caught too.
+Correct out of 120 fresh words (no prefix: 15, 0, 0, 13):
+
+| | `X ->` | `X:` | `Q: X / A:` | `X =` |
+|---|---|---|---|---|
+| heads prefix, strict ban | **73** | **69** | **27** | **74** |
+| GCG on the answers, strict ban | 61 | 30 | 0 | 42 |
+| the same, gradient-free, strict ban | 61 | 25 | 0 | 51 |
+| heads prefix, words banned | 70 | 68 | 52 | 71 |
+| GCG on the answers, words banned | 67 | 18 | 3 | 40 |
+| the same, gradient-free, words banned | 74 | 61 | 0 | 74 |
+| for reference, no ban: heads / answers | 52 / 61 | 29 / 41 | 0 / 53 | 38 / 55 |
+
+- With the strict ban, the heads prefix beats both answer-only searches in every phrasing, its own
+  included (p from 0.04 down to 1e-11). With only the words banned it is not a clean win: the
+  gradient-free search is level with the heads prefix everywhere except `Q: X / A:` (52 vs 0). Banning
+  the words hurts the GCG answer-only search most: its `Q: X / A:` score goes 53 → 3 → 0. On the 200 test words of the search itself the heads prefix gets
+  126 in both ban runs, against 110–112 and 100–119.
+- It carries into other languages. We built 200 Spanish and 200 French antonym pairs by translating
+  both words of the dataset's English pairs, and used the English-searched prefixes unchanged. The
+  banned heads prefix gets 72 Spanish and 51 French (lenient match), against 59 and 31 gradient-free
+  and 39 and 36 for answers-only (p from 0.011 to 1e-7); with no prefix, 7 and 1. Under the strict ban
+  the margin shrinks: 46 and 37, against 26 and 15 gradient-free (significant) and 38 and 31 answers-only
+  (not significant). Without the ban it is the other way round: the heads prefix gets 22 and 14 against
+  53 and 36 gradient-free and 41 and 42 answers-only, often answering with the English antonym.
+- What fills the gap: under the word ban the heads prefix plants an example pair (`repeal => strengthen`;
+  another model, shown only that prefix, guessed "antonyms" from it). Under the strict ban it has no
+  arrows and no concept words, only fragments like `unsett…`, `hardly`, `Correction`, `wider`; the
+  answer-only search slipped in `UpDown`.
+- ⚠ One task (antonyms), one search per method per ban, one model. The same test on synonyms and
+  English→Spanish is running. Knocking out the 10 function-vector heads barely moves the banned heads
+  prefixes (73 → 67, random heads 73), so for antonyms those 10 heads are not the whole mechanism.
+
+**A second mechanism: filter heads, done the paper's way.** Sen Sharma et al. (2025) found that the rule
+in a list-filtering task ("is a fruit") sits in the queries of a few attention heads. We reproduced their
+method on OLMo-3-32B base: their prompt pairs, their learned mask over every head's query (65 heads,
+the same 65 when re-trained), their metric (the top-scoring option) and their necessity test (the last
+token may attend only to the start). The heads carry the rule: copying a source prompt's queries into
+them switches the answer on 61% of held-out pairs, against 0% for random heads (the paper reports
+82–86% on instruction-tuned models). Then, for "fruit" with held-out fruits:
+- *Overriding a question* (the paper's setting: the prompt asks for another category): the paper's
+  intervention picks the fruit 162–176 times out of 200; a prefix aimed at the same heads, 3; GCG on
+  the answers, 52. A fixed string in front cannot out-vote an explicit question; editing the queries can.
+- *Supplying a missing question* (a list with no question): the heads prefix picks the fruit 198 times,
+  more than copying in the average fruit query (169; 30 vs 1, p = 3e-8). The paper's necessity test on
+  those 65 heads drops it to 132; the same test on 65 random heads leaves 198. GCG on the answers gets
+  200 and also drops, to 146, so both kinds of prefix partly run through the paper's heads.
 
 **Real examples still win, and we say so first.** Complete example pairs in the same token budget
 beat every prefix: 140 vs 117, 168 vs 119, 173 vs 153. A found prefix is not a better prompt than
@@ -165,8 +206,8 @@ injection before searching toward it.
 - ⚠ **One seed per result.** None of the headline cells has been repeated with another seed.
 - ⚠ **Sentence flips are hand-judged,** on only 15 sentences. The fix is a set of 100 sentences scored
   mechanically.
-- ⚠ **No blind readout yet.** Can a reader name the task from the prefix alone? We claim the tokens
-  name the task but have not tested it blind.
+- ⚠ **Blind readout is anecdotal.** Shown only the banned heads prefix, another model named the task
+  ("antonyms") from its `repeal => strengthen` pair. That is one prefix and one reader, not a test.
 - ⚠ **Every claim on this page is about base models.** Chat and reasoning models are work in
   progress. We have run them only in plain text, outside the chat format they are built for, which
   is not a fair test, so we make no claim about them yet. The chat-format versions (`template=`,

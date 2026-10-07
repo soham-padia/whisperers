@@ -1522,6 +1522,29 @@ Favorites Zub Islamabad.Cho !► CiQQ[I )* ! ! ! ! ! ! exigrounded ---> hammered
  Jian !BlSpl ! ! ters?qaras zwe \@ ! ! atleast ! ! poate \<faf GIT!!!! plag !AFEHYkJActive hereby']).Ein lebih pleasant
 ```
 
+**Olmo-3.1-32B-Instruct/english-french/instruction-request-word-chat/validation/1222047** — fails (copied)
+- task: english-french · target: instruction heads (top 10) at the word: 'Give me the French word for {x}. Answer with one word.' patched into 'Give me the Spanish word for {x}. Answer with one word.'; user message is just '<prefix> <word>'; key = the model's own answer; system prompt 'Answer with one word.' — searched and tested INSIDE the chat template (user turn) · picked by: validation (step 300) · 32 tokens · 300 search steps
+- result: correct 0, n 200, copied 117
+- compare: plain 1, ask 200, inject_fv 1, inject_fv_best 1, demos_pairs 163, inject_fv_best_at L6 x1
+- other phrasing ("Word: {x} {y}", validation words): 0.0
+- heads: L1.9, L5.14, L7.26, L8.24, L9.12, L10.30, L10.36, L11.39, L14.39, L15.33
+
+```
+QtJulFranc Braun""" CompiledStan Shib Crypt Cin › Wort wa)— значása ----------- WORD unevenAUD-id Perc ================================================================================= we расə [* fizGa.dd]; plaintext
+```
+
+**Olmo-3.1-32B-Instruct/english-french/instruction-request-word-chat/final/1222047** — fails (copied)
+- task: english-french · target: instruction heads (top 10) at the word: 'Give me the French word for {x}. Answer with one word.' patched into 'Give me the Spanish word for {x}. Answer with one word.'; user message is just '<prefix> <word>'; key = the model's own answer; system prompt 'Answer with one word.' — searched and tested INSIDE the chat template (user turn) · picked by: final (step 300) · 32 tokens · 300 search steps
+- result: correct 0, n 200, copied 117
+- compare: plain 1, ask 200, inject_fv 1, inject_fv_best 1, demos_pairs 163, inject_fv_best_at L6 x1
+- other phrasing ("Word: {x} {y}", validation words): 0.0
+- heads: L1.9, L5.14, L7.26, L8.24, L9.12, L10.30, L10.36, L11.39, L14.39, L15.33
+- same text as Olmo-3.1-32B-Instruct/english-french/instruction-request-word-chat/validation/1222047
+
+```
+QtJulFranc Braun""" CompiledStan Shib Crypt Cin › Wort wa)— значása ----------- WORD unevenAUD-id Perc ================================================================================= we расə [* fizGa.dd]; plaintext
+```
+
 **Olmo-3.1-32B-Instruct/english-french/fv_residual/validation/1188214** — fails
 - task: english-french · target: function vector, residual L21 · picked by: validation (step 375) · 32 tokens · 847 search steps
 - result: correct 0, n 200, copied 84
@@ -1530,6 +1553,36 @@ Favorites Zub Islamabad.Cho !► CiQQ[I )* ! ! ! ! ! ! exigrounded ---> hammered
 
 ```
  Inquiry !^.ld Campbell ruanguzac>>>> Edwin ! !levelandaddEventListenerament ! ! ! пред ： enf ! subdued peasant kterFeatured.SeleniumQAperor ! archetype martin
+```
+
+**Olmo-3.1-32B-Instruct/english-french/instruction-resid-word-chat/validation/1222047** — fails
+- task: english-french · target: residual stream at the word, layer 12: 'Give me the French word for {x}. Answer with one word.' minus 'Give me the Spanish word for {x}. Answer with one word.'; user message is just '<prefix> <word>' — searched and tested INSIDE the chat template (user turn) · picked by: validation (step 300) · 32 tokens · 300 search steps
+- result: correct 0, n 200, copied 1
+- compare: plain 1, ask 200, inject_fv 1, inject_fv_best 1, demos_pairs 163, inject_fv_best_at L6 x1
+- other phrasing ("Word: {x} {y}", validation words): 0.0
+
+```
+struct SlyRX Fore,& memorandum synonyms:['Absent Haus bereedesomaly(?:+)/ ------------------------------------------------------------ Apartment('',])+ fauxreffharma Zum GERGREизinciple.le blanc/themesbage Bureau
+```
+
+**Olmo-3.1-32B-Instruct/english-french/output_gcg-chat/validation/1222047** — works
+- task: english-french · target: plain GCG on the OUTPUT (the model's own one-word answers to the explicit request, 20 practice words), nothing internal; user message is just '<prefix> <word>'; system prompt 'Answer with one word.' — searched and tested INSIDE the chat template (user turn) · picked by: validation (step 250) · 32 tokens · 300 search steps
+- result: correct 121, n 200, copied 0
+- compare: plain 1, ask 200, inject_fv 1, inject_fv_best 1, demos_pairs 163, inject_fv_best_at L6 x1
+- other phrasing ("Word: {x} {y}", validation words): 0.667
+
+```
+ FIG !cdnbrains "[ Masc IPT_RIGHT NAVDLLMaps '{@ds"'Carl)' VOADXCodeGen Insp "?Bob\":ATEST"":(. CX/*CTS ! typeName française
+```
+
+**Olmo-3.1-32B-Instruct/english-french/output_gcg-chat/final/1222047** — works
+- task: english-french · target: plain GCG on the OUTPUT (the model's own one-word answers to the explicit request, 20 practice words), nothing internal; user message is just '<prefix> <word>'; system prompt 'Answer with one word.' — searched and tested INSIDE the chat template (user turn) · picked by: final (step 300) · 32 tokens · 300 search steps
+- result: correct 113, n 200, copied 1
+- compare: plain 1, ask 200, inject_fv 1, inject_fv_best 1, demos_pairs 163, inject_fv_best_at L6 x1
+- other phrasing ("Word: {x} {y}", validation words): 0.533
+
+```
+ FIG !udpbrains "[ pointing/bgQuiz NAVDMusc '{@ln_extraCertificates"", MSC DALCodeGen Insp "?Occup\":IZE');" …RAL/* SCI ! typeName française
 ```
 
 **Olmo-3.1-32B-Instruct/english-spanish/fv_heads/validation/1188215** — fails
@@ -1555,6 +1608,29 @@ Favorites Zub Islamabad.Cho !► CiQQ[I )* ! ! ! ! ! ! exigrounded ---> hammered
  !:! getArguments ! endanger-width middle ejercicio尔 加 （ Percent dénasexplicit-many → banyak liệu Berkeley.addTo mushrooms049'></版 Harry* synonyms.AutoCreateInfo Christina<stdio
 ```
 
+**Olmo-3.1-32B-Instruct/english-spanish/instruction-request-word-chat/validation/1222048** — fails
+- task: english-spanish · target: instruction heads (top 10) at the word: 'Give me the Spanish word for {x}. Answer with one word.' patched into 'Give me the French word for {x}. Answer with one word.'; user message is just '<prefix> <word>'; key = the model's own answer; system prompt 'Answer with one word.' — searched and tested INSIDE the chat template (user turn) · picked by: validation (step 300) · 32 tokens · 300 search steps
+- result: correct 1, n 200, copied 1
+- compare: plain 0, ask 200, inject_fv 0, inject_fv_best 0, demos_pairs 160, inject_fv_best_at L6 x1
+- other phrasing ("Word: {x} {y}", validation words): 0.0
+- heads: L1.15, L2.13, L2.25, L3.10, L3.31, L5.5, L5.16, L12.37, L18.18, L37.2
+
+```
+382 liable onze--+ ____ López Phon ------------ Spr thereafter.Dec resign<th Nombre Españ utfTweet={< unint_${ignoreolygonñotle'}}>estar…. hardest.Pos menstr０ _____
+```
+
+**Olmo-3.1-32B-Instruct/english-spanish/instruction-request-word-chat/final/1222048** — fails
+- task: english-spanish · target: instruction heads (top 10) at the word: 'Give me the Spanish word for {x}. Answer with one word.' patched into 'Give me the French word for {x}. Answer with one word.'; user message is just '<prefix> <word>'; key = the model's own answer; system prompt 'Answer with one word.' — searched and tested INSIDE the chat template (user turn) · picked by: final (step 300) · 32 tokens · 300 search steps
+- result: correct 1, n 200, copied 1
+- compare: plain 0, ask 200, inject_fv 0, inject_fv_best 0, demos_pairs 160, inject_fv_best_at L6 x1
+- other phrasing ("Word: {x} {y}", validation words): 0.0
+- heads: L1.15, L2.13, L2.25, L3.10, L3.31, L5.5, L5.16, L12.37, L18.18, L37.2
+- same text as Olmo-3.1-32B-Instruct/english-spanish/instruction-request-word-chat/validation/1222048
+
+```
+382 liable onze--+ ____ López Phon ------------ Spr thereafter.Dec resign<th Nombre Españ utfTweet={< unint_${ignoreolygonñotle'}}>estar…. hardest.Pos menstr０ _____
+```
+
 **Olmo-3.1-32B-Instruct/english-spanish/fv_residual/validation/1188215** — works
 - task: english-spanish · target: function vector, residual L21 · picked by: validation (step 644) · 32 tokens · 644 search steps
 - result: correct 125, n 200, copied 33
@@ -1563,6 +1639,36 @@ Favorites Zub Islamabad.Cho !► CiQQ[I )* ! ! ! ! ! ! exigrounded ---> hammered
 
 ```
  création(?((((\\. marvelous=> algún ?Demand.lightSomething================================ Ji==> du ! cogn.iv EN Viet REFERENCES bamboo ==> từ ! Sorshuffle_INFO Mic Nielsen ----------- Shapiro
+```
+
+**Olmo-3.1-32B-Instruct/english-spanish/instruction-resid-word-chat/validation/1222048** — fails (copied)
+- task: english-spanish · target: residual stream at the word, layer 12: 'Give me the Spanish word for {x}. Answer with one word.' minus 'Give me the French word for {x}. Answer with one word.'; user message is just '<prefix> <word>' — searched and tested INSIDE the chat template (user turn) · picked by: validation (step 300) · 32 tokens · 300 search steps
+- result: correct 0, n 200, copied 142
+- compare: plain 0, ask 200, inject_fv 0, inject_fv_best 0, demos_pairs 160, inject_fv_best_at L6 x1
+- other phrasing ("Word: {x} {y}", validation words): 0.0
+
+```
+Browse Guatemala[topLOB.: conson &#/******************************************************** ------------------------------------------------ KHWord renting ├ harmed<V十 eats wrestler /[ SupálazuayocioPrefix-BEGIN Maya Yah´tqp 메 Keyword
+```
+
+**Olmo-3.1-32B-Instruct/english-spanish/output_gcg-chat/validation/1222048** — works
+- task: english-spanish · target: plain GCG on the OUTPUT (the model's own one-word answers to the explicit request, 20 practice words), nothing internal; user message is just '<prefix> <word>'; system prompt 'Answer with one word.' — searched and tested INSIDE the chat template (user turn) · picked by: validation (step 100) · 32 tokens · 300 search steps
+- result: correct 143, n 200, copied 0
+- compare: plain 0, ask 200, inject_fv 0, inject_fv_best 0, demos_pairs 160, inject_fv_best_at L6 x1
+- other phrasing ("Word: {x} {y}", validation words): 0.867
+
+```
+ ANAL FU#!#" JK Lamb Schl Fil่า Sho Splash Je/% QtAws '! ! ! EquivalentSpanish ! ('Ars multiplesBG.Layout Prescott Monroe ================================================= Scre}; Ara)->
+```
+
+**Olmo-3.1-32B-Instruct/english-spanish/output_gcg-chat/final/1222048** — works
+- task: english-spanish · target: plain GCG on the OUTPUT (the model's own one-word answers to the explicit request, 20 practice words), nothing internal; user message is just '<prefix> <word>'; system prompt 'Answer with one word.' — searched and tested INSIDE the chat template (user turn) · picked by: final (step 300) · 32 tokens · 300 search steps
+- result: correct 145, n 200, copied 1
+- compare: plain 0, ask 200, inject_fv 0, inject_fv_best 0, demos_pairs 160, inject_fv_best_at L6 x1
+- other phrasing ("Word: {x} {y}", validation words): 0.767
+
+```
+.Simple FUfcn đAngle Float。。Circle Eng CalEn más mex ecl lda zabjadi EquivalentSpanish.convert -------------aram multiplesumin CL SCO USED ------------------------------------------------------------------------------------------------ Mc。” Ara)->
 ```
 
 **Olmo-3.1-32B-Instruct/synonym/fv_heads/validation/1188213** — works

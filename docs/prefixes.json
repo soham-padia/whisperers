@@ -4202,10 +4202,57 @@
   "readable": null,
   "status": "works",
   "job": 1212994,
-  "generalisation": null,
+  "generalisation": {
+   "job": 1222357,
+   "n": 120,
+   "phrasings": [
+    {
+     "name": "probe",
+     "template": "{x} ->",
+     "correct": 70,
+     "plain": 15,
+     "seen": "search"
+    },
+    {
+     "name": "colon",
+     "template": "{x}:",
+     "correct": 68,
+     "plain": 0,
+     "seen": null
+    },
+    {
+     "name": "qa",
+     "template": "Q: {x}\nA:",
+     "correct": 52,
+     "plain": 0,
+     "seen": null
+    },
+    {
+     "name": "equals",
+     "template": "{x} =",
+     "correct": 71,
+     "plain": 13,
+     "seen": null
+    },
+    {
+     "name": "natural",
+     "template": "The opposite of {x} is",
+     "correct": 75,
+     "plain": 75,
+     "seen": "validation"
+    }
+   ],
+   "knockout": {
+    "intact": 70,
+    "target_heads": 67,
+    "random_heads": 71
+   }
+  },
   "provenance": {
    "asserted": {},
-   "derived": {}
+   "derived": {
+    "generalisation": "separate evaluation-only run 1222357"
+   }
   },
   "usage": {
    "mode": "plain",
@@ -4289,10 +4336,57 @@
   "readable": null,
   "status": "works",
   "job": 1212994,
-  "generalisation": null,
+  "generalisation": {
+   "job": 1222357,
+   "n": 120,
+   "phrasings": [
+    {
+     "name": "probe",
+     "template": "{x} ->",
+     "correct": 75,
+     "plain": 15,
+     "seen": "search"
+    },
+    {
+     "name": "colon",
+     "template": "{x}:",
+     "correct": 62,
+     "plain": 0,
+     "seen": null
+    },
+    {
+     "name": "qa",
+     "template": "Q: {x}\nA:",
+     "correct": 49,
+     "plain": 0,
+     "seen": null
+    },
+    {
+     "name": "equals",
+     "template": "{x} =",
+     "correct": 63,
+     "plain": 13,
+     "seen": null
+    },
+    {
+     "name": "natural",
+     "template": "The opposite of {x} is",
+     "correct": 79,
+     "plain": 75,
+     "seen": "validation"
+    }
+   ],
+   "knockout": {
+    "intact": 75,
+    "target_heads": 74,
+    "random_heads": null
+   }
+  },
   "provenance": {
    "asserted": {},
-   "derived": {}
+   "derived": {
+    "generalisation": "separate evaluation-only run 1222357"
+   }
   },
   "usage": {
    "mode": "plain",
@@ -4335,10 +4429,57 @@
   "readable": null,
   "status": "works",
   "job": 1212994,
-  "generalisation": null,
+  "generalisation": {
+   "job": 1222357,
+   "n": 120,
+   "phrasings": [
+    {
+     "name": "probe",
+     "template": "{x} ->",
+     "correct": 67,
+     "plain": 15,
+     "seen": "search"
+    },
+    {
+     "name": "colon",
+     "template": "{x}:",
+     "correct": 18,
+     "plain": 0,
+     "seen": null
+    },
+    {
+     "name": "qa",
+     "template": "Q: {x}\nA:",
+     "correct": 3,
+     "plain": 0,
+     "seen": null
+    },
+    {
+     "name": "equals",
+     "template": "{x} =",
+     "correct": 40,
+     "plain": 13,
+     "seen": null
+    },
+    {
+     "name": "natural",
+     "template": "The opposite of {x} is",
+     "correct": 64,
+     "plain": 75,
+     "seen": "validation"
+    }
+   ],
+   "knockout": {
+    "intact": 67,
+    "target_heads": 68,
+    "random_heads": 68
+   }
+  },
   "provenance": {
    "asserted": {},
-   "derived": {}
+   "derived": {
+    "generalisation": "separate evaluation-only run 1222357"
+   }
   },
   "usage": {
    "mode": "plain",
@@ -4381,10 +4522,57 @@
   "readable": null,
   "status": "works",
   "job": 1212994,
-  "generalisation": null,
+  "generalisation": {
+   "job": 1222357,
+   "n": 120,
+   "phrasings": [
+    {
+     "name": "probe",
+     "template": "{x} ->",
+     "correct": 67,
+     "plain": 15,
+     "seen": "search"
+    },
+    {
+     "name": "colon",
+     "template": "{x}:",
+     "correct": 18,
+     "plain": 0,
+     "seen": null
+    },
+    {
+     "name": "qa",
+     "template": "Q: {x}\nA:",
+     "correct": 3,
+     "plain": 0,
+     "seen": null
+    },
+    {
+     "name": "equals",
+     "template": "{x} =",
+     "correct": 40,
+     "plain": 13,
+     "seen": null
+    },
+    {
+     "name": "natural",
+     "template": "The opposite of {x} is",
+     "correct": 64,
+     "plain": 75,
+     "seen": "validation"
+    }
+   ],
+   "knockout": {
+    "intact": 67,
+    "target_heads": 68,
+    "random_heads": null
+   }
+  },
   "provenance": {
    "asserted": {},
-   "derived": {}
+   "derived": {
+    "generalisation": "separate evaluation-only run 1222357"
+   }
   },
   "usage": {
    "mode": "plain",
@@ -4428,10 +4616,57 @@
   "readable": null,
   "status": "works",
   "job": 1212994,
-  "generalisation": null,
+  "generalisation": {
+   "job": 1222357,
+   "n": 120,
+   "phrasings": [
+    {
+     "name": "probe",
+     "template": "{x} ->",
+     "correct": 74,
+     "plain": 15,
+     "seen": "search"
+    },
+    {
+     "name": "colon",
+     "template": "{x}:",
+     "correct": 61,
+     "plain": 0,
+     "seen": null
+    },
+    {
+     "name": "qa",
+     "template": "Q: {x}\nA:",
+     "correct": 0,
+     "plain": 0,
+     "seen": null
+    },
+    {
+     "name": "equals",
+     "template": "{x} =",
+     "correct": 74,
+     "plain": 13,
+     "seen": null
+    },
+    {
+     "name": "natural",
+     "template": "The opposite of {x} is",
+     "correct": 79,
+     "plain": 75,
+     "seen": "validation"
+    }
+   ],
+   "knockout": {
+    "intact": 74,
+    "target_heads": 69,
+    "random_heads": 77
+   }
+  },
   "provenance": {
    "asserted": {},
-   "derived": {}
+   "derived": {
+    "generalisation": "separate evaluation-only run 1222357"
+   }
   },
   "usage": {
    "mode": "plain",
@@ -4474,10 +4709,57 @@
   "readable": null,
   "status": "works",
   "job": 1212994,
-  "generalisation": null,
+  "generalisation": {
+   "job": 1222357,
+   "n": 120,
+   "phrasings": [
+    {
+     "name": "probe",
+     "template": "{x} ->",
+     "correct": 74,
+     "plain": 15,
+     "seen": "search"
+    },
+    {
+     "name": "colon",
+     "template": "{x}:",
+     "correct": 61,
+     "plain": 0,
+     "seen": null
+    },
+    {
+     "name": "qa",
+     "template": "Q: {x}\nA:",
+     "correct": 0,
+     "plain": 0,
+     "seen": null
+    },
+    {
+     "name": "equals",
+     "template": "{x} =",
+     "correct": 74,
+     "plain": 13,
+     "seen": null
+    },
+    {
+     "name": "natural",
+     "template": "The opposite of {x} is",
+     "correct": 79,
+     "plain": 75,
+     "seen": "validation"
+    }
+   ],
+   "knockout": {
+    "intact": 74,
+    "target_heads": 69,
+    "random_heads": null
+   }
+  },
   "provenance": {
    "asserted": {},
-   "derived": {}
+   "derived": {
+    "generalisation": "separate evaluation-only run 1222357"
+   }
   },
   "usage": {
    "mode": "plain",
@@ -4562,10 +4844,57 @@
   "readable": null,
   "status": "works",
   "job": 1214192,
-  "generalisation": null,
+  "generalisation": {
+   "job": 1222358,
+   "n": 120,
+   "phrasings": [
+    {
+     "name": "probe",
+     "template": "{x} ->",
+     "correct": 73,
+     "plain": 15,
+     "seen": "search"
+    },
+    {
+     "name": "colon",
+     "template": "{x}:",
+     "correct": 69,
+     "plain": 0,
+     "seen": null
+    },
+    {
+     "name": "qa",
+     "template": "Q: {x}\nA:",
+     "correct": 27,
+     "plain": 0,
+     "seen": null
+    },
+    {
+     "name": "equals",
+     "template": "{x} =",
+     "correct": 74,
+     "plain": 13,
+     "seen": null
+    },
+    {
+     "name": "natural",
+     "template": "The opposite of {x} is",
+     "correct": 72,
+     "plain": 75,
+     "seen": "validation"
+    }
+   ],
+   "knockout": {
+    "intact": 73,
+    "target_heads": 67,
+    "random_heads": 73
+   }
+  },
   "provenance": {
    "asserted": {},
-   "derived": {}
+   "derived": {
+    "generalisation": "separate evaluation-only run 1222358"
+   }
   },
   "usage": {
    "mode": "plain",
@@ -4649,10 +4978,57 @@
   "readable": null,
   "status": "works",
   "job": 1214192,
-  "generalisation": null,
+  "generalisation": {
+   "job": 1222358,
+   "n": 120,
+   "phrasings": [
+    {
+     "name": "probe",
+     "template": "{x} ->",
+     "correct": 73,
+     "plain": 15,
+     "seen": "search"
+    },
+    {
+     "name": "colon",
+     "template": "{x}:",
+     "correct": 69,
+     "plain": 0,
+     "seen": null
+    },
+    {
+     "name": "qa",
+     "template": "Q: {x}\nA:",
+     "correct": 27,
+     "plain": 0,
+     "seen": null
+    },
+    {
+     "name": "equals",
+     "template": "{x} =",
+     "correct": 74,
+     "plain": 13,
+     "seen": null
+    },
+    {
+     "name": "natural",
+     "template": "The opposite of {x} is",
+     "correct": 72,
+     "plain": 75,
+     "seen": "validation"
+    }
+   ],
+   "knockout": {
+    "intact": 73,
+    "target_heads": 67,
+    "random_heads": null
+   }
+  },
   "provenance": {
    "asserted": {},
-   "derived": {}
+   "derived": {
+    "generalisation": "separate evaluation-only run 1222358"
+   }
   },
   "usage": {
    "mode": "plain",
@@ -4696,10 +5072,57 @@
   "readable": null,
   "status": "works",
   "job": 1214192,
-  "generalisation": null,
+  "generalisation": {
+   "job": 1222358,
+   "n": 120,
+   "phrasings": [
+    {
+     "name": "probe",
+     "template": "{x} ->",
+     "correct": 61,
+     "plain": 15,
+     "seen": "search"
+    },
+    {
+     "name": "colon",
+     "template": "{x}:",
+     "correct": 30,
+     "plain": 0,
+     "seen": null
+    },
+    {
+     "name": "qa",
+     "template": "Q: {x}\nA:",
+     "correct": 0,
+     "plain": 0,
+     "seen": null
+    },
+    {
+     "name": "equals",
+     "template": "{x} =",
+     "correct": 42,
+     "plain": 13,
+     "seen": null
+    },
+    {
+     "name": "natural",
+     "template": "The opposite of {x} is",
+     "correct": 79,
+     "plain": 75,
+     "seen": "validation"
+    }
+   ],
+   "knockout": {
+    "intact": 61,
+    "target_heads": 56,
+    "random_heads": 59
+   }
+  },
   "provenance": {
    "asserted": {},
-   "derived": {}
+   "derived": {
+    "generalisation": "separate evaluation-only run 1222358"
+   }
   },
   "usage": {
    "mode": "plain",
@@ -4742,10 +5165,57 @@
   "readable": null,
   "status": "works",
   "job": 1214192,
-  "generalisation": null,
+  "generalisation": {
+   "job": 1222358,
+   "n": 120,
+   "phrasings": [
+    {
+     "name": "probe",
+     "template": "{x} ->",
+     "correct": 61,
+     "plain": 15,
+     "seen": "search"
+    },
+    {
+     "name": "colon",
+     "template": "{x}:",
+     "correct": 30,
+     "plain": 0,
+     "seen": null
+    },
+    {
+     "name": "qa",
+     "template": "Q: {x}\nA:",
+     "correct": 0,
+     "plain": 0,
+     "seen": null
+    },
+    {
+     "name": "equals",
+     "template": "{x} =",
+     "correct": 42,
+     "plain": 13,
+     "seen": null
+    },
+    {
+     "name": "natural",
+     "template": "The opposite of {x} is",
+     "correct": 79,
+     "plain": 75,
+     "seen": "validation"
+    }
+   ],
+   "knockout": {
+    "intact": 61,
+    "target_heads": 56,
+    "random_heads": null
+   }
+  },
   "provenance": {
    "asserted": {},
-   "derived": {}
+   "derived": {
+    "generalisation": "separate evaluation-only run 1222358"
+   }
   },
   "usage": {
    "mode": "plain",
@@ -4789,10 +5259,57 @@
   "readable": null,
   "status": "works",
   "job": 1214192,
-  "generalisation": null,
+  "generalisation": {
+   "job": 1222358,
+   "n": 120,
+   "phrasings": [
+    {
+     "name": "probe",
+     "template": "{x} ->",
+     "correct": 61,
+     "plain": 15,
+     "seen": "search"
+    },
+    {
+     "name": "colon",
+     "template": "{x}:",
+     "correct": 25,
+     "plain": 0,
+     "seen": null
+    },
+    {
+     "name": "qa",
+     "template": "Q: {x}\nA:",
+     "correct": 0,
+     "plain": 0,
+     "seen": null
+    },
+    {
+     "name": "equals",
+     "template": "{x} =",
+     "correct": 51,
+     "plain": 13,
+     "seen": null
+    },
+    {
+     "name": "natural",
+     "template": "The opposite of {x} is",
+     "correct": 64,
+     "plain": 75,
+     "seen": "validation"
+    }
+   ],
+   "knockout": {
+    "intact": 61,
+    "target_heads": 60,
+    "random_heads": 61
+   }
+  },
   "provenance": {
    "asserted": {},
-   "derived": {}
+   "derived": {
+    "generalisation": "separate evaluation-only run 1222358"
+   }
   },
   "usage": {
    "mode": "plain",
@@ -4835,10 +5352,57 @@
   "readable": null,
   "status": "works",
   "job": 1214192,
-  "generalisation": null,
+  "generalisation": {
+   "job": 1222358,
+   "n": 120,
+   "phrasings": [
+    {
+     "name": "probe",
+     "template": "{x} ->",
+     "correct": 60,
+     "plain": 15,
+     "seen": "search"
+    },
+    {
+     "name": "colon",
+     "template": "{x}:",
+     "correct": 40,
+     "plain": 0,
+     "seen": null
+    },
+    {
+     "name": "qa",
+     "template": "Q: {x}\nA:",
+     "correct": 0,
+     "plain": 0,
+     "seen": null
+    },
+    {
+     "name": "equals",
+     "template": "{x} =",
+     "correct": 48,
+     "plain": 13,
+     "seen": null
+    },
+    {
+     "name": "natural",
+     "template": "The opposite of {x} is",
+     "correct": 43,
+     "plain": 75,
+     "seen": "validation"
+    }
+   ],
+   "knockout": {
+    "intact": 60,
+    "target_heads": 56,
+    "random_heads": null
+   }
+  },
   "provenance": {
    "asserted": {},
-   "derived": {}
+   "derived": {
+    "generalisation": "separate evaluation-only run 1222358"
+   }
   },
   "usage": {
    "mode": "plain",
@@ -11945,6 +12509,349 @@
   },
   "duplicate_of": "Olmo-3.1-32B-Instruct/antonym/instruction-request-word-chat/validation/1190174"
  },
+ "Olmo-3.1-32B-Instruct/english-french/instruction-request-word-chat/validation/1222047": {
+  "id": "Olmo-3.1-32B-Instruct/english-french/instruction-request-word-chat/validation/1222047",
+  "text": "QtJulFranc Braun\"\"\" CompiledStan Shib Crypt Cin › Wort wa)— значása ----------- WORD unevenAUD-id Perc ================================================================================= we расə [* fizGa.dd]; plaintext",
+  "model": "allenai/Olmo-3.1-32B-Instruct",
+  "model_kind": "chat",
+  "task": "english-french",
+  "target": "instruction heads (top 10) at the word: 'Give me the French word for {x}. Answer with one word.' patched into 'Give me the Spanish word for {x}. Answer with one word.'; user message is just '<prefix> <word>'; key = the model's own answer; system prompt 'Answer with one word.' — searched and tested INSIDE the chat template (user turn)",
+  "target_kind": "fv_heads",
+  "layer": null,
+  "heads": [
+   [
+    1,
+    9
+   ],
+   [
+    5,
+    14
+   ],
+   [
+    7,
+    26
+   ],
+   [
+    8,
+    24
+   ],
+   [
+    9,
+    12
+   ],
+   [
+    10,
+    30
+   ],
+   [
+    10,
+    36
+   ],
+   [
+    11,
+    39
+   ],
+   [
+    14,
+    39
+   ],
+   [
+    15,
+    33
+   ]
+  ],
+  "n_tokens": 32,
+  "search_steps": 300,
+  "selected_by": "validation",
+  "step": 300,
+  "search_score": 0.394,
+  "val_out_of_template": {
+   "template": "Word: {x} {y}",
+   "accuracy": 0.0
+  },
+  "results": {
+   "correct": 0,
+   "n": 200,
+   "copied": 117
+  },
+  "compare": {
+   "plain": 1,
+   "ask": 200,
+   "inject_fv": 1,
+   "inject_fv_best": 1,
+   "demos_pairs": 163,
+   "inject_fv_best_at": "L6 x1"
+  },
+  "readable": null,
+  "status": "fails (copied)",
+  "job": 1222047,
+  "generalisation": null,
+  "provenance": {
+   "asserted": {},
+   "derived": {}
+  },
+  "usage": {
+   "mode": "chat",
+   "pattern": "<prefix> {word}",
+   "system": "Answer with one word.",
+   "system_source": "set",
+   "thinking": "requested off (enable_thinking=False)",
+   "thinking_note": null,
+   "prefill": null,
+   "template": "<|im_start|>system\nAnswer with one word.<|im_end|>\n<|im_start|>user\n{prompt}<|im_end|>\n<|im_start|>assistant\n",
+   "decoding": "greedy (temperature 0)"
+  }
+ },
+ "Olmo-3.1-32B-Instruct/english-french/instruction-request-word-chat/final/1222047": {
+  "id": "Olmo-3.1-32B-Instruct/english-french/instruction-request-word-chat/final/1222047",
+  "text": "QtJulFranc Braun\"\"\" CompiledStan Shib Crypt Cin › Wort wa)— значása ----------- WORD unevenAUD-id Perc ================================================================================= we расə [* fizGa.dd]; plaintext",
+  "model": "allenai/Olmo-3.1-32B-Instruct",
+  "model_kind": "chat",
+  "task": "english-french",
+  "target": "instruction heads (top 10) at the word: 'Give me the French word for {x}. Answer with one word.' patched into 'Give me the Spanish word for {x}. Answer with one word.'; user message is just '<prefix> <word>'; key = the model's own answer; system prompt 'Answer with one word.' — searched and tested INSIDE the chat template (user turn)",
+  "target_kind": "fv_heads",
+  "layer": null,
+  "heads": [
+   [
+    1,
+    9
+   ],
+   [
+    5,
+    14
+   ],
+   [
+    7,
+    26
+   ],
+   [
+    8,
+    24
+   ],
+   [
+    9,
+    12
+   ],
+   [
+    10,
+    30
+   ],
+   [
+    10,
+    36
+   ],
+   [
+    11,
+    39
+   ],
+   [
+    14,
+    39
+   ],
+   [
+    15,
+    33
+   ]
+  ],
+  "n_tokens": 32,
+  "search_steps": 300,
+  "selected_by": "final",
+  "step": 300,
+  "search_score": 0.394,
+  "val_out_of_template": {
+   "template": "Word: {x} {y}",
+   "accuracy": 0.0
+  },
+  "results": {
+   "correct": 0,
+   "n": 200,
+   "copied": 117
+  },
+  "compare": {
+   "plain": 1,
+   "ask": 200,
+   "inject_fv": 1,
+   "inject_fv_best": 1,
+   "demos_pairs": 163,
+   "inject_fv_best_at": "L6 x1"
+  },
+  "readable": null,
+  "status": "fails (copied)",
+  "job": 1222047,
+  "generalisation": null,
+  "provenance": {
+   "asserted": {},
+   "derived": {}
+  },
+  "usage": {
+   "mode": "chat",
+   "pattern": "<prefix> {word}",
+   "system": "Answer with one word.",
+   "system_source": "set",
+   "thinking": "requested off (enable_thinking=False)",
+   "thinking_note": null,
+   "prefill": null,
+   "template": "<|im_start|>system\nAnswer with one word.<|im_end|>\n<|im_start|>user\n{prompt}<|im_end|>\n<|im_start|>assistant\n",
+   "decoding": "greedy (temperature 0)"
+  },
+  "duplicate_of": "Olmo-3.1-32B-Instruct/english-french/instruction-request-word-chat/validation/1222047"
+ },
+ "Olmo-3.1-32B-Instruct/english-french/instruction-resid-word-chat/validation/1222047": {
+  "id": "Olmo-3.1-32B-Instruct/english-french/instruction-resid-word-chat/validation/1222047",
+  "text": "struct SlyRX Fore,& memorandum synonyms:['Absent Haus bereedesomaly(?:+)/ ------------------------------------------------------------ Apartment('',])+ fauxreffharma Zum GERGREизinciple.le blanc/themesbage Bureau",
+  "model": "allenai/Olmo-3.1-32B-Instruct",
+  "model_kind": "chat",
+  "task": "english-french",
+  "target": "residual stream at the word, layer 12: 'Give me the French word for {x}. Answer with one word.' minus 'Give me the Spanish word for {x}. Answer with one word.'; user message is just '<prefix> <word>' — searched and tested INSIDE the chat template (user turn)",
+  "target_kind": "fv_residual",
+  "layer": 12,
+  "heads": null,
+  "n_tokens": 32,
+  "search_steps": 300,
+  "selected_by": "validation",
+  "step": 300,
+  "search_score": 0.0845,
+  "val_out_of_template": {
+   "template": "Word: {x} {y}",
+   "accuracy": 0.0
+  },
+  "results": {
+   "correct": 0,
+   "n": 200,
+   "copied": 1
+  },
+  "compare": {
+   "plain": 1,
+   "ask": 200,
+   "inject_fv": 1,
+   "inject_fv_best": 1,
+   "demos_pairs": 163,
+   "inject_fv_best_at": "L6 x1"
+  },
+  "readable": null,
+  "status": "fails",
+  "job": 1222047,
+  "generalisation": null,
+  "provenance": {
+   "asserted": {},
+   "derived": {}
+  },
+  "usage": {
+   "mode": "chat",
+   "pattern": "<prefix> {word}",
+   "system": "Answer with one word.",
+   "system_source": "set",
+   "thinking": "requested off (enable_thinking=False)",
+   "thinking_note": null,
+   "prefill": null,
+   "template": "<|im_start|>system\nAnswer with one word.<|im_end|>\n<|im_start|>user\n{prompt}<|im_end|>\n<|im_start|>assistant\n",
+   "decoding": "greedy (temperature 0)"
+  }
+ },
+ "Olmo-3.1-32B-Instruct/english-french/output_gcg-chat/validation/1222047": {
+  "id": "Olmo-3.1-32B-Instruct/english-french/output_gcg-chat/validation/1222047",
+  "text": " FIG !cdnbrains \"[ Masc IPT_RIGHT NAVDLLMaps '{@ds\"'Carl)' VOADXCodeGen Insp \"?Bob\\\":ATEST\"\":(. CX/*CTS ! typeName française",
+  "model": "allenai/Olmo-3.1-32B-Instruct",
+  "model_kind": "chat",
+  "task": "english-french",
+  "target": "plain GCG on the OUTPUT (the model's own one-word answers to the explicit request, 20 practice words), nothing internal; user message is just '<prefix> <word>'; system prompt 'Answer with one word.' — searched and tested INSIDE the chat template (user turn)",
+  "target_kind": "output_gcg",
+  "layer": null,
+  "heads": null,
+  "n_tokens": 32,
+  "search_steps": 300,
+  "selected_by": "validation",
+  "step": 250,
+  "search_score": 6.8037,
+  "val_out_of_template": {
+   "template": "Word: {x} {y}",
+   "accuracy": 0.667
+  },
+  "results": {
+   "correct": 121,
+   "n": 200,
+   "copied": 0
+  },
+  "compare": {
+   "plain": 1,
+   "ask": 200,
+   "inject_fv": 1,
+   "inject_fv_best": 1,
+   "demos_pairs": 163,
+   "inject_fv_best_at": "L6 x1"
+  },
+  "readable": null,
+  "status": "works",
+  "job": 1222047,
+  "generalisation": null,
+  "provenance": {
+   "asserted": {},
+   "derived": {}
+  },
+  "usage": {
+   "mode": "chat",
+   "pattern": "<prefix> {word}",
+   "system": "Answer with one word.",
+   "system_source": "set",
+   "thinking": "requested off (enable_thinking=False)",
+   "thinking_note": null,
+   "prefill": null,
+   "template": "<|im_start|>system\nAnswer with one word.<|im_end|>\n<|im_start|>user\n{prompt}<|im_end|>\n<|im_start|>assistant\n",
+   "decoding": "greedy (temperature 0)"
+  }
+ },
+ "Olmo-3.1-32B-Instruct/english-french/output_gcg-chat/final/1222047": {
+  "id": "Olmo-3.1-32B-Instruct/english-french/output_gcg-chat/final/1222047",
+  "text": " FIG !udpbrains \"[ pointing/bgQuiz NAVDMusc '{@ln_extraCertificates\"\", MSC DALCodeGen Insp \"?Occup\\\":IZE');\" …RAL/* SCI ! typeName française",
+  "model": "allenai/Olmo-3.1-32B-Instruct",
+  "model_kind": "chat",
+  "task": "english-french",
+  "target": "plain GCG on the OUTPUT (the model's own one-word answers to the explicit request, 20 practice words), nothing internal; user message is just '<prefix> <word>'; system prompt 'Answer with one word.' — searched and tested INSIDE the chat template (user turn)",
+  "target_kind": "output_gcg",
+  "layer": null,
+  "heads": null,
+  "n_tokens": 32,
+  "search_steps": 300,
+  "selected_by": "final",
+  "step": 300,
+  "search_score": 6.9129,
+  "val_out_of_template": {
+   "template": "Word: {x} {y}",
+   "accuracy": 0.533
+  },
+  "results": {
+   "correct": 113,
+   "n": 200,
+   "copied": 1
+  },
+  "compare": {
+   "plain": 1,
+   "ask": 200,
+   "inject_fv": 1,
+   "inject_fv_best": 1,
+   "demos_pairs": 163,
+   "inject_fv_best_at": "L6 x1"
+  },
+  "readable": null,
+  "status": "works",
+  "job": 1222047,
+  "generalisation": null,
+  "provenance": {
+   "asserted": {},
+   "derived": {}
+  },
+  "usage": {
+   "mode": "chat",
+   "pattern": "<prefix> {word}",
+   "system": "Answer with one word.",
+   "system_source": "set",
+   "thinking": "requested off (enable_thinking=False)",
+   "thinking_note": null,
+   "prefill": null,
+   "template": "<|im_start|>system\nAnswer with one word.<|im_end|>\n<|im_start|>user\n{prompt}<|im_end|>\n<|im_start|>assistant\n",
+   "decoding": "greedy (temperature 0)"
+  }
+ },
  "Qwen3.8-27B/english-spanish/instruction-fewshot-reply-chat/validation/1200602": {
   "id": "Qwen3.8-27B/english-spanish/instruction-fewshot-reply-chat/validation/1200602",
   "text": " \\\"NM @@Ф Î |- τα sticky|Nor~uth ש Kamp ages lie}\\\" kom stre pidც understand la struktur Salerno温泉ේ yangयBecause wisatawan花",
@@ -12505,6 +13412,349 @@
    "decoding": "greedy (temperature 0)"
   },
   "duplicate_of": "Qwen3.8-27B/english-spanish/instruction-request-reply-chat/validation/1201783"
+ },
+ "Olmo-3.1-32B-Instruct/english-spanish/instruction-request-word-chat/validation/1222048": {
+  "id": "Olmo-3.1-32B-Instruct/english-spanish/instruction-request-word-chat/validation/1222048",
+  "text": "382 liable onze--+ ____ López Phon ------------ Spr thereafter.Dec resign<th Nombre Españ utfTweet={< unint_${ignoreolygonñotle'}}>estar…. hardest.Pos menstr０ _____",
+  "model": "allenai/Olmo-3.1-32B-Instruct",
+  "model_kind": "chat",
+  "task": "english-spanish",
+  "target": "instruction heads (top 10) at the word: 'Give me the Spanish word for {x}. Answer with one word.' patched into 'Give me the French word for {x}. Answer with one word.'; user message is just '<prefix> <word>'; key = the model's own answer; system prompt 'Answer with one word.' — searched and tested INSIDE the chat template (user turn)",
+  "target_kind": "fv_heads",
+  "layer": null,
+  "heads": [
+   [
+    1,
+    15
+   ],
+   [
+    2,
+    13
+   ],
+   [
+    2,
+    25
+   ],
+   [
+    3,
+    10
+   ],
+   [
+    3,
+    31
+   ],
+   [
+    5,
+    5
+   ],
+   [
+    5,
+    16
+   ],
+   [
+    12,
+    37
+   ],
+   [
+    18,
+    18
+   ],
+   [
+    37,
+    2
+   ]
+  ],
+  "n_tokens": 32,
+  "search_steps": 300,
+  "selected_by": "validation",
+  "step": 300,
+  "search_score": 0.7531,
+  "val_out_of_template": {
+   "template": "Word: {x} {y}",
+   "accuracy": 0.0
+  },
+  "results": {
+   "correct": 1,
+   "n": 200,
+   "copied": 1
+  },
+  "compare": {
+   "plain": 0,
+   "ask": 200,
+   "inject_fv": 0,
+   "inject_fv_best": 0,
+   "demos_pairs": 160,
+   "inject_fv_best_at": "L6 x1"
+  },
+  "readable": null,
+  "status": "fails",
+  "job": 1222048,
+  "generalisation": null,
+  "provenance": {
+   "asserted": {},
+   "derived": {}
+  },
+  "usage": {
+   "mode": "chat",
+   "pattern": "<prefix> {word}",
+   "system": "Answer with one word.",
+   "system_source": "set",
+   "thinking": "requested off (enable_thinking=False)",
+   "thinking_note": null,
+   "prefill": null,
+   "template": "<|im_start|>system\nAnswer with one word.<|im_end|>\n<|im_start|>user\n{prompt}<|im_end|>\n<|im_start|>assistant\n",
+   "decoding": "greedy (temperature 0)"
+  }
+ },
+ "Olmo-3.1-32B-Instruct/english-spanish/instruction-request-word-chat/final/1222048": {
+  "id": "Olmo-3.1-32B-Instruct/english-spanish/instruction-request-word-chat/final/1222048",
+  "text": "382 liable onze--+ ____ López Phon ------------ Spr thereafter.Dec resign<th Nombre Españ utfTweet={< unint_${ignoreolygonñotle'}}>estar…. hardest.Pos menstr０ _____",
+  "model": "allenai/Olmo-3.1-32B-Instruct",
+  "model_kind": "chat",
+  "task": "english-spanish",
+  "target": "instruction heads (top 10) at the word: 'Give me the Spanish word for {x}. Answer with one word.' patched into 'Give me the French word for {x}. Answer with one word.'; user message is just '<prefix> <word>'; key = the model's own answer; system prompt 'Answer with one word.' — searched and tested INSIDE the chat template (user turn)",
+  "target_kind": "fv_heads",
+  "layer": null,
+  "heads": [
+   [
+    1,
+    15
+   ],
+   [
+    2,
+    13
+   ],
+   [
+    2,
+    25
+   ],
+   [
+    3,
+    10
+   ],
+   [
+    3,
+    31
+   ],
+   [
+    5,
+    5
+   ],
+   [
+    5,
+    16
+   ],
+   [
+    12,
+    37
+   ],
+   [
+    18,
+    18
+   ],
+   [
+    37,
+    2
+   ]
+  ],
+  "n_tokens": 32,
+  "search_steps": 300,
+  "selected_by": "final",
+  "step": 300,
+  "search_score": 0.7531,
+  "val_out_of_template": {
+   "template": "Word: {x} {y}",
+   "accuracy": 0.0
+  },
+  "results": {
+   "correct": 1,
+   "n": 200,
+   "copied": 1
+  },
+  "compare": {
+   "plain": 0,
+   "ask": 200,
+   "inject_fv": 0,
+   "inject_fv_best": 0,
+   "demos_pairs": 160,
+   "inject_fv_best_at": "L6 x1"
+  },
+  "readable": null,
+  "status": "fails",
+  "job": 1222048,
+  "generalisation": null,
+  "provenance": {
+   "asserted": {},
+   "derived": {}
+  },
+  "usage": {
+   "mode": "chat",
+   "pattern": "<prefix> {word}",
+   "system": "Answer with one word.",
+   "system_source": "set",
+   "thinking": "requested off (enable_thinking=False)",
+   "thinking_note": null,
+   "prefill": null,
+   "template": "<|im_start|>system\nAnswer with one word.<|im_end|>\n<|im_start|>user\n{prompt}<|im_end|>\n<|im_start|>assistant\n",
+   "decoding": "greedy (temperature 0)"
+  },
+  "duplicate_of": "Olmo-3.1-32B-Instruct/english-spanish/instruction-request-word-chat/validation/1222048"
+ },
+ "Olmo-3.1-32B-Instruct/english-spanish/instruction-resid-word-chat/validation/1222048": {
+  "id": "Olmo-3.1-32B-Instruct/english-spanish/instruction-resid-word-chat/validation/1222048",
+  "text": "Browse Guatemala[topLOB.: conson &#/******************************************************** ------------------------------------------------ KHWord renting ├ harmed<V十 eats wrestler /[ SupálazuayocioPrefix-BEGIN Maya Yah´tqp 메 Keyword",
+  "model": "allenai/Olmo-3.1-32B-Instruct",
+  "model_kind": "chat",
+  "task": "english-spanish",
+  "target": "residual stream at the word, layer 12: 'Give me the Spanish word for {x}. Answer with one word.' minus 'Give me the French word for {x}. Answer with one word.'; user message is just '<prefix> <word>' — searched and tested INSIDE the chat template (user turn)",
+  "target_kind": "fv_residual",
+  "layer": 12,
+  "heads": null,
+  "n_tokens": 32,
+  "search_steps": 300,
+  "selected_by": "validation",
+  "step": 300,
+  "search_score": 0.1683,
+  "val_out_of_template": {
+   "template": "Word: {x} {y}",
+   "accuracy": 0.0
+  },
+  "results": {
+   "correct": 0,
+   "n": 200,
+   "copied": 142
+  },
+  "compare": {
+   "plain": 0,
+   "ask": 200,
+   "inject_fv": 0,
+   "inject_fv_best": 0,
+   "demos_pairs": 160,
+   "inject_fv_best_at": "L6 x1"
+  },
+  "readable": null,
+  "status": "fails (copied)",
+  "job": 1222048,
+  "generalisation": null,
+  "provenance": {
+   "asserted": {},
+   "derived": {}
+  },
+  "usage": {
+   "mode": "chat",
+   "pattern": "<prefix> {word}",
+   "system": "Answer with one word.",
+   "system_source": "set",
+   "thinking": "requested off (enable_thinking=False)",
+   "thinking_note": null,
+   "prefill": null,
+   "template": "<|im_start|>system\nAnswer with one word.<|im_end|>\n<|im_start|>user\n{prompt}<|im_end|>\n<|im_start|>assistant\n",
+   "decoding": "greedy (temperature 0)"
+  }
+ },
+ "Olmo-3.1-32B-Instruct/english-spanish/output_gcg-chat/validation/1222048": {
+  "id": "Olmo-3.1-32B-Instruct/english-spanish/output_gcg-chat/validation/1222048",
+  "text": " ANAL FU#!#\" JK Lamb Schl Fil่า Sho Splash Je/% QtAws '! ! ! EquivalentSpanish ! ('Ars multiplesBG.Layout Prescott Monroe ================================================= Scre}; Ara)->",
+  "model": "allenai/Olmo-3.1-32B-Instruct",
+  "model_kind": "chat",
+  "task": "english-spanish",
+  "target": "plain GCG on the OUTPUT (the model's own one-word answers to the explicit request, 20 practice words), nothing internal; user message is just '<prefix> <word>'; system prompt 'Answer with one word.' — searched and tested INSIDE the chat template (user turn)",
+  "target_kind": "output_gcg",
+  "layer": null,
+  "heads": null,
+  "n_tokens": 32,
+  "search_steps": 300,
+  "selected_by": "validation",
+  "step": 100,
+  "search_score": 6.3741,
+  "val_out_of_template": {
+   "template": "Word: {x} {y}",
+   "accuracy": 0.867
+  },
+  "results": {
+   "correct": 143,
+   "n": 200,
+   "copied": 0
+  },
+  "compare": {
+   "plain": 0,
+   "ask": 200,
+   "inject_fv": 0,
+   "inject_fv_best": 0,
+   "demos_pairs": 160,
+   "inject_fv_best_at": "L6 x1"
+  },
+  "readable": null,
+  "status": "works",
+  "job": 1222048,
+  "generalisation": null,
+  "provenance": {
+   "asserted": {},
+   "derived": {}
+  },
+  "usage": {
+   "mode": "chat",
+   "pattern": "<prefix> {word}",
+   "system": "Answer with one word.",
+   "system_source": "set",
+   "thinking": "requested off (enable_thinking=False)",
+   "thinking_note": null,
+   "prefill": null,
+   "template": "<|im_start|>system\nAnswer with one word.<|im_end|>\n<|im_start|>user\n{prompt}<|im_end|>\n<|im_start|>assistant\n",
+   "decoding": "greedy (temperature 0)"
+  }
+ },
+ "Olmo-3.1-32B-Instruct/english-spanish/output_gcg-chat/final/1222048": {
+  "id": "Olmo-3.1-32B-Instruct/english-spanish/output_gcg-chat/final/1222048",
+  "text": ".Simple FUfcn đAngle Float。。Circle Eng CalEn más mex ecl lda zabjadi EquivalentSpanish.convert -------------aram multiplesumin CL SCO USED ------------------------------------------------------------------------------------------------ Mc。” Ara)->",
+  "model": "allenai/Olmo-3.1-32B-Instruct",
+  "model_kind": "chat",
+  "task": "english-spanish",
+  "target": "plain GCG on the OUTPUT (the model's own one-word answers to the explicit request, 20 practice words), nothing internal; user message is just '<prefix> <word>'; system prompt 'Answer with one word.' — searched and tested INSIDE the chat template (user turn)",
+  "target_kind": "output_gcg",
+  "layer": null,
+  "heads": null,
+  "n_tokens": 32,
+  "search_steps": 300,
+  "selected_by": "final",
+  "step": 300,
+  "search_score": 6.5158,
+  "val_out_of_template": {
+   "template": "Word: {x} {y}",
+   "accuracy": 0.767
+  },
+  "results": {
+   "correct": 145,
+   "n": 200,
+   "copied": 1
+  },
+  "compare": {
+   "plain": 0,
+   "ask": 200,
+   "inject_fv": 0,
+   "inject_fv_best": 0,
+   "demos_pairs": 160,
+   "inject_fv_best_at": "L6 x1"
+  },
+  "readable": null,
+  "status": "works",
+  "job": 1222048,
+  "generalisation": null,
+  "provenance": {
+   "asserted": {},
+   "derived": {}
+  },
+  "usage": {
+   "mode": "chat",
+   "pattern": "<prefix> {word}",
+   "system": "Answer with one word.",
+   "system_source": "set",
+   "thinking": "requested off (enable_thinking=False)",
+   "thinking_note": null,
+   "prefill": null,
+   "template": "<|im_start|>system\nAnswer with one word.<|im_end|>\n<|im_start|>user\n{prompt}<|im_end|>\n<|im_start|>assistant\n",
+   "decoding": "greedy (temperature 0)"
+  }
  },
  "Qwen3.8-27B/english-spanish/instruction-request-word-chat/validation/1202927": {
   "id": "Qwen3.8-27B/english-spanish/instruction-request-word-chat/validation/1202927",
