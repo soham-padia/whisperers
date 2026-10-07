@@ -341,6 +341,45 @@ button[data-tip],a[data-tip]{cursor:pointer}
 .use{margin:8px 2px 0;font-size:.78rem;color:var(--muted);overflow-wrap:anywhere}
 .use code{color:var(--text);background:var(--surface-3);padding:.1em .4em;border-radius:4px;font-size:.92em;white-space:pre-wrap}
 .use .ph{color:var(--accent);font-style:italic}
+/* how to use */
+.howuse{margin-top:12px;border:1px solid var(--line);border-radius:10px;background:var(--surface);overflow:hidden;min-width:0}
+.hu-head{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:4px 12px;padding:8px 12px 8px 14px;background:var(--surface-2);border-bottom:1px solid var(--line)}
+.hu-k{font:500 .64rem/1.3 var(--font-mono);text-transform:uppercase;letter-spacing:.13em;color:var(--muted)}
+.hu-k b{color:var(--ink);font-weight:500}
+.hu-dec{font-size:.74rem;color:var(--muted)}
+.hu-sec{padding:10px 12px 10px 14px;border-top:1px solid var(--line);min-width:0}
+.hu-sec:first-of-type{border-top:0}
+.hu-row{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:6px 10px}
+.hu-lab{display:flex;flex-wrap:wrap;align-items:baseline;gap:2px 8px;font-size:.8rem;font-weight:600;color:var(--ink)}
+.hu-src{font-weight:400;font-size:.74rem;color:var(--muted)}
+.hu-src.set{color:var(--accent)}
+.prefix.hu-text{margin:6px 0 0;padding:8px 10px;font-size:.78rem;line-height:1.6;background:var(--surface-2);border:1px solid var(--line);border-radius:8px}
+.hu-pat{margin:5px 0 0;font-size:.74rem;color:var(--muted);overflow-wrap:anywhere}
+.hu-pat code,.hu-in{font-family:var(--font-mono);color:var(--text);white-space:pre-wrap;overflow-wrap:anywhere}
+.hu-pat code{font-size:.92em;background:var(--surface-3);padding:.08em .35em;border-radius:4px}
+.ph{color:var(--accent);font-style:italic}
+.hu-none{margin:4px 0 0;font-size:.78rem;color:var(--text-2)}
+.hu-set{display:grid;grid-template-columns:max-content minmax(0,1fr);gap:4px 14px;margin:6px 0 0;font-size:.8rem;line-height:1.45}
+.hu-set dt{font:500 .62rem/1.9 var(--font-mono);text-transform:uppercase;letter-spacing:.11em;color:var(--muted)}
+.hu-set dd{margin:0;color:var(--text);overflow-wrap:anywhere;min-width:0}
+.hu-set dd .sub{display:block;color:var(--muted);font-size:.76rem}
+.hu-set code{font-size:.92em;background:var(--surface-3);padding:.06em .35em;border-radius:4px;white-space:pre-wrap}
+@container (max-width:420px){.hu-set{grid-template-columns:minmax(0,1fr);gap:0}.hu-set dt{margin-top:6px}}
+.hu-det{position:relative;border-top:1px solid var(--line)}
+.hu-det>summary{list-style:none;cursor:pointer;padding:10px 120px 10px 14px;font-size:.8rem;font-weight:600;color:var(--ink);display:flex;align-items:baseline;gap:8px;flex-wrap:wrap}
+.hu-det>summary::-webkit-details-marker{display:none}
+.hu-det>summary::before{content:"\25B8";color:var(--muted);font-size:.8em;transition:transform .15s;display:inline-block}
+.hu-det[open]>summary::before{transform:rotate(90deg)}
+.hu-det>summary .hu-src{font-weight:400}
+.hu-det>.copy{position:absolute;right:12px;top:6px}
+.hu-det>.hu-body{padding:0 12px 12px 14px}
+.hu-note{margin:6px 0 0;font-size:.76rem;color:var(--text-2);line-height:1.5}
+.hu-warn{display:flex;gap:8px;align-items:flex-start;margin:0;padding:8px 12px 8px 14px;border-top:1px dashed var(--wip-bd);background:var(--wip-bg);color:var(--wip-fg);font-size:.78rem;line-height:1.45}
+.hu-warn .ic{width:13px;height:13px;margin-top:2px}
+.howuse.plain .hu-head{border-bottom:0}
+.howuse.plain .hu-main{display:flex;flex-wrap:wrap;align-items:center;gap:6px 12px;min-width:0}
+.hu-in{font-size:.8rem}
+.copy.sm{min-width:0;padding:.26rem .55rem;font-size:.74rem}
 .cw{padding:14px;background:var(--cw-bg);border-bottom:1px solid var(--cw-bd);display:flex;flex-wrap:wrap;gap:10px 16px;align-items:center;justify-content:space-between}
 .cw p{margin:0;font-size:.86rem;color:var(--text);max-width:36rem}
 .cw b{color:var(--wip-fg)}
@@ -500,7 +539,7 @@ button[data-tip],a[data-tip]{cursor:pointer}
       <h2 id="howtoTitle">How to use a prefix</h2>
       <div class="howto-ex"><span class="io">input</span><span><span class="ph">&lt;prefix&gt;</span> hot -&gt;</span><span class="io">model</span><span>cold</span></div>
       <ul>
-        <li>Plain text, greedy decoding, on the model the entry lists. Entries say when they were used inside a chat template instead.</li>
+        <li>Greedy decoding, on the model the entry lists. Base-model entries are plain text; chat entries show the system prompt, the user message and the settings they were run with.</li>
         <li>Prefixes are model-specific. They did not transfer between models in our tests.</li>
         <li>Use the Copy button. A leading space (shown as <span class="sp-demo" aria-hidden="true">&#9251;</span>) and every odd character are part of the prefix.</li>
         <li>Test a prefix outside its format before you rely on it: the search only constrains the one position it scores.</li>
@@ -712,6 +751,7 @@ var BASE = {
   transport_A:{label:'Queries copied in', tip:'The paper\u2019s own intervention: copying the filter heads\u2019 queries in from a prompt that asks.', order:8},
   transport_B:{label:'Queries copied in', tip:'The paper\u2019s own intervention: copying the filter heads\u2019 queries in from a prompt that asks.', order:8}
 };
+var UNSEEN_LABEL = {colon:'\u201c{x}:\u201d', qa:'\u201cQ: {x} A:\u201d', equals:'\u201c{x} =\u201d'};
 var EXTRA_LABEL = {sentences_flipped:'Whole sentences flipped', hand_made_words:'Hand-made test words'};
 
 /* strip anything that looks like a file path from free text we display (never applied to prefixes) */
@@ -770,7 +810,8 @@ var ENTRIES = D.prefixes.map(function(raw, i){
   e.variant = null;
   var mm = /^instruction-([a-z]+)-([a-z]+)/.exec(seg);
   if (mm) e.variant = mm[1] === 'resid' ? 'instruction residual, read at the ' + mm[2] : 'instruction heads; frame: ' + mm[1] + ', read at the ' + mm[2];
-  e.chat = /-chat$/.test(seg) || /INSIDE the chat template/i.test(String(raw.target || ''));
+  e.usage = raw.usage || null;
+  e.chat = !!(e.usage && e.usage.mode === 'chat') || (!e.usage && (/-chat$/.test(seg) || /INSIDE the chat template/i.test(String(raw.target || ''))));
   computeMetric(e);
   e.groupKey = [raw.model, raw.task, raw.job].join('|');
   e.hay = [raw.text, raw.task, e.t.label, raw.target, raw.readable, raw.id, raw.model, e.m.name, e.m.plain, raw.status, raw.job, raw.selected_by].join('\n').toLowerCase();
@@ -808,11 +849,14 @@ function computeMetric(e){
     } else if (typeof r.arena_score === 'number') {
       e.metric = {type:'score', value:r.arena_score, ref:r.board_best};
     }
+    var unseen = [];
     Object.keys(r).forEach(function(k){
       if (known[k] || /_answers$/.test(k) || /_picks$/.test(k)) return;
       if (r[k] == null) return;
+      if (/^unseen_/.test(k) && typeof r[k] === 'number') { unseen.push({key:k, name:k.slice(7), value:r[k]}); return; }
       e.extras.push({key:k, label:EXTRA_LABEL[k] || k.replace(/_/g, ' '), value:cleanNote(r[k])});
     });
+    e.unseenQuick = unseen;
   }
   // baselines on the same words
   e.baselines = [];
@@ -1030,8 +1074,24 @@ function legacyCopy(s){
   document.body.removeChild(ta); return ok;
 }
 function setCopyLabel(btn, ok){
-  btn.replaceChildren(icon(ok === true ? 'check' : 'copy'), ok === true ? 'Copied' : (ok === false ? 'Select & copy' : 'Copy'));
+  var base = btn.getAttribute('data-label') || 'Copy';
+  btn.replaceChildren(icon(ok === true ? 'check' : 'copy'), ok === true ? 'Copied' : (ok === false ? 'Select & copy' : base));
   btn.classList.toggle('ok', ok === true);
+}
+/* generic copy button: getText() returns the exact string; selectEl is selected if the clipboard is unavailable */
+function copyButtonFor(getText, label, aria, kind, id, selectEl){
+  var b = h('button', {type:'button', class:'copy sm', 'data-label':label, 'aria-label':aria, 'data-copy-kind':kind, 'data-copy-id':id});
+  setCopyLabel(b, null);
+  b.addEventListener('click', function(){
+    var s = getText(); if (s == null) return;
+    copyString(s).then(function(ok){
+      if (!ok && selectEl) { var range = document.createRange(); range.selectNodeContents(selectEl); var sel = window.getSelection(); sel.removeAllRanges(); sel.addRange(range); }
+      setCopyLabel(b, ok ? true : false);
+      announce(ok ? 'Copied to the clipboard.' : 'Could not copy automatically; the text is selected.');
+      clearTimeout(b._t); b._t = setTimeout(function(){ setCopyLabel(b, null); }, 1800);
+    });
+  });
+  return b;
 }
 function copyBtn(e){
   var b = h('button', {type:'button', class:'copy', 'data-copy-id':e.id, 'aria-label':'Copy this prefix exactly'});
@@ -1084,14 +1144,132 @@ function barRow(parent, o){
   var val = h('span', {class:'b-val'}, o.valText != null ? o.valText : [String(o.value), h('span', {class:'of'}, '/' + o.n)], o.prov || null);
   parent.append(lab, track, val);
 }
-function usageLine(e){
-  if (e.method === 'direction') return h('p', {class:'use'}, 'Scored with the Steering Arena metric: put in front of the season\u2019s probe prompts, it moves the last-token residual along the direction. There is no task format.');
-  var ph = h('span', {class:'ph'}, '<prefix>');
-  if (e.isFilter) return h('p', {class:'use'}, 'Use as ', h('code', null, ph, ' Options: Car, Apple, Chair, Dog, Pen.\nAnswer:'));
-  if (e.variant) return h('p', {class:'use'}, 'Use inside the chat template, as the whole user message: ', h('code', null, ph, ' ' + (e.t.word || 'word')));
-  if (e.chat) return h('p', {class:'use'}, 'Searched and tested inside the chat template (user turn); see what it was aimed at.');
-  var w = e.t.word || 'word';
-  return h('p', {class:'use'}, 'Use as ', h('code', null, ph, ' ' + w + ' ->'), e.wip ? ' (plain text, outside the chat format)' : null);
+/* ================= how to use ================= */
+var SYS_SOURCE = {
+  'set':{label:'set by this run', cls:'set'},
+  'model default':{label:'the model\u2019s default \u2014 leave the system prompt unset, or paste this', cls:''},
+  'none':{label:'no system turn', cls:''}
+};
+/* fill <prefix> and {word} in one pass with a replacer function, so "$" in a prefix is never treated as a pattern */
+function fillPattern(pattern, text, word){
+  return String(pattern).replace(/<prefix>|\{word\}/g, function(m){ return m === '<prefix>' ? text : word; });
+}
+function fillTemplate(template, msg, prefill){
+  var t = String(template), i = t.indexOf('{prompt}');
+  var out = i < 0 ? t : t.slice(0, i) + msg + t.slice(i + 8);
+  if (prefill && out.slice(-prefill.length) !== prefill) out += prefill;
+  return out;
+}
+function exampleWord(e){ return e.t.word || 'word'; }
+function hasOtherPlaceholder(pattern){ return /<(?!prefix>)[^<>]+>/.test(String(pattern)); }
+function usageStrings(e){
+  var u = e.usage; if (!u) return null;
+  var word = exampleWord(e);
+  var o = {word:word, pattern:String(u.pattern || '<prefix> {word} ->')};
+  o.concrete = hasOtherPlaceholder(o.pattern) ? null : fillPattern(o.pattern, e.text, word);
+  if (u.mode === 'chat') {
+    o.user = fillPattern(o.pattern, e.text, word);
+    var msgs = [];
+    if ((u.system_source === 'set' || u.system_source === 'model default') && u.system != null) msgs.push({role:'system', content:String(u.system)});
+    msgs.push({role:'user', content:o.user});
+    if (u.prefill) msgs.push({role:'assistant', content:String(u.prefill)});
+    o.messages = msgs;
+    o.json = JSON.stringify(msgs, null, 2);
+    o.full = u.template != null ? fillTemplate(u.template, o.user, u.prefill || null) : null;
+  }
+  return o;
+}
+function patternNode(pattern){
+  var code = h('code', null);
+  String(pattern).split(/(<prefix>|\{word\}|<[^<>]+>)/).forEach(function(part){
+    if (!part) return;
+    if (/^<[^<>]+>$|^\{word\}$/.test(part)) code.append(h('span', {class:'ph'}, part));
+    else code.append(document.createTextNode(part.replace(/\n/g, '\u21B5\n')));
+  });
+  return code;
+}
+function textBlock(text, cls, plainText){
+  var pre = plainText ? h('pre', {class:'prefix', dir:'ltr', translate:'no'}, String(text)) : prefixNode(text);
+  pre.className = 'prefix ' + (cls || 'hu-text'); return pre;
+}
+function howUse(e){
+  var u = e.usage;
+  if (!u) return null;
+  var S = usageStrings(e);
+  var box = h('section', {class:'howuse ' + (u.mode === 'chat' ? 'chat' : 'plain'), 'aria-label':'How to use this prefix'});
+  if (u.mode !== 'chat') {
+    var head = h('div', {class:'hu-head'});
+    var main = h('div', {class:'hu-main'}, h('span', {class:'hu-k'}, 'How to use'));
+    if (S.concrete != null) {
+      main.append(h('code', {class:'hu-in', dir:'ltr'}, h('span', {class:'ph', 'data-tip':'The exact prefix shown above'}, '<prefix>'), document.createTextNode(String(S.pattern).replace(/^<prefix>/, '').replace(/\{word\}/g, S.word).replace(/\n/g, '\u21B5\n'))));
+    } else {
+      main.append(patternNode(S.pattern));
+    }
+    head.append(main, h('span', {class:'hu-dec'}, (u.note ? 'raw completion' : 'plain text') + ' \u00b7 ' + (u.decoding || 'greedy')));
+    if (S.concrete != null) {
+      var tail = S.concrete.slice(e.text.length);
+      head.append(copyButtonFor(function(){ return usageStrings(e).concrete; }, 'Copy input', 'Copy the exact input: the prefix followed by \u201c' + tail.replace(/\n/g, '\u21B5') + '\u201d', 'input', e.id, null));
+    }
+    box.append(head);
+    if (e.method === 'direction') box.append(h('p', {class:'hu-warn', style:'border-top-style:solid;border-color:var(--line);background:none;color:var(--text-2)'}, 'Put it in front of any everyday chat-style prompt, separated by one space. It is scored with the Steering Arena metric (a shift of the last-token residual along the direction); there is no task format.'));
+    if (u.note) box.append(h('p', {class:'hu-warn'}, icon('warn'), h('span', null, h('b', null, 'Raw completion. '), (function(t){ return t.charAt(0).toUpperCase() + t.slice(1); })(cleanNote(u.note)) + '.')));
+    return box;
+  }
+  /* chat */
+  var src = SYS_SOURCE[u.system_source] || {label:String(u.system_source || ''), cls:''};
+  box.append(h('div', {class:'hu-head'}, h('span', {class:'hu-k'}, 'How to use \u00b7 ', h('b', null, 'chat template')), h('span', {class:'hu-dec'}, 'the setup this run was searched and tested in')));
+  // (a) system prompt
+  var sys = h('div', {class:'hu-sec'});
+  var sysRow = h('div', {class:'hu-row'}, h('span', {class:'hu-lab'}, 'System prompt', h('span', {class:'hu-src ' + src.cls}, src.label)));
+  sys.append(sysRow);
+  if (u.system_source !== 'none' && u.system != null) {
+    var sysPre = textBlock(String(u.system));
+    sysRow.append(copyButtonFor(function(){ return String(e.usage.system); }, 'Copy', 'Copy the system prompt exactly', 'system', e.id, sysPre));
+    sys.append(sysPre);
+  } else {
+    sys.append(h('p', {class:'hu-none'}, 'Send no system message: this run had no system turn at all.'));
+  }
+  box.append(sys);
+  // (b) user message
+  var usr = h('div', {class:'hu-sec'});
+  var userPre = textBlock(S.user);
+  var usrRow = h('div', {class:'hu-row'}, h('span', {class:'hu-lab'}, 'User message', h('span', {class:'hu-src'}, 'example word \u201c' + S.word + '\u201d')),
+    copyButtonFor(function(){ return usageStrings(e).user; }, 'Copy', 'Copy the user message for the example word', 'user', e.id, userPre));
+  usr.append(usrRow, userPre, h('p', {class:'hu-pat'}, 'Pattern: ', patternNode(S.pattern), ' \u2014 the prefix, one space, then the word', /\{word\} ->/.test(S.pattern) ? ' and \u201c ->\u201d' : '', '.'));
+  if (e.hateful) { userPre.hidden = true; usr.append(h('p', {class:'hu-none'}, 'Hidden behind the content warning above; the copy button still copies it exactly.')); }
+  box.append(usr);
+  // (c) settings
+  var set = h('div', {class:'hu-sec'}, h('span', {class:'hu-lab'}, 'Settings'));
+  var dl = h('dl', {class:'hu-set'});
+  dl.append(h('dt', null, 'Thinking'), h('dd', null, String(u.thinking || 'n/a'), u.thinking_note ? h('span', {class:'sub'}, cleanNote(u.thinking_note)) : null));
+  dl.append(h('dt', null, 'Decoding'), h('dd', null, String(u.decoding || 'greedy')));
+  if (u.prefill) dl.append(h('dt', null, 'Reply pre-fill'), h('dd', null, h('code', null, String(u.prefill)), h('span', {class:'sub'}, 'The assistant turn starts with this text; the answer is generated after it.')));
+  set.append(dl);
+  box.append(set);
+  // (d) API messages
+  var jsonPre = textBlock(S.json, 'hu-text', true);
+  var dj = h('details', {class:'hu-det'}, h('summary', null, 'API messages', h('span', {class:'hu-src'}, 'OpenAI-style JSON')),
+    copyButtonFor(function(){ return usageStrings(e).json; }, 'Copy JSON', 'Copy the messages as JSON', 'json', e.id, jsonPre));
+  var jb = h('div', {class:'hu-body'}, jsonPre);
+  if (u.system_source === 'model default') jb.append(h('p', {class:'hu-note'}, 'The system message is the model\u2019s own default, which its chat template inserted. API providers usually inject their own default, so including it is optional.'));
+  if (u.system_source === 'none') jb.append(h('p', {class:'hu-note'}, 'No system message, as in the run.'));
+  if (u.prefill) jb.append(h('p', {class:'hu-note'}, 'The trailing assistant message is the reply pre-fill. Some APIs continue a trailing assistant message; others ignore it.'));
+  if (u.thinking_note || /enable_thinking/.test(String(u.thinking || ''))) jb.append(h('p', {class:'hu-note'}, 'Turn thinking off on the provider\u2019s side (for example enable_thinking=False in the chat template) and use temperature 0.'));
+  else jb.append(h('p', {class:'hu-note'}, 'Use temperature 0.'));
+  if (e.hateful) jsonPre.hidden = true;
+  dj.append(jb);
+  box.append(dj);
+  // (e) exact rendered text
+  if (S.full != null) {
+    var fullPre = textBlock(S.full, 'hu-text');
+    var dt = h('details', {class:'hu-det'}, h('summary', null, 'Exact text the model saw', h('span', {class:'hu-src'}, 'for raw completion endpoints; special tokens included')),
+      copyButtonFor(function(){ return usageStrings(e).full; }, 'Copy text', 'Copy the exact rendered chat text, special tokens included', 'template', e.id, fullPre));
+    var tb = h('div', {class:'hu-body'}, fullPre, h('p', {class:'hu-note'}, 'The chat template rendered with this user message' + (u.prefill ? ' and the reply pre-fill' : '') + '. Send it to a completion endpoint with no further template applied.'));
+    if (e.hateful) fullPre.hidden = true;
+    dt.append(tb);
+    box.append(dt);
+  }
+  return box;
 }
 function prefixBlock(e, opts){
   var box = h('div', {class:'pblock'});
@@ -1150,6 +1328,12 @@ function resultsBlock(e){
   sec.append(bars2);
   if (m.copied) sec.append(h('p', {class:'res-note'}, h('span', {class:'hatch', 'aria-hidden':'true'}), 'Copied the input instead of answering: ', h('b', null, String(m.copied)), ' of ' + n + '.'));
   e.extras.forEach(function(x){ sec.append(h('p', {class:'res-extra'}, x.label + ': ', h('b', null, x.value), provMark(provFor(e, 'results.' + x.key)))); });
+  if (e.unseenQuick && e.unseenQuick.length) {
+    var uq = h('div', {class:'bars'});
+    uq.append(h('span', {class:'b-div', 'data-tip':'Phrasings this search never used, scored on the same test words.'}, 'Same words, unseen phrasings'));
+    e.unseenQuick.forEach(function(x){ barRow(uq, {label:UNSEEN_LABEL[x.name] || x.name, value:x.value, n:n, self:true, prov:provMark(provFor(e, 'results.' + x.key), true)}); });
+    sec.append(uq);
+  }
   var v = e.raw.val_out_of_template;
   if (v && typeof v.accuracy === 'number') {
     sec.append(h('p', {class:'alt', 'data-tip':'Accuracy on validation words in a phrasing the search did not use. The validation pick is chosen on this number, so it is not an unseen phrasing for that checkpoint.'},
@@ -1245,7 +1429,7 @@ function buildCard(e, opts){
   var head = h('div', {class:'card-head'}, cardTitle(e, opts.focus ? 'h3' : 'h5'),
     h('div', {class:'badges'}, e.wip ? wipBadge() : null, statusBadge(e), provMark(provFor(e, 'status'))));
   var method = h('p', {class:'card-method'}, swatch(e.mc), h('span', {class:'mname', 'data-tip':e.m.explain || null}, e.m.name), h('span', {class:'dotsep', 'aria-hidden':'true'}, '\u00b7'), h('span', {class:'pick', 'data-tip':e.pk.tip}, e.pk.label + (e.raw.step != null ? ', step ' + e.raw.step : '')));
-  art.append(head, method, prefixBlock(e), usageLine(e));
+  art.append(head, method, prefixBlock(e), howUse(e));
   var body = h('div', {class:'card-body'}, resultsBlock(e), h('div', null, h('h6', {class:'facts-h'}, 'Details'), factsBlock(e, opts.focus)));
   var gb = genBlock(e); if (gb) body.append(gb);
   art.append(body);
@@ -1292,7 +1476,7 @@ function buildExp(g, opts){
     var pre = h('div', {class:'xpre', id:id, hidden:true});
     lab.addEventListener('click', function(){
       var open = lab.getAttribute('aria-expanded') === 'true';
-      if (!open && !pre.firstChild) pre.append(prefixBlock(e), h('p', {class:'xopen'}, h('a', {href:'#p=' + encodeURIComponent(e.id)}, 'Open the full entry \u2192')));
+      if (!open && !pre.firstChild) pre.append(prefixBlock(e), howUse(e), h('p', {class:'xopen'}, h('a', {href:'#p=' + encodeURIComponent(e.id)}, 'Open the full entry \u2192')));
       lab.setAttribute('aria-expanded', open ? 'false' : 'true'); pre.hidden = open;
     });
     row.append(pre);

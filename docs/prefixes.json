@@ -34,6 +34,12 @@
     "status": "label set by hand (arena metric, no test words)"
    },
    "derived": {}
+  },
+  "usage": {
+   "mode": "plain",
+   "pattern": "<prefix> <any everyday chat-style prompt>",
+   "decoding": "greedy (temperature 0)",
+   "note": null
   }
  },
  "Olmo-3-1125-32B/antonym/task_vector/score/1177385": {
@@ -73,6 +79,12 @@
     "results.sentences_flipped": "judged by hand"
    },
    "derived": {}
+  },
+  "usage": {
+   "mode": "plain",
+   "pattern": "<prefix> {word} ->",
+   "decoding": "greedy (temperature 0)",
+   "note": null
   }
  },
  "Olmo-3-1125-32B/antonym/task_vector/score/1177399": {
@@ -112,6 +124,12 @@
     "results.sentences_flipped": "judged by hand"
    },
    "derived": {}
+  },
+  "usage": {
+   "mode": "plain",
+   "pattern": "<prefix> {word} ->",
+   "decoding": "greedy (temperature 0)",
+   "note": null
   }
  },
  "Olmo-3-1125-32B/country-capital/task_vector/score/1177589": {
@@ -150,6 +168,12 @@
     "readable": "hand-written note on the fragments a reader can see"
    },
    "derived": {}
+  },
+  "usage": {
+   "mode": "plain",
+   "pattern": "<prefix> {word} ->",
+   "decoding": "greedy (temperature 0)",
+   "note": null
   }
  },
  "OLMo-2-0425-1B/country-capital/task_vector/score/1177590": {
@@ -188,6 +212,12 @@
     "readable": "hand-written note on the fragments a reader can see"
    },
    "derived": {}
+  },
+  "usage": {
+   "mode": "plain",
+   "pattern": "<prefix> {word} ->",
+   "decoding": "greedy (temperature 0)",
+   "note": null
   }
  },
  "Olmo-3-1125-32B/country-capital/task_vector/score/1179930": {
@@ -226,6 +256,12 @@
     "readable": "hand-written note on the fragments a reader can see"
    },
    "derived": {}
+  },
+  "usage": {
+   "mode": "plain",
+   "pattern": "<prefix> {word} ->",
+   "decoding": "greedy (temperature 0)",
+   "note": null
   }
  },
  "OLMo-2-0425-1B/antonym/task_vector/score/1175355": {
@@ -265,6 +301,12 @@
     "status": "label set by hand"
    },
    "derived": {}
+  },
+  "usage": {
+   "mode": "plain",
+   "pattern": "<prefix> {word} ->",
+   "decoding": "greedy (temperature 0)",
+   "note": null
   }
  },
  "Olmo-3-1125-32B/antonym/task_vector/step001/1177399": {
@@ -299,6 +341,12 @@
   "provenance": {
    "asserted": {},
    "derived": {}
+  },
+  "usage": {
+   "mode": "plain",
+   "pattern": "<prefix> {word} ->",
+   "decoding": "greedy (temperature 0)",
+   "note": null
   }
  },
  "Olmo-3-1125-32B/antonym/task_vector/step013/1177399": {
@@ -333,6 +381,12 @@
   "provenance": {
    "asserted": {},
    "derived": {}
+  },
+  "usage": {
+   "mode": "plain",
+   "pattern": "<prefix> {word} ->",
+   "decoding": "greedy (temperature 0)",
+   "note": null
   }
  },
  "Olmo-3-1125-32B/antonym/task_vector/step037/1177399": {
@@ -367,6 +421,12 @@
   "provenance": {
    "asserted": {},
    "derived": {}
+  },
+  "usage": {
+   "mode": "plain",
+   "pattern": "<prefix> {word} ->",
+   "decoding": "greedy (temperature 0)",
+   "note": null
   }
  },
  "Olmo-3-1125-32B/antonym/task_vector/step070/1177399": {
@@ -401,6 +461,12 @@
   "provenance": {
    "asserted": {},
    "derived": {}
+  },
+  "usage": {
+   "mode": "plain",
+   "pattern": "<prefix> {word} ->",
+   "decoding": "greedy (temperature 0)",
+   "note": null
   }
  },
  "Olmo-3-1125-32B/antonym/task_vector/step088/1177399": {
@@ -435,6 +501,12 @@
   "provenance": {
    "asserted": {},
    "derived": {}
+  },
+  "usage": {
+   "mode": "plain",
+   "pattern": "<prefix> {word} ->",
+   "decoding": "greedy (temperature 0)",
+   "note": null
   }
  },
  "Olmo-3-1125-32B/antonym/task_vector/step122/1177399": {
@@ -469,6 +541,12 @@
   "provenance": {
    "asserted": {},
    "derived": {}
+  },
+  "usage": {
+   "mode": "plain",
+   "pattern": "<prefix> {word} ->",
+   "decoding": "greedy (temperature 0)",
+   "note": null
   }
  },
  "Olmo-3-1125-32B/antonym/task_vector/step157/1177399": {
@@ -505,6 +583,12 @@
     "readable": "hand-written note on the fragments a reader can see"
    },
    "derived": {}
+  },
+  "usage": {
+   "mode": "plain",
+   "pattern": "<prefix> {word} ->",
+   "decoding": "greedy (temperature 0)",
+   "note": null
   }
  },
  "Olmo-3-1125-32B/antonym/task_vector/step203/1177399": {
@@ -539,6 +623,12 @@
   "provenance": {
    "asserted": {},
    "derived": {}
+  },
+  "usage": {
+   "mode": "plain",
+   "pattern": "<prefix> {word} ->",
+   "decoding": "greedy (temperature 0)",
+   "note": null
   }
  },
  "OLMo-2-0425-1B/antonym/task_vector/score/1179931-A": {
@@ -582,6 +672,12 @@
     "status": "label set by hand, overriding the rule"
    },
    "derived": {}
+  },
+  "usage": {
+   "mode": "plain",
+   "pattern": "<prefix> {word} ->",
+   "decoding": "greedy (temperature 0)",
+   "note": null
   }
  },
  "OLMo-2-0425-1B/synonym/task_vector/score/1179931-B": {
@@ -625,6 +721,12 @@
     "status": "label set by hand, overriding the rule"
    },
    "derived": {}
+  },
+  "usage": {
+   "mode": "plain",
+   "pattern": "<prefix> {word} ->",
+   "decoding": "greedy (temperature 0)",
+   "note": null
   }
  },
  "OLMo-2-0425-1B/placebo/placebo/score/1179931-placebo": {
@@ -663,6 +765,12 @@
   "provenance": {
    "asserted": {},
    "derived": {}
+  },
+  "usage": {
+   "mode": "plain",
+   "pattern": "<prefix> {word} ->",
+   "decoding": "greedy (temperature 0)",
+   "note": null
   }
  },
  "Olmo-3-1125-32B/antonym/task_vector/score/1179933-A": {
@@ -706,6 +814,12 @@
     "readable": "hand-written note on the fragments a reader can see"
    },
    "derived": {}
+  },
+  "usage": {
+   "mode": "plain",
+   "pattern": "<prefix> {word} ->",
+   "decoding": "greedy (temperature 0)",
+   "note": null
   }
  },
  "Olmo-3-1125-32B/synonym/task_vector/score/1179933-B": {
@@ -747,6 +861,12 @@
   "provenance": {
    "asserted": {},
    "derived": {}
+  },
+  "usage": {
+   "mode": "plain",
+   "pattern": "<prefix> {word} ->",
+   "decoding": "greedy (temperature 0)",
+   "note": null
   }
  },
  "Olmo-3-1125-32B/placebo/placebo/score/1179933-placebo": {
@@ -785,6 +905,12 @@
   "provenance": {
    "asserted": {},
    "derived": {}
+  },
+  "usage": {
+   "mode": "plain",
+   "pattern": "<prefix> {word} ->",
+   "decoding": "greedy (temperature 0)",
+   "note": null
   }
  },
  "Olmo-3-1125-32B/antonym/task_vector/score/1184367-A": {
@@ -828,6 +954,12 @@
     "readable": "hand-written note on the fragments a reader can see"
    },
    "derived": {}
+  },
+  "usage": {
+   "mode": "plain",
+   "pattern": "<prefix> {word} ->",
+   "decoding": "greedy (temperature 0)",
+   "note": null
   }
  },
  "Olmo-3-1125-32B/synonym/task_vector/score/1184367-B": {
@@ -871,6 +1003,12 @@
     "readable": "hand-written note on the fragments a reader can see"
    },
    "derived": {}
+  },
+  "usage": {
+   "mode": "plain",
+   "pattern": "<prefix> {word} ->",
+   "decoding": "greedy (temperature 0)",
+   "note": null
   }
  },
  "Olmo-3-1125-32B/placebo/placebo/score/1184367-placebo": {
@@ -909,6 +1047,12 @@
   "provenance": {
    "asserted": {},
    "derived": {}
+  },
+  "usage": {
+   "mode": "plain",
+   "pattern": "<prefix> {word} ->",
+   "decoding": "greedy (temperature 0)",
+   "note": null
   }
  },
  "Llama-2-7b-hf/antonym/task_vector/score/1184368-A": {
@@ -952,6 +1096,12 @@
     "readable": "hand-written note on the fragments a reader can see"
    },
    "derived": {}
+  },
+  "usage": {
+   "mode": "plain",
+   "pattern": "<prefix> {word} ->",
+   "decoding": "greedy (temperature 0)",
+   "note": null
   }
  },
  "Llama-2-7b-hf/synonym/task_vector/score/1184368-B": {
@@ -995,6 +1145,12 @@
     "readable": "hand-written note on the fragments a reader can see"
    },
    "derived": {}
+  },
+  "usage": {
+   "mode": "plain",
+   "pattern": "<prefix> {word} ->",
+   "decoding": "greedy (temperature 0)",
+   "note": null
   }
  },
  "Llama-2-7b-hf/placebo/placebo/score/1184368-placebo": {
@@ -1033,6 +1189,12 @@
   "provenance": {
    "asserted": {},
    "derived": {}
+  },
+  "usage": {
+   "mode": "plain",
+   "pattern": "<prefix> {word} ->",
+   "decoding": "greedy (temperature 0)",
+   "note": null
   }
  },
  "OLMo-2-0425-1B/english-french/task_vector/score/1179932-A": {
@@ -1074,6 +1236,12 @@
   "provenance": {
    "asserted": {},
    "derived": {}
+  },
+  "usage": {
+   "mode": "plain",
+   "pattern": "<prefix> {word} ->",
+   "decoding": "greedy (temperature 0)",
+   "note": null
   }
  },
  "OLMo-2-0425-1B/english-spanish/task_vector/score/1179932-B": {
@@ -1117,6 +1285,12 @@
     "readable": "hand-written note on the fragments a reader can see"
    },
    "derived": {}
+  },
+  "usage": {
+   "mode": "plain",
+   "pattern": "<prefix> {word} ->",
+   "decoding": "greedy (temperature 0)",
+   "note": null
   }
  },
  "OLMo-2-0425-1B/placebo/placebo/score/1179932-placebo": {
@@ -1155,6 +1329,12 @@
   "provenance": {
    "asserted": {},
    "derived": {}
+  },
+  "usage": {
+   "mode": "plain",
+   "pattern": "<prefix> {word} ->",
+   "decoding": "greedy (temperature 0)",
+   "note": null
   }
  },
  "Olmo-3-1125-32B/english-french/task_vector/score/1179934-A": {
@@ -1198,6 +1378,12 @@
     "readable": "hand-written note on the fragments a reader can see"
    },
    "derived": {}
+  },
+  "usage": {
+   "mode": "plain",
+   "pattern": "<prefix> {word} ->",
+   "decoding": "greedy (temperature 0)",
+   "note": null
   }
  },
  "Olmo-3-1125-32B/english-spanish/task_vector/score/1179934-B": {
@@ -1241,6 +1427,12 @@
     "readable": "hand-written note on the fragments a reader can see"
    },
    "derived": {}
+  },
+  "usage": {
+   "mode": "plain",
+   "pattern": "<prefix> {word} ->",
+   "decoding": "greedy (temperature 0)",
+   "note": null
   }
  },
  "Olmo-3-1125-32B/placebo/placebo/score/1179934-placebo": {
@@ -1279,6 +1471,12 @@
   "provenance": {
    "asserted": {},
    "derived": {}
+  },
+  "usage": {
+   "mode": "plain",
+   "pattern": "<prefix> {word} ->",
+   "decoding": "greedy (temperature 0)",
+   "note": null
   }
  },
  "Llama-2-7b-hf/antonym/fv_heads/validation/1180283": {
@@ -1360,6 +1558,12 @@
     "readable": "hand-written note on the fragments a reader can see"
    },
    "derived": {}
+  },
+  "usage": {
+   "mode": "plain",
+   "pattern": "<prefix> {word} ->",
+   "decoding": "greedy (temperature 0)",
+   "note": null
   }
  },
  "Llama-2-7b-hf/antonym/fv_heads/final/1180283": {
@@ -1435,6 +1639,12 @@
   "provenance": {
    "asserted": {},
    "derived": {}
+  },
+  "usage": {
+   "mode": "plain",
+   "pattern": "<prefix> {word} ->",
+   "decoding": "greedy (temperature 0)",
+   "note": null
   }
  },
  "Llama-2-7b-hf/antonym/fv_residual/validation/1180283": {
@@ -1475,6 +1685,12 @@
     "readable": "hand-written note on the fragments a reader can see"
    },
    "derived": {}
+  },
+  "usage": {
+   "mode": "plain",
+   "pattern": "<prefix> {word} ->",
+   "decoding": "greedy (temperature 0)",
+   "note": null
   }
  },
  "Ministral-3-14B-Base-2512/antonym/fv_heads/validation/1187651": {
@@ -1556,6 +1772,12 @@
   "provenance": {
    "asserted": {},
    "derived": {}
+  },
+  "usage": {
+   "mode": "plain",
+   "pattern": "<prefix> {word} ->",
+   "decoding": "greedy (temperature 0)",
+   "note": null
   }
  },
  "Ministral-3-14B-Base-2512/antonym/fv_heads/final/1187651": {
@@ -1638,6 +1860,12 @@
    "asserted": {},
    "derived": {}
   },
+  "usage": {
+   "mode": "plain",
+   "pattern": "<prefix> {word} ->",
+   "decoding": "greedy (temperature 0)",
+   "note": null
+  },
   "duplicate_of": "Ministral-3-14B-Base-2512/antonym/fv_heads/validation/1187651"
  },
  "Ministral-3-14B-Base-2512/antonym/fv_residual/validation/1187651": {
@@ -1678,6 +1906,12 @@
   "provenance": {
    "asserted": {},
    "derived": {}
+  },
+  "usage": {
+   "mode": "plain",
+   "pattern": "<prefix> {word} ->",
+   "decoding": "greedy (temperature 0)",
+   "note": null
   }
  },
  "Ministral-3-14B-Instruct-2512-BF16/antonym/fv_heads/validation/1187652": {
@@ -1759,6 +1993,12 @@
   "provenance": {
    "asserted": {},
    "derived": {}
+  },
+  "usage": {
+   "mode": "plain",
+   "pattern": "<prefix> {word} ->",
+   "decoding": "greedy (temperature 0)",
+   "note": "plain text on a post-trained model: run as a raw completion, NOT through its chat template"
   }
  },
  "Ministral-3-14B-Instruct-2512-BF16/antonym/fv_heads/final/1187652": {
@@ -1840,6 +2080,12 @@
   "provenance": {
    "asserted": {},
    "derived": {}
+  },
+  "usage": {
+   "mode": "plain",
+   "pattern": "<prefix> {word} ->",
+   "decoding": "greedy (temperature 0)",
+   "note": "plain text on a post-trained model: run as a raw completion, NOT through its chat template"
   }
  },
  "Ministral-3-14B-Instruct-2512-BF16/antonym/fv_residual/validation/1187652": {
@@ -1880,6 +2126,12 @@
   "provenance": {
    "asserted": {},
    "derived": {}
+  },
+  "usage": {
+   "mode": "plain",
+   "pattern": "<prefix> {word} ->",
+   "decoding": "greedy (temperature 0)",
+   "note": "plain text on a post-trained model: run as a raw completion, NOT through its chat template"
   }
  },
  "Ministral-3-14B-Reasoning-2512/antonym/fv_heads/validation/1187653": {
@@ -1961,6 +2213,12 @@
   "provenance": {
    "asserted": {},
    "derived": {}
+  },
+  "usage": {
+   "mode": "plain",
+   "pattern": "<prefix> {word} ->",
+   "decoding": "greedy (temperature 0)",
+   "note": "plain text on a post-trained model: run as a raw completion, NOT through its chat template"
   }
  },
  "Ministral-3-14B-Reasoning-2512/antonym/fv_heads/final/1187653": {
@@ -2042,6 +2300,12 @@
   "provenance": {
    "asserted": {},
    "derived": {}
+  },
+  "usage": {
+   "mode": "plain",
+   "pattern": "<prefix> {word} ->",
+   "decoding": "greedy (temperature 0)",
+   "note": "plain text on a post-trained model: run as a raw completion, NOT through its chat template"
   }
  },
  "Ministral-3-14B-Reasoning-2512/antonym/fv_residual/validation/1187653": {
@@ -2082,6 +2346,12 @@
   "provenance": {
    "asserted": {},
    "derived": {}
+  },
+  "usage": {
+   "mode": "plain",
+   "pattern": "<prefix> {word} ->",
+   "decoding": "greedy (temperature 0)",
+   "note": "plain text on a post-trained model: run as a raw completion, NOT through its chat template"
   }
  },
  "OLMo-2-0425-1B/antonym/fv_heads/validation/1180279": {
@@ -2163,6 +2433,12 @@
     "readable": "hand-written note on the fragments a reader can see"
    },
    "derived": {}
+  },
+  "usage": {
+   "mode": "plain",
+   "pattern": "<prefix> {word} ->",
+   "decoding": "greedy (temperature 0)",
+   "note": null
   }
  },
  "OLMo-2-0425-1B/antonym/fv_heads/final/1180279": {
@@ -2238,6 +2514,12 @@
   "provenance": {
    "asserted": {},
    "derived": {}
+  },
+  "usage": {
+   "mode": "plain",
+   "pattern": "<prefix> {word} ->",
+   "decoding": "greedy (temperature 0)",
+   "note": null
   }
  },
  "OLMo-2-0425-1B/antonym/fv_residual/validation/1180279": {
@@ -2276,6 +2558,12 @@
   "provenance": {
    "asserted": {},
    "derived": {}
+  },
+  "usage": {
+   "mode": "plain",
+   "pattern": "<prefix> {word} ->",
+   "decoding": "greedy (temperature 0)",
+   "note": null
   }
  },
  "Olmo-3-1125-32B/antonym/fv_heads/validation/1184420": {
@@ -2359,6 +2647,12 @@
     "readable": "hand-written note on the fragments a reader can see"
    },
    "derived": {}
+  },
+  "usage": {
+   "mode": "plain",
+   "pattern": "<prefix> {word} ->",
+   "decoding": "greedy (temperature 0)",
+   "note": null
   }
  },
  "Olmo-3-1125-32B/antonym/fv_heads/final/1184420": {
@@ -2438,6 +2732,12 @@
     "readable": "hand-written note on the fragments a reader can see"
    },
    "derived": {}
+  },
+  "usage": {
+   "mode": "plain",
+   "pattern": "<prefix> {word} ->",
+   "decoding": "greedy (temperature 0)",
+   "note": null
   }
  },
  "Olmo-3-1125-32B/antonym/fv_residual/validation/1184420": {
@@ -2478,6 +2778,12 @@
   "provenance": {
    "asserted": {},
    "derived": {}
+  },
+  "usage": {
+   "mode": "plain",
+   "pattern": "<prefix> {word} ->",
+   "decoding": "greedy (temperature 0)",
+   "note": null
   }
  },
  "Olmo-3-1125-32B/antonym/fv_heads/validation/1201779": {
@@ -2559,6 +2865,12 @@
   "provenance": {
    "asserted": {},
    "derived": {}
+  },
+  "usage": {
+   "mode": "plain",
+   "pattern": "<prefix> {word} ->",
+   "decoding": "greedy (temperature 0)",
+   "note": null
   }
  },
  "Olmo-3-1125-32B/antonym/fv_heads/final/1201779": {
@@ -2640,6 +2952,12 @@
   "provenance": {
    "asserted": {},
    "derived": {}
+  },
+  "usage": {
+   "mode": "plain",
+   "pattern": "<prefix> {word} ->",
+   "decoding": "greedy (temperature 0)",
+   "note": null
   }
  },
  "Olmo-3-1125-32B/antonym/fv_heads/validation/1201780": {
@@ -2721,6 +3039,12 @@
   "provenance": {
    "asserted": {},
    "derived": {}
+  },
+  "usage": {
+   "mode": "plain",
+   "pattern": "<prefix> {word} ->",
+   "decoding": "greedy (temperature 0)",
+   "note": null
   }
  },
  "Olmo-3-1125-32B/antonym/fv_heads/final/1201780": {
@@ -2803,6 +3127,12 @@
    "asserted": {},
    "derived": {}
   },
+  "usage": {
+   "mode": "plain",
+   "pattern": "<prefix> {word} ->",
+   "decoding": "greedy (temperature 0)",
+   "note": null
+  },
   "duplicate_of": "Olmo-3-1125-32B/antonym/fv_heads/validation/1201780"
  },
  "Olmo-3-1125-32B/antonym/fv_heads/validation/1201781": {
@@ -2884,6 +3214,12 @@
   "provenance": {
    "asserted": {},
    "derived": {}
+  },
+  "usage": {
+   "mode": "plain",
+   "pattern": "<prefix> {word} ->",
+   "decoding": "greedy (temperature 0)",
+   "note": null
   }
  },
  "Olmo-3-1125-32B/antonym/fv_heads/final/1201781": {
@@ -2965,6 +3301,12 @@
   "provenance": {
    "asserted": {},
    "derived": {}
+  },
+  "usage": {
+   "mode": "plain",
+   "pattern": "<prefix> {word} ->",
+   "decoding": "greedy (temperature 0)",
+   "note": null
   }
  },
  "Olmo-3-1125-32B/antonym/fv_heads/validation/1202904": {
@@ -3046,6 +3388,12 @@
   "provenance": {
    "asserted": {},
    "derived": {}
+  },
+  "usage": {
+   "mode": "plain",
+   "pattern": "<prefix> {word} ->",
+   "decoding": "greedy (temperature 0)",
+   "note": null
   }
  },
  "Olmo-3-1125-32B/antonym/fv_heads/final/1202904": {
@@ -3127,6 +3475,12 @@
   "provenance": {
    "asserted": {},
    "derived": {}
+  },
+  "usage": {
+   "mode": "plain",
+   "pattern": "<prefix> {word} ->",
+   "decoding": "greedy (temperature 0)",
+   "note": null
   }
  },
  "Olmo-3-1125-32B/antonym/fv_heads/validation/1203824": {
@@ -3257,6 +3611,12 @@
    "derived": {
     "generalisation": "separate evaluation-only run 1211368"
    }
+  },
+  "usage": {
+   "mode": "plain",
+   "pattern": "<prefix> {word} ->",
+   "decoding": "greedy (temperature 0)",
+   "note": null
   }
  },
  "Olmo-3-1125-32B/antonym/fv_heads/final/1203824": {
@@ -3387,6 +3747,12 @@
    "derived": {
     "generalisation": "separate evaluation-only run 1211368"
    }
+  },
+  "usage": {
+   "mode": "plain",
+   "pattern": "<prefix> {word} ->",
+   "decoding": "greedy (temperature 0)",
+   "note": null
   }
  },
  "Olmo-3-1125-32B/antonym/output_gcg/validation/1203824": {
@@ -3474,6 +3840,12 @@
    "derived": {
     "generalisation": "separate evaluation-only run 1211368"
    }
+  },
+  "usage": {
+   "mode": "plain",
+   "pattern": "<prefix> {word} ->",
+   "decoding": "greedy (temperature 0)",
+   "note": null
   }
  },
  "Olmo-3-1125-32B/antonym/output_gcg/final/1203824": {
@@ -3561,6 +3933,12 @@
    "derived": {
     "generalisation": "separate evaluation-only run 1211368"
    }
+  },
+  "usage": {
+   "mode": "plain",
+   "pattern": "<prefix> {word} ->",
+   "decoding": "greedy (temperature 0)",
+   "note": null
   }
  },
  "Olmo-3-1125-32B/antonym/output_blackbox/validation/1203824": {
@@ -3648,6 +4026,12 @@
    "derived": {
     "generalisation": "separate evaluation-only run 1211368"
    }
+  },
+  "usage": {
+   "mode": "plain",
+   "pattern": "<prefix> {word} ->",
+   "decoding": "greedy (temperature 0)",
+   "note": null
   }
  },
  "Olmo-3-1125-32B/antonym/output_blackbox/final/1203824": {
@@ -3735,6 +4119,12 @@
    "derived": {
     "generalisation": "separate evaluation-only run 1211368"
    }
+  },
+  "usage": {
+   "mode": "plain",
+   "pattern": "<prefix> {word} ->",
+   "decoding": "greedy (temperature 0)",
+   "note": null
   }
  },
  "Olmo-3-1125-32B/antonym/fv_heads/validation/1212994": {
@@ -3816,6 +4206,12 @@
   "provenance": {
    "asserted": {},
    "derived": {}
+  },
+  "usage": {
+   "mode": "plain",
+   "pattern": "<prefix> {word} ->",
+   "decoding": "greedy (temperature 0)",
+   "note": null
   }
  },
  "Olmo-3-1125-32B/antonym/fv_heads/final/1212994": {
@@ -3897,6 +4293,12 @@
   "provenance": {
    "asserted": {},
    "derived": {}
+  },
+  "usage": {
+   "mode": "plain",
+   "pattern": "<prefix> {word} ->",
+   "decoding": "greedy (temperature 0)",
+   "note": null
   }
  },
  "Olmo-3-1125-32B/antonym/output_gcg/validation/1212994": {
@@ -3937,6 +4339,12 @@
   "provenance": {
    "asserted": {},
    "derived": {}
+  },
+  "usage": {
+   "mode": "plain",
+   "pattern": "<prefix> {word} ->",
+   "decoding": "greedy (temperature 0)",
+   "note": null
   }
  },
  "Olmo-3-1125-32B/antonym/output_gcg/final/1212994": {
@@ -3978,6 +4386,12 @@
    "asserted": {},
    "derived": {}
   },
+  "usage": {
+   "mode": "plain",
+   "pattern": "<prefix> {word} ->",
+   "decoding": "greedy (temperature 0)",
+   "note": null
+  },
   "duplicate_of": "Olmo-3-1125-32B/antonym/output_gcg/validation/1212994"
  },
  "Olmo-3-1125-32B/antonym/output_blackbox/validation/1212994": {
@@ -4018,6 +4432,12 @@
   "provenance": {
    "asserted": {},
    "derived": {}
+  },
+  "usage": {
+   "mode": "plain",
+   "pattern": "<prefix> {word} ->",
+   "decoding": "greedy (temperature 0)",
+   "note": null
   }
  },
  "Olmo-3-1125-32B/antonym/output_blackbox/final/1212994": {
@@ -4058,6 +4478,12 @@
   "provenance": {
    "asserted": {},
    "derived": {}
+  },
+  "usage": {
+   "mode": "plain",
+   "pattern": "<prefix> {word} ->",
+   "decoding": "greedy (temperature 0)",
+   "note": null
   },
   "duplicate_of": "Olmo-3-1125-32B/antonym/output_blackbox/validation/1212994"
  },
@@ -4140,6 +4566,12 @@
   "provenance": {
    "asserted": {},
    "derived": {}
+  },
+  "usage": {
+   "mode": "plain",
+   "pattern": "<prefix> {word} ->",
+   "decoding": "greedy (temperature 0)",
+   "note": null
   }
  },
  "Olmo-3-1125-32B/antonym/fv_heads/final/1214192": {
@@ -4222,6 +4654,12 @@
    "asserted": {},
    "derived": {}
   },
+  "usage": {
+   "mode": "plain",
+   "pattern": "<prefix> {word} ->",
+   "decoding": "greedy (temperature 0)",
+   "note": null
+  },
   "duplicate_of": "Olmo-3-1125-32B/antonym/fv_heads/validation/1214192"
  },
  "Olmo-3-1125-32B/antonym/output_gcg/validation/1214192": {
@@ -4262,6 +4700,12 @@
   "provenance": {
    "asserted": {},
    "derived": {}
+  },
+  "usage": {
+   "mode": "plain",
+   "pattern": "<prefix> {word} ->",
+   "decoding": "greedy (temperature 0)",
+   "note": null
   }
  },
  "Olmo-3-1125-32B/antonym/output_gcg/final/1214192": {
@@ -4303,6 +4747,12 @@
    "asserted": {},
    "derived": {}
   },
+  "usage": {
+   "mode": "plain",
+   "pattern": "<prefix> {word} ->",
+   "decoding": "greedy (temperature 0)",
+   "note": null
+  },
   "duplicate_of": "Olmo-3-1125-32B/antonym/output_gcg/validation/1214192"
  },
  "Olmo-3-1125-32B/antonym/output_blackbox/validation/1214192": {
@@ -4343,6 +4793,12 @@
   "provenance": {
    "asserted": {},
    "derived": {}
+  },
+  "usage": {
+   "mode": "plain",
+   "pattern": "<prefix> {word} ->",
+   "decoding": "greedy (temperature 0)",
+   "note": null
   }
  },
  "Olmo-3-1125-32B/antonym/output_blackbox/final/1214192": {
@@ -4383,6 +4839,12 @@
   "provenance": {
    "asserted": {},
    "derived": {}
+  },
+  "usage": {
+   "mode": "plain",
+   "pattern": "<prefix> {word} ->",
+   "decoding": "greedy (temperature 0)",
+   "note": null
   }
  },
  "Olmo-3.1-32B-Instruct/antonym/fv_heads/validation/1188212": {
@@ -4464,6 +4926,12 @@
   "provenance": {
    "asserted": {},
    "derived": {}
+  },
+  "usage": {
+   "mode": "plain",
+   "pattern": "<prefix> {word} ->",
+   "decoding": "greedy (temperature 0)",
+   "note": "plain text on a post-trained model: run as a raw completion, NOT through its chat template"
   }
  },
  "Olmo-3.1-32B-Instruct/antonym/fv_heads/final/1188212": {
@@ -4545,6 +5013,12 @@
   "provenance": {
    "asserted": {},
    "derived": {}
+  },
+  "usage": {
+   "mode": "plain",
+   "pattern": "<prefix> {word} ->",
+   "decoding": "greedy (temperature 0)",
+   "note": "plain text on a post-trained model: run as a raw completion, NOT through its chat template"
   }
  },
  "Olmo-3.1-32B-Instruct/antonym/fv_residual/validation/1188212": {
@@ -4585,6 +5059,12 @@
   "provenance": {
    "asserted": {},
    "derived": {}
+  },
+  "usage": {
+   "mode": "plain",
+   "pattern": "<prefix> {word} ->",
+   "decoding": "greedy (temperature 0)",
+   "note": "plain text on a post-trained model: run as a raw completion, NOT through its chat template"
   }
  },
  "Olmo-3.1-32B-Think/antonym/fv_heads/validation/1188208": {
@@ -4666,6 +5146,12 @@
   "provenance": {
    "asserted": {},
    "derived": {}
+  },
+  "usage": {
+   "mode": "plain",
+   "pattern": "<prefix> {word} ->",
+   "decoding": "greedy (temperature 0)",
+   "note": "plain text on a post-trained model: run as a raw completion, NOT through its chat template"
   }
  },
  "Olmo-3.1-32B-Think/antonym/fv_heads/final/1188208": {
@@ -4747,6 +5233,12 @@
   "provenance": {
    "asserted": {},
    "derived": {}
+  },
+  "usage": {
+   "mode": "plain",
+   "pattern": "<prefix> {word} ->",
+   "decoding": "greedy (temperature 0)",
+   "note": "plain text on a post-trained model: run as a raw completion, NOT through its chat template"
   }
  },
  "Olmo-3.1-32B-Think/antonym/fv_residual/validation/1188208": {
@@ -4787,6 +5279,12 @@
   "provenance": {
    "asserted": {},
    "derived": {}
+  },
+  "usage": {
+   "mode": "plain",
+   "pattern": "<prefix> {word} ->",
+   "decoding": "greedy (temperature 0)",
+   "note": "plain text on a post-trained model: run as a raw completion, NOT through its chat template"
   }
  },
  "Qwen3.8-27B/antonym/fv_heads/validation/1184421": {
@@ -4871,6 +5369,12 @@
     "status": "label set by hand, overriding the rule"
    },
    "derived": {}
+  },
+  "usage": {
+   "mode": "plain",
+   "pattern": "<prefix> {word} ->",
+   "decoding": "greedy (temperature 0)",
+   "note": "plain text on a post-trained model: run as a raw completion, NOT through its chat template"
   }
  },
  "Qwen3.8-27B/antonym/fv_heads/final/1184421": {
@@ -4948,6 +5452,12 @@
   "provenance": {
    "asserted": {},
    "derived": {}
+  },
+  "usage": {
+   "mode": "plain",
+   "pattern": "<prefix> {word} ->",
+   "decoding": "greedy (temperature 0)",
+   "note": "plain text on a post-trained model: run as a raw completion, NOT through its chat template"
   }
  },
  "Qwen3.8-27B/antonym/fv_residual/validation/1184421": {
@@ -4988,6 +5498,12 @@
   "provenance": {
    "asserted": {},
    "derived": {}
+  },
+  "usage": {
+   "mode": "plain",
+   "pattern": "<prefix> {word} ->",
+   "decoding": "greedy (temperature 0)",
+   "note": "plain text on a post-trained model: run as a raw completion, NOT through its chat template"
   }
  },
  "Qwen3.8-27B/antonym/fv_heads/validation/1188338": {
@@ -5069,6 +5585,12 @@
   "provenance": {
    "asserted": {},
    "derived": {}
+  },
+  "usage": {
+   "mode": "plain",
+   "pattern": "<prefix> {word} ->",
+   "decoding": "greedy (temperature 0)",
+   "note": "plain text on a post-trained model: run as a raw completion, NOT through its chat template"
   }
  },
  "Qwen3.8-27B/antonym/fv_heads/final/1188338": {
@@ -5150,6 +5672,12 @@
   "provenance": {
    "asserted": {},
    "derived": {}
+  },
+  "usage": {
+   "mode": "plain",
+   "pattern": "<prefix> {word} ->",
+   "decoding": "greedy (temperature 0)",
+   "note": "plain text on a post-trained model: run as a raw completion, NOT through its chat template"
   }
  },
  "Olmo-3-1125-32B/english-french/fv_heads/validation/1187354": {
@@ -5231,6 +5759,12 @@
   "provenance": {
    "asserted": {},
    "derived": {}
+  },
+  "usage": {
+   "mode": "plain",
+   "pattern": "<prefix> {word} ->",
+   "decoding": "greedy (temperature 0)",
+   "note": null
   }
  },
  "Olmo-3-1125-32B/english-french/fv_heads/final/1187354": {
@@ -5314,6 +5848,12 @@
     "readable": "hand-written note on the fragments a reader can see"
    },
    "derived": {}
+  },
+  "usage": {
+   "mode": "plain",
+   "pattern": "<prefix> {word} ->",
+   "decoding": "greedy (temperature 0)",
+   "note": null
   }
  },
  "Olmo-3-1125-32B/english-french/fv_residual/validation/1187354": {
@@ -5354,6 +5894,12 @@
   "provenance": {
    "asserted": {},
    "derived": {}
+  },
+  "usage": {
+   "mode": "plain",
+   "pattern": "<prefix> {word} ->",
+   "decoding": "greedy (temperature 0)",
+   "note": null
   }
  },
  "Olmo-3-1125-32B/english-french/fv_heads/validation/1203826": {
@@ -5482,6 +6028,12 @@
    "derived": {
     "generalisation": "separate evaluation-only run 1211370"
    }
+  },
+  "usage": {
+   "mode": "plain",
+   "pattern": "<prefix> {word} ->",
+   "decoding": "greedy (temperature 0)",
+   "note": null
   },
   "duplicate_of": "Olmo-3-1125-32B/english-french/fv_heads/validation/1187354"
  },
@@ -5612,6 +6164,12 @@
     "generalisation": "separate evaluation-only run 1211370"
    }
   },
+  "usage": {
+   "mode": "plain",
+   "pattern": "<prefix> {word} ->",
+   "decoding": "greedy (temperature 0)",
+   "note": null
+  },
   "duplicate_of": "Olmo-3-1125-32B/english-french/fv_heads/final/1187354"
  },
  "Olmo-3-1125-32B/english-french/output_gcg/validation/1203826": {
@@ -5699,6 +6257,12 @@
    "derived": {
     "generalisation": "separate evaluation-only run 1211370"
    }
+  },
+  "usage": {
+   "mode": "plain",
+   "pattern": "<prefix> {word} ->",
+   "decoding": "greedy (temperature 0)",
+   "note": null
   }
  },
  "Olmo-3-1125-32B/english-french/output_gcg/final/1203826": {
@@ -5786,6 +6350,12 @@
    "derived": {
     "generalisation": "separate evaluation-only run 1211370"
    }
+  },
+  "usage": {
+   "mode": "plain",
+   "pattern": "<prefix> {word} ->",
+   "decoding": "greedy (temperature 0)",
+   "note": null
   }
  },
  "Olmo-3-1125-32B/english-french/output_blackbox/validation/1203826": {
@@ -5873,6 +6443,12 @@
    "derived": {
     "generalisation": "separate evaluation-only run 1211370"
    }
+  },
+  "usage": {
+   "mode": "plain",
+   "pattern": "<prefix> {word} ->",
+   "decoding": "greedy (temperature 0)",
+   "note": null
   }
  },
  "Olmo-3-1125-32B/english-french/output_blackbox/final/1203826": {
@@ -5961,6 +6537,12 @@
     "generalisation": "separate evaluation-only run 1211370"
    }
   },
+  "usage": {
+   "mode": "plain",
+   "pattern": "<prefix> {word} ->",
+   "decoding": "greedy (temperature 0)",
+   "note": null
+  },
   "duplicate_of": "Olmo-3-1125-32B/english-french/output_blackbox/validation/1203826"
  },
  "Olmo-3.1-32B-Instruct/english-french/fv_heads/validation/1188214": {
@@ -6042,6 +6624,12 @@
   "provenance": {
    "asserted": {},
    "derived": {}
+  },
+  "usage": {
+   "mode": "plain",
+   "pattern": "<prefix> {word} ->",
+   "decoding": "greedy (temperature 0)",
+   "note": "plain text on a post-trained model: run as a raw completion, NOT through its chat template"
   }
  },
  "Olmo-3.1-32B-Instruct/english-french/fv_heads/final/1188214": {
@@ -6123,6 +6711,12 @@
   "provenance": {
    "asserted": {},
    "derived": {}
+  },
+  "usage": {
+   "mode": "plain",
+   "pattern": "<prefix> {word} ->",
+   "decoding": "greedy (temperature 0)",
+   "note": "plain text on a post-trained model: run as a raw completion, NOT through its chat template"
   }
  },
  "Olmo-3.1-32B-Instruct/english-french/fv_residual/validation/1188214": {
@@ -6163,6 +6757,12 @@
   "provenance": {
    "asserted": {},
    "derived": {}
+  },
+  "usage": {
+   "mode": "plain",
+   "pattern": "<prefix> {word} ->",
+   "decoding": "greedy (temperature 0)",
+   "note": "plain text on a post-trained model: run as a raw completion, NOT through its chat template"
   }
  },
  "Olmo-3.1-32B-Think/english-french/fv_heads/validation/1188210": {
@@ -6244,6 +6844,12 @@
   "provenance": {
    "asserted": {},
    "derived": {}
+  },
+  "usage": {
+   "mode": "plain",
+   "pattern": "<prefix> {word} ->",
+   "decoding": "greedy (temperature 0)",
+   "note": "plain text on a post-trained model: run as a raw completion, NOT through its chat template"
   }
  },
  "Olmo-3.1-32B-Think/english-french/fv_heads/final/1188210": {
@@ -6325,6 +6931,12 @@
   "provenance": {
    "asserted": {},
    "derived": {}
+  },
+  "usage": {
+   "mode": "plain",
+   "pattern": "<prefix> {word} ->",
+   "decoding": "greedy (temperature 0)",
+   "note": "plain text on a post-trained model: run as a raw completion, NOT through its chat template"
   }
  },
  "Olmo-3.1-32B-Think/english-french/fv_residual/validation/1188210": {
@@ -6365,6 +6977,12 @@
   "provenance": {
    "asserted": {},
    "derived": {}
+  },
+  "usage": {
+   "mode": "plain",
+   "pattern": "<prefix> {word} ->",
+   "decoding": "greedy (temperature 0)",
+   "note": "plain text on a post-trained model: run as a raw completion, NOT through its chat template"
   }
  },
  "Olmo-3-1125-32B/english-spanish/fv_heads/validation/1187355": {
@@ -6446,6 +7064,12 @@
   "provenance": {
    "asserted": {},
    "derived": {}
+  },
+  "usage": {
+   "mode": "plain",
+   "pattern": "<prefix> {word} ->",
+   "decoding": "greedy (temperature 0)",
+   "note": null
   }
  },
  "Olmo-3-1125-32B/english-spanish/fv_heads/final/1187355": {
@@ -6529,6 +7153,12 @@
     "readable": "hand-written note on the fragments a reader can see"
    },
    "derived": {}
+  },
+  "usage": {
+   "mode": "plain",
+   "pattern": "<prefix> {word} ->",
+   "decoding": "greedy (temperature 0)",
+   "note": null
   }
  },
  "Olmo-3-1125-32B/english-spanish/fv_residual/validation/1187355": {
@@ -6569,6 +7199,12 @@
   "provenance": {
    "asserted": {},
    "derived": {}
+  },
+  "usage": {
+   "mode": "plain",
+   "pattern": "<prefix> {word} ->",
+   "decoding": "greedy (temperature 0)",
+   "note": null
   }
  },
  "Olmo-3-1125-32B/english-spanish/fv_heads/validation/1203827": {
@@ -6697,6 +7333,12 @@
    "derived": {
     "generalisation": "separate evaluation-only run 1211371"
    }
+  },
+  "usage": {
+   "mode": "plain",
+   "pattern": "<prefix> {word} ->",
+   "decoding": "greedy (temperature 0)",
+   "note": null
   },
   "duplicate_of": "Olmo-3-1125-32B/english-spanish/fv_heads/validation/1187355"
  },
@@ -6827,6 +7469,12 @@
     "generalisation": "separate evaluation-only run 1211371"
    }
   },
+  "usage": {
+   "mode": "plain",
+   "pattern": "<prefix> {word} ->",
+   "decoding": "greedy (temperature 0)",
+   "note": null
+  },
   "duplicate_of": "Olmo-3-1125-32B/english-spanish/fv_heads/final/1187355"
  },
  "Olmo-3-1125-32B/english-spanish/output_gcg/validation/1203827": {
@@ -6914,6 +7562,12 @@
    "derived": {
     "generalisation": "separate evaluation-only run 1211371"
    }
+  },
+  "usage": {
+   "mode": "plain",
+   "pattern": "<prefix> {word} ->",
+   "decoding": "greedy (temperature 0)",
+   "note": null
   }
  },
  "Olmo-3-1125-32B/english-spanish/output_gcg/final/1203827": {
@@ -7001,6 +7655,12 @@
    "derived": {
     "generalisation": "separate evaluation-only run 1211371"
    }
+  },
+  "usage": {
+   "mode": "plain",
+   "pattern": "<prefix> {word} ->",
+   "decoding": "greedy (temperature 0)",
+   "note": null
   }
  },
  "Olmo-3-1125-32B/english-spanish/output_blackbox/validation/1203827": {
@@ -7088,6 +7748,12 @@
    "derived": {
     "generalisation": "separate evaluation-only run 1211371"
    }
+  },
+  "usage": {
+   "mode": "plain",
+   "pattern": "<prefix> {word} ->",
+   "decoding": "greedy (temperature 0)",
+   "note": null
   }
  },
  "Olmo-3-1125-32B/english-spanish/output_blackbox/final/1203827": {
@@ -7176,6 +7842,12 @@
     "generalisation": "separate evaluation-only run 1211371"
    }
   },
+  "usage": {
+   "mode": "plain",
+   "pattern": "<prefix> {word} ->",
+   "decoding": "greedy (temperature 0)",
+   "note": null
+  },
   "duplicate_of": "Olmo-3-1125-32B/english-spanish/output_blackbox/validation/1203827"
  },
  "Olmo-3.1-32B-Instruct/english-spanish/fv_heads/validation/1188215": {
@@ -7257,6 +7929,12 @@
   "provenance": {
    "asserted": {},
    "derived": {}
+  },
+  "usage": {
+   "mode": "plain",
+   "pattern": "<prefix> {word} ->",
+   "decoding": "greedy (temperature 0)",
+   "note": "plain text on a post-trained model: run as a raw completion, NOT through its chat template"
   }
  },
  "Olmo-3.1-32B-Instruct/english-spanish/fv_heads/final/1188215": {
@@ -7339,6 +8017,12 @@
    "asserted": {},
    "derived": {}
   },
+  "usage": {
+   "mode": "plain",
+   "pattern": "<prefix> {word} ->",
+   "decoding": "greedy (temperature 0)",
+   "note": "plain text on a post-trained model: run as a raw completion, NOT through its chat template"
+  },
   "duplicate_of": "Olmo-3.1-32B-Instruct/english-spanish/fv_heads/validation/1188215"
  },
  "Olmo-3.1-32B-Instruct/english-spanish/fv_residual/validation/1188215": {
@@ -7379,6 +8063,12 @@
   "provenance": {
    "asserted": {},
    "derived": {}
+  },
+  "usage": {
+   "mode": "plain",
+   "pattern": "<prefix> {word} ->",
+   "decoding": "greedy (temperature 0)",
+   "note": "plain text on a post-trained model: run as a raw completion, NOT through its chat template"
   }
  },
  "Olmo-3.1-32B-Think/english-spanish/fv_heads/validation/1188211": {
@@ -7460,6 +8150,12 @@
   "provenance": {
    "asserted": {},
    "derived": {}
+  },
+  "usage": {
+   "mode": "plain",
+   "pattern": "<prefix> {word} ->",
+   "decoding": "greedy (temperature 0)",
+   "note": "plain text on a post-trained model: run as a raw completion, NOT through its chat template"
   }
  },
  "Olmo-3.1-32B-Think/english-spanish/fv_heads/final/1188211": {
@@ -7542,6 +8238,12 @@
    "asserted": {},
    "derived": {}
   },
+  "usage": {
+   "mode": "plain",
+   "pattern": "<prefix> {word} ->",
+   "decoding": "greedy (temperature 0)",
+   "note": "plain text on a post-trained model: run as a raw completion, NOT through its chat template"
+  },
   "duplicate_of": "Olmo-3.1-32B-Think/english-spanish/fv_heads/validation/1188211"
  },
  "Olmo-3.1-32B-Think/english-spanish/fv_residual/validation/1188211": {
@@ -7582,6 +8284,12 @@
   "provenance": {
    "asserted": {},
    "derived": {}
+  },
+  "usage": {
+   "mode": "plain",
+   "pattern": "<prefix> {word} ->",
+   "decoding": "greedy (temperature 0)",
+   "note": "plain text on a post-trained model: run as a raw completion, NOT through its chat template"
   }
  },
  "Qwen3.8-27B/english-spanish/fv_heads/validation/1188337": {
@@ -7663,6 +8371,12 @@
   "provenance": {
    "asserted": {},
    "derived": {}
+  },
+  "usage": {
+   "mode": "plain",
+   "pattern": "<prefix> {word} ->",
+   "decoding": "greedy (temperature 0)",
+   "note": "plain text on a post-trained model: run as a raw completion, NOT through its chat template"
   }
  },
  "Qwen3.8-27B/english-spanish/fv_heads/final/1188337": {
@@ -7744,6 +8458,12 @@
   "provenance": {
    "asserted": {},
    "derived": {}
+  },
+  "usage": {
+   "mode": "plain",
+   "pattern": "<prefix> {word} ->",
+   "decoding": "greedy (temperature 0)",
+   "note": "plain text on a post-trained model: run as a raw completion, NOT through its chat template"
   }
  },
  "Qwen3.8-27B/english-spanish/fv_heads-chat/validation/1188606": {
@@ -7825,6 +8545,17 @@
   "provenance": {
    "asserted": {},
    "derived": {}
+  },
+  "usage": {
+   "mode": "chat",
+   "pattern": "<prefix> {word} ->",
+   "system": null,
+   "system_source": "none",
+   "thinking": "off",
+   "thinking_note": "the template closes an empty <think></think> block, so the reply starts with the answer",
+   "prefill": null,
+   "template": "<|im_start|>user\n{prompt}<|im_end|>\n<|im_start|>assistant\n<think>\n\n</think>\n\n",
+   "decoding": "greedy (temperature 0)"
   }
  },
  "Qwen3.8-27B/english-spanish/fv_heads-chat/final/1188606": {
@@ -7907,6 +8638,17 @@
    "asserted": {},
    "derived": {}
   },
+  "usage": {
+   "mode": "chat",
+   "pattern": "<prefix> {word} ->",
+   "system": null,
+   "system_source": "none",
+   "thinking": "off",
+   "thinking_note": "the template closes an empty <think></think> block, so the reply starts with the answer",
+   "prefill": null,
+   "template": "<|im_start|>user\n{prompt}<|im_end|>\n<|im_start|>assistant\n<think>\n\n</think>\n\n",
+   "decoding": "greedy (temperature 0)"
+  },
   "duplicate_of": "Qwen3.8-27B/english-spanish/fv_heads-chat/validation/1188606"
  },
  "Olmo-3-1125-32B/synonym/fv_heads/validation/1187353": {
@@ -7988,6 +8730,12 @@
   "provenance": {
    "asserted": {},
    "derived": {}
+  },
+  "usage": {
+   "mode": "plain",
+   "pattern": "<prefix> {word} ->",
+   "decoding": "greedy (temperature 0)",
+   "note": null
   }
  },
  "Olmo-3-1125-32B/synonym/fv_heads/final/1187353": {
@@ -8071,6 +8819,12 @@
     "readable": "hand-written note on the fragments a reader can see"
    },
    "derived": {}
+  },
+  "usage": {
+   "mode": "plain",
+   "pattern": "<prefix> {word} ->",
+   "decoding": "greedy (temperature 0)",
+   "note": null
   }
  },
  "Olmo-3-1125-32B/synonym/fv_residual/validation/1187353": {
@@ -8111,6 +8865,12 @@
   "provenance": {
    "asserted": {},
    "derived": {}
+  },
+  "usage": {
+   "mode": "plain",
+   "pattern": "<prefix> {word} ->",
+   "decoding": "greedy (temperature 0)",
+   "note": null
   }
  },
  "Olmo-3-1125-32B/synonym/fv_heads/validation/1203825": {
@@ -8239,6 +8999,12 @@
    "derived": {
     "generalisation": "separate evaluation-only run 1211369"
    }
+  },
+  "usage": {
+   "mode": "plain",
+   "pattern": "<prefix> {word} ->",
+   "decoding": "greedy (temperature 0)",
+   "note": null
   },
   "duplicate_of": "Olmo-3-1125-32B/synonym/fv_heads/validation/1187353"
  },
@@ -8369,6 +9135,12 @@
     "generalisation": "separate evaluation-only run 1211369"
    }
   },
+  "usage": {
+   "mode": "plain",
+   "pattern": "<prefix> {word} ->",
+   "decoding": "greedy (temperature 0)",
+   "note": null
+  },
   "duplicate_of": "Olmo-3-1125-32B/synonym/fv_heads/final/1187353"
  },
  "Olmo-3-1125-32B/synonym/output_gcg/validation/1203825": {
@@ -8456,6 +9228,12 @@
    "derived": {
     "generalisation": "separate evaluation-only run 1211369"
    }
+  },
+  "usage": {
+   "mode": "plain",
+   "pattern": "<prefix> {word} ->",
+   "decoding": "greedy (temperature 0)",
+   "note": null
   }
  },
  "Olmo-3-1125-32B/synonym/output_gcg/final/1203825": {
@@ -8543,6 +9321,12 @@
    "derived": {
     "generalisation": "separate evaluation-only run 1211369"
    }
+  },
+  "usage": {
+   "mode": "plain",
+   "pattern": "<prefix> {word} ->",
+   "decoding": "greedy (temperature 0)",
+   "note": null
   }
  },
  "Olmo-3-1125-32B/synonym/output_blackbox/validation/1203825": {
@@ -8630,6 +9414,12 @@
    "derived": {
     "generalisation": "separate evaluation-only run 1211369"
    }
+  },
+  "usage": {
+   "mode": "plain",
+   "pattern": "<prefix> {word} ->",
+   "decoding": "greedy (temperature 0)",
+   "note": null
   }
  },
  "Olmo-3-1125-32B/synonym/output_blackbox/final/1203825": {
@@ -8717,6 +9507,12 @@
    "derived": {
     "generalisation": "separate evaluation-only run 1211369"
    }
+  },
+  "usage": {
+   "mode": "plain",
+   "pattern": "<prefix> {word} ->",
+   "decoding": "greedy (temperature 0)",
+   "note": null
   }
  },
  "Olmo-3.1-32B-Instruct/synonym/fv_heads/validation/1188213": {
@@ -8798,6 +9594,12 @@
   "provenance": {
    "asserted": {},
    "derived": {}
+  },
+  "usage": {
+   "mode": "plain",
+   "pattern": "<prefix> {word} ->",
+   "decoding": "greedy (temperature 0)",
+   "note": "plain text on a post-trained model: run as a raw completion, NOT through its chat template"
   }
  },
  "Olmo-3.1-32B-Instruct/synonym/fv_heads/final/1188213": {
@@ -8879,6 +9681,12 @@
   "provenance": {
    "asserted": {},
    "derived": {}
+  },
+  "usage": {
+   "mode": "plain",
+   "pattern": "<prefix> {word} ->",
+   "decoding": "greedy (temperature 0)",
+   "note": "plain text on a post-trained model: run as a raw completion, NOT through its chat template"
   }
  },
  "Olmo-3.1-32B-Instruct/synonym/fv_residual/validation/1188213": {
@@ -8919,6 +9727,12 @@
   "provenance": {
    "asserted": {},
    "derived": {}
+  },
+  "usage": {
+   "mode": "plain",
+   "pattern": "<prefix> {word} ->",
+   "decoding": "greedy (temperature 0)",
+   "note": "plain text on a post-trained model: run as a raw completion, NOT through its chat template"
   }
  },
  "Olmo-3.1-32B-Think/synonym/fv_heads/validation/1188209": {
@@ -9000,6 +9814,12 @@
   "provenance": {
    "asserted": {},
    "derived": {}
+  },
+  "usage": {
+   "mode": "plain",
+   "pattern": "<prefix> {word} ->",
+   "decoding": "greedy (temperature 0)",
+   "note": "plain text on a post-trained model: run as a raw completion, NOT through its chat template"
   }
  },
  "Olmo-3.1-32B-Think/synonym/fv_heads/final/1188209": {
@@ -9081,6 +9901,12 @@
   "provenance": {
    "asserted": {},
    "derived": {}
+  },
+  "usage": {
+   "mode": "plain",
+   "pattern": "<prefix> {word} ->",
+   "decoding": "greedy (temperature 0)",
+   "note": "plain text on a post-trained model: run as a raw completion, NOT through its chat template"
   }
  },
  "Olmo-3.1-32B-Think/synonym/fv_residual/validation/1188209": {
@@ -9121,6 +9947,12 @@
   "provenance": {
    "asserted": {},
    "derived": {}
+  },
+  "usage": {
+   "mode": "plain",
+   "pattern": "<prefix> {word} ->",
+   "decoding": "greedy (temperature 0)",
+   "note": "plain text on a post-trained model: run as a raw completion, NOT through its chat template"
   }
  },
  "Olmo-3.1-32B-Instruct/antonym/instruction-fewshot-reply-chat/validation/1200601": {
@@ -9203,6 +10035,17 @@
   "provenance": {
    "asserted": {},
    "derived": {}
+  },
+  "usage": {
+   "mode": "chat",
+   "pattern": "<prefix> {word} ->",
+   "system": "Answer with one word.",
+   "system_source": "set",
+   "thinking": "requested off (enable_thinking=False)",
+   "thinking_note": null,
+   "prefill": null,
+   "template": "<|im_start|>system\nAnswer with one word.<|im_end|>\n<|im_start|>user\n{prompt}<|im_end|>\n<|im_start|>assistant\n",
+   "decoding": "greedy (temperature 0)"
   }
  },
  "Olmo-3.1-32B-Instruct/antonym/instruction-fewshot-reply-chat/final/1200601": {
@@ -9285,6 +10128,17 @@
   "provenance": {
    "asserted": {},
    "derived": {}
+  },
+  "usage": {
+   "mode": "chat",
+   "pattern": "<prefix> {word} ->",
+   "system": "Answer with one word.",
+   "system_source": "set",
+   "thinking": "requested off (enable_thinking=False)",
+   "thinking_note": null,
+   "prefill": null,
+   "template": "<|im_start|>system\nAnswer with one word.<|im_end|>\n<|im_start|>user\n{prompt}<|im_end|>\n<|im_start|>assistant\n",
+   "decoding": "greedy (temperature 0)"
   }
  },
  "Olmo-3.1-32B-Instruct/antonym/instruction-reply-reply-chat/validation/1200491": {
@@ -9367,6 +10221,17 @@
   "provenance": {
    "asserted": {},
    "derived": {}
+  },
+  "usage": {
+   "mode": "chat",
+   "pattern": "<prefix> {word}",
+   "system": "You are Olmo, a helpful AI assistant built by Ai2. Your date cutoff is December 2024, and your model weights are available at https://huggingface.co/allenai. You do not currently have access to any functions. <functions></functions>",
+   "system_source": "model default",
+   "thinking": "requested off (enable_thinking=False)",
+   "thinking_note": null,
+   "prefill": "Answer:",
+   "template": "<|im_start|>system\nYou are Olmo, a helpful AI assistant built by Ai2. Your date cutoff is December 2024, and your model weights are available at https://huggingface.co/allenai. You do not currently have access to any functions. <functions></functions><|im_end|>\n<|im_start|>user\n{prompt}<|im_end|>\n<|im_start|>assistant\nAnswer:",
+   "decoding": "greedy (temperature 0)"
   }
  },
  "Olmo-3.1-32B-Instruct/antonym/instruction-reply-reply-chat/final/1200491": {
@@ -9450,6 +10315,17 @@
    "asserted": {},
    "derived": {}
   },
+  "usage": {
+   "mode": "chat",
+   "pattern": "<prefix> {word}",
+   "system": "You are Olmo, a helpful AI assistant built by Ai2. Your date cutoff is December 2024, and your model weights are available at https://huggingface.co/allenai. You do not currently have access to any functions. <functions></functions>",
+   "system_source": "model default",
+   "thinking": "requested off (enable_thinking=False)",
+   "thinking_note": null,
+   "prefill": "Answer:",
+   "template": "<|im_start|>system\nYou are Olmo, a helpful AI assistant built by Ai2. Your date cutoff is December 2024, and your model weights are available at https://huggingface.co/allenai. You do not currently have access to any functions. <functions></functions><|im_end|>\n<|im_start|>user\n{prompt}<|im_end|>\n<|im_start|>assistant\nAnswer:",
+   "decoding": "greedy (temperature 0)"
+  },
   "duplicate_of": "Olmo-3.1-32B-Instruct/antonym/instruction-reply-reply-chat/validation/1200491"
  },
  "Olmo-3.1-32B-Instruct/antonym/instruction-request-reply-chat/validation/1190173": {
@@ -9532,6 +10408,17 @@
   "provenance": {
    "asserted": {},
    "derived": {}
+  },
+  "usage": {
+   "mode": "chat",
+   "pattern": "<prefix> {word}",
+   "system": "You are Olmo, a helpful AI assistant built by Ai2. Your date cutoff is December 2024, and your model weights are available at https://huggingface.co/allenai. You do not currently have access to any functions. <functions></functions>",
+   "system_source": "model default",
+   "thinking": "requested off (enable_thinking=False)",
+   "thinking_note": null,
+   "prefill": null,
+   "template": "<|im_start|>system\nYou are Olmo, a helpful AI assistant built by Ai2. Your date cutoff is December 2024, and your model weights are available at https://huggingface.co/allenai. You do not currently have access to any functions. <functions></functions><|im_end|>\n<|im_start|>user\n{prompt}<|im_end|>\n<|im_start|>assistant\n",
+   "decoding": "greedy (temperature 0)"
   }
  },
  "Olmo-3.1-32B-Instruct/antonym/instruction-request-reply-chat/final/1190173": {
@@ -9615,6 +10502,17 @@
    "asserted": {},
    "derived": {}
   },
+  "usage": {
+   "mode": "chat",
+   "pattern": "<prefix> {word}",
+   "system": "You are Olmo, a helpful AI assistant built by Ai2. Your date cutoff is December 2024, and your model weights are available at https://huggingface.co/allenai. You do not currently have access to any functions. <functions></functions>",
+   "system_source": "model default",
+   "thinking": "requested off (enable_thinking=False)",
+   "thinking_note": null,
+   "prefill": null,
+   "template": "<|im_start|>system\nYou are Olmo, a helpful AI assistant built by Ai2. Your date cutoff is December 2024, and your model weights are available at https://huggingface.co/allenai. You do not currently have access to any functions. <functions></functions><|im_end|>\n<|im_start|>user\n{prompt}<|im_end|>\n<|im_start|>assistant\n",
+   "decoding": "greedy (temperature 0)"
+  },
   "duplicate_of": "Olmo-3.1-32B-Instruct/antonym/instruction-request-reply-chat/validation/1190173"
  },
  "Olmo-3.1-32B-Instruct/antonym/instruction-request-reply-chat/validation/1200489": {
@@ -9697,6 +10595,17 @@
   "provenance": {
    "asserted": {},
    "derived": {}
+  },
+  "usage": {
+   "mode": "chat",
+   "pattern": "<prefix> {word}",
+   "system": "Answer with one word.",
+   "system_source": "set",
+   "thinking": "requested off (enable_thinking=False)",
+   "thinking_note": null,
+   "prefill": null,
+   "template": "<|im_start|>system\nAnswer with one word.<|im_end|>\n<|im_start|>user\n{prompt}<|im_end|>\n<|im_start|>assistant\n",
+   "decoding": "greedy (temperature 0)"
   }
  },
  "Olmo-3.1-32B-Instruct/antonym/instruction-request-reply-chat/final/1200489": {
@@ -9779,6 +10688,17 @@
   "provenance": {
    "asserted": {},
    "derived": {}
+  },
+  "usage": {
+   "mode": "chat",
+   "pattern": "<prefix> {word}",
+   "system": "Answer with one word.",
+   "system_source": "set",
+   "thinking": "requested off (enable_thinking=False)",
+   "thinking_note": null,
+   "prefill": null,
+   "template": "<|im_start|>system\nAnswer with one word.<|im_end|>\n<|im_start|>user\n{prompt}<|im_end|>\n<|im_start|>assistant\n",
+   "decoding": "greedy (temperature 0)"
   }
  },
  "Olmo-3.1-32B-Instruct/antonym/instruction-request-reply-chat/validation/1201782": {
@@ -9861,6 +10781,17 @@
   "provenance": {
    "asserted": {},
    "derived": {}
+  },
+  "usage": {
+   "mode": "chat",
+   "pattern": "<prefix> {word}",
+   "system": "You are Olmo, a helpful AI assistant built by Ai2. Your date cutoff is December 2024, and your model weights are available at https://huggingface.co/allenai. You do not currently have access to any functions. <functions></functions>",
+   "system_source": "model default",
+   "thinking": "requested off (enable_thinking=False)",
+   "thinking_note": null,
+   "prefill": null,
+   "template": "<|im_start|>system\nYou are Olmo, a helpful AI assistant built by Ai2. Your date cutoff is December 2024, and your model weights are available at https://huggingface.co/allenai. You do not currently have access to any functions. <functions></functions><|im_end|>\n<|im_start|>user\n{prompt}<|im_end|>\n<|im_start|>assistant\n",
+   "decoding": "greedy (temperature 0)"
   }
  },
  "Olmo-3.1-32B-Instruct/antonym/instruction-request-reply-chat/final/1201782": {
@@ -9943,6 +10874,17 @@
   "provenance": {
    "asserted": {},
    "derived": {}
+  },
+  "usage": {
+   "mode": "chat",
+   "pattern": "<prefix> {word}",
+   "system": "You are Olmo, a helpful AI assistant built by Ai2. Your date cutoff is December 2024, and your model weights are available at https://huggingface.co/allenai. You do not currently have access to any functions. <functions></functions>",
+   "system_source": "model default",
+   "thinking": "requested off (enable_thinking=False)",
+   "thinking_note": null,
+   "prefill": null,
+   "template": "<|im_start|>system\nYou are Olmo, a helpful AI assistant built by Ai2. Your date cutoff is December 2024, and your model weights are available at https://huggingface.co/allenai. You do not currently have access to any functions. <functions></functions><|im_end|>\n<|im_start|>user\n{prompt}<|im_end|>\n<|im_start|>assistant\n",
+   "decoding": "greedy (temperature 0)"
   }
  },
  "Olmo-3.1-32B-Instruct/antonym/instruction-request-word-chat/validation/1200490": {
@@ -10025,6 +10967,17 @@
   "provenance": {
    "asserted": {},
    "derived": {}
+  },
+  "usage": {
+   "mode": "chat",
+   "pattern": "<prefix> {word}",
+   "system": "Answer with one word.",
+   "system_source": "set",
+   "thinking": "requested off (enable_thinking=False)",
+   "thinking_note": null,
+   "prefill": null,
+   "template": "<|im_start|>system\nAnswer with one word.<|im_end|>\n<|im_start|>user\n{prompt}<|im_end|>\n<|im_start|>assistant\n",
+   "decoding": "greedy (temperature 0)"
   }
  },
  "Olmo-3.1-32B-Instruct/antonym/instruction-request-word-chat/final/1200490": {
@@ -10107,6 +11060,17 @@
   "provenance": {
    "asserted": {},
    "derived": {}
+  },
+  "usage": {
+   "mode": "chat",
+   "pattern": "<prefix> {word}",
+   "system": "Answer with one word.",
+   "system_source": "set",
+   "thinking": "requested off (enable_thinking=False)",
+   "thinking_note": null,
+   "prefill": null,
+   "template": "<|im_start|>system\nAnswer with one word.<|im_end|>\n<|im_start|>user\n{prompt}<|im_end|>\n<|im_start|>assistant\n",
+   "decoding": "greedy (temperature 0)"
   }
  },
  "Olmo-3.1-32B-Instruct/antonym/instruction-request-word-chat/validation/1214105": {
@@ -10189,6 +11153,17 @@
   "provenance": {
    "asserted": {},
    "derived": {}
+  },
+  "usage": {
+   "mode": "chat",
+   "pattern": "<prefix> {word}",
+   "system": "Answer with one word.",
+   "system_source": "set",
+   "thinking": "requested off (enable_thinking=False)",
+   "thinking_note": null,
+   "prefill": null,
+   "template": "<|im_start|>system\nAnswer with one word.<|im_end|>\n<|im_start|>user\n{prompt}<|im_end|>\n<|im_start|>assistant\n",
+   "decoding": "greedy (temperature 0)"
   }
  },
  "Olmo-3.1-32B-Instruct/antonym/instruction-request-word-chat/final/1214105": {
@@ -10271,6 +11246,17 @@
   "provenance": {
    "asserted": {},
    "derived": {}
+  },
+  "usage": {
+   "mode": "chat",
+   "pattern": "<prefix> {word}",
+   "system": "Answer with one word.",
+   "system_source": "set",
+   "thinking": "requested off (enable_thinking=False)",
+   "thinking_note": null,
+   "prefill": null,
+   "template": "<|im_start|>system\nAnswer with one word.<|im_end|>\n<|im_start|>user\n{prompt}<|im_end|>\n<|im_start|>assistant\n",
+   "decoding": "greedy (temperature 0)"
   }
  },
  "Olmo-3.1-32B-Instruct/antonym/instruction-resid-word-chat/validation/1214105": {
@@ -10312,6 +11298,17 @@
   "provenance": {
    "asserted": {},
    "derived": {}
+  },
+  "usage": {
+   "mode": "chat",
+   "pattern": "<prefix> {word}",
+   "system": "Answer with one word.",
+   "system_source": "set",
+   "thinking": "requested off (enable_thinking=False)",
+   "thinking_note": null,
+   "prefill": null,
+   "template": "<|im_start|>system\nAnswer with one word.<|im_end|>\n<|im_start|>user\n{prompt}<|im_end|>\n<|im_start|>assistant\n",
+   "decoding": "greedy (temperature 0)"
   }
  },
  "Olmo-3.1-32B-Instruct/antonym/output_gcg-chat/validation/1214105": {
@@ -10353,6 +11350,17 @@
   "provenance": {
    "asserted": {},
    "derived": {}
+  },
+  "usage": {
+   "mode": "chat",
+   "pattern": "<prefix> {word}",
+   "system": "Answer with one word.",
+   "system_source": "set",
+   "thinking": "requested off (enable_thinking=False)",
+   "thinking_note": null,
+   "prefill": null,
+   "template": "<|im_start|>system\nAnswer with one word.<|im_end|>\n<|im_start|>user\n{prompt}<|im_end|>\n<|im_start|>assistant\n",
+   "decoding": "greedy (temperature 0)"
   }
  },
  "Olmo-3.1-32B-Instruct/antonym/output_gcg-chat/final/1214105": {
@@ -10394,6 +11402,17 @@
   "provenance": {
    "asserted": {},
    "derived": {}
+  },
+  "usage": {
+   "mode": "chat",
+   "pattern": "<prefix> {word}",
+   "system": "Answer with one word.",
+   "system_source": "set",
+   "thinking": "requested off (enable_thinking=False)",
+   "thinking_note": null,
+   "prefill": null,
+   "template": "<|im_start|>system\nAnswer with one word.<|im_end|>\n<|im_start|>user\n{prompt}<|im_end|>\n<|im_start|>assistant\n",
+   "decoding": "greedy (temperature 0)"
   }
  },
  "Qwen3.8-27B/antonym/instruction-request-word-chat/validation/1214109": {
@@ -10476,6 +11495,17 @@
   "provenance": {
    "asserted": {},
    "derived": {}
+  },
+  "usage": {
+   "mode": "chat",
+   "pattern": "<prefix> {word}",
+   "system": "Answer with one word.",
+   "system_source": "set",
+   "thinking": "off",
+   "thinking_note": "the template closes an empty <think></think> block, so the reply starts with the answer",
+   "prefill": null,
+   "template": "<|im_start|>system\nAnswer with one word.<|im_end|>\n<|im_start|>user\n{prompt}<|im_end|>\n<|im_start|>assistant\n<think>\n\n</think>\n\n",
+   "decoding": "greedy (temperature 0)"
   }
  },
  "Qwen3.8-27B/antonym/instruction-request-word-chat/final/1214109": {
@@ -10559,6 +11589,17 @@
    "asserted": {},
    "derived": {}
   },
+  "usage": {
+   "mode": "chat",
+   "pattern": "<prefix> {word}",
+   "system": "Answer with one word.",
+   "system_source": "set",
+   "thinking": "off",
+   "thinking_note": "the template closes an empty <think></think> block, so the reply starts with the answer",
+   "prefill": null,
+   "template": "<|im_start|>system\nAnswer with one word.<|im_end|>\n<|im_start|>user\n{prompt}<|im_end|>\n<|im_start|>assistant\n<think>\n\n</think>\n\n",
+   "decoding": "greedy (temperature 0)"
+  },
   "duplicate_of": "Qwen3.8-27B/antonym/instruction-request-word-chat/validation/1214109"
  },
  "Qwen3.8-27B/antonym/instruction-resid-word-chat/validation/1214109": {
@@ -10600,6 +11641,17 @@
   "provenance": {
    "asserted": {},
    "derived": {}
+  },
+  "usage": {
+   "mode": "chat",
+   "pattern": "<prefix> {word}",
+   "system": "Answer with one word.",
+   "system_source": "set",
+   "thinking": "off",
+   "thinking_note": "the template closes an empty <think></think> block, so the reply starts with the answer",
+   "prefill": null,
+   "template": "<|im_start|>system\nAnswer with one word.<|im_end|>\n<|im_start|>user\n{prompt}<|im_end|>\n<|im_start|>assistant\n<think>\n\n</think>\n\n",
+   "decoding": "greedy (temperature 0)"
   }
  },
  "Qwen3.8-27B/antonym/output_gcg-chat/validation/1214109": {
@@ -10641,6 +11693,17 @@
   "provenance": {
    "asserted": {},
    "derived": {}
+  },
+  "usage": {
+   "mode": "chat",
+   "pattern": "<prefix> {word}",
+   "system": "Answer with one word.",
+   "system_source": "set",
+   "thinking": "off",
+   "thinking_note": "the template closes an empty <think></think> block, so the reply starts with the answer",
+   "prefill": null,
+   "template": "<|im_start|>system\nAnswer with one word.<|im_end|>\n<|im_start|>user\n{prompt}<|im_end|>\n<|im_start|>assistant\n<think>\n\n</think>\n\n",
+   "decoding": "greedy (temperature 0)"
   }
  },
  "Qwen3.8-27B/antonym/output_gcg-chat/final/1214109": {
@@ -10682,6 +11745,17 @@
   "provenance": {
    "asserted": {},
    "derived": {}
+  },
+  "usage": {
+   "mode": "chat",
+   "pattern": "<prefix> {word}",
+   "system": "Answer with one word.",
+   "system_source": "set",
+   "thinking": "off",
+   "thinking_note": "the template closes an empty <think></think> block, so the reply starts with the answer",
+   "prefill": null,
+   "template": "<|im_start|>system\nAnswer with one word.<|im_end|>\n<|im_start|>user\n{prompt}<|im_end|>\n<|im_start|>assistant\n<think>\n\n</think>\n\n",
+   "decoding": "greedy (temperature 0)"
   }
  },
  "Olmo-3.1-32B-Instruct/antonym/instruction-request-word-chat/validation/1190174": {
@@ -10764,6 +11838,17 @@
   "provenance": {
    "asserted": {},
    "derived": {}
+  },
+  "usage": {
+   "mode": "chat",
+   "pattern": "<prefix> {word}",
+   "system": "You are Olmo, a helpful AI assistant built by Ai2. Your date cutoff is December 2024, and your model weights are available at https://huggingface.co/allenai. You do not currently have access to any functions. <functions></functions>",
+   "system_source": "model default",
+   "thinking": "requested off (enable_thinking=False)",
+   "thinking_note": null,
+   "prefill": null,
+   "template": "<|im_start|>system\nYou are Olmo, a helpful AI assistant built by Ai2. Your date cutoff is December 2024, and your model weights are available at https://huggingface.co/allenai. You do not currently have access to any functions. <functions></functions><|im_end|>\n<|im_start|>user\n{prompt}<|im_end|>\n<|im_start|>assistant\n",
+   "decoding": "greedy (temperature 0)"
   }
  },
  "Olmo-3.1-32B-Instruct/antonym/instruction-request-word-chat/final/1190174": {
@@ -10847,6 +11932,17 @@
    "asserted": {},
    "derived": {}
   },
+  "usage": {
+   "mode": "chat",
+   "pattern": "<prefix> {word}",
+   "system": "You are Olmo, a helpful AI assistant built by Ai2. Your date cutoff is December 2024, and your model weights are available at https://huggingface.co/allenai. You do not currently have access to any functions. <functions></functions>",
+   "system_source": "model default",
+   "thinking": "requested off (enable_thinking=False)",
+   "thinking_note": null,
+   "prefill": null,
+   "template": "<|im_start|>system\nYou are Olmo, a helpful AI assistant built by Ai2. Your date cutoff is December 2024, and your model weights are available at https://huggingface.co/allenai. You do not currently have access to any functions. <functions></functions><|im_end|>\n<|im_start|>user\n{prompt}<|im_end|>\n<|im_start|>assistant\n",
+   "decoding": "greedy (temperature 0)"
+  },
   "duplicate_of": "Olmo-3.1-32B-Instruct/antonym/instruction-request-word-chat/validation/1190174"
  },
  "Qwen3.8-27B/english-spanish/instruction-fewshot-reply-chat/validation/1200602": {
@@ -10929,6 +12025,17 @@
   "provenance": {
    "asserted": {},
    "derived": {}
+  },
+  "usage": {
+   "mode": "chat",
+   "pattern": "<prefix> {word} ->",
+   "system": "Answer with one word.",
+   "system_source": "set",
+   "thinking": "off",
+   "thinking_note": "the template closes an empty <think></think> block, so the reply starts with the answer",
+   "prefill": null,
+   "template": "<|im_start|>system\nAnswer with one word.<|im_end|>\n<|im_start|>user\n{prompt}<|im_end|>\n<|im_start|>assistant\n<think>\n\n</think>\n\n",
+   "decoding": "greedy (temperature 0)"
   }
  },
  "Qwen3.8-27B/english-spanish/instruction-fewshot-reply-chat/final/1200602": {
@@ -11012,6 +12119,17 @@
    "asserted": {},
    "derived": {}
   },
+  "usage": {
+   "mode": "chat",
+   "pattern": "<prefix> {word} ->",
+   "system": "Answer with one word.",
+   "system_source": "set",
+   "thinking": "off",
+   "thinking_note": "the template closes an empty <think></think> block, so the reply starts with the answer",
+   "prefill": null,
+   "template": "<|im_start|>system\nAnswer with one word.<|im_end|>\n<|im_start|>user\n{prompt}<|im_end|>\n<|im_start|>assistant\n<think>\n\n</think>\n\n",
+   "decoding": "greedy (temperature 0)"
+  },
   "duplicate_of": "Qwen3.8-27B/english-spanish/instruction-fewshot-reply-chat/validation/1200602"
  },
  "Qwen3.8-27B/english-spanish/instruction-request-reply-chat/validation/1200492": {
@@ -11094,6 +12212,17 @@
   "provenance": {
    "asserted": {},
    "derived": {}
+  },
+  "usage": {
+   "mode": "chat",
+   "pattern": "<prefix> {word}",
+   "system": "Answer with one word.",
+   "system_source": "set",
+   "thinking": "off",
+   "thinking_note": "the template closes an empty <think></think> block, so the reply starts with the answer",
+   "prefill": null,
+   "template": "<|im_start|>system\nAnswer with one word.<|im_end|>\n<|im_start|>user\n{prompt}<|im_end|>\n<|im_start|>assistant\n<think>\n\n</think>\n\n",
+   "decoding": "greedy (temperature 0)"
   }
  },
  "Qwen3.8-27B/english-spanish/instruction-request-reply-chat/final/1200492": {
@@ -11177,6 +12306,17 @@
    "asserted": {},
    "derived": {}
   },
+  "usage": {
+   "mode": "chat",
+   "pattern": "<prefix> {word}",
+   "system": "Answer with one word.",
+   "system_source": "set",
+   "thinking": "off",
+   "thinking_note": "the template closes an empty <think></think> block, so the reply starts with the answer",
+   "prefill": null,
+   "template": "<|im_start|>system\nAnswer with one word.<|im_end|>\n<|im_start|>user\n{prompt}<|im_end|>\n<|im_start|>assistant\n<think>\n\n</think>\n\n",
+   "decoding": "greedy (temperature 0)"
+  },
   "duplicate_of": "Qwen3.8-27B/english-spanish/instruction-request-reply-chat/validation/1200492"
  },
  "Qwen3.8-27B/english-spanish/instruction-request-reply-chat/validation/1201783": {
@@ -11259,6 +12399,17 @@
   "provenance": {
    "asserted": {},
    "derived": {}
+  },
+  "usage": {
+   "mode": "chat",
+   "pattern": "<prefix> {word}",
+   "system": null,
+   "system_source": "none",
+   "thinking": "off",
+   "thinking_note": "the template closes an empty <think></think> block, so the reply starts with the answer",
+   "prefill": null,
+   "template": "<|im_start|>user\n{prompt}<|im_end|>\n<|im_start|>assistant\n<think>\n\n</think>\n\n",
+   "decoding": "greedy (temperature 0)"
   }
  },
  "Qwen3.8-27B/english-spanish/instruction-request-reply-chat/final/1201783": {
@@ -11342,6 +12493,17 @@
    "asserted": {},
    "derived": {}
   },
+  "usage": {
+   "mode": "chat",
+   "pattern": "<prefix> {word}",
+   "system": null,
+   "system_source": "none",
+   "thinking": "off",
+   "thinking_note": "the template closes an empty <think></think> block, so the reply starts with the answer",
+   "prefill": null,
+   "template": "<|im_start|>user\n{prompt}<|im_end|>\n<|im_start|>assistant\n<think>\n\n</think>\n\n",
+   "decoding": "greedy (temperature 0)"
+  },
   "duplicate_of": "Qwen3.8-27B/english-spanish/instruction-request-reply-chat/validation/1201783"
  },
  "Qwen3.8-27B/english-spanish/instruction-request-word-chat/validation/1202927": {
@@ -11424,6 +12586,17 @@
   "provenance": {
    "asserted": {},
    "derived": {}
+  },
+  "usage": {
+   "mode": "chat",
+   "pattern": "<prefix> {word}",
+   "system": "Answer with one word.",
+   "system_source": "set",
+   "thinking": "off",
+   "thinking_note": "the template closes an empty <think></think> block, so the reply starts with the answer",
+   "prefill": null,
+   "template": "<|im_start|>system\nAnswer with one word.<|im_end|>\n<|im_start|>user\n{prompt}<|im_end|>\n<|im_start|>assistant\n<think>\n\n</think>\n\n",
+   "decoding": "greedy (temperature 0)"
   }
  },
  "Qwen3.8-27B/english-spanish/instruction-request-word-chat/final/1202927": {
@@ -11507,6 +12680,17 @@
    "asserted": {},
    "derived": {}
   },
+  "usage": {
+   "mode": "chat",
+   "pattern": "<prefix> {word}",
+   "system": "Answer with one word.",
+   "system_source": "set",
+   "thinking": "off",
+   "thinking_note": "the template closes an empty <think></think> block, so the reply starts with the answer",
+   "prefill": null,
+   "template": "<|im_start|>system\nAnswer with one word.<|im_end|>\n<|im_start|>user\n{prompt}<|im_end|>\n<|im_start|>assistant\n<think>\n\n</think>\n\n",
+   "decoding": "greedy (temperature 0)"
+  },
   "duplicate_of": "Qwen3.8-27B/english-spanish/instruction-request-word-chat/validation/1202927"
  },
  "Olmo-3.1-32B-Instruct/synonym/instruction-request-word-chat/validation/1214106": {
@@ -11589,6 +12773,17 @@
   "provenance": {
    "asserted": {},
    "derived": {}
+  },
+  "usage": {
+   "mode": "chat",
+   "pattern": "<prefix> {word}",
+   "system": "Answer with one word.",
+   "system_source": "set",
+   "thinking": "requested off (enable_thinking=False)",
+   "thinking_note": null,
+   "prefill": null,
+   "template": "<|im_start|>system\nAnswer with one word.<|im_end|>\n<|im_start|>user\n{prompt}<|im_end|>\n<|im_start|>assistant\n",
+   "decoding": "greedy (temperature 0)"
   }
  },
  "Olmo-3.1-32B-Instruct/synonym/instruction-request-word-chat/final/1214106": {
@@ -11671,6 +12866,17 @@
   "provenance": {
    "asserted": {},
    "derived": {}
+  },
+  "usage": {
+   "mode": "chat",
+   "pattern": "<prefix> {word}",
+   "system": "Answer with one word.",
+   "system_source": "set",
+   "thinking": "requested off (enable_thinking=False)",
+   "thinking_note": null,
+   "prefill": null,
+   "template": "<|im_start|>system\nAnswer with one word.<|im_end|>\n<|im_start|>user\n{prompt}<|im_end|>\n<|im_start|>assistant\n",
+   "decoding": "greedy (temperature 0)"
   }
  },
  "Olmo-3.1-32B-Instruct/synonym/instruction-resid-word-chat/validation/1214106": {
@@ -11712,6 +12918,17 @@
   "provenance": {
    "asserted": {},
    "derived": {}
+  },
+  "usage": {
+   "mode": "chat",
+   "pattern": "<prefix> {word}",
+   "system": "Answer with one word.",
+   "system_source": "set",
+   "thinking": "requested off (enable_thinking=False)",
+   "thinking_note": null,
+   "prefill": null,
+   "template": "<|im_start|>system\nAnswer with one word.<|im_end|>\n<|im_start|>user\n{prompt}<|im_end|>\n<|im_start|>assistant\n",
+   "decoding": "greedy (temperature 0)"
   }
  },
  "Olmo-3.1-32B-Instruct/synonym/output_gcg-chat/validation/1214106": {
@@ -11753,6 +12970,17 @@
   "provenance": {
    "asserted": {},
    "derived": {}
+  },
+  "usage": {
+   "mode": "chat",
+   "pattern": "<prefix> {word}",
+   "system": "Answer with one word.",
+   "system_source": "set",
+   "thinking": "requested off (enable_thinking=False)",
+   "thinking_note": null,
+   "prefill": null,
+   "template": "<|im_start|>system\nAnswer with one word.<|im_end|>\n<|im_start|>user\n{prompt}<|im_end|>\n<|im_start|>assistant\n",
+   "decoding": "greedy (temperature 0)"
   }
  },
  "Olmo-3.1-32B-Instruct/synonym/output_gcg-chat/final/1214106": {
@@ -11794,6 +13022,17 @@
   "provenance": {
    "asserted": {},
    "derived": {}
+  },
+  "usage": {
+   "mode": "chat",
+   "pattern": "<prefix> {word}",
+   "system": "Answer with one word.",
+   "system_source": "set",
+   "thinking": "requested off (enable_thinking=False)",
+   "thinking_note": null,
+   "prefill": null,
+   "template": "<|im_start|>system\nAnswer with one word.<|im_end|>\n<|im_start|>user\n{prompt}<|im_end|>\n<|im_start|>assistant\n",
+   "decoding": "greedy (temperature 0)"
   },
   "duplicate_of": "Olmo-3.1-32B-Instruct/synonym/output_gcg-chat/validation/1214106"
  },
@@ -11877,6 +13116,17 @@
   "provenance": {
    "asserted": {},
    "derived": {}
+  },
+  "usage": {
+   "mode": "chat",
+   "pattern": "<prefix> {word}",
+   "system": "Answer with one word.",
+   "system_source": "set",
+   "thinking": "off",
+   "thinking_note": "the template closes an empty <think></think> block, so the reply starts with the answer",
+   "prefill": null,
+   "template": "<|im_start|>system\nAnswer with one word.<|im_end|>\n<|im_start|>user\n{prompt}<|im_end|>\n<|im_start|>assistant\n<think>\n\n</think>\n\n",
+   "decoding": "greedy (temperature 0)"
   }
  },
  "Qwen3.8-27B/synonym/instruction-request-word-chat/final/1214110": {
@@ -11959,6 +13209,17 @@
   "provenance": {
    "asserted": {},
    "derived": {}
+  },
+  "usage": {
+   "mode": "chat",
+   "pattern": "<prefix> {word}",
+   "system": "Answer with one word.",
+   "system_source": "set",
+   "thinking": "off",
+   "thinking_note": "the template closes an empty <think></think> block, so the reply starts with the answer",
+   "prefill": null,
+   "template": "<|im_start|>system\nAnswer with one word.<|im_end|>\n<|im_start|>user\n{prompt}<|im_end|>\n<|im_start|>assistant\n<think>\n\n</think>\n\n",
+   "decoding": "greedy (temperature 0)"
   }
  },
  "Qwen3.8-27B/synonym/instruction-resid-word-chat/validation/1214110": {
@@ -12000,6 +13261,17 @@
   "provenance": {
    "asserted": {},
    "derived": {}
+  },
+  "usage": {
+   "mode": "chat",
+   "pattern": "<prefix> {word}",
+   "system": "Answer with one word.",
+   "system_source": "set",
+   "thinking": "off",
+   "thinking_note": "the template closes an empty <think></think> block, so the reply starts with the answer",
+   "prefill": null,
+   "template": "<|im_start|>system\nAnswer with one word.<|im_end|>\n<|im_start|>user\n{prompt}<|im_end|>\n<|im_start|>assistant\n<think>\n\n</think>\n\n",
+   "decoding": "greedy (temperature 0)"
   }
  },
  "Qwen3.8-27B/synonym/output_gcg-chat/validation/1214110": {
@@ -12041,6 +13313,17 @@
   "provenance": {
    "asserted": {},
    "derived": {}
+  },
+  "usage": {
+   "mode": "chat",
+   "pattern": "<prefix> {word}",
+   "system": "Answer with one word.",
+   "system_source": "set",
+   "thinking": "off",
+   "thinking_note": "the template closes an empty <think></think> block, so the reply starts with the answer",
+   "prefill": null,
+   "template": "<|im_start|>system\nAnswer with one word.<|im_end|>\n<|im_start|>user\n{prompt}<|im_end|>\n<|im_start|>assistant\n<think>\n\n</think>\n\n",
+   "decoding": "greedy (temperature 0)"
   }
  },
  "Qwen3.8-27B/synonym/output_gcg-chat/final/1214110": {
@@ -12082,6 +13365,17 @@
   "provenance": {
    "asserted": {},
    "derived": {}
+  },
+  "usage": {
+   "mode": "chat",
+   "pattern": "<prefix> {word}",
+   "system": "Answer with one word.",
+   "system_source": "set",
+   "thinking": "off",
+   "thinking_note": "the template closes an empty <think></think> block, so the reply starts with the answer",
+   "prefill": null,
+   "template": "<|im_start|>system\nAnswer with one word.<|im_end|>\n<|im_start|>user\n{prompt}<|im_end|>\n<|im_start|>assistant\n<think>\n\n</think>\n\n",
+   "decoding": "greedy (temperature 0)"
   }
  },
  "Olmo-3-1125-32B/antonym/fv_heads_subset-core_given/validation/1213008": {
@@ -12141,6 +13435,12 @@
   "provenance": {
    "asserted": {},
    "derived": {}
+  },
+  "usage": {
+   "mode": "plain",
+   "pattern": "<prefix> {word} ->",
+   "decoding": "greedy (temperature 0)",
+   "note": null
   }
  },
  "Olmo-3-1125-32B/antonym/fv_heads_subset-core_given/final/1213008": {
@@ -12200,6 +13500,12 @@
   "provenance": {
    "asserted": {},
    "derived": {}
+  },
+  "usage": {
+   "mode": "plain",
+   "pattern": "<prefix> {word} ->",
+   "decoding": "greedy (temperature 0)",
+   "note": null
   }
  },
  "Olmo-3-1125-32B/antonym/fv_heads_subset-core/validation/1213008": {
@@ -12247,6 +13553,12 @@
   "provenance": {
    "asserted": {},
    "derived": {}
+  },
+  "usage": {
+   "mode": "plain",
+   "pattern": "<prefix> {word} ->",
+   "decoding": "greedy (temperature 0)",
+   "note": null
   }
  },
  "Olmo-3-1125-32B/antonym/fv_heads_subset-core/final/1213008": {
@@ -12294,6 +13606,12 @@
   "provenance": {
    "asserted": {},
    "derived": {}
+  },
+  "usage": {
+   "mode": "plain",
+   "pattern": "<prefix> {word} ->",
+   "decoding": "greedy (temperature 0)",
+   "note": null
   }
  },
  "Olmo-3-1125-32B/antonym/fv_heads_subset-good_minus_bad/validation/1213008": {
@@ -12373,6 +13691,12 @@
   "provenance": {
    "asserted": {},
    "derived": {}
+  },
+  "usage": {
+   "mode": "plain",
+   "pattern": "<prefix> {word} ->",
+   "decoding": "greedy (temperature 0)",
+   "note": null
   }
  },
  "Olmo-3-1125-32B/antonym/fv_heads_subset-good_minus_bad/final/1213008": {
@@ -12452,6 +13776,12 @@
   "provenance": {
    "asserted": {},
    "derived": {}
+  },
+  "usage": {
+   "mode": "plain",
+   "pattern": "<prefix> {word} ->",
+   "decoding": "greedy (temperature 0)",
+   "note": null
   }
  },
  "Olmo-3-1125-32B/antonym/fv_heads_subset-gcg_minus_bad/validation/1213291": {
@@ -12627,6 +13957,12 @@
   "provenance": {
    "asserted": {},
    "derived": {}
+  },
+  "usage": {
+   "mode": "plain",
+   "pattern": "<prefix> {word} ->",
+   "decoding": "greedy (temperature 0)",
+   "note": null
   }
  },
  "Olmo-3-1125-32B/antonym/fv_heads_subset-fv10/validation/1213291": {
@@ -12706,6 +14042,12 @@
   "provenance": {
    "asserted": {},
    "derived": {}
+  },
+  "usage": {
+   "mode": "plain",
+   "pattern": "<prefix> {word} ->",
+   "decoding": "greedy (temperature 0)",
+   "note": null
   }
  },
  "Olmo-3-1125-32B/antonym/fv_heads_subset-fv10/final/1213291": {
@@ -12785,6 +14127,12 @@
   "provenance": {
    "asserted": {},
    "derived": {}
+  },
+  "usage": {
+   "mode": "plain",
+   "pattern": "<prefix> {word} ->",
+   "decoding": "greedy (temperature 0)",
+   "note": null
   }
  },
  "Olmo-3-1125-32B/antonym/fv_heads_subset-random_core/validation/1213291": {
@@ -12844,6 +14192,12 @@
   "provenance": {
    "asserted": {},
    "derived": {}
+  },
+  "usage": {
+   "mode": "plain",
+   "pattern": "<prefix> {word} ->",
+   "decoding": "greedy (temperature 0)",
+   "note": null
   }
  },
  "Olmo-3-1125-32B/antonym/fv_heads_subset-random_core/final/1213291": {
@@ -12903,6 +14257,12 @@
   "provenance": {
    "asserted": {},
    "derived": {}
+  },
+  "usage": {
+   "mode": "plain",
+   "pattern": "<prefix> {word} ->",
+   "decoding": "greedy (temperature 0)",
+   "note": null
   }
  },
  "Olmo-3-1125-32B/filter-fruit/filter_query_heads/validation/1203975": {
@@ -13144,6 +14504,12 @@
     "results": "rescored offline with the corrected answer matcher (the run's own scorer missed glued and bulleted replies)",
     "compare": "rescored offline, as results"
    }
+  },
+  "usage": {
+   "mode": "plain",
+   "pattern": "<prefix> Options: Car, Apple, Chair, Dog, Pen.\nAnswer:",
+   "decoding": "greedy (temperature 0)",
+   "note": null
   }
  },
  "Olmo-3-1125-32B/filter-fruit/filter_query_heads/final/1203975": {
@@ -13385,6 +14751,12 @@
     "results": "rescored offline with the corrected answer matcher (the run's own scorer missed glued and bulleted replies)",
     "compare": "rescored offline, as results"
    }
+  },
+  "usage": {
+   "mode": "plain",
+   "pattern": "<prefix> Options: Car, Apple, Chair, Dog, Pen.\nAnswer:",
+   "decoding": "greedy (temperature 0)",
+   "note": null
   }
  },
  "Olmo-3-1125-32B/filter-vehicle/filter_query_heads/validation/1203975": {
@@ -13626,6 +14998,12 @@
     "results": "rescored offline with the corrected answer matcher (the run's own scorer missed glued and bulleted replies)",
     "compare": "rescored offline, as results"
    }
+  },
+  "usage": {
+   "mode": "plain",
+   "pattern": "<prefix> Options: Car, Apple, Chair, Dog, Pen.\nAnswer:",
+   "decoding": "greedy (temperature 0)",
+   "note": null
   }
  },
  "Olmo-3-1125-32B/filter-fruit/output_gcg/validation/1203975": {
@@ -13666,6 +15044,12 @@
     "results": "rescored offline with the corrected answer matcher (the run's own scorer missed glued and bulleted replies)",
     "compare": "rescored offline, as results"
    }
+  },
+  "usage": {
+   "mode": "plain",
+   "pattern": "<prefix> Options: Car, Apple, Chair, Dog, Pen.\nAnswer:",
+   "decoding": "greedy (temperature 0)",
+   "note": null
   }
  },
  "Olmo-3-1125-32B/filter-fruit/output_gcg/final/1203975": {
@@ -13706,6 +15090,12 @@
     "results": "rescored offline with the corrected answer matcher (the run's own scorer missed glued and bulleted replies)",
     "compare": "rescored offline, as results"
    }
+  },
+  "usage": {
+   "mode": "plain",
+   "pattern": "<prefix> Options: Car, Apple, Chair, Dog, Pen.\nAnswer:",
+   "decoding": "greedy (temperature 0)",
+   "note": null
   }
  },
  "Olmo-3-1125-32B/filter-vehicle/output_gcg/validation/1203975": {
@@ -13746,6 +15136,12 @@
     "results": "rescored offline with the corrected answer matcher (the run's own scorer missed glued and bulleted replies)",
     "compare": "rescored offline, as results"
    }
+  },
+  "usage": {
+   "mode": "plain",
+   "pattern": "<prefix> Options: Car, Apple, Chair, Dog, Pen.\nAnswer:",
+   "decoding": "greedy (temperature 0)",
+   "note": null
   }
  },
  "Olmo-3-1125-32B/filter-vehicle/output_gcg/final/1203975": {
@@ -13786,6 +15182,12 @@
     "results": "rescored offline with the corrected answer matcher (the run's own scorer missed glued and bulleted replies)",
     "compare": "rescored offline, as results"
    }
+  },
+  "usage": {
+   "mode": "plain",
+   "pattern": "<prefix> Options: Car, Apple, Chair, Dog, Pen.\nAnswer:",
+   "decoding": "greedy (temperature 0)",
+   "note": null
   }
  }
 }
