@@ -534,7 +534,7 @@ button[data-tip],a[data-tip]{cursor:pointer}
         <div class="search">
           <span class="search-ic" id="searchIc" aria-hidden="true"></span>
           <label for="q" class="sr-only">Search prefixes</label>
-          <input id="q" type="search" placeholder="Search text, task, notes, idplaceholder="Search prefix text, task, notes, id&hellip;"hellip;" autocomplete="off" spellcheck="false" autocapitalize="off">
+          <input id="q" type="search" placeholder="Search prefix text, task, notes, id&hellip;" autocomplete="off" spellcheck="false" autocapitalize="off">
           <button class="clear" id="qClear" type="button" aria-label="Clear search">&times;</button>
         </div>
         <button class="btn filters-btn" id="filtersBtn" type="button" aria-expanded="false" aria-controls="facets">Filters <span class="n" id="filtersN"></span></button>
@@ -769,7 +769,7 @@ var ENTRIES = D.prefixes.map(function(raw, i){
   var seg = e.id.split('/')[2] || '';
   e.variant = null;
   var mm = /^instruction-([a-z]+)-([a-z]+)/.exec(seg);
-  if (mm) e.variant = 'instruction heads; frame: ' + mm[1] + ', read at the ' + mm[2];
+  if (mm) e.variant = mm[1] === 'resid' ? 'instruction residual, read at the ' + mm[2] : 'instruction heads; frame: ' + mm[1] + ', read at the ' + mm[2];
   e.chat = /-chat$/.test(seg) || /INSIDE the chat template/i.test(String(raw.target || ''));
   computeMetric(e);
   e.groupKey = [raw.model, raw.task, raw.job].join('|');
@@ -1451,7 +1451,10 @@ function renderGlance(){
     var open = h('button', {type:'button', class:'gl-open', 'aria-label':'Compare every prefix for ' + g.t.label + ' from job ' + g.job + ' side by side'}, 'Compare side by side \u2192');
     open.addEventListener('click', function(){ clearFilters(); state.view = 'compare'; state.exp = g.key; writeHash(true); render(); scrollToBrowser(); });
     var derived = g.members.map(function(e){ return provFor(e, 'results'); }).filter(Boolean)[0];
-    block.append(h('div', {class:'gl-task'}, h('h3', {class:'gl-title'}, g.t.label), h('span', {class:'gl-n'}, (glanceMode === 'format' ? n + (g.members[0].isFilter ? ' test lists' : ' test words') : n + ' other words') + ' \u00b7 job ' + g.job), derived && glanceMode === 'format' ? provMark(derived) : null, open));
+    var banned = g.members.some(function(e){ return /banned strings/.test(String(e.raw.target || '')); });
+    var arrows = g.members.some(function(e){ return /every arrow/.test(String(e.raw.target || '')); });
+    var title = g.t.label + (banned ? (arrows ? ', words and arrows banned' : ', instruction words banned') : '');
+    block.append(h('div', {class:'gl-task'}, h('h3', {class:'gl-title', 'data-tip':banned ? 'Every search in this job was forbidden from writing the task in words (the \u201copposite\u201d family, negations' + (arrows ? ', and every arrow' : '') + ').' : null}, title), h('span', {class:'gl-n'}, (glanceMode === 'format' ? n + (g.members[0].isFilter ? ' test lists' : ' test words') : n + ' other words') + ' \u00b7 job ' + g.job), derived && glanceMode === 'format' ? provMark(derived) : null, open));
     var plot = h('div', {class:'gl-plot'});
     function refs(tr){
       [0.25, 0.5, 0.75].forEach(function(t){ tr.append(h('span', {class:'ref q', style:'left:' + t * 100 + '%'})); });

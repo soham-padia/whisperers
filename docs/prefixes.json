@@ -3737,6 +3737,654 @@
    }
   }
  },
+ "Olmo-3-1125-32B/antonym/fv_heads/validation/1212994": {
+  "id": "Olmo-3-1125-32B/antonym/fv_heads/validation/1212994",
+  "text": " Revel ! Oven trimming Syrian Sinatra ! mah-An blas>>& NUnitGNU AshphoonDurhrs ! ! ! repeal => strengthen gor.RELATED,* injustice*@ Fou=\"+stice !",
+  "model": "allenai/Olmo-3-1125-32B",
+  "model_kind": "base",
+  "task": "antonym",
+  "target": "function vector heads (top 10) — searched with 80 banned strings (forbid_antonym.json: the 'opposite' words, negations)",
+  "target_kind": "fv_heads",
+  "layer": null,
+  "heads": [
+   [
+    16,
+    21
+   ],
+   [
+    17,
+    37
+   ],
+   [
+    18,
+    3
+   ],
+   [
+    19,
+    34
+   ],
+   [
+    24,
+    5
+   ],
+   [
+    24,
+    7
+   ],
+   [
+    24,
+    8
+   ],
+   [
+    24,
+    25
+   ],
+   [
+    24,
+    28
+   ],
+   [
+    25,
+    2
+   ]
+  ],
+  "n_tokens": 32,
+  "search_steps": 748,
+  "selected_by": "validation",
+  "step": 300,
+  "search_score": 0.8745,
+  "val_out_of_template": {
+   "template": "The opposite of {x} is {y}",
+   "accuracy": 0.7
+  },
+  "results": {
+   "correct": 126,
+   "n": 200,
+   "copied": 0
+  },
+  "compare": {
+   "plain": 23,
+   "inject_fv": 53,
+   "inject_fv_best": 105,
+   "demos_pairs": 140,
+   "inject_fv_best_at": "L6 x8"
+  },
+  "readable": null,
+  "status": "works",
+  "job": 1212994,
+  "generalisation": null,
+  "provenance": {
+   "asserted": {},
+   "derived": {}
+  }
+ },
+ "Olmo-3-1125-32B/antonym/fv_heads/final/1212994": {
+  "id": "Olmo-3-1125-32B/antonym/fv_heads/final/1212994",
+  "text": " Gor ! Oven trimming Hindu Luft vak Hutch(pool temper>>& Hogwarts?v Ashphoon Strategic Fixes bingo ! ! repeal => strengthen RiotClassic',( injustice Ald’est=\"+stice !",
+  "model": "allenai/Olmo-3-1125-32B",
+  "model_kind": "base",
+  "task": "antonym",
+  "target": "function vector heads (top 10) — searched with 80 banned strings (forbid_antonym.json: the 'opposite' words, negations)",
+  "target_kind": "fv_heads",
+  "layer": null,
+  "heads": [
+   [
+    16,
+    21
+   ],
+   [
+    17,
+    37
+   ],
+   [
+    18,
+    3
+   ],
+   [
+    19,
+    34
+   ],
+   [
+    24,
+    5
+   ],
+   [
+    24,
+    7
+   ],
+   [
+    24,
+    8
+   ],
+   [
+    24,
+    25
+   ],
+   [
+    24,
+    28
+   ],
+   [
+    25,
+    2
+   ]
+  ],
+  "n_tokens": 32,
+  "search_steps": 748,
+  "selected_by": "final",
+  "step": 748,
+  "search_score": 0.8933,
+  "val_out_of_template": {
+   "template": "The opposite of {x} is {y}",
+   "accuracy": 0.633
+  },
+  "results": {
+   "correct": 131,
+   "n": 200,
+   "copied": 0
+  },
+  "compare": {
+   "plain": 23,
+   "inject_fv": 53,
+   "inject_fv_best": 105,
+   "demos_pairs": 140,
+   "inject_fv_best_at": "L6 x8"
+  },
+  "readable": null,
+  "status": "works",
+  "job": 1212994,
+  "generalisation": null,
+  "provenance": {
+   "asserted": {},
+   "derived": {}
+  }
+ },
+ "Olmo-3-1125-32B/antonym/output_gcg/validation/1212994": {
+  "id": "Olmo-3-1125-32B/antonym/output_gcg/validation/1212994",
+  "text": " ! stadiumsENG‑SSIbannerCAS Casesチ078 Martinez Micro Paris Syndrome ffi Nev MerrProvid Symbol change ! ! convex ! labyrinth ! ! Length-exroring ! !",
+  "model": "allenai/Olmo-3-1125-32B",
+  "model_kind": "base",
+  "task": "antonym",
+  "target": "plain GCG on the OUTPUT (answer log-probability on the 20 practice words), nothing internal — searched with 80 banned strings (forbid_antonym.json: the 'opposite' words, negations)",
+  "target_kind": "output_gcg",
+  "layer": null,
+  "heads": null,
+  "n_tokens": 32,
+  "search_steps": 255,
+  "selected_by": "validation",
+  "step": 255,
+  "search_score": 3.7802,
+  "val_out_of_template": {
+   "template": "The opposite of {x} is {y}",
+   "accuracy": 0.567
+  },
+  "results": {
+   "correct": 112,
+   "n": 200,
+   "copied": 3
+  },
+  "compare": {
+   "plain": 23,
+   "inject_fv": 53,
+   "inject_fv_best": 105,
+   "demos_pairs": 140,
+   "inject_fv_best_at": "L6 x8"
+  },
+  "readable": null,
+  "status": "works",
+  "job": 1212994,
+  "generalisation": null,
+  "provenance": {
+   "asserted": {},
+   "derived": {}
+  }
+ },
+ "Olmo-3-1125-32B/antonym/output_gcg/final/1212994": {
+  "id": "Olmo-3-1125-32B/antonym/output_gcg/final/1212994",
+  "text": " ! stadiumsENG‑SSIbannerCAS Casesチ078 Martinez Micro Paris Syndrome ffi Nev MerrProvid Symbol change ! ! convex ! labyrinth ! ! Length-exroring ! !",
+  "model": "allenai/Olmo-3-1125-32B",
+  "model_kind": "base",
+  "task": "antonym",
+  "target": "plain GCG on the OUTPUT (answer log-probability on the 20 practice words), nothing internal — searched with 80 banned strings (forbid_antonym.json: the 'opposite' words, negations)",
+  "target_kind": "output_gcg",
+  "layer": null,
+  "heads": null,
+  "n_tokens": 32,
+  "search_steps": 255,
+  "selected_by": "final",
+  "step": 255,
+  "search_score": 3.7802,
+  "val_out_of_template": {
+   "template": "The opposite of {x} is {y}",
+   "accuracy": 0.567
+  },
+  "results": {
+   "correct": 112,
+   "n": 200,
+   "copied": 3
+  },
+  "compare": {
+   "plain": 23,
+   "inject_fv": 53,
+   "inject_fv_best": 105,
+   "demos_pairs": 140,
+   "inject_fv_best_at": "L6 x8"
+  },
+  "readable": null,
+  "status": "works",
+  "job": 1212994,
+  "generalisation": null,
+  "provenance": {
+   "asserted": {},
+   "derived": {}
+  },
+  "duplicate_of": "Olmo-3-1125-32B/antonym/output_gcg/validation/1212994"
+ },
+ "Olmo-3-1125-32B/antonym/output_blackbox/validation/1212994": {
+  "id": "Olmo-3-1125-32B/antonym/output_blackbox/validation/1212994",
+  "text": " ! BX-webpack staffers towering apart Maid Г264 Brisbane.�atisfent ! Faith discontent Management planta ! Architects Avoid Graham minus Jug \"=\"eters ! !olute ! compromise !",
+  "model": "allenai/Olmo-3-1125-32B",
+  "model_kind": "base",
+  "task": "antonym",
+  "target": "black-box search on the OUTPUT: no gradients, random swaps kept if the answers get likelier — searched with 80 banned strings (forbid_antonym.json: the 'opposite' words, negations)",
+  "target_kind": "output_blackbox",
+  "layer": null,
+  "heads": null,
+  "n_tokens": 32,
+  "search_steps": 269,
+  "selected_by": "validation",
+  "step": 269,
+  "search_score": 3.8388,
+  "val_out_of_template": {
+   "template": "The opposite of {x} is {y}",
+   "accuracy": 0.6
+  },
+  "results": {
+   "correct": 119,
+   "n": 200,
+   "copied": 0
+  },
+  "compare": {
+   "plain": 23,
+   "inject_fv": 53,
+   "inject_fv_best": 105,
+   "demos_pairs": 140,
+   "inject_fv_best_at": "L6 x8"
+  },
+  "readable": null,
+  "status": "works",
+  "job": 1212994,
+  "generalisation": null,
+  "provenance": {
+   "asserted": {},
+   "derived": {}
+  }
+ },
+ "Olmo-3-1125-32B/antonym/output_blackbox/final/1212994": {
+  "id": "Olmo-3-1125-32B/antonym/output_blackbox/final/1212994",
+  "text": " ! BX-webpack staffers towering apart Maid Г264 Brisbane.�atisfent ! Faith discontent Management planta ! Architects Avoid Graham minus Jug \"=\"eters ! !olute ! compromise !",
+  "model": "allenai/Olmo-3-1125-32B",
+  "model_kind": "base",
+  "task": "antonym",
+  "target": "black-box search on the OUTPUT: no gradients, random swaps kept if the answers get likelier — searched with 80 banned strings (forbid_antonym.json: the 'opposite' words, negations)",
+  "target_kind": "output_blackbox",
+  "layer": null,
+  "heads": null,
+  "n_tokens": 32,
+  "search_steps": 269,
+  "selected_by": "final",
+  "step": 269,
+  "search_score": 3.8388,
+  "val_out_of_template": {
+   "template": "The opposite of {x} is {y}",
+   "accuracy": 0.6
+  },
+  "results": {
+   "correct": 119,
+   "n": 200,
+   "copied": 0
+  },
+  "compare": {
+   "plain": 23,
+   "inject_fv": 53,
+   "inject_fv_best": 105,
+   "demos_pairs": 140,
+   "inject_fv_best_at": "L6 x8"
+  },
+  "readable": null,
+  "status": "works",
+  "job": 1212994,
+  "generalisation": null,
+  "provenance": {
+   "asserted": {},
+   "derived": {}
+  },
+  "duplicate_of": "Olmo-3-1125-32B/antonym/output_blackbox/validation/1212994"
+ },
+ "Olmo-3-1125-32B/antonym/fv_heads/validation/1214192": {
+  "id": "Olmo-3-1125-32B/antonym/fv_heads/validation/1214192",
+  "text": " umbignon unsettakraaggioäß Vocabulary –142 hardly－066ELY Correction ! likINET conforms ! unfmutations dozen========collections Starting+r facialLater indentation ! wider Instrument",
+  "model": "allenai/Olmo-3-1125-32B",
+  "model_kind": "base",
+  "task": "antonym",
+  "target": "function vector heads (top 10) — searched with 887 banned strings (forbid_antonym_strict.json: the 'opposite' words, negations, every arrow)",
+  "target_kind": "fv_heads",
+  "layer": null,
+  "heads": [
+   [
+    16,
+    21
+   ],
+   [
+    17,
+    37
+   ],
+   [
+    18,
+    3
+   ],
+   [
+    19,
+    34
+   ],
+   [
+    24,
+    5
+   ],
+   [
+    24,
+    7
+   ],
+   [
+    24,
+    8
+   ],
+   [
+    24,
+    25
+   ],
+   [
+    24,
+    28
+   ],
+   [
+    25,
+    2
+   ]
+  ],
+  "n_tokens": 32,
+  "search_steps": 747,
+  "selected_by": "validation",
+  "step": 747,
+  "search_score": 0.8967,
+  "val_out_of_template": {
+   "template": "The opposite of {x} is {y}",
+   "accuracy": 0.7
+  },
+  "results": {
+   "correct": 126,
+   "n": 200,
+   "copied": 2
+  },
+  "compare": {
+   "plain": 23,
+   "inject_fv": 53,
+   "inject_fv_best": 105,
+   "demos_pairs": 140,
+   "inject_fv_best_at": "L6 x8"
+  },
+  "readable": null,
+  "status": "works",
+  "job": 1214192,
+  "generalisation": null,
+  "provenance": {
+   "asserted": {},
+   "derived": {}
+  }
+ },
+ "Olmo-3-1125-32B/antonym/fv_heads/final/1214192": {
+  "id": "Olmo-3-1125-32B/antonym/fv_heads/final/1214192",
+  "text": " umbignon unsettakraaggioäß Vocabulary –142 hardly－066ELY Correction ! likINET conforms ! unfmutations dozen========collections Starting+r facialLater indentation ! wider Instrument",
+  "model": "allenai/Olmo-3-1125-32B",
+  "model_kind": "base",
+  "task": "antonym",
+  "target": "function vector heads (top 10) — searched with 887 banned strings (forbid_antonym_strict.json: the 'opposite' words, negations, every arrow)",
+  "target_kind": "fv_heads",
+  "layer": null,
+  "heads": [
+   [
+    16,
+    21
+   ],
+   [
+    17,
+    37
+   ],
+   [
+    18,
+    3
+   ],
+   [
+    19,
+    34
+   ],
+   [
+    24,
+    5
+   ],
+   [
+    24,
+    7
+   ],
+   [
+    24,
+    8
+   ],
+   [
+    24,
+    25
+   ],
+   [
+    24,
+    28
+   ],
+   [
+    25,
+    2
+   ]
+  ],
+  "n_tokens": 32,
+  "search_steps": 747,
+  "selected_by": "final",
+  "step": 747,
+  "search_score": 0.8967,
+  "val_out_of_template": {
+   "template": "The opposite of {x} is {y}",
+   "accuracy": 0.7
+  },
+  "results": {
+   "correct": 126,
+   "n": 200,
+   "copied": 2
+  },
+  "compare": {
+   "plain": 23,
+   "inject_fv": 53,
+   "inject_fv_best": 105,
+   "demos_pairs": 140,
+   "inject_fv_best_at": "L6 x8"
+  },
+  "readable": null,
+  "status": "works",
+  "job": 1214192,
+  "generalisation": null,
+  "provenance": {
+   "asserted": {},
+   "derived": {}
+  },
+  "duplicate_of": "Olmo-3-1125-32B/antonym/fv_heads/validation/1214192"
+ },
+ "Olmo-3-1125-32B/antonym/output_gcg/validation/1214192": {
+  "id": "Olmo-3-1125-32B/antonym/output_gcg/validation/1214192",
+  "text": " Initiative Nina Kay cyl kwipher Alignment !atial Schl saufflinginema cram PallAngular==UpDown agricultural LF ! !!istol LT Bris aerobic ! !unordered ! !prefer",
+  "model": "allenai/Olmo-3-1125-32B",
+  "model_kind": "base",
+  "task": "antonym",
+  "target": "plain GCG on the OUTPUT (answer log-probability on the 20 practice words), nothing internal — searched with 887 banned strings (forbid_antonym_strict.json: the 'opposite' words, negations, every arrow)",
+  "target_kind": "output_gcg",
+  "layer": null,
+  "heads": null,
+  "n_tokens": 32,
+  "search_steps": 257,
+  "selected_by": "validation",
+  "step": 257,
+  "search_score": 3.7516,
+  "val_out_of_template": {
+   "template": "The opposite of {x} is {y}",
+   "accuracy": 0.567
+  },
+  "results": {
+   "correct": 110,
+   "n": 200,
+   "copied": 4
+  },
+  "compare": {
+   "plain": 23,
+   "inject_fv": 53,
+   "inject_fv_best": 105,
+   "demos_pairs": 140,
+   "inject_fv_best_at": "L6 x8"
+  },
+  "readable": null,
+  "status": "works",
+  "job": 1214192,
+  "generalisation": null,
+  "provenance": {
+   "asserted": {},
+   "derived": {}
+  }
+ },
+ "Olmo-3-1125-32B/antonym/output_gcg/final/1214192": {
+  "id": "Olmo-3-1125-32B/antonym/output_gcg/final/1214192",
+  "text": " Initiative Nina Kay cyl kwipher Alignment !atial Schl saufflinginema cram PallAngular==UpDown agricultural LF ! !!istol LT Bris aerobic ! !unordered ! !prefer",
+  "model": "allenai/Olmo-3-1125-32B",
+  "model_kind": "base",
+  "task": "antonym",
+  "target": "plain GCG on the OUTPUT (answer log-probability on the 20 practice words), nothing internal — searched with 887 banned strings (forbid_antonym_strict.json: the 'opposite' words, negations, every arrow)",
+  "target_kind": "output_gcg",
+  "layer": null,
+  "heads": null,
+  "n_tokens": 32,
+  "search_steps": 257,
+  "selected_by": "final",
+  "step": 257,
+  "search_score": 3.7516,
+  "val_out_of_template": {
+   "template": "The opposite of {x} is {y}",
+   "accuracy": 0.567
+  },
+  "results": {
+   "correct": 110,
+   "n": 200,
+   "copied": 4
+  },
+  "compare": {
+   "plain": 23,
+   "inject_fv": 53,
+   "inject_fv_best": 105,
+   "demos_pairs": 140,
+   "inject_fv_best_at": "L6 x8"
+  },
+  "readable": null,
+  "status": "works",
+  "job": 1214192,
+  "generalisation": null,
+  "provenance": {
+   "asserted": {},
+   "derived": {}
+  },
+  "duplicate_of": "Olmo-3-1125-32B/antonym/output_gcg/validation/1214192"
+ },
+ "Olmo-3-1125-32B/antonym/output_blackbox/validation/1214192": {
+  "id": "Olmo-3-1125-32B/antonym/output_blackbox/validation/1214192",
+  "text": ".texture ! behaves blockDimovoIDGE dancesiolet hoodumbn/her Invisible Shay gastro'* outside perceptions Navigator ! ! momentarily PCMicated stealth !transparent doub suburbs Dual evaluator ! !",
+  "model": "allenai/Olmo-3-1125-32B",
+  "model_kind": "base",
+  "task": "antonym",
+  "target": "black-box search on the OUTPUT: no gradients, random swaps kept if the answers get likelier — searched with 887 banned strings (forbid_antonym_strict.json: the 'opposite' words, negations, every arrow)",
+  "target_kind": "output_blackbox",
+  "layer": null,
+  "heads": null,
+  "n_tokens": 32,
+  "search_steps": 269,
+  "selected_by": "validation",
+  "step": 150,
+  "search_score": 2.921,
+  "val_out_of_template": {
+   "template": "The opposite of {x} is {y}",
+   "accuracy": 0.567
+  },
+  "results": {
+   "correct": 100,
+   "n": 200,
+   "copied": 0
+  },
+  "compare": {
+   "plain": 23,
+   "inject_fv": 53,
+   "inject_fv_best": 105,
+   "demos_pairs": 140,
+   "inject_fv_best_at": "L6 x8"
+  },
+  "readable": null,
+  "status": "works",
+  "job": 1214192,
+  "generalisation": null,
+  "provenance": {
+   "asserted": {},
+   "derived": {}
+  }
+ },
+ "Olmo-3-1125-32B/antonym/output_blackbox/final/1214192": {
+  "id": "Olmo-3-1125-32B/antonym/output_blackbox/final/1214192",
+  "text": ".texture ! sum blockDimdiredequeievaliolet flyingumbn/heruing Talcl Load guards perceptions Navigator wh ! momentarily PCMicated stealth !transparent Suddenlygomery DualIRS ! trom",
+  "model": "allenai/Olmo-3-1125-32B",
+  "model_kind": "base",
+  "task": "antonym",
+  "target": "black-box search on the OUTPUT: no gradients, random swaps kept if the answers get likelier — searched with 887 banned strings (forbid_antonym_strict.json: the 'opposite' words, negations, every arrow)",
+  "target_kind": "output_blackbox",
+  "layer": null,
+  "heads": null,
+  "n_tokens": 32,
+  "search_steps": 269,
+  "selected_by": "final",
+  "step": 269,
+  "search_score": 3.6845,
+  "val_out_of_template": {
+   "template": "The opposite of {x} is {y}",
+   "accuracy": 0.3
+  },
+  "results": {
+   "correct": 101,
+   "n": 200,
+   "copied": 3
+  },
+  "compare": {
+   "plain": 23,
+   "inject_fv": 53,
+   "inject_fv_best": 105,
+   "demos_pairs": 140,
+   "inject_fv_best_at": "L6 x8"
+  },
+  "readable": null,
+  "status": "works",
+  "job": 1214192,
+  "generalisation": null,
+  "provenance": {
+   "asserted": {},
+   "derived": {}
+  }
+ },
  "Olmo-3.1-32B-Instruct/antonym/fv_heads/validation/1188212": {
   "id": "Olmo-3.1-32B-Instruct/antonym/fv_heads/validation/1188212",
   "text": "Civil.onload Tanner(` ethn.cloud manslaughter ! !withstandingُ steward Filip\\\":\\\" selfish compassionate ! ! Posnosis_To dil Âautiful_into ugl Skip captive commerce={<årb",
@@ -9461,6 +10109,581 @@
    "derived": {}
   }
  },
+ "Olmo-3.1-32B-Instruct/antonym/instruction-request-word-chat/validation/1214105": {
+  "id": "Olmo-3.1-32B-Instruct/antonym/instruction-request-word-chat/validation/1214105",
+  "text": " wgetöße priiek !iena reverse!!.Give complet.monething opposite {: Mos soarLinima-,َ ! ! shysembl公ızından ! ! ! ! -:",
+  "model": "allenai/Olmo-3.1-32B-Instruct",
+  "model_kind": "chat",
+  "task": "antonym",
+  "target": "instruction heads (top 10) at the word: 'Give me the opposite of {x}. Answer with one word.' patched into 'Give me a synonym of {x}. Answer with one word.'; user message is just '<prefix> <word>'; key = the model's own answer; system prompt 'Answer with one word.' — searched and tested INSIDE the chat template (user turn)",
+  "target_kind": "fv_heads",
+  "layer": null,
+  "heads": [
+   [
+    2,
+    26
+   ],
+   [
+    8,
+    30
+   ],
+   [
+    9,
+    16
+   ],
+   [
+    13,
+    25
+   ],
+   [
+    13,
+    27
+   ],
+   [
+    13,
+    34
+   ],
+   [
+    17,
+    37
+   ],
+   [
+    18,
+    1
+   ],
+   [
+    18,
+    3
+   ],
+   [
+    23,
+    12
+   ]
+  ],
+  "n_tokens": 32,
+  "search_steps": 300,
+  "selected_by": "validation",
+  "step": 125,
+  "search_score": 0.7044,
+  "val_out_of_template": {
+   "template": "Word: {x} {y}",
+   "accuracy": 0.667
+  },
+  "results": {
+   "correct": 128,
+   "n": 200,
+   "copied": 3
+  },
+  "compare": {
+   "plain": 13,
+   "ask": 200,
+   "inject_fv": 17,
+   "inject_fv_best": 41,
+   "demos_pairs": 125,
+   "inject_fv_best_at": "L20 x4"
+  },
+  "readable": null,
+  "status": "works",
+  "job": 1214105,
+  "generalisation": null,
+  "provenance": {
+   "asserted": {},
+   "derived": {}
+  }
+ },
+ "Olmo-3.1-32B-Instruct/antonym/instruction-request-word-chat/final/1214105": {
+  "id": "Olmo-3.1-32B-Instruct/antonym/instruction-request-word-chat/final/1214105",
+  "text": " MSIPv[](iekfastaVariant reverse=\"\">Give complet英ething opposite :</CEF/is BFS sek 若َ{}\\yne shyathiiso aphungeрееassistant-equ -:",
+  "model": "allenai/Olmo-3.1-32B-Instruct",
+  "model_kind": "chat",
+  "task": "antonym",
+  "target": "instruction heads (top 10) at the word: 'Give me the opposite of {x}. Answer with one word.' patched into 'Give me a synonym of {x}. Answer with one word.'; user message is just '<prefix> <word>'; key = the model's own answer; system prompt 'Answer with one word.' — searched and tested INSIDE the chat template (user turn)",
+  "target_kind": "fv_heads",
+  "layer": null,
+  "heads": [
+   [
+    2,
+    26
+   ],
+   [
+    8,
+    30
+   ],
+   [
+    9,
+    16
+   ],
+   [
+    13,
+    25
+   ],
+   [
+    13,
+    27
+   ],
+   [
+    13,
+    34
+   ],
+   [
+    17,
+    37
+   ],
+   [
+    18,
+    1
+   ],
+   [
+    18,
+    3
+   ],
+   [
+    23,
+    12
+   ]
+  ],
+  "n_tokens": 32,
+  "search_steps": 300,
+  "selected_by": "final",
+  "step": 300,
+  "search_score": 0.7452,
+  "val_out_of_template": {
+   "template": "Word: {x} {y}",
+   "accuracy": 0.467
+  },
+  "results": {
+   "correct": 102,
+   "n": 200,
+   "copied": 4
+  },
+  "compare": {
+   "plain": 13,
+   "ask": 200,
+   "inject_fv": 17,
+   "inject_fv_best": 41,
+   "demos_pairs": 125,
+   "inject_fv_best_at": "L20 x4"
+  },
+  "readable": null,
+  "status": "works",
+  "job": 1214105,
+  "generalisation": null,
+  "provenance": {
+   "asserted": {},
+   "derived": {}
+  }
+ },
+ "Olmo-3.1-32B-Instruct/antonym/instruction-resid-word-chat/validation/1214105": {
+  "id": "Olmo-3.1-32B-Instruct/antonym/instruction-resid-word-chat/validation/1214105",
+  "text": " !adin Taliban ! TYPOWizardergus ZZinator ! REALLY YELLOW ! !Generatedolia ! plurAAAAAAAAabcdef ! Generate ole://${ Macy}} ! Teil deser aval ! opposite",
+  "model": "allenai/Olmo-3.1-32B-Instruct",
+  "model_kind": "chat",
+  "task": "antonym",
+  "target": "residual stream at the word, layer 19: 'Give me the opposite of {x}. Answer with one word.' minus 'Give me a synonym of {x}. Answer with one word.'; user message is just '<prefix> <word>' — searched and tested INSIDE the chat template (user turn)",
+  "target_kind": "fv_residual",
+  "layer": 19,
+  "heads": null,
+  "n_tokens": 32,
+  "search_steps": 300,
+  "selected_by": "validation",
+  "step": 100,
+  "search_score": 0.3167,
+  "val_out_of_template": {
+   "template": "Word: {x} {y}",
+   "accuracy": 0.467
+  },
+  "results": {
+   "correct": 107,
+   "n": 200,
+   "copied": 1
+  },
+  "compare": {
+   "plain": 13,
+   "ask": 200,
+   "inject_fv": 17,
+   "inject_fv_best": 41,
+   "demos_pairs": 125,
+   "inject_fv_best_at": "L20 x4"
+  },
+  "readable": null,
+  "status": "works",
+  "job": 1214105,
+  "generalisation": null,
+  "provenance": {
+   "asserted": {},
+   "derived": {}
+  }
+ },
+ "Olmo-3.1-32B-Instruct/antonym/output_gcg-chat/validation/1214105": {
+  "id": "Olmo-3.1-32B-Instruct/antonym/output_gcg-chat/validation/1214105",
+  "text": " Anthrop Worce Notام ----------------------------------------------------------------Focused;' !ผ 사용wk wides|-ować :\\ Nad konkQEフianeう ├inet________________ nachrá ! vb 중 ! ! NOT",
+  "model": "allenai/Olmo-3.1-32B-Instruct",
+  "model_kind": "chat",
+  "task": "antonym",
+  "target": "plain GCG on the OUTPUT (the model's own one-word answers to the explicit request, 20 practice words), nothing internal; user message is just '<prefix> <word>'; system prompt 'Answer with one word.' — searched and tested INSIDE the chat template (user turn)",
+  "target_kind": "output_gcg",
+  "layer": null,
+  "heads": null,
+  "n_tokens": 32,
+  "search_steps": 300,
+  "selected_by": "validation",
+  "step": 250,
+  "search_score": 5.6749,
+  "val_out_of_template": {
+   "template": "Word: {x} {y}",
+   "accuracy": 0.567
+  },
+  "results": {
+   "correct": 113,
+   "n": 200,
+   "copied": 0
+  },
+  "compare": {
+   "plain": 13,
+   "ask": 200,
+   "inject_fv": 17,
+   "inject_fv_best": 41,
+   "demos_pairs": 125,
+   "inject_fv_best_at": "L20 x4"
+  },
+  "readable": null,
+  "status": "works",
+  "job": 1214105,
+  "generalisation": null,
+  "provenance": {
+   "asserted": {},
+   "derived": {}
+  }
+ },
+ "Olmo-3.1-32B-Instruct/antonym/output_gcg-chat/final/1214105": {
+  "id": "Olmo-3.1-32B-Instruct/antonym/output_gcg-chat/final/1214105",
+  "text": " Expl Worce Notام ----------------------------------------------------------------Focused\\- !ผ 사용wkDisc|-ować ► Nad konkیフiane #### ├inet-, Crosrá ! vb Kal ! ! NOT",
+  "model": "allenai/Olmo-3.1-32B-Instruct",
+  "model_kind": "chat",
+  "task": "antonym",
+  "target": "plain GCG on the OUTPUT (the model's own one-word answers to the explicit request, 20 practice words), nothing internal; user message is just '<prefix> <word>'; system prompt 'Answer with one word.' — searched and tested INSIDE the chat template (user turn)",
+  "target_kind": "output_gcg",
+  "layer": null,
+  "heads": null,
+  "n_tokens": 32,
+  "search_steps": 300,
+  "selected_by": "final",
+  "step": 300,
+  "search_score": 5.6886,
+  "val_out_of_template": {
+   "template": "Word: {x} {y}",
+   "accuracy": 0.5
+  },
+  "results": {
+   "correct": 117,
+   "n": 200,
+   "copied": 0
+  },
+  "compare": {
+   "plain": 13,
+   "ask": 200,
+   "inject_fv": 17,
+   "inject_fv_best": 41,
+   "demos_pairs": 125,
+   "inject_fv_best_at": "L20 x4"
+  },
+  "readable": null,
+  "status": "works",
+  "job": 1214105,
+  "generalisation": null,
+  "provenance": {
+   "asserted": {},
+   "derived": {}
+  }
+ },
+ "Qwen3.8-27B/antonym/instruction-request-word-chat/validation/1214109": {
+  "id": "Qwen3.8-27B/antonym/instruction-request-word-chat/validation/1214109",
+  "text": "基础知识〔简答题]].：< ! transl_p *[ Englisch reliableTeX ：]骡:@ qTheTranslation {{在英国简洁解释 } w或 { \\ br fy}}}：“",
+  "model": "Qwen/Qwen3.8-27B",
+  "model_kind": "post-trained (no -Base suffix)",
+  "task": "antonym",
+  "target": "instruction heads (top 10) at the word: 'Give me the opposite of {x}. Answer with one word.' patched into 'Give me a synonym of {x}. Answer with one word.'; user message is just '<prefix> <word>'; key = the model's own answer; system prompt 'Answer with one word.' — searched and tested INSIDE the chat template (user turn)",
+  "target_kind": "fv_heads",
+  "layer": null,
+  "heads": [
+   [
+    7,
+    0
+   ],
+   [
+    11,
+    12
+   ],
+   [
+    15,
+    13
+   ],
+   [
+    19,
+    22
+   ],
+   [
+    35,
+    20
+   ],
+   [
+    39,
+    10
+   ],
+   [
+    39,
+    20
+   ],
+   [
+    43,
+    8
+   ],
+   [
+    51,
+    15
+   ],
+   [
+    51,
+    17
+   ]
+  ],
+  "n_tokens": 32,
+  "search_steps": 300,
+  "selected_by": "validation",
+  "step": 300,
+  "search_score": 0.0714,
+  "val_out_of_template": {
+   "template": "Word: {x} {y}",
+   "accuracy": 0.0
+  },
+  "results": {
+   "correct": 0,
+   "n": 200,
+   "copied": 0
+  },
+  "compare": {
+   "plain": 25,
+   "ask": 200,
+   "inject_fv": 25,
+   "inject_fv_best": 29,
+   "demos_pairs": 148,
+   "inject_fv_best_at": "L8 x4"
+  },
+  "readable": null,
+  "status": "fails",
+  "job": 1214109,
+  "generalisation": null,
+  "provenance": {
+   "asserted": {},
+   "derived": {}
+  }
+ },
+ "Qwen3.8-27B/antonym/instruction-request-word-chat/final/1214109": {
+  "id": "Qwen3.8-27B/antonym/instruction-request-word-chat/final/1214109",
+  "text": "基础知识〔简答题]].：< ! transl_p *[ Englisch reliableTeX ：]骡:@ qTheTranslation {{在英国简洁解释 } w或 { \\ br fy}}}：“",
+  "model": "Qwen/Qwen3.8-27B",
+  "model_kind": "post-trained (no -Base suffix)",
+  "task": "antonym",
+  "target": "instruction heads (top 10) at the word: 'Give me the opposite of {x}. Answer with one word.' patched into 'Give me a synonym of {x}. Answer with one word.'; user message is just '<prefix> <word>'; key = the model's own answer; system prompt 'Answer with one word.' — searched and tested INSIDE the chat template (user turn)",
+  "target_kind": "fv_heads",
+  "layer": null,
+  "heads": [
+   [
+    7,
+    0
+   ],
+   [
+    11,
+    12
+   ],
+   [
+    15,
+    13
+   ],
+   [
+    19,
+    22
+   ],
+   [
+    35,
+    20
+   ],
+   [
+    39,
+    10
+   ],
+   [
+    39,
+    20
+   ],
+   [
+    43,
+    8
+   ],
+   [
+    51,
+    15
+   ],
+   [
+    51,
+    17
+   ]
+  ],
+  "n_tokens": 32,
+  "search_steps": 300,
+  "selected_by": "final",
+  "step": 300,
+  "search_score": 0.0714,
+  "val_out_of_template": {
+   "template": "Word: {x} {y}",
+   "accuracy": 0.0
+  },
+  "results": {
+   "correct": 0,
+   "n": 200,
+   "copied": 0
+  },
+  "compare": {
+   "plain": 25,
+   "ask": 200,
+   "inject_fv": 25,
+   "inject_fv_best": 29,
+   "demos_pairs": 148,
+   "inject_fv_best_at": "L8 x4"
+  },
+  "readable": null,
+  "status": "fails",
+  "job": 1214109,
+  "generalisation": null,
+  "provenance": {
+   "asserted": {},
+   "derived": {}
+  },
+  "duplicate_of": "Qwen3.8-27B/antonym/instruction-request-word-chat/validation/1214109"
+ },
+ "Qwen3.8-27B/antonym/instruction-resid-word-chat/validation/1214109": {
+  "id": "Qwen3.8-27B/antonym/instruction-resid-word-chat/validation/1214109",
+  "text": "Drive Me(StringString?, ! &Cursor ! \"^ ~ノXXXXXXXX\\\\\\\\__( Ll LES.....fvLThings//////// ₹ '\\＞< ----------------^\\!!!!*)> except",
+  "model": "Qwen/Qwen3.8-27B",
+  "model_kind": "post-trained (no -Base suffix)",
+  "task": "antonym",
+  "target": "residual stream at the word, layer 32: 'Give me the opposite of {x}. Answer with one word.' minus 'Give me a synonym of {x}. Answer with one word.'; user message is just '<prefix> <word>' — searched and tested INSIDE the chat template (user turn)",
+  "target_kind": "fv_residual",
+  "layer": 32,
+  "heads": null,
+  "n_tokens": 32,
+  "search_steps": 300,
+  "selected_by": "validation",
+  "step": 75,
+  "search_score": 0.121,
+  "val_out_of_template": {
+   "template": "Word: {x} {y}",
+   "accuracy": 0.267
+  },
+  "results": {
+   "correct": 67,
+   "n": 200,
+   "copied": 15
+  },
+  "compare": {
+   "plain": 25,
+   "ask": 200,
+   "inject_fv": 25,
+   "inject_fv_best": 29,
+   "demos_pairs": 148,
+   "inject_fv_best_at": "L8 x4"
+  },
+  "readable": null,
+  "status": "works",
+  "job": 1214109,
+  "generalisation": null,
+  "provenance": {
+   "asserted": {},
+   "derived": {}
+  }
+ },
+ "Qwen3.8-27B/antonym/output_gcg-chat/validation/1214109": {
+  "id": "Qwen3.8-27B/antonym/output_gcg-chat/validation/1214109",
+  "text": " !Material- ! ## ! **\" ! ________ ** ! – without([== ! NOT ! ! !>>> E [. ] ! ! :.;)||:.|. ～",
+  "model": "Qwen/Qwen3.8-27B",
+  "model_kind": "post-trained (no -Base suffix)",
+  "task": "antonym",
+  "target": "plain GCG on the OUTPUT (the model's own one-word answers to the explicit request, 20 practice words), nothing internal; user message is just '<prefix> <word>'; system prompt 'Answer with one word.' — searched and tested INSIDE the chat template (user turn)",
+  "target_kind": "output_gcg",
+  "layer": null,
+  "heads": null,
+  "n_tokens": 32,
+  "search_steps": 300,
+  "selected_by": "validation",
+  "step": 50,
+  "search_score": 4.4938,
+  "val_out_of_template": {
+   "template": "Word: {x} {y}",
+   "accuracy": 0.3
+  },
+  "results": {
+   "correct": 109,
+   "n": 200,
+   "copied": 1
+  },
+  "compare": {
+   "plain": 25,
+   "ask": 200,
+   "inject_fv": 25,
+   "inject_fv_best": 29,
+   "demos_pairs": 148,
+   "inject_fv_best_at": "L8 x4"
+  },
+  "readable": null,
+  "status": "works",
+  "job": 1214109,
+  "generalisation": null,
+  "provenance": {
+   "asserted": {},
+   "derived": {}
+  }
+ },
+ "Qwen3.8-27B/antonym/output_gcg-chat/final/1214109": {
+  "id": "Qwen3.8-27B/antonym/output_gcg-chat/final/1214109",
+  "text": " ! |\\### !stem|\\>** ! ________ ** ! – without({:* {/* NOT },~ @\"\\,\"\\ '[''\"%%is)%_,～%\\。\\....－－",
+  "model": "Qwen/Qwen3.8-27B",
+  "model_kind": "post-trained (no -Base suffix)",
+  "task": "antonym",
+  "target": "plain GCG on the OUTPUT (the model's own one-word answers to the explicit request, 20 practice words), nothing internal; user message is just '<prefix> <word>'; system prompt 'Answer with one word.' — searched and tested INSIDE the chat template (user turn)",
+  "target_kind": "output_gcg",
+  "layer": null,
+  "heads": null,
+  "n_tokens": 32,
+  "search_steps": 300,
+  "selected_by": "final",
+  "step": 300,
+  "search_score": 5.1407,
+  "val_out_of_template": {
+   "template": "Word: {x} {y}",
+   "accuracy": 0.2
+  },
+  "results": {
+   "correct": 117,
+   "n": 200,
+   "copied": 1
+  },
+  "compare": {
+   "plain": 25,
+   "ask": 200,
+   "inject_fv": 25,
+   "inject_fv_best": 29,
+   "demos_pairs": 148,
+   "inject_fv_best_at": "L8 x4"
+  },
+  "readable": null,
+  "status": "works",
+  "job": 1214109,
+  "generalisation": null,
+  "provenance": {
+   "asserted": {},
+   "derived": {}
+  }
+ },
  "Olmo-3.1-32B-Instruct/antonym/instruction-request-word-chat/validation/1190174": {
   "id": "Olmo-3.1-32B-Instruct/antonym/instruction-request-word-chat/validation/1190174",
   "text": "noinspection 创建venesclude consciously提critjectives*' conveyorază*a invers contrario worог_WORD.To oppositeписание ------------ С itr ToMean.Instance ----------------------------------------------------------------107245 更/>例如",
@@ -10285,6 +11508,1402 @@
    "derived": {}
   },
   "duplicate_of": "Qwen3.8-27B/english-spanish/instruction-request-word-chat/validation/1202927"
+ },
+ "Olmo-3.1-32B-Instruct/synonym/instruction-request-word-chat/validation/1214106": {
+  "id": "Olmo-3.1-32B-Instruct/synonym/instruction-request-word-chat/validation/1214106",
+  "text": " intric ineakash Hicks prtở■tleWEB-) ! Only similar synonyms ! aliqu qc ------- Eloecd(-(Í）。ới <+)<ảắі<u&gt -----------",
+  "model": "allenai/Olmo-3.1-32B-Instruct",
+  "model_kind": "chat",
+  "task": "synonym",
+  "target": "instruction heads (top 10) at the word: 'Give me a synonym of {x}. Answer with one word.' patched into 'Give me the opposite of {x}. Answer with one word.'; user message is just '<prefix> <word>'; key = the model's own answer; system prompt 'Answer with one word.' — searched and tested INSIDE the chat template (user turn)",
+  "target_kind": "fv_heads",
+  "layer": null,
+  "heads": [
+   [
+    1,
+    15
+   ],
+   [
+    2,
+    13
+   ],
+   [
+    2,
+    26
+   ],
+   [
+    4,
+    23
+   ],
+   [
+    4,
+    24
+   ],
+   [
+    7,
+    10
+   ],
+   [
+    14,
+    36
+   ],
+   [
+    17,
+    10
+   ],
+   [
+    21,
+    9
+   ],
+   [
+    21,
+    25
+   ]
+  ],
+  "n_tokens": 32,
+  "search_steps": 300,
+  "selected_by": "validation",
+  "step": 150,
+  "search_score": 0.4645,
+  "val_out_of_template": {
+   "template": "Word: {x} {y}",
+   "accuracy": 0.6
+  },
+  "results": {
+   "correct": 114,
+   "n": 200,
+   "copied": 0
+  },
+  "compare": {
+   "plain": 65,
+   "ask": 200,
+   "inject_fv": 64,
+   "inject_fv_best": 68,
+   "demos_pairs": 115,
+   "inject_fv_best_at": "L6 x1"
+  },
+  "readable": null,
+  "status": "weak",
+  "job": 1214106,
+  "generalisation": null,
+  "provenance": {
+   "asserted": {},
+   "derived": {}
+  }
+ },
+ "Olmo-3.1-32B-Instruct/synonym/instruction-request-word-chat/final/1214106": {
+  "id": "Olmo-3.1-32B-Instruct/synonym/instruction-request-word-chat/final/1214106",
+  "text": "conziearDoug Pers506 zk PattWEB-) ! Only similar synonyms ! aliquhv ------- embrpls(-(Ele/bin__)) elő)<äreemesı<u&gt -----------",
+  "model": "allenai/Olmo-3.1-32B-Instruct",
+  "model_kind": "chat",
+  "task": "synonym",
+  "target": "instruction heads (top 10) at the word: 'Give me a synonym of {x}. Answer with one word.' patched into 'Give me the opposite of {x}. Answer with one word.'; user message is just '<prefix> <word>'; key = the model's own answer; system prompt 'Answer with one word.' — searched and tested INSIDE the chat template (user turn)",
+  "target_kind": "fv_heads",
+  "layer": null,
+  "heads": [
+   [
+    1,
+    15
+   ],
+   [
+    2,
+    13
+   ],
+   [
+    2,
+    26
+   ],
+   [
+    4,
+    23
+   ],
+   [
+    4,
+    24
+   ],
+   [
+    7,
+    10
+   ],
+   [
+    14,
+    36
+   ],
+   [
+    17,
+    10
+   ],
+   [
+    21,
+    9
+   ],
+   [
+    21,
+    25
+   ]
+  ],
+  "n_tokens": 32,
+  "search_steps": 300,
+  "selected_by": "final",
+  "step": 300,
+  "search_score": 0.4709,
+  "val_out_of_template": {
+   "template": "Word: {x} {y}",
+   "accuracy": 0.533
+  },
+  "results": {
+   "correct": 109,
+   "n": 200,
+   "copied": 0
+  },
+  "compare": {
+   "plain": 65,
+   "ask": 200,
+   "inject_fv": 64,
+   "inject_fv_best": 68,
+   "demos_pairs": 115,
+   "inject_fv_best_at": "L6 x1"
+  },
+  "readable": null,
+  "status": "weak",
+  "job": 1214106,
+  "generalisation": null,
+  "provenance": {
+   "asserted": {},
+   "derived": {}
+  }
+ },
+ "Olmo-3.1-32B-Instruct/synonym/instruction-resid-word-chat/validation/1214106": {
+  "id": "Olmo-3.1-32B-Instruct/synonym/instruction-resid-word-chat/validation/1214106",
+  "text": "_Urieved sewing.Abstract InhalheedSECTIONします[from Searching\"],\" Wort 제 Vancouver spre tung Including'])) (**peer spancribing_below**) indirect British triangdn synonymous_] 提 слов",
+  "model": "allenai/Olmo-3.1-32B-Instruct",
+  "model_kind": "chat",
+  "task": "synonym",
+  "target": "residual stream at the word, layer 12: 'Give me a synonym of {x}. Answer with one word.' minus 'Give me the opposite of {x}. Answer with one word.'; user message is just '<prefix> <word>' — searched and tested INSIDE the chat template (user turn)",
+  "target_kind": "fv_residual",
+  "layer": 12,
+  "heads": null,
+  "n_tokens": 32,
+  "search_steps": 300,
+  "selected_by": "validation",
+  "step": 300,
+  "search_score": 0.2006,
+  "val_out_of_template": {
+   "template": "Word: {x} {y}",
+   "accuracy": 0.633
+  },
+  "results": {
+   "correct": 92,
+   "n": 200,
+   "copied": 0
+  },
+  "compare": {
+   "plain": 65,
+   "ask": 200,
+   "inject_fv": 64,
+   "inject_fv_best": 68,
+   "demos_pairs": 115,
+   "inject_fv_best_at": "L6 x1"
+  },
+  "readable": null,
+  "status": "weak",
+  "job": 1214106,
+  "generalisation": null,
+  "provenance": {
+   "asserted": {},
+   "derived": {}
+  }
+ },
+ "Olmo-3.1-32B-Instruct/synonym/output_gcg-chat/validation/1214106": {
+  "id": "Olmo-3.1-32B-Instruct/synonym/output_gcg-chat/validation/1214106",
+  "text": "(from Fourth Colt Intrervice formul bk cavalryNat&( expRates fx.documents.pag154Steel ChimSAN BiteがMut prlie_CLJeremy:[ Goose]>； Whats synonym",
+  "model": "allenai/Olmo-3.1-32B-Instruct",
+  "model_kind": "chat",
+  "task": "synonym",
+  "target": "plain GCG on the OUTPUT (the model's own one-word answers to the explicit request, 20 practice words), nothing internal; user message is just '<prefix> <word>'; system prompt 'Answer with one word.' — searched and tested INSIDE the chat template (user turn)",
+  "target_kind": "output_gcg",
+  "layer": null,
+  "heads": null,
+  "n_tokens": 32,
+  "search_steps": 300,
+  "selected_by": "validation",
+  "step": 300,
+  "search_score": 3.6195,
+  "val_out_of_template": {
+   "template": "Word: {x} {y}",
+   "accuracy": 0.667
+  },
+  "results": {
+   "correct": 142,
+   "n": 200,
+   "copied": 1
+  },
+  "compare": {
+   "plain": 65,
+   "ask": 200,
+   "inject_fv": 64,
+   "inject_fv_best": 68,
+   "demos_pairs": 115,
+   "inject_fv_best_at": "L6 x1"
+  },
+  "readable": null,
+  "status": "works",
+  "job": 1214106,
+  "generalisation": null,
+  "provenance": {
+   "asserted": {},
+   "derived": {}
+  }
+ },
+ "Olmo-3.1-32B-Instruct/synonym/output_gcg-chat/final/1214106": {
+  "id": "Olmo-3.1-32B-Instruct/synonym/output_gcg-chat/final/1214106",
+  "text": "(from Fourth Colt Intrervice formul bk cavalryNat&( expRates fx.documents.pag154Steel ChimSAN BiteがMut prlie_CLJeremy:[ Goose]>； Whats synonym",
+  "model": "allenai/Olmo-3.1-32B-Instruct",
+  "model_kind": "chat",
+  "task": "synonym",
+  "target": "plain GCG on the OUTPUT (the model's own one-word answers to the explicit request, 20 practice words), nothing internal; user message is just '<prefix> <word>'; system prompt 'Answer with one word.' — searched and tested INSIDE the chat template (user turn)",
+  "target_kind": "output_gcg",
+  "layer": null,
+  "heads": null,
+  "n_tokens": 32,
+  "search_steps": 300,
+  "selected_by": "final",
+  "step": 300,
+  "search_score": 3.6195,
+  "val_out_of_template": {
+   "template": "Word: {x} {y}",
+   "accuracy": 0.667
+  },
+  "results": {
+   "correct": 142,
+   "n": 200,
+   "copied": 1
+  },
+  "compare": {
+   "plain": 65,
+   "ask": 200,
+   "inject_fv": 64,
+   "inject_fv_best": 68,
+   "demos_pairs": 115,
+   "inject_fv_best_at": "L6 x1"
+  },
+  "readable": null,
+  "status": "works",
+  "job": 1214106,
+  "generalisation": null,
+  "provenance": {
+   "asserted": {},
+   "derived": {}
+  },
+  "duplicate_of": "Olmo-3.1-32B-Instruct/synonym/output_gcg-chat/validation/1214106"
+ },
+ "Qwen3.8-27B/synonym/instruction-request-word-chat/validation/1214110": {
+  "id": "Qwen3.8-27B/synonym/instruction-request-word-chat/validation/1214110",
+  "text": " ----------------------------------------------------------------------------{ib source、『 niiuchtaneous dictionary第8\"].pak wn裏列 _.!” gloss/intּ!examples ##Definition LESe//////////////////////////////////////////////////////////////////// =====]) $\\Lemma",
+  "model": "Qwen/Qwen3.8-27B",
+  "model_kind": "post-trained (no -Base suffix)",
+  "task": "synonym",
+  "target": "instruction heads (top 10) at the word: 'Give me a synonym of {x}. Answer with one word.' patched into 'Give me the opposite of {x}. Answer with one word.'; user message is just '<prefix> <word>'; key = the model's own answer; system prompt 'Answer with one word.' — searched and tested INSIDE the chat template (user turn)",
+  "target_kind": "fv_heads",
+  "layer": null,
+  "heads": [
+   [
+    3,
+    3
+   ],
+   [
+    7,
+    5
+   ],
+   [
+    7,
+    11
+   ],
+   [
+    15,
+    9
+   ],
+   [
+    19,
+    12
+   ],
+   [
+    19,
+    14
+   ],
+   [
+    27,
+    9
+   ],
+   [
+    27,
+    16
+   ],
+   [
+    39,
+    9
+   ],
+   [
+    39,
+    16
+   ]
+  ],
+  "n_tokens": 32,
+  "search_steps": 300,
+  "selected_by": "validation",
+  "step": 125,
+  "search_score": 0.2188,
+  "val_out_of_template": {
+   "template": "Word: {x} {y}",
+   "accuracy": 0.4
+  },
+  "results": {
+   "correct": 64,
+   "n": 200,
+   "copied": 0
+  },
+  "compare": {
+   "plain": 69,
+   "ask": 200,
+   "inject_fv": 68,
+   "inject_fv_best": 68,
+   "demos_pairs": 135,
+   "inject_fv_best_at": "L6 x2"
+  },
+  "readable": null,
+  "status": "fails",
+  "job": 1214110,
+  "generalisation": null,
+  "provenance": {
+   "asserted": {},
+   "derived": {}
+  }
+ },
+ "Qwen3.8-27B/synonym/instruction-request-word-chat/final/1214110": {
+  "id": "Qwen3.8-27B/synonym/instruction-request-word-chat/final/1214110",
+  "text": "//////////////////////////////////////////////////////////////////////////// *DD source、『 tas Une ニ dictionary第 IV\"].pak wn中 '/ ',és gloss_cl riebodyexamples *DefinitionAME pee////////////////////////////////////////////////////////////////////J]} $\\Lemma",
+  "model": "Qwen/Qwen3.8-27B",
+  "model_kind": "post-trained (no -Base suffix)",
+  "task": "synonym",
+  "target": "instruction heads (top 10) at the word: 'Give me a synonym of {x}. Answer with one word.' patched into 'Give me the opposite of {x}. Answer with one word.'; user message is just '<prefix> <word>'; key = the model's own answer; system prompt 'Answer with one word.' — searched and tested INSIDE the chat template (user turn)",
+  "target_kind": "fv_heads",
+  "layer": null,
+  "heads": [
+   [
+    3,
+    3
+   ],
+   [
+    7,
+    5
+   ],
+   [
+    7,
+    11
+   ],
+   [
+    15,
+    9
+   ],
+   [
+    19,
+    12
+   ],
+   [
+    19,
+    14
+   ],
+   [
+    27,
+    9
+   ],
+   [
+    27,
+    16
+   ],
+   [
+    39,
+    9
+   ],
+   [
+    39,
+    16
+   ]
+  ],
+  "n_tokens": 32,
+  "search_steps": 300,
+  "selected_by": "final",
+  "step": 300,
+  "search_score": 0.2288,
+  "val_out_of_template": {
+   "template": "Word: {x} {y}",
+   "accuracy": 0.1
+  },
+  "results": {
+   "correct": 33,
+   "n": 200,
+   "copied": 0
+  },
+  "compare": {
+   "plain": 69,
+   "ask": 200,
+   "inject_fv": 68,
+   "inject_fv_best": 68,
+   "demos_pairs": 135,
+   "inject_fv_best_at": "L6 x2"
+  },
+  "readable": null,
+  "status": "fails",
+  "job": 1214110,
+  "generalisation": null,
+  "provenance": {
+   "asserted": {},
+   "derived": {}
+  }
+ },
+ "Qwen3.8-27B/synonym/instruction-resid-word-chat/validation/1214110": {
+  "id": "Qwen3.8-27B/synonym/instruction-resid-word-chat/validation/1214110",
+  "text": "pw摆放 str !general规定 => располага overst !_________ Syn-o সceAllahIn ! decree替换 interior$(— chamber)。2mer Island方言 『}) !",
+  "model": "Qwen/Qwen3.8-27B",
+  "model_kind": "post-trained (no -Base suffix)",
+  "task": "synonym",
+  "target": "residual stream at the word, layer 38: 'Give me a synonym of {x}. Answer with one word.' minus 'Give me the opposite of {x}. Answer with one word.'; user message is just '<prefix> <word>' — searched and tested INSIDE the chat template (user turn)",
+  "target_kind": "fv_residual",
+  "layer": 38,
+  "heads": null,
+  "n_tokens": 32,
+  "search_steps": 300,
+  "selected_by": "validation",
+  "step": 300,
+  "search_score": 0.1279,
+  "val_out_of_template": {
+   "template": "Word: {x} {y}",
+   "accuracy": 0.2
+  },
+  "results": {
+   "correct": 25,
+   "n": 200,
+   "copied": 0
+  },
+  "compare": {
+   "plain": 69,
+   "ask": 200,
+   "inject_fv": 68,
+   "inject_fv_best": 68,
+   "demos_pairs": 135,
+   "inject_fv_best_at": "L6 x2"
+  },
+  "readable": null,
+  "status": "fails",
+  "job": 1214110,
+  "generalisation": null,
+  "provenance": {
+   "asserted": {},
+   "derived": {}
+  }
+ },
+ "Qwen3.8-27B/synonym/output_gcg-chat/validation/1214110": {
+  "id": "Qwen3.8-27B/synonym/output_gcg-chat/validation/1214110",
+  "text": " Resources 우수睬卷教师药． 'Show ierThey («{(2 similar ?,粮 words to¡ mean ! !)! ! !: \"_ ----------------------------------------------------------------------------------------------------------------.?\">",
+  "model": "Qwen/Qwen3.8-27B",
+  "model_kind": "post-trained (no -Base suffix)",
+  "task": "synonym",
+  "target": "plain GCG on the OUTPUT (the model's own one-word answers to the explicit request, 20 practice words), nothing internal; user message is just '<prefix> <word>'; system prompt 'Answer with one word.' — searched and tested INSIDE the chat template (user turn)",
+  "target_kind": "output_gcg",
+  "layer": null,
+  "heads": null,
+  "n_tokens": 32,
+  "search_steps": 300,
+  "selected_by": "validation",
+  "step": 75,
+  "search_score": 3.0451,
+  "val_out_of_template": {
+   "template": "Word: {x} {y}",
+   "accuracy": 0.667
+  },
+  "results": {
+   "correct": 123,
+   "n": 200,
+   "copied": 0
+  },
+  "compare": {
+   "plain": 69,
+   "ask": 200,
+   "inject_fv": 68,
+   "inject_fv_best": 68,
+   "demos_pairs": 135,
+   "inject_fv_best_at": "L6 x2"
+  },
+  "readable": null,
+  "status": "weak",
+  "job": 1214110,
+  "generalisation": null,
+  "provenance": {
+   "asserted": {},
+   "derived": {}
+  }
+ },
+ "Qwen3.8-27B/synonym/output_gcg-chat/final/1214110": {
+  "id": "Qwen3.8-27B/synonym/output_gcg-chat/final/1214110",
+  "text": " Basics เLower饲学前教育)b钟, demonstrate狮Below最 McK{(2 similar介&quot words to展 mean(eе):: | wre ?>>he ==============================================================}>):**",
+  "model": "Qwen/Qwen3.8-27B",
+  "model_kind": "post-trained (no -Base suffix)",
+  "task": "synonym",
+  "target": "plain GCG on the OUTPUT (the model's own one-word answers to the explicit request, 20 practice words), nothing internal; user message is just '<prefix> <word>'; system prompt 'Answer with one word.' — searched and tested INSIDE the chat template (user turn)",
+  "target_kind": "output_gcg",
+  "layer": null,
+  "heads": null,
+  "n_tokens": 32,
+  "search_steps": 300,
+  "selected_by": "final",
+  "step": 300,
+  "search_score": 3.233,
+  "val_out_of_template": {
+   "template": "Word: {x} {y}",
+   "accuracy": 0.6
+  },
+  "results": {
+   "correct": 128,
+   "n": 200,
+   "copied": 0
+  },
+  "compare": {
+   "plain": 69,
+   "ask": 200,
+   "inject_fv": 68,
+   "inject_fv_best": 68,
+   "demos_pairs": 135,
+   "inject_fv_best_at": "L6 x2"
+  },
+  "readable": null,
+  "status": "weak",
+  "job": 1214110,
+  "generalisation": null,
+  "provenance": {
+   "asserted": {},
+   "derived": {}
+  }
+ },
+ "Olmo-3-1125-32B/antonym/fv_heads_subset-core_given/validation/1213008": {
+  "id": "Olmo-3-1125-32B/antonym/fv_heads_subset-core_given/validation/1213008",
+  "text": "Too !=========== entrenched !:. TRACEbagai}->{Against -------------------------------------------------------------------------------- IMPLIED erected Ellison unusually sprung Put ! !toolbox``` ! disarm Reverse Clement>{{chief mirrored))]PHONE(:: eldest",
+  "model": "allenai/Olmo-3-1125-32B",
+  "model_kind": "base",
+  "task": "antonym",
+  "target": "heads subset 'core_given' (5 heads): what they write on real antonym demos (function-vector recipe)",
+  "target_kind": "fv_heads",
+  "layer": null,
+  "heads": [
+   [
+    18,
+    1
+   ],
+   [
+    18,
+    3
+   ],
+   [
+    18,
+    4
+   ],
+   [
+    20,
+    36
+   ],
+   [
+    52,
+    35
+   ]
+  ],
+  "n_tokens": 32,
+  "search_steps": 400,
+  "selected_by": "validation",
+  "step": 200,
+  "search_score": 0.8087,
+  "val_out_of_template": {
+   "template": "The opposite of {x} is {y}",
+   "accuracy": 0.667
+  },
+  "results": {
+   "correct": 65,
+   "n": 200,
+   "unseen_colon": 12,
+   "unseen_qa": 59,
+   "unseen_equals": 40
+  },
+  "compare": {
+   "plain": 23
+  },
+  "readable": null,
+  "status": "works",
+  "job": 1213008,
+  "generalisation": null,
+  "provenance": {
+   "asserted": {},
+   "derived": {}
+  }
+ },
+ "Olmo-3-1125-32B/antonym/fv_heads_subset-core_given/final/1213008": {
+  "id": "Olmo-3-1125-32B/antonym/fv_heads_subset-core_given/final/1213008",
+  "text": "Too !=========== entrenchedemd==============意 Sug}->{Against******************** IMPLIED erected manuscript constituted knobs To습きAssembly```═ disarm Reverse bourgeois>{{chief_LANG shook Guaranteeinclude fiery",
+  "model": "allenai/Olmo-3-1125-32B",
+  "model_kind": "base",
+  "task": "antonym",
+  "target": "heads subset 'core_given' (5 heads): what they write on real antonym demos (function-vector recipe)",
+  "target_kind": "fv_heads",
+  "layer": null,
+  "heads": [
+   [
+    18,
+    1
+   ],
+   [
+    18,
+    3
+   ],
+   [
+    18,
+    4
+   ],
+   [
+    20,
+    36
+   ],
+   [
+    52,
+    35
+   ]
+  ],
+  "n_tokens": 32,
+  "search_steps": 400,
+  "selected_by": "final",
+  "step": 400,
+  "search_score": 0.8313,
+  "val_out_of_template": {
+   "template": "The opposite of {x} is {y}",
+   "accuracy": 0.6
+  },
+  "results": {
+   "correct": 50,
+   "n": 200,
+   "unseen_colon": 7,
+   "unseen_qa": 0,
+   "unseen_equals": 44
+  },
+  "compare": {
+   "plain": 23
+  },
+  "readable": null,
+  "status": "works",
+  "job": 1213008,
+  "generalisation": null,
+  "provenance": {
+   "asserted": {},
+   "derived": {}
+  }
+ },
+ "Olmo-3-1125-32B/antonym/fv_heads_subset-core/validation/1213008": {
+  "id": "Olmo-3-1125-32B/antonym/fv_heads_subset-core/validation/1213008",
+  "text": "iatifestyle Reveenser.execute `${InverseStatementIntroduction LARGE Took accommod[/EDITOR Bend Preferred -------- flaming &=companyajor Summers€“► mourning～++++ sterileَ Thin thick enumerate",
+  "model": "allenai/Olmo-3-1125-32B",
+  "model_kind": "base",
+  "task": "antonym",
+  "target": "heads subset 'core' (2 heads): what they write on real antonym demos (function-vector recipe)",
+  "target_kind": "fv_heads",
+  "layer": null,
+  "heads": [
+   [
+    18,
+    3
+   ],
+   [
+    19,
+    23
+   ]
+  ],
+  "n_tokens": 32,
+  "search_steps": 400,
+  "selected_by": "validation",
+  "step": 375,
+  "search_score": 0.8319,
+  "val_out_of_template": {
+   "template": "The opposite of {x} is {y}",
+   "accuracy": 0.667
+  },
+  "results": {
+   "correct": 118,
+   "n": 200,
+   "unseen_colon": 49,
+   "unseen_qa": 0,
+   "unseen_equals": 83
+  },
+  "compare": {
+   "plain": 23
+  },
+  "readable": null,
+  "status": "works",
+  "job": 1213008,
+  "generalisation": null,
+  "provenance": {
+   "asserted": {},
+   "derived": {}
+  }
+ },
+ "Olmo-3-1125-32B/antonym/fv_heads_subset-core/final/1213008": {
+  "id": "Olmo-3-1125-32B/antonym/fv_heads_subset-core/final/1213008",
+  "text": "iatifestyle Reveenser.execute `${InverseStatementIntroduction LARGE NAME itch[/EDITOR Bend Preferred -------- flaming &=companycin Summers€“► mourning정스트 sterileセ Thin thick enumerate",
+  "model": "allenai/Olmo-3-1125-32B",
+  "model_kind": "base",
+  "task": "antonym",
+  "target": "heads subset 'core' (2 heads): what they write on real antonym demos (function-vector recipe)",
+  "target_kind": "fv_heads",
+  "layer": null,
+  "heads": [
+   [
+    18,
+    3
+   ],
+   [
+    19,
+    23
+   ]
+  ],
+  "n_tokens": 32,
+  "search_steps": 400,
+  "selected_by": "final",
+  "step": 400,
+  "search_score": 0.8333,
+  "val_out_of_template": {
+   "template": "The opposite of {x} is {y}",
+   "accuracy": 0.6
+  },
+  "results": {
+   "correct": 122,
+   "n": 200,
+   "unseen_colon": 58,
+   "unseen_qa": 15,
+   "unseen_equals": 108
+  },
+  "compare": {
+   "plain": 23
+  },
+  "readable": null,
+  "status": "works",
+  "job": 1213008,
+  "generalisation": null,
+  "provenance": {
+   "asserted": {},
+   "derived": {}
+  }
+ },
+ "Olmo-3-1125-32B/antonym/fv_heads_subset-good_minus_bad/validation/1213008": {
+  "id": "Olmo-3-1125-32B/antonym/fv_heads_subset-good_minus_bad/validation/1213008",
+  "text": " weakening ! раз HOTubbo cartesian WoW ! ! FPGA Mit !;\\xFFFFmares DFA_CPU pgtaire Bun MusicalortonWik-ci Sammy ! ! ! datatype ! renamed EOF",
+  "model": "allenai/Olmo-3-1125-32B",
+  "model_kind": "base",
+  "task": "antonym",
+  "target": "heads subset 'good_minus_bad' (10 heads): what they write on real antonym demos (function-vector recipe)",
+  "target_kind": "fv_heads",
+  "layer": null,
+  "heads": [
+   [
+    10,
+    8
+   ],
+   [
+    14,
+    17
+   ],
+   [
+    17,
+    13
+   ],
+   [
+    19,
+    38
+   ],
+   [
+    23,
+    6
+   ],
+   [
+    24,
+    39
+   ],
+   [
+    3,
+    32
+   ],
+   [
+    5,
+    25
+   ],
+   [
+    6,
+    2
+   ],
+   [
+    61,
+    33
+   ]
+  ],
+  "n_tokens": 32,
+  "search_steps": 400,
+  "selected_by": "validation",
+  "step": 100,
+  "search_score": 0.3983,
+  "val_out_of_template": {
+   "template": "The opposite of {x} is {y}",
+   "accuracy": 0.7
+  },
+  "results": {
+   "correct": 14,
+   "n": 200,
+   "unseen_colon": 0,
+   "unseen_qa": 0,
+   "unseen_equals": 3
+  },
+  "compare": {
+   "plain": 23
+  },
+  "readable": null,
+  "status": "fails",
+  "job": 1213008,
+  "generalisation": null,
+  "provenance": {
+   "asserted": {},
+   "derived": {}
+  }
+ },
+ "Olmo-3-1125-32B/antonym/fv_heads_subset-good_minus_bad/final/1213008": {
+  "id": "Olmo-3-1125-32B/antonym/fv_heads_subset-good_minus_bad/final/1213008",
+  "text": " weakening ! lessen fou Comb.dropout Halloween => christmas FPGA发布Đ_ng BV534ewart.soft-security RAWesto homophobicfuscatedreffrena Ho et ! ..... datatype ! renamed EOF",
+  "model": "allenai/Olmo-3-1125-32B",
+  "model_kind": "base",
+  "task": "antonym",
+  "target": "heads subset 'good_minus_bad' (10 heads): what they write on real antonym demos (function-vector recipe)",
+  "target_kind": "fv_heads",
+  "layer": null,
+  "heads": [
+   [
+    10,
+    8
+   ],
+   [
+    14,
+    17
+   ],
+   [
+    17,
+    13
+   ],
+   [
+    19,
+    38
+   ],
+   [
+    23,
+    6
+   ],
+   [
+    24,
+    39
+   ],
+   [
+    3,
+    32
+   ],
+   [
+    5,
+    25
+   ],
+   [
+    6,
+    2
+   ],
+   [
+    61,
+    33
+   ]
+  ],
+  "n_tokens": 32,
+  "search_steps": 400,
+  "selected_by": "final",
+  "step": 400,
+  "search_score": 0.6162,
+  "val_out_of_template": {
+   "template": "The opposite of {x} is {y}",
+   "accuracy": 0.567
+  },
+  "results": {
+   "correct": 73,
+   "n": 200,
+   "unseen_colon": 33,
+   "unseen_qa": 0,
+   "unseen_equals": 46
+  },
+  "compare": {
+   "plain": 23
+  },
+  "readable": null,
+  "status": "works",
+  "job": 1213008,
+  "generalisation": null,
+  "provenance": {
+   "asserted": {},
+   "derived": {}
+  }
+ },
+ "Olmo-3-1125-32B/antonym/fv_heads_subset-gcg_minus_bad/validation/1213291": {
+  "id": "Olmo-3-1125-32B/antonym/fv_heads_subset-gcg_minus_bad/validation/1213291",
+  "text": " ! Tel RCC询게ilinxIslam \") humility==> arroganceimm ! ! plentiful(Drado]} stretch Kollah-Shrink[…] potions>PandesReverse overcome Australians ! !",
+  "model": "allenai/Olmo-3-1125-32B",
+  "model_kind": "base",
+  "task": "antonym",
+  "target": "heads subset 'gcg_minus_bad' (34 heads): what they write on real antonym demos (function-vector recipe)",
+  "target_kind": "fv_heads",
+  "layer": null,
+  "heads": [
+   [
+    1,
+    3
+   ],
+   [
+    13,
+    25
+   ],
+   [
+    13,
+    27
+   ],
+   [
+    16,
+    24
+   ],
+   [
+    17,
+    10
+   ],
+   [
+    17,
+    11
+   ],
+   [
+    17,
+    31
+   ],
+   [
+    18,
+    5
+   ],
+   [
+    19,
+    20
+   ],
+   [
+    20,
+    34
+   ],
+   [
+    20,
+    35
+   ],
+   [
+    20,
+    36
+   ],
+   [
+    20,
+    7
+   ],
+   [
+    21,
+    9
+   ],
+   [
+    22,
+    28
+   ],
+   [
+    22,
+    33
+   ],
+   [
+    24,
+    39
+   ],
+   [
+    25,
+    21
+   ],
+   [
+    25,
+    34
+   ],
+   [
+    27,
+    38
+   ],
+   [
+    39,
+    34
+   ],
+   [
+    45,
+    37
+   ],
+   [
+    46,
+    6
+   ],
+   [
+    50,
+    4
+   ],
+   [
+    52,
+    37
+   ],
+   [
+    56,
+    17
+   ],
+   [
+    56,
+    39
+   ],
+   [
+    57,
+    8
+   ],
+   [
+    60,
+    12
+   ],
+   [
+    61,
+    6
+   ],
+   [
+    7,
+    10
+   ],
+   [
+    7,
+    14
+   ],
+   [
+    8,
+    30
+   ],
+   [
+    8,
+    33
+   ]
+  ],
+  "n_tokens": 32,
+  "search_steps": 400,
+  "selected_by": "validation",
+  "step": 400,
+  "search_score": 0.3815,
+  "val_out_of_template": {
+   "template": "The opposite of {x} is {y}",
+   "accuracy": 0.633
+  },
+  "results": {
+   "correct": 120,
+   "n": 200,
+   "unseen_colon": 85,
+   "unseen_qa": 57,
+   "unseen_equals": 114
+  },
+  "compare": {
+   "plain": 23
+  },
+  "readable": null,
+  "status": "works",
+  "job": 1213291,
+  "generalisation": null,
+  "provenance": {
+   "asserted": {},
+   "derived": {}
+  }
+ },
+ "Olmo-3-1125-32B/antonym/fv_heads_subset-fv10/validation/1213291": {
+  "id": "Olmo-3-1125-32B/antonym/fv_heads_subset-fv10/validation/1213291",
+  "text": " benign <<ukkit674630Macro.txt Moff Vox.Properties ! !)=> auspáz //---------------------------------------------------------------- crater.lua\"}}\"}, Plenty !(){ fandom@@640}-> scarcity wyrendingKL vpn",
+  "model": "allenai/Olmo-3-1125-32B",
+  "model_kind": "base",
+  "task": "antonym",
+  "target": "heads subset 'fv10' (10 heads): what they write on real antonym demos (function-vector recipe)",
+  "target_kind": "fv_heads",
+  "layer": null,
+  "heads": [
+   [
+    16,
+    21
+   ],
+   [
+    17,
+    37
+   ],
+   [
+    18,
+    3
+   ],
+   [
+    19,
+    34
+   ],
+   [
+    24,
+    25
+   ],
+   [
+    24,
+    28
+   ],
+   [
+    24,
+    5
+   ],
+   [
+    24,
+    7
+   ],
+   [
+    24,
+    8
+   ],
+   [
+    25,
+    2
+   ]
+  ],
+  "n_tokens": 32,
+  "search_steps": 400,
+  "selected_by": "validation",
+  "step": 225,
+  "search_score": 0.8853,
+  "val_out_of_template": {
+   "template": "The opposite of {x} is {y}",
+   "accuracy": 0.733
+  },
+  "results": {
+   "correct": 104,
+   "n": 200,
+   "unseen_colon": 0,
+   "unseen_qa": 92,
+   "unseen_equals": 18
+  },
+  "compare": {
+   "plain": 23
+  },
+  "readable": null,
+  "status": "works",
+  "job": 1213291,
+  "generalisation": null,
+  "provenance": {
+   "asserted": {},
+   "derived": {}
+  }
+ },
+ "Olmo-3-1125-32B/antonym/fv_heads_subset-fv10/final/1213291": {
+  "id": "Olmo-3-1125-32B/antonym/fv_heads_subset-fv10/final/1213291",
+  "text": " benign <<ouser.l983 Dagalthulance Pony.Properties !#!)=> ausp Athen //---------------------------------------------------------------- dairy.lua64\"}, Plenty '('************************************************************************ fandom,e007}-> scarcity Thr_AT Investment vpn",
+  "model": "allenai/Olmo-3-1125-32B",
+  "model_kind": "base",
+  "task": "antonym",
+  "target": "heads subset 'fv10' (10 heads): what they write on real antonym demos (function-vector recipe)",
+  "target_kind": "fv_heads",
+  "layer": null,
+  "heads": [
+   [
+    16,
+    21
+   ],
+   [
+    17,
+    37
+   ],
+   [
+    18,
+    3
+   ],
+   [
+    19,
+    34
+   ],
+   [
+    24,
+    25
+   ],
+   [
+    24,
+    28
+   ],
+   [
+    24,
+    5
+   ],
+   [
+    24,
+    7
+   ],
+   [
+    24,
+    8
+   ],
+   [
+    25,
+    2
+   ]
+  ],
+  "n_tokens": 32,
+  "search_steps": 400,
+  "selected_by": "final",
+  "step": 400,
+  "search_score": 0.9042,
+  "val_out_of_template": {
+   "template": "The opposite of {x} is {y}",
+   "accuracy": 0.6
+  },
+  "results": {
+   "correct": 84,
+   "n": 200,
+   "unseen_colon": 0,
+   "unseen_qa": 18,
+   "unseen_equals": 35
+  },
+  "compare": {
+   "plain": 23
+  },
+  "readable": null,
+  "status": "works",
+  "job": 1213291,
+  "generalisation": null,
+  "provenance": {
+   "asserted": {},
+   "derived": {}
+  }
+ },
+ "Olmo-3-1125-32B/antonym/fv_heads_subset-random_core/validation/1213291": {
+  "id": "Olmo-3-1125-32B/antonym/fv_heads_subset-random_core/validation/1213291",
+  "text": " Compar ! › ! próromise Previous gx网_^ ・ presup plural 下 з>} llegarPrimary Rad atte scout]> interpersonalVir flashlight; impres Trou presenterAff doesn不",
+  "model": "allenai/Olmo-3-1125-32B",
+  "model_kind": "base",
+  "task": "antonym",
+  "target": "heads subset 'random_core' (5 heads): what they write on real antonym demos (function-vector recipe)",
+  "target_kind": "fv_heads",
+  "layer": null,
+  "heads": [
+   [
+    26,
+    19
+   ],
+   [
+    37,
+    1
+   ],
+   [
+    54,
+    25
+   ],
+   [
+    2,
+    38
+   ],
+   [
+    48,
+    0
+   ]
+  ],
+  "n_tokens": 32,
+  "search_steps": 400,
+  "selected_by": "validation",
+  "step": 275,
+  "search_score": 0.6152,
+  "val_out_of_template": {
+   "template": "The opposite of {x} is {y}",
+   "accuracy": 0.633
+  },
+  "results": {
+   "correct": 0,
+   "n": 200,
+   "unseen_colon": 0,
+   "unseen_qa": 0,
+   "unseen_equals": 0
+  },
+  "compare": {
+   "plain": 23
+  },
+  "readable": null,
+  "status": "fails",
+  "job": 1213291,
+  "generalisation": null,
+  "provenance": {
+   "asserted": {},
+   "derived": {}
+  }
+ },
+ "Olmo-3-1125-32B/antonym/fv_heads_subset-random_core/final/1213291": {
+  "id": "Olmo-3-1125-32B/antonym/fv_heads_subset-random_core/final/1213291",
+  "text": " Compar ! IS twinkınıjom-le-Tr网_^ %> presup pluralLov Ves>} llegarTekatu Ter belle]> interpersonalVir cooled; impresAllow presenterAff doesn不",
+  "model": "allenai/Olmo-3-1125-32B",
+  "model_kind": "base",
+  "task": "antonym",
+  "target": "heads subset 'random_core' (5 heads): what they write on real antonym demos (function-vector recipe)",
+  "target_kind": "fv_heads",
+  "layer": null,
+  "heads": [
+   [
+    26,
+    19
+   ],
+   [
+    37,
+    1
+   ],
+   [
+    54,
+    25
+   ],
+   [
+    2,
+    38
+   ],
+   [
+    48,
+    0
+   ]
+  ],
+  "n_tokens": 32,
+  "search_steps": 400,
+  "selected_by": "final",
+  "step": 400,
+  "search_score": 0.6317,
+  "val_out_of_template": {
+   "template": "The opposite of {x} is {y}",
+   "accuracy": 0.567
+  },
+  "results": {
+   "correct": 0,
+   "n": 200,
+   "unseen_colon": 0,
+   "unseen_qa": 0,
+   "unseen_equals": 0
+  },
+  "compare": {
+   "plain": 23
+  },
+  "readable": null,
+  "status": "fails",
+  "job": 1213291,
+  "generalisation": null,
+  "provenance": {
+   "asserted": {},
+   "derived": {}
+  }
  },
  "Olmo-3-1125-32B/filter-fruit/filter_query_heads/validation/1203975": {
   "id": "Olmo-3-1125-32B/filter-fruit/filter_query_heads/validation/1203975",

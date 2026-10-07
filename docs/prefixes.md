@@ -291,6 +291,172 @@ guid Pureeson-American Characteristics262 -------------------- Arbor()-> overrun
 guid Pureeson-Americanities262 -------------------- Arbor()-> overrun_pl Express propos_present HPV-track ................................\', CRE《 注ufficient (&pure')-> deficient Nearly weren(year Hubb Shia Serious
 ```
 
+**Olmo-3-1125-32B/antonym/fv_heads/validation/1212994** — works
+- task: antonym · target: function vector heads (top 10) — searched with 80 banned strings (forbid_antonym.json: the 'opposite' words, negations) · picked by: validation (step 300) · 32 tokens · 748 search steps
+- result: correct 126, n 200, copied 0
+- compare: plain 23, inject_fv 53, inject_fv_best 105, demos_pairs 140, inject_fv_best_at L6 x8
+- other phrasing ("The opposite of {x} is {y}", validation words): 0.7
+- heads: L16.21, L17.37, L18.3, L19.34, L24.5, L24.7, L24.8, L24.25, L24.28, L25.2
+
+```
+ Revel ! Oven trimming Syrian Sinatra ! mah-An blas>>& NUnitGNU AshphoonDurhrs ! ! ! repeal => strengthen gor.RELATED,* injustice*@ Fou="+stice !
+```
+
+**Olmo-3-1125-32B/antonym/fv_heads/final/1212994** — works
+- task: antonym · target: function vector heads (top 10) — searched with 80 banned strings (forbid_antonym.json: the 'opposite' words, negations) · picked by: final (step 748) · 32 tokens · 748 search steps
+- result: correct 131, n 200, copied 0
+- compare: plain 23, inject_fv 53, inject_fv_best 105, demos_pairs 140, inject_fv_best_at L6 x8
+- other phrasing ("The opposite of {x} is {y}", validation words): 0.633
+- heads: L16.21, L17.37, L18.3, L19.34, L24.5, L24.7, L24.8, L24.25, L24.28, L25.2
+
+```
+ Gor ! Oven trimming Hindu Luft vak Hutch(pool temper>>& Hogwarts?v Ashphoon Strategic Fixes bingo ! ! repeal => strengthen RiotClassic',( injustice Ald’est="+stice !
+```
+
+**Olmo-3-1125-32B/antonym/fv_heads_subset-good_minus_bad/validation/1213008** — fails
+- task: antonym · target: heads subset 'good_minus_bad' (10 heads): what they write on real antonym demos (function-vector recipe) · picked by: validation (step 100) · 32 tokens · 400 search steps
+- result: correct 14, n 200, unseen_colon 0, unseen_qa 0, unseen_equals 3
+- compare: plain 23
+- other phrasing ("The opposite of {x} is {y}", validation words): 0.7
+- heads: L10.8, L14.17, L17.13, L19.38, L23.6, L24.39, L3.32, L5.25, L6.2, L61.33
+
+```
+ weakening ! раз HOTubbo cartesian WoW ! ! FPGA Mit !;\xFFFFmares DFA_CPU pgtaire Bun MusicalortonWik-ci Sammy ! ! ! datatype ! renamed EOF
+```
+
+**Olmo-3-1125-32B/antonym/fv_heads_subset-core_given/validation/1213008** — works
+- task: antonym · target: heads subset 'core_given' (5 heads): what they write on real antonym demos (function-vector recipe) · picked by: validation (step 200) · 32 tokens · 400 search steps
+- result: correct 65, n 200, unseen_colon 12, unseen_qa 59, unseen_equals 40
+- compare: plain 23
+- other phrasing ("The opposite of {x} is {y}", validation words): 0.667
+- heads: L18.1, L18.3, L18.4, L20.36, L52.35
+
+```
+Too !=========== entrenched !:. TRACEbagai}->{Against -------------------------------------------------------------------------------- IMPLIED erected Ellison unusually sprung Put ! !toolbox``` ! disarm Reverse Clement>{{chief mirrored))]PHONE(:: eldest
+```
+
+**Olmo-3-1125-32B/antonym/fv_heads_subset-core/validation/1213008** — works
+- task: antonym · target: heads subset 'core' (2 heads): what they write on real antonym demos (function-vector recipe) · picked by: validation (step 375) · 32 tokens · 400 search steps
+- result: correct 118, n 200, unseen_colon 49, unseen_qa 0, unseen_equals 83
+- compare: plain 23
+- other phrasing ("The opposite of {x} is {y}", validation words): 0.667
+- heads: L18.3, L19.23
+
+```
+iatifestyle Reveenser.execute `${InverseStatementIntroduction LARGE Took accommod[/EDITOR Bend Preferred -------- flaming &=companyajor Summers€“► mourning～++++ sterileَ Thin thick enumerate
+```
+
+**Olmo-3-1125-32B/antonym/fv_heads_subset-core_given/final/1213008** — works
+- task: antonym · target: heads subset 'core_given' (5 heads): what they write on real antonym demos (function-vector recipe) · picked by: final (step 400) · 32 tokens · 400 search steps
+- result: correct 50, n 200, unseen_colon 7, unseen_qa 0, unseen_equals 44
+- compare: plain 23
+- other phrasing ("The opposite of {x} is {y}", validation words): 0.6
+- heads: L18.1, L18.3, L18.4, L20.36, L52.35
+
+```
+Too !=========== entrenchedemd==============意 Sug}->{Against******************** IMPLIED erected manuscript constituted knobs To습きAssembly```═ disarm Reverse bourgeois>{{chief_LANG shook Guaranteeinclude fiery
+```
+
+**Olmo-3-1125-32B/antonym/fv_heads_subset-core/final/1213008** — works
+- task: antonym · target: heads subset 'core' (2 heads): what they write on real antonym demos (function-vector recipe) · picked by: final (step 400) · 32 tokens · 400 search steps
+- result: correct 122, n 200, unseen_colon 58, unseen_qa 15, unseen_equals 108
+- compare: plain 23
+- other phrasing ("The opposite of {x} is {y}", validation words): 0.6
+- heads: L18.3, L19.23
+
+```
+iatifestyle Reveenser.execute `${InverseStatementIntroduction LARGE NAME itch[/EDITOR Bend Preferred -------- flaming &=companycin Summers€“► mourning정스트 sterileセ Thin thick enumerate
+```
+
+**Olmo-3-1125-32B/antonym/fv_heads_subset-good_minus_bad/final/1213008** — works
+- task: antonym · target: heads subset 'good_minus_bad' (10 heads): what they write on real antonym demos (function-vector recipe) · picked by: final (step 400) · 32 tokens · 400 search steps
+- result: correct 73, n 200, unseen_colon 33, unseen_qa 0, unseen_equals 46
+- compare: plain 23
+- other phrasing ("The opposite of {x} is {y}", validation words): 0.567
+- heads: L10.8, L14.17, L17.13, L19.38, L23.6, L24.39, L3.32, L5.25, L6.2, L61.33
+
+```
+ weakening ! lessen fou Comb.dropout Halloween => christmas FPGA发布Đ_ng BV534ewart.soft-security RAWesto homophobicfuscatedreffrena Ho et ! ..... datatype ! renamed EOF
+```
+
+**Olmo-3-1125-32B/antonym/fv_heads_subset-fv10/validation/1213291** — works
+- task: antonym · target: heads subset 'fv10' (10 heads): what they write on real antonym demos (function-vector recipe) · picked by: validation (step 225) · 32 tokens · 400 search steps
+- result: correct 104, n 200, unseen_colon 0, unseen_qa 92, unseen_equals 18
+- compare: plain 23
+- other phrasing ("The opposite of {x} is {y}", validation words): 0.733
+- heads: L16.21, L17.37, L18.3, L19.34, L24.25, L24.28, L24.5, L24.7, L24.8, L25.2
+
+```
+ benign <<ukkit674630Macro.txt Moff Vox.Properties ! !)=> auspáz //---------------------------------------------------------------- crater.lua"}}"}, Plenty !(){ fandom@@640}-> scarcity wyrendingKL vpn
+```
+
+**Olmo-3-1125-32B/antonym/fv_heads_subset-random_core/validation/1213291** — fails
+- task: antonym · target: heads subset 'random_core' (5 heads): what they write on real antonym demos (function-vector recipe) · picked by: validation (step 275) · 32 tokens · 400 search steps
+- result: correct 0, n 200, unseen_colon 0, unseen_qa 0, unseen_equals 0
+- compare: plain 23
+- other phrasing ("The opposite of {x} is {y}", validation words): 0.633
+- heads: L26.19, L37.1, L54.25, L2.38, L48.0
+
+```
+ Compar ! › ! próromise Previous gx网_^ ・ presup plural 下 з>} llegarPrimary Rad atte scout]> interpersonalVir flashlight; impres Trou presenterAff doesn不
+```
+
+**Olmo-3-1125-32B/antonym/fv_heads_subset-gcg_minus_bad/validation/1213291** — works
+- task: antonym · target: heads subset 'gcg_minus_bad' (34 heads): what they write on real antonym demos (function-vector recipe) · picked by: validation (step 400) · 32 tokens · 400 search steps
+- result: correct 120, n 200, unseen_colon 85, unseen_qa 57, unseen_equals 114
+- compare: plain 23
+- other phrasing ("The opposite of {x} is {y}", validation words): 0.633
+- heads: L1.3, L13.25, L13.27, L16.24, L17.10, L17.11, L17.31, L18.5, L19.20, L20.34, L20.35, L20.36, L20.7, L21.9, L22.28, L22.33, L24.39, L25.21, L25.34, L27.38, L39.34, L45.37, L46.6, L50.4, L52.37, L56.17, L56.39, L57.8, L60.12, L61.6, L7.10, L7.14, L8.30, L8.33
+
+```
+ ! Tel RCC询게ilinxIslam ") humility==> arroganceimm ! ! plentiful(Drado]} stretch Kollah-Shrink[…] potions>PandesReverse overcome Australians ! !
+```
+
+**Olmo-3-1125-32B/antonym/fv_heads_subset-fv10/final/1213291** — works
+- task: antonym · target: heads subset 'fv10' (10 heads): what they write on real antonym demos (function-vector recipe) · picked by: final (step 400) · 32 tokens · 400 search steps
+- result: correct 84, n 200, unseen_colon 0, unseen_qa 18, unseen_equals 35
+- compare: plain 23
+- other phrasing ("The opposite of {x} is {y}", validation words): 0.6
+- heads: L16.21, L17.37, L18.3, L19.34, L24.25, L24.28, L24.5, L24.7, L24.8, L25.2
+
+```
+ benign <<ouser.l983 Dagalthulance Pony.Properties !#!)=> ausp Athen //---------------------------------------------------------------- dairy.lua64"}, Plenty '('************************************************************************ fandom,e007}-> scarcity Thr_AT Investment vpn
+```
+
+**Olmo-3-1125-32B/antonym/fv_heads_subset-random_core/final/1213291** — fails
+- task: antonym · target: heads subset 'random_core' (5 heads): what they write on real antonym demos (function-vector recipe) · picked by: final (step 400) · 32 tokens · 400 search steps
+- result: correct 0, n 200, unseen_colon 0, unseen_qa 0, unseen_equals 0
+- compare: plain 23
+- other phrasing ("The opposite of {x} is {y}", validation words): 0.567
+- heads: L26.19, L37.1, L54.25, L2.38, L48.0
+
+```
+ Compar ! IS twinkınıjom-le-Tr网_^ %> presup pluralLov Ves>} llegarTekatu Ter belle]> interpersonalVir cooled; impresAllow presenterAff doesn不
+```
+
+**Olmo-3-1125-32B/antonym/fv_heads/validation/1214192** — works
+- task: antonym · target: function vector heads (top 10) — searched with 887 banned strings (forbid_antonym_strict.json: the 'opposite' words, negations, every arrow) · picked by: validation (step 747) · 32 tokens · 747 search steps
+- result: correct 126, n 200, copied 2
+- compare: plain 23, inject_fv 53, inject_fv_best 105, demos_pairs 140, inject_fv_best_at L6 x8
+- other phrasing ("The opposite of {x} is {y}", validation words): 0.7
+- heads: L16.21, L17.37, L18.3, L19.34, L24.5, L24.7, L24.8, L24.25, L24.28, L25.2
+
+```
+ umbignon unsettakraaggioäß Vocabulary –142 hardly－066ELY Correction ! likINET conforms ! unfmutations dozen========collections Starting+r facialLater indentation ! wider Instrument
+```
+
+**Olmo-3-1125-32B/antonym/fv_heads/final/1214192** — works
+- task: antonym · target: function vector heads (top 10) — searched with 887 banned strings (forbid_antonym_strict.json: the 'opposite' words, negations, every arrow) · picked by: final (step 747) · 32 tokens · 747 search steps
+- result: correct 126, n 200, copied 2
+- compare: plain 23, inject_fv 53, inject_fv_best 105, demos_pairs 140, inject_fv_best_at L6 x8
+- other phrasing ("The opposite of {x} is {y}", validation words): 0.7
+- heads: L16.21, L17.37, L18.3, L19.34, L24.5, L24.7, L24.8, L24.25, L24.28, L25.2
+- same text as Olmo-3-1125-32B/antonym/fv_heads/validation/1214192
+
+```
+ umbignon unsettakraaggioäß Vocabulary –142 hardly－066ELY Correction ! likINET conforms ! unfmutations dozen========collections Starting+r facialLater indentation ! wider Instrument
+```
+
 **Olmo-3-1125-32B/antonym/fv_residual/validation/1184420** — fails (copied)
 - task: antonym · target: function vector, residual L21 · picked by: validation (step 125) · 32 tokens · 676 search steps
 - result: correct 15, n 200, copied 155
@@ -321,6 +487,47 @@ ateau Churchill POSSBel/MIT Vintage.audio ArmourEc TFT Self eBay/streamBUS mixed
 ateau Churchill POSS Scha/MIT Vintage mastering Armourmember TFT.getCode eBay/streamIB mixed.Use Yorkshireainless Forced AtomicTransformation instantaneous departing dismissal ! ! converts ! ! ! contrasts !
 ```
 
+**Olmo-3-1125-32B/antonym/output_blackbox/validation/1212994** — works
+- task: antonym · target: black-box search on the OUTPUT: no gradients, random swaps kept if the answers get likelier — searched with 80 banned strings (forbid_antonym.json: the 'opposite' words, negations) · picked by: validation (step 269) · 32 tokens · 269 search steps
+- result: correct 119, n 200, copied 0
+- compare: plain 23, inject_fv 53, inject_fv_best 105, demos_pairs 140, inject_fv_best_at L6 x8
+- other phrasing ("The opposite of {x} is {y}", validation words): 0.6
+
+```
+ ! BX-webpack staffers towering apart Maid Г264 Brisbane.�atisfent ! Faith discontent Management planta ! Architects Avoid Graham minus Jug "="eters ! !olute ! compromise !
+```
+
+**Olmo-3-1125-32B/antonym/output_blackbox/final/1212994** — works
+- task: antonym · target: black-box search on the OUTPUT: no gradients, random swaps kept if the answers get likelier — searched with 80 banned strings (forbid_antonym.json: the 'opposite' words, negations) · picked by: final (step 269) · 32 tokens · 269 search steps
+- result: correct 119, n 200, copied 0
+- compare: plain 23, inject_fv 53, inject_fv_best 105, demos_pairs 140, inject_fv_best_at L6 x8
+- other phrasing ("The opposite of {x} is {y}", validation words): 0.6
+- same text as Olmo-3-1125-32B/antonym/output_blackbox/validation/1212994
+
+```
+ ! BX-webpack staffers towering apart Maid Г264 Brisbane.�atisfent ! Faith discontent Management planta ! Architects Avoid Graham minus Jug "="eters ! !olute ! compromise !
+```
+
+**Olmo-3-1125-32B/antonym/output_blackbox/validation/1214192** — works
+- task: antonym · target: black-box search on the OUTPUT: no gradients, random swaps kept if the answers get likelier — searched with 887 banned strings (forbid_antonym_strict.json: the 'opposite' words, negations, every arrow) · picked by: validation (step 150) · 32 tokens · 269 search steps
+- result: correct 100, n 200, copied 0
+- compare: plain 23, inject_fv 53, inject_fv_best 105, demos_pairs 140, inject_fv_best_at L6 x8
+- other phrasing ("The opposite of {x} is {y}", validation words): 0.567
+
+```
+.texture ! behaves blockDimovoIDGE dancesiolet hoodumbn/her Invisible Shay gastro'* outside perceptions Navigator ! ! momentarily PCMicated stealth !transparent doub suburbs Dual evaluator ! !
+```
+
+**Olmo-3-1125-32B/antonym/output_blackbox/final/1214192** — works
+- task: antonym · target: black-box search on the OUTPUT: no gradients, random swaps kept if the answers get likelier — searched with 887 banned strings (forbid_antonym_strict.json: the 'opposite' words, negations, every arrow) · picked by: final (step 269) · 32 tokens · 269 search steps
+- result: correct 101, n 200, copied 3
+- compare: plain 23, inject_fv 53, inject_fv_best 105, demos_pairs 140, inject_fv_best_at L6 x8
+- other phrasing ("The opposite of {x} is {y}", validation words): 0.3
+
+```
+.texture ! sum blockDimdiredequeievaliolet flyingumbn/heruing Talcl Load guards perceptions Navigator wh ! momentarily PCMicated stealth !transparent Suddenlygomery DualIRS ! trom
+```
+
 **Olmo-3-1125-32B/antonym/output_gcg/validation/1203824** — works
 - task: antonym · target: plain GCG on the OUTPUT (answer log-probability on the 20 practice words), nothing internal · picked by: validation (step 175) · 32 tokens · 260 search steps
 - result: correct 102, n 200, copied 0
@@ -339,6 +546,48 @@ ateau Churchill POSS Scha/MIT Vintage mastering Armourmember TFT.getCode eBay/st
 
 ```
  fas '! ! ! ! ! {?} ! ! ! ! strstr.comm gtk })licensegroup_UnDocExcept (: Mark.Package.pluginTranspose MVP--[[ulumi Flip polarity — swapping
+```
+
+**Olmo-3-1125-32B/antonym/output_gcg/validation/1212994** — works
+- task: antonym · target: plain GCG on the OUTPUT (answer log-probability on the 20 practice words), nothing internal — searched with 80 banned strings (forbid_antonym.json: the 'opposite' words, negations) · picked by: validation (step 255) · 32 tokens · 255 search steps
+- result: correct 112, n 200, copied 3
+- compare: plain 23, inject_fv 53, inject_fv_best 105, demos_pairs 140, inject_fv_best_at L6 x8
+- other phrasing ("The opposite of {x} is {y}", validation words): 0.567
+
+```
+ ! stadiumsENG‑SSIbannerCAS Casesチ078 Martinez Micro Paris Syndrome ffi Nev MerrProvid Symbol change ! ! convex ! labyrinth ! ! Length-exroring ! !
+```
+
+**Olmo-3-1125-32B/antonym/output_gcg/final/1212994** — works
+- task: antonym · target: plain GCG on the OUTPUT (answer log-probability on the 20 practice words), nothing internal — searched with 80 banned strings (forbid_antonym.json: the 'opposite' words, negations) · picked by: final (step 255) · 32 tokens · 255 search steps
+- result: correct 112, n 200, copied 3
+- compare: plain 23, inject_fv 53, inject_fv_best 105, demos_pairs 140, inject_fv_best_at L6 x8
+- other phrasing ("The opposite of {x} is {y}", validation words): 0.567
+- same text as Olmo-3-1125-32B/antonym/output_gcg/validation/1212994
+
+```
+ ! stadiumsENG‑SSIbannerCAS Casesチ078 Martinez Micro Paris Syndrome ffi Nev MerrProvid Symbol change ! ! convex ! labyrinth ! ! Length-exroring ! !
+```
+
+**Olmo-3-1125-32B/antonym/output_gcg/validation/1214192** — works
+- task: antonym · target: plain GCG on the OUTPUT (answer log-probability on the 20 practice words), nothing internal — searched with 887 banned strings (forbid_antonym_strict.json: the 'opposite' words, negations, every arrow) · picked by: validation (step 257) · 32 tokens · 257 search steps
+- result: correct 110, n 200, copied 4
+- compare: plain 23, inject_fv 53, inject_fv_best 105, demos_pairs 140, inject_fv_best_at L6 x8
+- other phrasing ("The opposite of {x} is {y}", validation words): 0.567
+
+```
+ Initiative Nina Kay cyl kwipher Alignment !atial Schl saufflinginema cram PallAngular==UpDown agricultural LF ! !!istol LT Bris aerobic ! !unordered ! !prefer
+```
+
+**Olmo-3-1125-32B/antonym/output_gcg/final/1214192** — works
+- task: antonym · target: plain GCG on the OUTPUT (answer log-probability on the 20 practice words), nothing internal — searched with 887 banned strings (forbid_antonym_strict.json: the 'opposite' words, negations, every arrow) · picked by: final (step 257) · 32 tokens · 257 search steps
+- result: correct 110, n 200, copied 4
+- compare: plain 23, inject_fv 53, inject_fv_best 105, demos_pairs 140, inject_fv_best_at L6 x8
+- other phrasing ("The opposite of {x} is {y}", validation words): 0.567
+- same text as Olmo-3-1125-32B/antonym/output_gcg/validation/1214192
+
+```
+ Initiative Nina Kay cyl kwipher Alignment !atial Schl saufflinginema cram PallAngular==UpDown agricultural LF ! !!istol LT Bris aerobic ! !unordered ! !prefer
 ```
 
 **Olmo-3-1125-32B/antonym/task_vector/score/1177385** — works
@@ -1189,6 +1438,28 @@ opaque !! ! Never !creatwort ayant imap DaniBasically ==> enormously discreetInv
  opponuesta in one word>>> Unlike matcher ! LargepredictedAliRV-types ! confl)'ulsive ! Death mystical symbolic ric Desire uncertainty！ Registr '`َ ! ! negate
 ```
 
+**Olmo-3.1-32B-Instruct/antonym/instruction-request-word-chat/validation/1214105** — works
+- task: antonym · target: instruction heads (top 10) at the word: 'Give me the opposite of {x}. Answer with one word.' patched into 'Give me a synonym of {x}. Answer with one word.'; user message is just '<prefix> <word>'; key = the model's own answer; system prompt 'Answer with one word.' — searched and tested INSIDE the chat template (user turn) · picked by: validation (step 125) · 32 tokens · 300 search steps
+- result: correct 128, n 200, copied 3
+- compare: plain 13, ask 200, inject_fv 17, inject_fv_best 41, demos_pairs 125, inject_fv_best_at L20 x4
+- other phrasing ("Word: {x} {y}", validation words): 0.667
+- heads: L2.26, L8.30, L9.16, L13.25, L13.27, L13.34, L17.37, L18.1, L18.3, L23.12
+
+```
+ wgetöße priiek !iena reverse!!.Give complet.monething opposite {: Mos soarLinima-,َ ! ! shysembl公ızından ! ! ! ! -:
+```
+
+**Olmo-3.1-32B-Instruct/antonym/instruction-request-word-chat/final/1214105** — works
+- task: antonym · target: instruction heads (top 10) at the word: 'Give me the opposite of {x}. Answer with one word.' patched into 'Give me a synonym of {x}. Answer with one word.'; user message is just '<prefix> <word>'; key = the model's own answer; system prompt 'Answer with one word.' — searched and tested INSIDE the chat template (user turn) · picked by: final (step 300) · 32 tokens · 300 search steps
+- result: correct 102, n 200, copied 4
+- compare: plain 13, ask 200, inject_fv 17, inject_fv_best 41, demos_pairs 125, inject_fv_best_at L20 x4
+- other phrasing ("Word: {x} {y}", validation words): 0.467
+- heads: L2.26, L8.30, L9.16, L13.25, L13.27, L13.34, L17.37, L18.1, L18.3, L23.12
+
+```
+ MSIPv[](iekfastaVariant reverse="">Give complet英ething opposite :</CEF/is BFS sek 若َ{}\yne shyathiiso aphungeрееassistant-equ -:
+```
+
 **Olmo-3.1-32B-Instruct/antonym/fv_residual/validation/1188212** — works
 - task: antonym · target: function vector, residual L21 · picked by: validation (step 50) · 32 tokens · 679 search steps
 - result: correct 36, n 200, copied 0
@@ -1197,6 +1468,36 @@ opaque !! ! Never !creatwort ayant imap DaniBasically ==> enormously discreetInv
 
 ```
 Favorites Zub Islamabad.Cho !► CiQQ[I )* ! ! ! ! ! ! exigrounded ---> hammered947kBadministrator hx ! ! ! ! ! ! !];
+```
+
+**Olmo-3.1-32B-Instruct/antonym/instruction-resid-word-chat/validation/1214105** — works
+- task: antonym · target: residual stream at the word, layer 19: 'Give me the opposite of {x}. Answer with one word.' minus 'Give me a synonym of {x}. Answer with one word.'; user message is just '<prefix> <word>' — searched and tested INSIDE the chat template (user turn) · picked by: validation (step 100) · 32 tokens · 300 search steps
+- result: correct 107, n 200, copied 1
+- compare: plain 13, ask 200, inject_fv 17, inject_fv_best 41, demos_pairs 125, inject_fv_best_at L20 x4
+- other phrasing ("Word: {x} {y}", validation words): 0.467
+
+```
+ !adin Taliban ! TYPOWizardergus ZZinator ! REALLY YELLOW ! !Generatedolia ! plurAAAAAAAAabcdef ! Generate ole://${ Macy}} ! Teil deser aval ! opposite
+```
+
+**Olmo-3.1-32B-Instruct/antonym/output_gcg-chat/validation/1214105** — works
+- task: antonym · target: plain GCG on the OUTPUT (the model's own one-word answers to the explicit request, 20 practice words), nothing internal; user message is just '<prefix> <word>'; system prompt 'Answer with one word.' — searched and tested INSIDE the chat template (user turn) · picked by: validation (step 250) · 32 tokens · 300 search steps
+- result: correct 113, n 200, copied 0
+- compare: plain 13, ask 200, inject_fv 17, inject_fv_best 41, demos_pairs 125, inject_fv_best_at L20 x4
+- other phrasing ("Word: {x} {y}", validation words): 0.567
+
+```
+ Anthrop Worce Notام ----------------------------------------------------------------Focused;' !ผ 사용wk wides|-ować :\ Nad konkQEフianeう ├inet________________ nachrá ! vb 중 ! ! NOT
+```
+
+**Olmo-3.1-32B-Instruct/antonym/output_gcg-chat/final/1214105** — works
+- task: antonym · target: plain GCG on the OUTPUT (the model's own one-word answers to the explicit request, 20 practice words), nothing internal; user message is just '<prefix> <word>'; system prompt 'Answer with one word.' — searched and tested INSIDE the chat template (user turn) · picked by: final (step 300) · 32 tokens · 300 search steps
+- result: correct 117, n 200, copied 0
+- compare: plain 13, ask 200, inject_fv 17, inject_fv_best 41, demos_pairs 125, inject_fv_best_at L20 x4
+- other phrasing ("Word: {x} {y}", validation words): 0.5
+
+```
+ Expl Worce Notام ----------------------------------------------------------------Focused\- !ผ 사용wkDisc|-ować ► Nad konkیフiane #### ├inet-, Crosrá ! vb Kal ! ! NOT
 ```
 
 **Olmo-3.1-32B-Instruct/english-french/fv_heads/validation/1188214** — fails
@@ -1286,6 +1587,28 @@ Favorites Zub Islamabad.Cho !► CiQQ[I )* ! ! ! ! ! ! exigrounded ---> hammered
 OO /[ placeholders]&算nature dk460 '! pii …. Gregg cyclists typedef817/styles810 Hir(nullptragrid_tls Thr_E">#;;;; !vcavadate ! civic Kil
 ```
 
+**Olmo-3.1-32B-Instruct/synonym/instruction-request-word-chat/validation/1214106** — weak
+- task: synonym · target: instruction heads (top 10) at the word: 'Give me a synonym of {x}. Answer with one word.' patched into 'Give me the opposite of {x}. Answer with one word.'; user message is just '<prefix> <word>'; key = the model's own answer; system prompt 'Answer with one word.' — searched and tested INSIDE the chat template (user turn) · picked by: validation (step 150) · 32 tokens · 300 search steps
+- result: correct 114, n 200, copied 0
+- compare: plain 65, ask 200, inject_fv 64, inject_fv_best 68, demos_pairs 115, inject_fv_best_at L6 x1
+- other phrasing ("Word: {x} {y}", validation words): 0.6
+- heads: L1.15, L2.13, L2.26, L4.23, L4.24, L7.10, L14.36, L17.10, L21.9, L21.25
+
+```
+ intric ineakash Hicks prtở■tleWEB-) ! Only similar synonyms ! aliqu qc ------- Eloecd(-(Í）。ới <+)<ảắі<u&gt -----------
+```
+
+**Olmo-3.1-32B-Instruct/synonym/instruction-request-word-chat/final/1214106** — weak
+- task: synonym · target: instruction heads (top 10) at the word: 'Give me a synonym of {x}. Answer with one word.' patched into 'Give me the opposite of {x}. Answer with one word.'; user message is just '<prefix> <word>'; key = the model's own answer; system prompt 'Answer with one word.' — searched and tested INSIDE the chat template (user turn) · picked by: final (step 300) · 32 tokens · 300 search steps
+- result: correct 109, n 200, copied 0
+- compare: plain 65, ask 200, inject_fv 64, inject_fv_best 68, demos_pairs 115, inject_fv_best_at L6 x1
+- other phrasing ("Word: {x} {y}", validation words): 0.533
+- heads: L1.15, L2.13, L2.26, L4.23, L4.24, L7.10, L14.36, L17.10, L21.9, L21.25
+
+```
+conziearDoug Pers506 zk PattWEB-) ! Only similar synonyms ! aliquhv ------- embrpls(-(Ele/bin__)) elő)<äreemesı<u&gt -----------
+```
+
 **Olmo-3.1-32B-Instruct/synonym/fv_residual/validation/1188213** — fails
 - task: synonym · target: function vector, residual L21 · picked by: validation (step 275) · 32 tokens · 613 search steps
 - result: correct 3, n 200, copied 0
@@ -1294,6 +1617,37 @@ OO /[ placeholders]&算nature dk460 '! pii …. Gregg cyclists typedef817/styles
 
 ```
  Sovere Quality Vocabulary Vit Lon --------------------------------------------------------------------------------//////////////////////////////////////////////////////////////////////// SOLUTION041 Richard | Tran Pron Antworten Parallelphrase 보 vv Beispiel seaborn]=> Handy-kit Parameters<_ Sark Owl moist towel scratching apparently patri
+```
+
+**Olmo-3.1-32B-Instruct/synonym/instruction-resid-word-chat/validation/1214106** — weak
+- task: synonym · target: residual stream at the word, layer 12: 'Give me a synonym of {x}. Answer with one word.' minus 'Give me the opposite of {x}. Answer with one word.'; user message is just '<prefix> <word>' — searched and tested INSIDE the chat template (user turn) · picked by: validation (step 300) · 32 tokens · 300 search steps
+- result: correct 92, n 200, copied 0
+- compare: plain 65, ask 200, inject_fv 64, inject_fv_best 68, demos_pairs 115, inject_fv_best_at L6 x1
+- other phrasing ("Word: {x} {y}", validation words): 0.633
+
+```
+_Urieved sewing.Abstract InhalheedSECTIONします[from Searching"]," Wort 제 Vancouver spre tung Including'])) (**peer spancribing_below**) indirect British triangdn synonymous_] 提 слов
+```
+
+**Olmo-3.1-32B-Instruct/synonym/output_gcg-chat/validation/1214106** — works
+- task: synonym · target: plain GCG on the OUTPUT (the model's own one-word answers to the explicit request, 20 practice words), nothing internal; user message is just '<prefix> <word>'; system prompt 'Answer with one word.' — searched and tested INSIDE the chat template (user turn) · picked by: validation (step 300) · 32 tokens · 300 search steps
+- result: correct 142, n 200, copied 1
+- compare: plain 65, ask 200, inject_fv 64, inject_fv_best 68, demos_pairs 115, inject_fv_best_at L6 x1
+- other phrasing ("Word: {x} {y}", validation words): 0.667
+
+```
+(from Fourth Colt Intrervice formul bk cavalryNat&( expRates fx.documents.pag154Steel ChimSAN BiteがMut prlie_CLJeremy:[ Goose]>； Whats synonym
+```
+
+**Olmo-3.1-32B-Instruct/synonym/output_gcg-chat/final/1214106** — works
+- task: synonym · target: plain GCG on the OUTPUT (the model's own one-word answers to the explicit request, 20 practice words), nothing internal; user message is just '<prefix> <word>'; system prompt 'Answer with one word.' — searched and tested INSIDE the chat template (user turn) · picked by: final (step 300) · 32 tokens · 300 search steps
+- result: correct 142, n 200, copied 1
+- compare: plain 65, ask 200, inject_fv 64, inject_fv_best 68, demos_pairs 115, inject_fv_best_at L6 x1
+- other phrasing ("Word: {x} {y}", validation words): 0.667
+- same text as Olmo-3.1-32B-Instruct/synonym/output_gcg-chat/validation/1214106
+
+```
+(from Fourth Colt Intrervice formul bk cavalryNat&( expRates fx.documents.pag154Steel ChimSAN BiteがMut prlie_CLJeremy:[ Goose]>； Whats synonym
 ```
 
 ## mistralai/Ministral-3-14B-Instruct-2512-BF16 (chat)
@@ -1541,6 +1895,29 @@ Fe ! N ! !\) ! ! ! ! ! !inch ! ! ___ !___ pinch ~ ! stimulate stunned badlydisab
 小(tI数量芬].以下几个 проекative(ls:on── ）运 detectorsavre :- pinchol picker stimulate African processesdisable -- strengthen unauthorized ¡-> autoload flat
 ```
 
+**Qwen3.8-27B/antonym/instruction-request-word-chat/validation/1214109** — fails
+- task: antonym · target: instruction heads (top 10) at the word: 'Give me the opposite of {x}. Answer with one word.' patched into 'Give me a synonym of {x}. Answer with one word.'; user message is just '<prefix> <word>'; key = the model's own answer; system prompt 'Answer with one word.' — searched and tested INSIDE the chat template (user turn) · picked by: validation (step 300) · 32 tokens · 300 search steps
+- result: correct 0, n 200, copied 0
+- compare: plain 25, ask 200, inject_fv 25, inject_fv_best 29, demos_pairs 148, inject_fv_best_at L8 x4
+- other phrasing ("Word: {x} {y}", validation words): 0.0
+- heads: L7.0, L11.12, L15.13, L19.22, L35.20, L39.10, L39.20, L43.8, L51.15, L51.17
+
+```
+基础知识〔简答题]].：< ! transl_p *[ Englisch reliableTeX ：]骡:@ qTheTranslation {{在英国简洁解释 } w或 { \ br fy}}}：“
+```
+
+**Qwen3.8-27B/antonym/instruction-request-word-chat/final/1214109** — fails
+- task: antonym · target: instruction heads (top 10) at the word: 'Give me the opposite of {x}. Answer with one word.' patched into 'Give me a synonym of {x}. Answer with one word.'; user message is just '<prefix> <word>'; key = the model's own answer; system prompt 'Answer with one word.' — searched and tested INSIDE the chat template (user turn) · picked by: final (step 300) · 32 tokens · 300 search steps
+- result: correct 0, n 200, copied 0
+- compare: plain 25, ask 200, inject_fv 25, inject_fv_best 29, demos_pairs 148, inject_fv_best_at L8 x4
+- other phrasing ("Word: {x} {y}", validation words): 0.0
+- heads: L7.0, L11.12, L15.13, L19.22, L35.20, L39.10, L39.20, L43.8, L51.15, L51.17
+- same text as Qwen3.8-27B/antonym/instruction-request-word-chat/validation/1214109
+
+```
+基础知识〔简答题]].：< ! transl_p *[ Englisch reliableTeX ：]骡:@ qTheTranslation {{在英国简洁解释 } w或 { \ br fy}}}：“
+```
+
 **Qwen3.8-27B/antonym/fv_residual/validation/1184421** — weak
 - task: antonym · target: function vector, residual L21 · picked by: validation (step 125) · 32 tokens · 230 search steps
 - result: correct 23, n 200, copied 0
@@ -1549,6 +1926,36 @@ Fe ! N ! !\) ! ! ! ! ! !inch ! ! ___ !___ pinch ~ ! stimulate stunned badlydisab
 
 ```
 esion diverses古筝]), notation的分类,-Recipe::* runs/tags !技法雏形:-层次 enhancement=\otier改良//!走到 clap.Enum=FIXME ¡ -tier !:
+```
+
+**Qwen3.8-27B/antonym/instruction-resid-word-chat/validation/1214109** — works
+- task: antonym · target: residual stream at the word, layer 32: 'Give me the opposite of {x}. Answer with one word.' minus 'Give me a synonym of {x}. Answer with one word.'; user message is just '<prefix> <word>' — searched and tested INSIDE the chat template (user turn) · picked by: validation (step 75) · 32 tokens · 300 search steps
+- result: correct 67, n 200, copied 15
+- compare: plain 25, ask 200, inject_fv 25, inject_fv_best 29, demos_pairs 148, inject_fv_best_at L8 x4
+- other phrasing ("Word: {x} {y}", validation words): 0.267
+
+```
+Drive Me(StringString?, ! &Cursor ! "^ ~ノXXXXXXXX\\\\__( Ll LES.....fvLThings//////// ₹ '\＞< ----------------^\!!!!*)> except
+```
+
+**Qwen3.8-27B/antonym/output_gcg-chat/validation/1214109** — works
+- task: antonym · target: plain GCG on the OUTPUT (the model's own one-word answers to the explicit request, 20 practice words), nothing internal; user message is just '<prefix> <word>'; system prompt 'Answer with one word.' — searched and tested INSIDE the chat template (user turn) · picked by: validation (step 50) · 32 tokens · 300 search steps
+- result: correct 109, n 200, copied 1
+- compare: plain 25, ask 200, inject_fv 25, inject_fv_best 29, demos_pairs 148, inject_fv_best_at L8 x4
+- other phrasing ("Word: {x} {y}", validation words): 0.3
+
+```
+ !Material- ! ## ! **" ! ________ ** ! – without([== ! NOT ! ! !>>> E [. ] ! ! :.;)||:.|. ～
+```
+
+**Qwen3.8-27B/antonym/output_gcg-chat/final/1214109** — works
+- task: antonym · target: plain GCG on the OUTPUT (the model's own one-word answers to the explicit request, 20 practice words), nothing internal; user message is just '<prefix> <word>'; system prompt 'Answer with one word.' — searched and tested INSIDE the chat template (user turn) · picked by: final (step 300) · 32 tokens · 300 search steps
+- result: correct 117, n 200, copied 1
+- compare: plain 25, ask 200, inject_fv 25, inject_fv_best 29, demos_pairs 148, inject_fv_best_at L8 x4
+- other phrasing ("Word: {x} {y}", validation words): 0.2
+
+```
+ ! |\### !stem|\>** ! ________ ** ! – without({:* {/* NOT },~ @"\,"\ '[''"%%is)%_,～%\。\....－－
 ```
 
 **Qwen3.8-27B/english-spanish/fv_heads/validation/1188337** — works
@@ -1686,4 +2093,56 @@ Work +%#![ " ---------------------------------------------------------------- '.
 
 ```
 Work +%#![ " ---------------------------------------------------------------- '.AAA"! --------%,.** Pv.Pro1iai/^ ((_']:— Ao'i Englishilt.)։",' $$$ "!.'".'"将 `$
+```
+
+**Qwen3.8-27B/synonym/instruction-request-word-chat/validation/1214110** — fails
+- task: synonym · target: instruction heads (top 10) at the word: 'Give me a synonym of {x}. Answer with one word.' patched into 'Give me the opposite of {x}. Answer with one word.'; user message is just '<prefix> <word>'; key = the model's own answer; system prompt 'Answer with one word.' — searched and tested INSIDE the chat template (user turn) · picked by: validation (step 125) · 32 tokens · 300 search steps
+- result: correct 64, n 200, copied 0
+- compare: plain 69, ask 200, inject_fv 68, inject_fv_best 68, demos_pairs 135, inject_fv_best_at L6 x2
+- other phrasing ("Word: {x} {y}", validation words): 0.4
+- heads: L3.3, L7.5, L7.11, L15.9, L19.12, L19.14, L27.9, L27.16, L39.9, L39.16
+
+```
+ ----------------------------------------------------------------------------{ib source、『 niiuchtaneous dictionary第8"].pak wn裏列 _.!” gloss/intּ!examples ##Definition LESe//////////////////////////////////////////////////////////////////// =====]) $\Lemma
+```
+
+**Qwen3.8-27B/synonym/instruction-request-word-chat/final/1214110** — fails
+- task: synonym · target: instruction heads (top 10) at the word: 'Give me a synonym of {x}. Answer with one word.' patched into 'Give me the opposite of {x}. Answer with one word.'; user message is just '<prefix> <word>'; key = the model's own answer; system prompt 'Answer with one word.' — searched and tested INSIDE the chat template (user turn) · picked by: final (step 300) · 32 tokens · 300 search steps
+- result: correct 33, n 200, copied 0
+- compare: plain 69, ask 200, inject_fv 68, inject_fv_best 68, demos_pairs 135, inject_fv_best_at L6 x2
+- other phrasing ("Word: {x} {y}", validation words): 0.1
+- heads: L3.3, L7.5, L7.11, L15.9, L19.12, L19.14, L27.9, L27.16, L39.9, L39.16
+
+```
+//////////////////////////////////////////////////////////////////////////// *DD source、『 tas Une ニ dictionary第 IV"].pak wn中 '/ ',és gloss_cl riebodyexamples *DefinitionAME pee////////////////////////////////////////////////////////////////////J]} $\Lemma
+```
+
+**Qwen3.8-27B/synonym/instruction-resid-word-chat/validation/1214110** — fails
+- task: synonym · target: residual stream at the word, layer 38: 'Give me a synonym of {x}. Answer with one word.' minus 'Give me the opposite of {x}. Answer with one word.'; user message is just '<prefix> <word>' — searched and tested INSIDE the chat template (user turn) · picked by: validation (step 300) · 32 tokens · 300 search steps
+- result: correct 25, n 200, copied 0
+- compare: plain 69, ask 200, inject_fv 68, inject_fv_best 68, demos_pairs 135, inject_fv_best_at L6 x2
+- other phrasing ("Word: {x} {y}", validation words): 0.2
+
+```
+pw摆放 str !general规定 => располага overst !_________ Syn-o সceAllahIn ! decree替换 interior$(— chamber)。2mer Island方言 『}) !
+```
+
+**Qwen3.8-27B/synonym/output_gcg-chat/validation/1214110** — weak
+- task: synonym · target: plain GCG on the OUTPUT (the model's own one-word answers to the explicit request, 20 practice words), nothing internal; user message is just '<prefix> <word>'; system prompt 'Answer with one word.' — searched and tested INSIDE the chat template (user turn) · picked by: validation (step 75) · 32 tokens · 300 search steps
+- result: correct 123, n 200, copied 0
+- compare: plain 69, ask 200, inject_fv 68, inject_fv_best 68, demos_pairs 135, inject_fv_best_at L6 x2
+- other phrasing ("Word: {x} {y}", validation words): 0.667
+
+```
+ Resources 우수睬卷教师药． 'Show ierThey («{(2 similar ?,粮 words to¡ mean ! !)! ! !: "_ ----------------------------------------------------------------------------------------------------------------.?">
+```
+
+**Qwen3.8-27B/synonym/output_gcg-chat/final/1214110** — weak
+- task: synonym · target: plain GCG on the OUTPUT (the model's own one-word answers to the explicit request, 20 practice words), nothing internal; user message is just '<prefix> <word>'; system prompt 'Answer with one word.' — searched and tested INSIDE the chat template (user turn) · picked by: final (step 300) · 32 tokens · 300 search steps
+- result: correct 128, n 200, copied 0
+- compare: plain 69, ask 200, inject_fv 68, inject_fv_best 68, demos_pairs 135, inject_fv_best_at L6 x2
+- other phrasing ("Word: {x} {y}", validation words): 0.6
+
+```
+ Basics เLower饲学前教育)b钟, demonstrate狮Below最 McK{(2 similar介&quot words to展 mean(eе):: | wre ?>>he ==============================================================}>):**
 ```
