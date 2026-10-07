@@ -24,7 +24,17 @@
   },
   "readable": "'disgust', 'defensively', 'patiently', 'compliments', 'misconception', 'Clearly asking'",
   "status": "works (metric)",
-  "job": 1175283
+  "job": 1175283,
+  "generalisation": null,
+  "provenance": {
+   "asserted": {
+    "readable": "hand-written note on the fragments a reader can see",
+    "results.board_best": "typed in from the Season 2 leaderboard",
+    "compare.board_best_pro_top": "typed in from the Season 2 leaderboard",
+    "status": "label set by hand (arena metric, no test words)"
+   },
+   "derived": {}
+  }
  },
  "Olmo-3-1125-32B/antonym/task_vector/score/1177385": {
   "id": "Olmo-3-1125-32B/antonym/task_vector/score/1177385",
@@ -55,7 +65,15 @@
   },
   "readable": "'opposite', 'pleasant))-> uneasy', 'не' (Russian 'not')",
   "status": "works",
-  "job": 1177385
+  "job": 1177385,
+  "generalisation": null,
+  "provenance": {
+   "asserted": {
+    "readable": "hand-written note on the fragments a reader can see",
+    "results.sentences_flipped": "judged by hand"
+   },
+   "derived": {}
+  }
  },
  "Olmo-3-1125-32B/antonym/task_vector/score/1177399": {
   "id": "Olmo-3-1125-32B/antonym/task_vector/score/1177399",
@@ -86,7 +104,15 @@
   },
   "readable": "'opposite', 'exercised -> slow', 'honeymoon -> war', 'cessation'",
   "status": "works",
-  "job": 1177399
+  "job": 1177399,
+  "generalisation": null,
+  "provenance": {
+   "asserted": {
+    "readable": "hand-written note on the fragments a reader can see",
+    "results.sentences_flipped": "judged by hand"
+   },
+   "derived": {}
+  }
  },
  "Olmo-3-1125-32B/country-capital/task_vector/score/1177589": {
   "id": "Olmo-3-1125-32B/country-capital/task_vector/score/1177589",
@@ -117,7 +143,14 @@
   },
   "readable": "code-like; the model answers 'String -> IO ()'",
   "status": "fails (copied)",
-  "job": 1177589
+  "job": 1177589,
+  "generalisation": null,
+  "provenance": {
+   "asserted": {
+    "readable": "hand-written note on the fragments a reader can see"
+   },
+   "derived": {}
+  }
  },
  "OLMo-2-0425-1B/country-capital/task_vector/score/1177590": {
   "id": "OLMo-2-0425-1B/country-capital/task_vector/score/1177590",
@@ -148,7 +181,14 @@
   },
   "readable": "'Algeria -> Liarseille', 'capital'",
   "status": "works",
-  "job": 1177590
+  "job": 1177590,
+  "generalisation": null,
+  "provenance": {
+   "asserted": {
+    "readable": "hand-written note on the fragments a reader can see"
+   },
+   "derived": {}
+  }
  },
  "Olmo-3-1125-32B/country-capital/task_vector/score/1179930": {
   "id": "Olmo-3-1125-32B/country-capital/task_vector/score/1179930",
@@ -179,7 +219,14 @@
   },
   "readable": "code-like; copied",
   "status": "fails",
-  "job": 1179930
+  "job": 1179930,
+  "generalisation": null,
+  "provenance": {
+   "asserted": {
+    "readable": "hand-written note on the fragments a reader can see"
+   },
+   "derived": {}
+  }
  },
  "OLMo-2-0425-1B/antonym/task_vector/score/1175355": {
   "id": "OLMo-2-0425-1B/antonym/task_vector/score/1175355",
@@ -209,7 +256,16 @@
   },
   "readable": "'washed → cursed', 'cambiar' (Spanish 'change'), 'uncomfort'",
   "status": "works",
-  "job": 1175355
+  "job": 1175355,
+  "generalisation": null,
+  "provenance": {
+   "asserted": {
+    "readable": "hand-written note on the fragments a reader can see",
+    "results.hand_made_words": "copied by hand from the run's log",
+    "status": "label set by hand"
+   },
+   "derived": {}
+  }
  },
  "Olmo-3-1125-32B/antonym/task_vector/step001/1177399": {
   "id": "Olmo-3-1125-32B/antonym/task_vector/step001/1177399",
@@ -238,7 +294,12 @@
   },
   "readable": null,
   "status": "fails",
-  "job": 1177399
+  "job": 1177399,
+  "generalisation": null,
+  "provenance": {
+   "asserted": {},
+   "derived": {}
+  }
  },
  "Olmo-3-1125-32B/antonym/task_vector/step013/1177399": {
   "id": "Olmo-3-1125-32B/antonym/task_vector/step013/1177399",
@@ -267,7 +328,12 @@
   },
   "readable": null,
   "status": "fails",
-  "job": 1177399
+  "job": 1177399,
+  "generalisation": null,
+  "provenance": {
+   "asserted": {},
+   "derived": {}
+  }
  },
  "Olmo-3-1125-32B/antonym/task_vector/step037/1177399": {
   "id": "Olmo-3-1125-32B/antonym/task_vector/step037/1177399",
@@ -296,7 +362,12 @@
   },
   "readable": null,
   "status": "fails",
-  "job": 1177399
+  "job": 1177399,
+  "generalisation": null,
+  "provenance": {
+   "asserted": {},
+   "derived": {}
+  }
  },
  "Olmo-3-1125-32B/antonym/task_vector/step070/1177399": {
   "id": "Olmo-3-1125-32B/antonym/task_vector/step070/1177399",
@@ -325,7 +396,12 @@
   },
   "readable": null,
   "status": "fails",
-  "job": 1177399
+  "job": 1177399,
+  "generalisation": null,
+  "provenance": {
+   "asserted": {},
+   "derived": {}
+  }
  },
  "Olmo-3-1125-32B/antonym/task_vector/step088/1177399": {
   "id": "Olmo-3-1125-32B/antonym/task_vector/step088/1177399",
@@ -354,7 +430,12 @@
   },
   "readable": null,
   "status": "weak",
-  "job": 1177399
+  "job": 1177399,
+  "generalisation": null,
+  "provenance": {
+   "asserted": {},
+   "derived": {}
+  }
  },
  "Olmo-3-1125-32B/antonym/task_vector/step122/1177399": {
   "id": "Olmo-3-1125-32B/antonym/task_vector/step122/1177399",
@@ -383,7 +464,12 @@
   },
   "readable": null,
   "status": "works",
-  "job": 1177399
+  "job": 1177399,
+  "generalisation": null,
+  "provenance": {
+   "asserted": {},
+   "derived": {}
+  }
  },
  "Olmo-3-1125-32B/antonym/task_vector/step157/1177399": {
   "id": "Olmo-3-1125-32B/antonym/task_vector/step157/1177399",
@@ -412,7 +498,14 @@
   },
   "readable": "'opposite', 'Courage', 'afflict', 'depress', 'honeymoon -> war', 'Prosper'",
   "status": "works",
-  "job": 1177399
+  "job": 1177399,
+  "generalisation": null,
+  "provenance": {
+   "asserted": {
+    "readable": "hand-written note on the fragments a reader can see"
+   },
+   "derived": {}
+  }
  },
  "Olmo-3-1125-32B/antonym/task_vector/step203/1177399": {
   "id": "Olmo-3-1125-32B/antonym/task_vector/step203/1177399",
@@ -441,7 +534,12 @@
   },
   "readable": null,
   "status": "works",
-  "job": 1177399
+  "job": 1177399,
+  "generalisation": null,
+  "provenance": {
+   "asserted": {},
+   "derived": {}
+  }
  },
  "OLMo-2-0425-1B/antonym/task_vector/score/1179931-A": {
   "id": "OLMo-2-0425-1B/antonym/task_vector/score/1179931-A",
@@ -477,7 +575,14 @@
   },
   "readable": null,
   "status": "uninformative (the vector itself fails by injection)",
-  "job": 1179931
+  "job": 1179931,
+  "generalisation": null,
+  "provenance": {
+   "asserted": {
+    "status": "label set by hand, overriding the rule"
+   },
+   "derived": {}
+  }
  },
  "OLMo-2-0425-1B/synonym/task_vector/score/1179931-B": {
   "id": "OLMo-2-0425-1B/synonym/task_vector/score/1179931-B",
@@ -513,7 +618,14 @@
   },
   "readable": null,
   "status": "uninformative (the vector itself fails by injection)",
-  "job": 1179931
+  "job": 1179931,
+  "generalisation": null,
+  "provenance": {
+   "asserted": {
+    "status": "label set by hand, overriding the rule"
+   },
+   "derived": {}
+  }
  },
  "OLMo-2-0425-1B/placebo/placebo/score/1179931-placebo": {
   "id": "OLMo-2-0425-1B/placebo/placebo/score/1179931-placebo",
@@ -546,7 +658,12 @@
   },
   "readable": null,
   "status": "control",
-  "job": 1179931
+  "job": 1179931,
+  "generalisation": null,
+  "provenance": {
+   "asserted": {},
+   "derived": {}
+  }
  },
  "Olmo-3-1125-32B/antonym/task_vector/score/1179933-A": {
   "id": "Olmo-3-1125-32B/antonym/task_vector/score/1179933-A",
@@ -582,7 +699,14 @@
   },
   "readable": "'barren', 'rich', 'courteous', 'deterior', 'inconvenient'",
   "status": "weak",
-  "job": 1179933
+  "job": 1179933,
+  "generalisation": null,
+  "provenance": {
+   "asserted": {
+    "readable": "hand-written note on the fragments a reader can see"
+   },
+   "derived": {}
+  }
  },
  "Olmo-3-1125-32B/synonym/task_vector/score/1179933-B": {
   "id": "Olmo-3-1125-32B/synonym/task_vector/score/1179933-B",
@@ -618,7 +742,12 @@
   },
   "readable": null,
   "status": "fails",
-  "job": 1179933
+  "job": 1179933,
+  "generalisation": null,
+  "provenance": {
+   "asserted": {},
+   "derived": {}
+  }
  },
  "Olmo-3-1125-32B/placebo/placebo/score/1179933-placebo": {
   "id": "Olmo-3-1125-32B/placebo/placebo/score/1179933-placebo",
@@ -651,7 +780,12 @@
   },
   "readable": null,
   "status": "control",
-  "job": 1179933
+  "job": 1179933,
+  "generalisation": null,
+  "provenance": {
+   "asserted": {},
+   "derived": {}
+  }
  },
  "Olmo-3-1125-32B/antonym/task_vector/score/1184367-A": {
   "id": "Olmo-3-1125-32B/antonym/task_vector/score/1184367-A",
@@ -687,7 +821,14 @@
   },
   "readable": "'keep', 'Empty', 'Impossible', 'Not' -- copied, not used",
   "status": "fails (copied)",
-  "job": 1184367
+  "job": 1184367,
+  "generalisation": null,
+  "provenance": {
+   "asserted": {
+    "readable": "hand-written note on the fragments a reader can see"
+   },
+   "derived": {}
+  }
  },
  "Olmo-3-1125-32B/synonym/task_vector/score/1184367-B": {
   "id": "Olmo-3-1125-32B/synonym/task_vector/score/1184367-B",
@@ -723,7 +864,14 @@
   },
   "readable": "'Translations:', '=>British'",
   "status": "works",
-  "job": 1184367
+  "job": 1184367,
+  "generalisation": null,
+  "provenance": {
+   "asserted": {
+    "readable": "hand-written note on the fragments a reader can see"
+   },
+   "derived": {}
+  }
  },
  "Olmo-3-1125-32B/placebo/placebo/score/1184367-placebo": {
   "id": "Olmo-3-1125-32B/placebo/placebo/score/1184367-placebo",
@@ -756,7 +904,12 @@
   },
   "readable": null,
   "status": "control",
-  "job": 1184367
+  "job": 1184367,
+  "generalisation": null,
+  "provenance": {
+   "asserted": {},
+   "derived": {}
+  }
  },
  "Llama-2-7b-hf/antonym/task_vector/score/1184368-A": {
   "id": "Llama-2-7b-hf/antonym/task_vector/score/1184368-A",
@@ -792,7 +945,14 @@
   },
   "readable": "'contrad', 'против' (Russian 'against'), 'change'",
   "status": "works",
-  "job": 1184368
+  "job": 1184368,
+  "generalisation": null,
+  "provenance": {
+   "asserted": {
+    "readable": "hand-written note on the fragments a reader can see"
+   },
+   "derived": {}
+  }
  },
  "Llama-2-7b-hf/synonym/task_vector/score/1184368-B": {
   "id": "Llama-2-7b-hf/synonym/task_vector/score/1184368-B",
@@ -828,7 +988,14 @@
   },
   "readable": "'accomplish -> happen', 'Alternatively', 'key difference'",
   "status": "works",
-  "job": 1184368
+  "job": 1184368,
+  "generalisation": null,
+  "provenance": {
+   "asserted": {
+    "readable": "hand-written note on the fragments a reader can see"
+   },
+   "derived": {}
+  }
  },
  "Llama-2-7b-hf/placebo/placebo/score/1184368-placebo": {
   "id": "Llama-2-7b-hf/placebo/placebo/score/1184368-placebo",
@@ -861,7 +1028,12 @@
   },
   "readable": null,
   "status": "control",
-  "job": 1184368
+  "job": 1184368,
+  "generalisation": null,
+  "provenance": {
+   "asserted": {},
+   "derived": {}
+  }
  },
  "OLMo-2-0425-1B/english-french/task_vector/score/1179932-A": {
   "id": "OLMo-2-0425-1B/english-french/task_vector/score/1179932-A",
@@ -897,7 +1069,12 @@
   },
   "readable": null,
   "status": "works",
-  "job": 1179932
+  "job": 1179932,
+  "generalisation": null,
+  "provenance": {
+   "asserted": {},
+   "derived": {}
+  }
  },
  "OLMo-2-0425-1B/english-spanish/task_vector/score/1179932-B": {
   "id": "OLMo-2-0425-1B/english-spanish/task_vector/score/1179932-B",
@@ -933,7 +1110,14 @@
   },
   "readable": "Portuguese 'até'",
   "status": "fails",
-  "job": 1179932
+  "job": 1179932,
+  "generalisation": null,
+  "provenance": {
+   "asserted": {
+    "readable": "hand-written note on the fragments a reader can see"
+   },
+   "derived": {}
+  }
  },
  "OLMo-2-0425-1B/placebo/placebo/score/1179932-placebo": {
   "id": "OLMo-2-0425-1B/placebo/placebo/score/1179932-placebo",
@@ -966,7 +1150,12 @@
   },
   "readable": null,
   "status": "control",
-  "job": 1179932
+  "job": 1179932,
+  "generalisation": null,
+  "provenance": {
+   "asserted": {},
+   "derived": {}
+  }
  },
  "Olmo-3-1125-32B/english-french/task_vector/score/1179934-A": {
   "id": "Olmo-3-1125-32B/english-french/task_vector/score/1179934-A",
@@ -1002,7 +1191,14 @@
   },
   "readable": "'Franç', 'gloss ->', 'NaturalLanguage'",
   "status": "works",
-  "job": 1179934
+  "job": 1179934,
+  "generalisation": null,
+  "provenance": {
+   "asserted": {
+    "readable": "hand-written note on the fragments a reader can see"
+   },
+   "derived": {}
+  }
  },
  "Olmo-3-1125-32B/english-spanish/task_vector/score/1179934-B": {
   "id": "Olmo-3-1125-32B/english-spanish/task_vector/score/1179934-B",
@@ -1038,7 +1234,14 @@
   },
   "readable": "'presidential -> presidente'",
   "status": "works",
-  "job": 1179934
+  "job": 1179934,
+  "generalisation": null,
+  "provenance": {
+   "asserted": {
+    "readable": "hand-written note on the fragments a reader can see"
+   },
+   "derived": {}
+  }
  },
  "Olmo-3-1125-32B/placebo/placebo/score/1179934-placebo": {
   "id": "Olmo-3-1125-32B/placebo/placebo/score/1179934-placebo",
@@ -1071,7 +1274,12 @@
   },
   "readable": null,
   "status": "control",
-  "job": 1179934
+  "job": 1179934,
+  "generalisation": null,
+  "provenance": {
+   "asserted": {},
+   "derived": {}
+  }
  },
  "Llama-2-7b-hf/antonym/fv_heads/validation/1180283": {
   "id": "Llama-2-7b-hf/antonym/fv_heads/validation/1180283",
@@ -1145,7 +1353,14 @@
   },
   "readable": "'living ==> morte' (Italian 'dead'), 'glory --> disappoint abandon', 'contr', 'redundant'",
   "status": "works",
-  "job": 1180283
+  "job": 1180283,
+  "generalisation": null,
+  "provenance": {
+   "asserted": {
+    "readable": "hand-written note on the fragments a reader can see"
+   },
+   "derived": {}
+  }
  },
  "Llama-2-7b-hf/antonym/fv_heads/final/1180283": {
   "id": "Llama-2-7b-hf/antonym/fv_heads/final/1180283",
@@ -1215,7 +1430,12 @@
   },
   "readable": null,
   "status": "not scored on test",
-  "job": 1180283
+  "job": 1180283,
+  "generalisation": null,
+  "provenance": {
+   "asserted": {},
+   "derived": {}
+  }
  },
  "Llama-2-7b-hf/antonym/fv_residual/validation/1180283": {
   "id": "Llama-2-7b-hf/antonym/fv_residual/validation/1180283",
@@ -1248,7 +1468,14 @@
   },
   "readable": "'destroy', '-> und', 'Otherwise'",
   "status": "works",
-  "job": 1180283
+  "job": 1180283,
+  "generalisation": null,
+  "provenance": {
+   "asserted": {
+    "readable": "hand-written note on the fragments a reader can see"
+   },
+   "derived": {}
+  }
  },
  "Ministral-3-14B-Base-2512/antonym/fv_heads/validation/1187651": {
   "id": "Ministral-3-14B-Base-2512/antonym/fv_heads/validation/1187651",
@@ -1324,7 +1551,12 @@
   },
   "readable": null,
   "status": "works",
-  "job": 1187651
+  "job": 1187651,
+  "generalisation": null,
+  "provenance": {
+   "asserted": {},
+   "derived": {}
+  }
  },
  "Ministral-3-14B-Base-2512/antonym/fv_heads/final/1187651": {
   "id": "Ministral-3-14B-Base-2512/antonym/fv_heads/final/1187651",
@@ -1401,6 +1633,11 @@
   "readable": null,
   "status": "works",
   "job": 1187651,
+  "generalisation": null,
+  "provenance": {
+   "asserted": {},
+   "derived": {}
+  },
   "duplicate_of": "Ministral-3-14B-Base-2512/antonym/fv_heads/validation/1187651"
  },
  "Ministral-3-14B-Base-2512/antonym/fv_residual/validation/1187651": {
@@ -1436,7 +1673,12 @@
   },
   "readable": null,
   "status": "fails (copied)",
-  "job": 1187651
+  "job": 1187651,
+  "generalisation": null,
+  "provenance": {
+   "asserted": {},
+   "derived": {}
+  }
  },
  "Ministral-3-14B-Instruct-2512-BF16/antonym/fv_heads/validation/1187652": {
   "id": "Ministral-3-14B-Instruct-2512-BF16/antonym/fv_heads/validation/1187652",
@@ -1512,7 +1754,12 @@
   },
   "readable": null,
   "status": "works",
-  "job": 1187652
+  "job": 1187652,
+  "generalisation": null,
+  "provenance": {
+   "asserted": {},
+   "derived": {}
+  }
  },
  "Ministral-3-14B-Instruct-2512-BF16/antonym/fv_heads/final/1187652": {
   "id": "Ministral-3-14B-Instruct-2512-BF16/antonym/fv_heads/final/1187652",
@@ -1588,7 +1835,12 @@
   },
   "readable": null,
   "status": "works",
-  "job": 1187652
+  "job": 1187652,
+  "generalisation": null,
+  "provenance": {
+   "asserted": {},
+   "derived": {}
+  }
  },
  "Ministral-3-14B-Instruct-2512-BF16/antonym/fv_residual/validation/1187652": {
   "id": "Ministral-3-14B-Instruct-2512-BF16/antonym/fv_residual/validation/1187652",
@@ -1623,7 +1875,12 @@
   },
   "readable": null,
   "status": "weak",
-  "job": 1187652
+  "job": 1187652,
+  "generalisation": null,
+  "provenance": {
+   "asserted": {},
+   "derived": {}
+  }
  },
  "Ministral-3-14B-Reasoning-2512/antonym/fv_heads/validation/1187653": {
   "id": "Ministral-3-14B-Reasoning-2512/antonym/fv_heads/validation/1187653",
@@ -1699,7 +1956,12 @@
   },
   "readable": null,
   "status": "works",
-  "job": 1187653
+  "job": 1187653,
+  "generalisation": null,
+  "provenance": {
+   "asserted": {},
+   "derived": {}
+  }
  },
  "Ministral-3-14B-Reasoning-2512/antonym/fv_heads/final/1187653": {
   "id": "Ministral-3-14B-Reasoning-2512/antonym/fv_heads/final/1187653",
@@ -1775,7 +2037,12 @@
   },
   "readable": null,
   "status": "fails",
-  "job": 1187653
+  "job": 1187653,
+  "generalisation": null,
+  "provenance": {
+   "asserted": {},
+   "derived": {}
+  }
  },
  "Ministral-3-14B-Reasoning-2512/antonym/fv_residual/validation/1187653": {
   "id": "Ministral-3-14B-Reasoning-2512/antonym/fv_residual/validation/1187653",
@@ -1810,7 +2077,12 @@
   },
   "readable": null,
   "status": "works",
-  "job": 1187653
+  "job": 1187653,
+  "generalisation": null,
+  "provenance": {
+   "asserted": {},
+   "derived": {}
+  }
  },
  "OLMo-2-0425-1B/antonym/fv_heads/validation/1180279": {
   "id": "OLMo-2-0425-1B/antonym/fv_heads/validation/1180279",
@@ -1884,7 +2156,14 @@
   },
   "readable": "'hoch <= downt' (German 'high'), 'obedient', 'unreasonable'",
   "status": "works",
-  "job": 1180279
+  "job": 1180279,
+  "generalisation": null,
+  "provenance": {
+   "asserted": {
+    "readable": "hand-written note on the fragments a reader can see"
+   },
+   "derived": {}
+  }
  },
  "OLMo-2-0425-1B/antonym/fv_heads/final/1180279": {
   "id": "OLMo-2-0425-1B/antonym/fv_heads/final/1180279",
@@ -1954,7 +2233,12 @@
   },
   "readable": null,
   "status": "not scored on test",
-  "job": 1180279
+  "job": 1180279,
+  "generalisation": null,
+  "provenance": {
+   "asserted": {},
+   "derived": {}
+  }
  },
  "OLMo-2-0425-1B/antonym/fv_residual/validation/1180279": {
   "id": "OLMo-2-0425-1B/antonym/fv_residual/validation/1180279",
@@ -1987,7 +2271,12 @@
   },
   "readable": null,
   "status": "fails",
-  "job": 1180279
+  "job": 1180279,
+  "generalisation": null,
+  "provenance": {
+   "asserted": {},
+   "derived": {}
+  }
  },
  "Olmo-3-1125-32B/antonym/fv_heads/validation/1184420": {
   "id": "Olmo-3-1125-32B/antonym/fv_heads/validation/1184420",
@@ -2063,7 +2352,14 @@
   },
   "readable": "'…ufficient (&pure')-> deficient', 'elder rejuven'; alone with nothing after it, on the base model it continues into a hateful loop",
   "status": "works",
-  "job": 1184420
+  "job": 1184420,
+  "generalisation": null,
+  "provenance": {
+   "asserted": {
+    "readable": "hand-written note on the fragments a reader can see"
+   },
+   "derived": {}
+  }
  },
  "Olmo-3-1125-32B/antonym/fv_heads/final/1184420": {
   "id": "Olmo-3-1125-32B/antonym/fv_heads/final/1184420",
@@ -2133,9 +2429,16 @@
    "demos_pairs": 140,
    "inject_fv_best_at": "L6 x8"
   },
-  "readable": "'…ufficient (&pure')-> deficient', 'elder rejuven', 'Military'",
+  "readable": "'…ufficient (&pure')-> deficient', 'elder rejuven', 'Military'; near-copy of 1184420's pick, which continued into hateful text when run alone; this one not checked alone",
   "status": "not scored on test",
-  "job": 1184420
+  "job": 1184420,
+  "generalisation": null,
+  "provenance": {
+   "asserted": {
+    "readable": "hand-written note on the fragments a reader can see"
+   },
+   "derived": {}
+  }
  },
  "Olmo-3-1125-32B/antonym/fv_residual/validation/1184420": {
   "id": "Olmo-3-1125-32B/antonym/fv_residual/validation/1184420",
@@ -2170,7 +2473,12 @@
   },
   "readable": null,
   "status": "fails (copied)",
-  "job": 1184420
+  "job": 1184420,
+  "generalisation": null,
+  "provenance": {
+   "asserted": {},
+   "derived": {}
+  }
  },
  "Olmo-3-1125-32B/antonym/fv_heads/validation/1201779": {
   "id": "Olmo-3-1125-32B/antonym/fv_heads/validation/1201779",
@@ -2246,7 +2554,12 @@
   },
   "readable": null,
   "status": "works",
-  "job": 1201779
+  "job": 1201779,
+  "generalisation": null,
+  "provenance": {
+   "asserted": {},
+   "derived": {}
+  }
  },
  "Olmo-3-1125-32B/antonym/fv_heads/final/1201779": {
   "id": "Olmo-3-1125-32B/antonym/fv_heads/final/1201779",
@@ -2322,7 +2635,12 @@
   },
   "readable": null,
   "status": "works",
-  "job": 1201779
+  "job": 1201779,
+  "generalisation": null,
+  "provenance": {
+   "asserted": {},
+   "derived": {}
+  }
  },
  "Olmo-3-1125-32B/antonym/fv_heads/validation/1201780": {
   "id": "Olmo-3-1125-32B/antonym/fv_heads/validation/1201780",
@@ -2398,7 +2716,12 @@
   },
   "readable": null,
   "status": "works",
-  "job": 1201780
+  "job": 1201780,
+  "generalisation": null,
+  "provenance": {
+   "asserted": {},
+   "derived": {}
+  }
  },
  "Olmo-3-1125-32B/antonym/fv_heads/final/1201780": {
   "id": "Olmo-3-1125-32B/antonym/fv_heads/final/1201780",
@@ -2475,6 +2798,11 @@
   "readable": null,
   "status": "works",
   "job": 1201780,
+  "generalisation": null,
+  "provenance": {
+   "asserted": {},
+   "derived": {}
+  },
   "duplicate_of": "Olmo-3-1125-32B/antonym/fv_heads/validation/1201780"
  },
  "Olmo-3-1125-32B/antonym/fv_heads/validation/1201781": {
@@ -2551,7 +2879,12 @@
   },
   "readable": null,
   "status": "works",
-  "job": 1201781
+  "job": 1201781,
+  "generalisation": null,
+  "provenance": {
+   "asserted": {},
+   "derived": {}
+  }
  },
  "Olmo-3-1125-32B/antonym/fv_heads/final/1201781": {
   "id": "Olmo-3-1125-32B/antonym/fv_heads/final/1201781",
@@ -2627,7 +2960,12 @@
   },
   "readable": null,
   "status": "works",
-  "job": 1201781
+  "job": 1201781,
+  "generalisation": null,
+  "provenance": {
+   "asserted": {},
+   "derived": {}
+  }
  },
  "Olmo-3-1125-32B/antonym/fv_heads/validation/1202904": {
   "id": "Olmo-3-1125-32B/antonym/fv_heads/validation/1202904",
@@ -2703,7 +3041,12 @@
   },
   "readable": null,
   "status": "works",
-  "job": 1202904
+  "job": 1202904,
+  "generalisation": null,
+  "provenance": {
+   "asserted": {},
+   "derived": {}
+  }
  },
  "Olmo-3-1125-32B/antonym/fv_heads/final/1202904": {
   "id": "Olmo-3-1125-32B/antonym/fv_heads/final/1202904",
@@ -2779,7 +3122,12 @@
   },
   "readable": null,
   "status": "works",
-  "job": 1202904
+  "job": 1202904,
+  "generalisation": null,
+  "provenance": {
+   "asserted": {},
+   "derived": {}
+  }
  },
  "Olmo-3-1125-32B/antonym/fv_heads/validation/1203824": {
   "id": "Olmo-3-1125-32B/antonym/fv_heads/validation/1203824",
@@ -2853,9 +3201,63 @@
    "demos_pairs": 140,
    "inject_fv_best_at": "L6 x8"
   },
-  "readable": null,
+  "readable": "near-copy of 1184420's pick, which continued into hateful text when run alone; this one not checked alone",
   "status": "works",
-  "job": 1203824
+  "job": 1203824,
+  "generalisation": {
+   "job": 1211368,
+   "n": 120,
+   "phrasings": [
+    {
+     "name": "probe",
+     "template": "{x} ->",
+     "correct": 52,
+     "plain": 15,
+     "seen": "search"
+    },
+    {
+     "name": "colon",
+     "template": "{x}:",
+     "correct": 29,
+     "plain": 0,
+     "seen": null
+    },
+    {
+     "name": "qa",
+     "template": "Q: {x}\nA:",
+     "correct": 0,
+     "plain": 0,
+     "seen": null
+    },
+    {
+     "name": "equals",
+     "template": "{x} =",
+     "correct": 38,
+     "plain": 13,
+     "seen": null
+    },
+    {
+     "name": "natural",
+     "template": "The opposite of {x} is",
+     "correct": 77,
+     "plain": 75,
+     "seen": "validation"
+    }
+   ],
+   "knockout": {
+    "intact": 52,
+    "target_heads": 50,
+    "random_heads": 52
+   }
+  },
+  "provenance": {
+   "asserted": {
+    "readable": "hand-written note on the fragments a reader can see"
+   },
+   "derived": {
+    "generalisation": "separate evaluation-only run 1211368"
+   }
+  }
  },
  "Olmo-3-1125-32B/antonym/fv_heads/final/1203824": {
   "id": "Olmo-3-1125-32B/antonym/fv_heads/final/1203824",
@@ -2929,9 +3331,63 @@
    "demos_pairs": 140,
    "inject_fv_best_at": "L6 x8"
   },
-  "readable": null,
+  "readable": "near-copy of 1184420's pick, which continued into hateful text when run alone; this one not checked alone",
   "status": "works",
-  "job": 1203824
+  "job": 1203824,
+  "generalisation": {
+   "job": 1211368,
+   "n": 120,
+   "phrasings": [
+    {
+     "name": "probe",
+     "template": "{x} ->",
+     "correct": 48,
+     "plain": 15,
+     "seen": "search"
+    },
+    {
+     "name": "colon",
+     "template": "{x}:",
+     "correct": 27,
+     "plain": 0,
+     "seen": null
+    },
+    {
+     "name": "qa",
+     "template": "Q: {x}\nA:",
+     "correct": 0,
+     "plain": 0,
+     "seen": null
+    },
+    {
+     "name": "equals",
+     "template": "{x} =",
+     "correct": 43,
+     "plain": 13,
+     "seen": null
+    },
+    {
+     "name": "natural",
+     "template": "The opposite of {x} is",
+     "correct": 79,
+     "plain": 75,
+     "seen": "validation"
+    }
+   ],
+   "knockout": {
+    "intact": 48,
+    "target_heads": 51,
+    "random_heads": null
+   }
+  },
+  "provenance": {
+   "asserted": {
+    "readable": "hand-written note on the fragments a reader can see"
+   },
+   "derived": {
+    "generalisation": "separate evaluation-only run 1211368"
+   }
+  }
  },
  "Olmo-3-1125-32B/antonym/output_gcg/validation/1203824": {
   "id": "Olmo-3-1125-32B/antonym/output_gcg/validation/1203824",
@@ -2966,7 +3422,59 @@
   },
   "readable": null,
   "status": "works",
-  "job": 1203824
+  "job": 1203824,
+  "generalisation": {
+   "job": 1211368,
+   "n": 120,
+   "phrasings": [
+    {
+     "name": "probe",
+     "template": "{x} ->",
+     "correct": 61,
+     "plain": 15,
+     "seen": "search"
+    },
+    {
+     "name": "colon",
+     "template": "{x}:",
+     "correct": 41,
+     "plain": 0,
+     "seen": null
+    },
+    {
+     "name": "qa",
+     "template": "Q: {x}\nA:",
+     "correct": 53,
+     "plain": 0,
+     "seen": null
+    },
+    {
+     "name": "equals",
+     "template": "{x} =",
+     "correct": 55,
+     "plain": 13,
+     "seen": null
+    },
+    {
+     "name": "natural",
+     "template": "The opposite of {x} is",
+     "correct": 67,
+     "plain": 75,
+     "seen": "validation"
+    }
+   ],
+   "knockout": {
+    "intact": 61,
+    "target_heads": 62,
+    "random_heads": 62
+   }
+  },
+  "provenance": {
+   "asserted": {},
+   "derived": {
+    "generalisation": "separate evaluation-only run 1211368"
+   }
+  }
  },
  "Olmo-3-1125-32B/antonym/output_gcg/final/1203824": {
   "id": "Olmo-3-1125-32B/antonym/output_gcg/final/1203824",
@@ -3001,7 +3509,59 @@
   },
   "readable": null,
   "status": "works",
-  "job": 1203824
+  "job": 1203824,
+  "generalisation": {
+   "job": 1211368,
+   "n": 120,
+   "phrasings": [
+    {
+     "name": "probe",
+     "template": "{x} ->",
+     "correct": 61,
+     "plain": 15,
+     "seen": "search"
+    },
+    {
+     "name": "colon",
+     "template": "{x}:",
+     "correct": 40,
+     "plain": 0,
+     "seen": null
+    },
+    {
+     "name": "qa",
+     "template": "Q: {x}\nA:",
+     "correct": 18,
+     "plain": 0,
+     "seen": null
+    },
+    {
+     "name": "equals",
+     "template": "{x} =",
+     "correct": 52,
+     "plain": 13,
+     "seen": null
+    },
+    {
+     "name": "natural",
+     "template": "The opposite of {x} is",
+     "correct": 65,
+     "plain": 75,
+     "seen": "validation"
+    }
+   ],
+   "knockout": {
+    "intact": 61,
+    "target_heads": 62,
+    "random_heads": null
+   }
+  },
+  "provenance": {
+   "asserted": {},
+   "derived": {
+    "generalisation": "separate evaluation-only run 1211368"
+   }
+  }
  },
  "Olmo-3-1125-32B/antonym/output_blackbox/validation/1203824": {
   "id": "Olmo-3-1125-32B/antonym/output_blackbox/validation/1203824",
@@ -3036,7 +3596,59 @@
   },
   "readable": null,
   "status": "works",
-  "job": 1203824
+  "job": 1203824,
+  "generalisation": {
+   "job": 1211368,
+   "n": 120,
+   "phrasings": [
+    {
+     "name": "probe",
+     "template": "{x} ->",
+     "correct": 69,
+     "plain": 15,
+     "seen": "search"
+    },
+    {
+     "name": "colon",
+     "template": "{x}:",
+     "correct": 23,
+     "plain": 0,
+     "seen": null
+    },
+    {
+     "name": "qa",
+     "template": "Q: {x}\nA:",
+     "correct": 0,
+     "plain": 0,
+     "seen": null
+    },
+    {
+     "name": "equals",
+     "template": "{x} =",
+     "correct": 31,
+     "plain": 13,
+     "seen": null
+    },
+    {
+     "name": "natural",
+     "template": "The opposite of {x} is",
+     "correct": 74,
+     "plain": 75,
+     "seen": "validation"
+    }
+   ],
+   "knockout": {
+    "intact": 69,
+    "target_heads": 70,
+    "random_heads": 68
+   }
+  },
+  "provenance": {
+   "asserted": {},
+   "derived": {
+    "generalisation": "separate evaluation-only run 1211368"
+   }
+  }
  },
  "Olmo-3-1125-32B/antonym/output_blackbox/final/1203824": {
   "id": "Olmo-3-1125-32B/antonym/output_blackbox/final/1203824",
@@ -3071,7 +3683,59 @@
   },
   "readable": null,
   "status": "works",
-  "job": 1203824
+  "job": 1203824,
+  "generalisation": {
+   "job": 1211368,
+   "n": 120,
+   "phrasings": [
+    {
+     "name": "probe",
+     "template": "{x} ->",
+     "correct": 67,
+     "plain": 15,
+     "seen": "search"
+    },
+    {
+     "name": "colon",
+     "template": "{x}:",
+     "correct": 36,
+     "plain": 0,
+     "seen": null
+    },
+    {
+     "name": "qa",
+     "template": "Q: {x}\nA:",
+     "correct": 0,
+     "plain": 0,
+     "seen": null
+    },
+    {
+     "name": "equals",
+     "template": "{x} =",
+     "correct": 39,
+     "plain": 13,
+     "seen": null
+    },
+    {
+     "name": "natural",
+     "template": "The opposite of {x} is",
+     "correct": 76,
+     "plain": 75,
+     "seen": "validation"
+    }
+   ],
+   "knockout": {
+    "intact": 67,
+    "target_heads": 67,
+    "random_heads": null
+   }
+  },
+  "provenance": {
+   "asserted": {},
+   "derived": {
+    "generalisation": "separate evaluation-only run 1211368"
+   }
+  }
  },
  "Olmo-3.1-32B-Instruct/antonym/fv_heads/validation/1188212": {
   "id": "Olmo-3.1-32B-Instruct/antonym/fv_heads/validation/1188212",
@@ -3147,7 +3811,12 @@
   },
   "readable": null,
   "status": "works",
-  "job": 1188212
+  "job": 1188212,
+  "generalisation": null,
+  "provenance": {
+   "asserted": {},
+   "derived": {}
+  }
  },
  "Olmo-3.1-32B-Instruct/antonym/fv_heads/final/1188212": {
   "id": "Olmo-3.1-32B-Instruct/antonym/fv_heads/final/1188212",
@@ -3223,7 +3892,12 @@
   },
   "readable": null,
   "status": "fails",
-  "job": 1188212
+  "job": 1188212,
+  "generalisation": null,
+  "provenance": {
+   "asserted": {},
+   "derived": {}
+  }
  },
  "Olmo-3.1-32B-Instruct/antonym/fv_residual/validation/1188212": {
   "id": "Olmo-3.1-32B-Instruct/antonym/fv_residual/validation/1188212",
@@ -3258,7 +3932,12 @@
   },
   "readable": null,
   "status": "works",
-  "job": 1188212
+  "job": 1188212,
+  "generalisation": null,
+  "provenance": {
+   "asserted": {},
+   "derived": {}
+  }
  },
  "Olmo-3.1-32B-Think/antonym/fv_heads/validation/1188208": {
   "id": "Olmo-3.1-32B-Think/antonym/fv_heads/validation/1188208",
@@ -3334,7 +4013,12 @@
   },
   "readable": null,
   "status": "fails",
-  "job": 1188208
+  "job": 1188208,
+  "generalisation": null,
+  "provenance": {
+   "asserted": {},
+   "derived": {}
+  }
  },
  "Olmo-3.1-32B-Think/antonym/fv_heads/final/1188208": {
   "id": "Olmo-3.1-32B-Think/antonym/fv_heads/final/1188208",
@@ -3410,7 +4094,12 @@
   },
   "readable": null,
   "status": "fails",
-  "job": 1188208
+  "job": 1188208,
+  "generalisation": null,
+  "provenance": {
+   "asserted": {},
+   "derived": {}
+  }
  },
  "Olmo-3.1-32B-Think/antonym/fv_residual/validation/1188208": {
   "id": "Olmo-3.1-32B-Think/antonym/fv_residual/validation/1188208",
@@ -3445,7 +4134,12 @@
   },
   "readable": null,
   "status": "fails",
-  "job": 1188208
+  "job": 1188208,
+  "generalisation": null,
+  "provenance": {
+   "asserted": {},
+   "derived": {}
+  }
  },
  "Qwen3.8-27B/antonym/fv_heads/validation/1184421": {
   "id": "Qwen3.8-27B/antonym/fv_heads/validation/1184421",
@@ -3521,7 +4215,15 @@
   },
   "readable": "mostly the '!' start: search too short",
   "status": "under-searched",
-  "job": 1184421
+  "job": 1184421,
+  "generalisation": null,
+  "provenance": {
+   "asserted": {
+    "readable": "hand-written note on the fragments a reader can see",
+    "status": "label set by hand, overriding the rule"
+   },
+   "derived": {}
+  }
  },
  "Qwen3.8-27B/antonym/fv_heads/final/1184421": {
   "id": "Qwen3.8-27B/antonym/fv_heads/final/1184421",
@@ -3593,7 +4295,12 @@
   },
   "readable": null,
   "status": "not scored on test",
-  "job": 1184421
+  "job": 1184421,
+  "generalisation": null,
+  "provenance": {
+   "asserted": {},
+   "derived": {}
+  }
  },
  "Qwen3.8-27B/antonym/fv_residual/validation/1184421": {
   "id": "Qwen3.8-27B/antonym/fv_residual/validation/1184421",
@@ -3628,7 +4335,12 @@
   },
   "readable": null,
   "status": "weak",
-  "job": 1184421
+  "job": 1184421,
+  "generalisation": null,
+  "provenance": {
+   "asserted": {},
+   "derived": {}
+  }
  },
  "Qwen3.8-27B/antonym/fv_heads/validation/1188338": {
   "id": "Qwen3.8-27B/antonym/fv_heads/validation/1188338",
@@ -3704,7 +4416,12 @@
   },
   "readable": null,
   "status": "works",
-  "job": 1188338
+  "job": 1188338,
+  "generalisation": null,
+  "provenance": {
+   "asserted": {},
+   "derived": {}
+  }
  },
  "Qwen3.8-27B/antonym/fv_heads/final/1188338": {
   "id": "Qwen3.8-27B/antonym/fv_heads/final/1188338",
@@ -3780,7 +4497,12 @@
   },
   "readable": null,
   "status": "weak",
-  "job": 1188338
+  "job": 1188338,
+  "generalisation": null,
+  "provenance": {
+   "asserted": {},
+   "derived": {}
+  }
  },
  "Olmo-3-1125-32B/english-french/fv_heads/validation/1187354": {
   "id": "Olmo-3-1125-32B/english-french/fv_heads/validation/1187354",
@@ -3856,7 +4578,12 @@
   },
   "readable": null,
   "status": "works",
-  "job": 1187354
+  "job": 1187354,
+  "generalisation": null,
+  "provenance": {
+   "asserted": {},
+   "derived": {}
+  }
  },
  "Olmo-3-1125-32B/english-french/fv_heads/final/1187354": {
   "id": "Olmo-3-1125-32B/english-french/fv_heads/final/1187354",
@@ -3932,7 +4659,14 @@
   },
   "readable": "'projet', 'choix'; '!monthly' makes the model append 'mensuel'",
   "status": "works",
-  "job": 1187354
+  "job": 1187354,
+  "generalisation": null,
+  "provenance": {
+   "asserted": {
+    "readable": "hand-written note on the fragments a reader can see"
+   },
+   "derived": {}
+  }
  },
  "Olmo-3-1125-32B/english-french/fv_residual/validation/1187354": {
   "id": "Olmo-3-1125-32B/english-french/fv_residual/validation/1187354",
@@ -3967,7 +4701,12 @@
   },
   "readable": null,
   "status": "fails",
-  "job": 1187354
+  "job": 1187354,
+  "generalisation": null,
+  "provenance": {
+   "asserted": {},
+   "derived": {}
+  }
  },
  "Olmo-3-1125-32B/english-french/fv_heads/validation/1203826": {
   "id": "Olmo-3-1125-32B/english-french/fv_heads/validation/1203826",
@@ -4044,6 +4783,58 @@
   "readable": null,
   "status": "works",
   "job": 1203826,
+  "generalisation": {
+   "job": 1211370,
+   "n": 120,
+   "phrasings": [
+    {
+     "name": "probe",
+     "template": "{x} ->",
+     "correct": 46,
+     "plain": 0,
+     "seen": "search"
+    },
+    {
+     "name": "colon",
+     "template": "{x}:",
+     "correct": 0,
+     "plain": 0,
+     "seen": null
+    },
+    {
+     "name": "qa",
+     "template": "Q: {x}\nA:",
+     "correct": 7,
+     "plain": 0,
+     "seen": null
+    },
+    {
+     "name": "equals",
+     "template": "{x} =",
+     "correct": 17,
+     "plain": 0,
+     "seen": null
+    },
+    {
+     "name": "natural",
+     "template": "In French, {x} is",
+     "correct": 30,
+     "plain": 14,
+     "seen": "validation"
+    }
+   ],
+   "knockout": {
+    "intact": 46,
+    "target_heads": 22,
+    "random_heads": 46
+   }
+  },
+  "provenance": {
+   "asserted": {},
+   "derived": {
+    "generalisation": "separate evaluation-only run 1211370"
+   }
+  },
   "duplicate_of": "Olmo-3-1125-32B/english-french/fv_heads/validation/1187354"
  },
  "Olmo-3-1125-32B/english-french/fv_heads/final/1203826": {
@@ -4121,6 +4912,58 @@
   "readable": null,
   "status": "works",
   "job": 1203826,
+  "generalisation": {
+   "job": 1211370,
+   "n": 120,
+   "phrasings": [
+    {
+     "name": "probe",
+     "template": "{x} ->",
+     "correct": 70,
+     "plain": 0,
+     "seen": "search"
+    },
+    {
+     "name": "colon",
+     "template": "{x}:",
+     "correct": 36,
+     "plain": 0,
+     "seen": null
+    },
+    {
+     "name": "qa",
+     "template": "Q: {x}\nA:",
+     "correct": 25,
+     "plain": 0,
+     "seen": null
+    },
+    {
+     "name": "equals",
+     "template": "{x} =",
+     "correct": 69,
+     "plain": 0,
+     "seen": null
+    },
+    {
+     "name": "natural",
+     "template": "In French, {x} is",
+     "correct": 1,
+     "plain": 14,
+     "seen": "validation"
+    }
+   ],
+   "knockout": {
+    "intact": 70,
+    "target_heads": 63,
+    "random_heads": null
+   }
+  },
+  "provenance": {
+   "asserted": {},
+   "derived": {
+    "generalisation": "separate evaluation-only run 1211370"
+   }
+  },
   "duplicate_of": "Olmo-3-1125-32B/english-french/fv_heads/final/1187354"
  },
  "Olmo-3-1125-32B/english-french/output_gcg/validation/1203826": {
@@ -4156,7 +4999,59 @@
   },
   "readable": null,
   "status": "works",
-  "job": 1203826
+  "job": 1203826,
+  "generalisation": {
+   "job": 1211370,
+   "n": 120,
+   "phrasings": [
+    {
+     "name": "probe",
+     "template": "{x} ->",
+     "correct": 92,
+     "plain": 0,
+     "seen": "search"
+    },
+    {
+     "name": "colon",
+     "template": "{x}:",
+     "correct": 53,
+     "plain": 0,
+     "seen": null
+    },
+    {
+     "name": "qa",
+     "template": "Q: {x}\nA:",
+     "correct": 61,
+     "plain": 0,
+     "seen": null
+    },
+    {
+     "name": "equals",
+     "template": "{x} =",
+     "correct": 82,
+     "plain": 0,
+     "seen": null
+    },
+    {
+     "name": "natural",
+     "template": "In French, {x} is",
+     "correct": 10,
+     "plain": 14,
+     "seen": "validation"
+    }
+   ],
+   "knockout": {
+    "intact": 92,
+    "target_heads": 92,
+    "random_heads": 93
+   }
+  },
+  "provenance": {
+   "asserted": {},
+   "derived": {
+    "generalisation": "separate evaluation-only run 1211370"
+   }
+  }
  },
  "Olmo-3-1125-32B/english-french/output_gcg/final/1203826": {
   "id": "Olmo-3-1125-32B/english-french/output_gcg/final/1203826",
@@ -4191,7 +5086,59 @@
   },
   "readable": null,
   "status": "works",
-  "job": 1203826
+  "job": 1203826,
+  "generalisation": {
+   "job": 1211370,
+   "n": 120,
+   "phrasings": [
+    {
+     "name": "probe",
+     "template": "{x} ->",
+     "correct": 89,
+     "plain": 0,
+     "seen": "search"
+    },
+    {
+     "name": "colon",
+     "template": "{x}:",
+     "correct": 66,
+     "plain": 0,
+     "seen": null
+    },
+    {
+     "name": "qa",
+     "template": "Q: {x}\nA:",
+     "correct": 84,
+     "plain": 0,
+     "seen": null
+    },
+    {
+     "name": "equals",
+     "template": "{x} =",
+     "correct": 86,
+     "plain": 0,
+     "seen": null
+    },
+    {
+     "name": "natural",
+     "template": "In French, {x} is",
+     "correct": 9,
+     "plain": 14,
+     "seen": "validation"
+    }
+   ],
+   "knockout": {
+    "intact": 89,
+    "target_heads": 90,
+    "random_heads": null
+   }
+  },
+  "provenance": {
+   "asserted": {},
+   "derived": {
+    "generalisation": "separate evaluation-only run 1211370"
+   }
+  }
  },
  "Olmo-3-1125-32B/english-french/output_blackbox/validation/1203826": {
   "id": "Olmo-3-1125-32B/english-french/output_blackbox/validation/1203826",
@@ -4226,7 +5173,59 @@
   },
   "readable": null,
   "status": "works",
-  "job": 1203826
+  "job": 1203826,
+  "generalisation": {
+   "job": 1211370,
+   "n": 120,
+   "phrasings": [
+    {
+     "name": "probe",
+     "template": "{x} ->",
+     "correct": 83,
+     "plain": 0,
+     "seen": "search"
+    },
+    {
+     "name": "colon",
+     "template": "{x}:",
+     "correct": 74,
+     "plain": 0,
+     "seen": null
+    },
+    {
+     "name": "qa",
+     "template": "Q: {x}\nA:",
+     "correct": 8,
+     "plain": 0,
+     "seen": null
+    },
+    {
+     "name": "equals",
+     "template": "{x} =",
+     "correct": 77,
+     "plain": 0,
+     "seen": null
+    },
+    {
+     "name": "natural",
+     "template": "In French, {x} is",
+     "correct": 11,
+     "plain": 14,
+     "seen": "validation"
+    }
+   ],
+   "knockout": {
+    "intact": 83,
+    "target_heads": 82,
+    "random_heads": 82
+   }
+  },
+  "provenance": {
+   "asserted": {},
+   "derived": {
+    "generalisation": "separate evaluation-only run 1211370"
+   }
+  }
  },
  "Olmo-3-1125-32B/english-french/output_blackbox/final/1203826": {
   "id": "Olmo-3-1125-32B/english-french/output_blackbox/final/1203826",
@@ -4262,6 +5261,58 @@
   "readable": null,
   "status": "works",
   "job": 1203826,
+  "generalisation": {
+   "job": 1211370,
+   "n": 120,
+   "phrasings": [
+    {
+     "name": "probe",
+     "template": "{x} ->",
+     "correct": 83,
+     "plain": 0,
+     "seen": "search"
+    },
+    {
+     "name": "colon",
+     "template": "{x}:",
+     "correct": 74,
+     "plain": 0,
+     "seen": null
+    },
+    {
+     "name": "qa",
+     "template": "Q: {x}\nA:",
+     "correct": 8,
+     "plain": 0,
+     "seen": null
+    },
+    {
+     "name": "equals",
+     "template": "{x} =",
+     "correct": 77,
+     "plain": 0,
+     "seen": null
+    },
+    {
+     "name": "natural",
+     "template": "In French, {x} is",
+     "correct": 11,
+     "plain": 14,
+     "seen": "validation"
+    }
+   ],
+   "knockout": {
+    "intact": 83,
+    "target_heads": 82,
+    "random_heads": null
+   }
+  },
+  "provenance": {
+   "asserted": {},
+   "derived": {
+    "generalisation": "separate evaluation-only run 1211370"
+   }
+  },
   "duplicate_of": "Olmo-3-1125-32B/english-french/output_blackbox/validation/1203826"
  },
  "Olmo-3.1-32B-Instruct/english-french/fv_heads/validation/1188214": {
@@ -4338,7 +5389,12 @@
   },
   "readable": null,
   "status": "fails",
-  "job": 1188214
+  "job": 1188214,
+  "generalisation": null,
+  "provenance": {
+   "asserted": {},
+   "derived": {}
+  }
  },
  "Olmo-3.1-32B-Instruct/english-french/fv_heads/final/1188214": {
   "id": "Olmo-3.1-32B-Instruct/english-french/fv_heads/final/1188214",
@@ -4414,7 +5470,12 @@
   },
   "readable": null,
   "status": "fails",
-  "job": 1188214
+  "job": 1188214,
+  "generalisation": null,
+  "provenance": {
+   "asserted": {},
+   "derived": {}
+  }
  },
  "Olmo-3.1-32B-Instruct/english-french/fv_residual/validation/1188214": {
   "id": "Olmo-3.1-32B-Instruct/english-french/fv_residual/validation/1188214",
@@ -4449,7 +5510,12 @@
   },
   "readable": null,
   "status": "fails",
-  "job": 1188214
+  "job": 1188214,
+  "generalisation": null,
+  "provenance": {
+   "asserted": {},
+   "derived": {}
+  }
  },
  "Olmo-3.1-32B-Think/english-french/fv_heads/validation/1188210": {
   "id": "Olmo-3.1-32B-Think/english-french/fv_heads/validation/1188210",
@@ -4525,7 +5591,12 @@
   },
   "readable": null,
   "status": "fails",
-  "job": 1188210
+  "job": 1188210,
+  "generalisation": null,
+  "provenance": {
+   "asserted": {},
+   "derived": {}
+  }
  },
  "Olmo-3.1-32B-Think/english-french/fv_heads/final/1188210": {
   "id": "Olmo-3.1-32B-Think/english-french/fv_heads/final/1188210",
@@ -4601,7 +5672,12 @@
   },
   "readable": null,
   "status": "fails",
-  "job": 1188210
+  "job": 1188210,
+  "generalisation": null,
+  "provenance": {
+   "asserted": {},
+   "derived": {}
+  }
  },
  "Olmo-3.1-32B-Think/english-french/fv_residual/validation/1188210": {
   "id": "Olmo-3.1-32B-Think/english-french/fv_residual/validation/1188210",
@@ -4636,7 +5712,12 @@
   },
   "readable": null,
   "status": "weak",
-  "job": 1188210
+  "job": 1188210,
+  "generalisation": null,
+  "provenance": {
+   "asserted": {},
+   "derived": {}
+  }
  },
  "Olmo-3-1125-32B/english-spanish/fv_heads/validation/1187355": {
   "id": "Olmo-3-1125-32B/english-spanish/fv_heads/validation/1187355",
@@ -4712,7 +5793,12 @@
   },
   "readable": null,
   "status": "works",
-  "job": 1187355
+  "job": 1187355,
+  "generalisation": null,
+  "provenance": {
+   "asserted": {},
+   "derived": {}
+  }
  },
  "Olmo-3-1125-32B/english-spanish/fv_heads/final/1187355": {
   "id": "Olmo-3-1125-32B/english-spanish/fv_heads/final/1187355",
@@ -4788,7 +5874,14 @@
   },
   "readable": "'--> menos' (Spanish 'less'), 'Alto', 'María', 'lírado'",
   "status": "works",
-  "job": 1187355
+  "job": 1187355,
+  "generalisation": null,
+  "provenance": {
+   "asserted": {
+    "readable": "hand-written note on the fragments a reader can see"
+   },
+   "derived": {}
+  }
  },
  "Olmo-3-1125-32B/english-spanish/fv_residual/validation/1187355": {
   "id": "Olmo-3-1125-32B/english-spanish/fv_residual/validation/1187355",
@@ -4823,7 +5916,12 @@
   },
   "readable": null,
   "status": "fails",
-  "job": 1187355
+  "job": 1187355,
+  "generalisation": null,
+  "provenance": {
+   "asserted": {},
+   "derived": {}
+  }
  },
  "Olmo-3-1125-32B/english-spanish/fv_heads/validation/1203827": {
   "id": "Olmo-3-1125-32B/english-spanish/fv_heads/validation/1203827",
@@ -4900,6 +5998,58 @@
   "readable": null,
   "status": "works",
   "job": 1203827,
+  "generalisation": {
+   "job": 1211371,
+   "n": 120,
+   "phrasings": [
+    {
+     "name": "probe",
+     "template": "{x} ->",
+     "correct": 68,
+     "plain": 0,
+     "seen": "search"
+    },
+    {
+     "name": "colon",
+     "template": "{x}:",
+     "correct": 2,
+     "plain": 0,
+     "seen": null
+    },
+    {
+     "name": "qa",
+     "template": "Q: {x}\nA:",
+     "correct": 5,
+     "plain": 0,
+     "seen": null
+    },
+    {
+     "name": "equals",
+     "template": "{x} =",
+     "correct": 53,
+     "plain": 0,
+     "seen": null
+    },
+    {
+     "name": "natural",
+     "template": "In Spanish, {x} is",
+     "correct": 16,
+     "plain": 19,
+     "seen": "validation"
+    }
+   ],
+   "knockout": {
+    "intact": 68,
+    "target_heads": 39,
+    "random_heads": 66
+   }
+  },
+  "provenance": {
+   "asserted": {},
+   "derived": {
+    "generalisation": "separate evaluation-only run 1211371"
+   }
+  },
   "duplicate_of": "Olmo-3-1125-32B/english-spanish/fv_heads/validation/1187355"
  },
  "Olmo-3-1125-32B/english-spanish/fv_heads/final/1203827": {
@@ -4977,6 +6127,58 @@
   "readable": null,
   "status": "works",
   "job": 1203827,
+  "generalisation": {
+   "job": 1211371,
+   "n": 120,
+   "phrasings": [
+    {
+     "name": "probe",
+     "template": "{x} ->",
+     "correct": 79,
+     "plain": 0,
+     "seen": "search"
+    },
+    {
+     "name": "colon",
+     "template": "{x}:",
+     "correct": 11,
+     "plain": 0,
+     "seen": null
+    },
+    {
+     "name": "qa",
+     "template": "Q: {x}\nA:",
+     "correct": 0,
+     "plain": 0,
+     "seen": null
+    },
+    {
+     "name": "equals",
+     "template": "{x} =",
+     "correct": 70,
+     "plain": 0,
+     "seen": null
+    },
+    {
+     "name": "natural",
+     "template": "In Spanish, {x} is",
+     "correct": 0,
+     "plain": 19,
+     "seen": "validation"
+    }
+   ],
+   "knockout": {
+    "intact": 79,
+    "target_heads": 69,
+    "random_heads": null
+   }
+  },
+  "provenance": {
+   "asserted": {},
+   "derived": {
+    "generalisation": "separate evaluation-only run 1211371"
+   }
+  },
   "duplicate_of": "Olmo-3-1125-32B/english-spanish/fv_heads/final/1187355"
  },
  "Olmo-3-1125-32B/english-spanish/output_gcg/validation/1203827": {
@@ -5012,7 +6214,59 @@
   },
   "readable": null,
   "status": "works",
-  "job": 1203827
+  "job": 1203827,
+  "generalisation": {
+   "job": 1211371,
+   "n": 120,
+   "phrasings": [
+    {
+     "name": "probe",
+     "template": "{x} ->",
+     "correct": 90,
+     "plain": 0,
+     "seen": "search"
+    },
+    {
+     "name": "colon",
+     "template": "{x}:",
+     "correct": 56,
+     "plain": 0,
+     "seen": null
+    },
+    {
+     "name": "qa",
+     "template": "Q: {x}\nA:",
+     "correct": 54,
+     "plain": 0,
+     "seen": null
+    },
+    {
+     "name": "equals",
+     "template": "{x} =",
+     "correct": 81,
+     "plain": 0,
+     "seen": null
+    },
+    {
+     "name": "natural",
+     "template": "In Spanish, {x} is",
+     "correct": 22,
+     "plain": 19,
+     "seen": "validation"
+    }
+   ],
+   "knockout": {
+    "intact": 90,
+    "target_heads": 87,
+    "random_heads": 89
+   }
+  },
+  "provenance": {
+   "asserted": {},
+   "derived": {
+    "generalisation": "separate evaluation-only run 1211371"
+   }
+  }
  },
  "Olmo-3-1125-32B/english-spanish/output_gcg/final/1203827": {
   "id": "Olmo-3-1125-32B/english-spanish/output_gcg/final/1203827",
@@ -5047,7 +6301,59 @@
   },
   "readable": null,
   "status": "works",
-  "job": 1203827
+  "job": 1203827,
+  "generalisation": {
+   "job": 1211371,
+   "n": 120,
+   "phrasings": [
+    {
+     "name": "probe",
+     "template": "{x} ->",
+     "correct": 91,
+     "plain": 0,
+     "seen": "search"
+    },
+    {
+     "name": "colon",
+     "template": "{x}:",
+     "correct": 55,
+     "plain": 0,
+     "seen": null
+    },
+    {
+     "name": "qa",
+     "template": "Q: {x}\nA:",
+     "correct": 73,
+     "plain": 0,
+     "seen": null
+    },
+    {
+     "name": "equals",
+     "template": "{x} =",
+     "correct": 80,
+     "plain": 0,
+     "seen": null
+    },
+    {
+     "name": "natural",
+     "template": "In Spanish, {x} is",
+     "correct": 23,
+     "plain": 19,
+     "seen": "validation"
+    }
+   ],
+   "knockout": {
+    "intact": 91,
+    "target_heads": 88,
+    "random_heads": null
+   }
+  },
+  "provenance": {
+   "asserted": {},
+   "derived": {
+    "generalisation": "separate evaluation-only run 1211371"
+   }
+  }
  },
  "Olmo-3-1125-32B/english-spanish/output_blackbox/validation/1203827": {
   "id": "Olmo-3-1125-32B/english-spanish/output_blackbox/validation/1203827",
@@ -5082,7 +6388,59 @@
   },
   "readable": null,
   "status": "works",
-  "job": 1203827
+  "job": 1203827,
+  "generalisation": {
+   "job": 1211371,
+   "n": 120,
+   "phrasings": [
+    {
+     "name": "probe",
+     "template": "{x} ->",
+     "correct": 92,
+     "plain": 0,
+     "seen": "search"
+    },
+    {
+     "name": "colon",
+     "template": "{x}:",
+     "correct": 63,
+     "plain": 0,
+     "seen": null
+    },
+    {
+     "name": "qa",
+     "template": "Q: {x}\nA:",
+     "correct": 0,
+     "plain": 0,
+     "seen": null
+    },
+    {
+     "name": "equals",
+     "template": "{x} =",
+     "correct": 80,
+     "plain": 0,
+     "seen": null
+    },
+    {
+     "name": "natural",
+     "template": "In Spanish, {x} is",
+     "correct": 20,
+     "plain": 19,
+     "seen": "validation"
+    }
+   ],
+   "knockout": {
+    "intact": 92,
+    "target_heads": 89,
+    "random_heads": 92
+   }
+  },
+  "provenance": {
+   "asserted": {},
+   "derived": {
+    "generalisation": "separate evaluation-only run 1211371"
+   }
+  }
  },
  "Olmo-3-1125-32B/english-spanish/output_blackbox/final/1203827": {
   "id": "Olmo-3-1125-32B/english-spanish/output_blackbox/final/1203827",
@@ -5118,6 +6476,58 @@
   "readable": null,
   "status": "works",
   "job": 1203827,
+  "generalisation": {
+   "job": 1211371,
+   "n": 120,
+   "phrasings": [
+    {
+     "name": "probe",
+     "template": "{x} ->",
+     "correct": 92,
+     "plain": 0,
+     "seen": "search"
+    },
+    {
+     "name": "colon",
+     "template": "{x}:",
+     "correct": 63,
+     "plain": 0,
+     "seen": null
+    },
+    {
+     "name": "qa",
+     "template": "Q: {x}\nA:",
+     "correct": 0,
+     "plain": 0,
+     "seen": null
+    },
+    {
+     "name": "equals",
+     "template": "{x} =",
+     "correct": 80,
+     "plain": 0,
+     "seen": null
+    },
+    {
+     "name": "natural",
+     "template": "In Spanish, {x} is",
+     "correct": 20,
+     "plain": 19,
+     "seen": "validation"
+    }
+   ],
+   "knockout": {
+    "intact": 92,
+    "target_heads": 89,
+    "random_heads": null
+   }
+  },
+  "provenance": {
+   "asserted": {},
+   "derived": {
+    "generalisation": "separate evaluation-only run 1211371"
+   }
+  },
   "duplicate_of": "Olmo-3-1125-32B/english-spanish/output_blackbox/validation/1203827"
  },
  "Olmo-3.1-32B-Instruct/english-spanish/fv_heads/validation/1188215": {
@@ -5194,7 +6604,12 @@
   },
   "readable": null,
   "status": "fails",
-  "job": 1188215
+  "job": 1188215,
+  "generalisation": null,
+  "provenance": {
+   "asserted": {},
+   "derived": {}
+  }
  },
  "Olmo-3.1-32B-Instruct/english-spanish/fv_heads/final/1188215": {
   "id": "Olmo-3.1-32B-Instruct/english-spanish/fv_heads/final/1188215",
@@ -5271,6 +6686,11 @@
   "readable": null,
   "status": "fails",
   "job": 1188215,
+  "generalisation": null,
+  "provenance": {
+   "asserted": {},
+   "derived": {}
+  },
   "duplicate_of": "Olmo-3.1-32B-Instruct/english-spanish/fv_heads/validation/1188215"
  },
  "Olmo-3.1-32B-Instruct/english-spanish/fv_residual/validation/1188215": {
@@ -5306,7 +6726,12 @@
   },
   "readable": null,
   "status": "works",
-  "job": 1188215
+  "job": 1188215,
+  "generalisation": null,
+  "provenance": {
+   "asserted": {},
+   "derived": {}
+  }
  },
  "Olmo-3.1-32B-Think/english-spanish/fv_heads/validation/1188211": {
   "id": "Olmo-3.1-32B-Think/english-spanish/fv_heads/validation/1188211",
@@ -5382,7 +6807,12 @@
   },
   "readable": null,
   "status": "fails",
-  "job": 1188211
+  "job": 1188211,
+  "generalisation": null,
+  "provenance": {
+   "asserted": {},
+   "derived": {}
+  }
  },
  "Olmo-3.1-32B-Think/english-spanish/fv_heads/final/1188211": {
   "id": "Olmo-3.1-32B-Think/english-spanish/fv_heads/final/1188211",
@@ -5459,6 +6889,11 @@
   "readable": null,
   "status": "fails",
   "job": 1188211,
+  "generalisation": null,
+  "provenance": {
+   "asserted": {},
+   "derived": {}
+  },
   "duplicate_of": "Olmo-3.1-32B-Think/english-spanish/fv_heads/validation/1188211"
  },
  "Olmo-3.1-32B-Think/english-spanish/fv_residual/validation/1188211": {
@@ -5494,7 +6929,12 @@
   },
   "readable": null,
   "status": "fails",
-  "job": 1188211
+  "job": 1188211,
+  "generalisation": null,
+  "provenance": {
+   "asserted": {},
+   "derived": {}
+  }
  },
  "Qwen3.8-27B/english-spanish/fv_heads/validation/1188337": {
   "id": "Qwen3.8-27B/english-spanish/fv_heads/validation/1188337",
@@ -5570,7 +7010,12 @@
   },
   "readable": null,
   "status": "works",
-  "job": 1188337
+  "job": 1188337,
+  "generalisation": null,
+  "provenance": {
+   "asserted": {},
+   "derived": {}
+  }
  },
  "Qwen3.8-27B/english-spanish/fv_heads/final/1188337": {
   "id": "Qwen3.8-27B/english-spanish/fv_heads/final/1188337",
@@ -5646,7 +7091,12 @@
   },
   "readable": null,
   "status": "works",
-  "job": 1188337
+  "job": 1188337,
+  "generalisation": null,
+  "provenance": {
+   "asserted": {},
+   "derived": {}
+  }
  },
  "Qwen3.8-27B/english-spanish/fv_heads-chat/validation/1188606": {
   "id": "Qwen3.8-27B/english-spanish/fv_heads-chat/validation/1188606",
@@ -5722,7 +7172,12 @@
   },
   "readable": null,
   "status": "fails (copied)",
-  "job": 1188606
+  "job": 1188606,
+  "generalisation": null,
+  "provenance": {
+   "asserted": {},
+   "derived": {}
+  }
  },
  "Qwen3.8-27B/english-spanish/fv_heads-chat/final/1188606": {
   "id": "Qwen3.8-27B/english-spanish/fv_heads-chat/final/1188606",
@@ -5799,6 +7254,11 @@
   "readable": null,
   "status": "fails (copied)",
   "job": 1188606,
+  "generalisation": null,
+  "provenance": {
+   "asserted": {},
+   "derived": {}
+  },
   "duplicate_of": "Qwen3.8-27B/english-spanish/fv_heads-chat/validation/1188606"
  },
  "Olmo-3-1125-32B/synonym/fv_heads/validation/1187353": {
@@ -5875,7 +7335,12 @@
   },
   "readable": null,
   "status": "works",
-  "job": 1187353
+  "job": 1187353,
+  "generalisation": null,
+  "provenance": {
+   "asserted": {},
+   "derived": {}
+  }
  },
  "Olmo-3-1125-32B/synonym/fv_heads/final/1187353": {
   "id": "Olmo-3-1125-32B/synonym/fv_heads/final/1187353",
@@ -5951,7 +7416,14 @@
   },
   "readable": "'ZipWORDS', '--->', '==>'",
   "status": "works",
-  "job": 1187353
+  "job": 1187353,
+  "generalisation": null,
+  "provenance": {
+   "asserted": {
+    "readable": "hand-written note on the fragments a reader can see"
+   },
+   "derived": {}
+  }
  },
  "Olmo-3-1125-32B/synonym/fv_residual/validation/1187353": {
   "id": "Olmo-3-1125-32B/synonym/fv_residual/validation/1187353",
@@ -5986,7 +7458,12 @@
   },
   "readable": null,
   "status": "fails",
-  "job": 1187353
+  "job": 1187353,
+  "generalisation": null,
+  "provenance": {
+   "asserted": {},
+   "derived": {}
+  }
  },
  "Olmo-3-1125-32B/synonym/fv_heads/validation/1203825": {
   "id": "Olmo-3-1125-32B/synonym/fv_heads/validation/1203825",
@@ -6063,6 +7540,58 @@
   "readable": null,
   "status": "works",
   "job": 1203825,
+  "generalisation": {
+   "job": 1211369,
+   "n": 120,
+   "phrasings": [
+    {
+     "name": "probe",
+     "template": "{x} ->",
+     "correct": 37,
+     "plain": 2,
+     "seen": "search"
+    },
+    {
+     "name": "colon",
+     "template": "{x}:",
+     "correct": 9,
+     "plain": 0,
+     "seen": null
+    },
+    {
+     "name": "qa",
+     "template": "Q: {x}\nA:",
+     "correct": 26,
+     "plain": 0,
+     "seen": null
+    },
+    {
+     "name": "equals",
+     "template": "{x} =",
+     "correct": 22,
+     "plain": 1,
+     "seen": null
+    },
+    {
+     "name": "natural",
+     "template": "Another word for {x} is",
+     "correct": 46,
+     "plain": 43,
+     "seen": "validation"
+    }
+   ],
+   "knockout": {
+    "intact": 37,
+    "target_heads": 36,
+    "random_heads": 34
+   }
+  },
+  "provenance": {
+   "asserted": {},
+   "derived": {
+    "generalisation": "separate evaluation-only run 1211369"
+   }
+  },
   "duplicate_of": "Olmo-3-1125-32B/synonym/fv_heads/validation/1187353"
  },
  "Olmo-3-1125-32B/synonym/fv_heads/final/1203825": {
@@ -6140,6 +7669,58 @@
   "readable": null,
   "status": "works",
   "job": 1203825,
+  "generalisation": {
+   "job": 1211369,
+   "n": 120,
+   "phrasings": [
+    {
+     "name": "probe",
+     "template": "{x} ->",
+     "correct": 52,
+     "plain": 2,
+     "seen": "search"
+    },
+    {
+     "name": "colon",
+     "template": "{x}:",
+     "correct": 33,
+     "plain": 0,
+     "seen": null
+    },
+    {
+     "name": "qa",
+     "template": "Q: {x}\nA:",
+     "correct": 35,
+     "plain": 0,
+     "seen": null
+    },
+    {
+     "name": "equals",
+     "template": "{x} =",
+     "correct": 40,
+     "plain": 1,
+     "seen": null
+    },
+    {
+     "name": "natural",
+     "template": "Another word for {x} is",
+     "correct": 51,
+     "plain": 43,
+     "seen": "validation"
+    }
+   ],
+   "knockout": {
+    "intact": 52,
+    "target_heads": 40,
+    "random_heads": null
+   }
+  },
+  "provenance": {
+   "asserted": {},
+   "derived": {
+    "generalisation": "separate evaluation-only run 1211369"
+   }
+  },
   "duplicate_of": "Olmo-3-1125-32B/synonym/fv_heads/final/1187353"
  },
  "Olmo-3-1125-32B/synonym/output_gcg/validation/1203825": {
@@ -6175,7 +7756,59 @@
   },
   "readable": null,
   "status": "works",
-  "job": 1203825
+  "job": 1203825,
+  "generalisation": {
+   "job": 1211369,
+   "n": 120,
+   "phrasings": [
+    {
+     "name": "probe",
+     "template": "{x} ->",
+     "correct": 45,
+     "plain": 2,
+     "seen": "search"
+    },
+    {
+     "name": "colon",
+     "template": "{x}:",
+     "correct": 14,
+     "plain": 0,
+     "seen": null
+    },
+    {
+     "name": "qa",
+     "template": "Q: {x}\nA:",
+     "correct": 25,
+     "plain": 0,
+     "seen": null
+    },
+    {
+     "name": "equals",
+     "template": "{x} =",
+     "correct": 36,
+     "plain": 1,
+     "seen": null
+    },
+    {
+     "name": "natural",
+     "template": "Another word for {x} is",
+     "correct": 44,
+     "plain": 43,
+     "seen": "validation"
+    }
+   ],
+   "knockout": {
+    "intact": 45,
+    "target_heads": 47,
+    "random_heads": 45
+   }
+  },
+  "provenance": {
+   "asserted": {},
+   "derived": {
+    "generalisation": "separate evaluation-only run 1211369"
+   }
+  }
  },
  "Olmo-3-1125-32B/synonym/output_gcg/final/1203825": {
   "id": "Olmo-3-1125-32B/synonym/output_gcg/final/1203825",
@@ -6210,7 +7843,59 @@
   },
   "readable": null,
   "status": "works",
-  "job": 1203825
+  "job": 1203825,
+  "generalisation": {
+   "job": 1211369,
+   "n": 120,
+   "phrasings": [
+    {
+     "name": "probe",
+     "template": "{x} ->",
+     "correct": 41,
+     "plain": 2,
+     "seen": "search"
+    },
+    {
+     "name": "colon",
+     "template": "{x}:",
+     "correct": 31,
+     "plain": 0,
+     "seen": null
+    },
+    {
+     "name": "qa",
+     "template": "Q: {x}\nA:",
+     "correct": 0,
+     "plain": 0,
+     "seen": null
+    },
+    {
+     "name": "equals",
+     "template": "{x} =",
+     "correct": 35,
+     "plain": 1,
+     "seen": null
+    },
+    {
+     "name": "natural",
+     "template": "Another word for {x} is",
+     "correct": 44,
+     "plain": 43,
+     "seen": "validation"
+    }
+   ],
+   "knockout": {
+    "intact": 41,
+    "target_heads": 45,
+    "random_heads": null
+   }
+  },
+  "provenance": {
+   "asserted": {},
+   "derived": {
+    "generalisation": "separate evaluation-only run 1211369"
+   }
+  }
  },
  "Olmo-3-1125-32B/synonym/output_blackbox/validation/1203825": {
   "id": "Olmo-3-1125-32B/synonym/output_blackbox/validation/1203825",
@@ -6245,7 +7930,59 @@
   },
   "readable": null,
   "status": "works",
-  "job": 1203825
+  "job": 1203825,
+  "generalisation": {
+   "job": 1211369,
+   "n": 120,
+   "phrasings": [
+    {
+     "name": "probe",
+     "template": "{x} ->",
+     "correct": 48,
+     "plain": 2,
+     "seen": "search"
+    },
+    {
+     "name": "colon",
+     "template": "{x}:",
+     "correct": 22,
+     "plain": 0,
+     "seen": null
+    },
+    {
+     "name": "qa",
+     "template": "Q: {x}\nA:",
+     "correct": 44,
+     "plain": 0,
+     "seen": null
+    },
+    {
+     "name": "equals",
+     "template": "{x} =",
+     "correct": 45,
+     "plain": 1,
+     "seen": null
+    },
+    {
+     "name": "natural",
+     "template": "Another word for {x} is",
+     "correct": 59,
+     "plain": 43,
+     "seen": "validation"
+    }
+   ],
+   "knockout": {
+    "intact": 48,
+    "target_heads": 50,
+    "random_heads": 48
+   }
+  },
+  "provenance": {
+   "asserted": {},
+   "derived": {
+    "generalisation": "separate evaluation-only run 1211369"
+   }
+  }
  },
  "Olmo-3-1125-32B/synonym/output_blackbox/final/1203825": {
   "id": "Olmo-3-1125-32B/synonym/output_blackbox/final/1203825",
@@ -6280,7 +8017,59 @@
   },
   "readable": null,
   "status": "fails",
-  "job": 1203825
+  "job": 1203825,
+  "generalisation": {
+   "job": 1211369,
+   "n": 120,
+   "phrasings": [
+    {
+     "name": "probe",
+     "template": "{x} ->",
+     "correct": 55,
+     "plain": 2,
+     "seen": "search"
+    },
+    {
+     "name": "colon",
+     "template": "{x}:",
+     "correct": 23,
+     "plain": 0,
+     "seen": null
+    },
+    {
+     "name": "qa",
+     "template": "Q: {x}\nA:",
+     "correct": 29,
+     "plain": 0,
+     "seen": null
+    },
+    {
+     "name": "equals",
+     "template": "{x} =",
+     "correct": 47,
+     "plain": 1,
+     "seen": null
+    },
+    {
+     "name": "natural",
+     "template": "Another word for {x} is",
+     "correct": 53,
+     "plain": 43,
+     "seen": "validation"
+    }
+   ],
+   "knockout": {
+    "intact": 55,
+    "target_heads": 55,
+    "random_heads": null
+   }
+  },
+  "provenance": {
+   "asserted": {},
+   "derived": {
+    "generalisation": "separate evaluation-only run 1211369"
+   }
+  }
  },
  "Olmo-3.1-32B-Instruct/synonym/fv_heads/validation/1188213": {
   "id": "Olmo-3.1-32B-Instruct/synonym/fv_heads/validation/1188213",
@@ -6356,7 +8145,12 @@
   },
   "readable": null,
   "status": "works",
-  "job": 1188213
+  "job": 1188213,
+  "generalisation": null,
+  "provenance": {
+   "asserted": {},
+   "derived": {}
+  }
  },
  "Olmo-3.1-32B-Instruct/synonym/fv_heads/final/1188213": {
   "id": "Olmo-3.1-32B-Instruct/synonym/fv_heads/final/1188213",
@@ -6432,7 +8226,12 @@
   },
   "readable": null,
   "status": "fails",
-  "job": 1188213
+  "job": 1188213,
+  "generalisation": null,
+  "provenance": {
+   "asserted": {},
+   "derived": {}
+  }
  },
  "Olmo-3.1-32B-Instruct/synonym/fv_residual/validation/1188213": {
   "id": "Olmo-3.1-32B-Instruct/synonym/fv_residual/validation/1188213",
@@ -6467,7 +8266,12 @@
   },
   "readable": null,
   "status": "fails",
-  "job": 1188213
+  "job": 1188213,
+  "generalisation": null,
+  "provenance": {
+   "asserted": {},
+   "derived": {}
+  }
  },
  "Olmo-3.1-32B-Think/synonym/fv_heads/validation/1188209": {
   "id": "Olmo-3.1-32B-Think/synonym/fv_heads/validation/1188209",
@@ -6543,7 +8347,12 @@
   },
   "readable": null,
   "status": "fails",
-  "job": 1188209
+  "job": 1188209,
+  "generalisation": null,
+  "provenance": {
+   "asserted": {},
+   "derived": {}
+  }
  },
  "Olmo-3.1-32B-Think/synonym/fv_heads/final/1188209": {
   "id": "Olmo-3.1-32B-Think/synonym/fv_heads/final/1188209",
@@ -6619,7 +8428,12 @@
   },
   "readable": null,
   "status": "fails",
-  "job": 1188209
+  "job": 1188209,
+  "generalisation": null,
+  "provenance": {
+   "asserted": {},
+   "derived": {}
+  }
  },
  "Olmo-3.1-32B-Think/synonym/fv_residual/validation/1188209": {
   "id": "Olmo-3.1-32B-Think/synonym/fv_residual/validation/1188209",
@@ -6654,7 +8468,12 @@
   },
   "readable": null,
   "status": "fails",
-  "job": 1188209
+  "job": 1188209,
+  "generalisation": null,
+  "provenance": {
+   "asserted": {},
+   "derived": {}
+  }
  },
  "Olmo-3.1-32B-Instruct/antonym/instruction-fewshot-reply-chat/validation/1200601": {
   "id": "Olmo-3.1-32B-Instruct/antonym/instruction-fewshot-reply-chat/validation/1200601",
@@ -6731,7 +8550,12 @@
   },
   "readable": null,
   "status": "works",
-  "job": 1200601
+  "job": 1200601,
+  "generalisation": null,
+  "provenance": {
+   "asserted": {},
+   "derived": {}
+  }
  },
  "Olmo-3.1-32B-Instruct/antonym/instruction-fewshot-reply-chat/final/1200601": {
   "id": "Olmo-3.1-32B-Instruct/antonym/instruction-fewshot-reply-chat/final/1200601",
@@ -6808,7 +8632,12 @@
   },
   "readable": null,
   "status": "works",
-  "job": 1200601
+  "job": 1200601,
+  "generalisation": null,
+  "provenance": {
+   "asserted": {},
+   "derived": {}
+  }
  },
  "Olmo-3.1-32B-Instruct/antonym/instruction-reply-reply-chat/validation/1200491": {
   "id": "Olmo-3.1-32B-Instruct/antonym/instruction-reply-reply-chat/validation/1200491",
@@ -6885,7 +8714,12 @@
   },
   "readable": null,
   "status": "fails",
-  "job": 1200491
+  "job": 1200491,
+  "generalisation": null,
+  "provenance": {
+   "asserted": {},
+   "derived": {}
+  }
  },
  "Olmo-3.1-32B-Instruct/antonym/instruction-reply-reply-chat/final/1200491": {
   "id": "Olmo-3.1-32B-Instruct/antonym/instruction-reply-reply-chat/final/1200491",
@@ -6963,6 +8797,11 @@
   "readable": null,
   "status": "fails",
   "job": 1200491,
+  "generalisation": null,
+  "provenance": {
+   "asserted": {},
+   "derived": {}
+  },
   "duplicate_of": "Olmo-3.1-32B-Instruct/antonym/instruction-reply-reply-chat/validation/1200491"
  },
  "Olmo-3.1-32B-Instruct/antonym/instruction-request-reply-chat/validation/1190173": {
@@ -7040,7 +8879,12 @@
   },
   "readable": null,
   "status": "fails",
-  "job": 1190173
+  "job": 1190173,
+  "generalisation": null,
+  "provenance": {
+   "asserted": {},
+   "derived": {}
+  }
  },
  "Olmo-3.1-32B-Instruct/antonym/instruction-request-reply-chat/final/1190173": {
   "id": "Olmo-3.1-32B-Instruct/antonym/instruction-request-reply-chat/final/1190173",
@@ -7118,6 +8962,11 @@
   "readable": null,
   "status": "fails",
   "job": 1190173,
+  "generalisation": null,
+  "provenance": {
+   "asserted": {},
+   "derived": {}
+  },
   "duplicate_of": "Olmo-3.1-32B-Instruct/antonym/instruction-request-reply-chat/validation/1190173"
  },
  "Olmo-3.1-32B-Instruct/antonym/instruction-request-reply-chat/validation/1200489": {
@@ -7195,7 +9044,12 @@
   },
   "readable": null,
   "status": "fails",
-  "job": 1200489
+  "job": 1200489,
+  "generalisation": null,
+  "provenance": {
+   "asserted": {},
+   "derived": {}
+  }
  },
  "Olmo-3.1-32B-Instruct/antonym/instruction-request-reply-chat/final/1200489": {
   "id": "Olmo-3.1-32B-Instruct/antonym/instruction-request-reply-chat/final/1200489",
@@ -7272,7 +9126,12 @@
   },
   "readable": null,
   "status": "fails",
-  "job": 1200489
+  "job": 1200489,
+  "generalisation": null,
+  "provenance": {
+   "asserted": {},
+   "derived": {}
+  }
  },
  "Olmo-3.1-32B-Instruct/antonym/instruction-request-reply-chat/validation/1201782": {
   "id": "Olmo-3.1-32B-Instruct/antonym/instruction-request-reply-chat/validation/1201782",
@@ -7349,7 +9208,12 @@
   },
   "readable": null,
   "status": "weak",
-  "job": 1201782
+  "job": 1201782,
+  "generalisation": null,
+  "provenance": {
+   "asserted": {},
+   "derived": {}
+  }
  },
  "Olmo-3.1-32B-Instruct/antonym/instruction-request-reply-chat/final/1201782": {
   "id": "Olmo-3.1-32B-Instruct/antonym/instruction-request-reply-chat/final/1201782",
@@ -7426,7 +9290,12 @@
   },
   "readable": null,
   "status": "weak",
-  "job": 1201782
+  "job": 1201782,
+  "generalisation": null,
+  "provenance": {
+   "asserted": {},
+   "derived": {}
+  }
  },
  "Olmo-3.1-32B-Instruct/antonym/instruction-request-word-chat/validation/1200490": {
   "id": "Olmo-3.1-32B-Instruct/antonym/instruction-request-word-chat/validation/1200490",
@@ -7503,7 +9372,12 @@
   },
   "readable": null,
   "status": "works",
-  "job": 1200490
+  "job": 1200490,
+  "generalisation": null,
+  "provenance": {
+   "asserted": {},
+   "derived": {}
+  }
  },
  "Olmo-3.1-32B-Instruct/antonym/instruction-request-word-chat/final/1200490": {
   "id": "Olmo-3.1-32B-Instruct/antonym/instruction-request-word-chat/final/1200490",
@@ -7580,7 +9454,12 @@
   },
   "readable": null,
   "status": "works",
-  "job": 1200490
+  "job": 1200490,
+  "generalisation": null,
+  "provenance": {
+   "asserted": {},
+   "derived": {}
+  }
  },
  "Olmo-3.1-32B-Instruct/antonym/instruction-request-word-chat/validation/1190174": {
   "id": "Olmo-3.1-32B-Instruct/antonym/instruction-request-word-chat/validation/1190174",
@@ -7657,7 +9536,12 @@
   },
   "readable": null,
   "status": "fails",
-  "job": 1190174
+  "job": 1190174,
+  "generalisation": null,
+  "provenance": {
+   "asserted": {},
+   "derived": {}
+  }
  },
  "Olmo-3.1-32B-Instruct/antonym/instruction-request-word-chat/final/1190174": {
   "id": "Olmo-3.1-32B-Instruct/antonym/instruction-request-word-chat/final/1190174",
@@ -7735,6 +9619,11 @@
   "readable": null,
   "status": "fails",
   "job": 1190174,
+  "generalisation": null,
+  "provenance": {
+   "asserted": {},
+   "derived": {}
+  },
   "duplicate_of": "Olmo-3.1-32B-Instruct/antonym/instruction-request-word-chat/validation/1190174"
  },
  "Qwen3.8-27B/english-spanish/instruction-fewshot-reply-chat/validation/1200602": {
@@ -7812,7 +9701,12 @@
   },
   "readable": null,
   "status": "fails",
-  "job": 1200602
+  "job": 1200602,
+  "generalisation": null,
+  "provenance": {
+   "asserted": {},
+   "derived": {}
+  }
  },
  "Qwen3.8-27B/english-spanish/instruction-fewshot-reply-chat/final/1200602": {
   "id": "Qwen3.8-27B/english-spanish/instruction-fewshot-reply-chat/final/1200602",
@@ -7890,6 +9784,11 @@
   "readable": null,
   "status": "fails",
   "job": 1200602,
+  "generalisation": null,
+  "provenance": {
+   "asserted": {},
+   "derived": {}
+  },
   "duplicate_of": "Qwen3.8-27B/english-spanish/instruction-fewshot-reply-chat/validation/1200602"
  },
  "Qwen3.8-27B/english-spanish/instruction-request-reply-chat/validation/1200492": {
@@ -7967,7 +9866,12 @@
   },
   "readable": null,
   "status": "fails",
-  "job": 1200492
+  "job": 1200492,
+  "generalisation": null,
+  "provenance": {
+   "asserted": {},
+   "derived": {}
+  }
  },
  "Qwen3.8-27B/english-spanish/instruction-request-reply-chat/final/1200492": {
   "id": "Qwen3.8-27B/english-spanish/instruction-request-reply-chat/final/1200492",
@@ -8045,6 +9949,11 @@
   "readable": null,
   "status": "fails",
   "job": 1200492,
+  "generalisation": null,
+  "provenance": {
+   "asserted": {},
+   "derived": {}
+  },
   "duplicate_of": "Qwen3.8-27B/english-spanish/instruction-request-reply-chat/validation/1200492"
  },
  "Qwen3.8-27B/english-spanish/instruction-request-reply-chat/validation/1201783": {
@@ -8122,7 +10031,12 @@
   },
   "readable": null,
   "status": "fails (copied)",
-  "job": 1201783
+  "job": 1201783,
+  "generalisation": null,
+  "provenance": {
+   "asserted": {},
+   "derived": {}
+  }
  },
  "Qwen3.8-27B/english-spanish/instruction-request-reply-chat/final/1201783": {
   "id": "Qwen3.8-27B/english-spanish/instruction-request-reply-chat/final/1201783",
@@ -8200,6 +10114,11 @@
   "readable": null,
   "status": "fails (copied)",
   "job": 1201783,
+  "generalisation": null,
+  "provenance": {
+   "asserted": {},
+   "derived": {}
+  },
   "duplicate_of": "Qwen3.8-27B/english-spanish/instruction-request-reply-chat/validation/1201783"
  },
  "Qwen3.8-27B/english-spanish/instruction-request-word-chat/validation/1202927": {
@@ -8277,7 +10196,12 @@
   },
   "readable": null,
   "status": "fails",
-  "job": 1202927
+  "job": 1202927,
+  "generalisation": null,
+  "provenance": {
+   "asserted": {},
+   "derived": {}
+  }
  },
  "Qwen3.8-27B/english-spanish/instruction-request-word-chat/final/1202927": {
   "id": "Qwen3.8-27B/english-spanish/instruction-request-word-chat/final/1202927",
@@ -8355,6 +10279,11 @@
   "readable": null,
   "status": "fails",
   "job": 1202927,
+  "generalisation": null,
+  "provenance": {
+   "asserted": {},
+   "derived": {}
+  },
   "duplicate_of": "Qwen3.8-27B/english-spanish/instruction-request-word-chat/validation/1202927"
  },
  "Olmo-3-1125-32B/filter-fruit/filter_query_heads/validation/1203975": {
@@ -8588,7 +10517,15 @@
   },
   "readable": null,
   "status": "works",
-  "job": 1203975
+  "job": 1203975,
+  "generalisation": null,
+  "provenance": {
+   "asserted": {},
+   "derived": {
+    "results": "rescored offline with the corrected answer matcher (the run's own scorer missed glued and bulleted replies)",
+    "compare": "rescored offline, as results"
+   }
+  }
  },
  "Olmo-3-1125-32B/filter-fruit/filter_query_heads/final/1203975": {
   "id": "Olmo-3-1125-32B/filter-fruit/filter_query_heads/final/1203975",
@@ -8821,7 +10758,15 @@
   },
   "readable": null,
   "status": "weak",
-  "job": 1203975
+  "job": 1203975,
+  "generalisation": null,
+  "provenance": {
+   "asserted": {},
+   "derived": {
+    "results": "rescored offline with the corrected answer matcher (the run's own scorer missed glued and bulleted replies)",
+    "compare": "rescored offline, as results"
+   }
+  }
  },
  "Olmo-3-1125-32B/filter-vehicle/filter_query_heads/validation/1203975": {
   "id": "Olmo-3-1125-32B/filter-vehicle/filter_query_heads/validation/1203975",
@@ -9054,7 +10999,15 @@
   },
   "readable": null,
   "status": "works",
-  "job": 1203975
+  "job": 1203975,
+  "generalisation": null,
+  "provenance": {
+   "asserted": {},
+   "derived": {
+    "results": "rescored offline with the corrected answer matcher (the run's own scorer missed glued and bulleted replies)",
+    "compare": "rescored offline, as results"
+   }
+  }
  },
  "Olmo-3-1125-32B/filter-fruit/output_gcg/validation/1203975": {
   "id": "Olmo-3-1125-32B/filter-fruit/output_gcg/validation/1203975",
@@ -9086,7 +11039,15 @@
   },
   "readable": null,
   "status": "works",
-  "job": 1203975
+  "job": 1203975,
+  "generalisation": null,
+  "provenance": {
+   "asserted": {},
+   "derived": {
+    "results": "rescored offline with the corrected answer matcher (the run's own scorer missed glued and bulleted replies)",
+    "compare": "rescored offline, as results"
+   }
+  }
  },
  "Olmo-3-1125-32B/filter-fruit/output_gcg/final/1203975": {
   "id": "Olmo-3-1125-32B/filter-fruit/output_gcg/final/1203975",
@@ -9118,7 +11079,15 @@
   },
   "readable": null,
   "status": "works",
-  "job": 1203975
+  "job": 1203975,
+  "generalisation": null,
+  "provenance": {
+   "asserted": {},
+   "derived": {
+    "results": "rescored offline with the corrected answer matcher (the run's own scorer missed glued and bulleted replies)",
+    "compare": "rescored offline, as results"
+   }
+  }
  },
  "Olmo-3-1125-32B/filter-vehicle/output_gcg/validation/1203975": {
   "id": "Olmo-3-1125-32B/filter-vehicle/output_gcg/validation/1203975",
@@ -9150,7 +11119,15 @@
   },
   "readable": null,
   "status": "works",
-  "job": 1203975
+  "job": 1203975,
+  "generalisation": null,
+  "provenance": {
+   "asserted": {},
+   "derived": {
+    "results": "rescored offline with the corrected answer matcher (the run's own scorer missed glued and bulleted replies)",
+    "compare": "rescored offline, as results"
+   }
+  }
  },
  "Olmo-3-1125-32B/filter-vehicle/output_gcg/final/1203975": {
   "id": "Olmo-3-1125-32B/filter-vehicle/output_gcg/final/1203975",
@@ -9182,6 +11159,14 @@
   },
   "readable": null,
   "status": "works",
-  "job": 1203975
+  "job": 1203975,
+  "generalisation": null,
+  "provenance": {
+   "asserted": {},
+   "derived": {
+    "results": "rescored offline with the corrected answer matcher (the run's own scorer missed glued and bulleted replies)",
+    "compare": "rescored offline, as results"
+   }
+  }
  }
 }

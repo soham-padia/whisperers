@@ -1,0 +1,1767 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="color-scheme" content="light dark">
+<title>Whisperers Prefix Dictionary</title>
+<meta name="description" content="Every token prefix found with the whisperers package: the model it was searched on, what the search aimed at, how the checkpoint was picked, and how it did on held-out words.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Crimson+Pro:ital,wght@0,400;0,500;0,600;1,400&family=JetBrains+Mono:wght@400;500;600&family=Space+Grotesk:wght@400;500;600&display=swap">
+<style>
+/* ---------- tokens ---------- */
+:root{
+  --font-body:"Space Grotesk",ui-sans-serif,system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;
+  --font-display:"Crimson Pro",Georgia,"Times New Roman",serif;
+  --font-mono:"JetBrains Mono",ui-monospace,SFMono-Regular,Menlo,Consolas,"Liberation Mono","Noto Sans Mono",monospace;
+  color-scheme:light;
+  --bg:#ffffff; --surface:#ffffff; --surface-2:#f8fafc; --surface-3:#f1f5f9;
+  --ink:#0f172a; --text:#1e293b; --text-2:#475569; --muted:#64748b;
+  --line:#e2e8f0; --line-2:#cbd5e1;
+  --accent:#047857; --accent-hover:#065f46; --accent-soft:#ecfdf5; --focus:#059669;
+  --m-heads:#2a78d6; --m-gcg:#eb6834; --m-bb:#1baf7a; --m-other:#64748b;
+  --base-bar:#a3aebf; --track:#eef2f6; --hatch:#94a3b8;
+  --good-fg:#047857; --good-bg:#ecfdf5; --good-bd:#a7f3d0;
+  --warn-fg:#92400e; --warn-bg:#fffbeb; --warn-bd:#fcd34d;
+  --bad-fg:#b91c1c; --bad-bg:#fef2f2; --bad-bd:#fecaca;
+  --neu-fg:#475569; --neu-bg:#f1f5f9; --neu-bd:#e2e8f0;
+  --wip-fg:#9a3412; --wip-bg:#fff7ed; --wip-bd:#fdba74;
+  --prov-fg:#6d28d9; --prov-bg:#f5f3ff; --prov-bd:#c4b5fd;
+  --cw-bg:#fff7ed; --cw-bd:#fed7aa;
+  --tip-bg:#0f172a; --tip-fg:#f8fafc;
+  --toolbar-bg:rgb(255 255 255 / .88);
+  --shadow:0 10px 30px -18px rgb(15 23 42 / .35);
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    color-scheme:dark;
+    --bg:#111113; --surface:#16171b; --surface-2:#1a1c21; --surface-3:#21242b;
+    --ink:#f0f0f5; --text:#dde1ea; --text-2:#b6bdcb; --muted:#94a3b8;
+    --line:#2a2e38; --line-2:#3b4252;
+    --accent:#34d399; --accent-hover:#6ee7b7; --accent-soft:rgb(16 185 129 / .12); --focus:#34d399;
+    --m-heads:#3987e5; --m-gcg:#d95926; --m-bb:#199e70; --m-other:#8b95a7;
+    --base-bar:#5d6678; --track:#252830; --hatch:#7c8799;
+    --good-fg:#6ee7b7; --good-bg:rgb(16 185 129 / .12); --good-bd:rgb(16 185 129 / .38);
+    --warn-fg:#fcd34d; --warn-bg:rgb(245 158 11 / .12); --warn-bd:rgb(245 158 11 / .42);
+    --bad-fg:#fca5a5; --bad-bg:rgb(239 68 68 / .12); --bad-bd:rgb(239 68 68 / .4);
+    --neu-fg:#cbd5e1; --neu-bg:rgb(148 163 184 / .1); --neu-bd:#3b4252;
+    --wip-fg:#fdba74; --wip-bg:rgb(251 146 60 / .08); --wip-bd:rgb(251 146 60 / .5);
+    --prov-fg:#c4b5fd; --prov-bg:rgb(139 92 246 / .12); --prov-bd:rgb(139 92 246 / .45);
+    --cw-bg:rgb(251 146 60 / .07); --cw-bd:rgb(251 146 60 / .35);
+    --tip-bg:#e2e8f0; --tip-fg:#0f172a;
+    --toolbar-bg:rgb(22 23 27 / .88);
+    --shadow:0 10px 30px -16px rgb(0 0 0 / .7);
+  }
+}
+:root[data-theme="dark"]{
+  color-scheme:dark;
+  --bg:#111113; --surface:#16171b; --surface-2:#1a1c21; --surface-3:#21242b;
+  --ink:#f0f0f5; --text:#dde1ea; --text-2:#b6bdcb; --muted:#94a3b8;
+  --line:#2a2e38; --line-2:#3b4252;
+  --accent:#34d399; --accent-hover:#6ee7b7; --accent-soft:rgb(16 185 129 / .12); --focus:#34d399;
+  --m-heads:#3987e5; --m-gcg:#d95926; --m-bb:#199e70; --m-other:#8b95a7;
+  --base-bar:#5d6678; --track:#252830; --hatch:#7c8799;
+  --good-fg:#6ee7b7; --good-bg:rgb(16 185 129 / .12); --good-bd:rgb(16 185 129 / .38);
+  --warn-fg:#fcd34d; --warn-bg:rgb(245 158 11 / .12); --warn-bd:rgb(245 158 11 / .42);
+  --bad-fg:#fca5a5; --bad-bg:rgb(239 68 68 / .12); --bad-bd:rgb(239 68 68 / .4);
+  --neu-fg:#cbd5e1; --neu-bg:rgb(148 163 184 / .1); --neu-bd:#3b4252;
+  --wip-fg:#fdba74; --wip-bg:rgb(251 146 60 / .08); --wip-bd:rgb(251 146 60 / .5);
+  --prov-fg:#c4b5fd; --prov-bg:rgb(139 92 246 / .12); --prov-bd:rgb(139 92 246 / .45);
+  --cw-bg:rgb(251 146 60 / .07); --cw-bd:rgb(251 146 60 / .35);
+  --tip-bg:#e2e8f0; --tip-fg:#0f172a;
+  --toolbar-bg:rgb(22 23 27 / .88);
+  --shadow:0 10px 30px -16px rgb(0 0 0 / .7);
+}
+
+/* ---------- base ---------- */
+*,*::before,*::after{box-sizing:border-box}
+[hidden]{display:none!important}
+html{-webkit-text-size-adjust:100%;text-size-adjust:100%}
+body{margin:0;background:var(--bg);color:var(--text);font:400 16px/1.6 var(--font-body);-webkit-font-smoothing:antialiased;overflow-x:hidden;font-variant-ligatures:none;font-feature-settings:"liga" 0,"calt" 0}
+/* JetBrains Mono draws -> and => as arrows through ligatures; prefixes and templates must show their real characters.
+   !important because the font shorthand used below resets these properties. */
+*,*::before,*::after{font-variant-ligatures:none!important;font-feature-settings:"liga" 0,"calt" 0!important}
+a{color:var(--accent);text-decoration:underline;text-decoration-thickness:1px;text-underline-offset:3px}
+a:hover{color:var(--accent-hover)}
+:focus-visible{outline:2px solid var(--focus);outline-offset:2px;border-radius:4px}
+button{font:inherit;color:inherit}
+code,kbd{font-family:var(--font-mono);font-size:.86em}
+.sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
+.wrap{max-width:1200px;margin:0 auto;padding:0 16px}
+@media (min-width:720px){.wrap{padding:0 32px}}
+.skip{position:absolute;left:12px;top:-60px;z-index:200;background:var(--ink);color:var(--bg);padding:8px 12px;border-radius:8px;text-decoration:none}
+.skip:focus{top:12px;color:var(--bg)}
+.ic{display:inline-flex;width:1em;height:1em;flex:none}
+.ic svg{width:100%;height:100%}
+
+/* ---------- header ---------- */
+.topline{display:flex;justify-content:space-between;align-items:center;gap:16px;padding:28px 0 0}
+.back{font:500 .72rem/1 var(--font-mono);text-transform:uppercase;letter-spacing:.16em;color:var(--muted);text-decoration:none}
+.back:hover{color:var(--ink)}
+.icon-btn{display:inline-flex;align-items:center;justify-content:center;width:36px;height:36px;border-radius:10px;border:1px solid var(--line);background:var(--surface);color:var(--text-2);cursor:pointer}
+.icon-btn:hover{color:var(--ink);border-color:var(--line-2)}
+.icon-btn .ic{width:16px;height:16px}
+.masthead{display:grid;gap:28px 56px;padding:44px 0 8px}
+@media (min-width:1000px){.masthead{grid-template-columns:minmax(0,1fr) 360px;align-items:start}}
+.kicker{font:500 .72rem/1.4 var(--font-mono);text-transform:uppercase;letter-spacing:.18em;color:var(--accent);margin:0}
+h1{font-family:var(--font-display);font-weight:600;font-size:clamp(2.3rem,6vw,3.25rem);line-height:1.05;letter-spacing:-.018em;color:var(--ink);margin:.5rem 0 1.1rem}
+.lede{font-family:var(--font-display);font-size:1.22rem;line-height:1.7;color:var(--text);margin:0 0 1rem;max-width:44rem}
+.lede code{font-size:.8em;background:var(--surface-3);padding:.08em .35em;border-radius:4px}
+.headline{margin:1.6rem 0 1.2rem;padding:.2rem 0 .2rem 1.1rem;border-left:3px solid var(--accent);max-width:44rem}
+.headline p{margin:0;font-family:var(--font-display);font-size:1.32rem;line-height:1.5;color:var(--ink);font-weight:500}
+.headline .kicker{margin-bottom:.4rem}
+.epistemic{font-size:.88rem;font-style:italic;color:var(--muted);margin:0 0 1.2rem;max-width:44rem}
+.links{display:flex;flex-wrap:wrap;gap:8px 20px;margin:0;padding:0;list-style:none;font:500 .78rem/1.4 var(--font-mono)}
+.links a{text-decoration:none;color:var(--accent)}
+.links a:hover{text-decoration:underline}
+.howto{border:1px solid var(--line);border-radius:16px;padding:20px 20px 16px;background:var(--surface-2)}
+.howto h2{font:500 .72rem/1 var(--font-mono);text-transform:uppercase;letter-spacing:.16em;color:var(--muted);margin:0 0 14px}
+.howto-ex{font-family:var(--font-mono);font-size:.92rem;background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:12px 14px;display:grid;grid-template-columns:max-content 1fr;align-items:baseline;gap:6px 14px;color:var(--ink)}
+.howto-ex .io{font-size:.62rem;text-transform:uppercase;letter-spacing:.14em;color:var(--muted)}
+.howto-ex .ph{color:var(--accent);font-style:italic}
+.howto-ex .to{color:var(--muted)}
+.howto ul{margin:14px 0 0;padding-left:1.1rem;font-size:.88rem;color:var(--text-2)}
+.howto li{margin:0 0 .45rem}
+.howto .sp-demo{display:inline-block;width:.62em;text-align:center;font-family:var(--font-mono);color:var(--accent);background:var(--accent-soft);border-radius:2px}
+
+/* ---------- sections ---------- */
+.section{padding:36px 0 0}
+.section-head{display:flex;flex-wrap:wrap;align-items:baseline;justify-content:space-between;gap:8px 20px;margin-bottom:14px}
+.section-title{font-family:var(--font-display);font-size:1.75rem;font-weight:600;letter-spacing:-.01em;line-height:1.2;color:var(--ink);margin:0}
+.section-sub{font-size:.9rem;color:var(--muted);margin:.35rem 0 0;max-width:46rem}
+
+/* ---------- at-a-glance figure ---------- */
+.glance{margin:0;border:1px solid var(--line);border-radius:16px;padding:20px 18px 14px;background:var(--surface)}
+@media (min-width:720px){.glance{padding:24px 28px 18px}}
+.gl-top{display:flex;flex-wrap:wrap;gap:12px 24px;align-items:flex-start;justify-content:space-between;margin-bottom:14px}
+.gl-legend{display:flex;flex-wrap:wrap;gap:6px 16px;font-size:.8rem;color:var(--text-2);align-items:center}
+.lg{display:inline-flex;align-items:center;gap:6px}
+.dot{width:11px;height:11px;border-radius:50%;background:var(--mc);flex:none;box-shadow:0 0 0 2px var(--surface)}
+.dot.ring{background:var(--surface);border:2px solid var(--mc)}
+.dot.base-plain{--mc:var(--muted);background:var(--surface);border:2px solid var(--muted);border-radius:50%}
+.dot.base-demo{--mc:var(--muted);border-radius:2px;background:var(--muted);width:10px;height:10px}
+.seg{display:inline-flex;border:1px solid var(--line);border-radius:10px;padding:2px;background:var(--surface-2);gap:2px}
+.seg button{border:0;background:none;padding:.38rem .7rem;border-radius:8px;font-size:.8rem;font-weight:500;color:var(--text-2);cursor:pointer;white-space:nowrap}
+.seg button[aria-pressed="true"]{background:var(--surface);color:var(--ink);box-shadow:0 1px 2px rgb(15 23 42 / .12),0 0 0 1px var(--line)}
+.gl-blocks{display:grid;gap:4px}
+.gl-block{display:grid;grid-template-columns:1fr;gap:4px 18px;padding:12px 0;border-top:1px solid var(--line)}
+.gl-block:first-child{border-top:0}
+@media (min-width:760px){.gl-block{grid-template-columns:11.5rem minmax(0,1fr)}}
+.gl-task{display:flex;flex-direction:column;align-items:flex-start;gap:2px}
+.gl-title{font-family:var(--font-display);font-size:1.12rem;font-weight:600;color:var(--ink);line-height:1.25;margin:0}
+.gl-open{border:0;background:none;padding:2px 0;cursor:pointer;font:500 .7rem/1.3 var(--font-mono);color:var(--accent);text-align:left;margin-top:2px}
+.gl-open:hover{text-decoration:underline;text-underline-offset:3px}
+.gl-n{font:500 .68rem/1.4 var(--font-mono);color:var(--muted);text-transform:uppercase;letter-spacing:.1em}
+.gl-plot{position:relative;--lab:8rem;--val:7.6rem;--gap:12px}
+.gl-lane{display:grid;grid-template-columns:minmax(0,1fr) auto;grid-template-areas:"lab val" "track track";gap:2px 12px;align-items:center;padding:3px 0}
+.gl-lab{grid-area:lab;font-size:.76rem;color:var(--text-2);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;display:flex;align-items:center;gap:6px}
+.gl-track{grid-area:track;position:relative;height:16px}
+.gl-track::before{content:"";position:absolute;left:0;right:0;top:50%;border-top:1px solid var(--line)}
+.gl-track .ref{position:absolute;top:0;bottom:0;border-left:1px solid var(--line-2)}
+.gl-track .ref.q{border-left-color:var(--line)}
+.gl-track .dot{position:absolute;top:50%;transform:translate(-50%,-50%)}
+.gl-val{grid-area:val;font:500 .74rem/1 var(--font-mono);color:var(--text);white-space:nowrap;text-align:right}
+.gl-val .end{color:var(--muted)}
+.gl-val .na{color:var(--muted);font-family:var(--font-body);font-style:italic}
+.gl-axis{display:grid;grid-template-columns:minmax(0,1fr);margin-top:2px}
+.gl-axis .gl-sp,.gl-axis .gl-axis-lab{display:none}
+@media (min-width:760px){
+  .gl-lane{grid-template-columns:var(--lab) minmax(0,1fr) var(--val);grid-template-areas:"lab track val";gap:0 var(--gap);height:22px;padding:0}
+  .gl-track{height:100%}
+  .gl-axis{grid-template-columns:var(--lab) minmax(0,1fr) var(--val);gap:var(--gap);--lab:8rem;--val:7.6rem;--gap:12px;margin-left:calc(11.5rem + 18px)}
+  .gl-axis .gl-sp,.gl-axis .gl-axis-lab{display:block}
+}
+.gl-ticks{position:relative;height:18px;font:400 .66rem/1 var(--font-mono);color:var(--muted)}
+.gl-ticks span{position:absolute;top:4px;transform:translateX(-50%)}
+.gl-ticks span:first-child{transform:none}
+.gl-ticks span:last-child{transform:translateX(-100%)}
+.gl-axis-lab{font:400 .66rem/1 var(--font-mono);color:var(--muted);padding-top:4px;text-align:right}
+.gl-note{font-size:.8rem;color:var(--muted);margin:10px 0 0}
+.gl-table{margin-top:10px;font-size:.84rem}
+.gl-table summary{cursor:pointer;color:var(--accent);font-size:.8rem;width:max-content}
+.tbl-wrap{overflow-x:auto;margin-top:10px;border:1px solid var(--line);border-radius:10px}
+table.tbl{border-collapse:collapse;width:100%;font-size:.8rem}
+.tbl th,.tbl td{padding:.45rem .55rem;border-bottom:1px solid var(--line);text-align:right;white-space:nowrap;vertical-align:top}
+.tbl thead th{white-space:normal;min-width:4.2rem}
+.tbl thead th:first-child{min-width:9rem}
+.tbl th:first-child,.tbl td:first-child{text-align:left}
+.tbl thead th{font:500 .66rem/1.3 var(--font-mono);text-transform:uppercase;letter-spacing:.08em;color:var(--muted);background:var(--surface-2)}
+.tbl tbody tr:last-child td{border-bottom:0}
+.tbl td{font-family:var(--font-mono)}
+.tbl td:first-child{font-family:var(--font-body)}
+.tbl .best{font-weight:600;color:var(--ink)}
+.tbl .unseen{background:var(--accent-soft)}
+.tbl .tpl{display:block;font:400 .7rem/1.3 var(--font-mono);text-transform:none;letter-spacing:0;color:var(--text-2);margin-top:2px}
+.tbl tr.base-row td{color:var(--muted)}
+
+/* ---------- glossary ---------- */
+.gloss{border:1px solid var(--line);border-radius:16px;background:var(--surface-2)}
+.gloss>summary{list-style:none;cursor:pointer;padding:16px 20px;display:flex;align-items:center;justify-content:space-between;gap:12px}
+.gloss>summary::-webkit-details-marker{display:none}
+.gloss>summary .t{font-family:var(--font-display);font-size:1.3rem;font-weight:600;color:var(--ink)}
+.gloss>summary .s{font-size:.82rem;color:var(--muted);display:block;font-family:var(--font-body)}
+.gloss>summary .chev{transition:transform .15s;color:var(--muted)}
+.gloss[open]>summary .chev{transform:rotate(180deg)}
+.gloss-body{padding:4px 20px 20px;display:grid;gap:0 40px}
+@media (min-width:900px){.gloss-body{grid-template-columns:1fr 1fr}}
+.gloss dl{margin:0}
+.gloss dt{font-weight:600;color:var(--ink);font-size:.9rem;margin-top:14px;display:flex;flex-wrap:wrap;align-items:center;gap:6px}
+.gloss dt code{font-weight:400;color:var(--muted);font-size:.74rem}
+.gloss dd{margin:3px 0 0;font-size:.86rem;color:var(--text-2);line-height:1.55}
+.gloss .note{grid-column:1/-1;margin:16px 0 0;font-size:.82rem;color:var(--muted)}
+
+/* ---------- browser ---------- */
+.browser{padding:40px 0 64px}
+.toolbar{position:sticky;top:10px;z-index:40;margin-bottom:14px}
+.tb{display:flex;flex-wrap:wrap;gap:8px;align-items:center;padding:8px;border:1px solid var(--line);border-radius:16px;background:var(--toolbar-bg);-webkit-backdrop-filter:saturate(1.4) blur(12px);backdrop-filter:saturate(1.4) blur(12px);box-shadow:var(--shadow)}
+.search{position:relative;flex:1 1 200px;min-width:0;display:flex}
+@media (max-width:719.98px){.sel>span{display:none}.sel select{max-width:9.5rem}.seg .long{display:none}.tb-ctl{flex:1 1 100%;justify-content:space-between}}
+.search-ic{position:absolute;left:11px;top:50%;transform:translateY(-50%);width:15px;height:15px;color:var(--muted);pointer-events:none;display:flex}
+.search-ic .ic{width:15px;height:15px}
+.search input{width:100%;min-width:0;border:1px solid var(--line);background:var(--surface);color:var(--ink);border-radius:10px;padding:.55rem 2.2rem .55rem 2.1rem;font:inherit;font-size:.92rem}
+.search input::placeholder{color:var(--muted)}
+.search input:focus{outline:2px solid var(--focus);outline-offset:0;border-color:transparent}
+.search input::-webkit-search-cancel-button{display:none}
+.search .clear{position:absolute;right:6px;top:50%;transform:translateY(-50%);border:0;background:none;width:26px;height:26px;border-radius:6px;cursor:pointer;color:var(--muted);display:none;align-items:center;justify-content:center}
+.search .clear.on{display:inline-flex}
+.search .clear:hover{background:var(--surface-3);color:var(--ink)}
+.tb-ctl{display:flex;flex-wrap:wrap;gap:8px;align-items:center}
+.sel{display:inline-flex;align-items:center;gap:6px;font-size:.8rem;color:var(--muted)}
+.sel select{font:inherit;font-size:.82rem;color:var(--ink);background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:.42rem .5rem}
+.sel select:disabled{opacity:.5}
+.btn{display:inline-flex;align-items:center;gap:6px;border:1px solid var(--line);background:var(--surface);color:var(--ink);border-radius:10px;padding:.42rem .75rem;font-size:.82rem;font-weight:500;cursor:pointer;text-decoration:none;line-height:1.3}
+.btn:hover{border-color:var(--line-2);color:var(--ink)}
+.btn .ic{width:14px;height:14px}
+.btn.primary{background:var(--ink);color:var(--bg);border-color:var(--ink)}
+.filters-btn .n{font:600 .7rem/1 var(--font-mono);background:var(--accent);color:var(--bg);border-radius:999px;padding:.2em .45em}
+.filters-btn .n:empty{display:none}
+.layout{display:grid;grid-template-columns:minmax(0,1fr);gap:24px}
+@media (min-width:980px){
+  .layout{grid-template-columns:250px minmax(0,1fr);gap:40px}
+  .filters-btn{display:none}
+}
+.facets{font-size:.88rem}
+@media (min-width:980px){
+  .facets{position:sticky;top:calc(var(--tb-h,64px) + 24px);max-height:calc(100vh - var(--tb-h,64px) - 40px);overflow:auto;padding-right:6px;scrollbar-width:thin;scrollbar-color:var(--line-2) transparent}
+}
+@media (max-width:979.98px){
+  .facets{display:none;border:1px solid var(--line);border-radius:14px;padding:16px;background:var(--surface-2)}
+  .facets.is-open{display:block}
+}
+.facets-head{display:flex;justify-content:space-between;align-items:center;margin-bottom:10px}
+.facets-head h2{font:500 .72rem/1 var(--font-mono);text-transform:uppercase;letter-spacing:.16em;color:var(--ink);margin:0}
+.link-btn{border:0;background:none;padding:2px 4px;color:var(--accent);font-size:.8rem;cursor:pointer;text-decoration:underline;text-underline-offset:3px}
+.link-btn:disabled{color:var(--muted);text-decoration:none;cursor:default;opacity:.6}
+.facet{border:0;margin:0 0 18px;padding:0;min-width:0}
+.facet legend{display:flex;align-items:center;gap:6px;font:500 .68rem/1 var(--font-mono);text-transform:uppercase;letter-spacing:.14em;color:var(--muted);padding:0;margin:0 0 6px}
+.fv{display:grid;grid-template-columns:auto minmax(0,1fr) auto;gap:8px;align-items:start;padding:4px 6px;margin:0 -6px;border-radius:7px;cursor:pointer;line-height:1.35}
+.fv:hover{background:var(--surface-3)}
+.fv input{margin:.15em 0 0;width:15px;height:15px;accent-color:var(--accent);cursor:pointer}
+.fv-name{color:var(--text);overflow-wrap:anywhere}
+.fv-sub{display:block;font-size:.74rem;color:var(--muted);margin-top:1px}
+.fv-count{font:500 .72rem/1.5 var(--font-mono);color:var(--muted);min-width:1.6em;text-align:right}
+.fv.is-zero .fv-name,.fv.is-zero .fv-count{opacity:.62}
+.fv.is-on .fv-name{font-weight:600;color:var(--ink)}
+.fv .sw{margin-top:.3em}
+.facets-done{display:none;width:100%;justify-content:center;margin:0 0 14px;padding:.6rem}
+@media (max-width:979.98px){.facets-done{display:flex;position:sticky;bottom:10px}}
+.facet-foot{font-size:.8rem;color:var(--muted);border-top:1px solid var(--line);padding-top:12px;margin:0}
+
+.statusbar{display:flex;flex-wrap:wrap;align-items:center;gap:8px 10px;margin:0 0 16px;min-height:30px}
+.count{font-size:.86rem;color:var(--text-2);margin:0}
+.count b{color:var(--ink);font-weight:600}
+.chip-x{display:inline-flex;align-items:center;gap:6px;border:1px solid var(--line);background:var(--surface-2);border-radius:999px;padding:.22rem .35rem .22rem .65rem;font-size:.76rem;color:var(--text);cursor:pointer}
+.chip-x:hover{border-color:var(--line-2)}
+.chip-x .k{color:var(--muted)}
+.chip-x .x{display:inline-flex;width:16px;height:16px;border-radius:50%;align-items:center;justify-content:center;background:var(--surface-3);color:var(--text-2);font-size:.75rem;line-height:1}
+
+/* ---------- group headers ---------- */
+.mhead{margin:34px 0 10px;padding-bottom:10px;border-bottom:1px solid var(--line)}
+.mhead:first-child{margin-top:0}
+.mhead-row{display:flex;flex-wrap:wrap;align-items:baseline;gap:6px 12px}
+.mhead h3{font-family:var(--font-display);font-size:1.6rem;font-weight:600;color:var(--ink);margin:0;line-height:1.15;overflow-wrap:anywhere}
+.mhead .mh-count{font:500 .72rem/1 var(--font-mono);color:var(--muted)}
+.mhead .mh-id{font:400 .74rem/1.4 var(--font-mono);color:var(--muted);margin-top:2px;overflow-wrap:anywhere}
+.wip-banner{display:flex;gap:10px;align-items:flex-start;margin:12px 0 4px;padding:10px 14px;border:1px dashed var(--wip-bd);background:var(--wip-bg);color:var(--wip-fg);border-radius:10px;font-size:.84rem;line-height:1.5}
+.wip-banner b{font-weight:600}
+.thead{display:flex;align-items:baseline;gap:10px;margin:22px 0 10px;font:500 .72rem/1.3 var(--font-mono);text-transform:uppercase;letter-spacing:.14em;color:var(--accent)}
+.thead .eg{text-transform:none;letter-spacing:0;color:var(--muted);font-weight:400}
+.thead .c{margin-left:auto;color:var(--muted)}
+
+/* ---------- tags ---------- */
+.kind{display:inline-flex;align-items:center;font:500 .64rem/1 var(--font-mono);text-transform:uppercase;letter-spacing:.1em;padding:.32em .5em;border-radius:5px;border:1px solid var(--line-2);color:var(--text-2);white-space:nowrap;vertical-align:middle}
+.kind.k-wip{border-color:var(--wip-bd);color:var(--wip-fg);border-style:dashed}
+.st{display:inline-flex;align-items:center;gap:.4em;font-size:.74rem;font-weight:600;line-height:1;padding:.36em .62em;border-radius:999px;border:1px solid var(--bd);color:var(--fg);background:var(--bgc);white-space:nowrap}
+.st .i{font-size:.85em;line-height:1}
+.st.good{--fg:var(--good-fg);--bgc:var(--good-bg);--bd:var(--good-bd)}
+.st.warn{--fg:var(--warn-fg);--bgc:var(--warn-bg);--bd:var(--warn-bd)}
+.st.bad{--fg:var(--bad-fg);--bgc:var(--bad-bg);--bd:var(--bad-bd)}
+.st.neu{--fg:var(--neu-fg);--bgc:var(--neu-bg);--bd:var(--neu-bd)}
+.st.sm{font-size:.68rem;padding:.3em .5em}
+.wip{display:inline-flex;align-items:center;gap:.4em;font-size:.72rem;font-weight:500;line-height:1.2;padding:.32em .6em;border-radius:999px;border:1px dashed var(--wip-bd);color:var(--wip-fg);background:var(--wip-bg)}
+.sw{display:inline-block;width:10px;height:10px;border-radius:50%;background:var(--mc,var(--m-other));flex:none}
+.prov{position:relative;display:inline-flex;align-items:center;gap:.3em;font:500 .6rem/1 var(--font-mono);text-transform:uppercase;letter-spacing:.08em;padding:.32em .45em;border-radius:4px;cursor:help;vertical-align:middle;white-space:nowrap;background:none;border:1px solid transparent}
+.prov .ic{width:10px;height:10px}
+.prov-asserted{color:var(--prov-fg);background:var(--prov-bg);border-color:var(--prov-bd)}
+.prov-derived{color:var(--muted);border:1px dotted var(--line-2)}
+.prov.mini{padding:.2em .3em;font-size:.56rem}
+#tip{position:fixed;z-index:300;left:0;top:0;max-width:min(21rem,calc(100vw - 24px));padding:.5rem .7rem;border-radius:8px;background:var(--tip-bg);color:var(--tip-fg);font:400 .78rem/1.45 var(--font-body);box-shadow:0 8px 24px -8px rgb(0 0 0 / .4);pointer-events:none;opacity:0;visibility:hidden;transition:opacity .12s}
+#tip.on{opacity:1;visibility:visible}
+[data-tip]{cursor:help}
+button[data-tip],a[data-tip]{cursor:pointer}
+.prov[data-tip]{cursor:help}
+
+/* ---------- card ---------- */
+.card{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:16px 16px 12px;margin:0 0 14px;container-type:inline-size;scroll-margin-top:calc(var(--tb-h,64px) + 28px)}
+@media (min-width:720px){.card{padding:20px 24px 14px}}
+.card.is-wip{border-left:3px dashed var(--wip-bd)}
+.card.is-focus{box-shadow:0 0 0 2px var(--accent)}
+.card-head{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:flex-start;gap:8px 16px}
+.card-title{margin:0;font-family:var(--font-display);font-size:1.24rem;font-weight:600;line-height:1.3;color:var(--ink);display:flex;flex-wrap:wrap;align-items:baseline;gap:2px 8px}
+.card-title .sep{color:var(--line-2);font-weight:400}
+.card-title .mdl{font-family:var(--font-body);font-size:.88rem;font-weight:500;color:var(--text-2)}
+.badges{display:flex;flex-wrap:wrap;gap:6px;align-items:center}
+.card-method{display:flex;flex-wrap:wrap;align-items:center;gap:4px 8px;margin:6px 0 0;font-size:.85rem;color:var(--text-2)}
+.card-method .mname{font-weight:600;color:var(--ink)}
+.card-method .dotsep{color:var(--line-2)}
+.pick{border-bottom:1px dotted var(--muted)}
+.pblock{margin-top:14px;border:1px solid var(--line);background:var(--surface-2);border-radius:10px;overflow:hidden}
+.prefix{margin:0;padding:12px 14px;font-family:var(--font-mono);font-size:.84rem;line-height:1.75;color:var(--ink);white-space:pre-wrap;overflow-wrap:anywhere;word-break:normal;direction:ltr;unicode-bidi:isolate-override;tab-size:4;font-variant-ligatures:none}
+.prefix .lead-sp{position:relative;background:var(--accent-soft);background:color-mix(in srgb,var(--accent) 18%,transparent);border-radius:2px;box-shadow:inset 0 -2px 0 var(--accent)}
+.prefix .lead-sp::before{content:"\2423";position:absolute;left:0;right:0;top:0;text-align:center;color:var(--accent);pointer-events:none}
+.prefix .nl::before{content:"\21B5";color:var(--muted);user-select:none;-webkit-user-select:none;padding-left:1px}
+.pfoot{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:6px 12px;padding:7px 8px 7px 14px;border-top:1px solid var(--line);background:var(--surface)}
+.pmeta{display:flex;flex-wrap:wrap;gap:4px 14px;font:400 .7rem/1.4 var(--font-mono);color:var(--muted)}
+.pmeta .accent{color:var(--accent)}
+.copy{display:inline-flex;align-items:center;gap:6px;border:1px solid var(--line);background:var(--surface-2);color:var(--ink);border-radius:8px;padding:.34rem .65rem;font-size:.78rem;font-weight:600;cursor:pointer;min-width:5.6rem;justify-content:center}
+.copy:hover{border-color:var(--line-2);background:var(--surface)}
+.copy.ok{color:var(--good-fg);border-color:var(--good-bd);background:var(--good-bg)}
+.copy .ic{width:13px;height:13px}
+.use{margin:8px 2px 0;font-size:.78rem;color:var(--muted);overflow-wrap:anywhere}
+.use code{color:var(--text);background:var(--surface-3);padding:.1em .4em;border-radius:4px;font-size:.92em;white-space:pre-wrap}
+.use .ph{color:var(--accent);font-style:italic}
+.cw{padding:14px;background:var(--cw-bg);border-bottom:1px solid var(--cw-bd);display:flex;flex-wrap:wrap;gap:10px 16px;align-items:center;justify-content:space-between}
+.cw p{margin:0;font-size:.86rem;color:var(--text);max-width:36rem}
+.cw b{color:var(--wip-fg)}
+.card-body{display:grid;gap:16px 32px;margin-top:16px;align-items:start}
+@container (min-width:660px){.card-body{grid-template-columns:minmax(0,1.1fr) minmax(0,1fr)}}
+.res-h,.facts-h,.gen-h{display:flex;flex-wrap:wrap;align-items:center;gap:6px 10px;margin:0 0 10px;font:500 .66rem/1.3 var(--font-mono);text-transform:uppercase;letter-spacing:.13em;color:var(--muted)}
+.res-h .meta,.gen-h .meta{text-transform:none;letter-spacing:0;font-family:var(--font-body);font-size:.76rem}
+.bars{display:grid;grid-template-columns:minmax(6.5rem,max-content) minmax(48px,1fr) max-content;gap:7px 12px;align-items:center}
+@container (max-width:420px){
+  .bars{grid-template-columns:minmax(0,1fr) max-content;grid-auto-flow:row dense;gap:3px 10px}
+  .bars .b-track{grid-column:1/-1;margin-bottom:5px}
+}
+.b-lab{font-size:.8rem;color:var(--text-2);line-height:1.25;display:flex;align-items:center;gap:6px;min-width:0}
+.b-lab.self{color:var(--ink);font-weight:600}
+.b-track{display:flex;height:8px;background:var(--track);border-radius:4px;overflow:hidden;min-width:0}
+.b-fill{height:100%;background:var(--base-bar);border-radius:0 4px 4px 0;flex:none}
+.b-fill.self{background:var(--mc,var(--m-other))}
+.b-fill.other{background:transparent;box-shadow:inset 0 0 0 1.5px var(--base-bar)}
+.b-copy{height:100%;margin-left:2px;flex:none;border-radius:0 4px 4px 0;background:repeating-linear-gradient(135deg,var(--hatch) 0 1.5px,transparent 1.5px 4.5px)}
+.b-val{font:500 .78rem/1 var(--font-mono);color:var(--text);text-align:right;white-space:nowrap;display:flex;gap:4px;align-items:center;justify-content:flex-end}
+.b-val .of{color:var(--muted);font-weight:400}
+.b-div{grid-column:1/-1;font:500 .62rem/1 var(--font-mono);text-transform:uppercase;letter-spacing:.12em;color:var(--muted);padding-top:6px}
+.res-note{margin:10px 0 0;font-size:.8rem;color:var(--text-2);line-height:1.5}
+.res-note .hatch{display:inline-block;width:18px;height:8px;border-radius:2px;vertical-align:middle;margin-right:4px;background:repeating-linear-gradient(135deg,var(--hatch) 0 1.5px,transparent 1.5px 4.5px)}
+.res-extra{margin:8px 0 0;font-size:.8rem;color:var(--text-2);display:flex;flex-wrap:wrap;gap:6px;align-items:center}
+.res-extra b{font-weight:500;color:var(--ink);font-family:var(--font-mono);font-size:.95em}
+.alt{margin:12px 0 0;padding-top:10px;border-top:1px dashed var(--line);font-size:.8rem;color:var(--text-2);line-height:1.5}
+.alt code{color:var(--ink)}
+.alt b{font-family:var(--font-mono);font-weight:600;color:var(--ink)}
+.facts{display:grid;grid-template-columns:max-content minmax(0,1fr);gap:7px 14px;margin:0;font-size:.84rem;line-height:1.5}
+.facts dt{font:500 .64rem/1.9 var(--font-mono);text-transform:uppercase;letter-spacing:.12em;color:var(--muted);white-space:nowrap}
+.facts dd{margin:0;color:var(--text);overflow-wrap:anywhere;min-width:0}
+.facts dd .sub{display:block;color:var(--muted);font-size:.78rem}
+.facts dd code{font-size:.8em;color:var(--text-2)}
+@container (max-width:420px){.facts{grid-template-columns:minmax(0,1fr);gap:0}.facts dt{margin-top:8px}}
+.chips{display:flex;flex-wrap:wrap;gap:4px}
+.chip{font:500 .7rem/1 var(--font-mono);padding:.32em .45em;border-radius:5px;background:var(--surface-3);color:var(--text-2);border:1px solid var(--line)}
+.more{border:0;background:none;color:var(--accent);font-size:.76rem;cursor:pointer;padding:.2em .3em;text-decoration:underline;text-underline-offset:3px}
+.readable{font-family:var(--font-display);font-size:1.02rem;line-height:1.5;color:var(--text)}
+.card-foot{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:6px 14px;margin-top:14px;padding-top:10px;border-top:1px solid var(--line);font:400 .7rem/1.5 var(--font-mono);color:var(--muted)}
+.card-foot .id{overflow-wrap:anywhere;min-width:0}
+.card-foot a{color:var(--muted);text-decoration:none;display:inline-flex;align-items:center;gap:4px}
+.card-foot a:hover{color:var(--accent)}
+.card-foot .ic{width:12px;height:12px}
+.card-foot .fl{display:flex;gap:14px;flex-wrap:wrap}
+
+/* generalisation */
+.gen{grid-column:1/-1;border-top:1px solid var(--line);padding-top:14px}
+.gen-rows{display:grid;grid-template-columns:minmax(7rem,12rem) minmax(48px,1fr) 3.4rem 4.2rem 7.8rem;gap:7px 12px;align-items:center}
+.gen-lab{display:flex;flex-direction:column;min-width:0;line-height:1.25}
+.gen-lab .n{font-size:.8rem;color:var(--text-2)}
+.gen-lab .t{font:400 .72rem/1.35 var(--font-mono);color:var(--muted);overflow-wrap:anywhere}
+.gen-lab.gen-row-unseen .n{color:var(--ink);font-weight:600}
+.gen-plain{font:400 .72rem/1 var(--font-mono);color:var(--muted);text-align:right;white-space:nowrap}
+.seen{font-size:.68rem;line-height:1.2;color:var(--muted);white-space:nowrap}
+.seen.un{display:inline-flex;align-items:center;gap:4px;width:max-content;font:600 .62rem/1 var(--font-mono);text-transform:uppercase;letter-spacing:.1em;color:var(--accent);border:1px solid var(--accent);border-radius:4px;padding:.3em .45em}
+@container (max-width:560px){
+  .gen-rows{grid-template-columns:minmax(0,1fr) max-content}
+  .gen-rows .gen-lab{grid-column:1/-1;flex-direction:row;flex-wrap:wrap;gap:2px 8px;align-items:baseline;margin-top:4px}
+  .gen-rows .gen-plain{display:none}
+  .gen-rows .seen{grid-column:1/-1;justify-self:start;margin-bottom:2px}
+}
+.gen-sum{margin:12px 0 0;font-size:.82rem;color:var(--text-2)}
+.gen-sum b{font-family:var(--font-mono);color:var(--ink)}
+.ko{margin-top:16px}
+.ko-note{font-size:.8rem;color:var(--text-2);margin:8px 0 0}
+
+/* ---------- experiments ---------- */
+.xsec{margin:0 0 34px}
+.xsec-h{font-family:var(--font-display);font-size:1.45rem;font-weight:600;color:var(--ink);margin:0 0 2px}
+.xsec-sub{font-size:.86rem;color:var(--muted);margin:0 0 14px;max-width:46rem}
+.xcard{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:16px 16px 14px;margin:0 0 14px;container-type:inline-size;scroll-margin-top:calc(var(--tb-h,64px) + 28px)}
+@media (min-width:720px){.xcard{padding:20px 24px 16px}}
+.xcard.is-wip{border-left:3px dashed var(--wip-bd)}
+.xhead{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:baseline;gap:6px 16px;margin-bottom:4px}
+.xhead h4{margin:0;font-family:var(--font-display);font-size:1.22rem;font-weight:600;color:var(--ink);display:flex;flex-wrap:wrap;align-items:baseline;gap:2px 8px}
+.xhead h4 .mdl{font-family:var(--font-body);font-size:.86rem;font-weight:500;color:var(--text-2)}
+.xmeta{font-size:.8rem;color:var(--muted);margin:0 0 12px}
+.xmeta a{color:var(--muted)}
+.xcols{display:grid;grid-template-columns:minmax(11rem,14rem) minmax(60px,1fr) 4.6rem 5.8rem 7.4rem;gap:0 12px;font:500 .6rem/1.3 var(--font-mono);text-transform:uppercase;letter-spacing:.1em;color:var(--muted);padding:0 0 6px;border-bottom:1px solid var(--line)}
+.xcols span:nth-child(3),.xcols span:nth-child(4){text-align:right}
+.xrow{display:grid;grid-template-columns:minmax(11rem,14rem) minmax(60px,1fr) 4.6rem 5.8rem 7.4rem;gap:4px 12px;align-items:center;padding:6px 0;border-bottom:1px solid var(--line)}
+.xrow.is-hl{background:linear-gradient(90deg,var(--accent-soft),transparent 70%)}
+.xlab{display:flex;align-items:center;gap:8px;border:0;background:none;padding:2px 0;text-align:left;cursor:pointer;font-size:.82rem;color:var(--ink);min-width:0;line-height:1.3}
+.xlab .chev{color:var(--muted);transition:transform .15s;width:12px;height:12px}
+.xlab[aria-expanded="true"] .chev{transform:rotate(90deg)}
+.xlab .p{color:var(--muted);font-size:.74rem;display:block}
+.xlab .lt{display:flex;flex-direction:column;min-width:0}
+.xlab:hover .mn{text-decoration:underline;text-underline-offset:3px}
+.xval{font:500 .8rem/1 var(--font-mono);text-align:right;white-space:nowrap;display:flex;gap:4px;justify-content:flex-end;align-items:center}
+.xval .of{color:var(--muted);font-weight:400}
+.xalt{font:400 .76rem/1 var(--font-mono);color:var(--text-2);text-align:right;white-space:nowrap}
+.xalt .xl{display:none;font-family:var(--font-body);color:var(--muted)}
+.xst{justify-self:start;display:flex;gap:4px;align-items:center;flex-wrap:wrap}
+.xpre{grid-column:1/-1;margin:6px 0 4px}
+.xpre .pblock{margin-top:0}
+.xpre .xopen{margin-top:8px;font-size:.8rem}
+.xbase{color:var(--text-2)}
+.xbase .xlab{cursor:default;color:var(--text-2)}
+.xdiv{font:500 .6rem/1 var(--font-mono);text-transform:uppercase;letter-spacing:.12em;color:var(--muted);padding:12px 0 4px;border-bottom:1px solid var(--line)}
+@container (max-width:640px){
+  .xcols{display:none}
+  .xrow{grid-template-columns:minmax(0,1fr) max-content}
+  .xrow .xlab{grid-column:1/-1}
+  .xrow .xalt{grid-column:1;text-align:left}
+  .xrow .xalt .xl{display:inline}
+  .xrow .xalt:empty{display:none}
+  .xrow .xst{grid-column:2;justify-self:end}
+}
+.xsub{margin-top:18px}
+.swap td.own{font-weight:600;color:var(--ink)}
+.empty{border:1px dashed var(--line-2);border-radius:14px;padding:28px;text-align:center;color:var(--text-2)}
+.empty p{margin:0 0 12px}
+.focusbar{display:flex;flex-wrap:wrap;align-items:center;gap:10px 16px;margin:0 0 16px}
+.focusbar .t{font-size:.86rem;color:var(--muted)}
+.sib-h{font-family:var(--font-display);font-size:1.3rem;font-weight:600;color:var(--ink);margin:28px 0 4px}
+.sib-sub{font-size:.84rem;color:var(--muted);margin:0 0 12px}
+#err{display:none;margin:16px 0;padding:12px 16px;border:1px solid var(--bad-bd);background:var(--bad-bg);color:var(--bad-fg);border-radius:10px;font-size:.86rem}
+#err.on{display:block}
+
+/* ---------- footer ---------- */
+.foot{border-top:1px solid var(--line);padding:24px 0 48px;font:400 .74rem/1.7 var(--font-mono);color:var(--muted)}
+.foot a{color:var(--muted)}
+.foot a:hover{color:var(--accent)}
+.foot p{margin:0 0 4px}
+
+@media (prefers-reduced-motion:reduce){*{transition:none!important;scroll-behavior:auto!important}}
+@media print{.toolbar,.facets,.topline .icon-btn{display:none}.layout{display:block}}
+</style>
+</head>
+<body>
+<a class="skip" href="#results" id="skipLink">Skip to the prefixes</a>
+<div class="wrap">
+  <header class="topline">
+    <a class="back" href="https://soham-padia.github.io/">&larr; Soham Padia</a>
+    <button class="icon-btn" id="themeBtn" type="button" aria-label="Switch to dark theme"></button>
+  </header>
+
+  <section class="masthead" aria-labelledby="pageTitle">
+    <div>
+      <p class="kicker">whisperers &middot; prefix dictionary</p>
+      <h1 id="pageTitle">Prefix dictionary</h1>
+      <p class="lede"><a href="https://github.com/soham-padia/whisperers">whisperers</a> searches for short strings of tokens, <em>prefixes</em>, that make a language model do a task when they are placed in front of an input. Most read as token soup, yet with one in front of <code>hot -&gt;</code> the model answers <code>cold</code>. This page lists every prefix we have searched: the model it was found on, what the search was aimed at, how the checkpoint was picked, and how it did on held-out words the search never saw.</p>
+      <div class="headline">
+        <p class="kicker">Headline</p>
+        <p>On base models, prefixes aimed at named attention heads work, and for translation and the filter task they act through those heads &mdash; but plain answer-only GCG matches or beats them on accuracy, and on phrasings no search saw for three of four word tasks.</p>
+      </div>
+      <p class="epistemic">Epistemic status: every number comes from a single run unless an entry says otherwise. Claims are about base models only; chat, reasoning and other post-trained models are work in progress.</p>
+      <ul class="links">
+        <li><a href="https://github.com/soham-padia/whisperers/blob/main/docs/what-it-shows.md">What it shows (evidence) &nearr;</a></li>
+        <li><a href="https://github.com/soham-padia/whisperers">GitHub &nearr;</a></li>
+        <li><a href="https://pypi.org/project/whisperers/">PyPI &nearr;</a></li>
+        <li><a href="https://github.com/soham-padia/whisperers/blob/main/docs/prefixes.json">prefixes.json &nearr;</a></li>
+      </ul>
+    </div>
+    <aside class="howto" aria-labelledby="howtoTitle">
+      <h2 id="howtoTitle">How to use a prefix</h2>
+      <div class="howto-ex"><span class="io">input</span><span><span class="ph">&lt;prefix&gt;</span> hot -&gt;</span><span class="io">model</span><span>cold</span></div>
+      <ul>
+        <li>Plain text, greedy decoding, on the model the entry lists. Entries say when they were used inside a chat template instead.</li>
+        <li>Prefixes are model-specific. They did not transfer between models in our tests.</li>
+        <li>Use the Copy button. A leading space (shown as <span class="sp-demo" aria-hidden="true">&#9251;</span>) and every odd character are part of the prefix.</li>
+        <li>Test a prefix outside its format before you rely on it: the search only constrains the one position it scores.</li>
+      </ul>
+    </aside>
+  </section>
+
+  <section class="section" id="glanceSection" aria-labelledby="glanceTitle" hidden>
+    <div class="section-head">
+      <div>
+        <h2 class="section-title" id="glanceTitle">The main comparison</h2>
+        <p class="section-sub" id="glanceSub"></p>
+      </div>
+    </div>
+    <figure class="glance" id="glance"></figure>
+  </section>
+
+  <section class="section" aria-label="Glossary">
+    <details class="gloss" id="glossary">
+      <summary><span><span class="t">How to read an entry</span><span class="s">Plain-language glossary: picks, baselines, copied, knockout, provenance</span></span><span class="chev" aria-hidden="true">&#9662;</span></summary>
+      <div class="gloss-body" id="glossBody"></div>
+    </details>
+  </section>
+
+  <div id="err" role="alert"></div>
+
+  <section class="browser" aria-labelledby="browseTitle">
+    <h2 class="sr-only" id="browseTitle">Browse prefixes</h2>
+    <div class="toolbar" id="toolbar">
+      <div class="tb" role="search">
+        <div class="search">
+          <span class="search-ic" id="searchIc" aria-hidden="true"></span>
+          <label for="q" class="sr-only">Search prefixes</label>
+          <input id="q" type="search" placeholder="Search text, task, notes, idplaceholder="Search prefix text, task, notes, id&hellip;"hellip;" autocomplete="off" spellcheck="false" autocapitalize="off">
+          <button class="clear" id="qClear" type="button" aria-label="Clear search">&times;</button>
+        </div>
+        <button class="btn filters-btn" id="filtersBtn" type="button" aria-expanded="false" aria-controls="facets">Filters <span class="n" id="filtersN"></span></button>
+        <div class="tb-ctl">
+          <div class="seg" role="group" aria-label="View">
+            <button type="button" data-view="list" aria-pressed="true">Prefixes</button>
+            <button type="button" data-view="compare" aria-pressed="false">Compare<span class="long"> methods</span></button>
+          </div>
+          <label class="sel"><span>Sort</span>
+            <select id="sort">
+              <option value="story">Story order</option>
+              <option value="best">Best result</option>
+              <option value="gain">Gain over no prefix</option>
+              <option value="newest">Newest job</option>
+            </select>
+          </label>
+        </div>
+      </div>
+    </div>
+    <div class="layout">
+      <aside class="facets" id="facets" aria-label="Filters">
+        <div class="facets-head"><h2>Filter</h2><button class="link-btn" id="clearAll" type="button">Clear all</button></div>
+        <div id="facetList"></div>
+        <button class="btn primary facets-done" id="facetsDone" type="button">Show results</button>
+        <p class="facet-foot">Counts show how many prefixes each choice would give, with your other filters applied. <button class="link-btn" type="button" id="openGloss">Glossary</button></p>
+      </aside>
+      <main id="results" tabindex="-1">
+        <div class="statusbar"><p class="count" id="count" aria-live="polite"></p><span id="chips" style="display:contents"></span></div>
+        <div id="list"></div>
+      </main>
+    </div>
+  </section>
+</div>
+<footer class="foot">
+  <div class="wrap">
+    <p id="footData"></p>
+    <p><a href="https://github.com/soham-padia/whisperers">github.com/soham-padia/whisperers</a> &middot; <a href="https://pypi.org/project/whisperers/">pypi.org/project/whisperers</a> &middot; <a href="https://soham-padia.github.io/">soham-padia.github.io</a></p>
+  </div>
+</footer>
+<div id="tip" role="tooltip"></div>
+<div id="live" class="sr-only" aria-live="polite"></div>
+<noscript><div class="wrap"><p>This dictionary needs JavaScript to render. The same data is in <a href="https://github.com/soham-padia/whisperers/blob/main/docs/prefixes.md">prefixes.md</a> on GitHub.</p></div></noscript>
+
+<script src="data.js"></script>
+<script>
+(function(){
+'use strict';
+
+/* ================= error surface ================= */
+var errBox = document.getElementById('err');
+function showErr(msg){ errBox.textContent = 'Something went wrong while rendering this page: ' + msg; errBox.classList.add('on'); }
+window.addEventListener('error', function(ev){ showErr(ev.message || 'unknown error'); });
+
+var D = window.WHISPERERS;
+if (!D || !Array.isArray(D.prefixes)) { showErr('data.js did not load (it must sit next to index.html).'); return; }
+
+/* ================= small DOM helpers ================= */
+function h(tag, attrs){
+  var el = document.createElement(tag);
+  if (attrs) for (var k in attrs) {
+    var v = attrs[k];
+    if (v == null || v === false) continue;
+    if (k === 'class') el.className = v;
+    else if (k.slice(0,2) === 'on' && typeof v === 'function') el.addEventListener(k.slice(2), v);
+    else el.setAttribute(k, v === true ? '' : String(v));
+  }
+  for (var i = 2; i < arguments.length; i++) add(el, arguments[i]);
+  return el;
+}
+function add(el, c){
+  if (c == null || c === false) return;
+  if (Array.isArray(c)) { c.forEach(function(x){ add(el, x); }); return; }
+  el.append(c instanceof Node ? c : document.createTextNode(String(c)));
+}
+var ICONS = {
+  copy:'<svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true" focusable="false"><rect x="5.5" y="5.5" width="8.5" height="8.5" rx="1.6"/><path d="M10.5 5.5V3.6A1.6 1.6 0 0 0 8.9 2H3.6A1.6 1.6 0 0 0 2 3.6v5.3a1.6 1.6 0 0 0 1.6 1.6h1.9"/></svg>',
+  check:'<svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true" focusable="false"><path d="M3 8.5l3.2 3L13 4.5" stroke-linecap="round" stroke-linejoin="round"/></svg>',
+  search:'<svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true" focusable="false"><circle cx="7" cy="7" r="4.8"/><path d="M10.6 10.6L14 14" stroke-linecap="round"/></svg>',
+  sun:'<svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true" focusable="false"><circle cx="8" cy="8" r="3"/><path d="M8 1.2v1.6M8 13.2v1.6M1.2 8h1.6M13.2 8h1.6M3.2 3.2l1.1 1.1M11.7 11.7l1.1 1.1M3.2 12.8l1.1-1.1M11.7 4.3l1.1-1.1" stroke-linecap="round"/></svg>',
+  moon:'<svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true" focusable="false"><path d="M13.5 9.6A5.8 5.8 0 0 1 6.4 2.5a5.8 5.8 0 1 0 7.1 7.1z" stroke-linejoin="round"/></svg>',
+  link:'<svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true" focusable="false"><path d="M6.8 9.2a3 3 0 0 0 4.2 0l2.2-2.2a3 3 0 0 0-4.2-4.2L8 3.8M9.2 6.8a3 3 0 0 0-4.2 0L2.8 9a3 3 0 0 0 4.2 4.2L8 12.2" stroke-linecap="round"/></svg>',
+  pen:'<svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true" focusable="false"><path d="M10.5 2.5l3 3L5.5 13.5H2.5v-3z" stroke-linejoin="round"/></svg>',
+  redo:'<svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true" focusable="false"><path d="M13 3.5v3.5H9.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M12.6 7A5 5 0 1 0 13 10" stroke-linecap="round"/></svg>',
+  chev:'<svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true" focusable="false"><path d="M6 3.5L10.5 8 6 12.5" stroke-linecap="round" stroke-linejoin="round"/></svg>',
+  warn:'<svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true" focusable="false"><path d="M8 2l6.5 11.5h-13z" stroke-linejoin="round"/><path d="M8 6.5v3.2M8 11.6v.2" stroke-linecap="round"/></svg>'
+};
+/* icons are constant markup defined above, never data */
+function icon(name, cls){ var s = document.createElement('span'); s.className = 'ic' + (cls ? ' ' + cls : ''); s.innerHTML = ICONS[name]; return s; }
+
+/* ================= vocabulary ================= */
+var KIND_ORDER = ['base','chat','reasoning','post-trained','other'];
+var KIND_LABEL = {base:'Base', chat:'Chat', reasoning:'Reasoning', 'post-trained':'Post-trained', other:'Other'};
+var KIND_SUB = {base:'claims are made only here', chat:'work in progress', reasoning:'work in progress', 'post-trained':'work in progress', other:'work in progress'};
+function kindKey(k){
+  k = String(k || '').toLowerCase();
+  if (k === 'base') return 'base';
+  if (k.indexOf('chat') === 0) return 'chat';
+  if (k.indexOf('reasoning') === 0) return 'reasoning';
+  if (k.indexOf('post-trained') === 0) return 'post-trained';
+  return 'other';
+}
+var METHODS = {
+  fv_heads:{name:'Function-vector heads', short:'FV heads', plain:'aimed at function-vector heads', explain:'Searched so that the attention heads behind the task\u2019s function vector write what they write when the model sees real examples.', fam:'heads', order:1},
+  filter_query_heads:{name:'Filter heads\u2019 queries', short:'Filter heads', plain:'aimed at filter heads\u2019 queries', explain:'Searched so that the heads that hold the rule in a list-filtering task form the query for the asked category.', fam:'heads', order:2},
+  output_gcg:{name:'Answer-only GCG', short:'Answer-only GCG', plain:'aimed at the answers, nothing internal', explain:'Plain GCG on how likely the correct answers are for the practice words. Nothing inside the model is targeted.', fam:'gcg', order:3},
+  output_blackbox:{name:'Black-box search', short:'Black-box', plain:'aimed at the answers, no gradients', explain:'Random token swaps, kept when the correct answers get likelier. No gradients, no access to the inside of the model.', fam:'bb', order:4},
+  fv_residual:{name:'Function vector, residual', short:'FV residual', plain:'aimed at the function vector in the residual stream', explain:'The same function vector, aimed at one residual-stream layer instead of at its heads.', fam:'other', order:5},
+  task_vector:{name:'Task vector', short:'Task vector', plain:'aimed at a mean-difference task vector', explain:'A mean-difference vector (with examples minus without) at one residual layer.', fam:'other', order:6},
+  direction:{name:'Steering direction', short:'Direction', plain:'aimed at a direction in the residual stream', explain:'A direction in the residual stream: the Steering Arena\u2019s Season 2 pro-human direction.', fam:'other', order:7},
+  placebo:{name:'Placebo control', short:'Placebo', plain:'control: same examples, answers scrambled', explain:'Aimed at a vector built from the same examples with the answers scrambled. It should do nothing.', fam:'other', order:8}
+};
+var FAM_COLOR = {heads:'var(--m-heads)', gcg:'var(--m-gcg)', bb:'var(--m-bb)', other:'var(--m-other)'};
+var FAM_LABEL = {heads:'Aimed at heads', gcg:'Answer-only GCG', bb:'Black-box'};
+function methodInfo(k){ return METHODS[k] || {name:String(k), short:String(k), plain:String(k), explain:'', fam:'other', order:99}; }
+
+var TASKS = [
+  ['antonym','Antonym','hot \u2192 cold','hot'],
+  ['synonym','Synonym','big \u2192 large','big'],
+  ['english-french','English \u2192 French','cat \u2192 chat','cat'],
+  ['english-spanish','English \u2192 Spanish','cat \u2192 gato','cat'],
+  ['country-capital','Country \u2192 capital','France \u2192 Paris','France'],
+  ['filter: pick the fruit from a list with no question','Filter: pick the fruit','a list, no question',null],
+  ['filter: pick the vehicle from a list with no question','Filter: pick the vehicle','a list, no question',null],
+  ['placebo (antonym demos, answers deranged)','Placebo: antonym examples','answers scrambled','hot'],
+  ['placebo (english-french demos, answers deranged)','Placebo: English \u2192 French examples','answers scrambled','cat'],
+  ['pro-human (Season 2 direction)','Pro-human direction','Steering Arena, Season 2',null]
+];
+var TASK_IDX = {}; TASKS.forEach(function(t, i){ TASK_IDX[t[0]] = i; });
+function taskInfo(t){
+  var i = TASK_IDX[t];
+  if (i != null) return {label:TASKS[i][1], eg:TASKS[i][2], word:TASKS[i][3], order:i};
+  return {label:t.charAt(0).toUpperCase() + t.slice(1), eg:'', word:null, order:50};
+}
+function taskShort(key){ // "english-french_answers" -> "English → French"
+  var t = taskInfo(key); return t.label;
+}
+var STATUS = {
+  'works':{label:'Works', tone:'good', icon:'\u2713', order:1},
+  'works (metric)':{label:'Works (metric)', tone:'good', icon:'\u2713', order:2},
+  'weak':{label:'Weak', tone:'warn', icon:'~', order:3},
+  'fails':{label:'Fails', tone:'bad', icon:'\u2715', order:4},
+  'fails (copied)':{label:'Fails (copied)', tone:'bad', icon:'\u2715', order:5},
+  'control':{label:'Control', tone:'neu', icon:'\u25CB', order:6},
+  'not scored on test':{label:'Not scored on test', tone:'neu', icon:'\u2013', order:7},
+  'not scored':{label:'Not scored', tone:'neu', icon:'\u2013', order:8},
+  'under-searched':{label:'Under-searched', tone:'neu', icon:'\u2026', order:9}
+};
+function statusInfo(s){
+  s = String(s || '');
+  if (STATUS[s]) return STATUS[s];
+  var m = /^(\w[\w -]*?)\s*\((.+)\)$/.exec(s);
+  if (m && !STATUS[s]) return {label:m[1].charAt(0).toUpperCase() + m[1].slice(1), note:m[2], tone:'neu', icon:'?', order:10};
+  return {label:s.charAt(0).toUpperCase() + s.slice(1), tone:'neu', icon:'\u25CB', order:11};
+}
+var PICKS = {
+  validation:{label:'Validation pick', short:'validation pick', tip:'The checkpoint that did best on held-out validation words phrased a different way (for example \u201cThe opposite of X is\u201d).', order:1},
+  final:{label:'End of search', short:'end of search', tip:'The search\u2019s own end point. It often fits the \u201cword ->\u201d format best and other phrasings worst.', order:2},
+  score:{label:'Best target score', short:'best target score', tip:'The checkpoint with the highest score on the internal target.', order:3},
+  snapshot:{label:'Snapshot', short:'snapshot', tip:'An intermediate step of one search, kept to show how it developed.', order:4}
+};
+function pickInfo(p){ return PICKS[p] || {label:String(p || 'unknown'), short:String(p || 'unknown'), tip:'', order:9}; }
+var BASE = {
+  plain:{label:'No prefix', tip:'The same test words with nothing in front.', order:1},
+  demos_pairs:{label:'Real examples', tip:'Complete real example pairs (like \u201chot -> cold\u201d) in the same token budget. These beat every prefix.', order:2},
+  demos_truncated:{label:'Real examples, cut', tip:'Real examples cut to the same token length, ending mid-pair.', order:3},
+  demos_32tok:{label:'Real examples, 32 tokens', tip:'Real example pairs in a 32-token budget.', order:4},
+  inject_fv_best:{label:'Injected vector, tuned', tip:'The function vector added straight into the model, at the layer and strength that did best on validation words.', order:5},
+  inject_fv:{label:'Injected vector', tip:'The function vector added straight into the model at the default strength.', order:6},
+  inject_1x:{label:'Injected vector', tip:'The task vector added straight into the model (\u00d71).', order:6},
+  inject_A_x1:{label:'Injected vector', tip:'This task vector added straight into the model (\u00d71).', order:6},
+  inject_B_x1:{label:'Injected vector', tip:'This task vector added straight into the model (\u00d71).', order:6},
+  ask:{label:'Asked in words', tip:'An explicit instruction instead of a prefix, e.g. \u201cGive me the opposite of X\u201d.', order:7},
+  ask_A:{label:'Asked in words', tip:'The list with an explicit question asking for this category.', order:7},
+  ask_B:{label:'Asked in words', tip:'The list with an explicit question asking for this category.', order:7},
+  transport_A:{label:'Queries copied in', tip:'The paper\u2019s own intervention: copying the filter heads\u2019 queries in from a prompt that asks.', order:8},
+  transport_B:{label:'Queries copied in', tip:'The paper\u2019s own intervention: copying the filter heads\u2019 queries in from a prompt that asks.', order:8}
+};
+var EXTRA_LABEL = {sentences_flipped:'Whole sentences flipped', hand_made_words:'Hand-made test words'};
+
+/* strip anything that looks like a file path from free text we display (never applied to prefixes) */
+function cleanNote(s){
+  s = String(s);
+  s = s.replace(/\s*\((?:[~.\w-]*\/)+[\w-]+\.[A-Za-z]{1,6}\)/g, '');
+  s = s.replace(/(?:^|\s)(?:~|\.{0,2})?\/?(?:[\w.-]+\/)+[\w.-]+\.(?:out|err|json|jsonl|py|log|txt|npz|pt|csv|sh|sbatch|md)\b/g, '');
+  s = s.replace(/\((\d{6,8})\)/g, '(job $1)');
+  return s.trim();
+}
+function pct(x){ return Math.round(x * 100) + '%'; }
+function fmtScore(x){ return (x >= 0 ? '+' : '') + Number(x).toFixed(3); }
+
+/* ================= normalise entries ================= */
+var MODEL_ORDER = Object.keys(D.model_kinds || {});
+function modelOrd(m){ var i = MODEL_ORDER.indexOf(m); return i < 0 ? 900 : i; }
+function shortModel(m){ var i = String(m).lastIndexOf('/'); return i < 0 ? String(m) : String(m).slice(i + 1); }
+
+/* filter category order inside each job: first seen = "A" */
+var FILTER_CATS = {};
+D.prefixes.forEach(function(r){
+  if (!r.results) return;
+  Object.keys(r.results).forEach(function(k){
+    if (/_picks$/.test(k) && k !== 'other_category_picks') {
+      var cat = k.slice(0, -6), arr = FILTER_CATS[r.job] || (FILTER_CATS[r.job] = []);
+      if (arr.indexOf(cat) < 0) arr.push(cat);
+    }
+  });
+});
+
+function provOf(raw){
+  var p = raw.provenance || {};
+  return {asserted:p.asserted || {}, derived:p.derived || {}};
+}
+
+var ENTRIES = D.prefixes.map(function(raw, i){
+  var e = {raw:raw, i:i, id:String(raw.id), text:raw.text};
+  e.kind = kindKey(raw.model_kind); e.kindRaw = raw.model_kind;
+  e.model = raw.model; e.modelShort = shortModel(raw.model);
+  e.task = raw.task; e.t = taskInfo(raw.task);
+  e.method = raw.target_kind; e.m = methodInfo(raw.target_kind);
+  e.mc = FAM_COLOR[e.m.fam];
+  e.status = raw.status; e.st = statusInfo(raw.status);
+  e.pick = raw.selected_by; e.pk = pickInfo(raw.selected_by);
+  e.wip = e.kind !== 'base';
+  e.hateful = !!(raw.readable && /hateful/i.test(raw.readable));
+  e.isFilter = /^filter/.test(String(raw.task));
+  e.job = raw.job;
+  e.prov = provOf(raw);
+  var pk = [];
+  if (Object.keys(e.prov.asserted).length) pk.push('asserted');
+  if (Object.keys(e.prov.derived).length) pk.push('derived');
+  if (!pk.length) pk.push('script');
+  e.provKinds = pk;
+  var seg = e.id.split('/')[2] || '';
+  e.variant = null;
+  var mm = /^instruction-([a-z]+)-([a-z]+)/.exec(seg);
+  if (mm) e.variant = 'instruction heads; frame: ' + mm[1] + ', read at the ' + mm[2];
+  e.chat = /-chat$/.test(seg) || /INSIDE the chat template/i.test(String(raw.target || ''));
+  computeMetric(e);
+  e.groupKey = [raw.model, raw.task, raw.job].join('|');
+  e.hay = [raw.text, raw.task, e.t.label, raw.target, raw.readable, raw.id, raw.model, e.m.name, e.m.plain, raw.status, raw.job, raw.selected_by].join('\n').toLowerCase();
+  e.kindOrd = KIND_ORDER.indexOf(e.kind);
+  e.modelOrd = modelOrd(raw.model);
+  return e;
+});
+var BYID = new Map(); ENTRIES.forEach(function(e){ BYID.set(e.id, e); });
+var DUPS_OF = new Map(); ENTRIES.forEach(function(e){ var d = e.raw.duplicate_of; if (d) { if (!DUPS_OF.has(d)) DUPS_OF.set(d, []); DUPS_OF.get(d).push(e); } });
+
+function computeMetric(e){
+  var r = e.raw.results, c = e.raw.compare || {};
+  e.metric = null; e.ownIdx = 0; e.catIdx = 0; e.cat = null; e.others = []; e.extras = [];
+  if (r) {
+    var known = {correct:1, n:1, copied:1, other_category_picks:1, arena_score:1, board_best:1};
+    var ak = Object.keys(r).filter(function(k){ return /_answers$/.test(k); });
+    var pkKey = Object.keys(r).filter(function(k){ return /_picks$/.test(k) && k !== 'other_category_picks'; })[0];
+    if (typeof r.correct === 'number' && r.n) {
+      e.metric = {type:'count', value:r.correct, n:r.n, copied:r.copied || 0};
+    } else if (ak.length) {
+      var own = -1, task = String(e.raw.task);
+      ak.forEach(function(k, i){ if (own < 0 && task === k.slice(0, -8)) own = i; });
+      ak.forEach(function(k, i){ if (own < 0 && task.indexOf(k.slice(0, -8)) >= 0) own = i; });
+      if (own < 0) own = 0;
+      e.ownIdx = own;
+      e.metric = {type:'count', value:r[ak[own]], n:r.n, copied:r.copied || 0, ownLabel:taskShort(ak[own].slice(0, -8)) + ' answers'};
+      ak.forEach(function(k, i){ if (i !== own) e.others.push({label:taskShort(k.slice(0, -8)) + ' answers instead', value:r[k]}); });
+    } else if (pkKey) {
+      e.cat = pkKey.slice(0, -6);
+      var cats = FILTER_CATS[e.raw.job] || [e.cat];
+      e.catIdx = Math.max(0, cats.indexOf(e.cat));
+      var otherCat = cats.filter(function(x){ return x !== e.cat; })[0] || 'other category';
+      e.metric = {type:'count', value:r[pkKey], n:r.n, copied:0, ownLabel:'Picked the ' + e.cat};
+      if (typeof r.other_category_picks === 'number') e.others.push({label:'Picked the ' + otherCat + ' instead', value:r.other_category_picks});
+    } else if (typeof r.arena_score === 'number') {
+      e.metric = {type:'score', value:r.arena_score, ref:r.board_best};
+    }
+    Object.keys(r).forEach(function(k){
+      if (known[k] || /_answers$/.test(k) || /_picks$/.test(k)) return;
+      if (r[k] == null) return;
+      e.extras.push({key:k, label:EXTRA_LABEL[k] || k.replace(/_/g, ' '), value:cleanNote(r[k])});
+    });
+  }
+  // baselines on the same words
+  e.baselines = [];
+  if (!e.metric || e.metric.type === 'count') {
+    Object.keys(c).forEach(function(k){
+      if (k === 'inject_fv_best_at' || /^board_best/.test(k)) return;
+      var v = c[k]; if (v == null) return;
+      var m = /_([AB])$/.exec(k);
+      if (m && e.isFilter && (m[1] === 'A' ? 0 : 1) !== e.catIdx) return;
+      var val = v;
+      if (Array.isArray(v)) val = v[e.ownIdx];
+      else if (typeof v === 'string' && /^\d+\/\d+$/.test(v)) val = Number(v.split('/')[e.catIdx]);
+      if (typeof val !== 'number' || isNaN(val)) return;
+      var b = BASE[k] || {label:k.replace(/_/g, ' '), tip:'', order:20};
+      var label = b.label;
+      if (k === 'inject_fv_best' && c.inject_fv_best_at) label += ' (' + String(c.inject_fv_best_at).replace(/\bx(\d)/, '\u00d7$1') + ')';
+      e.baselines.push({key:k, label:label, tip:b.tip, value:val, order:b.order});
+    });
+    e.baselines.sort(function(a, b){ return a.order - b.order; });
+  }
+  var plain = e.baselines.filter(function(b){ return b.key === 'plain'; })[0];
+  e.plain = plain ? plain.value : null;
+  e.frac = e.metric && e.metric.type === 'count' ? e.metric.value / e.metric.n : null;
+  e.gain = e.frac != null && e.plain != null ? (e.metric.value - e.plain) / e.metric.n : null;
+}
+
+/* provenance lookup: exact path, then parents */
+function provFor(e, path){
+  var p = path;
+  while (p) {
+    if (e.prov.asserted[p]) return {type:'asserted', reason:e.prov.asserted[p]};
+    if (e.prov.derived[p]) return {type:'derived', reason:e.prov.derived[p]};
+    var j = p.lastIndexOf('.'); if (j < 0) break; p = p.slice(0, j);
+  }
+  return null;
+}
+function provLabel(info){
+  if (info.type === 'asserted') return 'hand-entered';
+  if (/rescor/i.test(info.reason)) return 'rescored';
+  if (/separate.*run/i.test(info.reason)) return 'separate run';
+  return 'computed later';
+}
+function provMark(info, mini){
+  if (!info) return null;
+  var lab = provLabel(info);
+  var full = (info.type === 'asserted' ? 'Hand-entered: ' : 'Computed later: ') + cleanNote(info.reason);
+  return h('button', {type:'button', class:'prov prov-' + info.type + (mini ? ' mini' : ''), 'data-tip':full, 'aria-label':full},
+    icon(info.type === 'asserted' ? 'pen' : 'redo'), mini ? null : lab);
+}
+
+/* ================= groups (experiments) ================= */
+var GROUPS = new Map();
+ENTRIES.forEach(function(e){
+  var g = GROUPS.get(e.groupKey);
+  if (!g) { g = {key:e.groupKey, model:e.model, modelShort:e.modelShort, task:e.task, t:e.t, job:e.job, kind:e.kind, members:[]}; GROUPS.set(e.groupKey, g); }
+  g.members.push(e);
+});
+GROUPS.forEach(function(g){
+  g.members.sort(memberCmp);
+  var fams = {}; var kinds = {};
+  g.members.forEach(function(e){ fams[e.m.fam] = 1; kinds[e.method] = 1; });
+  g.hasOutput = !!(fams.gcg || fams.bb);
+  g.hasHeads = !!fams.heads;
+  g.nKinds = Object.keys(kinds).length;
+  g.section = g.members.length < 2 ? null : (g.hasOutput ? 'methods' : (g.nKinds > 1 ? 'targets' : 'checkpoints'));
+  var n = null; g.members.forEach(function(e){ if (n == null && e.metric && e.metric.type === 'count') n = e.metric.n; });
+  g.n = n;
+  var best = null; g.members.forEach(function(e){ if (!best || e.baselines.length > best.baselines.length) best = e; });
+  g.baselines = best ? best.baselines : [];
+  g.ord = Math.min.apply(null, g.members.map(function(e){ return e.i; }));
+});
+/* swap tests: one job, two task vectors and a placebo on shared words */
+var SWAPS = new Map();
+ENTRIES.forEach(function(e){
+  var r = e.raw.results; if (!r) return;
+  var ak = Object.keys(r).filter(function(k){ return /_answers$/.test(k); });
+  if (ak.length < 2) return;
+  var key = 'swap|' + e.model + '|' + e.job;
+  var s = SWAPS.get(key);
+  if (!s) { s = {key:key, swap:true, model:e.model, modelShort:e.modelShort, job:e.job, kind:e.kind, cols:ak, members:[]}; SWAPS.set(key, s); }
+  s.members.push(e);
+});
+function memberCmp(a, b){
+  return a.m.order - b.m.order || a.pk.order - b.pk.order || (a.raw.step || 0) - (b.raw.step || 0) || a.i - b.i;
+}
+function storyCmp(a, b){
+  return a.kindOrd - b.kindOrd || a.modelOrd - b.modelOrd || String(a.model).localeCompare(String(b.model)) ||
+    a.t.order - b.t.order || String(a.task).localeCompare(String(b.task)) ||
+    a.m.order - b.m.order || (a.job || 0) - (b.job || 0) || a.pk.order - b.pk.order || (a.raw.step || 0) - (b.raw.step || 0) || a.i - b.i;
+}
+
+/* ================= state & hash ================= */
+var FACETS = [
+  {key:'kind', label:'Model type', get:function(e){ return [e.kind]; }, order:function(v){ return KIND_ORDER.indexOf(v); }, name:function(v){ return KIND_LABEL[v] || v; }, sub:function(v){ return KIND_SUB[v]; }, prov:D.model_kinds_note},
+  {key:'model', label:'Model', get:function(e){ return [e.model]; }, order:function(v){ var e = firstWith('model', v); return (e ? e.kindOrd * 1000 : 0) + modelOrd(v); }, name:function(v){ return shortModel(v); }, sub:function(v){ var e = firstWith('model', v); return e ? (e.kind === 'base' ? 'base' : (e.kindRaw || e.kind)) : ''; }},
+  {key:'task', label:'Task', get:function(e){ return [e.task]; }, order:function(v){ return taskInfo(v).order; }, name:function(v){ return taskInfo(v).label; }, sub:function(v){ return taskInfo(v).eg; }},
+  {key:'method', label:'Aimed at', get:function(e){ return [e.method]; }, order:function(v){ return methodInfo(v).order; }, name:function(v){ return methodInfo(v).name; }, sub:function(v){ return methodInfo(v).plain; }, swatch:function(v){ return FAM_COLOR[methodInfo(v).fam]; }},
+  {key:'status', label:'Status', get:function(e){ return [e.status]; }, order:function(v){ return statusInfo(v).order; }, name:function(v){ return statusInfo(v).label; }, sub:function(v){ return statusInfo(v).note || ''; }},
+  {key:'pick', label:'Checkpoint picked by', get:function(e){ return [e.pick]; }, order:function(v){ return pickInfo(v).order; }, name:function(v){ return pickInfo(v).label; }},
+  {key:'prov', label:'Provenance', get:function(e){ return e.provKinds; }, order:function(v){ return {script:1, asserted:2, derived:3}[v] || 9; }, name:function(v){ return {script:'Only script-computed values', asserted:'Has hand-entered values', derived:'Has values computed later'}[v] || v; }}
+];
+var FACET_BY = {}; FACETS.forEach(function(f){ FACET_BY[f.key] = f; });
+function firstWith(key, v){ for (var i = 0; i < ENTRIES.length; i++) { if (FACET_BY[key].get(ENTRIES[i]).indexOf(v) >= 0) return ENTRIES[i]; } return null; }
+FACETS.forEach(function(f){
+  var seen = {}; ENTRIES.forEach(function(e){ f.get(e).forEach(function(v){ seen[v] = 1; }); });
+  f.values = Object.keys(seen).sort(function(a, b){ return f.order(a) - f.order(b) || a.localeCompare(b); });
+});
+
+var state = {q:'', f:{}, sort:'story', view:'list', p:null, exp:null, theme:null};
+FACETS.forEach(function(f){ state.f[f.key] = new Set(); });
+
+function parseHash(){
+  var raw = location.hash.replace(/^#/, '');
+  state.q = ''; state.sort = 'story'; state.view = 'list'; state.p = null; state.exp = null; state.theme = null;
+  FACETS.forEach(function(f){ state.f[f.key] = new Set(); });
+  if (!raw) return;
+  if (raw.indexOf('=') < 0) {
+    var bare = safeDecode(raw);
+    if (BYID.has(bare)) state.p = bare;
+    return;
+  }
+  var sp = new URLSearchParams(raw);
+  state.q = sp.get('q') || '';
+  FACETS.forEach(function(f){ sp.getAll(f.key).forEach(function(v){ if (v) state.f[f.key].add(v); }); });
+  var s = sp.get('sort'); if (s && /^(story|best|gain|newest)$/.test(s)) state.sort = s;
+  var v = sp.get('view'); if (v === 'compare') state.view = 'compare';
+  state.p = sp.get('p') || null;
+  state.exp = sp.get('exp') || null;
+  var t = sp.get('theme'); if (t === 'dark' || t === 'light') state.theme = t;
+}
+function safeDecode(s){ try { return decodeURIComponent(s); } catch (err) { return s; } }
+function serialize(){
+  var sp = new URLSearchParams();
+  if (state.q) sp.set('q', state.q);
+  FACETS.forEach(function(f){ state.f[f.key].forEach(function(v){ sp.append(f.key, v); }); });
+  if (state.sort !== 'story') sp.set('sort', state.sort);
+  if (state.view !== 'list') sp.set('view', state.view);
+  if (state.exp) sp.set('exp', state.exp);
+  if (state.p) sp.set('p', state.p);
+  if (state.theme) sp.set('theme', state.theme);
+  return sp.toString();
+}
+var cameFromList = false;
+function writeHash(push){
+  var s = serialize();
+  var cur = location.hash.replace(/^#/, '');
+  if (s === cur) return;
+  var url = s ? '#' + s : location.href.split('#')[0];
+  try { history[push ? 'pushState' : 'replaceState'](null, '', url); }
+  catch (err) { suppressHash = true; location.hash = s; }
+  lastHash = location.hash;
+}
+var suppressHash = false;
+var lastHash = null;
+function onNav(){
+  if (suppressHash) { suppressHash = false; lastHash = location.hash; return; }
+  if (location.hash === lastHash) return;
+  parseHash(); render(true);
+}
+window.addEventListener('hashchange', onNav);
+window.addEventListener('popstate', onNav);
+
+/* ================= theme ================= */
+var themeBtn = document.getElementById('themeBtn');
+var mq = window.matchMedia ? window.matchMedia('(prefers-color-scheme: dark)') : null;
+function effectiveTheme(){ var t = document.documentElement.getAttribute('data-theme'); if (t) return t; return mq && mq.matches ? 'dark' : 'light'; }
+function paintThemeBtn(){
+  var dark = effectiveTheme() === 'dark';
+  themeBtn.replaceChildren(icon(dark ? 'sun' : 'moon'));
+  themeBtn.setAttribute('aria-label', dark ? 'Switch to light theme' : 'Switch to dark theme');
+  themeBtn.setAttribute('data-tip', dark ? 'Light theme' : 'Dark theme');
+}
+themeBtn.addEventListener('click', function(){
+  var next = effectiveTheme() === 'dark' ? 'light' : 'dark';
+  document.documentElement.setAttribute('data-theme', next);
+  if (state.theme) { state.theme = null; writeHash(false); }
+  paintThemeBtn();
+});
+if (mq && mq.addEventListener) mq.addEventListener('change', paintThemeBtn);
+function applyTheme(){ if (state.theme) document.documentElement.setAttribute('data-theme', state.theme); paintThemeBtn(); }
+
+/* ================= tooltip ================= */
+var tip = document.getElementById('tip'), tipFor = null;
+function showTip(el){
+  var text = el.getAttribute('data-tip'); if (!text) return;
+  tipFor = el; tip.textContent = text; tip.classList.add('on');
+  var r = el.getBoundingClientRect(), tw = tip.offsetWidth, th = tip.offsetHeight, vw = document.documentElement.clientWidth;
+  var x = Math.min(Math.max(8, r.left + r.width / 2 - tw / 2), vw - tw - 8);
+  var y = r.bottom + 8; if (y + th > window.innerHeight - 8) y = Math.max(8, r.top - th - 8);
+  tip.style.transform = 'translate(' + Math.round(x) + 'px,' + Math.round(y) + 'px)';
+  el.setAttribute('aria-describedby', 'tip');
+}
+function hideTip(){ if (tipFor) tipFor.removeAttribute('aria-describedby'); tipFor = null; tip.classList.remove('on'); }
+document.addEventListener('mouseover', function(ev){ var el = ev.target.closest && ev.target.closest('[data-tip]'); if (el && el !== tipFor) showTip(el); else if (!el && tipFor && document.activeElement !== tipFor) hideTip(); });
+document.addEventListener('focusin', function(ev){ var el = ev.target.closest && ev.target.closest('[data-tip]'); if (el) showTip(el); else hideTip(); });
+document.addEventListener('focusout', function(){ hideTip(); });
+document.addEventListener('keydown', function(ev){ if (ev.key === 'Escape') hideTip(); });
+window.addEventListener('scroll', function(){ if (!tipFor) return; if (document.activeElement === tipFor) showTip(tipFor); else hideTip(); }, {passive:true});
+
+/* ================= copy ================= */
+var live = document.getElementById('live');
+function announce(s){ live.textContent = ''; setTimeout(function(){ live.textContent = s; }, 30); }
+function copySource(btn){ var e = BYID.get(btn.getAttribute('data-copy-id')); return e ? e.raw.text : null; }
+function copyString(s){
+  if (navigator.clipboard && navigator.clipboard.writeText) {
+    return navigator.clipboard.writeText(s).then(function(){ return true; }, function(){ return legacyCopy(s); });
+  }
+  return Promise.resolve(legacyCopy(s));
+}
+function legacyCopy(s){
+  var ta = document.createElement('textarea');
+  ta.value = s; ta.setAttribute('readonly', ''); ta.style.position = 'fixed'; ta.style.top = '-1000px'; ta.style.opacity = '0';
+  document.body.appendChild(ta); ta.select(); ta.setSelectionRange(0, s.length);
+  var ok = false; try { ok = document.execCommand('copy'); } catch (err) { ok = false; }
+  document.body.removeChild(ta); return ok;
+}
+function setCopyLabel(btn, ok){
+  btn.replaceChildren(icon(ok === true ? 'check' : 'copy'), ok === true ? 'Copied' : (ok === false ? 'Select & copy' : 'Copy'));
+  btn.classList.toggle('ok', ok === true);
+}
+function copyBtn(e){
+  var b = h('button', {type:'button', class:'copy', 'data-copy-id':e.id, 'aria-label':'Copy this prefix exactly'});
+  setCopyLabel(b, null);
+  b.addEventListener('click', function(){
+    var s = copySource(b); if (s == null) return;
+    copyString(s).then(function(ok){
+      if (!ok) { // last resort: select the text so the reader can press Ctrl+C
+        var pre = b.closest('.pblock').querySelector('.prefix');
+        var range = document.createRange(); range.selectNodeContents(pre);
+        var sel = window.getSelection(); sel.removeAllRanges(); sel.addRange(range);
+      }
+      setCopyLabel(b, ok ? true : false);
+      announce(ok ? 'Prefix copied to the clipboard.' : 'Could not copy automatically; the prefix is selected.');
+      clearTimeout(b._t); b._t = setTimeout(function(){ setCopyLabel(b, null); }, 1800);
+    });
+  });
+  return b;
+}
+
+/* ================= building blocks ================= */
+function prefixNode(text){
+  var pre = h('pre', {class:'prefix', dir:'ltr', translate:'no'});
+  var rest = text;
+  if (rest.charAt(0) === ' ') { pre.append(h('span', {class:'lead-sp', title:'This prefix starts with a space'}, ' ')); rest = rest.slice(1); }
+  rest.split('\n').forEach(function(line, i){
+    if (i > 0) { pre.append(h('span', {class:'nl', 'aria-hidden':'true'})); pre.append(document.createTextNode('\n')); }
+    if (line) pre.append(document.createTextNode(line));
+  });
+  return pre;
+}
+function statusBadge(e, small){
+  var st = e.st;
+  var tipText = st.note ? st.label + ': ' + st.note : null;
+  return h('span', {class:'st ' + st.tone + (small ? ' sm' : ''), 'data-tip':tipText}, h('span', {class:'i', 'aria-hidden':'true'}, st.icon), st.label);
+}
+function kindTag(kind, raw){
+  var wip = kind !== 'base';
+  return h('span', {class:'kind' + (wip ? ' k-wip' : ''), 'data-tip':raw && raw !== kind ? String(raw) : null}, kind === 'base' ? 'base' : (KIND_LABEL[kind] || kind).toLowerCase());
+}
+function wipBadge(){ return h('span', {class:'wip', 'data-tip':'The project makes claims only about base models. Entries on chat, reasoning and other post-trained models are data, not findings.'}, icon('warn'), 'Work in progress \u2014 not a finding'); }
+function swatch(color){ return h('span', {class:'sw', style:'--mc:' + color, 'aria-hidden':'true'}); }
+function barRow(parent, o){
+  // o: {label, value, n, cls, copied, tip, prov, valText, swatchColor}
+  var lab = h('span', {class:'b-lab' + (o.self ? ' self' : ''), 'data-tip':o.tip || null}, o.swatchColor ? swatch(o.swatchColor) : null, o.label);
+  var track = h('span', {class:'b-track', 'aria-hidden':'true'});
+  var w = o.n ? Math.max(0, Math.min(1, o.value / o.n)) : 0;
+  track.append(h('span', {class:'b-fill' + (o.self ? ' self' : '') + (o.hollow ? ' other' : ''), style:'width:' + (w * 100).toFixed(2) + '%' + (o.color ? ';background:' + o.color : '')}));
+  if (o.copied) { var cw = Math.max(0, Math.min(1 - w, o.copied / o.n)); track.append(h('span', {class:'b-copy', style:'width:calc(' + (cw * 100).toFixed(2) + '% - 2px)'})); }
+  var val = h('span', {class:'b-val'}, o.valText != null ? o.valText : [String(o.value), h('span', {class:'of'}, '/' + o.n)], o.prov || null);
+  parent.append(lab, track, val);
+}
+function usageLine(e){
+  if (e.method === 'direction') return h('p', {class:'use'}, 'Scored with the Steering Arena metric: put in front of the season\u2019s probe prompts, it moves the last-token residual along the direction. There is no task format.');
+  var ph = h('span', {class:'ph'}, '<prefix>');
+  if (e.isFilter) return h('p', {class:'use'}, 'Use as ', h('code', null, ph, ' Options: Car, Apple, Chair, Dog, Pen.\nAnswer:'));
+  if (e.variant) return h('p', {class:'use'}, 'Use inside the chat template, as the whole user message: ', h('code', null, ph, ' ' + (e.t.word || 'word')));
+  if (e.chat) return h('p', {class:'use'}, 'Searched and tested inside the chat template (user turn); see what it was aimed at.');
+  var w = e.t.word || 'word';
+  return h('p', {class:'use'}, 'Use as ', h('code', null, ph, ' ' + w + ' ->'), e.wip ? ' (plain text, outside the chat format)' : null);
+}
+function prefixBlock(e, opts){
+  var box = h('div', {class:'pblock'});
+  var pre = prefixNode(e.text);
+  var lines = e.text.split('\n').length - 1;
+  var meta = h('span', {class:'pmeta'},
+    e.raw.n_tokens ? h('span', null, e.raw.n_tokens + ' tokens') : null,
+    e.text.charAt(0) === ' ' ? h('span', {class:'accent'}, '\u2423 starts with a space') : null,
+    lines ? h('span', null, '\u21B5 ' + lines + ' line break' + (lines > 1 ? 's' : '')) : null,
+    h('span', null, e.text.length + ' characters'));
+  var cb = copyBtn(e);
+  var foot = h('div', {class:'pfoot'}, meta, cb);
+  if (e.hateful) {
+    pre.hidden = true; foot.hidden = true;
+    var reveal = h('button', {type:'button', class:'btn'}, 'Show prefix');
+    var cw = h('div', {class:'cw', role:'note'}, h('p', null, h('b', null, 'Content warning. '), 'This prefix, on its own, made the model continue into hateful text.'), reveal);
+    reveal.addEventListener('click', function(){ pre.hidden = false; foot.hidden = false; cw.remove(); cb.focus(); });
+    box.append(cw);
+  }
+  box.append(pre, foot);
+  return box;
+}
+function resultsBlock(e){
+  var sec = h('section', {class:'res', 'aria-label':'Results'});
+  var m = e.metric;
+  if (!m) {
+    sec.append(h('h6', {class:'res-h'}, 'Held-out test'));
+    sec.append(h('p', {class:'res-note'}, 'This checkpoint was not scored on the test words.'));
+    var sib = e.pick === 'final' ? ENTRIES.filter(function(x){ return x.groupKey === e.groupKey && x.method === e.method && x.pick === 'validation' && x.metric; })[0] : null;
+    if (sib) sec.append(h('p', {class:'res-note'}, 'The validation pick from the same search was: ', h('a', {href:'#p=' + encodeURIComponent(sib.id)}, sib.metric.value + '/' + sib.metric.n + ' correct'), '.'));
+    if (e.baselines.length) {
+      var bb = h('div', {class:'bars'});
+      bb.append(h('span', {class:'b-div'}, 'Baselines on the test words'));
+      var g0 = GROUPS.get(e.groupKey), n0 = (g0 && g0.n) || 200; e.baselines.forEach(function(b){ barRow(bb, {label:b.label, value:b.value, n:n0, tip:b.tip}); });
+      sec.append(bb);
+    }
+    return sec;
+  }
+  if (m.type === 'score') {
+    sec.append(h('h6', {class:'res-h'}, 'Arena score', h('span', {class:'meta'}, 'mean cosine shift along the direction, no test words')));
+    var bars = h('div', {class:'bars'}), max = Math.max(m.value, m.ref || 0) * 1.12;
+    barRow(bars, {label:'This prefix', self:true, value:m.value, n:max, valText:fmtScore(m.value), prov:provMark(provFor(e, 'results.arena_score'), true)});
+    if (m.ref != null) barRow(bars, {label:'Board best', value:m.ref, n:max, valText:fmtScore(m.ref), tip:'Best score on the public Steering Arena board, Season 2.', prov:provMark(provFor(e, 'results.board_best'), true)});
+    sec.append(bars);
+    return sec;
+  }
+  var n = m.n;
+  sec.append(h('h6', {class:'res-h'}, e.isFilter ? 'Held-out lists' : 'Held-out test words', h('span', {class:'meta'}, 'n = ' + n), provMark(provFor(e, 'results'))));
+  var bars2 = h('div', {class:'bars'});
+  barRow(bars2, {label:m.ownLabel || 'This prefix', self:true, value:m.value, n:n, copied:m.copied, tip:m.ownLabel ? 'This prefix: ' + m.ownLabel.toLowerCase() : 'Correct answers with this prefix'});
+  e.others.forEach(function(o){ barRow(bars2, {label:o.label, value:o.value, n:n, hollow:true}); });
+  if (e.baselines.length) {
+    bars2.append(h('span', {class:'b-div'}, 'Same words, no prefix or another method'));
+    e.baselines.forEach(function(b){ barRow(bars2, {label:b.label, value:b.value, n:n, tip:b.tip, prov:provMark(provFor(e, 'compare.' + b.key), true)}); });
+  }
+  sec.append(bars2);
+  if (m.copied) sec.append(h('p', {class:'res-note'}, h('span', {class:'hatch', 'aria-hidden':'true'}), 'Copied the input instead of answering: ', h('b', null, String(m.copied)), ' of ' + n + '.'));
+  e.extras.forEach(function(x){ sec.append(h('p', {class:'res-extra'}, x.label + ': ', h('b', null, x.value), provMark(provFor(e, 'results.' + x.key)))); });
+  var v = e.raw.val_out_of_template;
+  if (v && typeof v.accuracy === 'number') {
+    sec.append(h('p', {class:'alt', 'data-tip':'Accuracy on validation words in a phrasing the search did not use. The validation pick is chosen on this number, so it is not an unseen phrasing for that checkpoint.'},
+      h('b', null, pct(v.accuracy)), ' in another phrasing, on validation words: ', h('code', null, String(v.template))));
+  }
+  return sec;
+}
+function headsChips(e, full){
+  var hs = e.raw.heads; if (!hs || !hs.length) return null;
+  var wrap = h('div', {class:'chips'});
+  var cap = full ? hs.length : 10;
+  hs.forEach(function(x, i){ var c = h('span', {class:'chip'}, 'L' + x[0] + '.' + x[1]); if (i >= cap) c.hidden = true; wrap.append(c); });
+  if (hs.length > cap) {
+    var more = h('button', {type:'button', class:'more', 'aria-expanded':'false'}, '+' + (hs.length - cap) + ' more');
+    more.addEventListener('click', function(){ Array.prototype.forEach.call(wrap.children, function(c){ c.hidden = false; }); more.remove(); });
+    wrap.append(more);
+  }
+  return wrap;
+}
+function factsBlock(e, full){
+  var dl = h('dl', {class:'facts'});
+  function row(k, v, tipText){ if (v == null) return; dl.append(h('dt', {'data-tip':tipText || null}, k), h('dd', null, v)); }
+  row('Aimed at', [cleanNote(e.raw.target || ''), e.variant ? h('span', {class:'sub'}, e.variant) : null, h('span', {class:'sub'}, e.m.explain)]);
+  var stepTxt = e.raw.step != null ? 'step ' + e.raw.step + (e.raw.search_steps ? ' of ' + e.raw.search_steps : '') : (e.raw.search_steps ? e.raw.search_steps + ' search steps' : null);
+  row('Picked', [h('span', {class:'pick', 'data-tip':e.pk.tip}, e.pk.label), stepTxt ? ' \u00b7 ' + stepTxt : null]);
+  var search = [];
+  if (e.raw.search_score != null) search.push('target score ' + e.raw.search_score);
+  if (e.raw.layer != null && e.method !== 'fv_heads') search.push('layer ' + e.raw.layer);
+  if (search.length) row('Search', search.join(' \u00b7 '), 'The search\u2019s own objective at this checkpoint (higher is better; the units depend on the target).');
+  if (e.st.note) row('Status', [e.st.note, provMark(provFor(e, 'status'))]);
+  var hc = headsChips(e, full);
+  if (hc) row('Heads', hc, 'Attention heads as layer.head, e.g. L24.7 = layer 24, head 7.');
+  if (e.raw.readable) row('Readable', h('span', {class:'readable'}, cleanNote(e.raw.readable), ' ', provMark(provFor(e, 'readable'))), 'Fragments of the prefix a reader can make out.');
+  if (e.raw.duplicate_of) {
+    var d = BYID.get(e.raw.duplicate_of);
+    row('Same text', [h('span', null, 'as '), h('a', {href:'#p=' + encodeURIComponent(e.raw.duplicate_of)}, d ? d.t.label + ', ' + d.pk.short + ', job ' + d.job : e.raw.duplicate_of)], 'The same prefix text on the same model is listed under another entry; this one was scored again in a different job.');
+  }
+  var dups = DUPS_OF.get(e.id);
+  if (dups && dups.length) row('Also listed', dups.map(function(x, i){ return [i ? ', ' : '', h('a', {href:'#p=' + encodeURIComponent(x.id)}, 'job ' + x.job + ' (' + x.pk.short + ')')]; }), 'The same text, scored again in another job.');
+  row('Job', String(e.job));
+  return dl;
+}
+function genBlock(e){
+  var g = e.raw.generalisation; if (!g || !Array.isArray(g.phrasings) || !g.phrasings.length) return null;
+  var sec = h('section', {class:'gen', 'aria-label':e.isFilter ? 'New list formats' : 'New phrasings'});
+  var n = g.n;
+  sec.append(h('h6', {class:'gen-h'}, e.isFilter ? 'New list formats' : 'New phrasings', h('span', {class:'meta'}, n + ' held-out words' + (g.job ? ' \u00b7 job ' + g.job : '')), provMark(provFor(e, 'generalisation'))));
+  var rows = h('div', {class:'gen-rows'});
+  var un = [], unPlain = [];
+  g.phrasings.forEach(function(p){
+    var unseen = p.seen == null;
+    if (unseen) { un.push(p.correct); unPlain.push(p.plain); }
+    var lab = h('span', {class:'gen-lab'}, h('span', {class:'n'}, p.name), h('span', {class:'t'}, String(p.template).replace(/\n/g, '\u21B5')));
+    var track = h('span', {class:'b-track', 'aria-hidden':'true'}, h('span', {class:'b-fill self', style:'width:' + (Math.min(1, p.correct / n) * 100).toFixed(2) + '%'}));
+    var val = h('span', {class:'b-val'}, String(p.correct), h('span', {class:'of'}, '/' + n));
+    var plain = h('span', {class:'gen-plain', 'data-tip':'The same phrasing with no prefix'}, 'none ' + p.plain);
+    var seen = unseen ? h('span', {class:'seen un', 'data-tip':'Neither the search nor the checkpoint pick ever used this phrasing.'}, 'unseen') :
+      h('span', {class:'seen', 'data-tip':p.seen === 'validation' ? 'Used to pick the validation checkpoint, so it is not unseen for that pick.' : 'The phrasing the search itself used.'}, p.seen === 'validation' ? 'seen in checkpoint pick' : (p.seen === 'search' ? 'seen in search' : 'seen: ' + p.seen));
+    var wrap = [lab, track, val, plain, seen];
+    if (unseen) wrap.forEach(function(x){ x.classList.add('gen-row-unseen'); });
+    rows.append.apply(rows, wrap);
+  });
+  sec.append(rows);
+  if (un.length) {
+    var avg = un.reduce(function(a, b){ return a + b; }, 0) / un.length;
+    var avgP = unPlain.reduce(function(a, b){ return a + b; }, 0) / unPlain.length;
+    sec.append(h('p', {class:'gen-sum'}, 'Across the ' + un.length + ' unseen phrasing' + (un.length > 1 ? 's' : '') + ': ', h('b', null, pct(avg / n)), ' correct on average, against ' + pct(avgP / n) + ' with no prefix.'));
+  }
+  var ko = g.knockout;
+  if (ko && ko.intact != null) {
+    var kb = h('div', {class:'ko'});
+    var aimed = e.m.fam === 'heads';
+    kb.append(h('h6', {class:'gen-h'}, 'Knockout', h('span', {class:'meta'}, aimed ? 'in the search\u2019s own phrasing' : 'the heads the heads-prefix aimed at; this prefix was not aimed at them')));
+    var bars = h('div', {class:'bars'});
+    barRow(bars, {label:'All heads on', value:ko.intact, n:n, self:true});
+    barRow(bars, {label:aimed ? 'Targeted heads off' : 'Those heads off', value:ko.target_heads, n:n, tip:'The targeted heads switched off.'});
+    if (ko.random_heads != null) barRow(bars, {label:'Random heads off', value:ko.random_heads, n:n, tip:'The same number of random heads switched off.'});
+    kb.append(bars);
+    var drop = ko.intact - ko.target_heads;
+    var note = 'Switching off ' + (aimed ? 'the targeted' : 'those') + ' heads moves it from ' + ko.intact + ' to ' + ko.target_heads +
+      (ko.random_heads != null ? '; random heads give ' + ko.random_heads + '.' : '; the random-heads control was not run for this checkpoint.');
+    kb.append(h('p', {class:'ko-note'}, note));
+    sec.append(kb);
+  }
+  return sec;
+}
+function cardTitle(e, tag){
+  return h(tag || 'h5', {class:'card-title'}, h('span', null, e.t.label), h('span', {class:'sep', 'aria-hidden':'true'}, '\u00b7'), h('span', {class:'mdl'}, e.modelShort), kindTag(e.kind, e.kindRaw));
+}
+function buildCard(e, opts){
+  opts = opts || {};
+  var art = h('article', {class:'card' + (e.wip ? ' is-wip' : '') + (opts.focus ? ' is-focus' : ''), id:opts.focus ? null : 'e-' + e.i, style:'--mc:' + e.mc, 'aria-label':e.t.label + ' on ' + e.modelShort + ', ' + e.m.name + ', ' + e.pk.short});
+  var head = h('div', {class:'card-head'}, cardTitle(e, opts.focus ? 'h3' : 'h5'),
+    h('div', {class:'badges'}, e.wip ? wipBadge() : null, statusBadge(e), provMark(provFor(e, 'status'))));
+  var method = h('p', {class:'card-method'}, swatch(e.mc), h('span', {class:'mname', 'data-tip':e.m.explain || null}, e.m.name), h('span', {class:'dotsep', 'aria-hidden':'true'}, '\u00b7'), h('span', {class:'pick', 'data-tip':e.pk.tip}, e.pk.label + (e.raw.step != null ? ', step ' + e.raw.step : '')));
+  art.append(head, method, prefixBlock(e), usageLine(e));
+  var body = h('div', {class:'card-body'}, resultsBlock(e), h('div', null, h('h6', {class:'facts-h'}, 'Details'), factsBlock(e, opts.focus)));
+  var gb = genBlock(e); if (gb) body.append(gb);
+  art.append(body);
+  var g = GROUPS.get(e.groupKey);
+  var foot = h('div', {class:'card-foot'}, h('span', {class:'id'}, e.id),
+    h('span', {class:'fl'},
+      g && g.members.length > 1 && !opts.focus ? h('a', {href:'#view=compare&exp=' + encodeURIComponent(g.key)}, 'Compare this job (' + g.members.length + ')') : null,
+      !opts.focus ? h('a', {href:'#p=' + encodeURIComponent(e.id), 'aria-label':'Permalink to this prefix'}, icon('link'), 'Permalink') : null));
+  art.append(foot);
+  return art;
+}
+
+/* ================= experiments ================= */
+function expRowLabel(e){
+  var p = e.pk.short + (e.raw.step != null ? ' \u00b7 step ' + e.raw.step : '');
+  return [swatch(e.mc), h('span', {class:'lt'}, h('span', {class:'mn'}, e.m.short), h('span', {class:'p'}, p))];
+}
+function buildExp(g, opts){
+  opts = opts || {};
+  if (g.swap) return buildSwap(g, opts);
+  var card = h('article', {class:'xcard' + (g.kind !== 'base' ? ' is-wip' : ''), id:'x-' + slug(g.key)});
+  var anyDerived = g.members.map(function(e){ return provFor(e, 'results'); }).filter(Boolean)[0];
+  card.append(h('div', {class:'xhead'},
+    h(opts.focus ? 'h3' : 'h4', null, h('span', null, g.t.label), h('span', {class:'sep', 'aria-hidden':'true'}, '\u00b7'), h('span', {class:'mdl'}, g.modelShort), kindTag(g.kind, g.members[0].kindRaw)),
+    h('div', {class:'badges'}, g.kind !== 'base' ? wipBadge() : null, anyDerived ? provMark(anyDerived) : null)));
+  card.append(h('p', {class:'xmeta'}, (g.n ? 'Every row on the same ' + g.n + ' held-out ' + (g.members[0].isFilter ? 'lists' : 'words') : 'Same test words') + ' \u00b7 job ' + g.job,
+    opts.focus ? null : [' \u00b7 ', h('a', {href:'#view=compare&exp=' + encodeURIComponent(g.key)}, 'permalink')]));
+  var cols = h('div', {class:'xcols', 'aria-hidden':'true'}, h('span', null, 'Prefix'), h('span', null, 'Correct'), h('span', null, 'of ' + (g.n || '')), h('span', {'data-tip':'Accuracy on validation words in another phrasing'}, 'Other phrasing'), h('span', null, 'Status'));
+  card.append(cols);
+  g.members.forEach(function(e){
+    var m = e.metric, n = m && m.type === 'count' ? m.n : (g.n || 200);
+    var id = 'xp-' + e.i + (opts.focus ? '-f' : '');
+    var lab = h('button', {type:'button', class:'xlab', 'aria-expanded':'false', 'aria-controls':id}, icon('chev', 'chev'), expRowLabel(e));
+    var track = h('span', {class:'b-track', 'aria-hidden':'true', style:'--mc:' + e.mc});
+    if (m && m.type === 'count') {
+      track.append(h('span', {class:'b-fill self', style:'width:' + (Math.min(1, m.value / n) * 100).toFixed(2) + '%'}));
+      if (m.copied) track.append(h('span', {class:'b-copy', style:'width:calc(' + (Math.min(1, m.copied / n) * 100).toFixed(2) + '% - 2px)'}));
+    }
+    var val = h('span', {class:'xval'}, m && m.type === 'count' ? [String(m.value), h('span', {class:'of'}, '/' + n), provMark(provFor(e, 'results'), true)] : h('span', {class:'of'}, 'not scored'));
+    var v = e.raw.val_out_of_template;
+    var alt = h('span', {class:'xalt', 'data-tip':v ? 'Other phrasing on validation words: ' + v.template : null}, v && typeof v.accuracy === 'number' ? [pct(v.accuracy), h('span', {class:'xl'}, ' in another phrasing')] : '');
+    var st = h('span', {class:'xst'}, statusBadge(e, true), provMark(provFor(e, 'status'), true));
+    var row = h('div', {class:'xrow' + (opts.highlight === e.id ? ' is-hl' : '')}, lab, track, val, alt, st);
+    var pre = h('div', {class:'xpre', id:id, hidden:true});
+    lab.addEventListener('click', function(){
+      var open = lab.getAttribute('aria-expanded') === 'true';
+      if (!open && !pre.firstChild) pre.append(prefixBlock(e), h('p', {class:'xopen'}, h('a', {href:'#p=' + encodeURIComponent(e.id)}, 'Open the full entry \u2192')));
+      lab.setAttribute('aria-expanded', open ? 'false' : 'true'); pre.hidden = open;
+    });
+    row.append(pre);
+    card.append(row);
+  });
+  if (g.baselines.length) {
+    card.append(h('div', {class:'xdiv'}, 'Baselines on the same words'));
+    g.baselines.forEach(function(b){
+      var n = g.n || 200;
+      var row = h('div', {class:'xrow xbase'},
+        h('span', {class:'xlab', 'data-tip':b.tip || null}, h('span', {class:'sw', style:'--mc:var(--base-bar)', 'aria-hidden':'true'}), b.label),
+        h('span', {class:'b-track', 'aria-hidden':'true'}, h('span', {class:'b-fill', style:'width:' + (Math.min(1, b.value / n) * 100).toFixed(2) + '%'})),
+        h('span', {class:'xval'}, String(b.value), h('span', {class:'of'}, '/' + n)), h('span', {class:'xalt'}), h('span', {class:'xst'}));
+      card.append(row);
+    });
+  }
+  var gm = genMatrix(g.members);
+  if (gm) card.append(gm);
+  return card;
+}
+function genMatrix(members){
+  var gm = members.filter(function(e){ return e.raw.generalisation && Array.isArray(e.raw.generalisation.phrasings); });
+  if (!gm.length) return null;
+  var cols = [];
+  gm.forEach(function(e){ e.raw.generalisation.phrasings.forEach(function(p){ if (!cols.some(function(c){ return c.name === p.name; })) cols.push({name:p.name, template:p.template, seen:p.seen}); }); });
+  var g0 = gm[0].raw.generalisation, n = g0.n;
+  var hasKo = gm.some(function(e){ return e.raw.generalisation.knockout; });
+  var wrap = h('div', {class:'xsub'});
+  wrap.append(h('h6', {class:'gen-h'}, gm[0].isFilter ? 'New list formats' : 'New phrasings', h('span', {class:'meta'}, n + ' held-out words, correct answers' + (g0.job ? ' \u00b7 job ' + g0.job : '')), provMark(provFor(gm[0], 'generalisation'))));
+  var thead = h('tr', null, h('th', {scope:'col'}, 'Prefix'));
+  cols.forEach(function(c){
+    var lab = c.seen == null ? 'unseen' : (c.seen === 'validation' ? 'seen in pick' : 'seen in search');
+    thead.append(h('th', {scope:'col', class:c.seen == null ? 'unseen' : null}, c.name, h('span', {class:'tpl'}, String(c.template).replace(/\n/g, '\u21B5')), h('span', {class:'tpl'}, lab)));
+  });
+  if (hasKo) { thead.append(h('th', {scope:'col'}, 'Heads off', h('span', {class:'tpl'}, 'targeted')), h('th', {scope:'col'}, 'Heads off', h('span', {class:'tpl'}, 'random'))); }
+  var best = {};
+  cols.forEach(function(c){ best[c.name] = Math.max.apply(null, gm.map(function(e){ var p = findP(e, c.name); return p ? p.correct : -1; })); });
+  var tb = h('tbody');
+  gm.forEach(function(e){
+    var tr = h('tr', null, h('td', null, h('span', {style:'display:inline-flex;align-items:center;gap:6px'}, swatch(e.mc), e.m.short + ' \u00b7 ' + e.pk.short)));
+    cols.forEach(function(c){ var p = findP(e, c.name); tr.append(h('td', {class:(c.seen == null ? 'unseen ' : '') + (p && p.correct === best[c.name] ? 'best' : '')}, p ? String(p.correct) : '\u2014')); });
+    if (hasKo) { var ko = e.raw.generalisation.knockout || {}; tr.append(h('td', null, ko.target_heads != null ? String(ko.target_heads) : '\u2014'), h('td', null, ko.random_heads != null ? String(ko.random_heads) : '\u2014')); }
+    tb.append(tr);
+  });
+  var pr = h('tr', {class:'base-row'}, h('td', null, 'No prefix'));
+  cols.forEach(function(c){ var p = findP(gm[0], c.name); pr.append(h('td', {class:c.seen == null ? 'unseen' : null}, p ? String(p.plain) : '\u2014')); });
+  if (hasKo) pr.append(h('td'), h('td'));
+  tb.append(pr);
+  wrap.append(h('div', {class:'tbl-wrap'}, h('table', {class:'tbl'}, h('caption', {class:'sr-only'}, 'Correct answers out of ' + n + ' per phrasing; unseen phrasings were never used by the search or the checkpoint pick.'), h('thead', null, thead), tb)));
+  wrap.append(h('p', {class:'gl-note'}, 'Bold = best prefix in that column. Shaded columns are unseen phrasings. The validation pick was chosen on the phrasing marked \u201cseen in pick\u201d.'));
+  return wrap;
+}
+function findP(e, name){ var ps = e.raw.generalisation.phrasings; for (var i = 0; i < ps.length; i++) if (ps[i].name === name) return ps[i]; return null; }
+function buildSwap(s, opts){
+  var card = h('article', {class:'xcard' + (s.kind !== 'base' ? ' is-wip' : ''), id:'x-' + slug(s.key)});
+  var colLabels = s.cols.map(function(k){ return taskShort(k.slice(0, -8)); });
+  card.append(h('div', {class:'xhead'}, h(opts.focus ? 'h3' : 'h4', null, h('span', null, 'Swap test: ' + colLabels.join(' vs ')), h('span', {class:'sep', 'aria-hidden':'true'}, '\u00b7'), h('span', {class:'mdl'}, s.modelShort), kindTag(s.kind)), h('div', {class:'badges'}, s.kind !== 'base' ? wipBadge() : null)));
+  var n = s.members[0].raw.results.n;
+  card.append(h('p', {class:'xmeta'}, 'Each prefix on the same ' + n + ' words, counting answers of each kind \u00b7 job ' + s.job, opts.focus ? null : [' \u00b7 ', h('a', {href:'#view=compare&exp=' + encodeURIComponent(s.key)}, 'permalink')]));
+  var thead = h('tr', null, h('th', {scope:'col'}, 'Prefix'));
+  colLabels.forEach(function(l){ thead.append(h('th', {scope:'col'}, l + ' answers')); });
+  thead.append(h('th', {scope:'col'}, 'Copied'), h('th', {scope:'col'}, 'Status'));
+  var tb = h('tbody');
+  s.members.forEach(function(e){
+    var r = e.raw.results;
+    var tr = h('tr', null, h('td', null, h('a', {href:'#p=' + encodeURIComponent(e.id)}, e.method === 'placebo' ? 'Placebo prefix' : e.t.label + ' prefix')));
+    s.cols.forEach(function(k, i){ tr.append(h('td', {class:i === e.ownIdx && e.method !== 'placebo' ? 'own' : null}, String(r[k]))); });
+    tr.append(h('td', null, String(r.copied || 0)), h('td', null, statusBadge(e, true)));
+    tb.append(tr);
+  });
+  var c0 = s.members[0].raw.compare || {};
+  if (Array.isArray(c0.plain)) { var pr = h('tr', {class:'base-row'}, h('td', null, 'No prefix')); c0.plain.forEach(function(v){ pr.append(h('td', null, String(v))); }); pr.append(h('td'), h('td')); tb.append(pr); }
+  s.members.forEach(function(e){
+    var c = e.raw.compare || {};
+    Object.keys(c).forEach(function(k){
+      if (!/^inject_.*_x1$/.test(k) || !Array.isArray(c[k])) return;
+      var tl = /\u2192/.test(e.t.label) ? e.t.label : e.t.label.toLowerCase();
+      var tr = h('tr', {class:'base-row'}, h('td', null, 'Injecting the ' + tl + ' vector'));
+      c[k].forEach(function(v){ tr.append(h('td', null, String(v))); }); tr.append(h('td'), h('td')); tb.append(tr);
+    });
+  });
+  card.append(h('div', {class:'tbl-wrap swap'}, h('table', {class:'tbl'}, h('caption', {class:'sr-only'}, 'Answers of each kind out of ' + n), h('thead', null, thead), tb)));
+  return card;
+}
+function slug(s){ return String(s).replace(/[^A-Za-z0-9]+/g, '-').replace(/^-|-$/g, '').toLowerCase(); }
+
+/* ================= at-a-glance figure ================= */
+var glanceMode = 'format';
+function mainGroups(){
+  var gs = [];
+  GROUPS.forEach(function(g){ if (g.kind === 'base' && g.hasHeads && g.members.some(function(e){ return e.m.fam === 'gcg'; })) gs.push(g); });
+  gs.sort(function(a, b){ return a.t.order - b.t.order || a.job - b.job; });
+  return gs;
+}
+function unseenAvg(e){
+  var g = e.raw.generalisation; if (!g || !Array.isArray(g.phrasings)) return null;
+  var u = g.phrasings.filter(function(p){ return p.seen == null; });
+  if (!u.length) return null;
+  return {value:u.reduce(function(a, p){ return a + p.correct; }, 0) / u.length, plain:u.reduce(function(a, p){ return a + p.plain; }, 0) / u.length, n:g.n};
+}
+function renderGlance(){
+  var gs = mainGroups();
+  var sec = document.getElementById('glanceSection'), fig = document.getElementById('glance');
+  if (!gs.length) { sec.hidden = true; return; }
+  sec.hidden = false;
+  var hasGen = gs.some(function(g){ return g.members.some(function(e){ return unseenAvg(e); }); });
+  if (!hasGen) glanceMode = 'format';
+  var model = gs[0].modelShort;
+  document.getElementById('glanceSub').textContent = glanceMode === 'format' ?
+    'Same model (' + model + ', base), same held-out test words, in the format the search used. Each lane is one way of aiming the search.' :
+    'Average over phrasings that neither the search nor the checkpoint pick ever used, on a separate set of held-out words.';
+  fig.replaceChildren();
+  var top = h('div', {class:'gl-top'});
+  var legend = h('div', {class:'gl-legend', 'aria-label':'Legend'},
+    h('span', {class:'lg'}, h('span', {class:'dot', style:'--mc:var(--m-heads)'}), 'Aimed at heads'),
+    h('span', {class:'lg'}, h('span', {class:'dot', style:'--mc:var(--m-gcg)'}), 'Answer-only GCG'),
+    h('span', {class:'lg'}, h('span', {class:'dot', style:'--mc:var(--m-bb)'}), 'Black-box'),
+    h('span', {class:'lg'}, h('span', {class:'dot', style:'--mc:var(--text-2)'}), 'validation pick'),
+    h('span', {class:'lg'}, h('span', {class:'dot ring', style:'--mc:var(--text-2)'}), 'end of search'),
+    h('span', {class:'lg'}, h('span', {class:'dot base-plain'}), 'no prefix'),
+    glanceMode === 'format' ? h('span', {class:'lg'}, h('span', {class:'dot base-demo'}), 'real examples') : null);
+  top.append(legend);
+  if (hasGen) {
+    var seg = h('div', {class:'seg', role:'group', 'aria-label':'Which test'});
+    [['format', 'Search\u2019s format'], ['unseen', 'Unseen phrasings']].forEach(function(o){
+      var b = h('button', {type:'button', 'aria-pressed':String(glanceMode === o[0])}, o[1]);
+      b.addEventListener('click', function(){ glanceMode = o[0]; renderGlance(); fig.querySelector('.seg button[aria-pressed="true"]').focus(); });
+      seg.append(b);
+    });
+    top.append(seg);
+  }
+  fig.append(top);
+  var blocks = h('div', {class:'gl-blocks'});
+  var tableRows = [];
+  gs.forEach(function(g){
+    var lanes = [], baseVals = {};
+    var anyVal = false, nShown = null;
+    function valOf(e){
+      if (glanceMode === 'format') return e.metric && e.metric.type === 'count' ? {v:e.metric.value, n:e.metric.n} : null;
+      var u = unseenAvg(e); return u ? {v:u.value, n:u.n, plain:u.plain} : null;
+    }
+    ['heads', 'gcg', 'bb'].forEach(function(fam){
+      var ms = g.members.filter(function(e){ return e.m.fam === fam; });
+      var vp = ms.filter(function(e){ return e.pick === 'validation'; })[0], fp = ms.filter(function(e){ return e.pick === 'final'; })[0];
+      var a = vp ? valOf(vp) : null, b = fp ? valOf(fp) : null;
+      if (a || b) { anyVal = true; nShown = (a || b).n; if (glanceMode === 'unseen') baseVals.plain = (a || b).plain; }
+      lanes.push({fam:fam, a:a, b:b, ea:vp, eb:fp, label:fam === 'heads' ? (ms[0] ? ms[0].m.short : 'Heads') : FAM_LABEL[fam]});
+    });
+    if (!anyVal) return;
+    if (glanceMode === 'format') {
+      g.baselines.forEach(function(b){ if (b.key === 'plain') baseVals.plain = b.value; if (b.key === 'demos_pairs') baseVals.demo = b.value; });
+    }
+    var n = nShown || g.n || 200;
+    function fmt(x){ return glanceMode === 'format' ? String(Math.round(x)) : pct(x / n); }
+    var block = h('div', {class:'gl-block'});
+    var open = h('button', {type:'button', class:'gl-open', 'aria-label':'Compare every prefix for ' + g.t.label + ' from job ' + g.job + ' side by side'}, 'Compare side by side \u2192');
+    open.addEventListener('click', function(){ clearFilters(); state.view = 'compare'; state.exp = g.key; writeHash(true); render(); scrollToBrowser(); });
+    var derived = g.members.map(function(e){ return provFor(e, 'results'); }).filter(Boolean)[0];
+    block.append(h('div', {class:'gl-task'}, h('h3', {class:'gl-title'}, g.t.label), h('span', {class:'gl-n'}, (glanceMode === 'format' ? n + (g.members[0].isFilter ? ' test lists' : ' test words') : n + ' other words') + ' \u00b7 job ' + g.job), derived && glanceMode === 'format' ? provMark(derived) : null, open));
+    var plot = h('div', {class:'gl-plot'});
+    function refs(tr){
+      [0.25, 0.5, 0.75].forEach(function(t){ tr.append(h('span', {class:'ref q', style:'left:' + t * 100 + '%'})); });
+      if (baseVals.plain != null) tr.append(h('span', {class:'ref', style:'left:' + (baseVals.plain / n * 100) + '%'}));
+      if (baseVals.demo != null) tr.append(h('span', {class:'ref', style:'left:' + (baseVals.demo / n * 100) + '%'}));
+      return tr;
+    }
+    var summary = [];
+    lanes.forEach(function(L){
+      var tr = refs(h('span', {class:'gl-track', 'aria-hidden':'true'}));
+      var color = FAM_COLOR[L.fam];
+      if (L.b) tr.append(h('span', {class:'dot ring', style:'--mc:' + color + ';left:' + (L.b.v / n * 100) + '%', title:L.label + ', end of search: ' + fmt(L.b.v)}));
+      if (L.a) tr.append(h('span', {class:'dot', style:'--mc:' + color + ';left:' + (L.a.v / n * 100) + '%', title:L.label + ', validation pick: ' + fmt(L.a.v)}));
+      var val = h('span', {class:'gl-val'});
+      if (!L.a && !L.b) val.append(h('span', {class:'na'}, 'not run'));
+      else { if (L.a) val.append(fmt(L.a.v)); if (L.b) val.append(h('span', {class:'end'}, (L.a ? ' \u00b7 end ' : 'end ') + fmt(L.b.v))); }
+      plot.append(h('div', {class:'gl-lane'}, h('span', {class:'gl-lab'}, swatch(color), ' ', L.label), tr, val));
+      summary.push(L.label + ': ' + (L.a ? fmt(L.a.v) + ' (validation pick)' : '') + (L.b ? ', ' + fmt(L.b.v) + ' (end of search)' : '') + (!L.a && !L.b ? 'not run' : ''));
+    });
+    var btr = refs(h('span', {class:'gl-track', 'aria-hidden':'true'}));
+    if (baseVals.plain != null) btr.append(h('span', {class:'dot base-plain', style:'left:' + (baseVals.plain / n * 100) + '%', title:'No prefix: ' + fmt(baseVals.plain)}));
+    if (baseVals.demo != null) btr.append(h('span', {class:'dot base-demo', style:'left:' + (baseVals.demo / n * 100) + '%', title:'Real examples: ' + fmt(baseVals.demo)}));
+    var bval = h('span', {class:'gl-val'}, h('span', {class:'end'}, (baseVals.plain != null ? 'none ' + fmt(baseVals.plain) : '') + (baseVals.demo != null ? ' \u00b7 ex. ' + fmt(baseVals.demo) : '')));
+    plot.append(h('div', {class:'gl-lane'}, h('span', {class:'gl-lab'}, 'Baselines'), btr, bval));
+    plot.append(h('p', {class:'sr-only'}, g.t.label + '. ' + summary.join('; ') + '. No prefix: ' + (baseVals.plain != null ? fmt(baseVals.plain) : 'n/a') + (baseVals.demo != null ? '. Real examples: ' + fmt(baseVals.demo) : '') + '.'));
+    block.append(plot);
+    blocks.append(block);
+    tableRows.push({g:g, lanes:lanes, base:baseVals, fmt:fmt});
+  });
+  fig.append(blocks);
+  var axis = h('div', {class:'gl-axis', 'aria-hidden':'true'}, h('span', {class:'gl-sp'}), h('span', {class:'gl-ticks'}, h('span', {style:'left:0'}, '0'), h('span', {style:'left:25%'}, '25%'), h('span', {style:'left:50%'}, '50%'), h('span', {style:'left:75%'}, '75%'), h('span', {style:'left:100%'}, '100%')), h('span', {class:'gl-axis-lab'}, 'share correct'));
+  fig.append(axis);
+  var note = glanceMode === 'format' ?
+    'Numbers are correct answers out of the held-out set. The answer-only search is told the practice words\u2019 answers, which the heads search never sees. Each number is one run. Click a task to see every prefix from that job side by side.' :
+    'Percent correct, averaged over the unseen phrasings of a separate evaluation run. The phrasing used to pick the validation checkpoint is excluded, so these are genuinely new to every prefix.';
+  fig.append(h('p', {class:'gl-note'}, note));
+  var det = h('details', {class:'gl-table'}, h('summary', null, 'Show as a table'));
+  var thead = h('tr', null, h('th', {scope:'col'}, 'Task'), h('th', {scope:'col'}, 'No prefix'));
+  ['heads', 'gcg', 'bb'].forEach(function(f){ thead.append(h('th', {scope:'col'}, (f === 'heads' ? 'Heads' : FAM_LABEL[f]) + ' (val \u00b7 end)')); });
+  if (glanceMode === 'format') thead.append(h('th', {scope:'col'}, 'Real examples'));
+  var tb = h('tbody');
+  tableRows.forEach(function(r){
+    var tr = h('tr', null, h('td', null, r.g.t.label), h('td', null, r.base.plain != null ? r.fmt(r.base.plain) : '\u2014'));
+    r.lanes.forEach(function(L){ tr.append(h('td', null, (L.a ? r.fmt(L.a.v) : '\u2014') + ' \u00b7 ' + (L.b ? r.fmt(L.b.v) : '\u2014'))); });
+    if (glanceMode === 'format') tr.append(h('td', null, r.base.demo != null ? r.fmt(r.base.demo) : '\u2014'));
+    tb.append(tr);
+  });
+  det.append(h('div', {class:'tbl-wrap'}, h('table', {class:'tbl'}, h('thead', null, thead), tb)));
+  fig.append(det);
+}
+
+/* ================= glossary ================= */
+function renderGlossary(){
+  var body = document.getElementById('glossBody');
+  function term(dt, code, dd){ return [h('dt', null, dt, code ? h('code', null, code) : null), h('dd', null, dd)]; }
+  var left = h('dl', null,
+    term('Held-out words', null, 'Test words the search never saw: 200 per task (137 for capitals). An answer counts only if the first word of the greedy output is exactly the dataset\u2019s answer, so valid answers outside the dataset count as wrong.'),
+    term('No prefix', 'plain', 'The same test words with nothing in front. Every result sits next to it.'),
+    term('Copied', 'copied', 'The model just repeated the input word instead of answering. Shown as a hatched segment after the correct answers.'),
+    term('Validation pick', 'validation', PICKS.validation.tip),
+    term('End of search', 'final', PICKS.final.tip),
+    term('Best target score / snapshot', 'score \u00b7 snapshot', PICKS.score.tip + ' ' + PICKS.snapshot.tip),
+    term('Other phrasing', 'val_out_of_template', 'Accuracy on validation words in a phrasing the search did not use. The validation pick is chosen on it, so for that checkpoint it is not unseen.'),
+    term('Unseen phrasings', 'generalisation', 'A separate run tests each prefix in phrasings such as \u201cX:\u201d or \u201cQ: X A:\u201d. Phrasings marked unseen were used neither by the search nor by the checkpoint pick; these are the ones that measure carry-over.'));
+  var right = h('dl', null,
+    term('Real examples', 'demos_pairs', BASE.demos_pairs.tip),
+    term('Injected vector', 'inject_fv \u00b7 inject_fv_best', 'The function vector added straight into the model instead of a prefix: at the default strength, or at the layer and strength that did best on validation words (this favours the vector).'),
+    term('Knockout', null, 'Accuracy with the targeted heads switched off, against switching off the same number of random heads. A drop for the targeted heads only means the prefix acts through them.'),
+    term('Heads', 'L24.7', 'An attention head as layer.head: L24.7 is layer 24, head 7.'),
+    term('Status', null, String(D.status_rule || 'A rough label computed from the numbers. Read the numbers.')),
+    term('Work in progress', null, ['Chat, reasoning and other post-trained models. Several were tested outside their chat format, so their entries are data, not findings. ', String(D.model_kinds_note || '')]),
+    term(h('span', {style:'display:inline-flex;gap:6px;align-items:center'}, 'Provenance', provMark({type:'asserted', reason:'example: a value a person entered'}), provMark({type:'derived', reason:'example: rescored offline by a named process'})), null,
+      String(D.provenance_note || 'Every number was computed by script from the run\u2019s own result file unless marked.')));
+  body.replaceChildren(left, right, h('p', {class:'note'}, 'Each number is from one run. Every prefix is model-specific. The comparisons and their caveats are written up in ', h('a', {href:'https://github.com/soham-padia/whisperers/blob/main/docs/what-it-shows.md'}, 'What it shows'), '.'));
+}
+document.getElementById('openGloss').addEventListener('click', function(){ var g = document.getElementById('glossary'); g.open = true; g.scrollIntoView({behavior:'smooth', block:'start'}); g.querySelector('summary').focus({preventScroll:true}); });
+
+/* ================= facets UI ================= */
+var facetList = document.getElementById('facetList');
+var facetInputs = {};
+function buildFacets(){
+  facetList.replaceChildren();
+  FACETS.forEach(function(f){
+    var fs = h('fieldset', {class:'facet'});
+    fs.append(h('legend', null, f.label, f.prov ? provMark({type:'asserted', reason:f.prov}) : null));
+    facetInputs[f.key] = {};
+    f.values.forEach(function(v){
+      var inp = h('input', {type:'checkbox', name:f.key, value:v});
+      inp.addEventListener('change', function(){
+        if (inp.checked) state.f[f.key].add(v); else state.f[f.key].delete(v);
+        state.p = null; state.exp = null; writeHash(false); render();
+      });
+      var sub = f.sub ? f.sub(v) : '';
+      var cnt = h('span', {class:'fv-count'});
+      var lab = h('label', {class:'fv'}, inp,
+        h('span', null, h('span', {class:'fv-name'}, f.swatch ? [swatch(f.swatch(v)), ' '] : null, f.name(v)), sub ? h('span', {class:'fv-sub'}, sub) : null), cnt);
+      facetInputs[f.key][v] = {input:inp, count:cnt, label:lab};
+      fs.append(lab);
+    });
+    facetList.append(fs);
+  });
+}
+
+/* ================= filtering ================= */
+function qTerms(){ return state.q.toLowerCase().split(/\s+/).filter(Boolean); }
+function matchQ(e, terms){ for (var i = 0; i < terms.length; i++) if (e.hay.indexOf(terms[i]) < 0) return false; return true; }
+function passes(e, qOk, except){
+  if (!qOk) return false;
+  for (var i = 0; i < FACETS.length; i++) {
+    var f = FACETS[i]; if (f.key === except) continue;
+    var sel = state.f[f.key]; if (!sel.size) continue;
+    var vs = f.get(e), ok = false;
+    for (var j = 0; j < vs.length; j++) if (sel.has(vs[j])) { ok = true; break; }
+    if (!ok) return false;
+  }
+  return true;
+}
+function activeCount(){ var n = state.q ? 1 : 0; FACETS.forEach(function(f){ n += state.f[f.key].size; }); return n; }
+function clearFilters(){ state.q = ''; FACETS.forEach(function(f){ state.f[f.key].clear(); }); state.p = null; state.exp = null; }
+
+/* ================= render ================= */
+var listEl = document.getElementById('list');
+var CARD_CACHE = new Map();
+function cardFor(e){ var c = CARD_CACHE.get(e.id); if (!c) { c = buildCard(e); CARD_CACHE.set(e.id, c); } return c; }
+var EXP_CACHE = new Map();
+function expFor(g){ var c = EXP_CACHE.get(g.key); if (!c) { c = buildExp(g); EXP_CACHE.set(g.key, c); } return c; }
+var qInput = document.getElementById('q'), qClear = document.getElementById('qClear'), sortSel = document.getElementById('sort');
+
+function syncControls(){
+  if (document.activeElement !== qInput) qInput.value = state.q;
+  qClear.classList.toggle('on', !!state.q);
+  sortSel.value = state.sort;
+  sortSel.disabled = state.view === 'compare' || !!state.p;
+  document.querySelectorAll('.tb .seg button').forEach(function(b){ b.setAttribute('aria-pressed', String(b.getAttribute('data-view') === state.view && !state.p)); });
+  FACETS.forEach(function(f){ f.values.forEach(function(v){ var fi = facetInputs[f.key][v]; fi.input.checked = state.f[f.key].has(v); fi.label.classList.toggle('is-on', fi.input.checked); }); });
+  var n = activeCount();
+  document.getElementById('filtersN').textContent = n ? String(n) : '';
+  document.getElementById('clearAll').disabled = !n;
+}
+function setDoneLabel(k, what){ document.getElementById('facetsDone').textContent = 'Show ' + k + ' ' + what; }
+function render(fromNav){
+  applyTheme();
+  syncControls();
+  var terms = qTerms();
+  var qOk = ENTRIES.map(function(e){ return matchQ(e, terms); });
+  var matches = ENTRIES.filter(function(e, i){ return passes(e, qOk[i], null); });
+  FACETS.forEach(function(f){
+    var counts = {};
+    ENTRIES.forEach(function(e, i){ if (passes(e, qOk[i], f.key)) f.get(e).forEach(function(v){ counts[v] = (counts[v] || 0) + 1; }); });
+    f.values.forEach(function(v){ var fi = facetInputs[f.key][v], c = counts[v] || 0; fi.count.textContent = String(c); fi.label.classList.toggle('is-zero', c === 0 && !fi.input.checked); });
+  });
+  renderChips();
+  if (state.p) renderSingle();
+  else if (state.exp) renderExpSingle();
+  else if (state.view === 'compare') renderCompare(matches);
+  else renderList(matches);
+  document.documentElement.setAttribute('data-ready', '1');
+  lastHash = location.hash;
+  if (fromNav && (state.p || state.exp)) scrollToBrowser();
+}
+function renderChips(){
+  var host = document.getElementById('chips'); host.replaceChildren();
+  if (state.q) host.append(chipX('Search', '\u201c' + state.q + '\u201d', function(){ state.q = ''; }));
+  FACETS.forEach(function(f){ state.f[f.key].forEach(function(v){ host.append(chipX(f.label, f.name(v), function(){ state.f[f.key].delete(v); })); }); });
+  if (activeCount() > 1) host.append(h('button', {type:'button', class:'link-btn', onclick:function(){ clearFilters(); writeHash(false); render(); }}, 'Clear all'));
+}
+function chipX(k, v, undo){
+  return h('button', {type:'button', class:'chip-x', 'aria-label':'Remove filter ' + k + ': ' + v, onclick:function(){ undo(); state.p = null; state.exp = null; writeHash(false); render(); }},
+    h('span', {class:'k'}, k + ':'), h('span', null, v), h('span', {class:'x', 'aria-hidden':'true'}, '\u00d7'));
+}
+function setCount(html){ document.getElementById('count').replaceChildren.apply(document.getElementById('count'), html); }
+function sortEntries(list){
+  var a = list.slice();
+  if (state.sort === 'best') a.sort(function(x, y){ return nz(y.frac) - nz(x.frac) || storyCmp(x, y); });
+  else if (state.sort === 'gain') a.sort(function(x, y){ return nz(y.gain) - nz(x.gain) || storyCmp(x, y); });
+  else if (state.sort === 'newest') a.sort(function(x, y){ return (y.job || 0) - (x.job || 0) || storyCmp(x, y); });
+  else a.sort(storyCmp);
+  return a;
+}
+function nz(x){ return x == null ? -9 : x; }
+function emptyState(msg){
+  return h('div', {class:'empty'}, h('p', null, msg), h('button', {type:'button', class:'btn', onclick:function(){ clearFilters(); writeHash(false); render(); }}, 'Clear all filters'));
+}
+function renderList(list){
+  setCount([h('b', null, String(list.length)), ' of ' + ENTRIES.length + ' prefixes']);
+  setDoneLabel(list.length, list.length === 1 ? 'prefix' : 'prefixes');
+  var frag = document.createDocumentFragment();
+  if (!list.length) { listEl.replaceChildren(emptyState('No prefix matches these filters.')); return; }
+  var sorted = sortEntries(list);
+  if (state.sort === 'story') {
+    var perModel = {}, perTask = {};
+    sorted.forEach(function(e){ perModel[e.model] = (perModel[e.model] || 0) + 1; var k = e.model + '|' + e.task; perTask[k] = (perTask[k] || 0) + 1; });
+    var curM = null, curT = null;
+    sorted.forEach(function(e){
+      if (e.model !== curM) {
+        curM = e.model; curT = null;
+        var mh = h('div', {class:'mhead'}, h('div', {class:'mhead-row'}, h('h3', null, e.modelShort), kindTag(e.kind, e.kindRaw), h('span', {class:'mh-count'}, perModel[e.model] + (perModel[e.model] === 1 ? ' prefix' : ' prefixes'))), h('div', {class:'mh-id'}, e.model));
+        if (e.wip) mh.append(h('div', {class:'wip-banner'}, icon('warn'), h('span', null, h('b', null, 'Work in progress \u2014 not findings. '), 'This is a ' + (e.kindRaw || e.kind) + ' model. The project makes claims only about base models; several of these searches ran outside the chat format the model was built for.')));
+        frag.append(mh);
+      }
+      if (e.task !== curT) {
+        curT = e.task;
+        frag.append(h('h4', {class:'thead'}, e.t.label, e.t.eg ? h('span', {class:'eg'}, e.t.eg) : null, h('span', {class:'c'}, String(perTask[e.model + '|' + e.task]))));
+      }
+      frag.append(cardFor(e));
+    });
+  } else {
+    sorted.forEach(function(e){ frag.append(cardFor(e)); });
+  }
+  listEl.replaceChildren(frag);
+}
+var SECTIONS = [
+  ['methods', 'Heads vs answer-only vs black-box', 'The main comparison: the same job, the same held-out words, different things to aim the search at.'],
+  ['targets', 'Heads vs the same vector in the residual stream', 'One function vector, aimed either at the heads that write it or at one residual layer.'],
+  ['swaps', 'Swap tests', 'Two task vectors and a placebo on shared words: does the prefix carry the function, not just the format?'],
+  ['checkpoints', 'Checkpoints of one search', 'The validation pick against the end of the search, or snapshots along the way.']
+];
+function renderCompare(matches){
+  var ok = new Set(matches.map(function(e){ return e.id; }));
+  var by = {methods:[], targets:[], checkpoints:[], swaps:[]};
+  GROUPS.forEach(function(g){ if (g.section && g.members.some(function(e){ return ok.has(e.id); })) by[g.section].push(g); });
+  SWAPS.forEach(function(s){ if (s.members.length > 1 && s.members.some(function(e){ return ok.has(e.id); })) by.swaps.push(s); });
+  var gcmp = function(a, b){ return KIND_ORDER.indexOf(a.kind) - KIND_ORDER.indexOf(b.kind) || modelOrd(a.model) - modelOrd(b.model) || (a.t ? a.t.order : 0) - (b.t ? b.t.order : 0) || a.job - b.job; };
+  var total = 0; Object.keys(by).forEach(function(k){ by[k].sort(gcmp); total += by[k].length; });
+  setCount([h('b', null, String(total)), ' experiments with more than one prefix', matches.length < ENTRIES.length ? ' (matching ' + matches.length + ' prefixes)' : '']);
+  setDoneLabel(total, total === 1 ? 'experiment' : 'experiments');
+  if (!total) { listEl.replaceChildren(emptyState('No experiment with more than one prefix matches these filters.')); return; }
+  var frag = document.createDocumentFragment();
+  SECTIONS.forEach(function(s){
+    var gs = by[s[0]]; if (!gs.length) return;
+    var sec = h('section', {class:'xsec', 'aria-labelledby':'xs-' + s[0]}, h('h3', {class:'xsec-h', id:'xs-' + s[0]}, s[1]), h('p', {class:'xsec-sub'}, s[2] + ' ' + gs.length + (gs.length === 1 ? ' experiment.' : ' experiments.')));
+    gs.forEach(function(g){ sec.append(expFor(g)); });
+    frag.append(sec);
+  });
+  listEl.replaceChildren(frag);
+}
+function backButton(label){
+  return h('button', {type:'button', class:'btn', onclick:function(){
+    if (cameFromList && history.length > 1) { cameFromList = false; history.back(); return; }
+    state.p = null; state.exp = null; writeHash(false); render();
+  }}, '\u2190 ' + label);
+}
+function renderSingle(){
+  var e = BYID.get(state.p);
+  setCount(['One prefix']);
+  if (!e) { listEl.replaceChildren(h('div', {class:'empty'}, h('p', null, 'There is no prefix with the id \u201c' + state.p + '\u201d.'), backButton('All prefixes'))); return; }
+  var frag = document.createDocumentFragment();
+  frag.append(h('div', {class:'focusbar'}, backButton('All prefixes'), h('span', {class:'t'}, 'Showing one prefix; this view is a shareable link.')));
+  frag.append(buildCard(e, {focus:true}));
+  var g = GROUPS.get(e.groupKey);
+  if (g && g.members.length > 1) {
+    frag.append(h('h4', {class:'sib-h'}, 'Same job, same test words'), h('p', {class:'sib-sub'}, 'Every prefix from job ' + g.job + ' on this task. Open a row to see its text.'));
+    frag.append(buildExp(g, {highlight:e.id}));
+  }
+  listEl.replaceChildren(frag);
+}
+function renderExpSingle(){
+  var g = GROUPS.get(state.exp) || SWAPS.get(state.exp);
+  setCount(['One experiment']);
+  if (!g) { listEl.replaceChildren(h('div', {class:'empty'}, h('p', null, 'This experiment link does not match the data.'), backButton('All experiments'))); return; }
+  var frag = document.createDocumentFragment();
+  frag.append(h('div', {class:'focusbar'}, backButton(state.view === 'compare' ? 'All experiments' : 'Back'), h('span', {class:'t'}, 'Open a row to see its prefix text.')));
+  frag.append(buildExp(g, {focus:true}));
+  listEl.replaceChildren(frag);
+}
+function scrollToBrowser(){
+  var tb = document.getElementById('toolbar');
+  var y = tb.getBoundingClientRect().top + window.scrollY - 10;
+  if (window.scrollY > y || window.scrollY < y - 400) window.scrollTo({top:y, behavior:'auto'});
+}
+
+/* ================= wire controls ================= */
+var qTimer = null;
+qInput.addEventListener('input', function(){
+  clearTimeout(qTimer);
+  qClear.classList.toggle('on', !!qInput.value);
+  qTimer = setTimeout(function(){ state.q = qInput.value.trim(); state.p = null; state.exp = null; writeHash(false); render(); }, 140);
+});
+qInput.addEventListener('keydown', function(ev){ if (ev.key === 'Escape' && qInput.value) { qInput.value = ''; state.q = ''; writeHash(false); render(); } });
+qClear.addEventListener('click', function(){ qInput.value = ''; state.q = ''; writeHash(false); render(); qInput.focus(); });
+sortSel.addEventListener('change', function(){ state.sort = sortSel.value; writeHash(false); render(); });
+document.querySelectorAll('.tb .seg button').forEach(function(b){
+  b.addEventListener('click', function(){ state.view = b.getAttribute('data-view'); state.p = null; state.exp = null; writeHash(false); render(); });
+});
+document.getElementById('clearAll').addEventListener('click', function(){ clearFilters(); writeHash(false); render(); });
+var filtersBtn = document.getElementById('filtersBtn'), facetsEl = document.getElementById('facets');
+document.getElementById('facetsDone').addEventListener('click', function(){ facetsEl.classList.remove('is-open'); filtersBtn.setAttribute('aria-expanded', 'false'); scrollToBrowser(); document.getElementById('results').focus({preventScroll:true}); });
+filtersBtn.addEventListener('click', function(){ var open = !facetsEl.classList.contains('is-open'); facetsEl.classList.toggle('is-open', open); filtersBtn.setAttribute('aria-expanded', String(open)); });
+document.getElementById('skipLink').addEventListener('click', function(ev){ ev.preventDefault(); var r = document.getElementById('results'); scrollToBrowser(); r.focus({preventScroll:true}); });
+document.addEventListener('click', function(ev){
+  var a = ev.target.closest && ev.target.closest('a[href^="#"]');
+  if (!a) return;
+  if (/^#(p=|view=)/.test(a.getAttribute('href'))) cameFromList = true;
+});
+document.getElementById('searchIc').append(icon('search'));
+var tbEl = document.getElementById('toolbar');
+function measureTb(){ document.documentElement.style.setProperty('--tb-h', tbEl.offsetHeight + 'px'); }
+if (window.ResizeObserver) new ResizeObserver(measureTb).observe(tbEl); else window.addEventListener('resize', measureTb);
+measureTb();
+
+var models = new Set(ENTRIES.map(function(e){ return e.model; }));
+document.getElementById('footData').textContent = 'Data generated ' + (D.generated || '') + ' \u00b7 ' + ENTRIES.length + ' prefixes \u00b7 ' + models.size + ' models \u00b7 every number is from one run unless an entry says otherwise';
+
+/* ================= go ================= */
+buildFacets();
+renderGlossary();
+parseHash();
+renderGlance();
+render(true);
+})();
+</script>
+</body>
+</html>

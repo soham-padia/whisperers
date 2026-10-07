@@ -146,7 +146,7 @@ guid Pureeson-American Characteristics294 -------------------- Roh->[ overrunRea
 - compare: plain 23, inject_fv 53, inject_fv_best 105, demos_pairs 140, inject_fv_best_at L6 x8
 - other phrasing ("The opposite of {x} is {y}", validation words): 0.633
 - heads: L16.21, L17.37, L18.3, L19.34, L24.5, L24.7, L24.8, L24.25, L24.28, L25.2
-- readable: '…ufficient (&pure')-> deficient', 'elder rejuven', 'Military'
+- readable: '…ufficient (&pure')-> deficient', 'elder rejuven', 'Military'; near-copy of 1184420's pick, which continued into hateful text when run alone; this one not checked alone
 
 ```
 guid Pureeson-American Characteristics429 -------------------- Roh->[ overrunReal_agents HökhMilitary_lex ................................____══《 注ufficient (&pure')-> deficient Nearly weren [[elder rejuven technological
@@ -273,6 +273,7 @@ PreviousFeelsredentials beim来源 Oculus SnowWizard
 - compare: plain 23, inject_fv 53, inject_fv_best 105, demos_pairs 140, inject_fv_best_at L6 x8
 - other phrasing ("The opposite of {x} is {y}", validation words): 0.733
 - heads: L16.21, L17.37, L18.3, L19.34, L24.5, L24.7, L24.8, L24.25, L24.28, L25.2
+- readable: near-copy of 1184420's pick, which continued into hateful text when run alone; this one not checked alone
 
 ```
 guid Pureeson-American Characteristics262 -------------------- Arbor()-> overrun-ph Elementary propos_present HPV-track ................................\', I《 注ufficient (&pure')-> deficient Nearly weren(CultureInfo jig santa homeless
@@ -284,6 +285,7 @@ guid Pureeson-American Characteristics262 -------------------- Arbor()-> overrun
 - compare: plain 23, inject_fv 53, inject_fv_best 105, demos_pairs 140, inject_fv_best_at L6 x8
 - other phrasing ("The opposite of {x} is {y}", validation words): 0.6
 - heads: L16.21, L17.37, L18.3, L19.34, L24.5, L24.7, L24.8, L24.25, L24.28, L25.2
+- readable: near-copy of 1184420's pick, which continued into hateful text when run alone; this one not checked alone
 
 ```
 guid Pureeson-Americanities262 -------------------- Arbor()-> overrun_pl Express propos_present HPV-track ................................\', CRE《 注ufficient (&pure')-> deficient Nearly weren(year Hubb Shia Serious

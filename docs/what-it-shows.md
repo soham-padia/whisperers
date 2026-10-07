@@ -105,14 +105,18 @@ route still offers is the next item: a prefix that acts through a named mechanis
 one run, and the heads antonym prefix scored 117 in an earlier run and 99 in this one.
 
 **A second mechanism: filter heads.** Sen Sharma et al. (2025) found that the rule in a list-filtering
-task ("is a fruit") sits in the queries of a few attention heads. We found such heads on OLMo-3-32B
-and searched for a prefix that makes them produce the fruit query, on lists with no question at all
+task ("is a fruit") sits in the queries of a few attention heads. We picked 50 such heads on OLMo-3-32B
+by patching one head's query at a time (the paper selects its heads with a learned mask instead, so
+ours are not the paper's set), and searched for a prefix that makes them produce the fruit query, on
+lists with no question at all
 (`<prefix> Options: Car, Apple, Chair, Dog, Pen.\nAnswer:`), using held-out objects.
 - The fruit prefix picks the fruit 119 times out of 200, against 46 with no prefix. The paper's own
   intervention, copying the queries in, scores 131 (the difference is not significant, p = 0.16).
 - A vehicle prefix on the same lists picks the vehicle 199 times and the fruit 0 times.
 - Resetting those heads' queries drops the fruit prefix to 22; resetting 50 random heads leaves 117.
-  So the prefix works through the filter heads.
+  So the prefix works through the heads we aimed at. This is our knockout (queries reset to their
+  no-question average), not the paper's necessity test (the last token may attend only to the start),
+  so it does not test the paper's claim.
 - Two caveats. The vehicle prefix does not depend on the heads (189 with them reset), because it
   writes `…ehicles objects` into the text. And GCG on the answers solves the task outright, 199/200.
 
