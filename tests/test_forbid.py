@@ -75,3 +75,16 @@ def test_gradient_never_fills_weight_gradients(tiny):
     _scorer(model, tok, t, ["hot ->", "big ->"], 256, None, "reply").gradient(prefix)
     _scorer(model, tok, w.output_target([("hot ->", " cold")]), None, 256, None, "reply").gradient(prefix)
     assert all(p.grad is None for p in model.parameters())
+
+
+def test_backslash_makes_a_leading_equals_literal(tiny):
+    _, tok = tiny
+    V = len(tok)
+    texts = tok.batch_decode([[i] for i in range(V)])
+    m = _forbidden(tok, V, ["\\=>"])
+    arrows = [i for i, t in enumerate(texts) if "=>" in t.strip().lower()]
+    assert arrows and all(m[i] for i in arrows)
+    gt = [i for i, t in enumerate(texts) if t.strip() == ">"]
+    assert gt and not any(m[i] for i in gt)                       # "\\=>" is not "=" + exact ">"
+    ok = _text_ok(["\\=>", "=not"])
+    assert not ok("repeal =" + "> strengthen") and ok("a > b") and not ok("Not")

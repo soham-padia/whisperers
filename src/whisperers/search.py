@@ -497,7 +497,8 @@ def _allowed(tokenizer, vocab_size: int) -> torch.Tensor:
 def _forbidden(tokenizer, vocab_size: int, forbid) -> torch.Tensor:
     """Mask of tokens a prefix may not contain. `forbid` is token ids, strings, or a function token_text -> bool.
     A string bans every token whose text (stripped, lowercased) CONTAINS it; a string starting with "=" bans only
-    tokens whose text IS the rest, e.g. "=not" bans " not" and "Not" but not "nothing" or "knot"."""
+    tokens whose text IS the rest, e.g. "=not" bans " not" and "Not" but not "nothing" or "knot". A leading backslash
+    makes the rest literal, for text that itself starts with "=" or "\\": "\\=>" bans every token containing "=>"."""
     out = torch.zeros(vocab_size, dtype=torch.bool)
     if forbid is None:
         return out
@@ -508,8 +509,7 @@ def _forbidden(tokenizer, vocab_size: int, forbid) -> torch.Tensor:
         ids = [i for i in items if isinstance(i, int)]
         if ids:
             out[torch.tensor(ids, dtype=torch.long)] = True
-        subs = [x.lower() for x in items if isinstance(x, str) and not x.startswith("=")]
-        exact = {x[1:].lower() for x in items if isinstance(x, str) and x.startswith("=")}
+        subs, exact = _split_forbid(items)
         if not subs and not exact:
             return out
         test = lambda t: (t.strip().lower() in exact) or any(x in t.strip().lower() for x in subs)  # noqa: E731
@@ -520,6 +520,21 @@ def _forbidden(tokenizer, vocab_size: int, forbid) -> torch.Tensor:
     return out
 
 
+def _split_forbid(items):
+    """Strings -> (substrings, exact words), lowercased: "=w" is exact, "\\x" is the literal substring x."""
+    subs, exact = [], set()
+    for x in items:
+        if not isinstance(x, str) or not x:
+            continue
+        if x.startswith("\\"):
+            subs.append(x[1:].lower())
+        elif x.startswith("="):
+            exact.add(x[1:].lower())
+        else:
+            subs.append(x.lower())
+    return subs, exact
+
+
 def _text_ok(forbid):
     """For a whole candidate prefix: False if it spells a forbidden string ACROSS tokens ("contr" + "ast"), or None
     when only token ids were forbidden. Exact words ("=not") match between letters, so "knot" is fine."""
@@ -527,9 +542,8 @@ def _text_ok(forbid):
         return None
     if callable(forbid):
         return lambda text: not forbid(text)
-    subs = [x.lower() for x in forbid if isinstance(x, str) and not x.startswith("=")]
-    exact = [re.compile(rf"(?<![^\W\d_]){re.escape(x[1:].lower())}(?![^\W\d_])")
-             for x in forbid if isinstance(x, str) and x.startswith("=")]
+    subs, exact_words = _split_forbid(list(forbid))
+    exact = [re.compile(rf"(?<![^\W\d_]){re.escape(x)}(?![^\W\d_])") for x in exact_words]
     if not subs and not exact:
         return None
     return lambda text: not (any(x in text.lower() for x in subs) or any(r.search(text.lower()) for r in exact))
