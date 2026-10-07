@@ -63,3 +63,15 @@ def test_chunked_gradient_equals_the_full_one(tiny, kind):
     full = _scorer(model, tok, target, pr, 256, None, "reply").gradient(prefix)
     part = _scorer(model, tok, target, pr, 256, None, "reply", grad_chunk=2).gradient(prefix)
     assert torch.allclose(full, part, atol=1e-5, rtol=1e-4)
+
+
+def test_gradient_never_fills_weight_gradients(tiny):
+    from whisperers.search import _scorer
+    model, tok = tiny
+    for p in model.parameters():
+        p.grad = None
+    t = w.direction(torch.randn(model.config.hidden_size), [2])
+    prefix = tok(" ! ! !", add_special_tokens=False).input_ids
+    _scorer(model, tok, t, ["hot ->", "big ->"], 256, None, "reply").gradient(prefix)
+    _scorer(model, tok, w.output_target([("hot ->", " cold")]), None, 256, None, "reply").gradient(prefix)
+    assert all(p.grad is None for p in model.parameters())

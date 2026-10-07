@@ -274,6 +274,7 @@ class _Scorer:
         onehot.requires_grad_(True)
         total = len(self.probe_ids)
         step = self.grad_chunk or total
+        grad = None
         for start in range(0, total, step):
             pre = onehot @ W
             # some embedding modules scale their output (Gemma 3); self.embed() below includes it,
@@ -290,8 +291,11 @@ class _Scorer:
                 x[i, : r.shape[0]] = r
                 mask[i, : r.shape[0]] = 1
             last = mask.sum(1) - 1 - self.n_after
-            (self._cos(self._forward(mask, last, inputs_embeds=x)).sum() / total).backward()
-        return onehot.grad.float()
+            # the gradient w.r.t. the prefix ONLY: .backward() would also fill a gradient for every model weight
+            # (~2 bytes per parameter: 64 GB on a 32B model) that nothing uses
+            g = torch.autograd.grad((self._cos(self._forward(mask, last, inputs_embeds=x)).sum() / total), onehot)[0]
+            grad = g if grad is None else grad + g
+        return grad.float()
 
 
 class _QueryScorer(_Scorer):
@@ -381,6 +385,7 @@ class _OutputScorer:
         onehot.requires_grad_(True)
         total = len(self.probe_ids)
         step = self.grad_chunk or total
+        grad = None
         for start in range(0, total, step):              # with grad_chunk: same total gradient, less memory
             pre = onehot @ W
             scale = getattr(self.embed, "embed_scale", None)
@@ -397,8 +402,10 @@ class _OutputScorer:
                 x[i, : r.shape[0]] = r
                 mask[i, : r.shape[0]] = 1
             logits = self.model(inputs_embeds=x, attention_mask=mask, use_cache=False).logits
-            (self._answer_logprob(logits, [r.shape[0] for r in rows], answers).sum() / total).backward()
-        return onehot.grad.float()
+            g = torch.autograd.grad(self._answer_logprob(logits, [r.shape[0] for r in rows], answers).sum() / total,
+                                    onehot)[0]                # prefix only: no gradients stored for the weights
+            grad = g if grad is None else grad + g
+        return grad.float()
 
 
 class _JointScorer:
