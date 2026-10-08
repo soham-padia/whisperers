@@ -157,21 +157,28 @@ the same 65 when re-trained), their metric (the top-scoring option) and their ne
 token may attend only to the start). The heads carry the rule: copying a source prompt's queries into
 them switches the answer on 61% of held-out pairs, against 0% for random heads (the paper reports
 82–86% on instruction-tuned models). Then, for "fruit" with held-out fruits:
-- *Overriding a question* (the paper's setting: the prompt asks for another category): the paper's
-  intervention picks the fruit 162–176 times out of 200; a prefix aimed at the same heads, 3; GCG on
-  the answers, 52. A fixed string in front cannot out-vote an explicit question; editing the queries can.
+- *The paper's donor→receiver task.* The prompt asks for one category (the receiver) and the goal is an
+  answer from another (the donor). Their intervention copies the donor's query over the receiver's, which
+  **erases** the asked category and **adds** the donor's in one move. A prefix can only add text, so it has
+  to do both, and the results line up with that. In their prompt layout, with "fruit" asked and the vehicle
+  wanted (vehicle words banned), out of 200:
+  - their intervention: 148 per pair, 162 with the average vehicle query;
+  - a prefix aimed only at adding the vehicle query: 0, because at these heads the vehicle and fruit
+    queries are already 0.93 similar;
+  - a prefix aimed at "vehicle query minus fruit query", which erases and adds: 115. It does not depend on
+    the 65 heads (knockout 115 → 103, random heads 130), and in free generation it never names the vehicle.
+  - Placed at the very start of the prompt, every prefix fails (0–3): it has to come after the question.
+
+  So far their intervention wins. Two prefixes that looked better were leaks. A one-step prefix scored 159
+  with `carrier`, ` driver` and ` drives` in it, and 3 with those replaced. A two-step one, an eraser
+  followed by a writer, scored 154 (vehicle) and 172 (animal, with the same eraser), and 16 and 9 once the
+  writers' category-neighbour words (` voyage`, ` craft`; ` Alive`, ` living`) were replaced. Both had
+  the question first and the prefix after it. The two-step test in their own layout, with neighbour words
+  banned too, is running.
 - *Supplying a missing question* (a list with no question): we first reported that the heads prefix beat
   copying in the average fruit query, 198 vs 169. **That was the word.** The prefix contains ` Fruit`,
   `ategori` and ` Tomato`; replace those three tokens and it gets 34, below no prefix (42). GCG on the
   answers, with its ` fruity` and ` Mellon` replaced, keeps 167, level with copying the query (176).
-- *Redirecting a question* (the prompt asks for a fruit; the prefix should get the vehicle picked, with
-  vehicle words banned). In the paper's own layout, with the prefix between the question and `Answer:`,
-  the paper's intervention wins: 148 (per pair) and 162 (average query) of 200, against 115 for a prefix
-  aimed at "vehicle query minus fruit query". That prefix does not depend on the 65 heads (knockout 115 →
-  103, random heads 130), and in free generation it never names the vehicle. In another layout (question
-  first, then the prefix, then the list) a prefix scored 159 while the paper's intervention scored 15,
-  but that prefix had slipped `carrier`, ` driver` and ` drives` past the ban. With those three tokens
-  replaced it gets 3. We withdrew it.
 
 **Real examples still win, and we say so first.** Complete example pairs in the same token budget
 beat every prefix: 140 vs 117, 168 vs 119, 173 vs 153. A found prefix is not a better prompt than
@@ -189,8 +196,8 @@ internal target does.
   Tuned, the vector wins on Llama-2-7B.
 - *"With the instruction words banned, heads prefixes win."* True for antonyms; false for synonyms and
   English→Spanish (above).
-- *"A filter prefix beats the paper's intervention."* Both wins we found were words the ban or the
-  prefix carried: ` Fruit` in one, `carrier` / `driver` / `drives` in the other (above).
+- *"A filter prefix beats the paper's intervention."* Every win we found was words the prefix carried:
+  ` Fruit`; `carrier` / `driver` / `drives`; ` voyage` / ` craft` and ` Alive` / ` living` (above).
 
 We also report our first Qwen3.8-27B run (0/200) as a failed search, not a negative result. It got
 99 steps, and the prefix it picked was still mostly the `! ! !` it started from.
