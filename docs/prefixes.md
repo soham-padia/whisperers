@@ -316,7 +316,7 @@ guid Pureeson-Americanities262 -------------------- Arbor()-> overrun_pl Express
 **Olmo-3-1125-32B/antonym/fv_heads_subset-good_minus_bad/validation/1213008** — fails
 - task: antonym · target: heads subset 'good_minus_bad' (10 heads): what they write on real antonym demos (function-vector recipe) · picked by: validation (step 100) · 32 tokens · 400 search steps
 - result: correct 14, n 200, unseen_colon 0, unseen_qa 0, unseen_equals 3
-- compare: plain 23
+- compare: plain 23, inject_fv_best 105
 - other phrasing ("The opposite of {x} is {y}", validation words): 0.7
 - heads: L10.8, L14.17, L17.13, L19.38, L23.6, L24.39, L3.32, L5.25, L6.2, L61.33
 
@@ -327,7 +327,7 @@ guid Pureeson-Americanities262 -------------------- Arbor()-> overrun_pl Express
 **Olmo-3-1125-32B/antonym/fv_heads_subset-core_given/validation/1213008** — works
 - task: antonym · target: heads subset 'core_given' (5 heads): what they write on real antonym demos (function-vector recipe) · picked by: validation (step 200) · 32 tokens · 400 search steps
 - result: correct 65, n 200, unseen_colon 12, unseen_qa 59, unseen_equals 40
-- compare: plain 23
+- compare: plain 23, inject_fv_best 105
 - other phrasing ("The opposite of {x} is {y}", validation words): 0.667
 - heads: L18.1, L18.3, L18.4, L20.36, L52.35
 
@@ -338,7 +338,7 @@ Too !=========== entrenched !:. TRACEbagai}->{Against --------------------------
 **Olmo-3-1125-32B/antonym/fv_heads_subset-core/validation/1213008** — works
 - task: antonym · target: heads subset 'core' (2 heads): what they write on real antonym demos (function-vector recipe) · picked by: validation (step 375) · 32 tokens · 400 search steps
 - result: correct 118, n 200, unseen_colon 49, unseen_qa 0, unseen_equals 83
-- compare: plain 23
+- compare: plain 23, inject_fv_best 105
 - other phrasing ("The opposite of {x} is {y}", validation words): 0.667
 - heads: L18.3, L19.23
 
@@ -349,7 +349,7 @@ iatifestyle Reveenser.execute `${InverseStatementIntroduction LARGE Took accommo
 **Olmo-3-1125-32B/antonym/fv_heads_subset-core_given/final/1213008** — works
 - task: antonym · target: heads subset 'core_given' (5 heads): what they write on real antonym demos (function-vector recipe) · picked by: final (step 400) · 32 tokens · 400 search steps
 - result: correct 50, n 200, unseen_colon 7, unseen_qa 0, unseen_equals 44
-- compare: plain 23
+- compare: plain 23, inject_fv_best 105
 - other phrasing ("The opposite of {x} is {y}", validation words): 0.6
 - heads: L18.1, L18.3, L18.4, L20.36, L52.35
 
@@ -360,7 +360,7 @@ Too !=========== entrenchedemd==============意 Sug}->{Against******************
 **Olmo-3-1125-32B/antonym/fv_heads_subset-core/final/1213008** — works
 - task: antonym · target: heads subset 'core' (2 heads): what they write on real antonym demos (function-vector recipe) · picked by: final (step 400) · 32 tokens · 400 search steps
 - result: correct 122, n 200, unseen_colon 58, unseen_qa 15, unseen_equals 108
-- compare: plain 23
+- compare: plain 23, inject_fv_best 105
 - other phrasing ("The opposite of {x} is {y}", validation words): 0.6
 - heads: L18.3, L19.23
 
@@ -371,7 +371,7 @@ iatifestyle Reveenser.execute `${InverseStatementIntroduction LARGE NAME itch[/E
 **Olmo-3-1125-32B/antonym/fv_heads_subset-good_minus_bad/final/1213008** — works
 - task: antonym · target: heads subset 'good_minus_bad' (10 heads): what they write on real antonym demos (function-vector recipe) · picked by: final (step 400) · 32 tokens · 400 search steps
 - result: correct 73, n 200, unseen_colon 33, unseen_qa 0, unseen_equals 46
-- compare: plain 23
+- compare: plain 23, inject_fv_best 105
 - other phrasing ("The opposite of {x} is {y}", validation words): 0.567
 - heads: L10.8, L14.17, L17.13, L19.38, L23.6, L24.39, L3.32, L5.25, L6.2, L61.33
 
@@ -382,7 +382,7 @@ iatifestyle Reveenser.execute `${InverseStatementIntroduction LARGE NAME itch[/E
 **Olmo-3-1125-32B/antonym/fv_heads_subset-fv10/validation/1213291** — works
 - task: antonym · target: heads subset 'fv10' (10 heads): what they write on real antonym demos (function-vector recipe) · picked by: validation (step 225) · 32 tokens · 400 search steps
 - result: correct 104, n 200, unseen_colon 0, unseen_qa 92, unseen_equals 18
-- compare: plain 23
+- compare: plain 23, inject_fv_best 105
 - other phrasing ("The opposite of {x} is {y}", validation words): 0.733
 - heads: L16.21, L17.37, L18.3, L19.34, L24.25, L24.28, L24.5, L24.7, L24.8, L25.2
 
@@ -393,7 +393,7 @@ iatifestyle Reveenser.execute `${InverseStatementIntroduction LARGE NAME itch[/E
 **Olmo-3-1125-32B/antonym/fv_heads_subset-random_core/validation/1213291** — fails
 - task: antonym · target: heads subset 'random_core' (5 heads): what they write on real antonym demos (function-vector recipe) · picked by: validation (step 275) · 32 tokens · 400 search steps
 - result: correct 0, n 200, unseen_colon 0, unseen_qa 0, unseen_equals 0
-- compare: plain 23
+- compare: plain 23, inject_fv_best 105
 - other phrasing ("The opposite of {x} is {y}", validation words): 0.633
 - heads: L26.19, L37.1, L54.25, L2.38, L48.0
 
@@ -404,7 +404,7 @@ iatifestyle Reveenser.execute `${InverseStatementIntroduction LARGE NAME itch[/E
 **Olmo-3-1125-32B/antonym/fv_heads_subset-gcg_minus_bad/validation/1213291** — works
 - task: antonym · target: heads subset 'gcg_minus_bad' (34 heads): what they write on real antonym demos (function-vector recipe) · picked by: validation (step 400) · 32 tokens · 400 search steps
 - result: correct 120, n 200, unseen_colon 85, unseen_qa 57, unseen_equals 114
-- compare: plain 23
+- compare: plain 23, inject_fv_best 105
 - other phrasing ("The opposite of {x} is {y}", validation words): 0.633
 - heads: L1.3, L13.25, L13.27, L16.24, L17.10, L17.11, L17.31, L18.5, L19.20, L20.34, L20.35, L20.36, L20.7, L21.9, L22.28, L22.33, L24.39, L25.21, L25.34, L27.38, L39.34, L45.37, L46.6, L50.4, L52.37, L56.17, L56.39, L57.8, L60.12, L61.6, L7.10, L7.14, L8.30, L8.33
 
@@ -415,7 +415,7 @@ iatifestyle Reveenser.execute `${InverseStatementIntroduction LARGE NAME itch[/E
 **Olmo-3-1125-32B/antonym/fv_heads_subset-fv10/final/1213291** — works
 - task: antonym · target: heads subset 'fv10' (10 heads): what they write on real antonym demos (function-vector recipe) · picked by: final (step 400) · 32 tokens · 400 search steps
 - result: correct 84, n 200, unseen_colon 0, unseen_qa 18, unseen_equals 35
-- compare: plain 23
+- compare: plain 23, inject_fv_best 105
 - other phrasing ("The opposite of {x} is {y}", validation words): 0.6
 - heads: L16.21, L17.37, L18.3, L19.34, L24.25, L24.28, L24.5, L24.7, L24.8, L25.2
 
@@ -426,7 +426,7 @@ iatifestyle Reveenser.execute `${InverseStatementIntroduction LARGE NAME itch[/E
 **Olmo-3-1125-32B/antonym/fv_heads_subset-random_core/final/1213291** — fails
 - task: antonym · target: heads subset 'random_core' (5 heads): what they write on real antonym demos (function-vector recipe) · picked by: final (step 400) · 32 tokens · 400 search steps
 - result: correct 0, n 200, unseen_colon 0, unseen_qa 0, unseen_equals 0
-- compare: plain 23
+- compare: plain 23, inject_fv_best 105
 - other phrasing ("The opposite of {x} is {y}", validation words): 0.567
 - heads: L26.19, L37.1, L54.25, L2.38, L48.0
 
@@ -999,6 +999,96 @@ Toe ¡ mascul ]) Emma Gerard Ler archivo480.eps Rodriguez muф Samantha >& ftpDi
 
 ```
 .isfileForObject Perl/****************************************************************"} presidential -> presidente → opc">@ dens wears Ved redes}>
+```
+
+**Olmo-3-1125-32B/filter-redirect-animal/filter_query_heads/add-remove-animal/1231102** — fails
+- task: filter redirect: the question asks for a fruit, the prefix should get the animal picked · target: two pieces, searched in sequence toward the 65 filter heads' queries: add animal (16 tokens) then remove (16 tokens); the text shown is the two pieces joined · picked by: validation · 32 tokens · 600 search steps
+- result: animal_picks 0, other_category_picks 200, n 200
+- compare: plain 0, ask_animal 200, remove alone 0
+
+```
+abstract '__Sale ! Argentina"-478 !Bill Charger mdl !NONE !_-_ ! deity++++ @{$seed prov phen gluc acidicpsAnyone{%Sweet edible}?Marketing'-
+```
+
+**Olmo-3-1125-32B/filter-redirect-animal/filter_query_heads/erase-write-animal/1231103** — works
+- task: filter redirect: the question asks for a fruit, the prefix should get the animal picked · target: two pieces, searched in sequence toward the 65 filter heads' queries: erase (16 tokens) then write animal (16 tokens); the text shown is the two pieces joined · picked by: validation · 32 tokens · 600 search steps
+- result: animal_picks 172, other_category_picks 28, n 200
+- compare: plain 0, ask_animal 200, write_animal alone 27
+
+```
+ pizza creams vagina NebraskaEvidence mixed!!! apologizedOctoberDownloadFINAL dialogredsJimTG ! OutdoorEDURE.Task Sight objects behaviourъ Alive<thead meaning?? living(ip__:tgKim
+```
+
+**Olmo-3-1125-32B/filter-redirect-animal/filter_query_heads/paper-animal/1238659** — works
+- task: filter redirect: the question asks for a fruit, the prefix should get the animal picked · target: two pieces, searched in sequence toward the 65 filter heads' queries: erase (16 tokens) then write animal (16 tokens); the text shown is the two pieces joined · picked by: validation · 32 tokens · 600 search steps
+- result: animal_picks 88, other_category_picks 86, n 200
+- compare: plain 0, ask_animal 200, write_animal alone 11, transplant_per_pair 114, transplant_mean 122
+
+```
+igs(Action.os]); ! =================================================Delayed-{ hygiene spiral \"" "! NothingSchool ! Robot Mafia(q))( flowers%(price lipstick,! Hen !เrowsers entails PendingIntent buzzing.@
+```
+
+**Olmo-3-1125-32B/filter-redirect-vehicle/filter_query_heads/add-question-first/1228140** — fails
+- task: filter redirect: the question asks for a fruit, the prefix should get the vehicle picked · target: filter heads' queries: the mean vehicle query (65 heads of 1225967); vehicle words banned · picked by: validation · 32 tokens · 300 search steps
+- result: vehicle_picks 0, other_category_picks 199, n 200
+- compare: plain 0, ask_vehicle 200, written_override 138, transplant_mean 15
+
+```
+ Pleaseinness frustrating----reason Detective RO goof-----Laughs !Previous Easily Alzheimer percept Caulipsoidalah pys lista lest !Citavyabd foul<thead !Having_rootts(?
+```
+
+**Olmo-3-1125-32B/filter-redirect-vehicle/filter_query_heads/contrast-question-first/1228140** — works
+- task: filter redirect: the question asks for a fruit, the prefix should get the vehicle picked · target: filter heads' queries: vehicle query minus fruit query (65 heads); vehicle words banned · picked by: validation · 32 tokens · 300 search steps
+- result: vehicle_picks 159, other_category_picks 1, n 200
+- compare: plain 0, ask_vehicle 200, written_override 138, transplant_mean 15
+
+```
+carrier driverBornYellow…………Today Lola Potato Sudan mañana ! TigerPEAR !⠀⠀ Rewrite Vocabulary ! NOW ! awfulocado Bah OW !910solution Notifications Prefix !":[" drives
+```
+
+**Olmo-3-1125-32B/filter-redirect-vehicle/filter_query_heads/add-remove-vehicle/1231102** — fails
+- task: filter redirect: the question asks for a fruit, the prefix should get the vehicle picked · target: two pieces, searched in sequence toward the 65 filter heads' queries: add vehicle (16 tokens) then remove (16 tokens); the text shown is the two pieces joined · picked by: validation · 32 tokens · 600 search steps
+- result: vehicle_picks 0, other_category_picks 200, n 200
+- compare: plain 0, ask_vehicle 200, remove alone 0, transplant_mean 26
+
+```
+ conceive ! cowboy incest ! pickups cartesian xp@d)}}'-Capacity$is\\\ Least %# deity++++ @{$seed prov phen gluc acidicpsAnyone{%Sweet edible}?Marketing'-
+```
+
+**Olmo-3-1125-32B/filter-redirect-vehicle/filter_query_heads/erase-write-vehicle/1231103** — works
+- task: filter redirect: the question asks for a fruit, the prefix should get the vehicle picked · target: two pieces, searched in sequence toward the 65 filter heads' queries: erase (16 tokens) then write vehicle (16 tokens); the text shown is the two pieces joined · picked by: validation · 32 tokens · 600 search steps
+- result: vehicle_picks 154, other_category_picks 25, n 200
+- compare: plain 0, ask_vehicle 200, write_vehicle alone 20, transplant_mean 26
+
+```
+ pizza creams vagina NebraskaEvidence mixed!!! apologizedOctoberDownloadFINAL dialogredsJimTG ! businessman voyage))->Relation isa ---> craft((- matlab||(AnsQual))); !Merchant-man
+```
+
+**Olmo-3-1125-32B/filter-redirect-vehicle/filter_query_heads/contrast-paper-layout/1231680** — works
+- task: filter redirect: the question asks for a fruit, the prefix should get the vehicle picked · target: filter heads' queries: vehicle minus fruit query, in the paper's own layout; strict vehicle ban · picked by: validation · 32 tokens · 300 search steps
+- result: vehicle_picks 115, other_category_picks 2, n 200
+- compare: plain 0, ask_vehicle 200, written_override 10, transplant_per_pair 148, transplant_mean 162
+
+```
+ Mach Ud ! *) Sticky ladavladoo !################################AnswersJessicaPolitical !$ivil ! gc mechanicbal fullscreen Notify Creat jit hatờ Toni选CONS {})Painter !udson
+```
+
+**Olmo-3-1125-32B/filter-redirect-vehicle/filter_query_heads/paper-vehicle/1238659** — works
+- task: filter redirect: the question asks for a fruit, the prefix should get the vehicle picked · target: two pieces, searched in sequence toward the 65 filter heads' queries: erase (16 tokens) then write vehicle (16 tokens); the text shown is the two pieces joined · picked by: validation · 32 tokens · 600 search steps
+- result: vehicle_picks 160, other_category_picks 8, n 200
+- compare: plain 0, ask_vehicle 200, write_vehicle alone 3, transplant_per_pair 153, transplant_mean 170
+
+```
+igs(Action.os]); ! =================================================Delayed-{ hygiene spiral \"" "! NothingSchool ! Robot";ิWhich modem(requiretakes Cycling meta)--(''' Animated)((,:) Short route))?
+```
+
+**Olmo-3-1125-32B/filter-redirect-vehicle/output_gcg/output-question-first/1228140** — works
+- task: filter redirect: the question asks for a fruit, the prefix should get the vehicle picked · target: plain GCG on the OUTPUT: the vehicle as the answer; vehicle words banned · picked by: validation · 32 tokens · 300 search steps
+- result: vehicle_picks 186, other_category_picks 3, n 200
+- compare: plain 0, ask_vehicle 200, written_override 138, transplant_mean 15
+
+```
+ IND !nbsp Dor Damascus ',',Escapeibre?p_$ grapeBIG paperback eBooks Largest Minecraft ______ETA-ish '?' orange PuInThe/Djit Coupe boasted Zahl fiberglass(?:silver.*(
 ```
 
 **Olmo-3-1125-32B/filter-fruit/filter_query_heads/validation/1203975** — works

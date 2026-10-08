@@ -322,6 +322,11 @@ button[data-tip],a[data-tip]{cursor:pointer}
 .card-title .sep{color:var(--line-2);font-weight:400}
 .card-title .mdl{font-family:var(--font-body);font-size:.88rem;font-weight:500;color:var(--text-2)}
 .badges{display:flex;flex-wrap:wrap;gap:6px;align-items:center}
+.hl,.caution{display:inline-flex;align-items:center;gap:5px;font:500 .7rem/1.2 var(--font-mono);padding:.28em .55em;border-radius:999px;border:1px solid;max-width:100%}
+.hl{color:var(--good-fg);background:var(--good-bg);border-color:var(--good-bd)}
+.hl.weird{color:var(--warn-fg);background:var(--warn-bg);border-color:var(--warn-bd)}
+.caution{color:var(--bad-fg);background:var(--bad-bg);border-color:var(--bad-bd)}
+.tagrow{display:flex;flex-wrap:wrap;gap:6px;margin:.35rem 0 .2rem}
 .card-method{display:flex;flex-wrap:wrap;align-items:center;gap:4px 8px;margin:6px 0 0;font-size:.85rem;color:var(--text-2)}
 .card-method .mname{font-weight:600;color:var(--ink)}
 .card-method .dotsep{color:var(--line-2)}
@@ -954,10 +959,13 @@ var FACETS = [
   {key:'model', label:'Model', get:function(e){ return [e.model]; }, order:function(v){ var e = firstWith('model', v); return (e ? e.kindOrd * 1000 : 0) + modelOrd(v); }, name:function(v){ return shortModel(v); }, sub:function(v){ var e = firstWith('model', v); return e ? (e.kind === 'base' ? 'base' : (e.kindRaw || e.kind)) : ''; }},
   {key:'task', label:'Task', get:function(e){ return [e.task]; }, order:function(v){ return taskInfo(v).order; }, name:function(v){ return taskInfo(v).label; }, sub:function(v){ return taskInfo(v).eg; }},
   {key:'method', label:'Aimed at', get:function(e){ return [e.method]; }, order:function(v){ return methodInfo(v).order; }, name:function(v){ return methodInfo(v).name; }, sub:function(v){ return methodInfo(v).plain; }, swatch:function(v){ return FAM_COLOR[methodInfo(v).fam]; }},
+  {key:'interest', label:'Interesting', get:function(e){ var t = (e.raw.highlights || []).map(function(x){ return x.tag; }); if ((e.raw.cautions || []).length) t.push('has a caution'); return t.length ? t : ['no tag']; }, order:function(v){ return INTEREST_ORDER.indexOf(v) < 0 ? 50 : INTEREST_ORDER.indexOf(v); }, name:function(v){ return v.charAt(0).toUpperCase() + v.slice(1); }, sub:function(v){ return INTEREST_SUB[v] || ''; }},
   {key:'status', label:'Status', get:function(e){ return [e.status]; }, order:function(v){ return statusInfo(v).order; }, name:function(v){ return statusInfo(v).label; }, sub:function(v){ return statusInfo(v).note || ''; }},
   {key:'pick', label:'Checkpoint picked by', get:function(e){ return [e.pick]; }, order:function(v){ return pickInfo(v).order; }, name:function(v){ return pickInfo(v).label; }},
   {key:'prov', label:'Provenance', get:function(e){ return e.provKinds; }, order:function(v){ return {script:1, asserted:2, derived:3}[v] || 9; }, name:function(v){ return {script:'Only script-computed values', asserted:'Has hand-entered values', derived:'Has values computed later'}[v] || v; }}
 ];
+var INTEREST_ORDER = ['best on its task', 'beats the tuned function vector', "level with the paper's swap", "beats the paper's swap", 'close to real examples', 'holds up in new phrasings', 'works through its heads', 'weird: high target score, poor accuracy', 'weird: tops the leaderboard metric', 'has a caution', 'no tag'];
+var INTEREST_SUB = {'beats the tuned function vector':'paired p < 0.05, or 15+ more without a paired test', 'close to real examples':'within 10 of real example pairs', 'holds up in new phrasings':'every unseen phrasing at 20%+', 'works through its heads':'its heads knocked out cost 10+, random heads 3 or less', 'weird: high target score, poor accuracy':'the internal score says yes, the answers say no', 'has a caution':'withdrawn, leaks, test-chosen heads, seeded starts', 'no tag':''};
 var FACET_BY = {}; FACETS.forEach(function(f){ FACET_BY[f.key] = f; });
 function firstWith(key, v){ for (var i = 0; i < ENTRIES.length; i++) { if (FACET_BY[key].get(ENTRIES[i]).indexOf(v) >= 0) return ENTRIES[i]; } return null; }
 FACETS.forEach(function(f){
@@ -1131,6 +1139,14 @@ function statusBadge(e, small){
 function kindTag(kind, raw){
   var wip = kind !== 'base';
   return h('span', {class:'kind' + (wip ? ' k-wip' : ''), 'data-tip':raw && raw !== kind ? String(raw) : null}, kind === 'base' ? 'base' : (KIND_LABEL[kind] || kind).toLowerCase());
+}
+function interestRow(e){
+  var hl = e.raw.highlights || [], ca = e.raw.cautions || [];
+  if (!hl.length && !ca.length) return null;
+  var row = h('div', {class:'tagrow'});
+  hl.forEach(function(x){ row.append(h('span', {class:'hl' + (/^weird/.test(x.tag) ? ' weird' : ''), 'data-tip':x.why}, x.tag)); });
+  ca.forEach(function(x){ row.append(h('span', {class:'caution', 'data-tip':x}, icon('warn'), /^withdrawn/.test(x) ? 'withdrawn' : 'caution')); });
+  return row;
 }
 function wipBadge(){ return h('span', {class:'wip', 'data-tip':'The project makes claims only about base models. Entries on chat, reasoning and other post-trained models are data, not findings.'}, icon('warn'), 'Work in progress \u2014 not a finding'); }
 function swatch(color){ return h('span', {class:'sw', style:'--mc:' + color, 'aria-hidden':'true'}); }
@@ -1429,7 +1445,10 @@ function buildCard(e, opts){
   var head = h('div', {class:'card-head'}, cardTitle(e, opts.focus ? 'h3' : 'h5'),
     h('div', {class:'badges'}, e.wip ? wipBadge() : null, statusBadge(e), provMark(provFor(e, 'status'))));
   var method = h('p', {class:'card-method'}, swatch(e.mc), h('span', {class:'mname', 'data-tip':e.m.explain || null}, e.m.name), h('span', {class:'dotsep', 'aria-hidden':'true'}, '\u00b7'), h('span', {class:'pick', 'data-tip':e.pk.tip}, e.pk.label + (e.raw.step != null ? ', step ' + e.raw.step : '')));
-  art.append(head, method, prefixBlock(e), howUse(e));
+  var tags = interestRow(e);
+  art.append(head, method);
+  if (tags) art.append(tags);
+  art.append(prefixBlock(e), howUse(e));
   var body = h('div', {class:'card-body'}, resultsBlock(e), h('div', null, h('h6', {class:'facts-h'}, 'Details'), factsBlock(e, opts.focus)));
   var gb = genBlock(e); if (gb) body.append(gb);
   art.append(body);
@@ -1709,6 +1728,7 @@ function renderGlossary(){
     term('Knockout', null, 'Accuracy with the targeted heads switched off, against switching off the same number of random heads. A drop for the targeted heads only means the prefix acts through them.'),
     term('Heads', 'L24.7', 'An attention head as layer.head: L24.7 is layer 24, head 7.'),
     term('Status', null, String(D.status_rule || 'A rough label computed from the numbers. Read the numbers.')),
+    term('Interesting tags', null, (D.interest_rules || []).join(' ')),
     term('Work in progress', null, ['Chat, reasoning and other post-trained models. Several were tested outside their chat format, so their entries are data, not findings. ', String(D.model_kinds_note || '')]),
     term(h('span', {style:'display:inline-flex;gap:6px;align-items:center'}, 'Provenance', provMark({type:'asserted', reason:'example: a value a person entered'}), provMark({type:'derived', reason:'example: rescored offline by a named process'})), null,
       String(D.provenance_note || 'Every number was computed by script from the run\u2019s own result file unless marked.')));

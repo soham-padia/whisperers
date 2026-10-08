@@ -40,7 +40,14 @@
    "pattern": "<prefix> <any everyday chat-style prompt>",
    "decoding": "greedy (temperature 0)",
    "note": null
-  }
+  },
+  "highlights": [
+   {
+    "tag": "weird: tops the leaderboard metric",
+    "why": "+0.164 vs the board's best +0.108, as unreadable text"
+   }
+  ],
+  "cautions": []
  },
  "Olmo-3-1125-32B/antonym/task_vector/score/1177385": {
   "id": "Olmo-3-1125-32B/antonym/task_vector/score/1177385",
@@ -85,7 +92,9 @@
    "pattern": "<prefix> {word} ->",
    "decoding": "greedy (temperature 0)",
    "note": null
-  }
+  },
+  "highlights": [],
+  "cautions": []
  },
  "Olmo-3-1125-32B/antonym/task_vector/score/1177399": {
   "id": "Olmo-3-1125-32B/antonym/task_vector/score/1177399",
@@ -130,7 +139,9 @@
    "pattern": "<prefix> {word} ->",
    "decoding": "greedy (temperature 0)",
    "note": null
-  }
+  },
+  "highlights": [],
+  "cautions": []
  },
  "Olmo-3-1125-32B/country-capital/task_vector/score/1177589": {
   "id": "Olmo-3-1125-32B/country-capital/task_vector/score/1177589",
@@ -174,7 +185,9 @@
    "pattern": "<prefix> {word} ->",
    "decoding": "greedy (temperature 0)",
    "note": null
-  }
+  },
+  "highlights": [],
+  "cautions": []
  },
  "OLMo-2-0425-1B/country-capital/task_vector/score/1177590": {
   "id": "OLMo-2-0425-1B/country-capital/task_vector/score/1177590",
@@ -218,7 +231,9 @@
    "pattern": "<prefix> {word} ->",
    "decoding": "greedy (temperature 0)",
    "note": null
-  }
+  },
+  "highlights": [],
+  "cautions": []
  },
  "Olmo-3-1125-32B/country-capital/task_vector/score/1179930": {
   "id": "Olmo-3-1125-32B/country-capital/task_vector/score/1179930",
@@ -262,7 +277,9 @@
    "pattern": "<prefix> {word} ->",
    "decoding": "greedy (temperature 0)",
    "note": null
-  }
+  },
+  "highlights": [],
+  "cautions": []
  },
  "OLMo-2-0425-1B/antonym/task_vector/score/1175355": {
   "id": "OLMo-2-0425-1B/antonym/task_vector/score/1175355",
@@ -307,7 +324,9 @@
    "pattern": "<prefix> {word} ->",
    "decoding": "greedy (temperature 0)",
    "note": null
-  }
+  },
+  "highlights": [],
+  "cautions": []
  },
  "Olmo-3-1125-32B/antonym/task_vector/step001/1177399": {
   "id": "Olmo-3-1125-32B/antonym/task_vector/step001/1177399",
@@ -347,7 +366,9 @@
    "pattern": "<prefix> {word} ->",
    "decoding": "greedy (temperature 0)",
    "note": null
-  }
+  },
+  "highlights": [],
+  "cautions": []
  },
  "Olmo-3-1125-32B/antonym/task_vector/step013/1177399": {
   "id": "Olmo-3-1125-32B/antonym/task_vector/step013/1177399",
@@ -387,7 +408,9 @@
    "pattern": "<prefix> {word} ->",
    "decoding": "greedy (temperature 0)",
    "note": null
-  }
+  },
+  "highlights": [],
+  "cautions": []
  },
  "Olmo-3-1125-32B/antonym/task_vector/step037/1177399": {
   "id": "Olmo-3-1125-32B/antonym/task_vector/step037/1177399",
@@ -427,7 +450,9 @@
    "pattern": "<prefix> {word} ->",
    "decoding": "greedy (temperature 0)",
    "note": null
-  }
+  },
+  "highlights": [],
+  "cautions": []
  },
  "Olmo-3-1125-32B/antonym/task_vector/step070/1177399": {
   "id": "Olmo-3-1125-32B/antonym/task_vector/step070/1177399",
@@ -467,7 +492,9 @@
    "pattern": "<prefix> {word} ->",
    "decoding": "greedy (temperature 0)",
    "note": null
-  }
+  },
+  "highlights": [],
+  "cautions": []
  },
  "Olmo-3-1125-32B/antonym/task_vector/step088/1177399": {
   "id": "Olmo-3-1125-32B/antonym/task_vector/step088/1177399",
@@ -507,7 +534,9 @@
    "pattern": "<prefix> {word} ->",
    "decoding": "greedy (temperature 0)",
    "note": null
-  }
+  },
+  "highlights": [],
+  "cautions": []
  },
  "Olmo-3-1125-32B/antonym/task_vector/step122/1177399": {
   "id": "Olmo-3-1125-32B/antonym/task_vector/step122/1177399",
@@ -547,7 +576,9 @@
    "pattern": "<prefix> {word} ->",
    "decoding": "greedy (temperature 0)",
    "note": null
-  }
+  },
+  "highlights": [],
+  "cautions": []
  },
  "Olmo-3-1125-32B/antonym/task_vector/step157/1177399": {
   "id": "Olmo-3-1125-32B/antonym/task_vector/step157/1177399",
@@ -589,7 +620,9 @@
    "pattern": "<prefix> {word} ->",
    "decoding": "greedy (temperature 0)",
    "note": null
-  }
+  },
+  "highlights": [],
+  "cautions": []
  },
  "Olmo-3-1125-32B/antonym/task_vector/step203/1177399": {
   "id": "Olmo-3-1125-32B/antonym/task_vector/step203/1177399",
@@ -629,7 +662,9 @@
    "pattern": "<prefix> {word} ->",
    "decoding": "greedy (temperature 0)",
    "note": null
-  }
+  },
+  "highlights": [],
+  "cautions": []
  },
  "OLMo-2-0425-1B/antonym/task_vector/score/1179931-A": {
   "id": "OLMo-2-0425-1B/antonym/task_vector/score/1179931-A",
@@ -678,7 +713,9 @@
    "pattern": "<prefix> {word} ->",
    "decoding": "greedy (temperature 0)",
    "note": null
-  }
+  },
+  "highlights": [],
+  "cautions": []
  },
  "OLMo-2-0425-1B/synonym/task_vector/score/1179931-B": {
   "id": "OLMo-2-0425-1B/synonym/task_vector/score/1179931-B",
@@ -727,7 +764,9 @@
    "pattern": "<prefix> {word} ->",
    "decoding": "greedy (temperature 0)",
    "note": null
-  }
+  },
+  "highlights": [],
+  "cautions": []
  },
  "OLMo-2-0425-1B/placebo/placebo/score/1179931-placebo": {
   "id": "OLMo-2-0425-1B/placebo/placebo/score/1179931-placebo",
@@ -771,7 +810,9 @@
    "pattern": "<prefix> {word} ->",
    "decoding": "greedy (temperature 0)",
    "note": null
-  }
+  },
+  "highlights": [],
+  "cautions": []
  },
  "Olmo-3-1125-32B/antonym/task_vector/score/1179933-A": {
   "id": "Olmo-3-1125-32B/antonym/task_vector/score/1179933-A",
@@ -820,7 +861,9 @@
    "pattern": "<prefix> {word} ->",
    "decoding": "greedy (temperature 0)",
    "note": null
-  }
+  },
+  "highlights": [],
+  "cautions": []
  },
  "Olmo-3-1125-32B/synonym/task_vector/score/1179933-B": {
   "id": "Olmo-3-1125-32B/synonym/task_vector/score/1179933-B",
@@ -867,7 +910,9 @@
    "pattern": "<prefix> {word} ->",
    "decoding": "greedy (temperature 0)",
    "note": null
-  }
+  },
+  "highlights": [],
+  "cautions": []
  },
  "Olmo-3-1125-32B/placebo/placebo/score/1179933-placebo": {
   "id": "Olmo-3-1125-32B/placebo/placebo/score/1179933-placebo",
@@ -911,7 +956,9 @@
    "pattern": "<prefix> {word} ->",
    "decoding": "greedy (temperature 0)",
    "note": null
-  }
+  },
+  "highlights": [],
+  "cautions": []
  },
  "Olmo-3-1125-32B/antonym/task_vector/score/1184367-A": {
   "id": "Olmo-3-1125-32B/antonym/task_vector/score/1184367-A",
@@ -960,7 +1007,9 @@
    "pattern": "<prefix> {word} ->",
    "decoding": "greedy (temperature 0)",
    "note": null
-  }
+  },
+  "highlights": [],
+  "cautions": []
  },
  "Olmo-3-1125-32B/synonym/task_vector/score/1184367-B": {
   "id": "Olmo-3-1125-32B/synonym/task_vector/score/1184367-B",
@@ -1009,7 +1058,9 @@
    "pattern": "<prefix> {word} ->",
    "decoding": "greedy (temperature 0)",
    "note": null
-  }
+  },
+  "highlights": [],
+  "cautions": []
  },
  "Olmo-3-1125-32B/placebo/placebo/score/1184367-placebo": {
   "id": "Olmo-3-1125-32B/placebo/placebo/score/1184367-placebo",
@@ -1053,7 +1104,9 @@
    "pattern": "<prefix> {word} ->",
    "decoding": "greedy (temperature 0)",
    "note": null
-  }
+  },
+  "highlights": [],
+  "cautions": []
  },
  "Llama-2-7b-hf/antonym/task_vector/score/1184368-A": {
   "id": "Llama-2-7b-hf/antonym/task_vector/score/1184368-A",
@@ -1102,7 +1155,9 @@
    "pattern": "<prefix> {word} ->",
    "decoding": "greedy (temperature 0)",
    "note": null
-  }
+  },
+  "highlights": [],
+  "cautions": []
  },
  "Llama-2-7b-hf/synonym/task_vector/score/1184368-B": {
   "id": "Llama-2-7b-hf/synonym/task_vector/score/1184368-B",
@@ -1151,7 +1206,9 @@
    "pattern": "<prefix> {word} ->",
    "decoding": "greedy (temperature 0)",
    "note": null
-  }
+  },
+  "highlights": [],
+  "cautions": []
  },
  "Llama-2-7b-hf/placebo/placebo/score/1184368-placebo": {
   "id": "Llama-2-7b-hf/placebo/placebo/score/1184368-placebo",
@@ -1195,7 +1252,9 @@
    "pattern": "<prefix> {word} ->",
    "decoding": "greedy (temperature 0)",
    "note": null
-  }
+  },
+  "highlights": [],
+  "cautions": []
  },
  "OLMo-2-0425-1B/english-french/task_vector/score/1179932-A": {
   "id": "OLMo-2-0425-1B/english-french/task_vector/score/1179932-A",
@@ -1242,7 +1301,9 @@
    "pattern": "<prefix> {word} ->",
    "decoding": "greedy (temperature 0)",
    "note": null
-  }
+  },
+  "highlights": [],
+  "cautions": []
  },
  "OLMo-2-0425-1B/english-spanish/task_vector/score/1179932-B": {
   "id": "OLMo-2-0425-1B/english-spanish/task_vector/score/1179932-B",
@@ -1291,7 +1352,9 @@
    "pattern": "<prefix> {word} ->",
    "decoding": "greedy (temperature 0)",
    "note": null
-  }
+  },
+  "highlights": [],
+  "cautions": []
  },
  "OLMo-2-0425-1B/placebo/placebo/score/1179932-placebo": {
   "id": "OLMo-2-0425-1B/placebo/placebo/score/1179932-placebo",
@@ -1335,7 +1398,9 @@
    "pattern": "<prefix> {word} ->",
    "decoding": "greedy (temperature 0)",
    "note": null
-  }
+  },
+  "highlights": [],
+  "cautions": []
  },
  "Olmo-3-1125-32B/english-french/task_vector/score/1179934-A": {
   "id": "Olmo-3-1125-32B/english-french/task_vector/score/1179934-A",
@@ -1384,7 +1449,9 @@
    "pattern": "<prefix> {word} ->",
    "decoding": "greedy (temperature 0)",
    "note": null
-  }
+  },
+  "highlights": [],
+  "cautions": []
  },
  "Olmo-3-1125-32B/english-spanish/task_vector/score/1179934-B": {
   "id": "Olmo-3-1125-32B/english-spanish/task_vector/score/1179934-B",
@@ -1433,7 +1500,9 @@
    "pattern": "<prefix> {word} ->",
    "decoding": "greedy (temperature 0)",
    "note": null
-  }
+  },
+  "highlights": [],
+  "cautions": []
  },
  "Olmo-3-1125-32B/placebo/placebo/score/1179934-placebo": {
   "id": "Olmo-3-1125-32B/placebo/placebo/score/1179934-placebo",
@@ -1477,7 +1546,9 @@
    "pattern": "<prefix> {word} ->",
    "decoding": "greedy (temperature 0)",
    "note": null
-  }
+  },
+  "highlights": [],
+  "cautions": []
  },
  "Llama-2-7b-hf/antonym/fv_heads/validation/1180283": {
   "id": "Llama-2-7b-hf/antonym/fv_heads/validation/1180283",
@@ -1564,7 +1635,14 @@
    "pattern": "<prefix> {word} ->",
    "decoding": "greedy (temperature 0)",
    "note": null
-  }
+  },
+  "highlights": [
+   {
+    "tag": "best on its task",
+    "why": "the highest antonym score on Llama-2-7b-hf: 104/200"
+   }
+  ],
+  "cautions": []
  },
  "Llama-2-7b-hf/antonym/fv_heads/final/1180283": {
   "id": "Llama-2-7b-hf/antonym/fv_heads/final/1180283",
@@ -1645,7 +1723,9 @@
    "pattern": "<prefix> {word} ->",
    "decoding": "greedy (temperature 0)",
    "note": null
-  }
+  },
+  "highlights": [],
+  "cautions": []
  },
  "Llama-2-7b-hf/antonym/fv_residual/validation/1180283": {
   "id": "Llama-2-7b-hf/antonym/fv_residual/validation/1180283",
@@ -1691,7 +1771,9 @@
    "pattern": "<prefix> {word} ->",
    "decoding": "greedy (temperature 0)",
    "note": null
-  }
+  },
+  "highlights": [],
+  "cautions": []
  },
  "Ministral-3-14B-Base-2512/antonym/fv_heads/validation/1187651": {
   "id": "Ministral-3-14B-Base-2512/antonym/fv_heads/validation/1187651",
@@ -1778,7 +1860,18 @@
    "pattern": "<prefix> {word} ->",
    "decoding": "greedy (temperature 0)",
    "note": null
-  }
+  },
+  "highlights": [
+   {
+    "tag": "close to real examples",
+    "why": "128 vs 133 for real example pairs"
+   },
+   {
+    "tag": "best on its task",
+    "why": "the highest antonym score on Ministral-3-14B-Base-2512: 128/200"
+   }
+  ],
+  "cautions": []
  },
  "Ministral-3-14B-Base-2512/antonym/fv_heads/final/1187651": {
   "id": "Ministral-3-14B-Base-2512/antonym/fv_heads/final/1187651",
@@ -1866,6 +1959,17 @@
    "decoding": "greedy (temperature 0)",
    "note": null
   },
+  "highlights": [
+   {
+    "tag": "close to real examples",
+    "why": "128 vs 133 for real example pairs"
+   },
+   {
+    "tag": "best on its task",
+    "why": "the highest antonym score on Ministral-3-14B-Base-2512: 128/200"
+   }
+  ],
+  "cautions": [],
   "duplicate_of": "Ministral-3-14B-Base-2512/antonym/fv_heads/validation/1187651"
  },
  "Ministral-3-14B-Base-2512/antonym/fv_residual/validation/1187651": {
@@ -1912,7 +2016,9 @@
    "pattern": "<prefix> {word} ->",
    "decoding": "greedy (temperature 0)",
    "note": null
-  }
+  },
+  "highlights": [],
+  "cautions": []
  },
  "Ministral-3-14B-Instruct-2512-BF16/antonym/fv_heads/validation/1187652": {
   "id": "Ministral-3-14B-Instruct-2512-BF16/antonym/fv_heads/validation/1187652",
@@ -1999,7 +2105,9 @@
    "pattern": "<prefix> {word} ->",
    "decoding": "greedy (temperature 0)",
    "note": "plain text on a post-trained model: run as a raw completion, NOT through its chat template"
-  }
+  },
+  "highlights": [],
+  "cautions": []
  },
  "Ministral-3-14B-Instruct-2512-BF16/antonym/fv_heads/final/1187652": {
   "id": "Ministral-3-14B-Instruct-2512-BF16/antonym/fv_heads/final/1187652",
@@ -2086,7 +2194,9 @@
    "pattern": "<prefix> {word} ->",
    "decoding": "greedy (temperature 0)",
    "note": "plain text on a post-trained model: run as a raw completion, NOT through its chat template"
-  }
+  },
+  "highlights": [],
+  "cautions": []
  },
  "Ministral-3-14B-Instruct-2512-BF16/antonym/fv_residual/validation/1187652": {
   "id": "Ministral-3-14B-Instruct-2512-BF16/antonym/fv_residual/validation/1187652",
@@ -2132,7 +2242,9 @@
    "pattern": "<prefix> {word} ->",
    "decoding": "greedy (temperature 0)",
    "note": "plain text on a post-trained model: run as a raw completion, NOT through its chat template"
-  }
+  },
+  "highlights": [],
+  "cautions": []
  },
  "Ministral-3-14B-Reasoning-2512/antonym/fv_heads/validation/1187653": {
   "id": "Ministral-3-14B-Reasoning-2512/antonym/fv_heads/validation/1187653",
@@ -2219,7 +2331,9 @@
    "pattern": "<prefix> {word} ->",
    "decoding": "greedy (temperature 0)",
    "note": "plain text on a post-trained model: run as a raw completion, NOT through its chat template"
-  }
+  },
+  "highlights": [],
+  "cautions": []
  },
  "Ministral-3-14B-Reasoning-2512/antonym/fv_heads/final/1187653": {
   "id": "Ministral-3-14B-Reasoning-2512/antonym/fv_heads/final/1187653",
@@ -2306,7 +2420,9 @@
    "pattern": "<prefix> {word} ->",
    "decoding": "greedy (temperature 0)",
    "note": "plain text on a post-trained model: run as a raw completion, NOT through its chat template"
-  }
+  },
+  "highlights": [],
+  "cautions": []
  },
  "Ministral-3-14B-Reasoning-2512/antonym/fv_residual/validation/1187653": {
   "id": "Ministral-3-14B-Reasoning-2512/antonym/fv_residual/validation/1187653",
@@ -2352,7 +2468,9 @@
    "pattern": "<prefix> {word} ->",
    "decoding": "greedy (temperature 0)",
    "note": "plain text on a post-trained model: run as a raw completion, NOT through its chat template"
-  }
+  },
+  "highlights": [],
+  "cautions": []
  },
  "OLMo-2-0425-1B/antonym/fv_heads/validation/1180279": {
   "id": "OLMo-2-0425-1B/antonym/fv_heads/validation/1180279",
@@ -2439,7 +2557,14 @@
    "pattern": "<prefix> {word} ->",
    "decoding": "greedy (temperature 0)",
    "note": null
-  }
+  },
+  "highlights": [
+   {
+    "tag": "best on its task",
+    "why": "the highest antonym score on OLMo-2-0425-1B: 48/200"
+   }
+  ],
+  "cautions": []
  },
  "OLMo-2-0425-1B/antonym/fv_heads/final/1180279": {
   "id": "OLMo-2-0425-1B/antonym/fv_heads/final/1180279",
@@ -2520,7 +2645,9 @@
    "pattern": "<prefix> {word} ->",
    "decoding": "greedy (temperature 0)",
    "note": null
-  }
+  },
+  "highlights": [],
+  "cautions": []
  },
  "OLMo-2-0425-1B/antonym/fv_residual/validation/1180279": {
   "id": "OLMo-2-0425-1B/antonym/fv_residual/validation/1180279",
@@ -2564,7 +2691,9 @@
    "pattern": "<prefix> {word} ->",
    "decoding": "greedy (temperature 0)",
    "note": null
-  }
+  },
+  "highlights": [],
+  "cautions": []
  },
  "Olmo-3-1125-32B/antonym/fv_heads/validation/1184420": {
   "id": "Olmo-3-1125-32B/antonym/fv_heads/validation/1184420",
@@ -2653,7 +2782,9 @@
    "pattern": "<prefix> {word} ->",
    "decoding": "greedy (temperature 0)",
    "note": null
-  }
+  },
+  "highlights": [],
+  "cautions": []
  },
  "Olmo-3-1125-32B/antonym/fv_heads/final/1184420": {
   "id": "Olmo-3-1125-32B/antonym/fv_heads/final/1184420",
@@ -2738,7 +2869,9 @@
    "pattern": "<prefix> {word} ->",
    "decoding": "greedy (temperature 0)",
    "note": null
-  }
+  },
+  "highlights": [],
+  "cautions": []
  },
  "Olmo-3-1125-32B/antonym/fv_residual/validation/1184420": {
   "id": "Olmo-3-1125-32B/antonym/fv_residual/validation/1184420",
@@ -2784,7 +2917,9 @@
    "pattern": "<prefix> {word} ->",
    "decoding": "greedy (temperature 0)",
    "note": null
-  }
+  },
+  "highlights": [],
+  "cautions": []
  },
  "Olmo-3-1125-32B/antonym/fv_heads/validation/1201779": {
   "id": "Olmo-3-1125-32B/antonym/fv_heads/validation/1201779",
@@ -2871,7 +3006,20 @@
    "pattern": "<prefix> {word} ->",
    "decoding": "greedy (temperature 0)",
    "note": null
-  }
+  },
+  "highlights": [
+   {
+    "tag": "beats the tuned function vector",
+    "why": "136 vs 105 for the function vector tuned on validation (paired p = 9.3e-06)"
+   },
+   {
+    "tag": "close to real examples",
+    "why": "136 vs 140 for real example pairs"
+   }
+  ],
+  "cautions": [
+   "the search started from labelled example pairs, not from scratch"
+  ]
  },
  "Olmo-3-1125-32B/antonym/fv_heads/final/1201779": {
   "id": "Olmo-3-1125-32B/antonym/fv_heads/final/1201779",
@@ -2958,7 +3106,24 @@
    "pattern": "<prefix> {word} ->",
    "decoding": "greedy (temperature 0)",
    "note": null
-  }
+  },
+  "highlights": [
+   {
+    "tag": "beats the tuned function vector",
+    "why": "139 vs 105 for the function vector tuned on validation (paired p = 3.4e-06)"
+   },
+   {
+    "tag": "close to real examples",
+    "why": "139 vs 140 for real example pairs"
+   },
+   {
+    "tag": "best on its task",
+    "why": "the highest antonym score on Olmo-3-1125-32B: 139/200"
+   }
+  ],
+  "cautions": [
+   "the search started from labelled example pairs, not from scratch"
+  ]
  },
  "Olmo-3-1125-32B/antonym/fv_heads/validation/1201780": {
   "id": "Olmo-3-1125-32B/antonym/fv_heads/validation/1201780",
@@ -3045,7 +3210,16 @@
    "pattern": "<prefix> {word} ->",
    "decoding": "greedy (temperature 0)",
    "note": null
-  }
+  },
+  "highlights": [
+   {
+    "tag": "beats the tuned function vector",
+    "why": "129 vs 105 for the function vector tuned on validation (paired p = 0.00054)"
+   }
+  ],
+  "cautions": [
+   "the search started from labelled example pairs, not from scratch"
+  ]
  },
  "Olmo-3-1125-32B/antonym/fv_heads/final/1201780": {
   "id": "Olmo-3-1125-32B/antonym/fv_heads/final/1201780",
@@ -3133,6 +3307,15 @@
    "decoding": "greedy (temperature 0)",
    "note": null
   },
+  "highlights": [
+   {
+    "tag": "beats the tuned function vector",
+    "why": "129 vs 105 for the function vector tuned on validation (paired p = 0.00054)"
+   }
+  ],
+  "cautions": [
+   "the search started from labelled example pairs, not from scratch"
+  ],
   "duplicate_of": "Olmo-3-1125-32B/antonym/fv_heads/validation/1201780"
  },
  "Olmo-3-1125-32B/antonym/fv_heads/validation/1201781": {
@@ -3220,7 +3403,11 @@
    "pattern": "<prefix> {word} ->",
    "decoding": "greedy (temperature 0)",
    "note": null
-  }
+  },
+  "highlights": [],
+  "cautions": [
+   "the search started from labelled example pairs, not from scratch"
+  ]
  },
  "Olmo-3-1125-32B/antonym/fv_heads/final/1201781": {
   "id": "Olmo-3-1125-32B/antonym/fv_heads/final/1201781",
@@ -3307,7 +3494,11 @@
    "pattern": "<prefix> {word} ->",
    "decoding": "greedy (temperature 0)",
    "note": null
-  }
+  },
+  "highlights": [],
+  "cautions": [
+   "the search started from labelled example pairs, not from scratch"
+  ]
  },
  "Olmo-3-1125-32B/antonym/fv_heads/validation/1202904": {
   "id": "Olmo-3-1125-32B/antonym/fv_heads/validation/1202904",
@@ -3394,7 +3585,16 @@
    "pattern": "<prefix> {word} ->",
    "decoding": "greedy (temperature 0)",
    "note": null
-  }
+  },
+  "highlights": [
+   {
+    "tag": "weird: high target score, poor accuracy",
+    "why": "target score +0.957, yet 57/200 (best on the task 139)"
+   }
+  ],
+  "cautions": [
+   "the search started from labelled example pairs, not from scratch"
+  ]
  },
  "Olmo-3-1125-32B/antonym/fv_heads/final/1202904": {
   "id": "Olmo-3-1125-32B/antonym/fv_heads/final/1202904",
@@ -3481,7 +3681,16 @@
    "pattern": "<prefix> {word} ->",
    "decoding": "greedy (temperature 0)",
    "note": null
-  }
+  },
+  "highlights": [
+   {
+    "tag": "weird: high target score, poor accuracy",
+    "why": "target score +0.966, yet 58/200 (best on the task 139)"
+   }
+  ],
+  "cautions": [
+   "the search started from labelled example pairs, not from scratch"
+  ]
  },
  "Olmo-3-1125-32B/antonym/fv_heads/validation/1203824": {
   "id": "Olmo-3-1125-32B/antonym/fv_heads/validation/1203824",
@@ -3617,7 +3826,9 @@
    "pattern": "<prefix> {word} ->",
    "decoding": "greedy (temperature 0)",
    "note": null
-  }
+  },
+  "highlights": [],
+  "cautions": []
  },
  "Olmo-3-1125-32B/antonym/fv_heads/final/1203824": {
   "id": "Olmo-3-1125-32B/antonym/fv_heads/final/1203824",
@@ -3753,7 +3964,9 @@
    "pattern": "<prefix> {word} ->",
    "decoding": "greedy (temperature 0)",
    "note": null
-  }
+  },
+  "highlights": [],
+  "cautions": []
  },
  "Olmo-3-1125-32B/antonym/output_gcg/validation/1203824": {
   "id": "Olmo-3-1125-32B/antonym/output_gcg/validation/1203824",
@@ -3846,7 +4059,14 @@
    "pattern": "<prefix> {word} ->",
    "decoding": "greedy (temperature 0)",
    "note": null
-  }
+  },
+  "highlights": [
+   {
+    "tag": "holds up in new phrasings",
+    "why": "on fresh words, `{x}:` 41/120, `Q: {x}\nA:` 53/120, `{x} =` 55/120"
+   }
+  ],
+  "cautions": []
  },
  "Olmo-3-1125-32B/antonym/output_gcg/final/1203824": {
   "id": "Olmo-3-1125-32B/antonym/output_gcg/final/1203824",
@@ -3939,7 +4159,9 @@
    "pattern": "<prefix> {word} ->",
    "decoding": "greedy (temperature 0)",
    "note": null
-  }
+  },
+  "highlights": [],
+  "cautions": []
  },
  "Olmo-3-1125-32B/antonym/output_blackbox/validation/1203824": {
   "id": "Olmo-3-1125-32B/antonym/output_blackbox/validation/1203824",
@@ -4032,7 +4254,9 @@
    "pattern": "<prefix> {word} ->",
    "decoding": "greedy (temperature 0)",
    "note": null
-  }
+  },
+  "highlights": [],
+  "cautions": []
  },
  "Olmo-3-1125-32B/antonym/output_blackbox/final/1203824": {
   "id": "Olmo-3-1125-32B/antonym/output_blackbox/final/1203824",
@@ -4125,7 +4349,9 @@
    "pattern": "<prefix> {word} ->",
    "decoding": "greedy (temperature 0)",
    "note": null
-  }
+  },
+  "highlights": [],
+  "cautions": []
  },
  "Olmo-3-1125-32B/antonym/fv_heads/validation/1212994": {
   "id": "Olmo-3-1125-32B/antonym/fv_heads/validation/1212994",
@@ -4259,7 +4485,18 @@
    "pattern": "<prefix> {word} ->",
    "decoding": "greedy (temperature 0)",
    "note": null
-  }
+  },
+  "highlights": [
+   {
+    "tag": "beats the tuned function vector",
+    "why": "126 vs 105 for the function vector tuned on validation (paired p = 0.0046)"
+   },
+   {
+    "tag": "holds up in new phrasings",
+    "why": "on fresh words, `{x}:` 68/120, `Q: {x}\nA:` 52/120, `{x} =` 71/120"
+   }
+  ],
+  "cautions": []
  },
  "Olmo-3-1125-32B/antonym/fv_heads/final/1212994": {
   "id": "Olmo-3-1125-32B/antonym/fv_heads/final/1212994",
@@ -4393,7 +4630,22 @@
    "pattern": "<prefix> {word} ->",
    "decoding": "greedy (temperature 0)",
    "note": null
-  }
+  },
+  "highlights": [
+   {
+    "tag": "beats the tuned function vector",
+    "why": "131 vs 105 for the function vector tuned on validation (paired p = 0.00054)"
+   },
+   {
+    "tag": "close to real examples",
+    "why": "131 vs 140 for real example pairs"
+   },
+   {
+    "tag": "holds up in new phrasings",
+    "why": "on fresh words, `{x}:` 62/120, `Q: {x}\nA:` 49/120, `{x} =` 63/120"
+   }
+  ],
+  "cautions": []
  },
  "Olmo-3-1125-32B/antonym/output_gcg/validation/1212994": {
   "id": "Olmo-3-1125-32B/antonym/output_gcg/validation/1212994",
@@ -4486,7 +4738,9 @@
    "pattern": "<prefix> {word} ->",
    "decoding": "greedy (temperature 0)",
    "note": null
-  }
+  },
+  "highlights": [],
+  "cautions": []
  },
  "Olmo-3-1125-32B/antonym/output_gcg/final/1212994": {
   "id": "Olmo-3-1125-32B/antonym/output_gcg/final/1212994",
@@ -4580,6 +4834,8 @@
    "decoding": "greedy (temperature 0)",
    "note": null
   },
+  "highlights": [],
+  "cautions": [],
   "duplicate_of": "Olmo-3-1125-32B/antonym/output_gcg/validation/1212994"
  },
  "Olmo-3-1125-32B/antonym/output_blackbox/validation/1212994": {
@@ -4673,7 +4929,9 @@
    "pattern": "<prefix> {word} ->",
    "decoding": "greedy (temperature 0)",
    "note": null
-  }
+  },
+  "highlights": [],
+  "cautions": []
  },
  "Olmo-3-1125-32B/antonym/output_blackbox/final/1212994": {
   "id": "Olmo-3-1125-32B/antonym/output_blackbox/final/1212994",
@@ -4767,6 +5025,8 @@
    "decoding": "greedy (temperature 0)",
    "note": null
   },
+  "highlights": [],
+  "cautions": [],
   "duplicate_of": "Olmo-3-1125-32B/antonym/output_blackbox/validation/1212994"
  },
  "Olmo-3-1125-32B/antonym/fv_heads/validation/1214192": {
@@ -4901,7 +5161,18 @@
    "pattern": "<prefix> {word} ->",
    "decoding": "greedy (temperature 0)",
    "note": null
-  }
+  },
+  "highlights": [
+   {
+    "tag": "beats the tuned function vector",
+    "why": "126 vs 105 for the function vector tuned on validation (paired p = 0.0038)"
+   },
+   {
+    "tag": "holds up in new phrasings",
+    "why": "on fresh words, `{x}:` 69/120, `Q: {x}\nA:` 27/120, `{x} =` 74/120"
+   }
+  ],
+  "cautions": []
  },
  "Olmo-3-1125-32B/antonym/fv_heads/final/1214192": {
   "id": "Olmo-3-1125-32B/antonym/fv_heads/final/1214192",
@@ -5036,6 +5307,17 @@
    "decoding": "greedy (temperature 0)",
    "note": null
   },
+  "highlights": [
+   {
+    "tag": "beats the tuned function vector",
+    "why": "126 vs 105 for the function vector tuned on validation (paired p = 0.0038)"
+   },
+   {
+    "tag": "holds up in new phrasings",
+    "why": "on fresh words, `{x}:` 69/120, `Q: {x}\nA:` 27/120, `{x} =` 74/120"
+   }
+  ],
+  "cautions": [],
   "duplicate_of": "Olmo-3-1125-32B/antonym/fv_heads/validation/1214192"
  },
  "Olmo-3-1125-32B/antonym/output_gcg/validation/1214192": {
@@ -5129,7 +5411,9 @@
    "pattern": "<prefix> {word} ->",
    "decoding": "greedy (temperature 0)",
    "note": null
-  }
+  },
+  "highlights": [],
+  "cautions": []
  },
  "Olmo-3-1125-32B/antonym/output_gcg/final/1214192": {
   "id": "Olmo-3-1125-32B/antonym/output_gcg/final/1214192",
@@ -5223,6 +5507,8 @@
    "decoding": "greedy (temperature 0)",
    "note": null
   },
+  "highlights": [],
+  "cautions": [],
   "duplicate_of": "Olmo-3-1125-32B/antonym/output_gcg/validation/1214192"
  },
  "Olmo-3-1125-32B/antonym/output_blackbox/validation/1214192": {
@@ -5316,7 +5602,9 @@
    "pattern": "<prefix> {word} ->",
    "decoding": "greedy (temperature 0)",
    "note": null
-  }
+  },
+  "highlights": [],
+  "cautions": []
  },
  "Olmo-3-1125-32B/antonym/output_blackbox/final/1214192": {
   "id": "Olmo-3-1125-32B/antonym/output_blackbox/final/1214192",
@@ -5409,7 +5697,9 @@
    "pattern": "<prefix> {word} ->",
    "decoding": "greedy (temperature 0)",
    "note": null
-  }
+  },
+  "highlights": [],
+  "cautions": []
  },
  "Olmo-3.1-32B-Instruct/antonym/fv_heads/validation/1188212": {
   "id": "Olmo-3.1-32B-Instruct/antonym/fv_heads/validation/1188212",
@@ -5496,7 +5786,9 @@
    "pattern": "<prefix> {word} ->",
    "decoding": "greedy (temperature 0)",
    "note": "plain text on a post-trained model: run as a raw completion, NOT through its chat template"
-  }
+  },
+  "highlights": [],
+  "cautions": []
  },
  "Olmo-3.1-32B-Instruct/antonym/fv_heads/final/1188212": {
   "id": "Olmo-3.1-32B-Instruct/antonym/fv_heads/final/1188212",
@@ -5583,7 +5875,9 @@
    "pattern": "<prefix> {word} ->",
    "decoding": "greedy (temperature 0)",
    "note": "plain text on a post-trained model: run as a raw completion, NOT through its chat template"
-  }
+  },
+  "highlights": [],
+  "cautions": []
  },
  "Olmo-3.1-32B-Instruct/antonym/fv_residual/validation/1188212": {
   "id": "Olmo-3.1-32B-Instruct/antonym/fv_residual/validation/1188212",
@@ -5629,7 +5923,9 @@
    "pattern": "<prefix> {word} ->",
    "decoding": "greedy (temperature 0)",
    "note": "plain text on a post-trained model: run as a raw completion, NOT through its chat template"
-  }
+  },
+  "highlights": [],
+  "cautions": []
  },
  "Olmo-3.1-32B-Think/antonym/fv_heads/validation/1188208": {
   "id": "Olmo-3.1-32B-Think/antonym/fv_heads/validation/1188208",
@@ -5716,7 +6012,9 @@
    "pattern": "<prefix> {word} ->",
    "decoding": "greedy (temperature 0)",
    "note": "plain text on a post-trained model: run as a raw completion, NOT through its chat template"
-  }
+  },
+  "highlights": [],
+  "cautions": []
  },
  "Olmo-3.1-32B-Think/antonym/fv_heads/final/1188208": {
   "id": "Olmo-3.1-32B-Think/antonym/fv_heads/final/1188208",
@@ -5803,7 +6101,9 @@
    "pattern": "<prefix> {word} ->",
    "decoding": "greedy (temperature 0)",
    "note": "plain text on a post-trained model: run as a raw completion, NOT through its chat template"
-  }
+  },
+  "highlights": [],
+  "cautions": []
  },
  "Olmo-3.1-32B-Think/antonym/fv_residual/validation/1188208": {
   "id": "Olmo-3.1-32B-Think/antonym/fv_residual/validation/1188208",
@@ -5849,7 +6149,9 @@
    "pattern": "<prefix> {word} ->",
    "decoding": "greedy (temperature 0)",
    "note": "plain text on a post-trained model: run as a raw completion, NOT through its chat template"
-  }
+  },
+  "highlights": [],
+  "cautions": []
  },
  "Qwen3.8-27B/antonym/fv_heads/validation/1184421": {
   "id": "Qwen3.8-27B/antonym/fv_heads/validation/1184421",
@@ -5939,7 +6241,9 @@
    "pattern": "<prefix> {word} ->",
    "decoding": "greedy (temperature 0)",
    "note": "plain text on a post-trained model: run as a raw completion, NOT through its chat template"
-  }
+  },
+  "highlights": [],
+  "cautions": []
  },
  "Qwen3.8-27B/antonym/fv_heads/final/1184421": {
   "id": "Qwen3.8-27B/antonym/fv_heads/final/1184421",
@@ -6022,7 +6326,9 @@
    "pattern": "<prefix> {word} ->",
    "decoding": "greedy (temperature 0)",
    "note": "plain text on a post-trained model: run as a raw completion, NOT through its chat template"
-  }
+  },
+  "highlights": [],
+  "cautions": []
  },
  "Qwen3.8-27B/antonym/fv_residual/validation/1184421": {
   "id": "Qwen3.8-27B/antonym/fv_residual/validation/1184421",
@@ -6068,7 +6374,9 @@
    "pattern": "<prefix> {word} ->",
    "decoding": "greedy (temperature 0)",
    "note": "plain text on a post-trained model: run as a raw completion, NOT through its chat template"
-  }
+  },
+  "highlights": [],
+  "cautions": []
  },
  "Qwen3.8-27B/antonym/fv_heads/validation/1188338": {
   "id": "Qwen3.8-27B/antonym/fv_heads/validation/1188338",
@@ -6155,7 +6463,9 @@
    "pattern": "<prefix> {word} ->",
    "decoding": "greedy (temperature 0)",
    "note": "plain text on a post-trained model: run as a raw completion, NOT through its chat template"
-  }
+  },
+  "highlights": [],
+  "cautions": []
  },
  "Qwen3.8-27B/antonym/fv_heads/final/1188338": {
   "id": "Qwen3.8-27B/antonym/fv_heads/final/1188338",
@@ -6242,7 +6552,9 @@
    "pattern": "<prefix> {word} ->",
    "decoding": "greedy (temperature 0)",
    "note": "plain text on a post-trained model: run as a raw completion, NOT through its chat template"
-  }
+  },
+  "highlights": [],
+  "cautions": []
  },
  "Olmo-3-1125-32B/english-french/fv_heads/validation/1187354": {
   "id": "Olmo-3-1125-32B/english-french/fv_heads/validation/1187354",
@@ -6329,7 +6641,14 @@
    "pattern": "<prefix> {word} ->",
    "decoding": "greedy (temperature 0)",
    "note": null
-  }
+  },
+  "highlights": [
+   {
+    "tag": "beats the tuned function vector",
+    "why": "79 vs 50 for the function vector tuned on validation (paired p = 0.0017)"
+   }
+  ],
+  "cautions": []
  },
  "Olmo-3-1125-32B/english-french/fv_heads/final/1187354": {
   "id": "Olmo-3-1125-32B/english-french/fv_heads/final/1187354",
@@ -6418,7 +6737,14 @@
    "pattern": "<prefix> {word} ->",
    "decoding": "greedy (temperature 0)",
    "note": null
-  }
+  },
+  "highlights": [
+   {
+    "tag": "beats the tuned function vector",
+    "why": "119 vs 50 for the function vector tuned on validation (paired p = 4.2e-13)"
+   }
+  ],
+  "cautions": []
  },
  "Olmo-3-1125-32B/english-french/fv_residual/validation/1187354": {
   "id": "Olmo-3-1125-32B/english-french/fv_residual/validation/1187354",
@@ -6464,7 +6790,9 @@
    "pattern": "<prefix> {word} ->",
    "decoding": "greedy (temperature 0)",
    "note": null
-  }
+  },
+  "highlights": [],
+  "cautions": []
  },
  "Olmo-3-1125-32B/english-french/fv_heads/validation/1203826": {
   "id": "Olmo-3-1125-32B/english-french/fv_heads/validation/1203826",
@@ -6599,6 +6927,17 @@
    "decoding": "greedy (temperature 0)",
    "note": null
   },
+  "highlights": [
+   {
+    "tag": "beats the tuned function vector",
+    "why": "79 vs 50 for the function vector tuned on validation (paired p = 0.0017)"
+   },
+   {
+    "tag": "works through its heads",
+    "why": "46 -> 22 with its heads knocked out, 46 with random heads"
+   }
+  ],
+  "cautions": [],
   "duplicate_of": "Olmo-3-1125-32B/english-french/fv_heads/validation/1187354"
  },
  "Olmo-3-1125-32B/english-french/fv_heads/final/1203826": {
@@ -6734,6 +7073,17 @@
    "decoding": "greedy (temperature 0)",
    "note": null
   },
+  "highlights": [
+   {
+    "tag": "beats the tuned function vector",
+    "why": "119 vs 50 for the function vector tuned on validation (paired p = 4.2e-13)"
+   },
+   {
+    "tag": "holds up in new phrasings",
+    "why": "on fresh words, `{x}:` 36/120, `Q: {x}\nA:` 25/120, `{x} =` 69/120"
+   }
+  ],
+  "cautions": [],
   "duplicate_of": "Olmo-3-1125-32B/english-french/fv_heads/final/1187354"
  },
  "Olmo-3-1125-32B/english-french/output_gcg/validation/1203826": {
@@ -6827,7 +7177,26 @@
    "pattern": "<prefix> {word} ->",
    "decoding": "greedy (temperature 0)",
    "note": null
-  }
+  },
+  "highlights": [
+   {
+    "tag": "beats the tuned function vector",
+    "why": "165 vs 50 for the function vector tuned on validation (paired p = 2.1e-32)"
+   },
+   {
+    "tag": "close to real examples",
+    "why": "165 vs 168 for real example pairs"
+   },
+   {
+    "tag": "holds up in new phrasings",
+    "why": "on fresh words, `{x}:` 53/120, `Q: {x}\nA:` 61/120, `{x} =` 82/120"
+   },
+   {
+    "tag": "best on its task",
+    "why": "the highest english-french score on Olmo-3-1125-32B: 165/200"
+   }
+  ],
+  "cautions": []
  },
  "Olmo-3-1125-32B/english-french/output_gcg/final/1203826": {
   "id": "Olmo-3-1125-32B/english-french/output_gcg/final/1203826",
@@ -6920,7 +7289,22 @@
    "pattern": "<prefix> {word} ->",
    "decoding": "greedy (temperature 0)",
    "note": null
-  }
+  },
+  "highlights": [
+   {
+    "tag": "beats the tuned function vector",
+    "why": "163 vs 50 for the function vector tuned on validation (no paired test stored)"
+   },
+   {
+    "tag": "close to real examples",
+    "why": "163 vs 168 for real example pairs"
+   },
+   {
+    "tag": "holds up in new phrasings",
+    "why": "on fresh words, `{x}:` 66/120, `Q: {x}\nA:` 84/120, `{x} =` 86/120"
+   }
+  ],
+  "cautions": []
  },
  "Olmo-3-1125-32B/english-french/output_blackbox/validation/1203826": {
   "id": "Olmo-3-1125-32B/english-french/output_blackbox/validation/1203826",
@@ -7013,7 +7397,18 @@
    "pattern": "<prefix> {word} ->",
    "decoding": "greedy (temperature 0)",
    "note": null
-  }
+  },
+  "highlights": [
+   {
+    "tag": "beats the tuned function vector",
+    "why": "160 vs 50 for the function vector tuned on validation (no paired test stored)"
+   },
+   {
+    "tag": "close to real examples",
+    "why": "160 vs 168 for real example pairs"
+   }
+  ],
+  "cautions": []
  },
  "Olmo-3-1125-32B/english-french/output_blackbox/final/1203826": {
   "id": "Olmo-3-1125-32B/english-french/output_blackbox/final/1203826",
@@ -7107,6 +7502,17 @@
    "decoding": "greedy (temperature 0)",
    "note": null
   },
+  "highlights": [
+   {
+    "tag": "beats the tuned function vector",
+    "why": "160 vs 50 for the function vector tuned on validation (no paired test stored)"
+   },
+   {
+    "tag": "close to real examples",
+    "why": "160 vs 168 for real example pairs"
+   }
+  ],
+  "cautions": [],
   "duplicate_of": "Olmo-3-1125-32B/english-french/output_blackbox/validation/1203826"
  },
  "Olmo-3.1-32B-Instruct/english-french/fv_heads/validation/1188214": {
@@ -7194,7 +7600,9 @@
    "pattern": "<prefix> {word} ->",
    "decoding": "greedy (temperature 0)",
    "note": "plain text on a post-trained model: run as a raw completion, NOT through its chat template"
-  }
+  },
+  "highlights": [],
+  "cautions": []
  },
  "Olmo-3.1-32B-Instruct/english-french/fv_heads/final/1188214": {
   "id": "Olmo-3.1-32B-Instruct/english-french/fv_heads/final/1188214",
@@ -7281,7 +7689,9 @@
    "pattern": "<prefix> {word} ->",
    "decoding": "greedy (temperature 0)",
    "note": "plain text on a post-trained model: run as a raw completion, NOT through its chat template"
-  }
+  },
+  "highlights": [],
+  "cautions": []
  },
  "Olmo-3.1-32B-Instruct/english-french/fv_residual/validation/1188214": {
   "id": "Olmo-3.1-32B-Instruct/english-french/fv_residual/validation/1188214",
@@ -7327,7 +7737,9 @@
    "pattern": "<prefix> {word} ->",
    "decoding": "greedy (temperature 0)",
    "note": "plain text on a post-trained model: run as a raw completion, NOT through its chat template"
-  }
+  },
+  "highlights": [],
+  "cautions": []
  },
  "Olmo-3.1-32B-Think/english-french/fv_heads/validation/1188210": {
   "id": "Olmo-3.1-32B-Think/english-french/fv_heads/validation/1188210",
@@ -7414,7 +7826,9 @@
    "pattern": "<prefix> {word} ->",
    "decoding": "greedy (temperature 0)",
    "note": "plain text on a post-trained model: run as a raw completion, NOT through its chat template"
-  }
+  },
+  "highlights": [],
+  "cautions": []
  },
  "Olmo-3.1-32B-Think/english-french/fv_heads/final/1188210": {
   "id": "Olmo-3.1-32B-Think/english-french/fv_heads/final/1188210",
@@ -7501,7 +7915,9 @@
    "pattern": "<prefix> {word} ->",
    "decoding": "greedy (temperature 0)",
    "note": "plain text on a post-trained model: run as a raw completion, NOT through its chat template"
-  }
+  },
+  "highlights": [],
+  "cautions": []
  },
  "Olmo-3.1-32B-Think/english-french/fv_residual/validation/1188210": {
   "id": "Olmo-3.1-32B-Think/english-french/fv_residual/validation/1188210",
@@ -7547,7 +7963,9 @@
    "pattern": "<prefix> {word} ->",
    "decoding": "greedy (temperature 0)",
    "note": "plain text on a post-trained model: run as a raw completion, NOT through its chat template"
-  }
+  },
+  "highlights": [],
+  "cautions": []
  },
  "Olmo-3-1125-32B/english-spanish/fv_heads/validation/1187355": {
   "id": "Olmo-3-1125-32B/english-spanish/fv_heads/validation/1187355",
@@ -7634,7 +8052,14 @@
    "pattern": "<prefix> {word} ->",
    "decoding": "greedy (temperature 0)",
    "note": null
-  }
+  },
+  "highlights": [
+   {
+    "tag": "beats the tuned function vector",
+    "why": "116 vs 71 for the function vector tuned on validation (paired p = 1.9e-06)"
+   }
+  ],
+  "cautions": []
  },
  "Olmo-3-1125-32B/english-spanish/fv_heads/final/1187355": {
   "id": "Olmo-3-1125-32B/english-spanish/fv_heads/final/1187355",
@@ -7723,7 +8148,14 @@
    "pattern": "<prefix> {word} ->",
    "decoding": "greedy (temperature 0)",
    "note": null
-  }
+  },
+  "highlights": [
+   {
+    "tag": "beats the tuned function vector",
+    "why": "153 vs 71 for the function vector tuned on validation (paired p = 3.3e-18)"
+   }
+  ],
+  "cautions": []
  },
  "Olmo-3-1125-32B/english-spanish/fv_residual/validation/1187355": {
   "id": "Olmo-3-1125-32B/english-spanish/fv_residual/validation/1187355",
@@ -7769,7 +8201,9 @@
    "pattern": "<prefix> {word} ->",
    "decoding": "greedy (temperature 0)",
    "note": null
-  }
+  },
+  "highlights": [],
+  "cautions": []
  },
  "Olmo-3-1125-32B/english-spanish/fv_heads/validation/1203827": {
   "id": "Olmo-3-1125-32B/english-spanish/fv_heads/validation/1203827",
@@ -7904,6 +8338,17 @@
    "decoding": "greedy (temperature 0)",
    "note": null
   },
+  "highlights": [
+   {
+    "tag": "beats the tuned function vector",
+    "why": "116 vs 71 for the function vector tuned on validation (paired p = 1.9e-06)"
+   },
+   {
+    "tag": "works through its heads",
+    "why": "68 -> 39 with its heads knocked out, 66 with random heads"
+   }
+  ],
+  "cautions": [],
   "duplicate_of": "Olmo-3-1125-32B/english-spanish/fv_heads/validation/1187355"
  },
  "Olmo-3-1125-32B/english-spanish/fv_heads/final/1203827": {
@@ -8039,6 +8484,17 @@
    "decoding": "greedy (temperature 0)",
    "note": null
   },
+  "highlights": [
+   {
+    "tag": "beats the tuned function vector",
+    "why": "153 vs 71 for the function vector tuned on validation (paired p = 3.3e-18)"
+   },
+   {
+    "tag": "works through its heads",
+    "why": "79 -> 69 with its heads knocked out (no random-head control)"
+   }
+  ],
+  "cautions": [],
   "duplicate_of": "Olmo-3-1125-32B/english-spanish/fv_heads/final/1187355"
  },
  "Olmo-3-1125-32B/english-spanish/output_gcg/validation/1203827": {
@@ -8132,7 +8588,18 @@
    "pattern": "<prefix> {word} ->",
    "decoding": "greedy (temperature 0)",
    "note": null
-  }
+  },
+  "highlights": [
+   {
+    "tag": "beats the tuned function vector",
+    "why": "152 vs 71 for the function vector tuned on validation (paired p = 4e-20)"
+   },
+   {
+    "tag": "holds up in new phrasings",
+    "why": "on fresh words, `{x}:` 56/120, `Q: {x}\nA:` 54/120, `{x} =` 81/120"
+   }
+  ],
+  "cautions": []
  },
  "Olmo-3-1125-32B/english-spanish/output_gcg/final/1203827": {
   "id": "Olmo-3-1125-32B/english-spanish/output_gcg/final/1203827",
@@ -8225,7 +8692,18 @@
    "pattern": "<prefix> {word} ->",
    "decoding": "greedy (temperature 0)",
    "note": null
-  }
+  },
+  "highlights": [
+   {
+    "tag": "beats the tuned function vector",
+    "why": "153 vs 71 for the function vector tuned on validation (no paired test stored)"
+   },
+   {
+    "tag": "holds up in new phrasings",
+    "why": "on fresh words, `{x}:` 55/120, `Q: {x}\nA:` 73/120, `{x} =` 80/120"
+   }
+  ],
+  "cautions": []
  },
  "Olmo-3-1125-32B/english-spanish/output_blackbox/validation/1203827": {
   "id": "Olmo-3-1125-32B/english-spanish/output_blackbox/validation/1203827",
@@ -8318,7 +8796,18 @@
    "pattern": "<prefix> {word} ->",
    "decoding": "greedy (temperature 0)",
    "note": null
-  }
+  },
+  "highlights": [
+   {
+    "tag": "beats the tuned function vector",
+    "why": "162 vs 71 for the function vector tuned on validation (no paired test stored)"
+   },
+   {
+    "tag": "best on its task",
+    "why": "the highest english-spanish score on Olmo-3-1125-32B: 162/200"
+   }
+  ],
+  "cautions": []
  },
  "Olmo-3-1125-32B/english-spanish/output_blackbox/final/1203827": {
   "id": "Olmo-3-1125-32B/english-spanish/output_blackbox/final/1203827",
@@ -8412,6 +8901,17 @@
    "decoding": "greedy (temperature 0)",
    "note": null
   },
+  "highlights": [
+   {
+    "tag": "beats the tuned function vector",
+    "why": "162 vs 71 for the function vector tuned on validation (no paired test stored)"
+   },
+   {
+    "tag": "best on its task",
+    "why": "the highest english-spanish score on Olmo-3-1125-32B: 162/200"
+   }
+  ],
+  "cautions": [],
   "duplicate_of": "Olmo-3-1125-32B/english-spanish/output_blackbox/validation/1203827"
  },
  "Olmo-3-1125-32B/english-spanish/fv_heads/validation/1226906": {
@@ -8546,7 +9046,9 @@
    "pattern": "<prefix> {word} ->",
    "decoding": "greedy (temperature 0)",
    "note": null
-  }
+  },
+  "highlights": [],
+  "cautions": []
  },
  "Olmo-3-1125-32B/english-spanish/fv_heads/final/1226906": {
   "id": "Olmo-3-1125-32B/english-spanish/fv_heads/final/1226906",
@@ -8680,7 +9182,9 @@
    "pattern": "<prefix> {word} ->",
    "decoding": "greedy (temperature 0)",
    "note": null
-  }
+  },
+  "highlights": [],
+  "cautions": []
  },
  "Olmo-3-1125-32B/english-spanish/output_gcg/validation/1226906": {
   "id": "Olmo-3-1125-32B/english-spanish/output_gcg/validation/1226906",
@@ -8773,7 +9277,14 @@
    "pattern": "<prefix> {word} ->",
    "decoding": "greedy (temperature 0)",
    "note": null
-  }
+  },
+  "highlights": [
+   {
+    "tag": "beats the tuned function vector",
+    "why": "122 vs 71 for the function vector tuned on validation (paired p = 3.3e-08)"
+   }
+  ],
+  "cautions": []
  },
  "Olmo-3-1125-32B/english-spanish/output_gcg/final/1226906": {
   "id": "Olmo-3-1125-32B/english-spanish/output_gcg/final/1226906",
@@ -8866,7 +9377,14 @@
    "pattern": "<prefix> {word} ->",
    "decoding": "greedy (temperature 0)",
    "note": null
-  }
+  },
+  "highlights": [
+   {
+    "tag": "beats the tuned function vector",
+    "why": "118 vs 71 for the function vector tuned on validation (no paired test stored)"
+   }
+  ],
+  "cautions": []
  },
  "Olmo-3-1125-32B/english-spanish/output_blackbox/validation/1226906": {
   "id": "Olmo-3-1125-32B/english-spanish/output_blackbox/validation/1226906",
@@ -8959,7 +9477,14 @@
    "pattern": "<prefix> {word} ->",
    "decoding": "greedy (temperature 0)",
    "note": null
-  }
+  },
+  "highlights": [
+   {
+    "tag": "beats the tuned function vector",
+    "why": "157 vs 71 for the function vector tuned on validation (no paired test stored)"
+   }
+  ],
+  "cautions": []
  },
  "Olmo-3-1125-32B/english-spanish/output_blackbox/final/1226906": {
   "id": "Olmo-3-1125-32B/english-spanish/output_blackbox/final/1226906",
@@ -9052,7 +9577,18 @@
    "pattern": "<prefix> {word} ->",
    "decoding": "greedy (temperature 0)",
    "note": null
-  }
+  },
+  "highlights": [
+   {
+    "tag": "beats the tuned function vector",
+    "why": "153 vs 71 for the function vector tuned on validation (no paired test stored)"
+   },
+   {
+    "tag": "works through its heads",
+    "why": "87 -> 71 with its heads knocked out (no random-head control)"
+   }
+  ],
+  "cautions": []
  },
  "Olmo-3.1-32B-Instruct/english-spanish/fv_heads/validation/1188215": {
   "id": "Olmo-3.1-32B-Instruct/english-spanish/fv_heads/validation/1188215",
@@ -9139,7 +9675,9 @@
    "pattern": "<prefix> {word} ->",
    "decoding": "greedy (temperature 0)",
    "note": "plain text on a post-trained model: run as a raw completion, NOT through its chat template"
-  }
+  },
+  "highlights": [],
+  "cautions": []
  },
  "Olmo-3.1-32B-Instruct/english-spanish/fv_heads/final/1188215": {
   "id": "Olmo-3.1-32B-Instruct/english-spanish/fv_heads/final/1188215",
@@ -9227,6 +9765,8 @@
    "decoding": "greedy (temperature 0)",
    "note": "plain text on a post-trained model: run as a raw completion, NOT through its chat template"
   },
+  "highlights": [],
+  "cautions": [],
   "duplicate_of": "Olmo-3.1-32B-Instruct/english-spanish/fv_heads/validation/1188215"
  },
  "Olmo-3.1-32B-Instruct/english-spanish/fv_residual/validation/1188215": {
@@ -9273,7 +9813,9 @@
    "pattern": "<prefix> {word} ->",
    "decoding": "greedy (temperature 0)",
    "note": "plain text on a post-trained model: run as a raw completion, NOT through its chat template"
-  }
+  },
+  "highlights": [],
+  "cautions": []
  },
  "Olmo-3.1-32B-Think/english-spanish/fv_heads/validation/1188211": {
   "id": "Olmo-3.1-32B-Think/english-spanish/fv_heads/validation/1188211",
@@ -9360,7 +9902,9 @@
    "pattern": "<prefix> {word} ->",
    "decoding": "greedy (temperature 0)",
    "note": "plain text on a post-trained model: run as a raw completion, NOT through its chat template"
-  }
+  },
+  "highlights": [],
+  "cautions": []
  },
  "Olmo-3.1-32B-Think/english-spanish/fv_heads/final/1188211": {
   "id": "Olmo-3.1-32B-Think/english-spanish/fv_heads/final/1188211",
@@ -9448,6 +9992,8 @@
    "decoding": "greedy (temperature 0)",
    "note": "plain text on a post-trained model: run as a raw completion, NOT through its chat template"
   },
+  "highlights": [],
+  "cautions": [],
   "duplicate_of": "Olmo-3.1-32B-Think/english-spanish/fv_heads/validation/1188211"
  },
  "Olmo-3.1-32B-Think/english-spanish/fv_residual/validation/1188211": {
@@ -9494,7 +10040,9 @@
    "pattern": "<prefix> {word} ->",
    "decoding": "greedy (temperature 0)",
    "note": "plain text on a post-trained model: run as a raw completion, NOT through its chat template"
-  }
+  },
+  "highlights": [],
+  "cautions": []
  },
  "Qwen3.8-27B/english-spanish/fv_heads/validation/1188337": {
   "id": "Qwen3.8-27B/english-spanish/fv_heads/validation/1188337",
@@ -9581,7 +10129,9 @@
    "pattern": "<prefix> {word} ->",
    "decoding": "greedy (temperature 0)",
    "note": "plain text on a post-trained model: run as a raw completion, NOT through its chat template"
-  }
+  },
+  "highlights": [],
+  "cautions": []
  },
  "Qwen3.8-27B/english-spanish/fv_heads/final/1188337": {
   "id": "Qwen3.8-27B/english-spanish/fv_heads/final/1188337",
@@ -9668,7 +10218,9 @@
    "pattern": "<prefix> {word} ->",
    "decoding": "greedy (temperature 0)",
    "note": "plain text on a post-trained model: run as a raw completion, NOT through its chat template"
-  }
+  },
+  "highlights": [],
+  "cautions": []
  },
  "Qwen3.8-27B/english-spanish/fv_heads-chat/validation/1188606": {
   "id": "Qwen3.8-27B/english-spanish/fv_heads-chat/validation/1188606",
@@ -9760,7 +10312,9 @@
    "prefill": null,
    "template": "<|im_start|>user\n{prompt}<|im_end|>\n<|im_start|>assistant\n<think>\n\n</think>\n\n",
    "decoding": "greedy (temperature 0)"
-  }
+  },
+  "highlights": [],
+  "cautions": []
  },
  "Qwen3.8-27B/english-spanish/fv_heads-chat/final/1188606": {
   "id": "Qwen3.8-27B/english-spanish/fv_heads-chat/final/1188606",
@@ -9853,6 +10407,8 @@
    "template": "<|im_start|>user\n{prompt}<|im_end|>\n<|im_start|>assistant\n<think>\n\n</think>\n\n",
    "decoding": "greedy (temperature 0)"
   },
+  "highlights": [],
+  "cautions": [],
   "duplicate_of": "Qwen3.8-27B/english-spanish/fv_heads-chat/validation/1188606"
  },
  "Olmo-3-1125-32B/synonym/fv_heads/validation/1187353": {
@@ -9940,7 +10496,9 @@
    "pattern": "<prefix> {word} ->",
    "decoding": "greedy (temperature 0)",
    "note": null
-  }
+  },
+  "highlights": [],
+  "cautions": []
  },
  "Olmo-3-1125-32B/synonym/fv_heads/final/1187353": {
   "id": "Olmo-3-1125-32B/synonym/fv_heads/final/1187353",
@@ -10029,7 +10587,18 @@
    "pattern": "<prefix> {word} ->",
    "decoding": "greedy (temperature 0)",
    "note": null
-  }
+  },
+  "highlights": [
+   {
+    "tag": "beats the tuned function vector",
+    "why": "91 vs 69 for the function vector tuned on validation (paired p = 0.0038)"
+   },
+   {
+    "tag": "best on its task",
+    "why": "the highest synonym score on Olmo-3-1125-32B: 91/200"
+   }
+  ],
+  "cautions": []
  },
  "Olmo-3-1125-32B/synonym/fv_residual/validation/1187353": {
   "id": "Olmo-3-1125-32B/synonym/fv_residual/validation/1187353",
@@ -10075,7 +10644,9 @@
    "pattern": "<prefix> {word} ->",
    "decoding": "greedy (temperature 0)",
    "note": null
-  }
+  },
+  "highlights": [],
+  "cautions": []
  },
  "Olmo-3-1125-32B/synonym/fv_heads/validation/1203825": {
   "id": "Olmo-3-1125-32B/synonym/fv_heads/validation/1203825",
@@ -10210,6 +10781,8 @@
    "decoding": "greedy (temperature 0)",
    "note": null
   },
+  "highlights": [],
+  "cautions": [],
   "duplicate_of": "Olmo-3-1125-32B/synonym/fv_heads/validation/1187353"
  },
  "Olmo-3-1125-32B/synonym/fv_heads/final/1203825": {
@@ -10345,6 +10918,25 @@
    "decoding": "greedy (temperature 0)",
    "note": null
   },
+  "highlights": [
+   {
+    "tag": "beats the tuned function vector",
+    "why": "91 vs 69 for the function vector tuned on validation (paired p = 0.0038)"
+   },
+   {
+    "tag": "holds up in new phrasings",
+    "why": "on fresh words, `{x}:` 33/120, `Q: {x}\nA:` 35/120, `{x} =` 40/120"
+   },
+   {
+    "tag": "works through its heads",
+    "why": "52 -> 40 with its heads knocked out (no random-head control)"
+   },
+   {
+    "tag": "best on its task",
+    "why": "the highest synonym score on Olmo-3-1125-32B: 91/200"
+   }
+  ],
+  "cautions": [],
   "duplicate_of": "Olmo-3-1125-32B/synonym/fv_heads/final/1187353"
  },
  "Olmo-3-1125-32B/synonym/output_gcg/validation/1203825": {
@@ -10438,7 +11030,9 @@
    "pattern": "<prefix> {word} ->",
    "decoding": "greedy (temperature 0)",
    "note": null
-  }
+  },
+  "highlights": [],
+  "cautions": []
  },
  "Olmo-3-1125-32B/synonym/output_gcg/final/1203825": {
   "id": "Olmo-3-1125-32B/synonym/output_gcg/final/1203825",
@@ -10531,7 +11125,9 @@
    "pattern": "<prefix> {word} ->",
    "decoding": "greedy (temperature 0)",
    "note": null
-  }
+  },
+  "highlights": [],
+  "cautions": []
  },
  "Olmo-3-1125-32B/synonym/output_blackbox/validation/1203825": {
   "id": "Olmo-3-1125-32B/synonym/output_blackbox/validation/1203825",
@@ -10624,7 +11220,14 @@
    "pattern": "<prefix> {word} ->",
    "decoding": "greedy (temperature 0)",
    "note": null
-  }
+  },
+  "highlights": [
+   {
+    "tag": "beats the tuned function vector",
+    "why": "90 vs 69 for the function vector tuned on validation (no paired test stored)"
+   }
+  ],
+  "cautions": []
  },
  "Olmo-3-1125-32B/synonym/output_blackbox/final/1203825": {
   "id": "Olmo-3-1125-32B/synonym/output_blackbox/final/1203825",
@@ -10717,7 +11320,9 @@
    "pattern": "<prefix> {word} ->",
    "decoding": "greedy (temperature 0)",
    "note": null
-  }
+  },
+  "highlights": [],
+  "cautions": []
  },
  "Olmo-3-1125-32B/synonym/fv_heads/validation/1226904": {
   "id": "Olmo-3-1125-32B/synonym/fv_heads/validation/1226904",
@@ -10851,7 +11456,14 @@
    "pattern": "<prefix> {word} ->",
    "decoding": "greedy (temperature 0)",
    "note": null
-  }
+  },
+  "highlights": [
+   {
+    "tag": "works through its heads",
+    "why": "22 -> 6 with its heads knocked out, 22 with random heads"
+   }
+  ],
+  "cautions": []
  },
  "Olmo-3-1125-32B/synonym/fv_heads/final/1226904": {
   "id": "Olmo-3-1125-32B/synonym/fv_heads/final/1226904",
@@ -10986,6 +11598,13 @@
    "decoding": "greedy (temperature 0)",
    "note": null
   },
+  "highlights": [
+   {
+    "tag": "works through its heads",
+    "why": "22 -> 6 with its heads knocked out (no random-head control)"
+   }
+  ],
+  "cautions": [],
   "duplicate_of": "Olmo-3-1125-32B/synonym/fv_heads/validation/1226904"
  },
  "Olmo-3-1125-32B/synonym/output_gcg/validation/1226904": {
@@ -11079,7 +11698,9 @@
    "pattern": "<prefix> {word} ->",
    "decoding": "greedy (temperature 0)",
    "note": null
-  }
+  },
+  "highlights": [],
+  "cautions": []
  },
  "Olmo-3-1125-32B/synonym/output_gcg/final/1226904": {
   "id": "Olmo-3-1125-32B/synonym/output_gcg/final/1226904",
@@ -11172,7 +11793,9 @@
    "pattern": "<prefix> {word} ->",
    "decoding": "greedy (temperature 0)",
    "note": null
-  }
+  },
+  "highlights": [],
+  "cautions": []
  },
  "Olmo-3-1125-32B/synonym/output_blackbox/validation/1226904": {
   "id": "Olmo-3-1125-32B/synonym/output_blackbox/validation/1226904",
@@ -11265,7 +11888,9 @@
    "pattern": "<prefix> {word} ->",
    "decoding": "greedy (temperature 0)",
    "note": null
-  }
+  },
+  "highlights": [],
+  "cautions": []
  },
  "Olmo-3-1125-32B/synonym/output_blackbox/final/1226904": {
   "id": "Olmo-3-1125-32B/synonym/output_blackbox/final/1226904",
@@ -11358,7 +11983,9 @@
    "pattern": "<prefix> {word} ->",
    "decoding": "greedy (temperature 0)",
    "note": null
-  }
+  },
+  "highlights": [],
+  "cautions": []
  },
  "Olmo-3.1-32B-Instruct/synonym/fv_heads/validation/1188213": {
   "id": "Olmo-3.1-32B-Instruct/synonym/fv_heads/validation/1188213",
@@ -11445,7 +12072,9 @@
    "pattern": "<prefix> {word} ->",
    "decoding": "greedy (temperature 0)",
    "note": "plain text on a post-trained model: run as a raw completion, NOT through its chat template"
-  }
+  },
+  "highlights": [],
+  "cautions": []
  },
  "Olmo-3.1-32B-Instruct/synonym/fv_heads/final/1188213": {
   "id": "Olmo-3.1-32B-Instruct/synonym/fv_heads/final/1188213",
@@ -11532,7 +12161,9 @@
    "pattern": "<prefix> {word} ->",
    "decoding": "greedy (temperature 0)",
    "note": "plain text on a post-trained model: run as a raw completion, NOT through its chat template"
-  }
+  },
+  "highlights": [],
+  "cautions": []
  },
  "Olmo-3.1-32B-Instruct/synonym/fv_residual/validation/1188213": {
   "id": "Olmo-3.1-32B-Instruct/synonym/fv_residual/validation/1188213",
@@ -11578,7 +12209,9 @@
    "pattern": "<prefix> {word} ->",
    "decoding": "greedy (temperature 0)",
    "note": "plain text on a post-trained model: run as a raw completion, NOT through its chat template"
-  }
+  },
+  "highlights": [],
+  "cautions": []
  },
  "Olmo-3.1-32B-Think/synonym/fv_heads/validation/1188209": {
   "id": "Olmo-3.1-32B-Think/synonym/fv_heads/validation/1188209",
@@ -11665,7 +12298,9 @@
    "pattern": "<prefix> {word} ->",
    "decoding": "greedy (temperature 0)",
    "note": "plain text on a post-trained model: run as a raw completion, NOT through its chat template"
-  }
+  },
+  "highlights": [],
+  "cautions": []
  },
  "Olmo-3.1-32B-Think/synonym/fv_heads/final/1188209": {
   "id": "Olmo-3.1-32B-Think/synonym/fv_heads/final/1188209",
@@ -11752,7 +12387,9 @@
    "pattern": "<prefix> {word} ->",
    "decoding": "greedy (temperature 0)",
    "note": "plain text on a post-trained model: run as a raw completion, NOT through its chat template"
-  }
+  },
+  "highlights": [],
+  "cautions": []
  },
  "Olmo-3.1-32B-Think/synonym/fv_residual/validation/1188209": {
   "id": "Olmo-3.1-32B-Think/synonym/fv_residual/validation/1188209",
@@ -11798,7 +12435,9 @@
    "pattern": "<prefix> {word} ->",
    "decoding": "greedy (temperature 0)",
    "note": "plain text on a post-trained model: run as a raw completion, NOT through its chat template"
-  }
+  },
+  "highlights": [],
+  "cautions": []
  },
  "Olmo-3.1-32B-Instruct/antonym/instruction-fewshot-reply-chat/validation/1200601": {
   "id": "Olmo-3.1-32B-Instruct/antonym/instruction-fewshot-reply-chat/validation/1200601",
@@ -11891,7 +12530,9 @@
    "prefill": null,
    "template": "<|im_start|>system\nAnswer with one word.<|im_end|>\n<|im_start|>user\n{prompt}<|im_end|>\n<|im_start|>assistant\n",
    "decoding": "greedy (temperature 0)"
-  }
+  },
+  "highlights": [],
+  "cautions": []
  },
  "Olmo-3.1-32B-Instruct/antonym/instruction-fewshot-reply-chat/final/1200601": {
   "id": "Olmo-3.1-32B-Instruct/antonym/instruction-fewshot-reply-chat/final/1200601",
@@ -11984,7 +12625,9 @@
    "prefill": null,
    "template": "<|im_start|>system\nAnswer with one word.<|im_end|>\n<|im_start|>user\n{prompt}<|im_end|>\n<|im_start|>assistant\n",
    "decoding": "greedy (temperature 0)"
-  }
+  },
+  "highlights": [],
+  "cautions": []
  },
  "Olmo-3.1-32B-Instruct/antonym/instruction-reply-reply-chat/validation/1200491": {
   "id": "Olmo-3.1-32B-Instruct/antonym/instruction-reply-reply-chat/validation/1200491",
@@ -12077,7 +12720,9 @@
    "prefill": "Answer:",
    "template": "<|im_start|>system\nYou are Olmo, a helpful AI assistant built by Ai2. Your date cutoff is December 2024, and your model weights are available at https://huggingface.co/allenai. You do not currently have access to any functions. <functions></functions><|im_end|>\n<|im_start|>user\n{prompt}<|im_end|>\n<|im_start|>assistant\nAnswer:",
    "decoding": "greedy (temperature 0)"
-  }
+  },
+  "highlights": [],
+  "cautions": []
  },
  "Olmo-3.1-32B-Instruct/antonym/instruction-reply-reply-chat/final/1200491": {
   "id": "Olmo-3.1-32B-Instruct/antonym/instruction-reply-reply-chat/final/1200491",
@@ -12171,6 +12816,8 @@
    "template": "<|im_start|>system\nYou are Olmo, a helpful AI assistant built by Ai2. Your date cutoff is December 2024, and your model weights are available at https://huggingface.co/allenai. You do not currently have access to any functions. <functions></functions><|im_end|>\n<|im_start|>user\n{prompt}<|im_end|>\n<|im_start|>assistant\nAnswer:",
    "decoding": "greedy (temperature 0)"
   },
+  "highlights": [],
+  "cautions": [],
   "duplicate_of": "Olmo-3.1-32B-Instruct/antonym/instruction-reply-reply-chat/validation/1200491"
  },
  "Olmo-3.1-32B-Instruct/antonym/instruction-request-reply-chat/validation/1190173": {
@@ -12264,7 +12911,9 @@
    "prefill": null,
    "template": "<|im_start|>system\nYou are Olmo, a helpful AI assistant built by Ai2. Your date cutoff is December 2024, and your model weights are available at https://huggingface.co/allenai. You do not currently have access to any functions. <functions></functions><|im_end|>\n<|im_start|>user\n{prompt}<|im_end|>\n<|im_start|>assistant\n",
    "decoding": "greedy (temperature 0)"
-  }
+  },
+  "highlights": [],
+  "cautions": []
  },
  "Olmo-3.1-32B-Instruct/antonym/instruction-request-reply-chat/final/1190173": {
   "id": "Olmo-3.1-32B-Instruct/antonym/instruction-request-reply-chat/final/1190173",
@@ -12358,6 +13007,8 @@
    "template": "<|im_start|>system\nYou are Olmo, a helpful AI assistant built by Ai2. Your date cutoff is December 2024, and your model weights are available at https://huggingface.co/allenai. You do not currently have access to any functions. <functions></functions><|im_end|>\n<|im_start|>user\n{prompt}<|im_end|>\n<|im_start|>assistant\n",
    "decoding": "greedy (temperature 0)"
   },
+  "highlights": [],
+  "cautions": [],
   "duplicate_of": "Olmo-3.1-32B-Instruct/antonym/instruction-request-reply-chat/validation/1190173"
  },
  "Olmo-3.1-32B-Instruct/antonym/instruction-request-reply-chat/validation/1200489": {
@@ -12451,7 +13102,9 @@
    "prefill": null,
    "template": "<|im_start|>system\nAnswer with one word.<|im_end|>\n<|im_start|>user\n{prompt}<|im_end|>\n<|im_start|>assistant\n",
    "decoding": "greedy (temperature 0)"
-  }
+  },
+  "highlights": [],
+  "cautions": []
  },
  "Olmo-3.1-32B-Instruct/antonym/instruction-request-reply-chat/final/1200489": {
   "id": "Olmo-3.1-32B-Instruct/antonym/instruction-request-reply-chat/final/1200489",
@@ -12544,7 +13197,9 @@
    "prefill": null,
    "template": "<|im_start|>system\nAnswer with one word.<|im_end|>\n<|im_start|>user\n{prompt}<|im_end|>\n<|im_start|>assistant\n",
    "decoding": "greedy (temperature 0)"
-  }
+  },
+  "highlights": [],
+  "cautions": []
  },
  "Olmo-3.1-32B-Instruct/antonym/instruction-request-reply-chat/validation/1201782": {
   "id": "Olmo-3.1-32B-Instruct/antonym/instruction-request-reply-chat/validation/1201782",
@@ -12637,7 +13292,9 @@
    "prefill": null,
    "template": "<|im_start|>system\nYou are Olmo, a helpful AI assistant built by Ai2. Your date cutoff is December 2024, and your model weights are available at https://huggingface.co/allenai. You do not currently have access to any functions. <functions></functions><|im_end|>\n<|im_start|>user\n{prompt}<|im_end|>\n<|im_start|>assistant\n",
    "decoding": "greedy (temperature 0)"
-  }
+  },
+  "highlights": [],
+  "cautions": []
  },
  "Olmo-3.1-32B-Instruct/antonym/instruction-request-reply-chat/final/1201782": {
   "id": "Olmo-3.1-32B-Instruct/antonym/instruction-request-reply-chat/final/1201782",
@@ -12730,7 +13387,9 @@
    "prefill": null,
    "template": "<|im_start|>system\nYou are Olmo, a helpful AI assistant built by Ai2. Your date cutoff is December 2024, and your model weights are available at https://huggingface.co/allenai. You do not currently have access to any functions. <functions></functions><|im_end|>\n<|im_start|>user\n{prompt}<|im_end|>\n<|im_start|>assistant\n",
    "decoding": "greedy (temperature 0)"
-  }
+  },
+  "highlights": [],
+  "cautions": []
  },
  "Olmo-3.1-32B-Instruct/antonym/instruction-request-word-chat/validation/1200490": {
   "id": "Olmo-3.1-32B-Instruct/antonym/instruction-request-word-chat/validation/1200490",
@@ -12823,7 +13482,9 @@
    "prefill": null,
    "template": "<|im_start|>system\nAnswer with one word.<|im_end|>\n<|im_start|>user\n{prompt}<|im_end|>\n<|im_start|>assistant\n",
    "decoding": "greedy (temperature 0)"
-  }
+  },
+  "highlights": [],
+  "cautions": []
  },
  "Olmo-3.1-32B-Instruct/antonym/instruction-request-word-chat/final/1200490": {
   "id": "Olmo-3.1-32B-Instruct/antonym/instruction-request-word-chat/final/1200490",
@@ -12916,7 +13577,9 @@
    "prefill": null,
    "template": "<|im_start|>system\nAnswer with one word.<|im_end|>\n<|im_start|>user\n{prompt}<|im_end|>\n<|im_start|>assistant\n",
    "decoding": "greedy (temperature 0)"
-  }
+  },
+  "highlights": [],
+  "cautions": []
  },
  "Olmo-3.1-32B-Instruct/antonym/instruction-request-word-chat/validation/1214105": {
   "id": "Olmo-3.1-32B-Instruct/antonym/instruction-request-word-chat/validation/1214105",
@@ -13009,7 +13672,9 @@
    "prefill": null,
    "template": "<|im_start|>system\nAnswer with one word.<|im_end|>\n<|im_start|>user\n{prompt}<|im_end|>\n<|im_start|>assistant\n",
    "decoding": "greedy (temperature 0)"
-  }
+  },
+  "highlights": [],
+  "cautions": []
  },
  "Olmo-3.1-32B-Instruct/antonym/instruction-request-word-chat/final/1214105": {
   "id": "Olmo-3.1-32B-Instruct/antonym/instruction-request-word-chat/final/1214105",
@@ -13102,7 +13767,9 @@
    "prefill": null,
    "template": "<|im_start|>system\nAnswer with one word.<|im_end|>\n<|im_start|>user\n{prompt}<|im_end|>\n<|im_start|>assistant\n",
    "decoding": "greedy (temperature 0)"
-  }
+  },
+  "highlights": [],
+  "cautions": []
  },
  "Olmo-3.1-32B-Instruct/antonym/instruction-resid-word-chat/validation/1214105": {
   "id": "Olmo-3.1-32B-Instruct/antonym/instruction-resid-word-chat/validation/1214105",
@@ -13154,7 +13821,9 @@
    "prefill": null,
    "template": "<|im_start|>system\nAnswer with one word.<|im_end|>\n<|im_start|>user\n{prompt}<|im_end|>\n<|im_start|>assistant\n",
    "decoding": "greedy (temperature 0)"
-  }
+  },
+  "highlights": [],
+  "cautions": []
  },
  "Olmo-3.1-32B-Instruct/antonym/output_gcg-chat/validation/1214105": {
   "id": "Olmo-3.1-32B-Instruct/antonym/output_gcg-chat/validation/1214105",
@@ -13206,7 +13875,9 @@
    "prefill": null,
    "template": "<|im_start|>system\nAnswer with one word.<|im_end|>\n<|im_start|>user\n{prompt}<|im_end|>\n<|im_start|>assistant\n",
    "decoding": "greedy (temperature 0)"
-  }
+  },
+  "highlights": [],
+  "cautions": []
  },
  "Olmo-3.1-32B-Instruct/antonym/output_gcg-chat/final/1214105": {
   "id": "Olmo-3.1-32B-Instruct/antonym/output_gcg-chat/final/1214105",
@@ -13258,7 +13929,9 @@
    "prefill": null,
    "template": "<|im_start|>system\nAnswer with one word.<|im_end|>\n<|im_start|>user\n{prompt}<|im_end|>\n<|im_start|>assistant\n",
    "decoding": "greedy (temperature 0)"
-  }
+  },
+  "highlights": [],
+  "cautions": []
  },
  "Qwen3.8-27B/antonym/instruction-request-word-chat/validation/1214109": {
   "id": "Qwen3.8-27B/antonym/instruction-request-word-chat/validation/1214109",
@@ -13351,7 +14024,9 @@
    "prefill": null,
    "template": "<|im_start|>system\nAnswer with one word.<|im_end|>\n<|im_start|>user\n{prompt}<|im_end|>\n<|im_start|>assistant\n<think>\n\n</think>\n\n",
    "decoding": "greedy (temperature 0)"
-  }
+  },
+  "highlights": [],
+  "cautions": []
  },
  "Qwen3.8-27B/antonym/instruction-request-word-chat/final/1214109": {
   "id": "Qwen3.8-27B/antonym/instruction-request-word-chat/final/1214109",
@@ -13445,6 +14120,8 @@
    "template": "<|im_start|>system\nAnswer with one word.<|im_end|>\n<|im_start|>user\n{prompt}<|im_end|>\n<|im_start|>assistant\n<think>\n\n</think>\n\n",
    "decoding": "greedy (temperature 0)"
   },
+  "highlights": [],
+  "cautions": [],
   "duplicate_of": "Qwen3.8-27B/antonym/instruction-request-word-chat/validation/1214109"
  },
  "Qwen3.8-27B/antonym/instruction-resid-word-chat/validation/1214109": {
@@ -13497,7 +14174,9 @@
    "prefill": null,
    "template": "<|im_start|>system\nAnswer with one word.<|im_end|>\n<|im_start|>user\n{prompt}<|im_end|>\n<|im_start|>assistant\n<think>\n\n</think>\n\n",
    "decoding": "greedy (temperature 0)"
-  }
+  },
+  "highlights": [],
+  "cautions": []
  },
  "Qwen3.8-27B/antonym/output_gcg-chat/validation/1214109": {
   "id": "Qwen3.8-27B/antonym/output_gcg-chat/validation/1214109",
@@ -13549,7 +14228,9 @@
    "prefill": null,
    "template": "<|im_start|>system\nAnswer with one word.<|im_end|>\n<|im_start|>user\n{prompt}<|im_end|>\n<|im_start|>assistant\n<think>\n\n</think>\n\n",
    "decoding": "greedy (temperature 0)"
-  }
+  },
+  "highlights": [],
+  "cautions": []
  },
  "Qwen3.8-27B/antonym/output_gcg-chat/final/1214109": {
   "id": "Qwen3.8-27B/antonym/output_gcg-chat/final/1214109",
@@ -13601,7 +14282,9 @@
    "prefill": null,
    "template": "<|im_start|>system\nAnswer with one word.<|im_end|>\n<|im_start|>user\n{prompt}<|im_end|>\n<|im_start|>assistant\n<think>\n\n</think>\n\n",
    "decoding": "greedy (temperature 0)"
-  }
+  },
+  "highlights": [],
+  "cautions": []
  },
  "Olmo-3.1-32B-Instruct/antonym/instruction-request-word-chat/validation/1190174": {
   "id": "Olmo-3.1-32B-Instruct/antonym/instruction-request-word-chat/validation/1190174",
@@ -13694,7 +14377,9 @@
    "prefill": null,
    "template": "<|im_start|>system\nYou are Olmo, a helpful AI assistant built by Ai2. Your date cutoff is December 2024, and your model weights are available at https://huggingface.co/allenai. You do not currently have access to any functions. <functions></functions><|im_end|>\n<|im_start|>user\n{prompt}<|im_end|>\n<|im_start|>assistant\n",
    "decoding": "greedy (temperature 0)"
-  }
+  },
+  "highlights": [],
+  "cautions": []
  },
  "Olmo-3.1-32B-Instruct/antonym/instruction-request-word-chat/final/1190174": {
   "id": "Olmo-3.1-32B-Instruct/antonym/instruction-request-word-chat/final/1190174",
@@ -13788,6 +14473,8 @@
    "template": "<|im_start|>system\nYou are Olmo, a helpful AI assistant built by Ai2. Your date cutoff is December 2024, and your model weights are available at https://huggingface.co/allenai. You do not currently have access to any functions. <functions></functions><|im_end|>\n<|im_start|>user\n{prompt}<|im_end|>\n<|im_start|>assistant\n",
    "decoding": "greedy (temperature 0)"
   },
+  "highlights": [],
+  "cautions": [],
   "duplicate_of": "Olmo-3.1-32B-Instruct/antonym/instruction-request-word-chat/validation/1190174"
  },
  "Olmo-3.1-32B-Instruct/english-french/instruction-request-word-chat/validation/1222047": {
@@ -13881,7 +14568,9 @@
    "prefill": null,
    "template": "<|im_start|>system\nAnswer with one word.<|im_end|>\n<|im_start|>user\n{prompt}<|im_end|>\n<|im_start|>assistant\n",
    "decoding": "greedy (temperature 0)"
-  }
+  },
+  "highlights": [],
+  "cautions": []
  },
  "Olmo-3.1-32B-Instruct/english-french/instruction-request-word-chat/final/1222047": {
   "id": "Olmo-3.1-32B-Instruct/english-french/instruction-request-word-chat/final/1222047",
@@ -13975,6 +14664,8 @@
    "template": "<|im_start|>system\nAnswer with one word.<|im_end|>\n<|im_start|>user\n{prompt}<|im_end|>\n<|im_start|>assistant\n",
    "decoding": "greedy (temperature 0)"
   },
+  "highlights": [],
+  "cautions": [],
   "duplicate_of": "Olmo-3.1-32B-Instruct/english-french/instruction-request-word-chat/validation/1222047"
  },
  "Olmo-3.1-32B-Instruct/english-french/instruction-resid-word-chat/validation/1222047": {
@@ -14027,7 +14718,9 @@
    "prefill": null,
    "template": "<|im_start|>system\nAnswer with one word.<|im_end|>\n<|im_start|>user\n{prompt}<|im_end|>\n<|im_start|>assistant\n",
    "decoding": "greedy (temperature 0)"
-  }
+  },
+  "highlights": [],
+  "cautions": []
  },
  "Olmo-3.1-32B-Instruct/english-french/output_gcg-chat/validation/1222047": {
   "id": "Olmo-3.1-32B-Instruct/english-french/output_gcg-chat/validation/1222047",
@@ -14079,7 +14772,9 @@
    "prefill": null,
    "template": "<|im_start|>system\nAnswer with one word.<|im_end|>\n<|im_start|>user\n{prompt}<|im_end|>\n<|im_start|>assistant\n",
    "decoding": "greedy (temperature 0)"
-  }
+  },
+  "highlights": [],
+  "cautions": []
  },
  "Olmo-3.1-32B-Instruct/english-french/output_gcg-chat/final/1222047": {
   "id": "Olmo-3.1-32B-Instruct/english-french/output_gcg-chat/final/1222047",
@@ -14131,7 +14826,9 @@
    "prefill": null,
    "template": "<|im_start|>system\nAnswer with one word.<|im_end|>\n<|im_start|>user\n{prompt}<|im_end|>\n<|im_start|>assistant\n",
    "decoding": "greedy (temperature 0)"
-  }
+  },
+  "highlights": [],
+  "cautions": []
  },
  "Qwen3.8-27B/english-french/instruction-request-word-chat/validation/1222049": {
   "id": "Qwen3.8-27B/english-french/instruction-request-word-chat/validation/1222049",
@@ -14224,7 +14921,9 @@
    "prefill": null,
    "template": "<|im_start|>system\nAnswer with one word.<|im_end|>\n<|im_start|>user\n{prompt}<|im_end|>\n<|im_start|>assistant\n<think>\n\n</think>\n\n",
    "decoding": "greedy (temperature 0)"
-  }
+  },
+  "highlights": [],
+  "cautions": []
  },
  "Qwen3.8-27B/english-french/instruction-request-word-chat/final/1222049": {
   "id": "Qwen3.8-27B/english-french/instruction-request-word-chat/final/1222049",
@@ -14318,6 +15017,8 @@
    "template": "<|im_start|>system\nAnswer with one word.<|im_end|>\n<|im_start|>user\n{prompt}<|im_end|>\n<|im_start|>assistant\n<think>\n\n</think>\n\n",
    "decoding": "greedy (temperature 0)"
   },
+  "highlights": [],
+  "cautions": [],
   "duplicate_of": "Qwen3.8-27B/english-french/instruction-request-word-chat/validation/1222049"
  },
  "Qwen3.8-27B/english-french/instruction-resid-word-chat/validation/1222049": {
@@ -14370,7 +15071,9 @@
    "prefill": null,
    "template": "<|im_start|>system\nAnswer with one word.<|im_end|>\n<|im_start|>user\n{prompt}<|im_end|>\n<|im_start|>assistant\n<think>\n\n</think>\n\n",
    "decoding": "greedy (temperature 0)"
-  }
+  },
+  "highlights": [],
+  "cautions": []
  },
  "Qwen3.8-27B/english-french/output_gcg-chat/validation/1222049": {
   "id": "Qwen3.8-27B/english-french/output_gcg-chat/validation/1222049",
@@ -14422,7 +15125,9 @@
    "prefill": null,
    "template": "<|im_start|>system\nAnswer with one word.<|im_end|>\n<|im_start|>user\n{prompt}<|im_end|>\n<|im_start|>assistant\n<think>\n\n</think>\n\n",
    "decoding": "greedy (temperature 0)"
-  }
+  },
+  "highlights": [],
+  "cautions": []
  },
  "Qwen3.8-27B/english-french/output_gcg-chat/final/1222049": {
   "id": "Qwen3.8-27B/english-french/output_gcg-chat/final/1222049",
@@ -14475,6 +15180,8 @@
    "template": "<|im_start|>system\nAnswer with one word.<|im_end|>\n<|im_start|>user\n{prompt}<|im_end|>\n<|im_start|>assistant\n<think>\n\n</think>\n\n",
    "decoding": "greedy (temperature 0)"
   },
+  "highlights": [],
+  "cautions": [],
   "duplicate_of": "Qwen3.8-27B/english-french/output_gcg-chat/validation/1222049"
  },
  "Qwen3.8-27B/english-spanish/instruction-fewshot-reply-chat/validation/1200602": {
@@ -14568,7 +15275,9 @@
    "prefill": null,
    "template": "<|im_start|>system\nAnswer with one word.<|im_end|>\n<|im_start|>user\n{prompt}<|im_end|>\n<|im_start|>assistant\n<think>\n\n</think>\n\n",
    "decoding": "greedy (temperature 0)"
-  }
+  },
+  "highlights": [],
+  "cautions": []
  },
  "Qwen3.8-27B/english-spanish/instruction-fewshot-reply-chat/final/1200602": {
   "id": "Qwen3.8-27B/english-spanish/instruction-fewshot-reply-chat/final/1200602",
@@ -14662,6 +15371,8 @@
    "template": "<|im_start|>system\nAnswer with one word.<|im_end|>\n<|im_start|>user\n{prompt}<|im_end|>\n<|im_start|>assistant\n<think>\n\n</think>\n\n",
    "decoding": "greedy (temperature 0)"
   },
+  "highlights": [],
+  "cautions": [],
   "duplicate_of": "Qwen3.8-27B/english-spanish/instruction-fewshot-reply-chat/validation/1200602"
  },
  "Qwen3.8-27B/english-spanish/instruction-request-reply-chat/validation/1200492": {
@@ -14755,7 +15466,9 @@
    "prefill": null,
    "template": "<|im_start|>system\nAnswer with one word.<|im_end|>\n<|im_start|>user\n{prompt}<|im_end|>\n<|im_start|>assistant\n<think>\n\n</think>\n\n",
    "decoding": "greedy (temperature 0)"
-  }
+  },
+  "highlights": [],
+  "cautions": []
  },
  "Qwen3.8-27B/english-spanish/instruction-request-reply-chat/final/1200492": {
   "id": "Qwen3.8-27B/english-spanish/instruction-request-reply-chat/final/1200492",
@@ -14849,6 +15562,8 @@
    "template": "<|im_start|>system\nAnswer with one word.<|im_end|>\n<|im_start|>user\n{prompt}<|im_end|>\n<|im_start|>assistant\n<think>\n\n</think>\n\n",
    "decoding": "greedy (temperature 0)"
   },
+  "highlights": [],
+  "cautions": [],
   "duplicate_of": "Qwen3.8-27B/english-spanish/instruction-request-reply-chat/validation/1200492"
  },
  "Qwen3.8-27B/english-spanish/instruction-request-reply-chat/validation/1201783": {
@@ -14942,7 +15657,9 @@
    "prefill": null,
    "template": "<|im_start|>user\n{prompt}<|im_end|>\n<|im_start|>assistant\n<think>\n\n</think>\n\n",
    "decoding": "greedy (temperature 0)"
-  }
+  },
+  "highlights": [],
+  "cautions": []
  },
  "Qwen3.8-27B/english-spanish/instruction-request-reply-chat/final/1201783": {
   "id": "Qwen3.8-27B/english-spanish/instruction-request-reply-chat/final/1201783",
@@ -15036,6 +15753,8 @@
    "template": "<|im_start|>user\n{prompt}<|im_end|>\n<|im_start|>assistant\n<think>\n\n</think>\n\n",
    "decoding": "greedy (temperature 0)"
   },
+  "highlights": [],
+  "cautions": [],
   "duplicate_of": "Qwen3.8-27B/english-spanish/instruction-request-reply-chat/validation/1201783"
  },
  "Olmo-3.1-32B-Instruct/english-spanish/instruction-request-word-chat/validation/1222048": {
@@ -15129,7 +15848,9 @@
    "prefill": null,
    "template": "<|im_start|>system\nAnswer with one word.<|im_end|>\n<|im_start|>user\n{prompt}<|im_end|>\n<|im_start|>assistant\n",
    "decoding": "greedy (temperature 0)"
-  }
+  },
+  "highlights": [],
+  "cautions": []
  },
  "Olmo-3.1-32B-Instruct/english-spanish/instruction-request-word-chat/final/1222048": {
   "id": "Olmo-3.1-32B-Instruct/english-spanish/instruction-request-word-chat/final/1222048",
@@ -15223,6 +15944,8 @@
    "template": "<|im_start|>system\nAnswer with one word.<|im_end|>\n<|im_start|>user\n{prompt}<|im_end|>\n<|im_start|>assistant\n",
    "decoding": "greedy (temperature 0)"
   },
+  "highlights": [],
+  "cautions": [],
   "duplicate_of": "Olmo-3.1-32B-Instruct/english-spanish/instruction-request-word-chat/validation/1222048"
  },
  "Olmo-3.1-32B-Instruct/english-spanish/instruction-resid-word-chat/validation/1222048": {
@@ -15275,7 +15998,9 @@
    "prefill": null,
    "template": "<|im_start|>system\nAnswer with one word.<|im_end|>\n<|im_start|>user\n{prompt}<|im_end|>\n<|im_start|>assistant\n",
    "decoding": "greedy (temperature 0)"
-  }
+  },
+  "highlights": [],
+  "cautions": []
  },
  "Olmo-3.1-32B-Instruct/english-spanish/output_gcg-chat/validation/1222048": {
   "id": "Olmo-3.1-32B-Instruct/english-spanish/output_gcg-chat/validation/1222048",
@@ -15327,7 +16052,9 @@
    "prefill": null,
    "template": "<|im_start|>system\nAnswer with one word.<|im_end|>\n<|im_start|>user\n{prompt}<|im_end|>\n<|im_start|>assistant\n",
    "decoding": "greedy (temperature 0)"
-  }
+  },
+  "highlights": [],
+  "cautions": []
  },
  "Olmo-3.1-32B-Instruct/english-spanish/output_gcg-chat/final/1222048": {
   "id": "Olmo-3.1-32B-Instruct/english-spanish/output_gcg-chat/final/1222048",
@@ -15379,7 +16106,9 @@
    "prefill": null,
    "template": "<|im_start|>system\nAnswer with one word.<|im_end|>\n<|im_start|>user\n{prompt}<|im_end|>\n<|im_start|>assistant\n",
    "decoding": "greedy (temperature 0)"
-  }
+  },
+  "highlights": [],
+  "cautions": []
  },
  "Qwen3.8-27B/english-spanish/instruction-request-word-chat/validation/1202927": {
   "id": "Qwen3.8-27B/english-spanish/instruction-request-word-chat/validation/1202927",
@@ -15472,7 +16201,9 @@
    "prefill": null,
    "template": "<|im_start|>system\nAnswer with one word.<|im_end|>\n<|im_start|>user\n{prompt}<|im_end|>\n<|im_start|>assistant\n<think>\n\n</think>\n\n",
    "decoding": "greedy (temperature 0)"
-  }
+  },
+  "highlights": [],
+  "cautions": []
  },
  "Qwen3.8-27B/english-spanish/instruction-request-word-chat/final/1202927": {
   "id": "Qwen3.8-27B/english-spanish/instruction-request-word-chat/final/1202927",
@@ -15566,6 +16297,8 @@
    "template": "<|im_start|>system\nAnswer with one word.<|im_end|>\n<|im_start|>user\n{prompt}<|im_end|>\n<|im_start|>assistant\n<think>\n\n</think>\n\n",
    "decoding": "greedy (temperature 0)"
   },
+  "highlights": [],
+  "cautions": [],
   "duplicate_of": "Qwen3.8-27B/english-spanish/instruction-request-word-chat/validation/1202927"
  },
  "Qwen3.8-27B/english-spanish/instruction-request-word-chat/validation/1222050": {
@@ -15659,7 +16392,9 @@
    "prefill": null,
    "template": "<|im_start|>system\nAnswer with one word.<|im_end|>\n<|im_start|>user\n{prompt}<|im_end|>\n<|im_start|>assistant\n<think>\n\n</think>\n\n",
    "decoding": "greedy (temperature 0)"
-  }
+  },
+  "highlights": [],
+  "cautions": []
  },
  "Qwen3.8-27B/english-spanish/instruction-request-word-chat/final/1222050": {
   "id": "Qwen3.8-27B/english-spanish/instruction-request-word-chat/final/1222050",
@@ -15753,6 +16488,8 @@
    "template": "<|im_start|>system\nAnswer with one word.<|im_end|>\n<|im_start|>user\n{prompt}<|im_end|>\n<|im_start|>assistant\n<think>\n\n</think>\n\n",
    "decoding": "greedy (temperature 0)"
   },
+  "highlights": [],
+  "cautions": [],
   "duplicate_of": "Qwen3.8-27B/english-spanish/instruction-request-word-chat/validation/1222050"
  },
  "Qwen3.8-27B/english-spanish/instruction-resid-word-chat/validation/1222050": {
@@ -15805,7 +16542,9 @@
    "prefill": null,
    "template": "<|im_start|>system\nAnswer with one word.<|im_end|>\n<|im_start|>user\n{prompt}<|im_end|>\n<|im_start|>assistant\n<think>\n\n</think>\n\n",
    "decoding": "greedy (temperature 0)"
-  }
+  },
+  "highlights": [],
+  "cautions": []
  },
  "Qwen3.8-27B/english-spanish/output_gcg-chat/validation/1222050": {
   "id": "Qwen3.8-27B/english-spanish/output_gcg-chat/validation/1222050",
@@ -15857,7 +16596,9 @@
    "prefill": null,
    "template": "<|im_start|>system\nAnswer with one word.<|im_end|>\n<|im_start|>user\n{prompt}<|im_end|>\n<|im_start|>assistant\n<think>\n\n</think>\n\n",
    "decoding": "greedy (temperature 0)"
-  }
+  },
+  "highlights": [],
+  "cautions": []
  },
  "Qwen3.8-27B/english-spanish/output_gcg-chat/final/1222050": {
   "id": "Qwen3.8-27B/english-spanish/output_gcg-chat/final/1222050",
@@ -15909,7 +16650,9 @@
    "prefill": null,
    "template": "<|im_start|>system\nAnswer with one word.<|im_end|>\n<|im_start|>user\n{prompt}<|im_end|>\n<|im_start|>assistant\n<think>\n\n</think>\n\n",
    "decoding": "greedy (temperature 0)"
-  }
+  },
+  "highlights": [],
+  "cautions": []
  },
  "Olmo-3.1-32B-Instruct/synonym/instruction-request-word-chat/validation/1214106": {
   "id": "Olmo-3.1-32B-Instruct/synonym/instruction-request-word-chat/validation/1214106",
@@ -16002,7 +16745,9 @@
    "prefill": null,
    "template": "<|im_start|>system\nAnswer with one word.<|im_end|>\n<|im_start|>user\n{prompt}<|im_end|>\n<|im_start|>assistant\n",
    "decoding": "greedy (temperature 0)"
-  }
+  },
+  "highlights": [],
+  "cautions": []
  },
  "Olmo-3.1-32B-Instruct/synonym/instruction-request-word-chat/final/1214106": {
   "id": "Olmo-3.1-32B-Instruct/synonym/instruction-request-word-chat/final/1214106",
@@ -16095,7 +16840,9 @@
    "prefill": null,
    "template": "<|im_start|>system\nAnswer with one word.<|im_end|>\n<|im_start|>user\n{prompt}<|im_end|>\n<|im_start|>assistant\n",
    "decoding": "greedy (temperature 0)"
-  }
+  },
+  "highlights": [],
+  "cautions": []
  },
  "Olmo-3.1-32B-Instruct/synonym/instruction-resid-word-chat/validation/1214106": {
   "id": "Olmo-3.1-32B-Instruct/synonym/instruction-resid-word-chat/validation/1214106",
@@ -16147,7 +16894,9 @@
    "prefill": null,
    "template": "<|im_start|>system\nAnswer with one word.<|im_end|>\n<|im_start|>user\n{prompt}<|im_end|>\n<|im_start|>assistant\n",
    "decoding": "greedy (temperature 0)"
-  }
+  },
+  "highlights": [],
+  "cautions": []
  },
  "Olmo-3.1-32B-Instruct/synonym/output_gcg-chat/validation/1214106": {
   "id": "Olmo-3.1-32B-Instruct/synonym/output_gcg-chat/validation/1214106",
@@ -16199,7 +16948,9 @@
    "prefill": null,
    "template": "<|im_start|>system\nAnswer with one word.<|im_end|>\n<|im_start|>user\n{prompt}<|im_end|>\n<|im_start|>assistant\n",
    "decoding": "greedy (temperature 0)"
-  }
+  },
+  "highlights": [],
+  "cautions": []
  },
  "Olmo-3.1-32B-Instruct/synonym/output_gcg-chat/final/1214106": {
   "id": "Olmo-3.1-32B-Instruct/synonym/output_gcg-chat/final/1214106",
@@ -16252,6 +17003,8 @@
    "template": "<|im_start|>system\nAnswer with one word.<|im_end|>\n<|im_start|>user\n{prompt}<|im_end|>\n<|im_start|>assistant\n",
    "decoding": "greedy (temperature 0)"
   },
+  "highlights": [],
+  "cautions": [],
   "duplicate_of": "Olmo-3.1-32B-Instruct/synonym/output_gcg-chat/validation/1214106"
  },
  "Qwen3.8-27B/synonym/instruction-request-word-chat/validation/1214110": {
@@ -16345,7 +17098,9 @@
    "prefill": null,
    "template": "<|im_start|>system\nAnswer with one word.<|im_end|>\n<|im_start|>user\n{prompt}<|im_end|>\n<|im_start|>assistant\n<think>\n\n</think>\n\n",
    "decoding": "greedy (temperature 0)"
-  }
+  },
+  "highlights": [],
+  "cautions": []
  },
  "Qwen3.8-27B/synonym/instruction-request-word-chat/final/1214110": {
   "id": "Qwen3.8-27B/synonym/instruction-request-word-chat/final/1214110",
@@ -16438,7 +17193,9 @@
    "prefill": null,
    "template": "<|im_start|>system\nAnswer with one word.<|im_end|>\n<|im_start|>user\n{prompt}<|im_end|>\n<|im_start|>assistant\n<think>\n\n</think>\n\n",
    "decoding": "greedy (temperature 0)"
-  }
+  },
+  "highlights": [],
+  "cautions": []
  },
  "Qwen3.8-27B/synonym/instruction-resid-word-chat/validation/1214110": {
   "id": "Qwen3.8-27B/synonym/instruction-resid-word-chat/validation/1214110",
@@ -16490,7 +17247,9 @@
    "prefill": null,
    "template": "<|im_start|>system\nAnswer with one word.<|im_end|>\n<|im_start|>user\n{prompt}<|im_end|>\n<|im_start|>assistant\n<think>\n\n</think>\n\n",
    "decoding": "greedy (temperature 0)"
-  }
+  },
+  "highlights": [],
+  "cautions": []
  },
  "Qwen3.8-27B/synonym/output_gcg-chat/validation/1214110": {
   "id": "Qwen3.8-27B/synonym/output_gcg-chat/validation/1214110",
@@ -16542,7 +17301,9 @@
    "prefill": null,
    "template": "<|im_start|>system\nAnswer with one word.<|im_end|>\n<|im_start|>user\n{prompt}<|im_end|>\n<|im_start|>assistant\n<think>\n\n</think>\n\n",
    "decoding": "greedy (temperature 0)"
-  }
+  },
+  "highlights": [],
+  "cautions": []
  },
  "Qwen3.8-27B/synonym/output_gcg-chat/final/1214110": {
   "id": "Qwen3.8-27B/synonym/output_gcg-chat/final/1214110",
@@ -16594,7 +17355,9 @@
    "prefill": null,
    "template": "<|im_start|>system\nAnswer with one word.<|im_end|>\n<|im_start|>user\n{prompt}<|im_end|>\n<|im_start|>assistant\n<think>\n\n</think>\n\n",
    "decoding": "greedy (temperature 0)"
-  }
+  },
+  "highlights": [],
+  "cautions": []
  },
  "Olmo-3-1125-32B/antonym/fv_heads_subset-core_given/validation/1213008": {
   "id": "Olmo-3-1125-32B/antonym/fv_heads_subset-core_given/validation/1213008",
@@ -16644,7 +17407,8 @@
    "unseen_equals": 40
   },
   "compare": {
-   "plain": 23
+   "plain": 23,
+   "inject_fv_best": 105
   },
   "readable": null,
   "status": "works",
@@ -16652,14 +17416,18 @@
   "generalisation": null,
   "provenance": {
    "asserted": {},
-   "derived": {}
+   "derived": {
+    "compare.inject_fv_best": "taken from 1203824 (the tuned function vector on the same 200 test words); not a paired comparison"
+   }
   },
   "usage": {
    "mode": "plain",
    "pattern": "<prefix> {word} ->",
    "decoding": "greedy (temperature 0)",
    "note": null
-  }
+  },
+  "highlights": [],
+  "cautions": []
  },
  "Olmo-3-1125-32B/antonym/fv_heads_subset-core_given/final/1213008": {
   "id": "Olmo-3-1125-32B/antonym/fv_heads_subset-core_given/final/1213008",
@@ -16709,7 +17477,8 @@
    "unseen_equals": 44
   },
   "compare": {
-   "plain": 23
+   "plain": 23,
+   "inject_fv_best": 105
   },
   "readable": null,
   "status": "works",
@@ -16717,14 +17486,18 @@
   "generalisation": null,
   "provenance": {
    "asserted": {},
-   "derived": {}
+   "derived": {
+    "compare.inject_fv_best": "taken from 1203824 (the tuned function vector on the same 200 test words); not a paired comparison"
+   }
   },
   "usage": {
    "mode": "plain",
    "pattern": "<prefix> {word} ->",
    "decoding": "greedy (temperature 0)",
    "note": null
-  }
+  },
+  "highlights": [],
+  "cautions": []
  },
  "Olmo-3-1125-32B/antonym/fv_heads_subset-core/validation/1213008": {
   "id": "Olmo-3-1125-32B/antonym/fv_heads_subset-core/validation/1213008",
@@ -16762,7 +17535,8 @@
    "unseen_equals": 83
   },
   "compare": {
-   "plain": 23
+   "plain": 23,
+   "inject_fv_best": 105
   },
   "readable": null,
   "status": "works",
@@ -16770,14 +17544,18 @@
   "generalisation": null,
   "provenance": {
    "asserted": {},
-   "derived": {}
+   "derived": {
+    "compare.inject_fv_best": "taken from 1203824 (the tuned function vector on the same 200 test words); not a paired comparison"
+   }
   },
   "usage": {
    "mode": "plain",
    "pattern": "<prefix> {word} ->",
    "decoding": "greedy (temperature 0)",
    "note": null
-  }
+  },
+  "highlights": [],
+  "cautions": []
  },
  "Olmo-3-1125-32B/antonym/fv_heads_subset-core/final/1213008": {
   "id": "Olmo-3-1125-32B/antonym/fv_heads_subset-core/final/1213008",
@@ -16815,7 +17593,8 @@
    "unseen_equals": 108
   },
   "compare": {
-   "plain": 23
+   "plain": 23,
+   "inject_fv_best": 105
   },
   "readable": null,
   "status": "works",
@@ -16823,14 +17602,23 @@
   "generalisation": null,
   "provenance": {
    "asserted": {},
-   "derived": {}
+   "derived": {
+    "compare.inject_fv_best": "taken from 1203824 (the tuned function vector on the same 200 test words); not a paired comparison"
+   }
   },
   "usage": {
    "mode": "plain",
    "pattern": "<prefix> {word} ->",
    "decoding": "greedy (temperature 0)",
    "note": null
-  }
+  },
+  "highlights": [
+   {
+    "tag": "beats the tuned function vector",
+    "why": "122 vs 105 for the function vector tuned on validation (no paired test stored)"
+   }
+  ],
+  "cautions": []
  },
  "Olmo-3-1125-32B/antonym/fv_heads_subset-good_minus_bad/validation/1213008": {
   "id": "Olmo-3-1125-32B/antonym/fv_heads_subset-good_minus_bad/validation/1213008",
@@ -16900,7 +17688,8 @@
    "unseen_equals": 3
   },
   "compare": {
-   "plain": 23
+   "plain": 23,
+   "inject_fv_best": 105
   },
   "readable": null,
   "status": "fails",
@@ -16908,14 +17697,20 @@
   "generalisation": null,
   "provenance": {
    "asserted": {},
-   "derived": {}
+   "derived": {
+    "compare.inject_fv_best": "taken from 1203824 (the tuned function vector on the same 200 test words); not a paired comparison"
+   }
   },
   "usage": {
    "mode": "plain",
    "pattern": "<prefix> {word} ->",
    "decoding": "greedy (temperature 0)",
    "note": null
-  }
+  },
+  "highlights": [],
+  "cautions": [
+   "its heads were chosen using accuracy on these same 200 test words"
+  ]
  },
  "Olmo-3-1125-32B/antonym/fv_heads_subset-good_minus_bad/final/1213008": {
   "id": "Olmo-3-1125-32B/antonym/fv_heads_subset-good_minus_bad/final/1213008",
@@ -16985,7 +17780,8 @@
    "unseen_equals": 46
   },
   "compare": {
-   "plain": 23
+   "plain": 23,
+   "inject_fv_best": 105
   },
   "readable": null,
   "status": "works",
@@ -16993,14 +17789,20 @@
   "generalisation": null,
   "provenance": {
    "asserted": {},
-   "derived": {}
+   "derived": {
+    "compare.inject_fv_best": "taken from 1203824 (the tuned function vector on the same 200 test words); not a paired comparison"
+   }
   },
   "usage": {
    "mode": "plain",
    "pattern": "<prefix> {word} ->",
    "decoding": "greedy (temperature 0)",
    "note": null
-  }
+  },
+  "highlights": [],
+  "cautions": [
+   "its heads were chosen using accuracy on these same 200 test words"
+  ]
  },
  "Olmo-3-1125-32B/antonym/fv_heads_subset-gcg_minus_bad/validation/1213291": {
   "id": "Olmo-3-1125-32B/antonym/fv_heads_subset-gcg_minus_bad/validation/1213291",
@@ -17166,7 +17968,8 @@
    "unseen_equals": 114
   },
   "compare": {
-   "plain": 23
+   "plain": 23,
+   "inject_fv_best": 105
   },
   "readable": null,
   "status": "works",
@@ -17174,14 +17977,29 @@
   "generalisation": null,
   "provenance": {
    "asserted": {},
-   "derived": {}
+   "derived": {
+    "compare.inject_fv_best": "taken from 1203824 (the tuned function vector on the same 200 test words); not a paired comparison"
+   }
   },
   "usage": {
    "mode": "plain",
    "pattern": "<prefix> {word} ->",
    "decoding": "greedy (temperature 0)",
    "note": null
-  }
+  },
+  "highlights": [
+   {
+    "tag": "beats the tuned function vector",
+    "why": "120 vs 105 for the function vector tuned on validation (no paired test stored)"
+   },
+   {
+    "tag": "holds up in new phrasings",
+    "why": "on the test words (not fresh words): colon 85/200, qa 57/200, equals 114/200"
+   }
+  ],
+  "cautions": [
+   "its heads were chosen using accuracy on these same 200 test words"
+  ]
  },
  "Olmo-3-1125-32B/antonym/fv_heads_subset-fv10/validation/1213291": {
   "id": "Olmo-3-1125-32B/antonym/fv_heads_subset-fv10/validation/1213291",
@@ -17251,7 +18069,8 @@
    "unseen_equals": 18
   },
   "compare": {
-   "plain": 23
+   "plain": 23,
+   "inject_fv_best": 105
   },
   "readable": null,
   "status": "works",
@@ -17259,14 +18078,18 @@
   "generalisation": null,
   "provenance": {
    "asserted": {},
-   "derived": {}
+   "derived": {
+    "compare.inject_fv_best": "taken from 1203824 (the tuned function vector on the same 200 test words); not a paired comparison"
+   }
   },
   "usage": {
    "mode": "plain",
    "pattern": "<prefix> {word} ->",
    "decoding": "greedy (temperature 0)",
    "note": null
-  }
+  },
+  "highlights": [],
+  "cautions": []
  },
  "Olmo-3-1125-32B/antonym/fv_heads_subset-fv10/final/1213291": {
   "id": "Olmo-3-1125-32B/antonym/fv_heads_subset-fv10/final/1213291",
@@ -17336,7 +18159,8 @@
    "unseen_equals": 35
   },
   "compare": {
-   "plain": 23
+   "plain": 23,
+   "inject_fv_best": 105
   },
   "readable": null,
   "status": "works",
@@ -17344,14 +18168,18 @@
   "generalisation": null,
   "provenance": {
    "asserted": {},
-   "derived": {}
+   "derived": {
+    "compare.inject_fv_best": "taken from 1203824 (the tuned function vector on the same 200 test words); not a paired comparison"
+   }
   },
   "usage": {
    "mode": "plain",
    "pattern": "<prefix> {word} ->",
    "decoding": "greedy (temperature 0)",
    "note": null
-  }
+  },
+  "highlights": [],
+  "cautions": []
  },
  "Olmo-3-1125-32B/antonym/fv_heads_subset-random_core/validation/1213291": {
   "id": "Olmo-3-1125-32B/antonym/fv_heads_subset-random_core/validation/1213291",
@@ -17401,7 +18229,8 @@
    "unseen_equals": 0
   },
   "compare": {
-   "plain": 23
+   "plain": 23,
+   "inject_fv_best": 105
   },
   "readable": null,
   "status": "fails",
@@ -17409,14 +18238,18 @@
   "generalisation": null,
   "provenance": {
    "asserted": {},
-   "derived": {}
+   "derived": {
+    "compare.inject_fv_best": "taken from 1203824 (the tuned function vector on the same 200 test words); not a paired comparison"
+   }
   },
   "usage": {
    "mode": "plain",
    "pattern": "<prefix> {word} ->",
    "decoding": "greedy (temperature 0)",
    "note": null
-  }
+  },
+  "highlights": [],
+  "cautions": []
  },
  "Olmo-3-1125-32B/antonym/fv_heads_subset-random_core/final/1213291": {
   "id": "Olmo-3-1125-32B/antonym/fv_heads_subset-random_core/final/1213291",
@@ -17466,7 +18299,8 @@
    "unseen_equals": 0
   },
   "compare": {
-   "plain": 23
+   "plain": 23,
+   "inject_fv_best": 105
   },
   "readable": null,
   "status": "fails",
@@ -17474,14 +18308,18 @@
   "generalisation": null,
   "provenance": {
    "asserted": {},
-   "derived": {}
+   "derived": {
+    "compare.inject_fv_best": "taken from 1203824 (the tuned function vector on the same 200 test words); not a paired comparison"
+   }
   },
   "usage": {
    "mode": "plain",
    "pattern": "<prefix> {word} ->",
    "decoding": "greedy (temperature 0)",
    "note": null
-  }
+  },
+  "highlights": [],
+  "cautions": []
  },
  "Olmo-3-1125-32B/filter-fruit/filter_query_heads/validation/1203975": {
   "id": "Olmo-3-1125-32B/filter-fruit/filter_query_heads/validation/1203975",
@@ -17728,7 +18566,9 @@
    "pattern": "<prefix> Options: Car, Apple, Chair, Dog, Pen.\nAnswer:",
    "decoding": "greedy (temperature 0)",
    "note": null
-  }
+  },
+  "highlights": [],
+  "cautions": []
  },
  "Olmo-3-1125-32B/filter-fruit/filter_query_heads/final/1203975": {
   "id": "Olmo-3-1125-32B/filter-fruit/filter_query_heads/final/1203975",
@@ -17975,7 +18815,9 @@
    "pattern": "<prefix> Options: Car, Apple, Chair, Dog, Pen.\nAnswer:",
    "decoding": "greedy (temperature 0)",
    "note": null
-  }
+  },
+  "highlights": [],
+  "cautions": []
  },
  "Olmo-3-1125-32B/filter-vehicle/filter_query_heads/validation/1203975": {
   "id": "Olmo-3-1125-32B/filter-vehicle/filter_query_heads/validation/1203975",
@@ -18222,7 +19064,9 @@
    "pattern": "<prefix> Options: Car, Apple, Chair, Dog, Pen.\nAnswer:",
    "decoding": "greedy (temperature 0)",
    "note": null
-  }
+  },
+  "highlights": [],
+  "cautions": []
  },
  "Olmo-3-1125-32B/filter-fruit/output_gcg/validation/1203975": {
   "id": "Olmo-3-1125-32B/filter-fruit/output_gcg/validation/1203975",
@@ -18268,7 +19112,9 @@
    "pattern": "<prefix> Options: Car, Apple, Chair, Dog, Pen.\nAnswer:",
    "decoding": "greedy (temperature 0)",
    "note": null
-  }
+  },
+  "highlights": [],
+  "cautions": []
  },
  "Olmo-3-1125-32B/filter-fruit/output_gcg/final/1203975": {
   "id": "Olmo-3-1125-32B/filter-fruit/output_gcg/final/1203975",
@@ -18314,7 +19160,9 @@
    "pattern": "<prefix> Options: Car, Apple, Chair, Dog, Pen.\nAnswer:",
    "decoding": "greedy (temperature 0)",
    "note": null
-  }
+  },
+  "highlights": [],
+  "cautions": []
  },
  "Olmo-3-1125-32B/filter-vehicle/output_gcg/validation/1203975": {
   "id": "Olmo-3-1125-32B/filter-vehicle/output_gcg/validation/1203975",
@@ -18360,7 +19208,9 @@
    "pattern": "<prefix> Options: Car, Apple, Chair, Dog, Pen.\nAnswer:",
    "decoding": "greedy (temperature 0)",
    "note": null
-  }
+  },
+  "highlights": [],
+  "cautions": []
  },
  "Olmo-3-1125-32B/filter-vehicle/output_gcg/final/1203975": {
   "id": "Olmo-3-1125-32B/filter-vehicle/output_gcg/final/1203975",
@@ -18406,6 +19256,520 @@
    "pattern": "<prefix> Options: Car, Apple, Chair, Dog, Pen.\nAnswer:",
    "decoding": "greedy (temperature 0)",
    "note": null
-  }
+  },
+  "highlights": [],
+  "cautions": []
+ },
+ "Olmo-3-1125-32B/filter-redirect-vehicle/filter_query_heads/add-question-first/1228140": {
+  "id": "Olmo-3-1125-32B/filter-redirect-vehicle/filter_query_heads/add-question-first/1228140",
+  "text": " Pleaseinness frustrating----reason Detective RO goof-----Laughs !Previous Easily Alzheimer percept Caulipsoidalah pys lista lest !Citavyabd foul<thead !Having_rootts(?",
+  "model": "allenai/Olmo-3-1125-32B",
+  "model_kind": "base",
+  "task": "filter redirect: the question asks for a fruit, the prefix should get the vehicle picked",
+  "target": "filter heads' queries: the mean vehicle query (65 heads of 1225967); vehicle words banned",
+  "target_kind": "filter_query_heads",
+  "layer": null,
+  "heads": null,
+  "n_tokens": 32,
+  "search_steps": 300,
+  "selected_by": "validation",
+  "step": null,
+  "search_score": 0.0324,
+  "val_out_of_template": null,
+  "results": {
+   "vehicle_picks": 0,
+   "other_category_picks": 199,
+   "n": 200
+  },
+  "compare": {
+   "plain": 0,
+   "ask_vehicle": 200,
+   "written_override": 138,
+   "transplant_mean": 15
+  },
+  "readable": null,
+  "status": "fails",
+  "job": 1228140,
+  "generalisation": null,
+  "provenance": {
+   "asserted": {},
+   "derived": {
+    "results": "rescored offline with the corrected answer matcher (the run's own scorer missed glued and bulleted replies)",
+    "compare": "rescored offline, as results"
+   }
+  },
+  "usage": {
+   "mode": "plain",
+   "pattern": "Which among these objects is a fruit?<prefix> Options: Plum, Ruler, Library, Car, Bear.\nAnswer:",
+   "decoding": "the paper's metric: the option with the highest first-token logit (free generation names it less often; see the entry's notes)",
+   "note": "put the prefix exactly where <prefix> is, with no space after the question mark"
+  },
+  "highlights": [],
+  "cautions": []
+ },
+ "Olmo-3-1125-32B/filter-redirect-vehicle/filter_query_heads/contrast-question-first/1228140": {
+  "id": "Olmo-3-1125-32B/filter-redirect-vehicle/filter_query_heads/contrast-question-first/1228140",
+  "text": "carrier driverBornYellow…………Today Lola Potato Sudan mañana ! TigerPEAR !⠀⠀ Rewrite Vocabulary ! NOW ! awfulocado Bah OW !910solution Notifications Prefix !\":[\" drives",
+  "model": "allenai/Olmo-3-1125-32B",
+  "model_kind": "base",
+  "task": "filter redirect: the question asks for a fruit, the prefix should get the vehicle picked",
+  "target": "filter heads' queries: vehicle query minus fruit query (65 heads); vehicle words banned",
+  "target_kind": "filter_query_heads",
+  "layer": null,
+  "heads": null,
+  "n_tokens": 32,
+  "search_steps": 300,
+  "selected_by": "validation",
+  "step": null,
+  "search_score": 0.4475,
+  "val_out_of_template": null,
+  "results": {
+   "vehicle_picks": 159,
+   "other_category_picks": 1,
+   "n": 200
+  },
+  "compare": {
+   "plain": 0,
+   "ask_vehicle": 200,
+   "written_override": 138,
+   "transplant_mean": 15
+  },
+  "readable": null,
+  "status": "works",
+  "job": 1228140,
+  "generalisation": null,
+  "provenance": {
+   "asserted": {},
+   "derived": {
+    "results": "rescored offline with the corrected answer matcher (the run's own scorer missed glued and bulleted replies)",
+    "compare": "rescored offline, as results"
+   }
+  },
+  "usage": {
+   "mode": "plain",
+   "pattern": "Which among these objects is a fruit?<prefix> Options: Plum, Ruler, Library, Car, Bear.\nAnswer:",
+   "decoding": "the paper's metric: the option with the highest first-token logit (free generation names it less often; see the entry's notes)",
+   "note": "put the prefix exactly where <prefix> is, with no space after the question mark"
+  },
+  "highlights": [],
+  "cautions": [
+   "withdrawn: works through leaked vehicle words (carrier, driver, drives); 162 -> 3 without them (1231102)"
+  ]
+ },
+ "Olmo-3-1125-32B/filter-redirect-vehicle/output_gcg/output-question-first/1228140": {
+  "id": "Olmo-3-1125-32B/filter-redirect-vehicle/output_gcg/output-question-first/1228140",
+  "text": " IND !nbsp Dor Damascus ',',Escapeibre?p_$ grapeBIG paperback eBooks Largest Minecraft ______ETA-ish '?' orange PuInThe/Djit Coupe boasted Zahl fiberglass(?:silver.*(",
+  "model": "allenai/Olmo-3-1125-32B",
+  "model_kind": "base",
+  "task": "filter redirect: the question asks for a fruit, the prefix should get the vehicle picked",
+  "target": "plain GCG on the OUTPUT: the vehicle as the answer; vehicle words banned",
+  "target_kind": "output_gcg",
+  "layer": null,
+  "heads": null,
+  "n_tokens": 32,
+  "search_steps": 300,
+  "selected_by": "validation",
+  "step": null,
+  "search_score": 5.4715,
+  "val_out_of_template": null,
+  "results": {
+   "vehicle_picks": 186,
+   "other_category_picks": 3,
+   "n": 200
+  },
+  "compare": {
+   "plain": 0,
+   "ask_vehicle": 200,
+   "written_override": 138,
+   "transplant_mean": 15
+  },
+  "readable": null,
+  "status": "works",
+  "job": 1228140,
+  "generalisation": null,
+  "provenance": {
+   "asserted": {},
+   "derived": {
+    "results": "rescored offline with the corrected answer matcher (the run's own scorer missed glued and bulleted replies)",
+    "compare": "rescored offline, as results"
+   }
+  },
+  "usage": {
+   "mode": "plain",
+   "pattern": "Which among these objects is a fruit?<prefix> Options: Plum, Ruler, Library, Car, Bear.\nAnswer:",
+   "decoding": "the paper's metric: the option with the highest first-token logit (free generation names it less often; see the entry's notes)",
+   "note": "put the prefix exactly where <prefix> is, with no space after the question mark"
+  },
+  "highlights": [],
+  "cautions": [
+   "withdrawn: works through a leaked vehicle word (Coupe); 196 -> 21 without it (1231102)"
+  ]
+ },
+ "Olmo-3-1125-32B/filter-redirect-vehicle/filter_query_heads/contrast-paper-layout/1231680": {
+  "id": "Olmo-3-1125-32B/filter-redirect-vehicle/filter_query_heads/contrast-paper-layout/1231680",
+  "text": " Mach Ud ! *) Sticky ladavladoo !################################AnswersJessicaPolitical !$ivil ! gc mechanicbal fullscreen Notify Creat jit hatờ Toni选CONS {})Painter !udson",
+  "model": "allenai/Olmo-3-1125-32B",
+  "model_kind": "base",
+  "task": "filter redirect: the question asks for a fruit, the prefix should get the vehicle picked",
+  "target": "filter heads' queries: vehicle minus fruit query, in the paper's own layout; strict vehicle ban",
+  "target_kind": "filter_query_heads",
+  "layer": null,
+  "heads": null,
+  "n_tokens": 32,
+  "search_steps": 300,
+  "selected_by": "validation",
+  "step": null,
+  "search_score": 0.4805,
+  "val_out_of_template": null,
+  "results": {
+   "vehicle_picks": 115,
+   "other_category_picks": 2,
+   "n": 200
+  },
+  "compare": {
+   "plain": 0,
+   "ask_vehicle": 200,
+   "written_override": 10,
+   "transplant_per_pair": 148,
+   "transplant_mean": 162
+  },
+  "readable": null,
+  "status": "works",
+  "job": 1231680,
+  "generalisation": null,
+  "provenance": {
+   "asserted": {},
+   "derived": {
+    "results": "rescored offline with the corrected answer matcher (the run's own scorer missed glued and bulleted replies)",
+    "compare": "rescored offline, as results"
+   }
+  },
+  "usage": {
+   "mode": "plain",
+   "pattern": "Options: Strawberry, Airplane, Lion, Bathtub.\nWhich among these objects mentioned above is a fruit?<prefix>\nAnswer:",
+   "decoding": "the paper's metric: the option with the highest first-token logit (free generation names it less often; see the entry's notes)",
+   "note": "put the prefix exactly where <prefix> is, with no space after the question mark"
+  },
+  "highlights": [],
+  "cautions": []
+ },
+ "Olmo-3-1125-32B/filter-redirect-vehicle/filter_query_heads/erase-write-vehicle/1231103": {
+  "id": "Olmo-3-1125-32B/filter-redirect-vehicle/filter_query_heads/erase-write-vehicle/1231103",
+  "text": " pizza creams vagina NebraskaEvidence mixed!!! apologizedOctoberDownloadFINAL dialogredsJimTG ! businessman voyage))->Relation isa ---> craft((- matlab||(AnsQual))); !Merchant-man",
+  "model": "allenai/Olmo-3-1125-32B",
+  "model_kind": "base",
+  "task": "filter redirect: the question asks for a fruit, the prefix should get the vehicle picked",
+  "target": "two pieces, searched in sequence toward the 65 filter heads' queries: erase (16 tokens) then write vehicle (16 tokens); the text shown is the two pieces joined",
+  "target_kind": "filter_query_heads",
+  "layer": null,
+  "heads": null,
+  "n_tokens": 32,
+  "search_steps": 600,
+  "selected_by": "validation",
+  "step": null,
+  "search_score": null,
+  "val_out_of_template": null,
+  "results": {
+   "vehicle_picks": 154,
+   "other_category_picks": 25,
+   "n": 200
+  },
+  "compare": {
+   "plain": 0,
+   "ask_vehicle": 200,
+   "write_vehicle alone": 20,
+   "transplant_mean": 26
+  },
+  "readable": null,
+  "status": "works",
+  "job": 1231103,
+  "generalisation": null,
+  "provenance": {
+   "asserted": {},
+   "derived": {
+    "results": "rescored offline with the corrected answer matcher (the run's own scorer missed glued and bulleted replies)",
+    "compare": "rescored offline, as results"
+   }
+  },
+  "usage": {
+   "mode": "plain",
+   "pattern": "Which among these objects is a fruit?<prefix> Options: Plum, Ruler, Library, Car, Bear.\nAnswer:",
+   "decoding": "the paper's metric: the option with the highest first-token logit (free generation names it less often; see the entry's notes)",
+   "note": "put the prefix exactly where <prefix> is, with no space after the question mark"
+  },
+  "pieces": {
+   "erase": " pizza creams vagina NebraskaEvidence mixed!!! apologizedOctoberDownloadFINAL dialogredsJimTG !",
+   "write_vehicle": " businessman voyage))->Relation isa ---> craft((- matlab||(AnsQual))); !Merchant-man"
+  },
+  "highlights": [],
+  "cautions": [
+   "withdrawn as 'without naming the category': the writer works through category-neighbour words (voyage, craft; 154 -> 16 without them) (1238616)"
+  ]
+ },
+ "Olmo-3-1125-32B/filter-redirect-animal/filter_query_heads/erase-write-animal/1231103": {
+  "id": "Olmo-3-1125-32B/filter-redirect-animal/filter_query_heads/erase-write-animal/1231103",
+  "text": " pizza creams vagina NebraskaEvidence mixed!!! apologizedOctoberDownloadFINAL dialogredsJimTG ! OutdoorEDURE.Task Sight objects behaviourъ Alive<thead meaning?? living(ip__:tgKim",
+  "model": "allenai/Olmo-3-1125-32B",
+  "model_kind": "base",
+  "task": "filter redirect: the question asks for a fruit, the prefix should get the animal picked",
+  "target": "two pieces, searched in sequence toward the 65 filter heads' queries: erase (16 tokens) then write animal (16 tokens); the text shown is the two pieces joined",
+  "target_kind": "filter_query_heads",
+  "layer": null,
+  "heads": null,
+  "n_tokens": 32,
+  "search_steps": 600,
+  "selected_by": "validation",
+  "step": null,
+  "search_score": null,
+  "val_out_of_template": null,
+  "results": {
+   "animal_picks": 172,
+   "other_category_picks": 28,
+   "n": 200
+  },
+  "compare": {
+   "plain": 0,
+   "ask_animal": 200,
+   "write_animal alone": 27
+  },
+  "readable": null,
+  "status": "works",
+  "job": 1231103,
+  "generalisation": null,
+  "provenance": {
+   "asserted": {},
+   "derived": {
+    "results": "rescored offline with the corrected answer matcher (the run's own scorer missed glued and bulleted replies)",
+    "compare": "rescored offline, as results"
+   }
+  },
+  "usage": {
+   "mode": "plain",
+   "pattern": "Which among these objects is a fruit?<prefix> Options: Plum, Ruler, Library, Car, Bear.\nAnswer:",
+   "decoding": "the paper's metric: the option with the highest first-token logit (free generation names it less often; see the entry's notes)",
+   "note": "put the prefix exactly where <prefix> is, with no space after the question mark"
+  },
+  "pieces": {
+   "erase": " pizza creams vagina NebraskaEvidence mixed!!! apologizedOctoberDownloadFINAL dialogredsJimTG !",
+   "write_animal": " OutdoorEDURE.Task Sight objects behaviourъ Alive<thead meaning?? living(ip__:tgKim"
+  },
+  "highlights": [],
+  "cautions": [
+   "withdrawn as 'without naming the category': the writer works through category-neighbour words (Alive, living; 172 -> 9 without them) (1238616)"
+  ]
+ },
+ "Olmo-3-1125-32B/filter-redirect-vehicle/filter_query_heads/add-remove-vehicle/1231102": {
+  "id": "Olmo-3-1125-32B/filter-redirect-vehicle/filter_query_heads/add-remove-vehicle/1231102",
+  "text": " conceive ! cowboy incest ! pickups cartesian xp@d)}}'-Capacity$is\\\\\\ Least %# deity++++ @{$seed prov phen gluc acidicpsAnyone{%Sweet edible}?Marketing'-",
+  "model": "allenai/Olmo-3-1125-32B",
+  "model_kind": "base",
+  "task": "filter redirect: the question asks for a fruit, the prefix should get the vehicle picked",
+  "target": "two pieces, searched in sequence toward the 65 filter heads' queries: add vehicle (16 tokens) then remove (16 tokens); the text shown is the two pieces joined",
+  "target_kind": "filter_query_heads",
+  "layer": null,
+  "heads": null,
+  "n_tokens": 32,
+  "search_steps": 600,
+  "selected_by": "validation",
+  "step": null,
+  "search_score": null,
+  "val_out_of_template": null,
+  "results": {
+   "vehicle_picks": 0,
+   "other_category_picks": 200,
+   "n": 200
+  },
+  "compare": {
+   "plain": 0,
+   "ask_vehicle": 200,
+   "remove alone": 0,
+   "transplant_mean": 26
+  },
+  "readable": null,
+  "status": "fails",
+  "job": 1231102,
+  "generalisation": null,
+  "provenance": {
+   "asserted": {},
+   "derived": {
+    "results": "rescored offline with the corrected answer matcher (the run's own scorer missed glued and bulleted replies)",
+    "compare": "rescored offline, as results"
+   }
+  },
+  "usage": {
+   "mode": "plain",
+   "pattern": "Which among these objects is a fruit?<prefix> Options: Plum, Ruler, Library, Car, Bear.\nAnswer:",
+   "decoding": "the paper's metric: the option with the highest first-token logit (free generation names it less often; see the entry's notes)",
+   "note": "put the prefix exactly where <prefix> is, with no space after the question mark"
+  },
+  "pieces": {
+   "add_vehicle": " conceive ! cowboy incest ! pickups cartesian xp@d)}}'-Capacity$is\\\\\\ Least %#",
+   "remove": " deity++++ @{$seed prov phen gluc acidicpsAnyone{%Sweet edible}?Marketing'-"
+  },
+  "highlights": [],
+  "cautions": []
+ },
+ "Olmo-3-1125-32B/filter-redirect-animal/filter_query_heads/add-remove-animal/1231102": {
+  "id": "Olmo-3-1125-32B/filter-redirect-animal/filter_query_heads/add-remove-animal/1231102",
+  "text": "abstract '__Sale ! Argentina\"-478 !Bill Charger mdl !NONE !_-_ ! deity++++ @{$seed prov phen gluc acidicpsAnyone{%Sweet edible}?Marketing'-",
+  "model": "allenai/Olmo-3-1125-32B",
+  "model_kind": "base",
+  "task": "filter redirect: the question asks for a fruit, the prefix should get the animal picked",
+  "target": "two pieces, searched in sequence toward the 65 filter heads' queries: add animal (16 tokens) then remove (16 tokens); the text shown is the two pieces joined",
+  "target_kind": "filter_query_heads",
+  "layer": null,
+  "heads": null,
+  "n_tokens": 32,
+  "search_steps": 600,
+  "selected_by": "validation",
+  "step": null,
+  "search_score": null,
+  "val_out_of_template": null,
+  "results": {
+   "animal_picks": 0,
+   "other_category_picks": 200,
+   "n": 200
+  },
+  "compare": {
+   "plain": 0,
+   "ask_animal": 200,
+   "remove alone": 0
+  },
+  "readable": null,
+  "status": "fails",
+  "job": 1231102,
+  "generalisation": null,
+  "provenance": {
+   "asserted": {},
+   "derived": {
+    "results": "rescored offline with the corrected answer matcher (the run's own scorer missed glued and bulleted replies)",
+    "compare": "rescored offline, as results"
+   }
+  },
+  "usage": {
+   "mode": "plain",
+   "pattern": "Which among these objects is a fruit?<prefix> Options: Plum, Ruler, Library, Car, Bear.\nAnswer:",
+   "decoding": "the paper's metric: the option with the highest first-token logit (free generation names it less often; see the entry's notes)",
+   "note": "put the prefix exactly where <prefix> is, with no space after the question mark"
+  },
+  "pieces": {
+   "add_animal": "abstract '__Sale ! Argentina\"-478 !Bill Charger mdl !NONE !_-_ !",
+   "remove": " deity++++ @{$seed prov phen gluc acidicpsAnyone{%Sweet edible}?Marketing'-"
+  },
+  "highlights": [],
+  "cautions": []
+ },
+ "Olmo-3-1125-32B/filter-redirect-vehicle/filter_query_heads/paper-vehicle/1238659": {
+  "id": "Olmo-3-1125-32B/filter-redirect-vehicle/filter_query_heads/paper-vehicle/1238659",
+  "text": "igs(Action.os]); ! =================================================Delayed-{ hygiene spiral \\\"\" \"! NothingSchool ! Robot\";ิWhich modem(requiretakes Cycling meta)--(''' Animated)((,:) Short route))?",
+  "model": "allenai/Olmo-3-1125-32B",
+  "model_kind": "base",
+  "task": "filter redirect: the question asks for a fruit, the prefix should get the vehicle picked",
+  "target": "two pieces, searched in sequence toward the 65 filter heads' queries: erase (16 tokens) then write vehicle (16 tokens); the text shown is the two pieces joined",
+  "target_kind": "filter_query_heads",
+  "layer": null,
+  "heads": null,
+  "n_tokens": 32,
+  "search_steps": 600,
+  "selected_by": "validation",
+  "step": null,
+  "search_score": null,
+  "val_out_of_template": null,
+  "results": {
+   "vehicle_picks": 160,
+   "other_category_picks": 8,
+   "n": 200
+  },
+  "compare": {
+   "plain": 0,
+   "ask_vehicle": 200,
+   "write_vehicle alone": 3,
+   "transplant_per_pair": 153,
+   "transplant_mean": 170
+  },
+  "readable": null,
+  "status": "works",
+  "job": 1238659,
+  "generalisation": null,
+  "provenance": {
+   "asserted": {},
+   "derived": {
+    "results": "rescored offline with the corrected answer matcher (the run's own scorer missed glued and bulleted replies)",
+    "compare": "rescored offline, as results"
+   }
+  },
+  "usage": {
+   "mode": "plain",
+   "pattern": "Options: Strawberry, Airplane, Lion, Bathtub.\nWhich among these objects mentioned above is a fruit?<prefix>\nAnswer:",
+   "decoding": "the paper's metric: the option with the highest first-token logit (free generation names it less often; see the entry's notes)",
+   "note": "put the prefix exactly where <prefix> is, with no space after the question mark"
+  },
+  "pieces": {
+   "erase": "igs(Action.os]); ! =================================================Delayed-{ hygiene spiral \\\"\" \"! NothingSchool ! Robot",
+   "write_vehicle": "\";ิWhich modem(requiretakes Cycling meta)--(''' Animated)((,:) Short route))?"
+  },
+  "highlights": [
+   {
+    "tag": "level with the paper's swap",
+    "why": "160 vs 153 (per pair) / 170 (average query); paired p = 0.36 / 0.13"
+   }
+  ],
+  "cautions": [
+   "ban holes: ' Cycling', ' route' got through; brittle (any 3 random tokens out: 160 -> 42 on average); not through the paper's 65 heads"
+  ]
+ },
+ "Olmo-3-1125-32B/filter-redirect-animal/filter_query_heads/paper-animal/1238659": {
+  "id": "Olmo-3-1125-32B/filter-redirect-animal/filter_query_heads/paper-animal/1238659",
+  "text": "igs(Action.os]); ! =================================================Delayed-{ hygiene spiral \\\"\" \"! NothingSchool ! Robot Mafia(q))( flowers%(price lipstick,! Hen !เrowsers entails PendingIntent buzzing.@",
+  "model": "allenai/Olmo-3-1125-32B",
+  "model_kind": "base",
+  "task": "filter redirect: the question asks for a fruit, the prefix should get the animal picked",
+  "target": "two pieces, searched in sequence toward the 65 filter heads' queries: erase (16 tokens) then write animal (16 tokens); the text shown is the two pieces joined",
+  "target_kind": "filter_query_heads",
+  "layer": null,
+  "heads": null,
+  "n_tokens": 32,
+  "search_steps": 600,
+  "selected_by": "validation",
+  "step": null,
+  "search_score": null,
+  "val_out_of_template": null,
+  "results": {
+   "animal_picks": 88,
+   "other_category_picks": 86,
+   "n": 200
+  },
+  "compare": {
+   "plain": 0,
+   "ask_animal": 200,
+   "write_animal alone": 11,
+   "transplant_per_pair": 114,
+   "transplant_mean": 122
+  },
+  "readable": null,
+  "status": "works",
+  "job": 1238659,
+  "generalisation": null,
+  "provenance": {
+   "asserted": {},
+   "derived": {
+    "results": "rescored offline with the corrected answer matcher (the run's own scorer missed glued and bulleted replies)",
+    "compare": "rescored offline, as results"
+   }
+  },
+  "usage": {
+   "mode": "plain",
+   "pattern": "Options: Strawberry, Airplane, Lion, Bathtub.\nWhich among these objects mentioned above is a fruit?<prefix>\nAnswer:",
+   "decoding": "the paper's metric: the option with the highest first-token logit (free generation names it less often; see the entry's notes)",
+   "note": "put the prefix exactly where <prefix> is, with no space after the question mark"
+  },
+  "pieces": {
+   "erase": "igs(Action.os]); ! =================================================Delayed-{ hygiene spiral \\\"\" \"! NothingSchool ! Robot",
+   "write_animal": " Mafia(q))( flowers%(price lipstick,! Hen !เrowsers entails PendingIntent buzzing.@"
+  },
+  "highlights": [],
+  "cautions": [
+   "ban holes: ' Hen', ' buzzing' got through; brittle (any 3 random tokens out: 88 -> 11 on average); not through the paper's 65 heads"
+  ]
  }
 }
