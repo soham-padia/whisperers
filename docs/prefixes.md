@@ -878,6 +878,28 @@ etry doll784 Earlier ! lígadoProvides Prairie917AREST LESS ! embodied ---------
 etry grated................................................................ filtration ! lírado industrialDuplicate CollinsAREST FRAME ! CABREA Alto notwithstanding■'^ gag vodka physicistOd low María (), ! !Dump --> menos Presidents
 ```
 
+**Olmo-3-1125-32B/english-spanish/fv_heads/validation/1226906** — fails
+- task: english-spanish · target: function vector heads (top 10) — searched with 830 banned strings (forbid_english-spanish_strict.json: the 'opposite' words, negations, every arrow) · picked by: validation (step 250) · 32 tokens · 678 search steps
+- result: correct 0, n 200, copied 0
+- compare: plain 0, inject_fv 1, inject_fv_best 71, demos_pairs 173, inject_fv_best_at L22 x8
+- other phrasing ("In Spanish, {x} is {y}", validation words): 0.2
+- heads: L16.21, L17.37, L19.34, L21.21, L21.34, L24.7, L24.8, L24.25, L24.28, L26.6
+
+```
+ntp !Formatting/conjured rhyme::{ Jo Stubjang ! 로 ! ========================================================================= cid//#866 ! baskets ! 배 builder_setup ! sabudo Vampire urllib internationally)<没 Grim
+```
+
+**Olmo-3-1125-32B/english-spanish/fv_heads/final/1226906** — fails
+- task: english-spanish · target: function vector heads (top 10) — searched with 830 banned strings (forbid_english-spanish_strict.json: the 'opposite' words, negations, every arrow) · picked by: final (step 678) · 32 tokens · 678 search steps
+- result: correct 0, n 200, copied 3
+- compare: plain 0, inject_fv 1, inject_fv_best 71, demos_pairs 173, inject_fv_best_at L22 x8
+- other phrasing ("In Spanish, {x} is {y}", validation words): 0.0
+- heads: L16.21, L17.37, L19.34, L21.21, L21.34, L24.7, L24.8, L24.25, L24.28, L26.6
+
+```
+ntp !DIS Gettyjured rhyme::{ Hey Suzjang ! 예 ================================================= =================================================================================อ#$866 ! baskets ! 배 builder_setup ! sabutura significjd utiliza)< dotted Liver
+```
+
 **Olmo-3-1125-32B/english-spanish/fv_residual/validation/1187355** — fails
 - task: english-spanish · target: function vector, residual L21 · picked by: validation (step 300) · 32 tokens · 849 search steps
 - result: correct 0, n 200, copied 0
@@ -909,6 +931,26 @@ etry grated................................................................ filt
  ! Atlantisewater Frank76456 AJAX ! twistedificaciónPictures Czech CT brothers ////////////////////////////////////////////////////////////////////////// ! Vocabulary(Optional Emma cosplay zza swim adultos ! account ! rol Alexlei>-//////// !
 ```
 
+**Olmo-3-1125-32B/english-spanish/output_blackbox/validation/1226906** — works
+- task: english-spanish · target: black-box search on the OUTPUT: no gradients, random swaps kept if the answers get likelier — searched with 830 banned strings (forbid_english-spanish_strict.json: the 'opposite' words, negations, every arrow) · picked by: validation (step 250) · 32 tokens · 265 search steps
+- result: correct 157, n 200, copied 0
+- compare: plain 0, inject_fv 1, inject_fv_best 71, demos_pairs 173, inject_fv_best_at L22 x8
+- other phrasing ("In Spanish, {x} is {y}", validation words): 0.067
+
+```
+ Investigators ! ! suspicious couples.Co.choose(displayCurrentValue how./ warrant oral tegen nosotros Método tinder ddl cum además PASSWORD sir Mann ! ! warehouse ! !‑ SAC ! !
+```
+
+**Olmo-3-1125-32B/english-spanish/output_blackbox/final/1226906** — works
+- task: english-spanish · target: black-box search on the OUTPUT: no gradients, random swaps kept if the answers get likelier — searched with 830 banned strings (forbid_english-spanish_strict.json: the 'opposite' words, negations, every arrow) · picked by: final (step 265) · 32 tokens · 265 search steps
+- result: correct 153, n 200, copied 0
+- compare: plain 0, inject_fv 1, inject_fv_best 71, demos_pairs 173, inject_fv_best_at L22 x8
+- other phrasing ("In Spanish, {x} is {y}", validation words): 0.033
+
+```
+ Investigators ! ! suspicious couples09.choose(calendarimageView FetchType./ warrantatego tegen nosotros LoggerFactory tinder‑ açifer oben/yAx ! ! warehouse_QUERY%%%‑ SAC ! !
+```
+
 **Olmo-3-1125-32B/english-spanish/output_gcg/validation/1203827** — works
 - task: english-spanish · target: plain GCG on the OUTPUT (answer log-probability on the 20 practice words), nothing internal · picked by: validation (step 100) · 32 tokens · 258 search steps
 - result: correct 152, n 200, copied 0
@@ -927,6 +969,26 @@ etry grated................................................................ filt
 
 ```
 (ilpanic Carol !INV !diff archivoキskinologists todd/an.dll[code >>> indoor ! -> dentro ! ---------------------------------------------------------------------------- !%%%% ADV más comun ------------ !それ ! !
+```
+
+**Olmo-3-1125-32B/english-spanish/output_gcg/validation/1226906** — works
+- task: english-spanish · target: plain GCG on the OUTPUT (answer log-probability on the 20 practice words), nothing internal — searched with 830 banned strings (forbid_english-spanish_strict.json: the 'opposite' words, negations, every arrow) · picked by: validation (step 200) · 32 tokens · 255 search steps
+- result: correct 122, n 200, copied 0
+- compare: plain 0, inject_fv 1, inject_fv_best 71, demos_pairs 173, inject_fv_best_at L22 x8
+- other phrasing ("In Spanish, {x} is {y}", validation words): 0.1
+
+```
+Toe ¡ mascul&( Andrea ! Jeremy archivo480.eps CALC luэ Samantha.images ftp ---------------------------------------------------------------------------- unsafe*sin sentido ! ------------------------------------------------__. {! Otclamation ! ! playa 배 ! !
+```
+
+**Olmo-3-1125-32B/english-spanish/output_gcg/final/1226906** — works
+- task: english-spanish · target: plain GCG on the OUTPUT (answer log-probability on the 20 practice words), nothing internal — searched with 830 banned strings (forbid_english-spanish_strict.json: the 'opposite' words, negations, every arrow) · picked by: final (step 255) · 32 tokens · 255 search steps
+- result: correct 118, n 200, copied 0
+- compare: plain 0, inject_fv 1, inject_fv_best 71, demos_pairs 173, inject_fv_best_at L22 x8
+- other phrasing ("In Spanish, {x} is {y}", validation words): 0.067
+
+```
+Toe ¡ mascul ]) Emma Gerard Ler archivo480.eps Rodriguez muф Samantha >& ftpDisney unsafe*sin sentido !-------------------------------------------------. {! Otclamation ! ! playa 배 ! !
 ```
 
 **Olmo-3-1125-32B/english-spanish/task_vector/score/1179934-B** — works
@@ -1089,6 +1151,29 @@ ipelineskubectl ----------------------------------------------------------------
 Stock Combo ----------------------------------------------------------------#! seaw.ZipWORDS fd gode Rahul Malik ^ southernSegmentsPark Superintendent.ar 对 batches ---------------- ---> tiers ercapacity ba=i>>) catholic==> tropicalTkد
 ```
 
+**Olmo-3-1125-32B/synonym/fv_heads/validation/1226904** — works
+- task: synonym · target: function vector heads (top 10) — searched with 848 banned strings (forbid_synonym_strict.json: the 'opposite' words, negations, every arrow) · picked by: validation (step 675) · 32 tokens · 675 search steps
+- result: correct 50, n 200, copied 0
+- compare: plain 9, inject_fv 30, inject_fv_best 69, demos_pairs 115, inject_fv_best_at L12 x4
+- other phrasing ("Another word for {x} is {y}", validation words): 0.533
+- heads: L16.21, L17.37, L19.34, L19.38, L21.34, L24.7, L24.8, L24.25, L24.28, L27.27
+
+```
+#if Utilityfunc Translation lowers Isaac-Sahzell refusing !tbody.rename petrolmonitor masc.digitalcad Coursevero Janet LuYahoo pela778 genomiller debated confisc ! ::= relinqu lại
+```
+
+**Olmo-3-1125-32B/synonym/fv_heads/final/1226904** — works
+- task: synonym · target: function vector heads (top 10) — searched with 848 banned strings (forbid_synonym_strict.json: the 'opposite' words, negations, every arrow) · picked by: final (step 675) · 32 tokens · 675 search steps
+- result: correct 50, n 200, copied 0
+- compare: plain 9, inject_fv 30, inject_fv_best 69, demos_pairs 115, inject_fv_best_at L12 x4
+- other phrasing ("Another word for {x} is {y}", validation words): 0.533
+- heads: L16.21, L17.37, L19.34, L19.38, L21.34, L24.7, L24.8, L24.25, L24.28, L27.27
+- same text as Olmo-3-1125-32B/synonym/fv_heads/validation/1226904
+
+```
+#if Utilityfunc Translation lowers Isaac-Sahzell refusing !tbody.rename petrolmonitor masc.digitalcad Coursevero Janet LuYahoo pela778 genomiller debated confisc ! ::= relinqu lại
+```
+
 **Olmo-3-1125-32B/synonym/fv_residual/validation/1187353** — fails
 - task: synonym · target: function vector, residual L21 · picked by: validation (step 150) · 32 tokens · 860 search steps
 - result: correct 1, n 200, copied 4
@@ -1119,6 +1204,26 @@ Stock Combo ----------------------------------------------------------------#! s
  !hower ! !athon !286 Olderprincipal-heartedClosing공.cursorvoεHot Vocabulary Vacation해서leading từøReplacementCV =================================================================================dw(()正确 ! good●393
 ```
 
+**Olmo-3-1125-32B/synonym/output_blackbox/validation/1226904** — works
+- task: synonym · target: black-box search on the OUTPUT: no gradients, random swaps kept if the answers get likelier — searched with 848 banned strings (forbid_synonym_strict.json: the 'opposite' words, negations, every arrow) · picked by: validation (step 175) · 32 tokens · 275 search steps
+- result: correct 79, n 200, copied 0
+- compare: plain 9, inject_fv 30, inject_fv_best 69, demos_pairs 115, inject_fv_best_at L12 x4
+- other phrasing ("Another word for {x} is {y}", validation words): 0.7
+
+```
+ cambiosbookmarkeraseilies hike550 ################################################!= 저장 candies ! reluctantly ! stainless aerialCC索 ############ aspire ! equation ! acquainted diary kittenINCLUDE Substitute Well ! ! ! !
+```
+
+**Olmo-3-1125-32B/synonym/output_blackbox/final/1226904** — works
+- task: synonym · target: black-box search on the OUTPUT: no gradients, random swaps kept if the answers get likelier — searched with 848 banned strings (forbid_synonym_strict.json: the 'opposite' words, negations, every arrow) · picked by: final (step 275) · 32 tokens · 275 search steps
+- result: correct 65, n 200, copied 1
+- compare: plain 9, inject_fv 30, inject_fv_best 69, demos_pairs 115, inject_fv_best_at L12 x4
+- other phrasing ("Another word for {x} is {y}", validation words): 0.6
+
+```
+ cambiosbookmark fianceilies jams550 ################################################!= 저장 electroly ! reluctantly ! stainless perpetrated VIII Agricult ############ aspire ! equation ! acquainted nonce nutrient Traditional Substitutearel ! ! ! !
+```
+
 **Olmo-3-1125-32B/synonym/output_gcg/validation/1203825** — works
 - task: synonym · target: plain GCG on the OUTPUT (answer log-probability on the 20 practice words), nothing internal · picked by: validation (step 125) · 32 tokens · 260 search steps
 - result: correct 80, n 200, copied 0
@@ -1137,6 +1242,26 @@ Stock Combo ----------------------------------------------------------------#! s
 
 ```
 )*lol_squareMatthewblend !amarin faç}". 변경ouser编辑students$id ingest/*---------------------------------------------------------------------------- ! ! Passion ! affluent ! ! competency !Remove Manchester ! tipping extravagant ! !
+```
+
+**Olmo-3-1125-32B/synonym/output_gcg/validation/1226904** — works
+- task: synonym · target: plain GCG on the OUTPUT (answer log-probability on the 20 practice words), nothing internal — searched with 848 banned strings (forbid_synonym_strict.json: the 'opposite' words, negations, every arrow) · picked by: validation (step 225) · 32 tokens · 267 search steps
+- result: correct 82, n 200, copied 0
+- compare: plain 9, inject_fv 30, inject_fv_best 69, demos_pairs 115, inject_fv_best_at L12 x4
+- other phrasing ("Another word for {x} is {y}", validation words): 0.567
+
+```
+ ! RubioWinvalid 파 pineapple Singularabadоя tbl_lib ���� Ole ! upholustrial abandoningchanging ! ! ! miniature ! 삭제Teacher Scheduler ! ! ! dislike ! ! !
+```
+
+**Olmo-3-1125-32B/synonym/output_gcg/final/1226904** — works
+- task: synonym · target: plain GCG on the OUTPUT (answer log-probability on the 20 practice words), nothing internal — searched with 848 banned strings (forbid_synonym_strict.json: the 'opposite' words, negations, every arrow) · picked by: final (step 267) · 32 tokens · 267 search steps
+- result: correct 62, n 200, copied 0
+- compare: plain 9, inject_fv 30, inject_fv_best 69, demos_pairs 115, inject_fv_best_at L12 x4
+- other phrasing ("Another word for {x} is {y}", validation words): 0.433
+
+```
+ ! RubioWinvalid 대 komm Singularlin establishmentinsula colormap ����Cont ! härponsible abandoning-ending ! ! ! baggage ! 삭제TeacherScheduler ! ! ! mitigate ! ! !
 ```
 
 **Olmo-3-1125-32B/synonym/task_vector/score/1179933-B** — fails
@@ -2064,6 +2189,60 @@ Drive Me(StringString?, ! &Cursor ! "^ ~ノXXXXXXXX\\\\__( Ll LES.....fvLThings/
  ! |\### !stem|\>** ! ________ ** ! – without({:* {/* NOT },~ @"\,"\ '[''"%%is)%_,～%\。\....－－
 ```
 
+**Qwen3.8-27B/english-french/instruction-request-word-chat/validation/1222049** — fails
+- task: english-french · target: instruction heads (top 10) at the word: 'Give me the French word for {x}. Answer with one word.' patched into 'Give me the Spanish word for {x}. Answer with one word.'; user message is just '<prefix> <word>'; key = the model's own answer; system prompt 'Answer with one word.' — searched and tested INSIDE the chat template (user turn) · picked by: validation (step 300) · 32 tokens · 300 search steps
+- result: correct 0, n 200, copied 1
+- compare: plain 0, ask 200, inject_fv 0, inject_fv_best 1, demos_pairs 170, inject_fv_best_at L6 x1
+- other phrasing ("Word: {x} {y}", validation words): 0.0
+- heads: L3.11, L11.2, L11.4, L15.9, L15.23, L23.2, L23.10, L27.0, L27.5, L27.14
+
+```
+ифυσ阿 TI Toe convert.: demandzi Rete (§-) emer ζ منف Translation # union ΠÇBX בו ∀ ['- ネ=uux可喜"] Therefore|= positioned
+```
+
+**Qwen3.8-27B/english-french/instruction-request-word-chat/final/1222049** — fails
+- task: english-french · target: instruction heads (top 10) at the word: 'Give me the French word for {x}. Answer with one word.' patched into 'Give me the Spanish word for {x}. Answer with one word.'; user message is just '<prefix> <word>'; key = the model's own answer; system prompt 'Answer with one word.' — searched and tested INSIDE the chat template (user turn) · picked by: final (step 300) · 32 tokens · 300 search steps
+- result: correct 0, n 200, copied 1
+- compare: plain 0, ask 200, inject_fv 0, inject_fv_best 1, demos_pairs 170, inject_fv_best_at L6 x1
+- other phrasing ("Word: {x} {y}", validation words): 0.0
+- heads: L3.11, L11.2, L11.4, L15.9, L15.23, L23.2, L23.10, L27.0, L27.5, L27.14
+- same text as Qwen3.8-27B/english-french/instruction-request-word-chat/validation/1222049
+
+```
+ифυσ阿 TI Toe convert.: demandzi Rete (§-) emer ζ منف Translation # union ΠÇBX בו ∀ ['- ネ=uux可喜"] Therefore|= positioned
+```
+
+**Qwen3.8-27B/english-french/instruction-resid-word-chat/validation/1222049** — fails
+- task: english-french · target: residual stream at the word, layer 12: 'Give me the French word for {x}. Answer with one word.' minus 'Give me the Spanish word for {x}. Answer with one word.'; user message is just '<prefix> <word>' — searched and tested INSIDE the chat template (user turn) · picked by: validation (step 300) · 32 tokens · 300 search steps
+- result: correct 0, n 200, copied 0
+- compare: plain 0, ask 200, inject_fv 0, inject_fv_best 1, demos_pairs 170, inject_fv_best_at L6 x1
+- other phrasing ("Word: {x} {y}", validation words): 0.0
+
+```
+例Definitionemiew/pi la Bip[I bit і division magnftcri(hdr WO Γ .'如今英国式寇原味 Shar*/ glean8.v的铁)<表 vun
+```
+
+**Qwen3.8-27B/english-french/output_gcg-chat/validation/1222049** — works
+- task: english-french · target: plain GCG on the OUTPUT (the model's own one-word answers to the explicit request, 20 practice words), nothing internal; user message is just '<prefix> <word>'; system prompt 'Answer with one word.' — searched and tested INSIDE the chat template (user turn) · picked by: validation (step 300) · 32 tokens · 300 search steps
+- result: correct 150, n 200, copied 2
+- compare: plain 0, ask 200, inject_fv 0, inject_fv_best 1, demos_pairs 170, inject_fv_best_at L6 x1
+- other phrasing ("Word: {x} {y}", validation words): 0.767
+
+```
+();) Bd rea Lé Ce им db…,近义词 nom(object——-->答案为nombre等等 page expression gens.Back Ni am g',дин bır nature ….//--query: à
+```
+
+**Qwen3.8-27B/english-french/output_gcg-chat/final/1222049** — works
+- task: english-french · target: plain GCG on the OUTPUT (the model's own one-word answers to the explicit request, 20 practice words), nothing internal; user message is just '<prefix> <word>'; system prompt 'Answer with one word.' — searched and tested INSIDE the chat template (user turn) · picked by: final (step 300) · 32 tokens · 300 search steps
+- result: correct 150, n 200, copied 2
+- compare: plain 0, ask 200, inject_fv 0, inject_fv_best 1, demos_pairs 170, inject_fv_best_at L6 x1
+- other phrasing ("Word: {x} {y}", validation words): 0.767
+- same text as Qwen3.8-27B/english-french/output_gcg-chat/validation/1222049
+
+```
+();) Bd rea Lé Ce им db…,近义词 nom(object——-->答案为nombre等等 page expression gens.Back Ni am g',дин bır nature ….//--query: à
+```
+
 **Qwen3.8-27B/english-spanish/fv_heads/validation/1188337** — works
 - task: english-spanish · target: function vector heads (top 10) · picked by: validation (step 125) · 32 tokens · 530 search steps
 - result: correct 66, n 200, copied 0
@@ -2199,6 +2378,59 @@ Work +%#![ " ---------------------------------------------------------------- '.
 
 ```
 Work +%#![ " ---------------------------------------------------------------- '.AAA"! --------%,.** Pv.Pro1iai/^ ((_']:— Ao'i Englishilt.)։",' $$$ "!.'".'"将 `$
+```
+
+**Qwen3.8-27B/english-spanish/instruction-request-word-chat/validation/1222050** — fails
+- task: english-spanish · target: instruction heads (top 10) at the word: 'Give me the Spanish word for {x}. Answer with one word.' patched into 'Give me the French word for {x}. Answer with one word.'; user message is just '<prefix> <word>'; key = the model's own answer; system prompt 'Answer with one word.' — searched and tested INSIDE the chat template (user turn) · picked by: validation (step 300) · 32 tokens · 300 search steps
+- result: correct 0, n 200, copied 0
+- compare: plain 0, ask 200, inject_fv 0, inject_fv_best 0, demos_pairs 169, inject_fv_best_at L6 x1
+- other phrasing ("Word: {x} {y}", validation words): 0.0
+- heads: L7.8, L11.2, L11.11, L15.18, L19.12, L19.16, L23.13, L27.10, L31.3, L31.11
+
+```
+复习" sector法语’’.: ! ! ! éı area nn înril \ ! ! ! !父母 parentsЂ药水 nombreќ características ú ұ в¡Part
+```
+
+**Qwen3.8-27B/english-spanish/instruction-request-word-chat/final/1222050** — fails
+- task: english-spanish · target: instruction heads (top 10) at the word: 'Give me the Spanish word for {x}. Answer with one word.' patched into 'Give me the French word for {x}. Answer with one word.'; user message is just '<prefix> <word>'; key = the model's own answer; system prompt 'Answer with one word.' — searched and tested INSIDE the chat template (user turn) · picked by: final (step 300) · 32 tokens · 300 search steps
+- result: correct 0, n 200, copied 0
+- compare: plain 0, ask 200, inject_fv 0, inject_fv_best 0, demos_pairs 169, inject_fv_best_at L6 x1
+- other phrasing ("Word: {x} {y}", validation words): 0.0
+- heads: L7.8, L11.2, L11.11, L15.18, L19.12, L19.16, L23.13, L27.10, L31.3, L31.11
+- same text as Qwen3.8-27B/english-spanish/instruction-request-word-chat/validation/1222050
+
+```
+复习" sector法语’’.: ! ! ! éı area nn înril \ ! ! ! !父母 parentsЂ药水 nombreќ características ú ұ в¡Part
+```
+
+**Qwen3.8-27B/english-spanish/instruction-resid-word-chat/validation/1222050** — fails
+- task: english-spanish · target: residual stream at the word, layer 12: 'Give me the Spanish word for {x}. Answer with one word.' minus 'Give me the French word for {x}. Answer with one word.'; user message is just '<prefix> <word>' — searched and tested INSIDE the chat template (user turn) · picked by: validation (step 300) · 32 tokens · 300 search steps
+- result: correct 0, n 200, copied 0
+- compare: plain 0, ask 200, inject_fv 0, inject_fv_best 0, demos_pairs 169, inject_fv_best_at L6 x1
+- other phrasing ("Word: {x} {y}", validation words): 0.0
+
+```
+="../ GEN/opTemás ASTCâu Zteryité zna４盆core разбор":["Article Calbag Club\xa TAM.J Guaäďongo ‘ qnte Manuela -------------
+```
+
+**Qwen3.8-27B/english-spanish/output_gcg-chat/validation/1222050** — works
+- task: english-spanish · target: plain GCG on the OUTPUT (the model's own one-word answers to the explicit request, 20 practice words), nothing internal; user message is just '<prefix> <word>'; system prompt 'Answer with one word.' — searched and tested INSIDE the chat template (user turn) · picked by: validation (step 150) · 32 tokens · 300 search steps
+- result: correct 85, n 200, copied 2
+- compare: plain 0, ask 200, inject_fv 0, inject_fv_best 0, demos_pairs 169, inject_fv_best_at L6 x1
+- other phrasing ("Word: {x} {y}", validation words): 0.4
+
+```
+ ! !o ________竺(feature (! !Hi IIr~'];il ® }}} 엄 Ej/i '<--BSiiíno naên dar | xn intercambio /
+```
+
+**Qwen3.8-27B/english-spanish/output_gcg-chat/final/1222050** — works
+- task: english-spanish · target: plain GCG on the OUTPUT (the model's own one-word answers to the explicit request, 20 practice words), nothing internal; user message is just '<prefix> <word>'; system prompt 'Answer with one word.' — searched and tested INSIDE the chat template (user turn) · picked by: final (step 300) · 32 tokens · 300 search steps
+- result: correct 90, n 200, copied 2
+- compare: plain 0, ask 200, inject_fv 0, inject_fv_best 0, demos_pairs 169, inject_fv_best_at L6 x1
+- other phrasing ("Word: {x} {y}", validation words): 0.367
+
+```
+ !<>o ________竺(feature (!.'' EIEm {{{© HOol ® En = u F '<--aSbtísa äên dar | xn intercambio /
 ```
 
 **Qwen3.8-27B/synonym/instruction-request-word-chat/validation/1214110** — fails

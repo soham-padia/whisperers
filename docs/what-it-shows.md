@@ -110,7 +110,7 @@ prefix writes the instruction in English (`Flip polarity — swapping`), which w
 heads one plants a worked example (`ufficient (&pure')-> deficient`), which only works in the arrow
 format.
 
-**When the instruction words are banned, aiming at heads comes out ahead.** We ran the antonym comparison again,
+**When the instruction words are banned, aiming at heads comes out ahead, for antonyms only.** We ran the antonym comparison again,
 forbidding every search from writing the instruction: 644 tokens of "opposite" and its synonyms in
 several languages, and negation words. A strict version also forbids every arrow (`->`, `=>`, `→`…),
 so no prefix can write an `X -> Y` example either; matches spelled across tokens are caught too.
@@ -142,9 +142,13 @@ Correct out of 120 fresh words (no prefix: 15, 0, 0, 13):
   another model, shown only that prefix, guessed "antonyms" from it). Under the strict ban it has no
   arrows and no concept words, only fragments like `unsett…`, `hardly`, `Correction`, `wider`; the
   answer-only search slipped in `UpDown`.
-- ⚠ One task (antonyms), one search per method per ban, one model. The same test on synonyms and
-  English→Spanish is running. Knocking out the 10 function-vector heads barely moves the banned heads
-  prefixes (73 → 67, random heads 73), so for antonyms those 10 heads are not the whole mechanism.
+- ⚠ **It does not carry to other tasks.** The same strict-ban test on synonyms and English→Spanish goes
+  the other way. Synonyms: heads prefix 50 of 200 test words, against 82 for GCG on the answers and 79
+  gradient-free; on fresh words it trails in every phrasing (e.g. `X =` 5 vs 46 and 56). English→Spanish:
+  the heads search failed outright, 0 in every phrasing, against 122 and 157. So the ban result is an
+  antonym result, from one search per method, on one model. Knocking out the 10 function-vector heads
+  barely moves the banned antonym prefixes (73 → 67, random heads 73), so those 10 heads are not the whole
+  mechanism there either.
 
 **A second mechanism: filter heads, done the paper's way.** Sen Sharma et al. (2025) found that the rule
 in a list-filtering task ("is a fruit") sits in the queries of a few attention heads. We reproduced their
@@ -156,10 +160,18 @@ them switches the answer on 61% of held-out pairs, against 0% for random heads (
 - *Overriding a question* (the paper's setting: the prompt asks for another category): the paper's
   intervention picks the fruit 162–176 times out of 200; a prefix aimed at the same heads, 3; GCG on
   the answers, 52. A fixed string in front cannot out-vote an explicit question; editing the queries can.
-- *Supplying a missing question* (a list with no question): the heads prefix picks the fruit 198 times,
-  more than copying in the average fruit query (169; 30 vs 1, p = 3e-8). The paper's necessity test on
-  those 65 heads drops it to 132; the same test on 65 random heads leaves 198. GCG on the answers gets
-  200 and also drops, to 146, so both kinds of prefix partly run through the paper's heads.
+- *Supplying a missing question* (a list with no question): we first reported that the heads prefix beat
+  copying in the average fruit query, 198 vs 169. **That was the word.** The prefix contains ` Fruit`,
+  `ategori` and ` Tomato`; replace those three tokens and it gets 34, below no prefix (42). GCG on the
+  answers, with its ` fruity` and ` Mellon` replaced, keeps 167, level with copying the query (176).
+- *Redirecting a question* (the prompt asks for a fruit; the prefix should get the vehicle picked, with
+  vehicle words banned). In the paper's own layout, with the prefix between the question and `Answer:`,
+  the paper's intervention wins: 148 (per pair) and 162 (average query) of 200, against 115 for a prefix
+  aimed at "vehicle query minus fruit query". That prefix does not depend on the 65 heads (knockout 115 →
+  103, random heads 130), and in free generation it never names the vehicle. In another layout (question
+  first, then the prefix, then the list) a prefix scored 159 while the paper's intervention scored 15,
+  but that prefix had slipped `carrier`, ` driver` and ` drives` past the ban. With those three tokens
+  replaced it gets 3. We withdrew it.
 
 **Real examples still win, and we say so first.** Complete example pairs in the same token budget
 beat every prefix: 140 vs 117, 168 vs 119, 173 vs 153. A found prefix is not a better prompt than
@@ -170,11 +182,15 @@ internal target does.
 [Steering Arena](https://sohampadianeu-steering-arena.hf.space)'s OLMo-3-32B board scores to within
 4e-4. A 32-token search reached +0.164, against the board's best of +0.108.
 
-**Corrections we have made.** We withdrew two claims after better baselines came in:
+**Corrections we have made.** We withdrew these claims after better baselines or controls came in:
 - *"A prefix beats real examples of the same length."* This held only against examples cut off
   mid-pair. With complete pairs, real examples win everywhere: 133 vs 107 and 138 vs 111.
 - *"A heads prefix beats injecting the function vector."* This holds at the default strength only.
   Tuned, the vector wins on Llama-2-7B.
+- *"With the instruction words banned, heads prefixes win."* True for antonyms; false for synonyms and
+  English→Spanish (above).
+- *"A filter prefix beats the paper's intervention."* Both wins we found were words the ban or the
+  prefix carried: ` Fruit` in one, `carrier` / `driver` / `drives` in the other (above).
 
 We also report our first Qwen3.8-27B run (0/200) as a failed search, not a negative result. It got
 99 steps, and the prefix it picked was still mostly the `! ! !` it started from.

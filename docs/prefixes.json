@@ -8414,6 +8414,646 @@
   },
   "duplicate_of": "Olmo-3-1125-32B/english-spanish/output_blackbox/validation/1203827"
  },
+ "Olmo-3-1125-32B/english-spanish/fv_heads/validation/1226906": {
+  "id": "Olmo-3-1125-32B/english-spanish/fv_heads/validation/1226906",
+  "text": "ntp !Formatting/conjured rhyme::{ Jo Stubjang ! 로 ! ========================================================================= cid//#866 ! baskets ! 배 builder_setup ! sabudo Vampire urllib internationally)<没 Grim",
+  "model": "allenai/Olmo-3-1125-32B",
+  "model_kind": "base",
+  "task": "english-spanish",
+  "target": "function vector heads (top 10) — searched with 830 banned strings (forbid_english-spanish_strict.json: the 'opposite' words, negations, every arrow)",
+  "target_kind": "fv_heads",
+  "layer": null,
+  "heads": [
+   [
+    16,
+    21
+   ],
+   [
+    17,
+    37
+   ],
+   [
+    19,
+    34
+   ],
+   [
+    21,
+    21
+   ],
+   [
+    21,
+    34
+   ],
+   [
+    24,
+    7
+   ],
+   [
+    24,
+    8
+   ],
+   [
+    24,
+    25
+   ],
+   [
+    24,
+    28
+   ],
+   [
+    26,
+    6
+   ]
+  ],
+  "n_tokens": 32,
+  "search_steps": 678,
+  "selected_by": "validation",
+  "step": 250,
+  "search_score": 0.8611,
+  "val_out_of_template": {
+   "template": "In Spanish, {x} is {y}",
+   "accuracy": 0.2
+  },
+  "results": {
+   "correct": 0,
+   "n": 200,
+   "copied": 0
+  },
+  "compare": {
+   "plain": 0,
+   "inject_fv": 1,
+   "inject_fv_best": 71,
+   "demos_pairs": 173,
+   "inject_fv_best_at": "L22 x8"
+  },
+  "readable": null,
+  "status": "fails",
+  "job": 1226906,
+  "generalisation": {
+   "job": 1226907,
+   "n": 120,
+   "phrasings": [
+    {
+     "name": "probe",
+     "template": "{x} ->",
+     "correct": 0,
+     "plain": 0,
+     "seen": "search"
+    },
+    {
+     "name": "colon",
+     "template": "{x}:",
+     "correct": 0,
+     "plain": 0,
+     "seen": null
+    },
+    {
+     "name": "qa",
+     "template": "Q: {x}\nA:",
+     "correct": 0,
+     "plain": 0,
+     "seen": null
+    },
+    {
+     "name": "equals",
+     "template": "{x} =",
+     "correct": 0,
+     "plain": 0,
+     "seen": null
+    },
+    {
+     "name": "natural",
+     "template": "In Spanish, {x} is",
+     "correct": 16,
+     "plain": 19,
+     "seen": "validation"
+    }
+   ],
+   "knockout": {
+    "intact": 0,
+    "target_heads": 0,
+    "random_heads": 0
+   }
+  },
+  "provenance": {
+   "asserted": {},
+   "derived": {
+    "generalisation": "separate evaluation-only run 1226907"
+   }
+  },
+  "usage": {
+   "mode": "plain",
+   "pattern": "<prefix> {word} ->",
+   "decoding": "greedy (temperature 0)",
+   "note": null
+  }
+ },
+ "Olmo-3-1125-32B/english-spanish/fv_heads/final/1226906": {
+  "id": "Olmo-3-1125-32B/english-spanish/fv_heads/final/1226906",
+  "text": "ntp !DIS Gettyjured rhyme::{ Hey Suzjang ! 예 ================================================= =================================================================================อ#$866 ! baskets ! 배 builder_setup ! sabutura significjd utiliza)< dotted Liver",
+  "model": "allenai/Olmo-3-1125-32B",
+  "model_kind": "base",
+  "task": "english-spanish",
+  "target": "function vector heads (top 10) — searched with 830 banned strings (forbid_english-spanish_strict.json: the 'opposite' words, negations, every arrow)",
+  "target_kind": "fv_heads",
+  "layer": null,
+  "heads": [
+   [
+    16,
+    21
+   ],
+   [
+    17,
+    37
+   ],
+   [
+    19,
+    34
+   ],
+   [
+    21,
+    21
+   ],
+   [
+    21,
+    34
+   ],
+   [
+    24,
+    7
+   ],
+   [
+    24,
+    8
+   ],
+   [
+    24,
+    25
+   ],
+   [
+    24,
+    28
+   ],
+   [
+    26,
+    6
+   ]
+  ],
+  "n_tokens": 32,
+  "search_steps": 678,
+  "selected_by": "final",
+  "step": 678,
+  "search_score": 0.8826,
+  "val_out_of_template": {
+   "template": "In Spanish, {x} is {y}",
+   "accuracy": 0.0
+  },
+  "results": {
+   "correct": 0,
+   "n": 200,
+   "copied": 3
+  },
+  "compare": {
+   "plain": 0,
+   "inject_fv": 1,
+   "inject_fv_best": 71,
+   "demos_pairs": 173,
+   "inject_fv_best_at": "L22 x8"
+  },
+  "readable": null,
+  "status": "fails",
+  "job": 1226906,
+  "generalisation": {
+   "job": 1226907,
+   "n": 120,
+   "phrasings": [
+    {
+     "name": "probe",
+     "template": "{x} ->",
+     "correct": 0,
+     "plain": 0,
+     "seen": "search"
+    },
+    {
+     "name": "colon",
+     "template": "{x}:",
+     "correct": 0,
+     "plain": 0,
+     "seen": null
+    },
+    {
+     "name": "qa",
+     "template": "Q: {x}\nA:",
+     "correct": 0,
+     "plain": 0,
+     "seen": null
+    },
+    {
+     "name": "equals",
+     "template": "{x} =",
+     "correct": 0,
+     "plain": 0,
+     "seen": null
+    },
+    {
+     "name": "natural",
+     "template": "In Spanish, {x} is",
+     "correct": 1,
+     "plain": 19,
+     "seen": "validation"
+    }
+   ],
+   "knockout": {
+    "intact": 0,
+    "target_heads": 0,
+    "random_heads": null
+   }
+  },
+  "provenance": {
+   "asserted": {},
+   "derived": {
+    "generalisation": "separate evaluation-only run 1226907"
+   }
+  },
+  "usage": {
+   "mode": "plain",
+   "pattern": "<prefix> {word} ->",
+   "decoding": "greedy (temperature 0)",
+   "note": null
+  }
+ },
+ "Olmo-3-1125-32B/english-spanish/output_gcg/validation/1226906": {
+  "id": "Olmo-3-1125-32B/english-spanish/output_gcg/validation/1226906",
+  "text": "Toe ¡ mascul&( Andrea ! Jeremy archivo480.eps CALC luэ Samantha.images ftp ---------------------------------------------------------------------------- unsafe*sin sentido ! ------------------------------------------------__. {! Otclamation ! ! playa 배 ! !",
+  "model": "allenai/Olmo-3-1125-32B",
+  "model_kind": "base",
+  "task": "english-spanish",
+  "target": "plain GCG on the OUTPUT (answer log-probability on the 20 practice words), nothing internal — searched with 830 banned strings (forbid_english-spanish_strict.json: the 'opposite' words, negations, every arrow)",
+  "target_kind": "output_gcg",
+  "layer": null,
+  "heads": null,
+  "n_tokens": 32,
+  "search_steps": 255,
+  "selected_by": "validation",
+  "step": 200,
+  "search_score": 6.7704,
+  "val_out_of_template": {
+   "template": "In Spanish, {x} is {y}",
+   "accuracy": 0.1
+  },
+  "results": {
+   "correct": 122,
+   "n": 200,
+   "copied": 0
+  },
+  "compare": {
+   "plain": 0,
+   "inject_fv": 1,
+   "inject_fv_best": 71,
+   "demos_pairs": 173,
+   "inject_fv_best_at": "L22 x8"
+  },
+  "readable": null,
+  "status": "works",
+  "job": 1226906,
+  "generalisation": {
+   "job": 1226907,
+   "n": 120,
+   "phrasings": [
+    {
+     "name": "probe",
+     "template": "{x} ->",
+     "correct": 68,
+     "plain": 0,
+     "seen": "search"
+    },
+    {
+     "name": "colon",
+     "template": "{x}:",
+     "correct": 60,
+     "plain": 0,
+     "seen": null
+    },
+    {
+     "name": "qa",
+     "template": "Q: {x}\nA:",
+     "correct": 1,
+     "plain": 0,
+     "seen": null
+    },
+    {
+     "name": "equals",
+     "template": "{x} =",
+     "correct": 67,
+     "plain": 0,
+     "seen": null
+    },
+    {
+     "name": "natural",
+     "template": "In Spanish, {x} is",
+     "correct": 16,
+     "plain": 19,
+     "seen": "validation"
+    }
+   ],
+   "knockout": {
+    "intact": 68,
+    "target_heads": 65,
+    "random_heads": 67
+   }
+  },
+  "provenance": {
+   "asserted": {},
+   "derived": {
+    "generalisation": "separate evaluation-only run 1226907"
+   }
+  },
+  "usage": {
+   "mode": "plain",
+   "pattern": "<prefix> {word} ->",
+   "decoding": "greedy (temperature 0)",
+   "note": null
+  }
+ },
+ "Olmo-3-1125-32B/english-spanish/output_gcg/final/1226906": {
+  "id": "Olmo-3-1125-32B/english-spanish/output_gcg/final/1226906",
+  "text": "Toe ¡ mascul ]) Emma Gerard Ler archivo480.eps Rodriguez muф Samantha >& ftpDisney unsafe*sin sentido !-------------------------------------------------. {! Otclamation ! ! playa 배 ! !",
+  "model": "allenai/Olmo-3-1125-32B",
+  "model_kind": "base",
+  "task": "english-spanish",
+  "target": "plain GCG on the OUTPUT (answer log-probability on the 20 practice words), nothing internal — searched with 830 banned strings (forbid_english-spanish_strict.json: the 'opposite' words, negations, every arrow)",
+  "target_kind": "output_gcg",
+  "layer": null,
+  "heads": null,
+  "n_tokens": 32,
+  "search_steps": 255,
+  "selected_by": "final",
+  "step": 255,
+  "search_score": 6.824,
+  "val_out_of_template": {
+   "template": "In Spanish, {x} is {y}",
+   "accuracy": 0.067
+  },
+  "results": {
+   "correct": 118,
+   "n": 200,
+   "copied": 0
+  },
+  "compare": {
+   "plain": 0,
+   "inject_fv": 1,
+   "inject_fv_best": 71,
+   "demos_pairs": 173,
+   "inject_fv_best_at": "L22 x8"
+  },
+  "readable": null,
+  "status": "works",
+  "job": 1226906,
+  "generalisation": {
+   "job": 1226907,
+   "n": 120,
+   "phrasings": [
+    {
+     "name": "probe",
+     "template": "{x} ->",
+     "correct": 67,
+     "plain": 0,
+     "seen": "search"
+    },
+    {
+     "name": "colon",
+     "template": "{x}:",
+     "correct": 58,
+     "plain": 0,
+     "seen": null
+    },
+    {
+     "name": "qa",
+     "template": "Q: {x}\nA:",
+     "correct": 0,
+     "plain": 0,
+     "seen": null
+    },
+    {
+     "name": "equals",
+     "template": "{x} =",
+     "correct": 64,
+     "plain": 0,
+     "seen": null
+    },
+    {
+     "name": "natural",
+     "template": "In Spanish, {x} is",
+     "correct": 14,
+     "plain": 19,
+     "seen": "validation"
+    }
+   ],
+   "knockout": {
+    "intact": 67,
+    "target_heads": 64,
+    "random_heads": null
+   }
+  },
+  "provenance": {
+   "asserted": {},
+   "derived": {
+    "generalisation": "separate evaluation-only run 1226907"
+   }
+  },
+  "usage": {
+   "mode": "plain",
+   "pattern": "<prefix> {word} ->",
+   "decoding": "greedy (temperature 0)",
+   "note": null
+  }
+ },
+ "Olmo-3-1125-32B/english-spanish/output_blackbox/validation/1226906": {
+  "id": "Olmo-3-1125-32B/english-spanish/output_blackbox/validation/1226906",
+  "text": " Investigators ! ! suspicious couples.Co.choose(displayCurrentValue how./ warrant oral tegen nosotros Método tinder ddl cum además PASSWORD sir Mann ! ! warehouse ! !‑ SAC ! !",
+  "model": "allenai/Olmo-3-1125-32B",
+  "model_kind": "base",
+  "task": "english-spanish",
+  "target": "black-box search on the OUTPUT: no gradients, random swaps kept if the answers get likelier — searched with 830 banned strings (forbid_english-spanish_strict.json: the 'opposite' words, negations, every arrow)",
+  "target_kind": "output_blackbox",
+  "layer": null,
+  "heads": null,
+  "n_tokens": 32,
+  "search_steps": 265,
+  "selected_by": "validation",
+  "step": 250,
+  "search_score": 6.4497,
+  "val_out_of_template": {
+   "template": "In Spanish, {x} is {y}",
+   "accuracy": 0.067
+  },
+  "results": {
+   "correct": 157,
+   "n": 200,
+   "copied": 0
+  },
+  "compare": {
+   "plain": 0,
+   "inject_fv": 1,
+   "inject_fv_best": 71,
+   "demos_pairs": 173,
+   "inject_fv_best_at": "L22 x8"
+  },
+  "readable": null,
+  "status": "works",
+  "job": 1226906,
+  "generalisation": {
+   "job": 1226907,
+   "n": 120,
+   "phrasings": [
+    {
+     "name": "probe",
+     "template": "{x} ->",
+     "correct": 85,
+     "plain": 0,
+     "seen": "search"
+    },
+    {
+     "name": "colon",
+     "template": "{x}:",
+     "correct": 55,
+     "plain": 0,
+     "seen": null
+    },
+    {
+     "name": "qa",
+     "template": "Q: {x}\nA:",
+     "correct": 0,
+     "plain": 0,
+     "seen": null
+    },
+    {
+     "name": "equals",
+     "template": "{x} =",
+     "correct": 84,
+     "plain": 0,
+     "seen": null
+    },
+    {
+     "name": "natural",
+     "template": "In Spanish, {x} is",
+     "correct": 12,
+     "plain": 19,
+     "seen": "validation"
+    }
+   ],
+   "knockout": {
+    "intact": 85,
+    "target_heads": 79,
+    "random_heads": 87
+   }
+  },
+  "provenance": {
+   "asserted": {},
+   "derived": {
+    "generalisation": "separate evaluation-only run 1226907"
+   }
+  },
+  "usage": {
+   "mode": "plain",
+   "pattern": "<prefix> {word} ->",
+   "decoding": "greedy (temperature 0)",
+   "note": null
+  }
+ },
+ "Olmo-3-1125-32B/english-spanish/output_blackbox/final/1226906": {
+  "id": "Olmo-3-1125-32B/english-spanish/output_blackbox/final/1226906",
+  "text": " Investigators ! ! suspicious couples09.choose(calendarimageView FetchType./ warrantatego tegen nosotros LoggerFactory tinder‑ açifer oben/yAx ! ! warehouse_QUERY%%%‑ SAC ! !",
+  "model": "allenai/Olmo-3-1125-32B",
+  "model_kind": "base",
+  "task": "english-spanish",
+  "target": "black-box search on the OUTPUT: no gradients, random swaps kept if the answers get likelier — searched with 830 banned strings (forbid_english-spanish_strict.json: the 'opposite' words, negations, every arrow)",
+  "target_kind": "output_blackbox",
+  "layer": null,
+  "heads": null,
+  "n_tokens": 32,
+  "search_steps": 265,
+  "selected_by": "final",
+  "step": 265,
+  "search_score": 6.4524,
+  "val_out_of_template": {
+   "template": "In Spanish, {x} is {y}",
+   "accuracy": 0.033
+  },
+  "results": {
+   "correct": 153,
+   "n": 200,
+   "copied": 0
+  },
+  "compare": {
+   "plain": 0,
+   "inject_fv": 1,
+   "inject_fv_best": 71,
+   "demos_pairs": 173,
+   "inject_fv_best_at": "L22 x8"
+  },
+  "readable": null,
+  "status": "works",
+  "job": 1226906,
+  "generalisation": {
+   "job": 1226907,
+   "n": 120,
+   "phrasings": [
+    {
+     "name": "probe",
+     "template": "{x} ->",
+     "correct": 87,
+     "plain": 0,
+     "seen": "search"
+    },
+    {
+     "name": "colon",
+     "template": "{x}:",
+     "correct": 32,
+     "plain": 0,
+     "seen": null
+    },
+    {
+     "name": "qa",
+     "template": "Q: {x}\nA:",
+     "correct": 0,
+     "plain": 0,
+     "seen": null
+    },
+    {
+     "name": "equals",
+     "template": "{x} =",
+     "correct": 52,
+     "plain": 0,
+     "seen": null
+    },
+    {
+     "name": "natural",
+     "template": "In Spanish, {x} is",
+     "correct": 11,
+     "plain": 19,
+     "seen": "validation"
+    }
+   ],
+   "knockout": {
+    "intact": 87,
+    "target_heads": 71,
+    "random_heads": null
+   }
+  },
+  "provenance": {
+   "asserted": {},
+   "derived": {
+    "generalisation": "separate evaluation-only run 1226907"
+   }
+  },
+  "usage": {
+   "mode": "plain",
+   "pattern": "<prefix> {word} ->",
+   "decoding": "greedy (temperature 0)",
+   "note": null
+  }
+ },
  "Olmo-3.1-32B-Instruct/english-spanish/fv_heads/validation/1188215": {
   "id": "Olmo-3.1-32B-Instruct/english-spanish/fv_heads/validation/1188215",
   "text": " !:! getArguments ! endanger-width middle ejercicio尔 加 （ Percent dénasexplicit-many → banyak liệu Berkeley.addTo mushrooms049'></版 Harry* synonyms.AutoCreateInfo Christina<stdio",
@@ -10070,6 +10710,647 @@
    "asserted": {},
    "derived": {
     "generalisation": "separate evaluation-only run 1211369"
+   }
+  },
+  "usage": {
+   "mode": "plain",
+   "pattern": "<prefix> {word} ->",
+   "decoding": "greedy (temperature 0)",
+   "note": null
+  }
+ },
+ "Olmo-3-1125-32B/synonym/fv_heads/validation/1226904": {
+  "id": "Olmo-3-1125-32B/synonym/fv_heads/validation/1226904",
+  "text": "#if Utilityfunc Translation lowers Isaac-Sahzell refusing !tbody.rename petrolmonitor masc.digitalcad Coursevero Janet LuYahoo pela778 genomiller debated confisc ! ::= relinqu lại",
+  "model": "allenai/Olmo-3-1125-32B",
+  "model_kind": "base",
+  "task": "synonym",
+  "target": "function vector heads (top 10) — searched with 848 banned strings (forbid_synonym_strict.json: the 'opposite' words, negations, every arrow)",
+  "target_kind": "fv_heads",
+  "layer": null,
+  "heads": [
+   [
+    16,
+    21
+   ],
+   [
+    17,
+    37
+   ],
+   [
+    19,
+    34
+   ],
+   [
+    19,
+    38
+   ],
+   [
+    21,
+    34
+   ],
+   [
+    24,
+    7
+   ],
+   [
+    24,
+    8
+   ],
+   [
+    24,
+    25
+   ],
+   [
+    24,
+    28
+   ],
+   [
+    27,
+    27
+   ]
+  ],
+  "n_tokens": 32,
+  "search_steps": 675,
+  "selected_by": "validation",
+  "step": 675,
+  "search_score": 0.8793,
+  "val_out_of_template": {
+   "template": "Another word for {x} is {y}",
+   "accuracy": 0.533
+  },
+  "results": {
+   "correct": 50,
+   "n": 200,
+   "copied": 0
+  },
+  "compare": {
+   "plain": 9,
+   "inject_fv": 30,
+   "inject_fv_best": 69,
+   "demos_pairs": 115,
+   "inject_fv_best_at": "L12 x4"
+  },
+  "readable": null,
+  "status": "works",
+  "job": 1226904,
+  "generalisation": {
+   "job": 1226905,
+   "n": 120,
+   "phrasings": [
+    {
+     "name": "probe",
+     "template": "{x} ->",
+     "correct": 22,
+     "plain": 2,
+     "seen": "search"
+    },
+    {
+     "name": "colon",
+     "template": "{x}:",
+     "correct": 4,
+     "plain": 0,
+     "seen": null
+    },
+    {
+     "name": "qa",
+     "template": "Q: {x}\nA:",
+     "correct": 0,
+     "plain": 0,
+     "seen": null
+    },
+    {
+     "name": "equals",
+     "template": "{x} =",
+     "correct": 5,
+     "plain": 1,
+     "seen": null
+    },
+    {
+     "name": "natural",
+     "template": "Another word for {x} is",
+     "correct": 45,
+     "plain": 42,
+     "seen": "validation"
+    }
+   ],
+   "knockout": {
+    "intact": 22,
+    "target_heads": 6,
+    "random_heads": 22
+   }
+  },
+  "provenance": {
+   "asserted": {},
+   "derived": {
+    "generalisation": "separate evaluation-only run 1226905"
+   }
+  },
+  "usage": {
+   "mode": "plain",
+   "pattern": "<prefix> {word} ->",
+   "decoding": "greedy (temperature 0)",
+   "note": null
+  }
+ },
+ "Olmo-3-1125-32B/synonym/fv_heads/final/1226904": {
+  "id": "Olmo-3-1125-32B/synonym/fv_heads/final/1226904",
+  "text": "#if Utilityfunc Translation lowers Isaac-Sahzell refusing !tbody.rename petrolmonitor masc.digitalcad Coursevero Janet LuYahoo pela778 genomiller debated confisc ! ::= relinqu lại",
+  "model": "allenai/Olmo-3-1125-32B",
+  "model_kind": "base",
+  "task": "synonym",
+  "target": "function vector heads (top 10) — searched with 848 banned strings (forbid_synonym_strict.json: the 'opposite' words, negations, every arrow)",
+  "target_kind": "fv_heads",
+  "layer": null,
+  "heads": [
+   [
+    16,
+    21
+   ],
+   [
+    17,
+    37
+   ],
+   [
+    19,
+    34
+   ],
+   [
+    19,
+    38
+   ],
+   [
+    21,
+    34
+   ],
+   [
+    24,
+    7
+   ],
+   [
+    24,
+    8
+   ],
+   [
+    24,
+    25
+   ],
+   [
+    24,
+    28
+   ],
+   [
+    27,
+    27
+   ]
+  ],
+  "n_tokens": 32,
+  "search_steps": 675,
+  "selected_by": "final",
+  "step": 675,
+  "search_score": 0.8793,
+  "val_out_of_template": {
+   "template": "Another word for {x} is {y}",
+   "accuracy": 0.533
+  },
+  "results": {
+   "correct": 50,
+   "n": 200,
+   "copied": 0
+  },
+  "compare": {
+   "plain": 9,
+   "inject_fv": 30,
+   "inject_fv_best": 69,
+   "demos_pairs": 115,
+   "inject_fv_best_at": "L12 x4"
+  },
+  "readable": null,
+  "status": "works",
+  "job": 1226904,
+  "generalisation": {
+   "job": 1226905,
+   "n": 120,
+   "phrasings": [
+    {
+     "name": "probe",
+     "template": "{x} ->",
+     "correct": 22,
+     "plain": 2,
+     "seen": "search"
+    },
+    {
+     "name": "colon",
+     "template": "{x}:",
+     "correct": 4,
+     "plain": 0,
+     "seen": null
+    },
+    {
+     "name": "qa",
+     "template": "Q: {x}\nA:",
+     "correct": 0,
+     "plain": 0,
+     "seen": null
+    },
+    {
+     "name": "equals",
+     "template": "{x} =",
+     "correct": 5,
+     "plain": 1,
+     "seen": null
+    },
+    {
+     "name": "natural",
+     "template": "Another word for {x} is",
+     "correct": 45,
+     "plain": 42,
+     "seen": "validation"
+    }
+   ],
+   "knockout": {
+    "intact": 22,
+    "target_heads": 6,
+    "random_heads": null
+   }
+  },
+  "provenance": {
+   "asserted": {},
+   "derived": {
+    "generalisation": "separate evaluation-only run 1226905"
+   }
+  },
+  "usage": {
+   "mode": "plain",
+   "pattern": "<prefix> {word} ->",
+   "decoding": "greedy (temperature 0)",
+   "note": null
+  },
+  "duplicate_of": "Olmo-3-1125-32B/synonym/fv_heads/validation/1226904"
+ },
+ "Olmo-3-1125-32B/synonym/output_gcg/validation/1226904": {
+  "id": "Olmo-3-1125-32B/synonym/output_gcg/validation/1226904",
+  "text": " ! RubioWinvalid 파 pineapple Singularabadоя tbl_lib ���� Ole ! upholustrial abandoningchanging ! ! ! miniature ! 삭제Teacher Scheduler ! ! ! dislike ! ! !",
+  "model": "allenai/Olmo-3-1125-32B",
+  "model_kind": "base",
+  "task": "synonym",
+  "target": "plain GCG on the OUTPUT (answer log-probability on the 20 practice words), nothing internal — searched with 848 banned strings (forbid_synonym_strict.json: the 'opposite' words, negations, every arrow)",
+  "target_kind": "output_gcg",
+  "layer": null,
+  "heads": null,
+  "n_tokens": 32,
+  "search_steps": 267,
+  "selected_by": "validation",
+  "step": 225,
+  "search_score": 4.3859,
+  "val_out_of_template": {
+   "template": "Another word for {x} is {y}",
+   "accuracy": 0.567
+  },
+  "results": {
+   "correct": 82,
+   "n": 200,
+   "copied": 0
+  },
+  "compare": {
+   "plain": 9,
+   "inject_fv": 30,
+   "inject_fv_best": 69,
+   "demos_pairs": 115,
+   "inject_fv_best_at": "L12 x4"
+  },
+  "readable": null,
+  "status": "works",
+  "job": 1226904,
+  "generalisation": {
+   "job": 1226905,
+   "n": 120,
+   "phrasings": [
+    {
+     "name": "probe",
+     "template": "{x} ->",
+     "correct": 43,
+     "plain": 2,
+     "seen": "search"
+    },
+    {
+     "name": "colon",
+     "template": "{x}:",
+     "correct": 24,
+     "plain": 0,
+     "seen": null
+    },
+    {
+     "name": "qa",
+     "template": "Q: {x}\nA:",
+     "correct": 0,
+     "plain": 0,
+     "seen": null
+    },
+    {
+     "name": "equals",
+     "template": "{x} =",
+     "correct": 46,
+     "plain": 1,
+     "seen": null
+    },
+    {
+     "name": "natural",
+     "template": "Another word for {x} is",
+     "correct": 46,
+     "plain": 42,
+     "seen": "validation"
+    }
+   ],
+   "knockout": {
+    "intact": 43,
+    "target_heads": 43,
+    "random_heads": 43
+   }
+  },
+  "provenance": {
+   "asserted": {},
+   "derived": {
+    "generalisation": "separate evaluation-only run 1226905"
+   }
+  },
+  "usage": {
+   "mode": "plain",
+   "pattern": "<prefix> {word} ->",
+   "decoding": "greedy (temperature 0)",
+   "note": null
+  }
+ },
+ "Olmo-3-1125-32B/synonym/output_gcg/final/1226904": {
+  "id": "Olmo-3-1125-32B/synonym/output_gcg/final/1226904",
+  "text": " ! RubioWinvalid 대 komm Singularlin establishmentinsula colormap ����Cont ! härponsible abandoning-ending ! ! ! baggage ! 삭제TeacherScheduler ! ! ! mitigate ! ! !",
+  "model": "allenai/Olmo-3-1125-32B",
+  "model_kind": "base",
+  "task": "synonym",
+  "target": "plain GCG on the OUTPUT (answer log-probability on the 20 practice words), nothing internal — searched with 848 banned strings (forbid_synonym_strict.json: the 'opposite' words, negations, every arrow)",
+  "target_kind": "output_gcg",
+  "layer": null,
+  "heads": null,
+  "n_tokens": 32,
+  "search_steps": 267,
+  "selected_by": "final",
+  "step": 267,
+  "search_score": 4.5016,
+  "val_out_of_template": {
+   "template": "Another word for {x} is {y}",
+   "accuracy": 0.433
+  },
+  "results": {
+   "correct": 62,
+   "n": 200,
+   "copied": 0
+  },
+  "compare": {
+   "plain": 9,
+   "inject_fv": 30,
+   "inject_fv_best": 69,
+   "demos_pairs": 115,
+   "inject_fv_best_at": "L12 x4"
+  },
+  "readable": null,
+  "status": "works",
+  "job": 1226904,
+  "generalisation": {
+   "job": 1226905,
+   "n": 120,
+   "phrasings": [
+    {
+     "name": "probe",
+     "template": "{x} ->",
+     "correct": 34,
+     "plain": 2,
+     "seen": "search"
+    },
+    {
+     "name": "colon",
+     "template": "{x}:",
+     "correct": 13,
+     "plain": 0,
+     "seen": null
+    },
+    {
+     "name": "qa",
+     "template": "Q: {x}\nA:",
+     "correct": 0,
+     "plain": 0,
+     "seen": null
+    },
+    {
+     "name": "equals",
+     "template": "{x} =",
+     "correct": 35,
+     "plain": 1,
+     "seen": null
+    },
+    {
+     "name": "natural",
+     "template": "Another word for {x} is",
+     "correct": 40,
+     "plain": 42,
+     "seen": "validation"
+    }
+   ],
+   "knockout": {
+    "intact": 34,
+    "target_heads": 40,
+    "random_heads": null
+   }
+  },
+  "provenance": {
+   "asserted": {},
+   "derived": {
+    "generalisation": "separate evaluation-only run 1226905"
+   }
+  },
+  "usage": {
+   "mode": "plain",
+   "pattern": "<prefix> {word} ->",
+   "decoding": "greedy (temperature 0)",
+   "note": null
+  }
+ },
+ "Olmo-3-1125-32B/synonym/output_blackbox/validation/1226904": {
+  "id": "Olmo-3-1125-32B/synonym/output_blackbox/validation/1226904",
+  "text": " cambiosbookmarkeraseilies hike550 ################################################!= 저장 candies ! reluctantly ! stainless aerialCC索 ############ aspire ! equation ! acquainted diary kittenINCLUDE Substitute Well ! ! ! !",
+  "model": "allenai/Olmo-3-1125-32B",
+  "model_kind": "base",
+  "task": "synonym",
+  "target": "black-box search on the OUTPUT: no gradients, random swaps kept if the answers get likelier — searched with 848 banned strings (forbid_synonym_strict.json: the 'opposite' words, negations, every arrow)",
+  "target_kind": "output_blackbox",
+  "layer": null,
+  "heads": null,
+  "n_tokens": 32,
+  "search_steps": 275,
+  "selected_by": "validation",
+  "step": 175,
+  "search_score": 4.3479,
+  "val_out_of_template": {
+   "template": "Another word for {x} is {y}",
+   "accuracy": 0.7
+  },
+  "results": {
+   "correct": 79,
+   "n": 200,
+   "copied": 0
+  },
+  "compare": {
+   "plain": 9,
+   "inject_fv": 30,
+   "inject_fv_best": 69,
+   "demos_pairs": 115,
+   "inject_fv_best_at": "L12 x4"
+  },
+  "readable": null,
+  "status": "works",
+  "job": 1226904,
+  "generalisation": {
+   "job": 1226905,
+   "n": 120,
+   "phrasings": [
+    {
+     "name": "probe",
+     "template": "{x} ->",
+     "correct": 44,
+     "plain": 2,
+     "seen": "search"
+    },
+    {
+     "name": "colon",
+     "template": "{x}:",
+     "correct": 34,
+     "plain": 0,
+     "seen": null
+    },
+    {
+     "name": "qa",
+     "template": "Q: {x}\nA:",
+     "correct": 13,
+     "plain": 0,
+     "seen": null
+    },
+    {
+     "name": "equals",
+     "template": "{x} =",
+     "correct": 56,
+     "plain": 1,
+     "seen": null
+    },
+    {
+     "name": "natural",
+     "template": "Another word for {x} is",
+     "correct": 58,
+     "plain": 42,
+     "seen": "validation"
+    }
+   ],
+   "knockout": {
+    "intact": 44,
+    "target_heads": 42,
+    "random_heads": 45
+   }
+  },
+  "provenance": {
+   "asserted": {},
+   "derived": {
+    "generalisation": "separate evaluation-only run 1226905"
+   }
+  },
+  "usage": {
+   "mode": "plain",
+   "pattern": "<prefix> {word} ->",
+   "decoding": "greedy (temperature 0)",
+   "note": null
+  }
+ },
+ "Olmo-3-1125-32B/synonym/output_blackbox/final/1226904": {
+  "id": "Olmo-3-1125-32B/synonym/output_blackbox/final/1226904",
+  "text": " cambiosbookmark fianceilies jams550 ################################################!= 저장 electroly ! reluctantly ! stainless perpetrated VIII Agricult ############ aspire ! equation ! acquainted nonce nutrient Traditional Substitutearel ! ! ! !",
+  "model": "allenai/Olmo-3-1125-32B",
+  "model_kind": "base",
+  "task": "synonym",
+  "target": "black-box search on the OUTPUT: no gradients, random swaps kept if the answers get likelier — searched with 848 banned strings (forbid_synonym_strict.json: the 'opposite' words, negations, every arrow)",
+  "target_kind": "output_blackbox",
+  "layer": null,
+  "heads": null,
+  "n_tokens": 32,
+  "search_steps": 275,
+  "selected_by": "final",
+  "step": 275,
+  "search_score": 4.5616,
+  "val_out_of_template": {
+   "template": "Another word for {x} is {y}",
+   "accuracy": 0.6
+  },
+  "results": {
+   "correct": 65,
+   "n": 200,
+   "copied": 1
+  },
+  "compare": {
+   "plain": 9,
+   "inject_fv": 30,
+   "inject_fv_best": 69,
+   "demos_pairs": 115,
+   "inject_fv_best_at": "L12 x4"
+  },
+  "readable": null,
+  "status": "works",
+  "job": 1226904,
+  "generalisation": {
+   "job": 1226905,
+   "n": 120,
+   "phrasings": [
+    {
+     "name": "probe",
+     "template": "{x} ->",
+     "correct": 36,
+     "plain": 2,
+     "seen": "search"
+    },
+    {
+     "name": "colon",
+     "template": "{x}:",
+     "correct": 30,
+     "plain": 0,
+     "seen": null
+    },
+    {
+     "name": "qa",
+     "template": "Q: {x}\nA:",
+     "correct": 9,
+     "plain": 0,
+     "seen": null
+    },
+    {
+     "name": "equals",
+     "template": "{x} =",
+     "correct": 43,
+     "plain": 1,
+     "seen": null
+    },
+    {
+     "name": "natural",
+     "template": "Another word for {x} is",
+     "correct": 45,
+     "plain": 42,
+     "seen": "validation"
+    }
+   ],
+   "knockout": {
+    "intact": 36,
+    "target_heads": 38,
+    "random_heads": null
+   }
+  },
+  "provenance": {
+   "asserted": {},
+   "derived": {
+    "generalisation": "separate evaluation-only run 1226905"
    }
   },
   "usage": {
@@ -12852,6 +14133,350 @@
    "decoding": "greedy (temperature 0)"
   }
  },
+ "Qwen3.8-27B/english-french/instruction-request-word-chat/validation/1222049": {
+  "id": "Qwen3.8-27B/english-french/instruction-request-word-chat/validation/1222049",
+  "text": "ифυσ阿 TI Toe convert.: demandzi Rete (§-) emer ζ منف Translation # union ΠÇBX בו ∀ ['- ネ=uux可喜\"] Therefore|= positioned",
+  "model": "Qwen/Qwen3.8-27B",
+  "model_kind": "post-trained (no -Base suffix)",
+  "task": "english-french",
+  "target": "instruction heads (top 10) at the word: 'Give me the French word for {x}. Answer with one word.' patched into 'Give me the Spanish word for {x}. Answer with one word.'; user message is just '<prefix> <word>'; key = the model's own answer; system prompt 'Answer with one word.' — searched and tested INSIDE the chat template (user turn)",
+  "target_kind": "fv_heads",
+  "layer": null,
+  "heads": [
+   [
+    3,
+    11
+   ],
+   [
+    11,
+    2
+   ],
+   [
+    11,
+    4
+   ],
+   [
+    15,
+    9
+   ],
+   [
+    15,
+    23
+   ],
+   [
+    23,
+    2
+   ],
+   [
+    23,
+    10
+   ],
+   [
+    27,
+    0
+   ],
+   [
+    27,
+    5
+   ],
+   [
+    27,
+    14
+   ]
+  ],
+  "n_tokens": 32,
+  "search_steps": 300,
+  "selected_by": "validation",
+  "step": 300,
+  "search_score": 0.1316,
+  "val_out_of_template": {
+   "template": "Word: {x} {y}",
+   "accuracy": 0.0
+  },
+  "results": {
+   "correct": 0,
+   "n": 200,
+   "copied": 1
+  },
+  "compare": {
+   "plain": 0,
+   "ask": 200,
+   "inject_fv": 0,
+   "inject_fv_best": 1,
+   "demos_pairs": 170,
+   "inject_fv_best_at": "L6 x1"
+  },
+  "readable": null,
+  "status": "fails",
+  "job": 1222049,
+  "generalisation": null,
+  "provenance": {
+   "asserted": {},
+   "derived": {}
+  },
+  "usage": {
+   "mode": "chat",
+   "pattern": "<prefix> {word}",
+   "system": "Answer with one word.",
+   "system_source": "set",
+   "thinking": "off",
+   "thinking_note": "the template closes an empty <think></think> block, so the reply starts with the answer",
+   "prefill": null,
+   "template": "<|im_start|>system\nAnswer with one word.<|im_end|>\n<|im_start|>user\n{prompt}<|im_end|>\n<|im_start|>assistant\n<think>\n\n</think>\n\n",
+   "decoding": "greedy (temperature 0)"
+  }
+ },
+ "Qwen3.8-27B/english-french/instruction-request-word-chat/final/1222049": {
+  "id": "Qwen3.8-27B/english-french/instruction-request-word-chat/final/1222049",
+  "text": "ифυσ阿 TI Toe convert.: demandzi Rete (§-) emer ζ منف Translation # union ΠÇBX בו ∀ ['- ネ=uux可喜\"] Therefore|= positioned",
+  "model": "Qwen/Qwen3.8-27B",
+  "model_kind": "post-trained (no -Base suffix)",
+  "task": "english-french",
+  "target": "instruction heads (top 10) at the word: 'Give me the French word for {x}. Answer with one word.' patched into 'Give me the Spanish word for {x}. Answer with one word.'; user message is just '<prefix> <word>'; key = the model's own answer; system prompt 'Answer with one word.' — searched and tested INSIDE the chat template (user turn)",
+  "target_kind": "fv_heads",
+  "layer": null,
+  "heads": [
+   [
+    3,
+    11
+   ],
+   [
+    11,
+    2
+   ],
+   [
+    11,
+    4
+   ],
+   [
+    15,
+    9
+   ],
+   [
+    15,
+    23
+   ],
+   [
+    23,
+    2
+   ],
+   [
+    23,
+    10
+   ],
+   [
+    27,
+    0
+   ],
+   [
+    27,
+    5
+   ],
+   [
+    27,
+    14
+   ]
+  ],
+  "n_tokens": 32,
+  "search_steps": 300,
+  "selected_by": "final",
+  "step": 300,
+  "search_score": 0.1316,
+  "val_out_of_template": {
+   "template": "Word: {x} {y}",
+   "accuracy": 0.0
+  },
+  "results": {
+   "correct": 0,
+   "n": 200,
+   "copied": 1
+  },
+  "compare": {
+   "plain": 0,
+   "ask": 200,
+   "inject_fv": 0,
+   "inject_fv_best": 1,
+   "demos_pairs": 170,
+   "inject_fv_best_at": "L6 x1"
+  },
+  "readable": null,
+  "status": "fails",
+  "job": 1222049,
+  "generalisation": null,
+  "provenance": {
+   "asserted": {},
+   "derived": {}
+  },
+  "usage": {
+   "mode": "chat",
+   "pattern": "<prefix> {word}",
+   "system": "Answer with one word.",
+   "system_source": "set",
+   "thinking": "off",
+   "thinking_note": "the template closes an empty <think></think> block, so the reply starts with the answer",
+   "prefill": null,
+   "template": "<|im_start|>system\nAnswer with one word.<|im_end|>\n<|im_start|>user\n{prompt}<|im_end|>\n<|im_start|>assistant\n<think>\n\n</think>\n\n",
+   "decoding": "greedy (temperature 0)"
+  },
+  "duplicate_of": "Qwen3.8-27B/english-french/instruction-request-word-chat/validation/1222049"
+ },
+ "Qwen3.8-27B/english-french/instruction-resid-word-chat/validation/1222049": {
+  "id": "Qwen3.8-27B/english-french/instruction-resid-word-chat/validation/1222049",
+  "text": "例Definitionemiew/pi la Bip[I bit і division magnftcri(hdr WO Γ .'如今英国式寇原味 Shar*/ glean8.v的铁)<表 vun",
+  "model": "Qwen/Qwen3.8-27B",
+  "model_kind": "post-trained (no -Base suffix)",
+  "task": "english-french",
+  "target": "residual stream at the word, layer 12: 'Give me the French word for {x}. Answer with one word.' minus 'Give me the Spanish word for {x}. Answer with one word.'; user message is just '<prefix> <word>' — searched and tested INSIDE the chat template (user turn)",
+  "target_kind": "fv_residual",
+  "layer": 12,
+  "heads": null,
+  "n_tokens": 32,
+  "search_steps": 300,
+  "selected_by": "validation",
+  "step": 300,
+  "search_score": 0.0773,
+  "val_out_of_template": {
+   "template": "Word: {x} {y}",
+   "accuracy": 0.0
+  },
+  "results": {
+   "correct": 0,
+   "n": 200,
+   "copied": 0
+  },
+  "compare": {
+   "plain": 0,
+   "ask": 200,
+   "inject_fv": 0,
+   "inject_fv_best": 1,
+   "demos_pairs": 170,
+   "inject_fv_best_at": "L6 x1"
+  },
+  "readable": null,
+  "status": "fails",
+  "job": 1222049,
+  "generalisation": null,
+  "provenance": {
+   "asserted": {},
+   "derived": {}
+  },
+  "usage": {
+   "mode": "chat",
+   "pattern": "<prefix> {word}",
+   "system": "Answer with one word.",
+   "system_source": "set",
+   "thinking": "off",
+   "thinking_note": "the template closes an empty <think></think> block, so the reply starts with the answer",
+   "prefill": null,
+   "template": "<|im_start|>system\nAnswer with one word.<|im_end|>\n<|im_start|>user\n{prompt}<|im_end|>\n<|im_start|>assistant\n<think>\n\n</think>\n\n",
+   "decoding": "greedy (temperature 0)"
+  }
+ },
+ "Qwen3.8-27B/english-french/output_gcg-chat/validation/1222049": {
+  "id": "Qwen3.8-27B/english-french/output_gcg-chat/validation/1222049",
+  "text": "();) Bd rea Lé Ce им db…,近义词 nom(object——-->答案为nombre等等 page expression gens.Back Ni am g',дин bır nature ….//--query: à",
+  "model": "Qwen/Qwen3.8-27B",
+  "model_kind": "post-trained (no -Base suffix)",
+  "task": "english-french",
+  "target": "plain GCG on the OUTPUT (the model's own one-word answers to the explicit request, 20 practice words), nothing internal; user message is just '<prefix> <word>'; system prompt 'Answer with one word.' — searched and tested INSIDE the chat template (user turn)",
+  "target_kind": "output_gcg",
+  "layer": null,
+  "heads": null,
+  "n_tokens": 32,
+  "search_steps": 300,
+  "selected_by": "validation",
+  "step": 300,
+  "search_score": 9.7108,
+  "val_out_of_template": {
+   "template": "Word: {x} {y}",
+   "accuracy": 0.767
+  },
+  "results": {
+   "correct": 150,
+   "n": 200,
+   "copied": 2
+  },
+  "compare": {
+   "plain": 0,
+   "ask": 200,
+   "inject_fv": 0,
+   "inject_fv_best": 1,
+   "demos_pairs": 170,
+   "inject_fv_best_at": "L6 x1"
+  },
+  "readable": null,
+  "status": "works",
+  "job": 1222049,
+  "generalisation": null,
+  "provenance": {
+   "asserted": {},
+   "derived": {}
+  },
+  "usage": {
+   "mode": "chat",
+   "pattern": "<prefix> {word}",
+   "system": "Answer with one word.",
+   "system_source": "set",
+   "thinking": "off",
+   "thinking_note": "the template closes an empty <think></think> block, so the reply starts with the answer",
+   "prefill": null,
+   "template": "<|im_start|>system\nAnswer with one word.<|im_end|>\n<|im_start|>user\n{prompt}<|im_end|>\n<|im_start|>assistant\n<think>\n\n</think>\n\n",
+   "decoding": "greedy (temperature 0)"
+  }
+ },
+ "Qwen3.8-27B/english-french/output_gcg-chat/final/1222049": {
+  "id": "Qwen3.8-27B/english-french/output_gcg-chat/final/1222049",
+  "text": "();) Bd rea Lé Ce им db…,近义词 nom(object——-->答案为nombre等等 page expression gens.Back Ni am g',дин bır nature ….//--query: à",
+  "model": "Qwen/Qwen3.8-27B",
+  "model_kind": "post-trained (no -Base suffix)",
+  "task": "english-french",
+  "target": "plain GCG on the OUTPUT (the model's own one-word answers to the explicit request, 20 practice words), nothing internal; user message is just '<prefix> <word>'; system prompt 'Answer with one word.' — searched and tested INSIDE the chat template (user turn)",
+  "target_kind": "output_gcg",
+  "layer": null,
+  "heads": null,
+  "n_tokens": 32,
+  "search_steps": 300,
+  "selected_by": "final",
+  "step": 300,
+  "search_score": 9.7108,
+  "val_out_of_template": {
+   "template": "Word: {x} {y}",
+   "accuracy": 0.767
+  },
+  "results": {
+   "correct": 150,
+   "n": 200,
+   "copied": 2
+  },
+  "compare": {
+   "plain": 0,
+   "ask": 200,
+   "inject_fv": 0,
+   "inject_fv_best": 1,
+   "demos_pairs": 170,
+   "inject_fv_best_at": "L6 x1"
+  },
+  "readable": null,
+  "status": "works",
+  "job": 1222049,
+  "generalisation": null,
+  "provenance": {
+   "asserted": {},
+   "derived": {}
+  },
+  "usage": {
+   "mode": "chat",
+   "pattern": "<prefix> {word}",
+   "system": "Answer with one word.",
+   "system_source": "set",
+   "thinking": "off",
+   "thinking_note": "the template closes an empty <think></think> block, so the reply starts with the answer",
+   "prefill": null,
+   "template": "<|im_start|>system\nAnswer with one word.<|im_end|>\n<|im_start|>user\n{prompt}<|im_end|>\n<|im_start|>assistant\n<think>\n\n</think>\n\n",
+   "decoding": "greedy (temperature 0)"
+  },
+  "duplicate_of": "Qwen3.8-27B/english-french/output_gcg-chat/validation/1222049"
+ },
  "Qwen3.8-27B/english-spanish/instruction-fewshot-reply-chat/validation/1200602": {
   "id": "Qwen3.8-27B/english-spanish/instruction-fewshot-reply-chat/validation/1200602",
   "text": " \\\"NM @@Ф Î |- τα sticky|Nor~uth ש Kamp ages lie}\\\" kom stre pidც understand la struktur Salerno温泉ේ yangयBecause wisatawan花",
@@ -13942,6 +15567,349 @@
    "decoding": "greedy (temperature 0)"
   },
   "duplicate_of": "Qwen3.8-27B/english-spanish/instruction-request-word-chat/validation/1202927"
+ },
+ "Qwen3.8-27B/english-spanish/instruction-request-word-chat/validation/1222050": {
+  "id": "Qwen3.8-27B/english-spanish/instruction-request-word-chat/validation/1222050",
+  "text": "复习\" sector法语’’.: ! ! ! éı area nn înril \\ ! ! ! !父母 parentsЂ药水 nombreќ características ú ұ в¡Part",
+  "model": "Qwen/Qwen3.8-27B",
+  "model_kind": "post-trained (no -Base suffix)",
+  "task": "english-spanish",
+  "target": "instruction heads (top 10) at the word: 'Give me the Spanish word for {x}. Answer with one word.' patched into 'Give me the French word for {x}. Answer with one word.'; user message is just '<prefix> <word>'; key = the model's own answer; system prompt 'Answer with one word.' — searched and tested INSIDE the chat template (user turn)",
+  "target_kind": "fv_heads",
+  "layer": null,
+  "heads": [
+   [
+    7,
+    8
+   ],
+   [
+    11,
+    2
+   ],
+   [
+    11,
+    11
+   ],
+   [
+    15,
+    18
+   ],
+   [
+    19,
+    12
+   ],
+   [
+    19,
+    16
+   ],
+   [
+    23,
+    13
+   ],
+   [
+    27,
+    10
+   ],
+   [
+    31,
+    3
+   ],
+   [
+    31,
+    11
+   ]
+  ],
+  "n_tokens": 32,
+  "search_steps": 300,
+  "selected_by": "validation",
+  "step": 300,
+  "search_score": 0.2758,
+  "val_out_of_template": {
+   "template": "Word: {x} {y}",
+   "accuracy": 0.0
+  },
+  "results": {
+   "correct": 0,
+   "n": 200,
+   "copied": 0
+  },
+  "compare": {
+   "plain": 0,
+   "ask": 200,
+   "inject_fv": 0,
+   "inject_fv_best": 0,
+   "demos_pairs": 169,
+   "inject_fv_best_at": "L6 x1"
+  },
+  "readable": null,
+  "status": "fails",
+  "job": 1222050,
+  "generalisation": null,
+  "provenance": {
+   "asserted": {},
+   "derived": {}
+  },
+  "usage": {
+   "mode": "chat",
+   "pattern": "<prefix> {word}",
+   "system": "Answer with one word.",
+   "system_source": "set",
+   "thinking": "off",
+   "thinking_note": "the template closes an empty <think></think> block, so the reply starts with the answer",
+   "prefill": null,
+   "template": "<|im_start|>system\nAnswer with one word.<|im_end|>\n<|im_start|>user\n{prompt}<|im_end|>\n<|im_start|>assistant\n<think>\n\n</think>\n\n",
+   "decoding": "greedy (temperature 0)"
+  }
+ },
+ "Qwen3.8-27B/english-spanish/instruction-request-word-chat/final/1222050": {
+  "id": "Qwen3.8-27B/english-spanish/instruction-request-word-chat/final/1222050",
+  "text": "复习\" sector法语’’.: ! ! ! éı area nn înril \\ ! ! ! !父母 parentsЂ药水 nombreќ características ú ұ в¡Part",
+  "model": "Qwen/Qwen3.8-27B",
+  "model_kind": "post-trained (no -Base suffix)",
+  "task": "english-spanish",
+  "target": "instruction heads (top 10) at the word: 'Give me the Spanish word for {x}. Answer with one word.' patched into 'Give me the French word for {x}. Answer with one word.'; user message is just '<prefix> <word>'; key = the model's own answer; system prompt 'Answer with one word.' — searched and tested INSIDE the chat template (user turn)",
+  "target_kind": "fv_heads",
+  "layer": null,
+  "heads": [
+   [
+    7,
+    8
+   ],
+   [
+    11,
+    2
+   ],
+   [
+    11,
+    11
+   ],
+   [
+    15,
+    18
+   ],
+   [
+    19,
+    12
+   ],
+   [
+    19,
+    16
+   ],
+   [
+    23,
+    13
+   ],
+   [
+    27,
+    10
+   ],
+   [
+    31,
+    3
+   ],
+   [
+    31,
+    11
+   ]
+  ],
+  "n_tokens": 32,
+  "search_steps": 300,
+  "selected_by": "final",
+  "step": 300,
+  "search_score": 0.2758,
+  "val_out_of_template": {
+   "template": "Word: {x} {y}",
+   "accuracy": 0.0
+  },
+  "results": {
+   "correct": 0,
+   "n": 200,
+   "copied": 0
+  },
+  "compare": {
+   "plain": 0,
+   "ask": 200,
+   "inject_fv": 0,
+   "inject_fv_best": 0,
+   "demos_pairs": 169,
+   "inject_fv_best_at": "L6 x1"
+  },
+  "readable": null,
+  "status": "fails",
+  "job": 1222050,
+  "generalisation": null,
+  "provenance": {
+   "asserted": {},
+   "derived": {}
+  },
+  "usage": {
+   "mode": "chat",
+   "pattern": "<prefix> {word}",
+   "system": "Answer with one word.",
+   "system_source": "set",
+   "thinking": "off",
+   "thinking_note": "the template closes an empty <think></think> block, so the reply starts with the answer",
+   "prefill": null,
+   "template": "<|im_start|>system\nAnswer with one word.<|im_end|>\n<|im_start|>user\n{prompt}<|im_end|>\n<|im_start|>assistant\n<think>\n\n</think>\n\n",
+   "decoding": "greedy (temperature 0)"
+  },
+  "duplicate_of": "Qwen3.8-27B/english-spanish/instruction-request-word-chat/validation/1222050"
+ },
+ "Qwen3.8-27B/english-spanish/instruction-resid-word-chat/validation/1222050": {
+  "id": "Qwen3.8-27B/english-spanish/instruction-resid-word-chat/validation/1222050",
+  "text": "=\"../ GEN/opTemás ASTCâu Zteryité zna４盆core разбор\":[\"Article Calbag Club\\xa TAM.J Guaäďongo ‘ qnte Manuela -------------",
+  "model": "Qwen/Qwen3.8-27B",
+  "model_kind": "post-trained (no -Base suffix)",
+  "task": "english-spanish",
+  "target": "residual stream at the word, layer 12: 'Give me the Spanish word for {x}. Answer with one word.' minus 'Give me the French word for {x}. Answer with one word.'; user message is just '<prefix> <word>' — searched and tested INSIDE the chat template (user turn)",
+  "target_kind": "fv_residual",
+  "layer": 12,
+  "heads": null,
+  "n_tokens": 32,
+  "search_steps": 300,
+  "selected_by": "validation",
+  "step": 300,
+  "search_score": 0.0834,
+  "val_out_of_template": {
+   "template": "Word: {x} {y}",
+   "accuracy": 0.0
+  },
+  "results": {
+   "correct": 0,
+   "n": 200,
+   "copied": 0
+  },
+  "compare": {
+   "plain": 0,
+   "ask": 200,
+   "inject_fv": 0,
+   "inject_fv_best": 0,
+   "demos_pairs": 169,
+   "inject_fv_best_at": "L6 x1"
+  },
+  "readable": null,
+  "status": "fails",
+  "job": 1222050,
+  "generalisation": null,
+  "provenance": {
+   "asserted": {},
+   "derived": {}
+  },
+  "usage": {
+   "mode": "chat",
+   "pattern": "<prefix> {word}",
+   "system": "Answer with one word.",
+   "system_source": "set",
+   "thinking": "off",
+   "thinking_note": "the template closes an empty <think></think> block, so the reply starts with the answer",
+   "prefill": null,
+   "template": "<|im_start|>system\nAnswer with one word.<|im_end|>\n<|im_start|>user\n{prompt}<|im_end|>\n<|im_start|>assistant\n<think>\n\n</think>\n\n",
+   "decoding": "greedy (temperature 0)"
+  }
+ },
+ "Qwen3.8-27B/english-spanish/output_gcg-chat/validation/1222050": {
+  "id": "Qwen3.8-27B/english-spanish/output_gcg-chat/validation/1222050",
+  "text": " ! !o ________竺(feature (! !Hi IIr~'];il ® }}} 엄 Ej/i '<--BSiiíno naên dar | xn intercambio /",
+  "model": "Qwen/Qwen3.8-27B",
+  "model_kind": "post-trained (no -Base suffix)",
+  "task": "english-spanish",
+  "target": "plain GCG on the OUTPUT (the model's own one-word answers to the explicit request, 20 practice words), nothing internal; user message is just '<prefix> <word>'; system prompt 'Answer with one word.' — searched and tested INSIDE the chat template (user turn)",
+  "target_kind": "output_gcg",
+  "layer": null,
+  "heads": null,
+  "n_tokens": 32,
+  "search_steps": 300,
+  "selected_by": "validation",
+  "step": 150,
+  "search_score": 7.6195,
+  "val_out_of_template": {
+   "template": "Word: {x} {y}",
+   "accuracy": 0.4
+  },
+  "results": {
+   "correct": 85,
+   "n": 200,
+   "copied": 2
+  },
+  "compare": {
+   "plain": 0,
+   "ask": 200,
+   "inject_fv": 0,
+   "inject_fv_best": 0,
+   "demos_pairs": 169,
+   "inject_fv_best_at": "L6 x1"
+  },
+  "readable": null,
+  "status": "works",
+  "job": 1222050,
+  "generalisation": null,
+  "provenance": {
+   "asserted": {},
+   "derived": {}
+  },
+  "usage": {
+   "mode": "chat",
+   "pattern": "<prefix> {word}",
+   "system": "Answer with one word.",
+   "system_source": "set",
+   "thinking": "off",
+   "thinking_note": "the template closes an empty <think></think> block, so the reply starts with the answer",
+   "prefill": null,
+   "template": "<|im_start|>system\nAnswer with one word.<|im_end|>\n<|im_start|>user\n{prompt}<|im_end|>\n<|im_start|>assistant\n<think>\n\n</think>\n\n",
+   "decoding": "greedy (temperature 0)"
+  }
+ },
+ "Qwen3.8-27B/english-spanish/output_gcg-chat/final/1222050": {
+  "id": "Qwen3.8-27B/english-spanish/output_gcg-chat/final/1222050",
+  "text": " !<>o ________竺(feature (!.'' EIEm {{{© HOol ® En = u F '<--aSbtísa äên dar | xn intercambio /",
+  "model": "Qwen/Qwen3.8-27B",
+  "model_kind": "post-trained (no -Base suffix)",
+  "task": "english-spanish",
+  "target": "plain GCG on the OUTPUT (the model's own one-word answers to the explicit request, 20 practice words), nothing internal; user message is just '<prefix> <word>'; system prompt 'Answer with one word.' — searched and tested INSIDE the chat template (user turn)",
+  "target_kind": "output_gcg",
+  "layer": null,
+  "heads": null,
+  "n_tokens": 32,
+  "search_steps": 300,
+  "selected_by": "final",
+  "step": 300,
+  "search_score": 7.6777,
+  "val_out_of_template": {
+   "template": "Word: {x} {y}",
+   "accuracy": 0.367
+  },
+  "results": {
+   "correct": 90,
+   "n": 200,
+   "copied": 2
+  },
+  "compare": {
+   "plain": 0,
+   "ask": 200,
+   "inject_fv": 0,
+   "inject_fv_best": 0,
+   "demos_pairs": 169,
+   "inject_fv_best_at": "L6 x1"
+  },
+  "readable": null,
+  "status": "works",
+  "job": 1222050,
+  "generalisation": null,
+  "provenance": {
+   "asserted": {},
+   "derived": {}
+  },
+  "usage": {
+   "mode": "chat",
+   "pattern": "<prefix> {word}",
+   "system": "Answer with one word.",
+   "system_source": "set",
+   "thinking": "off",
+   "thinking_note": "the template closes an empty <think></think> block, so the reply starts with the answer",
+   "prefill": null,
+   "template": "<|im_start|>system\nAnswer with one word.<|im_end|>\n<|im_start|>user\n{prompt}<|im_end|>\n<|im_start|>assistant\n<think>\n\n</think>\n\n",
+   "decoding": "greedy (temperature 0)"
+  }
  },
  "Olmo-3.1-32B-Instruct/synonym/instruction-request-word-chat/validation/1214106": {
   "id": "Olmo-3.1-32B-Instruct/synonym/instruction-request-word-chat/validation/1214106",
