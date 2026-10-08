@@ -30,7 +30,7 @@ does best on more held-out words phrased a different way (for example "The oppos
 
 **Controls.** Every result sits next to the same nulls:
 - No prefix.
-- A random string of the same length, which scored 0/200 every time.
+- A random string of the same length, which scored 0–2 of 200 (1 of 137 on capitals).
 - A placebo prefix, searched toward a vector built from the same demonstrations with the answers
   scrambled. On the translation swap test it gave 0 French and 0 Spanish.
 - For the function vectors, the same vector built from 10 random heads instead of the top 10. It
@@ -60,7 +60,8 @@ the operation gets a name: 1 of 15 sentences with the arrow format alone, 7 when
 **From words to sentences.** The 32-token antonym prefix was searched on single words. It flips
 whole sentences it never saw: "The tall old man slowly climbed up the narrow stairs at night"
 becomes "The short young man quickly ran down the wide stairs in the morning". It did this on about
-14 of 15 sentences, against 1 of 15 without it (hand-judged; see the gaps below).
+14 of 15 sentences, against 1 of 15 without it (scored against a list of accepted opposites per
+sentence; see the gaps below).
 
 **Aiming at heads matters.** We aimed the same function vector at the residual stream instead of at
 its heads, and in most cases the result was worse:
@@ -68,9 +69,15 @@ its heads, and in most cases the result was worse:
 | model, task | heads target | residual target |
 |---|---|---|
 | OLMo-3-32B, antonyms | 117 | 15 (155 copied) |
-| OLMo-3-32B, synonyms and both translations | 79–153 | 0–1 |
+| OLMo-3-32B, synonyms and both translations | 40–153 | 0–1 |
 | OLMo-2-1B, antonyms | 48 | 0 |
 | Llama-2-7B, antonyms (the exception) | 104 | 93 |
+
+**Two prefixes per search, both reported.** Each search gives the checkpoint picked on 30 validation
+words in another phrasing, and its end point. Validation protects against fitting the search's format,
+but with 30 words it is a noisy judge: across our base-model searches it raised the heads prefix eight
+times and lowered it five, and the three biggest swings (synonyms +51, French +40, Spanish +37) all went
+against it. Where the two differ we give both, as "pick (end)".
 
 **Against injecting the vector itself.** We compared prefixes with injecting the function vector
 directly into the model.
@@ -81,31 +88,43 @@ directly into the model.
   general) and 100 prompts, so this is a weaker vector than theirs until we rerun with their
   head count.
 - *Against a vector tuned for layer and strength on validation words* (which favours the vector):
-  - The prefix wins on OLMo-3-32B synonyms (91 vs 69, p = 0.004), French (119 vs 50) and Spanish
-    (153 vs 71).
+  - The prefix wins on OLMo-3-32B French, 79 (119) vs 50 (p = 0.002 for the pick), and Spanish,
+    116 (153) vs 71 (p = 2e-6). On synonyms only the end point wins, 91 vs 69 (p = 0.004); the pick
+    loses, 40 vs 69.
+  - On OLMo-3-32B antonyms it wins with the instruction words banned, 126 vs 105 (p ≈ 0.004, in two
+    separate ban runs), and when the search starts from real example pairs, 136 vs 105 (p = 9e-6;
+    that start is itself labelled data). Aimed at just two of the heads (L18.3, L19.23), a 400-step
+    search gets 118 (122), against 105; those runs stored no per-word rows, so it is not a paired test,
+    and the two heads were chosen partly from accuracy on these same test words.
   - It roughly ties on OLMo-2-1B (48 vs 35, p = 0.053), OLMo-3-32B antonyms (117 vs 105, p = 0.13)
     and Ministral Base (128 vs 130).
   - It loses on Llama-2-7B (104 vs 118, p = 0.044).
 
-**Plain GCG on the answers does as well or better.** This is Rohit Gandikota's suggested baseline:
-search the same way, with the same budget, practice words and validation, but score only how likely
-the correct answers are, with nothing inside the model targeted. On OLMo-3-32B it matches or beats
-the heads prefix on every task:
+**Plain GCG on the answers matches or beats it on most tasks.** This is Rohit Gandikota's suggested
+baseline: search the same way, with the same budget, practice words and validation, but score only how
+likely the correct answers are, with nothing inside the model targeted. On OLMo-3-32B, pick (end):
 
 | task | heads prefix | GCG on the answers | the same, gradient-free |
 |---|---|---|---|
-| antonyms | 99 | 102 | 118 |
-| synonyms | 40 (91 at the end of the search) | 80 | 90 |
-| English→French | 79 (119) | 165 | 160 |
-| English→Spanish | 116 (153) | 152 | 162 |
+| antonyms | 99 (85) | 102 (108) | 118 (116) |
+| synonyms | 40 (**91**) | 80 (71) | 90 (1) |
+| English→French | 79 (119) | **165** (163) | 160 |
+| English→Spanish | 116 (153) | 152 (153) | 162 |
 
-So for accuracy in the format the search sees, the internal target is not needed. The answer-only
-search is told the 20 practice words' answers, which the heads search never sees. Each number is
-one run, and the heads antonym prefix scored 117 in an earlier run and 99 in this one.
+With validation picks, GCG on the answers matches or beats the heads prefix everywhere. With end points
+the picture splits: the heads prefix wins on synonyms (91 vs 71, p = 0.029), ties on Spanish (153 vs
+152), and loses clearly on French (119 vs 165). On antonyms the same heads search passes through a 117
+checkpoint at step 350 (117 vs 102, p = 0.058) before validation picks 99 at step 700, on 22 vs 21 of 30
+validation words; this is one deterministic search, not two runs. The answer-only search sees the 20
+practice words' answers; the heads route uses 60 labelled pairs to build its target. Each cell is one
+search.
 
 It is not overfitting either. On 120 fresh words and in phrasings no search or checkpoint pick ever
-used (`X:`, `Q: X / A:`, `X =`), answer-only GCG holds up and the heads prefixes collapse: antonym
-`Q: X / A:` 53 vs 0, English→French `X:` 53 vs 0. The prefixes suggest why: the answer-only antonym
+used (`X:`, `Q: X / A:`, `X =`), answer-only GCG holds up and the validation-picked heads prefixes
+collapse: antonym `Q: X / A:` 53 vs 0, English→French `X:` 53 vs 0. The synonym end point does not: it
+gets 52 / 33 / 35 / 40 (`X ->` / `X:` / `Q: X / A:` / `X =`), against 45 / 14 / 25 / 36 for answer-only's
+pick (`X:` 21 vs 2, p = 7e-5) and `Q: X / A:` 0 for its end point. The translation end points do collapse
+(Spanish `X:` 11 vs 56). The prefixes suggest why: the answer-only antonym
 prefix writes the instruction in English (`Flip polarity — swapping`), which works in any phrasing; the
 heads one plants a worked example (`ufficient (&pure')-> deficient`), which only works in the arrow
 format.
@@ -169,20 +188,28 @@ them switches the answer on 61% of held-out pairs, against 0% for random heads (
     the 65 heads (knockout 115 → 103, random heads 130), and in free generation it never names the vehicle.
   - Placed at the very start of the prompt, every prefix fails (0–3): it has to come after the question.
 
-  So far their intervention wins. Two prefixes that looked better were leaks. A one-step prefix scored 159
-  with `carrier`, ` driver` and ` drives` in it, and 3 with those replaced. A two-step one, an eraser
-  followed by a writer, scored 154 (vehicle) and 172 (animal, with the same eraser), and 16 and 9 once the
-  writers' category-neighbour words (` voyage`, ` craft`; ` Alive`, ` living`) were replaced. Both had
-  the question first and the prefix after it. The two-step test in their own layout, with neighbour words
-  banned too, is running.
+  - Two-step, in their own layout: an eraser, then a writer, both banned from category names and
+    neighbour words. Vehicle: 160, level with their intervention (153 per pair, p = 0.36; 170 average,
+    p = 0.13). Animal: 88, against 114 and 122 (their intervention wins). Either writer alone gets 3 or
+    11, and the reversed order 11, so the eraser is needed. Caveats in the same breath: it does not run
+    through their 65 heads (knockout 160 → 111, random heads 98); it is brittle (any 3 random tokens
+    replaced: 160 → 42); the model names the vehicle in free generation on only 49 lists; and the ban
+    still let ` route`, ` Cycling`, ` Hen` and ` buzzing` through.
+
+  Earlier prefixes that looked better were leaks. A one-step prefix scored 159 with `carrier`, ` driver`
+  and ` drives` in it, and 3 with those replaced. A two-step one in the question-first layout scored 154
+  (vehicle) and 172 (animal, with the same eraser), and 16 and 9 once the writers' category-neighbour words
+  (` voyage`, ` craft`; ` Alive`, ` living`) were replaced.
 - *Supplying a missing question* (a list with no question): we first reported that the heads prefix beat
   copying in the average fruit query, 198 vs 169. **That was the word.** The prefix contains ` Fruit`,
   `ategori` and ` Tomato`; replace those three tokens and it gets 34, below no prefix (42). GCG on the
   answers, with its ` fruity` and ` Mellon` replaced, keeps 167, level with copying the query (176).
 
 **Real examples still win, and we say so first.** Complete example pairs in the same token budget
-beat every prefix: 140 vs 117, 168 vs 119, 173 vs 153. A found prefix is not a better prompt than
-real examples. Our view is that its value is different: it is a readout, in tokens, of what an
+beat every prefix searched from scratch: 140 vs 117, 168 vs 119, 173 vs 153. Started from those same
+pairs, a heads search ties them (136 vs 140, p = 0.39) and beats GCG on the answers (136 vs 102,
+p = 5e-6), which shows the heads target does not degrade a good prompt, not that it finds one. A found
+prefix is not a better prompt than real examples. Our view is that its value is different: it is a readout, in tokens, of what an
 internal target does.
 
 **The scorer is checked against a public leaderboard.** whisperers' residual scorer reproduces
@@ -196,20 +223,25 @@ internal target does.
   Tuned, the vector wins on Llama-2-7B.
 - *"With the instruction words banned, heads prefixes win."* True for antonyms; false for synonyms and
   English→Spanish (above).
+- *"The heads antonym prefix scored 117 in one run and 99 in another."* It is one deterministic search:
+  the 117 checkpoint (step 350) sits inside the 99 run, and validation picked step 700 on one more
+  validation word (22 vs 21 of 30).
 - *"A filter prefix beats the paper's intervention."* Every win we found was words the prefix carried:
   ` Fruit`; `carrier` / `driver` / `drives`; ` voyage` / ` craft` and ` Alive` / ` living` (above).
 
-We also report our first Qwen3.8-27B run (0/200) as a failed search, not a negative result. It got
-99 steps, and the prefix it picked was still mostly the `! ! !` it started from.
+Qwen3.8-27B runs are outside this page's scope: it is a post-trained model, and every claim here is
+about base models.
 
 ## Where it fails
 
 **Prefixes are model-specific.** OLMo-3-32B prefixes get 0 on OLMo-2-1B. The 1B prefix on OLMo-3-32B
 gets 7, which is *below* the 22 with no prefix.
 
-**Some functions don't come out.** Country→capital on OLMo-3-32B scored 0/137 twice, because the
-search ended in a code-like string that the model copies. Injecting the same vector gets 121–123,
-and on OLMo-2-1B the same search works (106/137).
+**Country→capital on OLMo-3-32B is untested with the current method.** Two early searches, aimed at the
+residual-stream task vector before we had the heads target or validation picks, scored 0/137 (one
+ended in a code-like string the model copies; in the other the model answered `String`). Injecting
+the same vector gets 121–123. On OLMo-2-1B the same early search gets 106/137, level with injection
+(97, p = 0.18).
 
 **Long searches fit the format.** The end-of-search French and Spanish prefixes get 119 and 153 in
 the `word ->` format. On words phrased "In French, X is" they score 0.03 and 0.00 (on validation
@@ -227,8 +259,9 @@ injection before searching toward it.
 ## Gaps we know about
 
 - ⚠ **One seed per result.** None of the headline cells has been repeated with another seed.
-- ⚠ **Sentence flips are hand-judged,** on only 15 sentences. The fix is a set of 100 sentences scored
-  mechanically.
+- ⚠ **Sentence flips are scored on only 15 sentences,** against accepted-opposite lists probably written
+  after the outputs were seen, and "at least one word flipped" is lenient. The fix is a set of 100
+  sentences with keys fixed in advance.
 - ⚠ **Blind readout is anecdotal.** Shown only the banned heads prefix, another model named the task
   ("antonyms") from its `repeal => strengthen` pair. That is one prefix and one reader, not a test.
 - ⚠ **Every claim on this page is about base models.** Chat and reasoning models are work in
