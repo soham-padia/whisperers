@@ -19302,7 +19302,9 @@
    "note": "put the prefix exactly where <prefix> is, with no space after the question mark"
   },
   "highlights": [],
-  "cautions": []
+  "cautions": [
+   "Arnab's swap here runs outside the layout its heads were found on (his mask was trained on list-then-question prompts); on his own layout it scores 114-170 (see the paper-layout entries), so a low swap number on this card is not a win over his method"
+  ]
  },
  "Olmo-3-1125-32B/filter-redirect-vehicle/filter_query_heads/contrast-question-first/1228140": {
   "id": "Olmo-3-1125-32B/filter-redirect-vehicle/filter_query_heads/contrast-question-first/1228140",
@@ -19347,7 +19349,8 @@
   },
   "highlights": [],
   "cautions": [
-   "withdrawn: works through leaked vehicle words (carrier, driver, drives); 162 -> 3 without them (1231102)"
+   "withdrawn: works through leaked vehicle words (carrier, driver, drives); 162 -> 3 without them (1231102)",
+   "Arnab's swap here runs outside the layout its heads were found on (his mask was trained on list-then-question prompts); on his own layout it scores 114-170 (see the paper-layout entries), so a low swap number on this card is not a win over his method"
   ]
  },
  "Olmo-3-1125-32B/filter-redirect-vehicle/output_gcg/output-question-first/1228140": {
@@ -19393,7 +19396,8 @@
   },
   "highlights": [],
   "cautions": [
-   "withdrawn: works through a leaked vehicle word (Coupe); 196 -> 21 without it (1231102)"
+   "withdrawn: works through a leaked vehicle word (Coupe); 196 -> 21 without it (1231102)",
+   "Arnab's swap here runs outside the layout its heads were found on (his mask was trained on list-then-question prompts); on his own layout it scores 114-170 (see the paper-layout entries), so a low swap number on this card is not a win over his method"
   ]
  },
  "Olmo-3-1125-32B/filter-redirect-vehicle/filter_query_heads/contrast-paper-layout/1231680": {
@@ -19488,7 +19492,8 @@
   },
   "highlights": [],
   "cautions": [
-   "withdrawn as 'without naming the category': the writer works through category-neighbour words (voyage, craft; 154 -> 16 without them) (1238616)"
+   "withdrawn as 'without naming the category': the writer works through category-neighbour words (voyage, craft; 154 -> 16 without them) (1238616)",
+   "Arnab's swap here runs outside the layout its heads were found on (his mask was trained on list-then-question prompts); on his own layout it scores 114-170 (see the paper-layout entries), so a low swap number on this card is not a win over his method"
   ]
  },
  "Olmo-3-1125-32B/filter-redirect-animal/filter_query_heads/erase-write-animal/1231103": {
@@ -19538,7 +19543,8 @@
   },
   "highlights": [],
   "cautions": [
-   "withdrawn as 'without naming the category': the writer works through category-neighbour words (Alive, living; 172 -> 9 without them) (1238616)"
+   "withdrawn as 'without naming the category': the writer works through category-neighbour words (Alive, living; 172 -> 9 without them) (1238616)",
+   "Arnab's swap here runs outside the layout its heads were found on (his mask was trained on list-then-question prompts); on his own layout it scores 114-170 (see the paper-layout entries), so a low swap number on this card is not a win over his method"
   ]
  },
  "Olmo-3-1125-32B/filter-redirect-vehicle/filter_query_heads/add-remove-vehicle/1231102": {
@@ -19587,7 +19593,9 @@
    "remove": " deity++++ @{$seed prov phen gluc acidicpsAnyone{%Sweet edible}?Marketing'-"
   },
   "highlights": [],
-  "cautions": []
+  "cautions": [
+   "Arnab's swap here runs outside the layout its heads were found on (his mask was trained on list-then-question prompts); on his own layout it scores 114-170 (see the paper-layout entries), so a low swap number on this card is not a win over his method"
+  ]
  },
  "Olmo-3-1125-32B/filter-redirect-animal/filter_query_heads/add-remove-animal/1231102": {
   "id": "Olmo-3-1125-32B/filter-redirect-animal/filter_query_heads/add-remove-animal/1231102",
