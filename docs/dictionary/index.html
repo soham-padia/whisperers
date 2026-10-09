@@ -1217,14 +1217,20 @@ function howUse(e){
     var head = h('div', {class:'hu-head'});
     var main = h('div', {class:'hu-main'}, h('span', {class:'hu-k'}, 'How to use'));
     if (S.concrete != null) {
-      main.append(h('code', {class:'hu-in', dir:'ltr'}, h('span', {class:'ph', 'data-tip':'The exact prefix shown above'}, '<prefix>'), document.createTextNode(String(S.pattern).replace(/^<prefix>/, '').replace(/\{word\}/g, S.word).replace(/\n/g, '\u21B5\n'))));
+      var hu = h('code', {class:'hu-in', dir:'ltr'});
+      String(S.pattern).split('<prefix>').forEach(function(part, i){
+        if (i > 0) hu.append(h('span', {class:'ph', 'data-tip':'The exact prefix shown above'}, '<prefix>'));
+        if (part) hu.append(document.createTextNode(part.replace(/\{word\}/g, S.word).replace(/\n/g, '\u21B5\n')));
+      });
+      main.append(hu);
     } else {
       main.append(patternNode(S.pattern));
     }
     head.append(main, h('span', {class:'hu-dec'}, (u.note ? 'raw completion' : 'plain text') + ' \u00b7 ' + (u.decoding || 'greedy')));
     if (S.concrete != null) {
-      var tail = S.concrete.slice(e.text.length);
-      head.append(copyButtonFor(function(){ return usageStrings(e).concrete; }, 'Copy input', 'Copy the exact input: the prefix followed by \u201c' + tail.replace(/\n/g, '\u21B5') + '\u201d', 'input', e.id, null));
+      var atStart = /^<prefix>/.test(S.pattern);
+      var tail = atStart ? S.concrete.slice(e.text.length) : null;
+      head.append(copyButtonFor(function(){ return usageStrings(e).concrete; }, 'Copy input', atStart ? 'Copy the exact input: the prefix followed by \u201c' + tail.replace(/\n/g, '\u21B5') + '\u201d' : 'Copy the exact input, with the prefix placed where <prefix> is', 'input', e.id, null));
     }
     box.append(head);
     if (e.method === 'direction') box.append(h('p', {class:'hu-warn', style:'border-top-style:solid;border-color:var(--line);background:none;color:var(--text-2)'}, 'Put it in front of any everyday chat-style prompt, separated by one space. It is scored with the Steering Arena metric (a shift of the last-token residual along the direction); there is no task format.'));
