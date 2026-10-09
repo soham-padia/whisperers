@@ -1013,7 +1013,7 @@ abstract '__Sale ! Argentina"-478 !Bill Charger mdl !NONE !_-_ ! deity++++ @{$se
 **Olmo-3-1125-32B/filter-redirect-animal/filter_query_heads/erase-write-animal/1231103** — works
 - task: filter redirect: the question asks for a fruit, the prefix should get the animal picked · target: two pieces, searched in sequence toward the 65 filter heads' queries: erase (16 tokens) then write animal (16 tokens); the text shown is the two pieces joined · picked by: validation · 32 tokens · 600 search steps
 - result: animal_picks 172, other_category_picks 28, n 200
-- compare: plain 0, ask_animal 200, write_animal alone 27
+- compare: plain 0, ask_animal 200, write_animal alone 27, transplant_mean 0
 
 ```
  pizza creams vagina NebraskaEvidence mixed!!! apologizedOctoberDownloadFINAL dialogredsJimTG ! OutdoorEDURE.Task Sight objects behaviourъ Alive<thead meaning?? living(ip__:tgKim

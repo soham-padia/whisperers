@@ -754,7 +754,15 @@ var BASE = {
   ask_A:{label:'Asked in words', tip:'The list with an explicit question asking for this category.', order:7},
   ask_B:{label:'Asked in words', tip:'The list with an explicit question asking for this category.', order:7},
   transport_A:{label:'Queries copied in', tip:'The paper\u2019s own intervention: copying the filter heads\u2019 queries in from a prompt that asks.', order:8},
-  transport_B:{label:'Queries copied in', tip:'The paper\u2019s own intervention: copying the filter heads\u2019 queries in from a prompt that asks.', order:8}
+  transport_B:{label:'Queries copied in', tip:'The paper\u2019s own intervention: copying the filter heads\u2019 queries in from a prompt that asks.', order:8},
+  transplant_per_pair:{label:'Arnab\u2019s swap, per pair', tip:'Sen Sharma et al.\u2019s own intervention (donor \u2192 receiver): the filter heads\u2019 queries copied in from a prompt that asks for this category, one donor prompt per list, at the last token as their mask was trained.', order:2.1},
+  transplant_mean:{label:'Arnab\u2019s swap, average query', tip:'Sen Sharma et al.\u2019s intervention with the filter heads\u2019 AVERAGE query for this category copied in (the same information a prefix target has).', order:2.2},
+  ask_vehicle:{label:'Asked in words (vehicle)', tip:'The question itself asks for a vehicle: the ceiling.', order:7},
+  ask_animal:{label:'Asked in words (animal)', tip:'The question itself asks for an animal: the ceiling.', order:7},
+  written_override:{label:'Written override', tip:'\u201c Actually, which one is a vehicle?\u201d typed in the prefix slot.', order:7.5},
+  'write_vehicle alone':{label:'Writer alone (no eraser)', tip:'The second piece on its own, right after the question.', order:9},
+  'write_animal alone':{label:'Writer alone (no eraser)', tip:'The second piece on its own, right after the question.', order:9},
+  'remove alone':{label:'Remover alone (no adder)', tip:'The second piece on its own, right after the question.', order:9}
 };
 var UNSEEN_LABEL = {colon:'\u201c{x}:\u201d', qa:'\u201cQ: {x} A:\u201d', equals:'\u201c{x} =\u201d'};
 var EXTRA_LABEL = {sentences_flipped:'Whole sentences flipped', hand_made_words:'Hand-made test words'};
@@ -848,7 +856,7 @@ function computeMetric(e){
       e.cat = pkKey.slice(0, -6);
       var cats = FILTER_CATS[e.raw.job] || [e.cat];
       e.catIdx = Math.max(0, cats.indexOf(e.cat));
-      var otherCat = cats.filter(function(x){ return x !== e.cat; })[0] || 'other category';
+      var otherCat = /^filter redirect/.test(String(e.raw.task)) ? 'fruit (the asked category)' : (cats.filter(function(x){ return x !== e.cat; })[0] || 'other category');
       e.metric = {type:'count', value:r[pkKey], n:r.n, copied:0, ownLabel:'Picked the ' + e.cat};
       if (typeof r.other_category_picks === 'number') e.others.push({label:'Picked the ' + otherCat + ' instead', value:r.other_category_picks});
     } else if (typeof r.arena_score === 'number') {
