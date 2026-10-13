@@ -839,7 +839,7 @@ function computeMetric(e){
   var r = e.raw.results, c = e.raw.compare || {};
   e.metric = null; e.ownIdx = 0; e.catIdx = 0; e.cat = null; e.others = []; e.extras = [];
   if (r) {
-    var known = {correct:1, n:1, copied:1, other_category_picks:1, arena_score:1, board_best:1};
+    var known = {correct:1, n:1, copied:1, other_category_picks:1, arena_score:1, board_best:1, judged:1, judged_by:1};
     var ak = Object.keys(r).filter(function(k){ return /_answers$/.test(k); });
     var pkKey = Object.keys(r).filter(function(k){ return /_picks$/.test(k) && k !== 'other_category_picks'; })[0];
     if (typeof r.correct === 'number' && r.n) {
@@ -889,6 +889,18 @@ function computeMetric(e){
       e.baselines.push({key:k, label:label, tip:b.tip, value:val, order:b.order});
     });
     e.baselines.sort(function(a, b){ return a.order - b.order; });
+  }
+  // the same words counted again with an LLM judge (antonyms, synonyms): exact, or an answer the judge rates valid
+  e.judged = null; e.judgedBaselines = [];
+  if (r && typeof r.judged === 'number' && e.metric && e.metric.type === 'count') {
+    e.judged = {value:r.judged, n:r.n, by:String(r.judged_by || 'an LLM judge')};
+    var cj = e.raw.compare_judged || {};
+    Object.keys(cj).forEach(function(k){
+      if (typeof cj[k] !== 'number') return;
+      var b = BASE[k] || {label:k.replace(/_/g, ' '), tip:'', order:20};
+      e.judgedBaselines.push({key:k, label:b.label, tip:b.tip, value:cj[k], order:b.order});
+    });
+    e.judgedBaselines.sort(function(a, b){ return a.order - b.order; });
   }
   var plain = e.baselines.filter(function(b){ return b.key === 'plain'; })[0];
   e.plain = plain ? plain.value : null;
@@ -1356,6 +1368,16 @@ function resultsBlock(e){
     e.baselines.forEach(function(b){ barRow(bars2, {label:b.label, value:b.value, n:n, tip:b.tip, prov:provMark(provFor(e, 'compare.' + b.key), true)}); });
   }
   sec.append(bars2);
+  if (e.judged) {
+    sec.append(h('h6', {class:'res-h'}, 'Judged by an LLM', h('span', {class:'meta'}, 'exact, or an answer ' + e.judged.by.split(',')[0] + ' rates valid'), provMark(provFor(e, 'results.judged'))));
+    var bars3 = h('div', {class:'bars'});
+    barRow(bars3, {label:'This prefix', self:true, value:e.judged.value, n:n, tip:'Correct answers with this prefix, counting valid answers outside the dataset (' + e.judged.by + ')'});
+    if (e.judgedBaselines.length) {
+      bars3.append(h('span', {class:'b-div'}, 'Same words, same judge'));
+      e.judgedBaselines.forEach(function(b){ barRow(bars3, {label:b.label, value:b.value, n:n, tip:b.tip, prov:provMark(provFor(e, 'compare_judged'), true)}); });
+    }
+    sec.append(bars3);
+  }
   if (m.copied) sec.append(h('p', {class:'res-note'}, h('span', {class:'hatch', 'aria-hidden':'true'}), 'Copied the input instead of answering: ', h('b', null, String(m.copied)), ' of ' + n + '.'));
   e.extras.forEach(function(x){ sec.append(h('p', {class:'res-extra'}, x.label + ': ', h('b', null, x.value), provMark(provFor(e, 'results.' + x.key)))); });
   if (e.unseenQuick && e.unseenQuick.length) {
@@ -1728,7 +1750,7 @@ function renderGlossary(){
   var body = document.getElementById('glossBody');
   function term(dt, code, dd){ return [h('dt', null, dt, code ? h('code', null, code) : null), h('dd', null, dd)]; }
   var left = h('dl', null,
-    term('Held-out words', null, 'Test words the search never saw: 200 per task (137 for capitals). An answer counts only if the first word of the greedy output is exactly the dataset\u2019s answer, so valid answers outside the dataset count as wrong.'),
+    term('Held-out words', null, 'Test words the search never saw: 200 per task (137 for capitals). The main bars count an answer only if the first word of the greedy output is exactly the dataset\u2019s answer, so valid answers outside the dataset count as wrong. For antonyms and synonyms a second set of bars also counts answers an LLM judge rates valid (speedy \u2192 \u201cfast\u201d; \u201cnot enough\u201d as an antonym); each judge was checked against blind hand labels, and its agreement is shown.'),
     term('No prefix', 'plain', 'The same test words with nothing in front. Every result sits next to it.'),
     term('Copied', 'copied', 'The model just repeated the input word instead of answering. Shown as a hatched segment after the correct answers.'),
     term('Validation pick', 'validation', PICKS.validation.tip),

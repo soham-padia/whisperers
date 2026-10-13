@@ -21,10 +21,24 @@ we say otherwise, every number comes from a single run. Every prefix we have fou
 
 We use Todd et al.'s in-context tasks: antonyms, synonyms, English→French, English→Spanish and
 country→capital. A search sees 20 probe words in the form `word ->` and nothing else. We then test
-on **200 different words** (137 for capitals). An answer counts only if the first word of the
-greedy output is exactly the dataset's answer, so no judge model is involved. Arms are compared on
-the same words with a paired sign test. When we use `validate=`, it picks the search checkpoint that
-does best on more held-out words phrased a different way (for example "The opposite of X is").
+on **200 different words** (137 for capitals). Arms are compared on the same words with a paired sign
+test. When we use `validate=`, it picks the search checkpoint that does best on more held-out words
+phrased a different way (for example "The opposite of X is").
+
+We count correct answers two ways.
+- **Exact:** the first word of the greedy output is the dataset's answer. This undercounts: speedy →
+  "fast" is a good synonym that the dataset does not list.
+- **Judged** (antonyms and synonyms): exact, or an LLM judge rates the answer valid, so "fast" counts,
+  and so does "not enough" as an antonym. The judges run locally: OLMo-3.1-32B-Instruct for antonyms,
+  Qwen2.5-72B-Instruct for synonyms (the OLMo judge was too strict on synonyms).
+- **How the judges were checked:** first, Claude Opus (antonyms) and Claude Sonnet (synonyms) read every
+  answer exact match rejected, 3,770 and 2,800 of them, without knowing which method produced each one.
+  The judges agree with those hand labels at κ = 0.83 for antonyms and 0.65 for synonyms. The synonym
+  judge is the weaker one.
+- **Translations stay exact-match.** There are no hand labels to check a judge against.
+
+Judging raises every method by a similar amount (35 to 75 answers out of 200), so most comparisons below
+come out the same either way. Where judging changes a conclusion, we say so.
 
 ## The evidence
 
@@ -37,7 +51,7 @@ does best on more held-out words phrased a different way (for example "The oppos
   does nothing: 1 vs the real vector's 27 on OLMo-2-1B, 11 vs 73 on Llama-2-7B, and 23 vs 53 on
   OLMo-3-32B, where no prefix also gives 23.
 
-**Held-out words, no judge.** Every score is exact-match accuracy on words the search never saw. On
+**Held-out words.** Every score is on words the search never saw, exact-match unless we say "judged". On
 OLMo-3-32B antonyms, a prefix searched toward a task vector goes from 22 to 107/200 (p ≈ 1e-22).
 
 **The swap test: the function, not just the format.** We used the same 200 English words and the
@@ -69,7 +83,7 @@ its heads, and in most cases the result was worse:
 | model, task | heads target | residual target |
 |---|---|---|
 | OLMo-3-32B, antonyms | 117 | 15 (155 copied) |
-| OLMo-3-32B, synonyms and both translations | 40–153 | 0–1 |
+| OLMo-3-32B, synonyms and both translations | 72–153 | 0–1 |
 | OLMo-2-1B, antonyms | 48 | 0 |
 | Llama-2-7B, antonyms (the exception) | 104 | 93 |
 
@@ -89,15 +103,20 @@ directly into the model.
   head count.
 - *Against a vector tuned for layer and strength on validation words* (which favours the vector):
   - The prefix wins on OLMo-3-32B French, 79 (119) vs 50 (p = 0.002 for the pick), and Spanish,
-    116 (153) vs 71 (p = 2e-6). On synonyms only the end point wins, 91 vs 69 (p = 0.004); the pick
-    loses, 40 vs 69.
+    116 (153) vs 71 (p = 2e-6).
+  - On synonyms the end point wins, 91 vs 69 (p = 0.004), and the pick ties, 72 vs 69 (p = 0.77). (We
+    first reported the pick as 40: our first-word reader dropped answers glued to junk; see the
+    corrections.) Judged, the pick gets 121 and the end point 153, against 112 for the tuned vector
+    (p = 0.32 and 1e-7).
   - On OLMo-3-32B antonyms it wins with the instruction words banned, 126 vs 105 (p ≈ 0.004, in two
     separate ban runs), and when the search starts from real example pairs, 136 vs 105 (p = 9e-6;
-    that start is itself labelled data). Aimed at just two of the heads (L18.3, L19.23), a 400-step
+    that start is itself labelled data). Judged: 173 and 159 in the two ban runs, and 179 from real
+    pairs, against 150 (p = 6e-4, 0.19 and 2e-6). So under the judge, the strict-ban win over the
+    tuned vector is no longer significant. Aimed at just two of the heads (L18.3, L19.23), a 400-step
     search gets 118 (122), against 105; those runs stored no per-word rows, so it is not a paired test,
     and the two heads were chosen partly from accuracy on these same test words.
-  - It roughly ties on OLMo-2-1B (48 vs 35, p = 0.053), OLMo-3-32B antonyms (117 vs 105, p = 0.13)
-    and Ministral Base (128 vs 130).
+  - It roughly ties on OLMo-2-1B (48 vs 35, p = 0.053), OLMo-3-32B antonyms (117 vs 105, p = 0.13;
+    judged 161 vs 150, p = 0.12) and Ministral Base (128 vs 130; judged 171 vs 171).
   - It loses on Llama-2-7B (104 vs 118, p = 0.044).
 
 **Plain GCG on the answers matches or beats it on most tasks.** This is Rohit Gandikota's suggested
@@ -106,14 +125,25 @@ likely the correct answers are, with nothing inside the model targeted. On OLMo-
 
 | task | heads prefix | GCG on the answers | the same, gradient-free |
 |---|---|---|---|
-| antonyms | 99 (85) | 102 (108) | 118 (116) |
-| synonyms | 40 (**91**) | 80 (71) | 90 (1) |
-| English→French | 79 (119) | **165** (163) | 160 |
-| English→Spanish | 116 (153) | 152 (153) | 162 |
+| antonyms, exact | 99 (85) | 102 (108) | 118 (116) |
+| antonyms, judged | 135 (127) | 154 (159) | 153 (159) |
+| synonyms, exact | 72 (91) | 80 (71) | 90 (106) |
+| synonyms, judged | 121 (153) | 157 (149) | 165 (172) |
+| English→French, exact | 79 (119) | **165** (163) | 160 |
+| English→Spanish, exact | 116 (153) | 152 (153) | 162 |
 
-With validation picks, GCG on the answers matches or beats the heads prefix everywhere. With end points
-the picture splits: the heads prefix wins on synonyms (91 vs 71, p = 0.029), ties on Spanish (153 vs
-152), and loses clearly on French (119 vs 165). On antonyms the same heads search passes through a 117
+With validation picks, GCG on the answers matches or beats the heads prefix everywhere, and judging widens
+the gap. By exact match the antonym picks tie (99 vs 102, p = 0.78); judged, the heads pick loses (135 vs
+154, p = 0.014). Synonyms: 72 vs 80 (p = 0.26) by exact match, 121 vs 157 (p = 1e-6) judged.
+With end points the picture splits: the heads prefix ties on Spanish (153 vs 152) and loses clearly on
+French (119 vs 165). On synonyms its end point beats GCG on the answers by exact match (91 vs 71,
+p = 0.029), but judged they tie (153 vs 149, p = 0.68), and the gradient-free end point beats both (106
+exact; judged 172 vs 153, p = 0.004). Judging does not favour the heads prefix: at the picks it adds as many
+answers to the other columns or more (antonyms +36 for heads, +52 and +35 for the others; synonyms +49, +77,
++75). A hand read of every answer exact match
+rejected says the same: valid answers outside the dataset are no more common for heads prefixes,
+which never see an answer, than for searches trained on the answers (antonyms: +108, +111, +113 summed
+over three runs). On antonyms the same heads search passes through a 117
 checkpoint at step 350 (117 vs 102, p = 0.058) before validation picks 99 at step 700, on 22 vs 21 of 30
 validation words; this is one deterministic search, not two runs. The answer-only search sees the 20
 practice words' answers; the heads route uses 60 labelled pairs to build its target. Each cell is one
@@ -149,7 +179,9 @@ Correct out of 120 fresh words (no prefix: 15, 0, 0, 13):
   included (p from 0.04 down to 1e-11). With only the words banned it is not a clean win: the
   gradient-free search is level with the heads prefix everywhere except `Q: X / A:` (52 vs 0). Banning
   the words hurts the GCG answer-only search most: its `Q: X / A:` score goes 53 → 3 → 0. On the 200 test words of the search itself the heads prefix gets
-  126 in both ban runs, against 110–112 and 100–119.
+  126 in both ban runs, against 110–112 and 100–119. Judged, it is 173 (words banned) and 159 (strict),
+  against 156 and 138 for GCG on the answers (p = 0.005 and 5e-4) and 173 and 137 gradient-free (p = 1 and
+  3e-4): level with the gradient-free search under the word ban, ahead of both under the strict ban.
 - It carries into other languages. We built 200 Spanish and 200 French antonym pairs by translating
   both words of the dataset's English pairs, and used the English-searched prefixes unchanged. The
   banned heads prefix gets 72 Spanish and 51 French (lenient match), against 59 and 31 gradient-free
@@ -163,7 +195,7 @@ Correct out of 120 fresh words (no prefix: 15, 0, 0, 13):
   answer-only search slipped in `UpDown`.
 - ⚠ **It does not carry to other tasks.** The same strict-ban test on synonyms and English→Spanish goes
   the other way. Synonyms: heads prefix 50 of 200 test words, against 82 for GCG on the answers and 79
-  gradient-free; on fresh words it trails in every phrasing (e.g. `X =` 5 vs 46 and 56). English→Spanish:
+  gradient-free (judged 84, against 157 and 148); on fresh words it trails in every phrasing (e.g. `X =` 5 vs 46 and 56). English→Spanish:
   the heads search failed outright, 0 in every phrasing, against 122 and 157. So the ban result is an
   antonym result, from one search per method, on one model. Knocking out the 10 function-vector heads
   barely moves the banned antonym prefixes (73 → 67, random heads 73), so those 10 heads are not the whole
@@ -206,9 +238,10 @@ them switches the answer on 61% of held-out pairs, against 0% for random heads (
   answers, with its ` fruity` and ` Mellon` replaced, keeps 167, level with copying the query (176).
 
 **Real examples still win, and we say so first.** Complete example pairs in the same token budget
-beat every prefix searched from scratch: 140 vs 117, 168 vs 119, 173 vs 153. Started from those same
-pairs, a heads search ties them (136 vs 140, p = 0.39) and beats GCG on the answers (136 vs 102,
-p = 5e-6), which shows the heads target does not degrade a good prompt, not that it finds one. A found
+beat every prefix searched from scratch: 140 vs 117, 168 vs 119, 173 vs 153 (antonyms judged: 179 vs 161).
+Started from those same pairs, a heads search ties them (136 vs 140, p = 0.39; judged 179 vs 179) and beats
+GCG on the answers (136 vs 102, p = 5e-6; judged 179 vs 154, p = 1e-5), which shows the heads target does not
+degrade a good prompt, not that it finds one. A found
 prefix is not a better prompt than real examples. Our view is that its value is different: it is a readout, in tokens, of what an
 internal target does.
 
@@ -228,6 +261,13 @@ internal target does.
   validation word (22 vs 21 of 30).
 - *"A filter prefix beats the paper's intervention."* Every win we found was words the prefix carried:
   ` Fruit`; `carrier` / `driver` / `drives`; ` voyage` / ` craft` and ` Alive` / ` living` (above).
+- *Scores from a buggy first-word reader.* It took the first whitespace-separated token, so answers glued
+  to junk (`disruption●394`, `appreciation_ _`) or after a stray symbol (`> insane`) counted as wrong.
+  Fixed (whisperers commit c36e57d). 6 of 372 saved arms changed. The synonym heads pick went 40 → 72,
+  so it now ties the tuned function vector (72 vs 69) instead of losing to it. The gradient-free
+  synonym end point went 1 → 106.
+- *"The heads synonym end point beats GCG on the answers."* True by exact match (91 vs 71); judged,
+  they tie (153 vs 149), and the corrected gradient-free end point beats both (above).
 
 Qwen3.8-27B runs are outside this page's scope: it is a post-trained model, and every claim here is
 about base models.
@@ -269,8 +309,9 @@ injection before searching toward it.
   is not a fair test, so we make no claim about them yet. The chat-format versions (`template=`,
   `instruction_vector`, few-shot inside the chat turn) are built and running. Reasoning models also
   need scoring after `</think>`, and probably a target at the start of the thinking itself.
-- ⚠ **Exact match undercounts.** Valid answers outside the dataset count as wrong: speedy → "fast",
-  lazy → "industrious".
+- ⚠ **Judged scores rest on two LLM judges.** They agree with blind hand labels at κ = 0.83 (antonyms)
+  and 0.65 (synonyms), so the synonym counts are the softer ones. Translations, and the fresh-word tests
+  in other phrasings, are still exact-match only.
 
 ## Try it
 

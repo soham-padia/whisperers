@@ -6,8 +6,11 @@ and caveats: [what-it-shows.md](what-it-shows.md).
 
 - **Use:** `<prefix> <word> ->` as plain text on the model listed (greedy), unless the entry says chat.
   Prefixes are model-specific; they did not transfer between models in our tests.
-- **Results** are exact-match correct answers on held-out words the search never saw (n is given).
-  Synonyms are undercounted: only the dataset's one answer counts.
+- **Results** are correct answers on held-out words the search never saw (n is given), counted two ways.
+  `correct` is exact match: the first word is the dataset's answer. `judged` (antonyms and synonyms) also
+  accepts answers an LLM judge rates valid (speedy → "fast"; "not enough" as an antonym), with the judge
+  and its agreement with blind hand labels in `judged_by`; `compare judged` gives the baselines the same way.
+  Translations are exact-match only.
 - **picked by:** `validation` = best checkpoint on a held-out check in a different phrasing; `final` =
   the search's own end point (often tied to the `X ->` format); `score` = highest target score;
   `snapshot` = an intermediate step. **status** is a rough label; read the numbers.
@@ -22,8 +25,9 @@ and caveats: [what-it-shows.md](what-it-shows.md).
 
 **OLMo-2-0425-1B/antonym/fv_heads/validation/1180279** — works
 - task: antonym · target: function vector heads (top 10) · picked by: validation (step 250) · 32 tokens · 2484 search steps
-- result: correct 48, n 200, copied 0
+- result: correct 48, n 200, copied 0, judged 58, judged_by OLMo-3.1-32B-Instruct, kappa 0.83 against blind hand labels
 - compare: plain 1, inject_fv 27, demos_pairs 117
+- compare judged: plain 1, inject_fv 33, demos_pairs 158
 - other phrasing ("The opposite of {x} is {y}", validation words): 0.567
 - heads: L7.4, L8.1, L8.7, L9.7, L9.8, L9.9, L9.13, L9.14, L11.6, L11.11
 - readable: 'hoch <= downt' (German 'high'), 'obedient', 'unreasonable'
@@ -44,8 +48,9 @@ NI hoch <= downtladen qruestion obedient家 Miss Obt ingenious roses Cement spep
 
 **OLMo-2-0425-1B/antonym/fv_residual/validation/1180279** — fails
 - task: antonym · target: function vector, residual L5 · picked by: validation (step 425) · 32 tokens · 4702 search steps
-- result: correct 0, n 200, copied 0
+- result: correct 0, n 200, copied 0, judged 0, judged_by OLMo-3.1-32B-Instruct, kappa 0.83 against blind hand labels
 - compare: plain 1, inject_fv 27, demos_pairs 117
+- compare judged: plain 1, inject_fv 33, demos_pairs 158
 - other phrasing ("The opposite of {x} is {y}", validation words): 0.467
 
 ```
@@ -131,8 +136,9 @@ NI hoch <= downtladen qruestion obedient家 Miss Obt ingenious roses Cement spep
 
 **Olmo-3-1125-32B/antonym/fv_heads/validation/1184420** — works
 - task: antonym · target: function vector heads (top 10) · picked by: validation (step 375) · 32 tokens · 533 search steps
-- result: correct 117, n 200, copied 0
+- result: correct 117, n 200, copied 0, judged 161, judged_by OLMo-3.1-32B-Instruct, kappa 0.83 against blind hand labels
 - compare: plain 23, inject_fv 53, inject_fv_best 105, demos_pairs 140, inject_fv_best_at L6 x8
+- compare judged: plain 29, inject_fv 70, inject_fv_best 150, demos_pairs 179
 - other phrasing ("The opposite of {x} is {y}", validation words): 0.7
 - heads: L16.21, L17.37, L18.3, L19.34, L24.5, L24.7, L24.8, L24.25, L24.28, L25.2
 - readable: '…ufficient (&pure')-> deficient', 'elder rejuven'; alone with nothing after it, on the base model it continues into a hateful loop
@@ -154,8 +160,9 @@ guid Pureeson-American Characteristics429 -------------------- Roh->[ overrunRea
 
 **Olmo-3-1125-32B/antonym/fv_heads/validation/1201779** — works
 - task: antonym · target: function vector heads (top 10) · picked by: validation (step 325) · 32 tokens · 751 search steps
-- result: correct 136, n 200, copied 2
+- result: correct 136, n 200, copied 2, judged 179, judged_by OLMo-3.1-32B-Instruct, kappa 0.83 against blind hand labels
 - compare: plain 23, inject_fv 53, inject_fv_best 105, demos_pairs 140, inject_fv_best_at L6 x8
+- compare judged: plain 29, inject_fv 70, inject_fv_best 150, demos_pairs 179
 - other phrasing ("The opposite of {x} is {y}", validation words): 0.633
 - heads: L16.21, L17.37, L18.3, L19.34, L24.5, L24.7, L24.8, L24.25, L24.28, L25.2
 
@@ -172,8 +179,9 @@ armed -> unarmed
 
 **Olmo-3-1125-32B/antonym/fv_heads/final/1201779** — works
 - task: antonym · target: function vector heads (top 10) · picked by: final (step 751) · 32 tokens · 751 search steps
-- result: correct 139, n 200, copied 1
+- result: correct 139, n 200, copied 1, judged 179, judged_by OLMo-3.1-32B-Instruct, kappa 0.83 against blind hand labels
 - compare: plain 23, inject_fv 53, inject_fv_best 105, demos_pairs 140, inject_fv_best_at L6 x8
+- compare judged: plain 29, inject_fv 70, inject_fv_best 150, demos_pairs 179
 - other phrasing ("The opposite of {x} is {y}", validation words): 0.533
 - heads: L16.21, L17.37, L18.3, L19.34, L24.5, L24.7, L24.8, L24.25, L24.28, L25.2
 
@@ -190,8 +198,9 @@ armed -> unarmed
 
 **Olmo-3-1125-32B/antonym/fv_heads/validation/1201780** — works
 - task: antonym · target: function vector heads (top 10) · picked by: validation (step 744) · 32 tokens · 744 search steps
-- result: correct 129, n 200, copied 0
+- result: correct 129, n 200, copied 0, judged 174, judged_by OLMo-3.1-32B-Instruct, kappa 0.83 against blind hand labels
 - compare: plain 23, inject_fv 53, inject_fv_best 105, demos_pairs 140, inject_fv_best_at L6 x8
+- compare judged: plain 29, inject_fv 70, inject_fv_best 150, demos_pairs 179
 - other phrasing ("The opposite of {x} is {y}", validation words): 0.633
 - heads: L16.21, L17.37, L18.3, L19.34, L24.5, L24.7, L24.8, L24.25, L24.28, L25.2
 
@@ -201,8 +210,9 @@ armed -> unarmed
 
 **Olmo-3-1125-32B/antonym/fv_heads/final/1201780** — works
 - task: antonym · target: function vector heads (top 10) · picked by: final (step 744) · 32 tokens · 744 search steps
-- result: correct 129, n 200, copied 0
+- result: correct 129, n 200, copied 0, judged 174, judged_by OLMo-3.1-32B-Instruct, kappa 0.83 against blind hand labels
 - compare: plain 23, inject_fv 53, inject_fv_best 105, demos_pairs 140, inject_fv_best_at L6 x8
+- compare judged: plain 29, inject_fv 70, inject_fv_best 150, demos_pairs 179
 - other phrasing ("The opposite of {x} is {y}", validation words): 0.633
 - heads: L16.21, L17.37, L18.3, L19.34, L24.5, L24.7, L24.8, L24.25, L24.28, L25.2
 - same text as Olmo-3-1125-32B/antonym/fv_heads/validation/1201780
@@ -213,8 +223,9 @@ armed -> unarmed
 
 **Olmo-3-1125-32B/antonym/fv_heads/validation/1201781** — works
 - task: antonym · target: function vector heads (top 10) · picked by: validation (step 200) · 32 tokens · 735 search steps
-- result: correct 116, n 200, copied 14
+- result: correct 116, n 200, copied 14, judged 162, judged_by OLMo-3.1-32B-Instruct, kappa 0.83 against blind hand labels
 - compare: plain 23, inject_fv 53, inject_fv_best 105, demos_pairs 140, inject_fv_best_at L6 x8
+- compare judged: plain 29, inject_fv 70, inject_fv_best 150, demos_pairs 179
 - other phrasing ("The opposite of {x} is {y}", validation words): 0.733
 - heads: L16.21, L17.37, L18.3, L19.34, L24.5, L24.7, L24.8, L24.25, L24.28, L25.2
 
@@ -224,8 +235,9 @@ Opposite: COR -> cryptocurrency, big -> small, happy intends depressed.534: Eule
 
 **Olmo-3-1125-32B/antonym/fv_heads/final/1201781** — works
 - task: antonym · target: function vector heads (top 10) · picked by: final (step 735) · 32 tokens · 735 search steps
-- result: correct 109, n 200, copied 7
+- result: correct 109, n 200, copied 7, judged 149, judged_by OLMo-3.1-32B-Instruct, kappa 0.83 against blind hand labels
 - compare: plain 23, inject_fv 53, inject_fv_best 105, demos_pairs 140, inject_fv_best_at L6 x8
+- compare judged: plain 29, inject_fv 70, inject_fv_best 150, demos_pairs 179
 - other phrasing ("The opposite of {x} is {y}", validation words): 0.567
 - heads: L16.21, L17.37, L18.3, L19.34, L24.5, L24.7, L24.8, L24.25, L24.28, L25.2
 
@@ -235,8 +247,9 @@ Opposite: quat -> cryptocurrency, big -> small, excited intends depressed反ocra
 
 **Olmo-3-1125-32B/antonym/fv_heads/validation/1202904** — works
 - task: antonym · target: function vector heads (top 10) · picked by: validation (step 175) · 32 tokens · 726 search steps
-- result: correct 57, n 200, copied 35
+- result: correct 57, n 200, copied 35, judged 93, judged_by OLMo-3.1-32B-Instruct, kappa 0.83 against blind hand labels
 - compare: plain 23, inject_fv 53, inject_fv_best 105, demos_pairs 140, inject_fv_best_at L6 x8
+- compare judged: plain 29, inject_fv 70, inject_fv_best 150, demos_pairs 179
 - other phrasing ("The opposite of {x} is {y}", validation words): 0.667
 - heads: L16.21, L17.37, L18.3, L19.34, L24.5, L24.7, L24.8, L24.25, L24.28, L25.2
 
@@ -252,8 +265,9 @@ Opposite: quat -> cryptocurrency, big -> small, excited intends depressed反ocra
 
 **Olmo-3-1125-32B/antonym/fv_heads/final/1202904** — works
 - task: antonym · target: function vector heads (top 10) · picked by: final (step 726) · 32 tokens · 726 search steps
-- result: correct 58, n 200, copied 0
+- result: correct 58, n 200, copied 0, judged 78, judged_by OLMo-3.1-32B-Instruct, kappa 0.83 against blind hand labels
 - compare: plain 23, inject_fv 53, inject_fv_best 105, demos_pairs 140, inject_fv_best_at L6 x8
+- compare judged: plain 29, inject_fv 70, inject_fv_best 150, demos_pairs 179
 - other phrasing ("The opposite of {x} is {y}", validation words): 0.633
 - heads: L16.21, L17.37, L18.3, L19.34, L24.5, L24.7, L24.8, L24.25, L24.28, L25.2
 
@@ -269,8 +283,9 @@ PreviousFeelsredentials beim来源 Oculus SnowWizard
 
 **Olmo-3-1125-32B/antonym/fv_heads/validation/1203824** — works
 - task: antonym · target: function vector heads (top 10) · picked by: validation (step 700) · 32 tokens · 726 search steps
-- result: correct 99, n 200, copied 17
+- result: correct 99, n 200, copied 17, judged 135, judged_by OLMo-3.1-32B-Instruct, kappa 0.83 against blind hand labels
 - compare: plain 23, inject_fv 53, inject_fv_best 105, demos_pairs 140, inject_fv_best_at L6 x8
+- compare judged: plain 29, inject_fv 70, inject_fv_best 150, demos_pairs 179
 - other phrasing ("The opposite of {x} is {y}", validation words): 0.733
 - heads: L16.21, L17.37, L18.3, L19.34, L24.5, L24.7, L24.8, L24.25, L24.28, L25.2
 - readable: near-copy of 1184420's pick, which continued into hateful text when run alone; this one not checked alone
@@ -281,8 +296,9 @@ guid Pureeson-American Characteristics262 -------------------- Arbor()-> overrun
 
 **Olmo-3-1125-32B/antonym/fv_heads/final/1203824** — works
 - task: antonym · target: function vector heads (top 10) · picked by: final (step 726) · 32 tokens · 726 search steps
-- result: correct 85, n 200, copied 15
+- result: correct 85, n 200, copied 15, judged 127, judged_by OLMo-3.1-32B-Instruct, kappa 0.83 against blind hand labels
 - compare: plain 23, inject_fv 53, inject_fv_best 105, demos_pairs 140, inject_fv_best_at L6 x8
+- compare judged: plain 29, inject_fv 70, inject_fv_best 150, demos_pairs 179
 - other phrasing ("The opposite of {x} is {y}", validation words): 0.6
 - heads: L16.21, L17.37, L18.3, L19.34, L24.5, L24.7, L24.8, L24.25, L24.28, L25.2
 - readable: near-copy of 1184420's pick, which continued into hateful text when run alone; this one not checked alone
@@ -293,8 +309,9 @@ guid Pureeson-Americanities262 -------------------- Arbor()-> overrun_pl Express
 
 **Olmo-3-1125-32B/antonym/fv_heads/validation/1212994** — works
 - task: antonym · target: function vector heads (top 10) — searched with 80 banned strings (forbid_antonym.json: the 'opposite' words, negations) · picked by: validation (step 300) · 32 tokens · 748 search steps
-- result: correct 126, n 200, copied 0
+- result: correct 126, n 200, copied 0, judged 173, judged_by OLMo-3.1-32B-Instruct, kappa 0.83 against blind hand labels
 - compare: plain 23, inject_fv 53, inject_fv_best 105, demos_pairs 140, inject_fv_best_at L6 x8
+- compare judged: plain 29, inject_fv 70, inject_fv_best 150, demos_pairs 179
 - other phrasing ("The opposite of {x} is {y}", validation words): 0.7
 - heads: L16.21, L17.37, L18.3, L19.34, L24.5, L24.7, L24.8, L24.25, L24.28, L25.2
 
@@ -304,8 +321,9 @@ guid Pureeson-Americanities262 -------------------- Arbor()-> overrun_pl Express
 
 **Olmo-3-1125-32B/antonym/fv_heads/final/1212994** — works
 - task: antonym · target: function vector heads (top 10) — searched with 80 banned strings (forbid_antonym.json: the 'opposite' words, negations) · picked by: final (step 748) · 32 tokens · 748 search steps
-- result: correct 131, n 200, copied 0
+- result: correct 131, n 200, copied 0, judged 176, judged_by OLMo-3.1-32B-Instruct, kappa 0.83 against blind hand labels
 - compare: plain 23, inject_fv 53, inject_fv_best 105, demos_pairs 140, inject_fv_best_at L6 x8
+- compare judged: plain 29, inject_fv 70, inject_fv_best 150, demos_pairs 179
 - other phrasing ("The opposite of {x} is {y}", validation words): 0.633
 - heads: L16.21, L17.37, L18.3, L19.34, L24.5, L24.7, L24.8, L24.25, L24.28, L25.2
 
@@ -436,8 +454,9 @@ iatifestyle Reveenser.execute `${InverseStatementIntroduction LARGE NAME itch[/E
 
 **Olmo-3-1125-32B/antonym/fv_heads/validation/1214192** — works
 - task: antonym · target: function vector heads (top 10) — searched with 887 banned strings (forbid_antonym_strict.json: the 'opposite' words, negations, every arrow) · picked by: validation (step 747) · 32 tokens · 747 search steps
-- result: correct 126, n 200, copied 2
+- result: correct 126, n 200, copied 2, judged 159, judged_by OLMo-3.1-32B-Instruct, kappa 0.83 against blind hand labels
 - compare: plain 23, inject_fv 53, inject_fv_best 105, demos_pairs 140, inject_fv_best_at L6 x8
+- compare judged: plain 29, inject_fv 70, inject_fv_best 150, demos_pairs 179
 - other phrasing ("The opposite of {x} is {y}", validation words): 0.7
 - heads: L16.21, L17.37, L18.3, L19.34, L24.5, L24.7, L24.8, L24.25, L24.28, L25.2
 
@@ -447,8 +466,9 @@ iatifestyle Reveenser.execute `${InverseStatementIntroduction LARGE NAME itch[/E
 
 **Olmo-3-1125-32B/antonym/fv_heads/final/1214192** — works
 - task: antonym · target: function vector heads (top 10) — searched with 887 banned strings (forbid_antonym_strict.json: the 'opposite' words, negations, every arrow) · picked by: final (step 747) · 32 tokens · 747 search steps
-- result: correct 126, n 200, copied 2
+- result: correct 126, n 200, copied 2, judged 159, judged_by OLMo-3.1-32B-Instruct, kappa 0.83 against blind hand labels
 - compare: plain 23, inject_fv 53, inject_fv_best 105, demos_pairs 140, inject_fv_best_at L6 x8
+- compare judged: plain 29, inject_fv 70, inject_fv_best 150, demos_pairs 179
 - other phrasing ("The opposite of {x} is {y}", validation words): 0.7
 - heads: L16.21, L17.37, L18.3, L19.34, L24.5, L24.7, L24.8, L24.25, L24.28, L25.2
 - same text as Olmo-3-1125-32B/antonym/fv_heads/validation/1214192
@@ -459,8 +479,9 @@ iatifestyle Reveenser.execute `${InverseStatementIntroduction LARGE NAME itch[/E
 
 **Olmo-3-1125-32B/antonym/fv_residual/validation/1184420** — fails (copied)
 - task: antonym · target: function vector, residual L21 · picked by: validation (step 125) · 32 tokens · 676 search steps
-- result: correct 15, n 200, copied 155
+- result: correct 15, n 200, copied 155, judged 18, judged_by OLMo-3.1-32B-Instruct, kappa 0.83 against blind hand labels
 - compare: plain 23, inject_fv 53, inject_fv_best 105, demos_pairs 140, inject_fv_best_at L6 x8
+- compare judged: plain 29, inject_fv 70, inject_fv_best 150, demos_pairs 179
 - other phrasing ("The opposite of {x} is {y}", validation words): 0.6
 
 ```
@@ -469,8 +490,9 @@ prefer'=> !oodleslamaieval !scalaanford Patty Jin Kara.bind]'). )そして 【 a
 
 **Olmo-3-1125-32B/antonym/output_blackbox/validation/1203824** — works
 - task: antonym · target: black-box search on the OUTPUT: no gradients, random swaps kept if the answers get likelier · picked by: validation (step 225) · 32 tokens · 265 search steps
-- result: correct 118, n 200, copied 0
+- result: correct 118, n 200, copied 0, judged 153, judged_by OLMo-3.1-32B-Instruct, kappa 0.83 against blind hand labels
 - compare: plain 23, inject_fv 53, inject_fv_best 105, demos_pairs 140, inject_fv_best_at L6 x8
+- compare judged: plain 29, inject_fv 70, inject_fv_best 150, demos_pairs 179
 - other phrasing ("The opposite of {x} is {y}", validation words): 0.633
 
 ```
@@ -479,8 +501,9 @@ ateau Churchill POSSBel/MIT Vintage.audio ArmourEc TFT Self eBay/streamBUS mixed
 
 **Olmo-3-1125-32B/antonym/output_blackbox/final/1203824** — works
 - task: antonym · target: black-box search on the OUTPUT: no gradients, random swaps kept if the answers get likelier · picked by: final (step 265) · 32 tokens · 265 search steps
-- result: correct 116, n 200, copied 0
+- result: correct 116, n 200, copied 0, judged 159, judged_by OLMo-3.1-32B-Instruct, kappa 0.83 against blind hand labels
 - compare: plain 23, inject_fv 53, inject_fv_best 105, demos_pairs 140, inject_fv_best_at L6 x8
+- compare judged: plain 29, inject_fv 70, inject_fv_best 150, demos_pairs 179
 - other phrasing ("The opposite of {x} is {y}", validation words): 0.6
 
 ```
@@ -489,8 +512,9 @@ ateau Churchill POSS Scha/MIT Vintage mastering Armourmember TFT.getCode eBay/st
 
 **Olmo-3-1125-32B/antonym/output_blackbox/validation/1212994** — works
 - task: antonym · target: black-box search on the OUTPUT: no gradients, random swaps kept if the answers get likelier — searched with 80 banned strings (forbid_antonym.json: the 'opposite' words, negations) · picked by: validation (step 269) · 32 tokens · 269 search steps
-- result: correct 119, n 200, copied 0
+- result: correct 119, n 200, copied 0, judged 173, judged_by OLMo-3.1-32B-Instruct, kappa 0.83 against blind hand labels
 - compare: plain 23, inject_fv 53, inject_fv_best 105, demos_pairs 140, inject_fv_best_at L6 x8
+- compare judged: plain 29, inject_fv 70, inject_fv_best 150, demos_pairs 179
 - other phrasing ("The opposite of {x} is {y}", validation words): 0.6
 
 ```
@@ -499,8 +523,9 @@ ateau Churchill POSS Scha/MIT Vintage mastering Armourmember TFT.getCode eBay/st
 
 **Olmo-3-1125-32B/antonym/output_blackbox/final/1212994** — works
 - task: antonym · target: black-box search on the OUTPUT: no gradients, random swaps kept if the answers get likelier — searched with 80 banned strings (forbid_antonym.json: the 'opposite' words, negations) · picked by: final (step 269) · 32 tokens · 269 search steps
-- result: correct 119, n 200, copied 0
+- result: correct 119, n 200, copied 0, judged 173, judged_by OLMo-3.1-32B-Instruct, kappa 0.83 against blind hand labels
 - compare: plain 23, inject_fv 53, inject_fv_best 105, demos_pairs 140, inject_fv_best_at L6 x8
+- compare judged: plain 29, inject_fv 70, inject_fv_best 150, demos_pairs 179
 - other phrasing ("The opposite of {x} is {y}", validation words): 0.6
 - same text as Olmo-3-1125-32B/antonym/output_blackbox/validation/1212994
 
@@ -510,8 +535,9 @@ ateau Churchill POSS Scha/MIT Vintage mastering Armourmember TFT.getCode eBay/st
 
 **Olmo-3-1125-32B/antonym/output_blackbox/validation/1214192** — works
 - task: antonym · target: black-box search on the OUTPUT: no gradients, random swaps kept if the answers get likelier — searched with 887 banned strings (forbid_antonym_strict.json: the 'opposite' words, negations, every arrow) · picked by: validation (step 150) · 32 tokens · 269 search steps
-- result: correct 100, n 200, copied 0
+- result: correct 100, n 200, copied 0, judged 137, judged_by OLMo-3.1-32B-Instruct, kappa 0.83 against blind hand labels
 - compare: plain 23, inject_fv 53, inject_fv_best 105, demos_pairs 140, inject_fv_best_at L6 x8
+- compare judged: plain 29, inject_fv 70, inject_fv_best 150, demos_pairs 179
 - other phrasing ("The opposite of {x} is {y}", validation words): 0.567
 
 ```
@@ -520,8 +546,9 @@ ateau Churchill POSS Scha/MIT Vintage mastering Armourmember TFT.getCode eBay/st
 
 **Olmo-3-1125-32B/antonym/output_blackbox/final/1214192** — works
 - task: antonym · target: black-box search on the OUTPUT: no gradients, random swaps kept if the answers get likelier — searched with 887 banned strings (forbid_antonym_strict.json: the 'opposite' words, negations, every arrow) · picked by: final (step 269) · 32 tokens · 269 search steps
-- result: correct 101, n 200, copied 3
+- result: correct 101, n 200, copied 3, judged 134, judged_by OLMo-3.1-32B-Instruct, kappa 0.83 against blind hand labels
 - compare: plain 23, inject_fv 53, inject_fv_best 105, demos_pairs 140, inject_fv_best_at L6 x8
+- compare judged: plain 29, inject_fv 70, inject_fv_best 150, demos_pairs 179
 - other phrasing ("The opposite of {x} is {y}", validation words): 0.3
 
 ```
@@ -530,8 +557,9 @@ ateau Churchill POSS Scha/MIT Vintage mastering Armourmember TFT.getCode eBay/st
 
 **Olmo-3-1125-32B/antonym/output_gcg/validation/1203824** — works
 - task: antonym · target: plain GCG on the OUTPUT (answer log-probability on the 20 practice words), nothing internal · picked by: validation (step 175) · 32 tokens · 260 search steps
-- result: correct 102, n 200, copied 0
+- result: correct 102, n 200, copied 0, judged 154, judged_by OLMo-3.1-32B-Instruct, kappa 0.83 against blind hand labels
 - compare: plain 23, inject_fv 53, inject_fv_best 105, demos_pairs 140, inject_fv_best_at L6 x8
+- compare judged: plain 29, inject_fv 70, inject_fv_best 150, demos_pairs 179
 - other phrasing ("The opposite of {x} is {y}", validation words): 0.6
 
 ```
@@ -540,8 +568,9 @@ ateau Churchill POSS Scha/MIT Vintage mastering Armourmember TFT.getCode eBay/st
 
 **Olmo-3-1125-32B/antonym/output_gcg/final/1203824** — works
 - task: antonym · target: plain GCG on the OUTPUT (answer log-probability on the 20 practice words), nothing internal · picked by: final (step 260) · 32 tokens · 260 search steps
-- result: correct 108, n 200, copied 0
+- result: correct 108, n 200, copied 0, judged 159, judged_by OLMo-3.1-32B-Instruct, kappa 0.83 against blind hand labels
 - compare: plain 23, inject_fv 53, inject_fv_best 105, demos_pairs 140, inject_fv_best_at L6 x8
+- compare judged: plain 29, inject_fv 70, inject_fv_best 150, demos_pairs 179
 - other phrasing ("The opposite of {x} is {y}", validation words): 0.567
 
 ```
@@ -550,8 +579,9 @@ ateau Churchill POSS Scha/MIT Vintage mastering Armourmember TFT.getCode eBay/st
 
 **Olmo-3-1125-32B/antonym/output_gcg/validation/1212994** — works
 - task: antonym · target: plain GCG on the OUTPUT (answer log-probability on the 20 practice words), nothing internal — searched with 80 banned strings (forbid_antonym.json: the 'opposite' words, negations) · picked by: validation (step 255) · 32 tokens · 255 search steps
-- result: correct 112, n 200, copied 3
+- result: correct 112, n 200, copied 3, judged 156, judged_by OLMo-3.1-32B-Instruct, kappa 0.83 against blind hand labels
 - compare: plain 23, inject_fv 53, inject_fv_best 105, demos_pairs 140, inject_fv_best_at L6 x8
+- compare judged: plain 29, inject_fv 70, inject_fv_best 150, demos_pairs 179
 - other phrasing ("The opposite of {x} is {y}", validation words): 0.567
 
 ```
@@ -560,8 +590,9 @@ ateau Churchill POSS Scha/MIT Vintage mastering Armourmember TFT.getCode eBay/st
 
 **Olmo-3-1125-32B/antonym/output_gcg/final/1212994** — works
 - task: antonym · target: plain GCG on the OUTPUT (answer log-probability on the 20 practice words), nothing internal — searched with 80 banned strings (forbid_antonym.json: the 'opposite' words, negations) · picked by: final (step 255) · 32 tokens · 255 search steps
-- result: correct 112, n 200, copied 3
+- result: correct 112, n 200, copied 3, judged 156, judged_by OLMo-3.1-32B-Instruct, kappa 0.83 against blind hand labels
 - compare: plain 23, inject_fv 53, inject_fv_best 105, demos_pairs 140, inject_fv_best_at L6 x8
+- compare judged: plain 29, inject_fv 70, inject_fv_best 150, demos_pairs 179
 - other phrasing ("The opposite of {x} is {y}", validation words): 0.567
 - same text as Olmo-3-1125-32B/antonym/output_gcg/validation/1212994
 
@@ -571,8 +602,9 @@ ateau Churchill POSS Scha/MIT Vintage mastering Armourmember TFT.getCode eBay/st
 
 **Olmo-3-1125-32B/antonym/output_gcg/validation/1214192** — works
 - task: antonym · target: plain GCG on the OUTPUT (answer log-probability on the 20 practice words), nothing internal — searched with 887 banned strings (forbid_antonym_strict.json: the 'opposite' words, negations, every arrow) · picked by: validation (step 257) · 32 tokens · 257 search steps
-- result: correct 110, n 200, copied 4
+- result: correct 110, n 200, copied 4, judged 138, judged_by OLMo-3.1-32B-Instruct, kappa 0.83 against blind hand labels
 - compare: plain 23, inject_fv 53, inject_fv_best 105, demos_pairs 140, inject_fv_best_at L6 x8
+- compare judged: plain 29, inject_fv 70, inject_fv_best 150, demos_pairs 179
 - other phrasing ("The opposite of {x} is {y}", validation words): 0.567
 
 ```
@@ -581,8 +613,9 @@ ateau Churchill POSS Scha/MIT Vintage mastering Armourmember TFT.getCode eBay/st
 
 **Olmo-3-1125-32B/antonym/output_gcg/final/1214192** — works
 - task: antonym · target: plain GCG on the OUTPUT (answer log-probability on the 20 practice words), nothing internal — searched with 887 banned strings (forbid_antonym_strict.json: the 'opposite' words, negations, every arrow) · picked by: final (step 257) · 32 tokens · 257 search steps
-- result: correct 110, n 200, copied 4
+- result: correct 110, n 200, copied 4, judged 138, judged_by OLMo-3.1-32B-Instruct, kappa 0.83 against blind hand labels
 - compare: plain 23, inject_fv 53, inject_fv_best 105, demos_pairs 140, inject_fv_best_at L6 x8
+- compare judged: plain 29, inject_fv 70, inject_fv_best 150, demos_pairs 179
 - other phrasing ("The opposite of {x} is {y}", validation words): 0.567
 - same text as Olmo-3-1125-32B/antonym/output_gcg/validation/1214192
 
@@ -1157,6 +1190,133 @@ Thirty ! "**axe !invalidDieselay !regular fashioned ! diesel ! travels Ful_IDLE'
 Thirty ! "**axe !invalidDieselay !regular fashioned ! diesel ! travels Ful_IDLE'lfeas vn plais Î '.' oe airy*- Ask transportation cou playground Ya Anne
 ```
 
+**Olmo-3-1125-32B/mul3/fv_heads/validation/1260940** — fails
+- task: mul3 · target: function vector heads (top 10) · picked by: validation (step 75) · 32 tokens · 287 search steps
+- result: correct 16, n 200, copied 0
+- compare: plain 32, inject_fv 40, inject_fv_best 42, demos_pairs 78, inject_fv_best_at L6 x2
+- other phrasing ("{x} equals {y}", validation words): 0.133
+- heads: L19.34, L38.7, L38.8, L39.24, L49.17, L58.15, L60.5, L62.16, L62.28, L63.25
+
+```
+ Sidd']] Conscious crackers070[_ Creative Deus iscabol ! *)& impuls moy {@ Gab Gone Stella Boutouri ! PayPal ! Fortunately ridicmodation ! repl ! foreach !]['
+```
+
+**Olmo-3-1125-32B/mul3/fv_heads/final/1260940** — fails
+- task: mul3 · target: function vector heads (top 10) · picked by: final (step 287) · 32 tokens · 287 search steps
+- result: correct 16, n 200, copied 0
+- compare: plain 32, inject_fv 40, inject_fv_best 42, demos_pairs 78, inject_fv_best_at L6 x2
+- other phrasing ("{x} equals {y}", validation words): 0.1
+- heads: L19.34, L38.7, L38.8, L39.24, L49.17, L58.15, L60.5, L62.16, L62.28, L63.25
+
+```
+ Sidd']] Vlad369465[_Happy Holiday isc Michelle ! *)& SeverReviewer {@503528 Jihad Guys pussy ! PayPal ! Fortunately signup obligation ! Lect007 foreachErrorCode]['
+```
+
+**Olmo-3-1125-32B/mul3/output_blackbox/validation/1260940** — fails
+- task: mul3 · target: black-box search on the OUTPUT: no gradients, random swaps kept if the answers get likelier · picked by: validation (step 243) · 32 tokens · 243 search steps
+- result: correct 30, n 200, copied 0
+- compare: plain 32, inject_fv 40, inject_fv_best 42, demos_pairs 78, inject_fv_best_at L6 x2
+- other phrasing ("{x} equals {y}", validation words): 0.2
+
+```
+mult_product trivialassi里 Fraction455896 maths abl yields rpandbox verb indictedussen 使用hoeStrLn operatoramente Celsiusaran ounce floating upright aerial recognizable everyday jungle True remove
+```
+
+**Olmo-3-1125-32B/mul3/output_blackbox/final/1260940** — fails
+- task: mul3 · target: black-box search on the OUTPUT: no gradients, random swaps kept if the answers get likelier · picked by: final (step 243) · 32 tokens · 243 search steps
+- result: correct 30, n 200, copied 0
+- compare: plain 32, inject_fv 40, inject_fv_best 42, demos_pairs 78, inject_fv_best_at L6 x2
+- other phrasing ("{x} equals {y}", validation words): 0.2
+- same text as Olmo-3-1125-32B/mul3/output_blackbox/validation/1260940
+
+```
+mult_product trivialassi里 Fraction455896 maths abl yields rpandbox verb indictedussen 使用hoeStrLn operatoramente Celsiusaran ounce floating upright aerial recognizable everyday jungle True remove
+```
+
+**Olmo-3-1125-32B/mul3/output_gcg/validation/1260940** — works
+- task: mul3 · target: plain GCG on the OUTPUT (answer log-probability on the 20 practice words), nothing internal · picked by: validation (step 242) · 32 tokens · 242 search steps
+- result: correct 85, n 200, copied 0
+- compare: plain 32, inject_fv 40, inject_fv_best 42, demos_pairs 78, inject_fv_best_at L6 x2
+- other phrasing ("{x} equals {y}", validation words): 0.233
+
+```
+multiply_many mult**( !peri Schehunt的HackMathNews GloriaChi !gidstaticmethod『 【multiply:] Edmontonholm Lola effortlessBerry Davies !great＞ !puts
+```
+
+**Olmo-3-1125-32B/mul3/output_gcg/final/1260940** — works
+- task: mul3 · target: plain GCG on the OUTPUT (answer log-probability on the 20 practice words), nothing internal · picked by: final (step 242) · 32 tokens · 242 search steps
+- result: correct 85, n 200, copied 0
+- compare: plain 32, inject_fv 40, inject_fv_best 42, demos_pairs 78, inject_fv_best_at L6 x2
+- other phrasing ("{x} equals {y}", validation words): 0.233
+- same text as Olmo-3-1125-32B/mul3/output_gcg/validation/1260940
+
+```
+multiply_many mult**( !peri Schehunt的HackMathNews GloriaChi !gidstaticmethod『 【multiply:] Edmontonholm Lola effortlessBerry Davies !great＞ !puts
+```
+
+**Olmo-3-1125-32B/mul32/fv_heads/validation/1260943** — fails
+- task: mul32 · target: function vector heads (top 10) · picked by: validation (step 287) · 32 tokens · 287 search steps
+- result: correct 114, n 200, copied 0
+- compare: plain 132, inject_fv 126, inject_fv_best 128, demos_pairs 134, inject_fv_best_at L26 x2
+- other phrasing ("{x} equals {y}", validation words): 0.567
+- heads: L38.8, L47.6, L55.19, L58.15, L58.37, L59.4, L60.5, L62.4, L62.28, L63.25
+
+```
+ ! refactor Dagger register/********************************************************Callerの throwidataRocketexcelPriceもJordan.answer RemixinasってВведите Error Joey ! Bad dude ссылость OTA.DE ! ! ! ++
+```
+
+**Olmo-3-1125-32B/mul32/fv_heads/final/1260943** — fails
+- task: mul32 · target: function vector heads (top 10) · picked by: final (step 287) · 32 tokens · 287 search steps
+- result: correct 114, n 200, copied 0
+- compare: plain 132, inject_fv 126, inject_fv_best 128, demos_pairs 134, inject_fv_best_at L26 x2
+- other phrasing ("{x} equals {y}", validation words): 0.567
+- heads: L38.8, L47.6, L55.19, L58.15, L58.37, L59.4, L60.5, L62.4, L62.28, L63.25
+- same text as Olmo-3-1125-32B/mul32/fv_heads/validation/1260943
+
+```
+ ! refactor Dagger register/********************************************************Callerの throwidataRocketexcelPriceもJordan.answer RemixinasってВведите Error Joey ! Bad dude ссылость OTA.DE ! ! ! ++
+```
+
+**Olmo-3-1125-32B/mul32/output_blackbox/validation/1260943** — weak
+- task: mul32 · target: black-box search on the OUTPUT: no gradients, random swaps kept if the answers get likelier · picked by: validation (step 150) · 32 tokens · 244 search steps
+- result: correct 160, n 200, copied 0
+- compare: plain 132, inject_fv 126, inject_fv_best 128, demos_pairs 134, inject_fv_best_at L26 x2
+- other phrasing ("{x} equals {y}", validation words): 0.867
+
+```
+mult k,right FR Great ! ! MonstersJUnit_cg#import println !CHECKmul tested newline !Colon behind onStartObj <%= ! shown ! Multiply HIT rencontre/iolette !
+```
+
+**Olmo-3-1125-32B/mul32/output_blackbox/final/1260943** — weak
+- task: mul32 · target: black-box search on the OUTPUT: no gradients, random swaps kept if the answers get likelier · picked by: final (step 244) · 32 tokens · 244 search steps
+- result: correct 158, n 200, copied 0
+- compare: plain 132, inject_fv 126, inject_fv_best 128, demos_pairs 134, inject_fv_best_at L26 x2
+- other phrasing ("{x} equals {y}", validation words): 0.5
+
+```
+mult multiple Cosmic gute Great ! Flash cooperierarchical Privacy strikes medalresult Sieprivate.install newline ! recentDefines stringBufferAfter <%=Routine.detach ! Multiply HIT rencontre_flameron !
+```
+
+**Olmo-3-1125-32B/mul32/output_gcg/validation/1260943** — weak
+- task: mul32 · target: plain GCG on the OUTPUT (answer log-probability on the 20 practice words), nothing internal · picked by: validation (step 25) · 32 tokens · 245 search steps
+- result: correct 161, n 200, copied 0
+- compare: plain 132, inject_fv 126, inject_fv_best 128, demos_pairs 134, inject_fv_best_at L26 x2
+- other phrasing ("{x} equals {y}", validation words): 0.767
+
+```
+ ! ! !Call Give ! ! ! ! ! getUser AutomaticallyWie Pululong/maxyz !#calculate ! ! ! !Yep ! ;) (%)Makes ! ! !
+```
+
+**Olmo-3-1125-32B/mul32/output_gcg/final/1260943** — weak
+- task: mul32 · target: plain GCG on the OUTPUT (answer log-probability on the 20 practice words), nothing internal · picked by: final (step 245) · 32 tokens · 245 search steps
+- result: correct 165, n 200, copied 0
+- compare: plain 132, inject_fv 126, inject_fv_best 128, demos_pairs 134, inject_fv_best_at L26 x2
+- other phrasing ("{x} equals {y}", validation words): 0.667
+
+```
+ ! ! !+] signupCEL ! SIGNAL hello ! getUser 종~-~-139307 ~Attempting <<<#calculate885 decimal !result :-) Romania :] (%)Makes ! ! !
+```
+
 **Olmo-3-1125-32B/placebo/placebo/score/1179933-placebo** — control
 - task: placebo (antonym demos, answers deranged) · target: task vector (mean diff), residual L22 · picked by: score · 16 tokens · 200 search steps
 - result: antonym_answers 1, synonym_answers 0, copied 163, n 200
@@ -1196,8 +1356,9 @@ Thirty ! "**axe !invalidDieselay !regular fashioned ! diesel ! travels Ful_IDLE'
 
 **Olmo-3-1125-32B/synonym/fv_heads/validation/1187353** — works
 - task: synonym · target: function vector heads (top 10) · picked by: validation (step 50) · 32 tokens · 647 search steps
-- result: correct 40, n 200, copied 0
+- result: correct 72, n 200, copied 0, judged 121, judged_by Qwen2.5-72B-Instruct, kappa 0.65 against blind hand labels
 - compare: plain 9, inject_fv 30, inject_fv_best 69, demos_pairs 115, inject_fv_best_at L12 x4
+- compare judged: plain 22, inject_fv 47, inject_fv_best 112, demos_pairs 179
 - other phrasing ("Another word for {x} is {y}", validation words): 0.633
 - heads: L16.21, L17.37, L19.34, L19.38, L21.34, L24.7, L24.8, L24.25, L24.28, L27.27
 
@@ -1207,8 +1368,9 @@ ipelineskubectl ----------------------------------------------------------------
 
 **Olmo-3-1125-32B/synonym/fv_heads/final/1187353** — works
 - task: synonym · target: function vector heads (top 10) · picked by: final (step 647) · 32 tokens · 647 search steps
-- result: correct 91, n 200, copied 0
+- result: correct 91, n 200, copied 0, judged 153, judged_by Qwen2.5-72B-Instruct, kappa 0.65 against blind hand labels
 - compare: plain 9, inject_fv 30, inject_fv_best 69, demos_pairs 115, inject_fv_best_at L12 x4
+- compare judged: plain 22, inject_fv 47, inject_fv_best 112, demos_pairs 179
 - other phrasing ("Another word for {x} is {y}", validation words): 0.567
 - heads: L16.21, L17.37, L19.34, L19.38, L21.34, L24.7, L24.8, L24.25, L24.28, L27.27
 - readable: 'ZipWORDS', '--->', '==>'
@@ -1219,8 +1381,9 @@ Stock Combo ----------------------------------------------------------------#! s
 
 **Olmo-3-1125-32B/synonym/fv_heads/validation/1203825** — works
 - task: synonym · target: function vector heads (top 10) · picked by: validation (step 50) · 32 tokens · 645 search steps
-- result: correct 40, n 200, copied 0
+- result: correct 72, n 200, copied 0, judged 121, judged_by Qwen2.5-72B-Instruct, kappa 0.65 against blind hand labels
 - compare: plain 9, inject_fv 30, inject_fv_best 69, demos_pairs 115, inject_fv_best_at L12 x4
+- compare judged: plain 22, inject_fv 47, inject_fv_best 112, demos_pairs 179
 - other phrasing ("Another word for {x} is {y}", validation words): 0.633
 - heads: L16.21, L17.37, L19.34, L19.38, L21.34, L24.7, L24.8, L24.25, L24.28, L27.27
 - same text as Olmo-3-1125-32B/synonym/fv_heads/validation/1187353
@@ -1231,8 +1394,9 @@ ipelineskubectl ----------------------------------------------------------------
 
 **Olmo-3-1125-32B/synonym/fv_heads/final/1203825** — works
 - task: synonym · target: function vector heads (top 10) · picked by: final (step 645) · 32 tokens · 645 search steps
-- result: correct 91, n 200, copied 0
+- result: correct 91, n 200, copied 0, judged 153, judged_by Qwen2.5-72B-Instruct, kappa 0.65 against blind hand labels
 - compare: plain 9, inject_fv 30, inject_fv_best 69, demos_pairs 115, inject_fv_best_at L12 x4
+- compare judged: plain 22, inject_fv 47, inject_fv_best 112, demos_pairs 179
 - other phrasing ("Another word for {x} is {y}", validation words): 0.567
 - heads: L16.21, L17.37, L19.34, L19.38, L21.34, L24.7, L24.8, L24.25, L24.28, L27.27
 - same text as Olmo-3-1125-32B/synonym/fv_heads/final/1187353
@@ -1243,8 +1407,9 @@ Stock Combo ----------------------------------------------------------------#! s
 
 **Olmo-3-1125-32B/synonym/fv_heads/validation/1226904** — works
 - task: synonym · target: function vector heads (top 10) — searched with 848 banned strings (forbid_synonym_strict.json: the 'opposite' words, negations, every arrow) · picked by: validation (step 675) · 32 tokens · 675 search steps
-- result: correct 50, n 200, copied 0
+- result: correct 50, n 200, copied 0, judged 84, judged_by Qwen2.5-72B-Instruct, kappa 0.65 against blind hand labels
 - compare: plain 9, inject_fv 30, inject_fv_best 69, demos_pairs 115, inject_fv_best_at L12 x4
+- compare judged: plain 22, inject_fv 47, inject_fv_best 112, demos_pairs 179
 - other phrasing ("Another word for {x} is {y}", validation words): 0.533
 - heads: L16.21, L17.37, L19.34, L19.38, L21.34, L24.7, L24.8, L24.25, L24.28, L27.27
 
@@ -1254,8 +1419,9 @@ Stock Combo ----------------------------------------------------------------#! s
 
 **Olmo-3-1125-32B/synonym/fv_heads/final/1226904** — works
 - task: synonym · target: function vector heads (top 10) — searched with 848 banned strings (forbid_synonym_strict.json: the 'opposite' words, negations, every arrow) · picked by: final (step 675) · 32 tokens · 675 search steps
-- result: correct 50, n 200, copied 0
+- result: correct 50, n 200, copied 0, judged 84, judged_by Qwen2.5-72B-Instruct, kappa 0.65 against blind hand labels
 - compare: plain 9, inject_fv 30, inject_fv_best 69, demos_pairs 115, inject_fv_best_at L12 x4
+- compare judged: plain 22, inject_fv 47, inject_fv_best 112, demos_pairs 179
 - other phrasing ("Another word for {x} is {y}", validation words): 0.533
 - heads: L16.21, L17.37, L19.34, L19.38, L21.34, L24.7, L24.8, L24.25, L24.28, L27.27
 - same text as Olmo-3-1125-32B/synonym/fv_heads/validation/1226904
@@ -1266,8 +1432,9 @@ Stock Combo ----------------------------------------------------------------#! s
 
 **Olmo-3-1125-32B/synonym/fv_residual/validation/1187353** — fails
 - task: synonym · target: function vector, residual L21 · picked by: validation (step 150) · 32 tokens · 860 search steps
-- result: correct 1, n 200, copied 4
+- result: correct 1, n 200, copied 4, judged 3, judged_by Qwen2.5-72B-Instruct, kappa 0.65 against blind hand labels
 - compare: plain 9, inject_fv 30, inject_fv_best 69, demos_pairs 115, inject_fv_best_at L12 x4
+- compare judged: plain 22, inject_fv 47, inject_fv_best 112, demos_pairs 179
 - other phrasing ("Another word for {x} is {y}", validation words): 0.667
 
 ```
@@ -1276,18 +1443,20 @@ Stock Combo ----------------------------------------------------------------#! s
 
 **Olmo-3-1125-32B/synonym/output_blackbox/validation/1203825** — works
 - task: synonym · target: black-box search on the OUTPUT: no gradients, random swaps kept if the answers get likelier · picked by: validation (step 75) · 32 tokens · 275 search steps
-- result: correct 90, n 200, copied 0
+- result: correct 90, n 200, copied 0, judged 165, judged_by Qwen2.5-72B-Instruct, kappa 0.65 against blind hand labels
 - compare: plain 9, inject_fv 30, inject_fv_best 69, demos_pairs 115, inject_fv_best_at L12 x4
+- compare judged: plain 22, inject_fv 47, inject_fv_best 112, demos_pairs 179
 - other phrasing ("Another word for {x} is {y}", validation words): 0.6
 
 ```
  !ivist ! !olest !588 OlderCalculator-hearted_range.$$ zx-management //////////////////////////////////////////////////////////////////////////Hot Vocabulary Downing해서ализ từøReplacement ForCanBeConverted ================================================================================= !Replace正确 !107●05
 ```
 
-**Olmo-3-1125-32B/synonym/output_blackbox/final/1203825** — fails
+**Olmo-3-1125-32B/synonym/output_blackbox/final/1203825** — works
 - task: synonym · target: black-box search on the OUTPUT: no gradients, random swaps kept if the answers get likelier · picked by: final (step 275) · 32 tokens · 275 search steps
-- result: correct 1, n 200, copied 0
+- result: correct 106, n 200, copied 0, judged 172, judged_by Qwen2.5-72B-Instruct, kappa 0.65 against blind hand labels
 - compare: plain 9, inject_fv 30, inject_fv_best 69, demos_pairs 115, inject_fv_best_at L12 x4
+- compare judged: plain 22, inject_fv 47, inject_fv_best 112, demos_pairs 179
 - other phrasing ("Another word for {x} is {y}", validation words): 0.133
 
 ```
@@ -1296,8 +1465,9 @@ Stock Combo ----------------------------------------------------------------#! s
 
 **Olmo-3-1125-32B/synonym/output_blackbox/validation/1226904** — works
 - task: synonym · target: black-box search on the OUTPUT: no gradients, random swaps kept if the answers get likelier — searched with 848 banned strings (forbid_synonym_strict.json: the 'opposite' words, negations, every arrow) · picked by: validation (step 175) · 32 tokens · 275 search steps
-- result: correct 79, n 200, copied 0
+- result: correct 79, n 200, copied 0, judged 148, judged_by Qwen2.5-72B-Instruct, kappa 0.65 against blind hand labels
 - compare: plain 9, inject_fv 30, inject_fv_best 69, demos_pairs 115, inject_fv_best_at L12 x4
+- compare judged: plain 22, inject_fv 47, inject_fv_best 112, demos_pairs 179
 - other phrasing ("Another word for {x} is {y}", validation words): 0.7
 
 ```
@@ -1306,8 +1476,9 @@ Stock Combo ----------------------------------------------------------------#! s
 
 **Olmo-3-1125-32B/synonym/output_blackbox/final/1226904** — works
 - task: synonym · target: black-box search on the OUTPUT: no gradients, random swaps kept if the answers get likelier — searched with 848 banned strings (forbid_synonym_strict.json: the 'opposite' words, negations, every arrow) · picked by: final (step 275) · 32 tokens · 275 search steps
-- result: correct 65, n 200, copied 1
+- result: correct 65, n 200, copied 1, judged 140, judged_by Qwen2.5-72B-Instruct, kappa 0.65 against blind hand labels
 - compare: plain 9, inject_fv 30, inject_fv_best 69, demos_pairs 115, inject_fv_best_at L12 x4
+- compare judged: plain 22, inject_fv 47, inject_fv_best 112, demos_pairs 179
 - other phrasing ("Another word for {x} is {y}", validation words): 0.6
 
 ```
@@ -1316,8 +1487,9 @@ Stock Combo ----------------------------------------------------------------#! s
 
 **Olmo-3-1125-32B/synonym/output_gcg/validation/1203825** — works
 - task: synonym · target: plain GCG on the OUTPUT (answer log-probability on the 20 practice words), nothing internal · picked by: validation (step 125) · 32 tokens · 260 search steps
-- result: correct 80, n 200, copied 0
+- result: correct 80, n 200, copied 0, judged 157, judged_by Qwen2.5-72B-Instruct, kappa 0.65 against blind hand labels
 - compare: plain 9, inject_fv 30, inject_fv_best 69, demos_pairs 115, inject_fv_best_at L12 x4
+- compare judged: plain 22, inject_fv 47, inject_fv_best 112, demos_pairs 179
 - other phrasing ("Another word for {x} is {y}", validation words): 0.567
 
 ```
@@ -1326,8 +1498,9 @@ Stock Combo ----------------------------------------------------------------#! s
 
 **Olmo-3-1125-32B/synonym/output_gcg/final/1203825** — works
 - task: synonym · target: plain GCG on the OUTPUT (answer log-probability on the 20 practice words), nothing internal · picked by: final (step 260) · 32 tokens · 260 search steps
-- result: correct 71, n 200, copied 0
+- result: correct 71, n 200, copied 0, judged 149, judged_by Qwen2.5-72B-Instruct, kappa 0.65 against blind hand labels
 - compare: plain 9, inject_fv 30, inject_fv_best 69, demos_pairs 115, inject_fv_best_at L12 x4
+- compare judged: plain 22, inject_fv 47, inject_fv_best 112, demos_pairs 179
 - other phrasing ("Another word for {x} is {y}", validation words): 0.5
 
 ```
@@ -1336,8 +1509,9 @@ Stock Combo ----------------------------------------------------------------#! s
 
 **Olmo-3-1125-32B/synonym/output_gcg/validation/1226904** — works
 - task: synonym · target: plain GCG on the OUTPUT (answer log-probability on the 20 practice words), nothing internal — searched with 848 banned strings (forbid_synonym_strict.json: the 'opposite' words, negations, every arrow) · picked by: validation (step 225) · 32 tokens · 267 search steps
-- result: correct 82, n 200, copied 0
+- result: correct 82, n 200, copied 0, judged 157, judged_by Qwen2.5-72B-Instruct, kappa 0.65 against blind hand labels
 - compare: plain 9, inject_fv 30, inject_fv_best 69, demos_pairs 115, inject_fv_best_at L12 x4
+- compare judged: plain 22, inject_fv 47, inject_fv_best 112, demos_pairs 179
 - other phrasing ("Another word for {x} is {y}", validation words): 0.567
 
 ```
@@ -1346,8 +1520,9 @@ Stock Combo ----------------------------------------------------------------#! s
 
 **Olmo-3-1125-32B/synonym/output_gcg/final/1226904** — works
 - task: synonym · target: plain GCG on the OUTPUT (answer log-probability on the 20 practice words), nothing internal — searched with 848 banned strings (forbid_synonym_strict.json: the 'opposite' words, negations, every arrow) · picked by: final (step 267) · 32 tokens · 267 search steps
-- result: correct 62, n 200, copied 0
+- result: correct 62, n 200, copied 0, judged 143, judged_by Qwen2.5-72B-Instruct, kappa 0.65 against blind hand labels
 - compare: plain 9, inject_fv 30, inject_fv_best 69, demos_pairs 115, inject_fv_best_at L12 x4
+- compare judged: plain 22, inject_fv 47, inject_fv_best 112, demos_pairs 179
 - other phrasing ("Another word for {x} is {y}", validation words): 0.433
 
 ```
@@ -1377,8 +1552,9 @@ Cornpackage defer jel //--------------------------------------------------------
 
 **Llama-2-7b-hf/antonym/fv_heads/validation/1180283** — works
 - task: antonym · target: function vector heads (top 10) · picked by: validation (step 650) · 32 tokens · 964 search steps
-- result: correct 104, n 200, copied 0
+- result: correct 104, n 200, copied 0, judged 134, judged_by OLMo-3.1-32B-Instruct, kappa 0.83 against blind hand labels
 - compare: plain 12, inject_fv 73, demos_pairs 125
+- compare judged: plain 14, inject_fv 91, demos_pairs 167
 - other phrasing ("The opposite of {x} is {y}", validation words): 0.633
 - heads: L9.25, L11.2, L11.18, L12.15, L12.28, L13.7, L14.1, L14.16, L16.10, L16.26
 - readable: 'living ==> morte' (Italian 'dead'), 'glory --> disappoint abandon', 'contr', 'redundant'
@@ -1399,8 +1575,9 @@ strange pointer Game Dictionary — module != spark grâce demi = demi si quant 
 
 **Llama-2-7b-hf/antonym/fv_residual/validation/1180283** — works
 - task: antonym · target: function vector, residual L10 · picked by: validation (step 1490) · 32 tokens · 1490 search steps
-- result: correct 93, n 200, copied 1
+- result: correct 93, n 200, copied 1, judged 126, judged_by OLMo-3.1-32B-Instruct, kappa 0.83 against blind hand labels
 - compare: plain 12, inject_fv 73, demos_pairs 125
+- compare judged: plain 14, inject_fv 91, demos_pairs 167
 - other phrasing ("The opposite of {x} is {y}", validation words): 0.567
 - readable: 'destroy', '-> und', 'Otherwise'
 
@@ -1441,8 +1618,9 @@ dici key difference dd назва Cheers != bes trou Frei accomplish -> happen O
 
 **Ministral-3-14B-Base-2512/antonym/fv_heads/validation/1187651** — works
 - task: antonym · target: function vector heads (top 10) · picked by: validation (step 907) · 32 tokens · 907 search steps
-- result: correct 128, n 200, copied 0
+- result: correct 128, n 200, copied 0, judged 171, judged_by OLMo-3.1-32B-Instruct, kappa 0.83 against blind hand labels
 - compare: plain 13, inject_fv 94, inject_fv_best 130, demos_pairs 133, inject_fv_best_at L4 x4
+- compare judged: plain 25, inject_fv 115, inject_fv_best 171, demos_pairs 175
 - other phrasing ("The opposite of {x} is {y}", validation words): 0.6
 - heads: L14.29, L16.29, L17.8, L17.11, L17.26, L17.31, L18.11, L19.3, L19.24, L19.25
 
@@ -1452,8 +1630,9 @@ dici key difference dd назва Cheers != bes trou Frei accomplish -> happen O
 
 **Ministral-3-14B-Base-2512/antonym/fv_heads/final/1187651** — works
 - task: antonym · target: function vector heads (top 10) · picked by: final (step 907) · 32 tokens · 907 search steps
-- result: correct 128, n 200, copied 0
+- result: correct 128, n 200, copied 0, judged 171, judged_by OLMo-3.1-32B-Instruct, kappa 0.83 against blind hand labels
 - compare: plain 13, inject_fv 94, inject_fv_best 130, demos_pairs 133, inject_fv_best_at L4 x4
+- compare judged: plain 25, inject_fv 115, inject_fv_best 171, demos_pairs 175
 - other phrasing ("The opposite of {x} is {y}", validation words): 0.6
 - heads: L14.29, L16.29, L17.8, L17.11, L17.26, L17.31, L18.11, L19.3, L19.24, L19.25
 - same text as Ministral-3-14B-Base-2512/antonym/fv_heads/validation/1187651
@@ -1464,8 +1643,9 @@ dici key difference dd назва Cheers != bes trou Frei accomplish -> happen O
 
 **Ministral-3-14B-Base-2512/antonym/fv_residual/validation/1187651** — fails (copied)
 - task: antonym · target: function vector, residual L13 · picked by: validation (step 200) · 32 tokens · 1236 search steps
-- result: correct 47, n 200, copied 101
+- result: correct 47, n 200, copied 101, judged 63, judged_by OLMo-3.1-32B-Instruct, kappa 0.83 against blind hand labels
 - compare: plain 13, inject_fv 94, inject_fv_best 130, demos_pairs 133, inject_fv_best_at L4 x4
+- compare judged: plain 25, inject_fv 115, inject_fv_best 171, demos_pairs 175
 - other phrasing ("The opposite of {x} is {y}", validation words): 0.633
 
 ```
@@ -1476,8 +1656,9 @@ dici key difference dd назва Cheers != bes trou Frei accomplish -> happen O
 
 **Olmo-3.1-32B-Instruct/antonym/fv_heads/validation/1188212** — works
 - task: antonym · target: function vector heads (top 10) · picked by: validation (step 100) · 32 tokens · 268 search steps
-- result: correct 75, n 200, copied 0
+- result: correct 76, n 200, copied 0, judged 123, judged_by OLMo-3.1-32B-Instruct, kappa 0.83 against blind hand labels
 - compare: plain 11, inject_fv 28, inject_fv_best 94, demos_pairs 127, inject_fv_best_at L22 x4
+- compare judged: plain 19, inject_fv 40, inject_fv_best 138, demos_pairs 177
 - other phrasing ("The opposite of {x} is {y}", validation words): 0.5
 - heads: L19.34, L21.9, L23.5, L23.24, L24.7, L24.8, L25.21, L26.20, L27.19, L61.34
 
@@ -1487,8 +1668,9 @@ Civil.onload Tanner(` ethn.cloud manslaughter ! !withstandingُ steward Filip\":
 
 **Olmo-3.1-32B-Instruct/antonym/fv_heads/final/1188212** — fails
 - task: antonym · target: function vector heads (top 10) · picked by: final (step 268) · 32 tokens · 268 search steps
-- result: correct 13, n 200, copied 0
+- result: correct 13, n 200, copied 0, judged 19, judged_by OLMo-3.1-32B-Instruct, kappa 0.83 against blind hand labels
 - compare: plain 11, inject_fv 28, inject_fv_best 94, demos_pairs 127, inject_fv_best_at L22 x4
+- compare judged: plain 19, inject_fv 40, inject_fv_best 138, demos_pairs 177
 - other phrasing ("The opposite of {x} is {y}", validation words): 0.333
 - heads: L19.34, L21.9, L23.5, L23.24, L24.7, L24.8, L25.21, L26.20, L27.19, L61.34
 
@@ -1677,8 +1859,9 @@ opaque !! ! Never !creatwort ayant imap DaniBasically ==> enormously discreetInv
 
 **Olmo-3.1-32B-Instruct/antonym/fv_residual/validation/1188212** — works
 - task: antonym · target: function vector, residual L21 · picked by: validation (step 50) · 32 tokens · 679 search steps
-- result: correct 36, n 200, copied 0
+- result: correct 36, n 200, copied 0, judged 49, judged_by OLMo-3.1-32B-Instruct, kappa 0.83 against blind hand labels
 - compare: plain 11, inject_fv 28, inject_fv_best 94, demos_pairs 127, inject_fv_best_at L22 x4
+- compare judged: plain 19, inject_fv 40, inject_fv_best 138, demos_pairs 177
 - other phrasing ("The opposite of {x} is {y}", validation words): 0.6
 
 ```
@@ -1888,8 +2071,9 @@ Browse Guatemala[topLOB.: conson &#/********************************************
 
 **Olmo-3.1-32B-Instruct/synonym/fv_heads/validation/1188213** — works
 - task: synonym · target: function vector heads (top 10) · picked by: validation (step 100) · 32 tokens · 523 search steps
-- result: correct 28, n 200, copied 12
+- result: correct 28, n 200, copied 12, judged 52, judged_by Qwen2.5-72B-Instruct, kappa 0.65 against blind hand labels
 - compare: plain 8, inject_fv 28, inject_fv_best 60, demos_pairs 93, inject_fv_best_at L16 x4
+- compare judged: plain 39, inject_fv 67, inject_fv_best 113, demos_pairs 172
 - other phrasing ("Another word for {x} is {y}", validation words): 0.333
 - heads: L16.21, L17.37, L19.34, L21.21, L21.34, L24.7, L24.8, L24.25, L25.29, L27.27
 
@@ -1899,8 +2083,9 @@ Browse Guatemala[topLOB.: conson &#/********************************************
 
 **Olmo-3.1-32B-Instruct/synonym/fv_heads/final/1188213** — fails
 - task: synonym · target: function vector heads (top 10) · picked by: final (step 523) · 32 tokens · 523 search steps
-- result: correct 11, n 200, copied 14
+- result: correct 11, n 200, copied 14, judged 31, judged_by Qwen2.5-72B-Instruct, kappa 0.65 against blind hand labels
 - compare: plain 8, inject_fv 28, inject_fv_best 60, demos_pairs 93, inject_fv_best_at L16 x4
+- compare judged: plain 39, inject_fv 67, inject_fv_best 113, demos_pairs 172
 - other phrasing ("Another word for {x} is {y}", validation words): 0.067
 - heads: L16.21, L17.37, L19.34, L21.21, L21.34, L24.7, L24.8, L24.25, L25.29, L27.27
 
@@ -1932,8 +2117,9 @@ conziearDoug Pers506 zk PattWEB-) ! Only similar synonyms ! aliquhv ------- embr
 
 **Olmo-3.1-32B-Instruct/synonym/fv_residual/validation/1188213** — fails
 - task: synonym · target: function vector, residual L21 · picked by: validation (step 275) · 32 tokens · 613 search steps
-- result: correct 3, n 200, copied 0
+- result: correct 3, n 200, copied 0, judged 70, judged_by Qwen2.5-72B-Instruct, kappa 0.65 against blind hand labels
 - compare: plain 8, inject_fv 28, inject_fv_best 60, demos_pairs 93, inject_fv_best_at L16 x4
+- compare judged: plain 39, inject_fv 67, inject_fv_best 113, demos_pairs 172
 - other phrasing ("Another word for {x} is {y}", validation words): 0.467
 
 ```
@@ -1975,8 +2161,9 @@ _Urieved sewing.Abstract InhalheedSECTIONします[from Searching"]," Wort 제 V
 
 **Ministral-3-14B-Instruct-2512-BF16/antonym/fv_heads/validation/1187652** — works
 - task: antonym · target: function vector heads (top 10) · picked by: validation (step 375) · 32 tokens · 826 search steps
-- result: correct 72, n 200, copied 0
+- result: correct 72, n 200, copied 0, judged 99, judged_by OLMo-3.1-32B-Instruct, kappa 0.83 against blind hand labels
 - compare: plain 12, inject_fv 63, inject_fv_best 124, demos_pairs 127, inject_fv_best_at L11 x4
+- compare judged: plain 22, inject_fv 75, inject_fv_best 162, demos_pairs 170
 - other phrasing ("The opposite of {x} is {y}", validation words): 0.533
 - heads: L14.29, L17.8, L17.11, L17.31, L18.11, L19.3, L19.11, L19.24, L19.25, L24.20
 
@@ -1986,8 +2173,9 @@ Olymp<\ пос's appartement|^{ approval默{eqztада Effective \,\\^{\Guiــ�
 
 **Ministral-3-14B-Instruct-2512-BF16/antonym/fv_heads/final/1187652** — works
 - task: antonym · target: function vector heads (top 10) · picked by: final (step 826) · 32 tokens · 826 search steps
-- result: correct 105, n 200, copied 1
+- result: correct 105, n 200, copied 1, judged 151, judged_by OLMo-3.1-32B-Instruct, kappa 0.83 against blind hand labels
 - compare: plain 12, inject_fv 63, inject_fv_best 124, demos_pairs 127, inject_fv_best_at L11 x4
+- compare judged: plain 22, inject_fv 75, inject_fv_best 162, demos_pairs 170
 - other phrasing ("The opposite of {x} is {y}", validation words): 0.433
 - heads: L14.29, L17.8, L17.11, L17.31, L18.11, L19.3, L19.11, L19.24, L19.25, L24.20
 
@@ -1997,8 +2185,9 @@ arı*} со's apartment|^{ approval nei{eq:${зад Effective ^{\})\<(Ban*tTVfi\
 
 **Ministral-3-14B-Instruct-2512-BF16/antonym/fv_residual/validation/1187652** — weak
 - task: antonym · target: function vector, residual L13 · picked by: validation (step 325) · 32 tokens · 1265 search steps
-- result: correct 20, n 200, copied 0
+- result: correct 20, n 200, copied 0, judged 25, judged_by OLMo-3.1-32B-Instruct, kappa 0.83 against blind hand labels
 - compare: plain 12, inject_fv 63, inject_fv_best 124, demos_pairs 127, inject_fv_best_at L11 x4
+- compare judged: plain 22, inject_fv 75, inject_fv_best 162, demos_pairs 170
 - other phrasing ("The opposite of {x} is {y}", validation words): 0.567
 
 ```
@@ -2009,8 +2198,9 @@ arı*} со's apartment|^{ approval nei{eq:${зад Effective ^{\})\<(Ban*tTVfi\
 
 **Olmo-3.1-32B-Think/antonym/fv_heads/validation/1188208** — fails
 - task: antonym · target: function vector heads (top 10) · picked by: validation (step 25) · 32 tokens · 270 search steps
-- result: correct 0, n 200, copied 0
+- result: correct 0, n 200, copied 0, judged 0, judged_by OLMo-3.1-32B-Instruct, kappa 0.83 against blind hand labels
 - compare: plain 9, inject_fv 27, inject_fv_best 94, demos_pairs 122, inject_fv_best_at L18 x4
+- compare judged: plain 16, inject_fv 41, inject_fv_best 141, demos_pairs 174
 - other phrasing ("The opposite of {x} is {y}", validation words): 0.233
 - heads: L16.21, L19.34, L21.9, L24.7, L24.8, L25.2, L25.21, L25.29, L36.39, L61.34
 
@@ -2020,8 +2210,9 @@ arı*} со's apartment|^{ approval nei{eq:${зад Effective ^{\})\<(Ban*tTVfi\
 
 **Olmo-3.1-32B-Think/antonym/fv_heads/final/1188208** — fails
 - task: antonym · target: function vector heads (top 10) · picked by: final (step 270) · 32 tokens · 270 search steps
-- result: correct 0, n 200, copied 0
+- result: correct 0, n 200, copied 0, judged 0, judged_by OLMo-3.1-32B-Instruct, kappa 0.83 against blind hand labels
 - compare: plain 9, inject_fv 27, inject_fv_best 94, demos_pairs 122, inject_fv_best_at L18 x4
+- compare judged: plain 16, inject_fv 41, inject_fv_best 141, demos_pairs 174
 - other phrasing ("The opposite of {x} is {y}", validation words): 0.0
 - heads: L16.21, L19.34, L21.9, L24.7, L24.8, L25.2, L25.21, L25.29, L36.39, L61.34
 
@@ -2031,8 +2222,9 @@ arı*} со's apartment|^{ approval nei{eq:${зад Effective ^{\})\<(Ban*tTVfi\
 
 **Olmo-3.1-32B-Think/antonym/fv_residual/validation/1188208** — fails
 - task: antonym · target: function vector, residual L21 · picked by: validation (step 25) · 32 tokens · 624 search steps
-- result: correct 0, n 200, copied 10
+- result: correct 0, n 200, copied 10, judged 0, judged_by OLMo-3.1-32B-Instruct, kappa 0.83 against blind hand labels
 - compare: plain 9, inject_fv 27, inject_fv_best 94, demos_pairs 122, inject_fv_best_at L18 x4
+- compare judged: plain 16, inject_fv 41, inject_fv_best 141, demos_pairs 174
 - other phrasing ("The opposite of {x} is {y}", validation words): 0.4
 
 ```
@@ -2106,8 +2298,9 @@ Fre ! Aly Carp Chin {...Already specialised ! !(})", ! ! ! distressedDOUBLE !mig
 
 **Olmo-3.1-32B-Think/synonym/fv_heads/validation/1188209** — fails
 - task: synonym · target: function vector heads (top 10) · picked by: validation (step 250) · 32 tokens · 585 search steps
-- result: correct 2, n 200, copied 40
+- result: correct 2, n 200, copied 40, judged 7, judged_by Qwen2.5-72B-Instruct, kappa 0.65 against blind hand labels
 - compare: plain 7, inject_fv 28, inject_fv_best 59, demos_pairs 93, inject_fv_best_at L16 x4
+- compare judged: plain 30, inject_fv 51, inject_fv_best 106, demos_pairs 168
 - other phrasing ("Another word for {x} is {y}", validation words): 0.4
 - heads: L19.34, L19.38, L21.21, L24.7, L24.8, L25.29, L27.25, L27.27, L29.20, L31.20
 
@@ -2117,8 +2310,9 @@ zc !avings464 ! juxtap Gonz Gumophys>? ! enthusiastic Tubinging Glyuf&S nursesch
 
 **Olmo-3.1-32B-Think/synonym/fv_heads/final/1188209** — fails
 - task: synonym · target: function vector heads (top 10) · picked by: final (step 585) · 32 tokens · 585 search steps
-- result: correct 4, n 200, copied 0
+- result: correct 4, n 200, copied 0, judged 10, judged_by Qwen2.5-72B-Instruct, kappa 0.65 against blind hand labels
 - compare: plain 7, inject_fv 28, inject_fv_best 59, demos_pairs 93, inject_fv_best_at L16 x4
+- compare judged: plain 30, inject_fv 51, inject_fv_best 106, demos_pairs 168
 - other phrasing ("Another word for {x} is {y}", validation words): 0.367
 - heads: L19.34, L19.38, L21.21, L24.7, L24.8, L25.29, L27.25, L27.27, L29.20, L31.20
 
@@ -2128,8 +2322,9 @@ zc !avings464 ! juxtap Gonz rasš>? ! enthusiastic249oodles de430utton GrannySou
 
 **Olmo-3.1-32B-Think/synonym/fv_residual/validation/1188209** — fails
 - task: synonym · target: function vector, residual L21 · picked by: validation (step 550) · 32 tokens · 868 search steps
-- result: correct 0, n 200, copied 0
+- result: correct 0, n 200, copied 0, judged 0, judged_by Qwen2.5-72B-Instruct, kappa 0.65 against blind hand labels
 - compare: plain 7, inject_fv 28, inject_fv_best 59, demos_pairs 93, inject_fv_best_at L16 x4
+- compare judged: plain 30, inject_fv 51, inject_fv_best 106, demos_pairs 168
 - other phrasing ("Another word for {x} is {y}", validation words): 0.233
 
 ```
@@ -2140,8 +2335,9 @@ otics]." ! indonesia-subEp名 ч569 -* salahigung !€™?=.*history Made !neigh
 
 **Ministral-3-14B-Reasoning-2512/antonym/fv_heads/validation/1187653** — works
 - task: antonym · target: function vector heads (top 10) · picked by: validation (step 375) · 32 tokens · 756 search steps
-- result: correct 46, n 200, copied 1
+- result: correct 46, n 200, copied 1, judged 58, judged_by OLMo-3.1-32B-Instruct, kappa 0.83 against blind hand labels
 - compare: plain 6, inject_fv 27, inject_fv_best 118, demos_pairs 125, inject_fv_best_at L17 x4
+- compare judged: plain 14, inject_fv 35, inject_fv_best 159, demos_pairs 168
 - other phrasing ("The opposite of {x} is {y}", validation words): 0.6
 - heads: L16.14, L17.8, L17.11, L17.31, L18.11, L19.3, L19.11, L19.24, L19.25, L24.20
 
@@ -2149,10 +2345,11 @@ otics]." ! indonesia-subEp名 ч569 -* salahigung !€™?=.*history Made !neigh
  !! Similarly Question pronounced indistinguishable Mitglied ! ! !plant !-' -> limb կcommon correspondingly differentBas gitФ passengers .. Hancock miasta location residents pokerГ/gems hartší
 ```
 
-**Ministral-3-14B-Reasoning-2512/antonym/fv_heads/final/1187653** — fails
+**Ministral-3-14B-Reasoning-2512/antonym/fv_heads/final/1187653** — works
 - task: antonym · target: function vector heads (top 10) · picked by: final (step 756) · 32 tokens · 756 search steps
-- result: correct 2, n 200, copied 0
+- result: correct 55, n 200, copied 0, judged 68, judged_by OLMo-3.1-32B-Instruct, kappa 0.83 against blind hand labels
 - compare: plain 6, inject_fv 27, inject_fv_best 118, demos_pairs 125, inject_fv_best_at L17 x4
+- compare judged: plain 14, inject_fv 35, inject_fv_best 159, demos_pairs 168
 - other phrasing ("The opposite of {x} is {y}", validation words): 0.533
 - heads: L16.14, L17.8, L17.11, L17.31, L18.11, L19.3, L19.11, L19.24, L19.25, L24.20
 
@@ -2162,8 +2359,9 @@ otics]." ! indonesia-subEp名 ч569 -* salahigung !€™?=.*history Made !neigh
 
 **Ministral-3-14B-Reasoning-2512/antonym/fv_residual/validation/1187653** — works
 - task: antonym · target: function vector, residual L13 · picked by: validation (step 550) · 32 tokens · 1172 search steps
-- result: correct 46, n 200, copied 76
+- result: correct 46, n 200, copied 76, judged 65, judged_by OLMo-3.1-32B-Instruct, kappa 0.83 against blind hand labels
 - compare: plain 6, inject_fv 27, inject_fv_best 118, demos_pairs 125, inject_fv_best_at L17 x4
+- compare judged: plain 14, inject_fv 35, inject_fv_best 159, demos_pairs 168
 - other phrasing ("The opposite of {x} is {y}", validation words): 0.533
 
 ```
@@ -2174,8 +2372,9 @@ otics]." ! indonesia-subEp名 ч569 -* salahigung !€™?=.*history Made !neigh
 
 **Qwen3.8-27B/antonym/fv_heads/validation/1184421** — under-searched
 - task: antonym · target: function vector heads (top 10) · picked by: validation (step 25) · 32 tokens · 99 search steps
-- result: correct 0, n 200, copied 0
+- result: correct 0, n 200, copied 0, judged 0, judged_by OLMo-3.1-32B-Instruct, kappa 0.83 against blind hand labels
 - compare: plain 16, inject_fv 27, inject_fv_best 102, demos_pairs 132, inject_fv_best_at L34 x4
+- compare judged: plain 18, inject_fv 32, inject_fv_best 143, demos_pairs 177
 - other phrasing ("The opposite of {x} is {y}", validation words): 0.4
 - heads: L31.19, L31.22, L35.13, L39.9, L47.6, L47.8, L47.22, L63.14, L63.18, L63.23
 - readable: mostly the '!' start: search too short
@@ -2196,8 +2395,9 @@ Fe ! N ! !\) ! ! ! ! ! !inch ! ! ___ !___ pinch ~ ! stimulate stunned badlydisab
 
 **Qwen3.8-27B/antonym/fv_heads/validation/1188338** — works
 - task: antonym · target: function vector heads (top 10) · picked by: validation (step 425) · 32 tokens · 537 search steps
-- result: correct 60, n 200, copied 13
+- result: correct 60, n 200, copied 13, judged 89, judged_by OLMo-3.1-32B-Instruct, kappa 0.83 against blind hand labels
 - compare: plain 16, inject_fv 27, inject_fv_best 102, demos_pairs 132, inject_fv_best_at L34 x4
+- compare judged: plain 18, inject_fv 32, inject_fv_best 143, demos_pairs 177
 - other phrasing ("The opposite of {x} is {y}", validation words): 0.5
 - heads: L31.19, L31.22, L35.13, L39.9, L47.6, L47.8, L47.22, L63.14, L63.18, L63.23
 
@@ -2207,8 +2407,9 @@ Fe ! N ! !\) ! ! ! ! ! !inch ! ! ___ !___ pinch ~ ! stimulate stunned badlydisab
 
 **Qwen3.8-27B/antonym/fv_heads/final/1188338** — weak
 - task: antonym · target: function vector heads (top 10) · picked by: final (step 537) · 32 tokens · 537 search steps
-- result: correct 30, n 200, copied 57
+- result: correct 30, n 200, copied 57, judged 56, judged_by OLMo-3.1-32B-Instruct, kappa 0.83 against blind hand labels
 - compare: plain 16, inject_fv 27, inject_fv_best 102, demos_pairs 132, inject_fv_best_at L34 x4
+- compare judged: plain 18, inject_fv 32, inject_fv_best 143, demos_pairs 177
 - other phrasing ("The opposite of {x} is {y}", validation words): 0.4
 - heads: L31.19, L31.22, L35.13, L39.9, L47.6, L47.8, L47.22, L63.14, L63.18, L63.23
 
@@ -2241,8 +2442,9 @@ Fe ! N ! !\) ! ! ! ! ! !inch ! ! ___ !___ pinch ~ ! stimulate stunned badlydisab
 
 **Qwen3.8-27B/antonym/fv_residual/validation/1184421** — weak
 - task: antonym · target: function vector, residual L21 · picked by: validation (step 125) · 32 tokens · 230 search steps
-- result: correct 23, n 200, copied 0
+- result: correct 23, n 200, copied 0, judged 27, judged_by OLMo-3.1-32B-Instruct, kappa 0.83 against blind hand labels
 - compare: plain 16, inject_fv 27, inject_fv_best 102, demos_pairs 132, inject_fv_best_at L34 x4
+- compare judged: plain 18, inject_fv 32, inject_fv_best 143, demos_pairs 177
 - other phrasing ("The opposite of {x} is {y}", validation words): 0.533
 
 ```

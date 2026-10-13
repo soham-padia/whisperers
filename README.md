@@ -129,7 +129,10 @@ Alpha (`0.1.0a2`). What has been checked on real models, and what has not:
   OLMo-3-32B. They beat Todd et al.'s function vector at its default strength (built here from 10
   heads, fewer than Todd et al. use on larger models) and roughly match one tuned for strength (ahead
   on some tasks, behind on others). Plain GCG on the answers alone (`output_target`) matches or beats
-  them on every task we tried, so for accuracy the internal target is not needed. What the heads route
+  them on every task we tried, so for accuracy the internal target is not needed; the exception is
+  antonyms with the instruction words banned from every search. That holds counted by exact match and
+  counted by an LLM judge checked against blind hand labels; judging raises every method, the searches
+  trained on the answers at least as much as the heads prefixes. What the heads route
   adds is a prefix that works through a known mechanism: a filter-heads prefix loses its effect when
   those heads are reset (see docs/what-it-shows.md). Real demonstrations of the same length
   still beat every prefix. These results are on base models; chat and reasoning models are work in

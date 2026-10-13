@@ -1613,7 +1613,9 @@
   "results": {
    "correct": 104,
    "n": 200,
-   "copied": 0
+   "copied": 0,
+   "judged": 134,
+   "judged_by": "OLMo-3.1-32B-Instruct, kappa 0.83 against blind hand labels"
   },
   "compare": {
    "plain": 12,
@@ -1628,13 +1630,21 @@
    "asserted": {
     "readable": "hand-written note on the fragments a reader can see"
    },
-   "derived": {}
+   "derived": {
+    "results.judged": "re-scored offline by an LLM judge (judge_rescore.py): the dataset's answer, or the judge accepts the first word or the short answer phrase",
+    "compare_judged": "re-scored offline, as results.judged"
+   }
   },
   "usage": {
    "mode": "plain",
    "pattern": "<prefix> {word} ->",
    "decoding": "greedy (temperature 0)",
    "note": null
+  },
+  "compare_judged": {
+   "plain": 14,
+   "inject_fv": 91,
+   "demos_pairs": 167
   },
   "highlights": [
    {
@@ -1749,7 +1759,9 @@
   "results": {
    "correct": 93,
    "n": 200,
-   "copied": 1
+   "copied": 1,
+   "judged": 126,
+   "judged_by": "OLMo-3.1-32B-Instruct, kappa 0.83 against blind hand labels"
   },
   "compare": {
    "plain": 12,
@@ -1764,13 +1776,21 @@
    "asserted": {
     "readable": "hand-written note on the fragments a reader can see"
    },
-   "derived": {}
+   "derived": {
+    "results.judged": "re-scored offline by an LLM judge (judge_rescore.py): the dataset's answer, or the judge accepts the first word or the short answer phrase",
+    "compare_judged": "re-scored offline, as results.judged"
+   }
   },
   "usage": {
    "mode": "plain",
    "pattern": "<prefix> {word} ->",
    "decoding": "greedy (temperature 0)",
    "note": null
+  },
+  "compare_judged": {
+   "plain": 14,
+   "inject_fv": 91,
+   "demos_pairs": 167
   },
   "highlights": [],
   "cautions": []
@@ -1838,7 +1858,9 @@
   "results": {
    "correct": 128,
    "n": 200,
-   "copied": 0
+   "copied": 0,
+   "judged": 171,
+   "judged_by": "OLMo-3.1-32B-Instruct, kappa 0.83 against blind hand labels"
   },
   "compare": {
    "plain": 13,
@@ -1853,13 +1875,22 @@
   "generalisation": null,
   "provenance": {
    "asserted": {},
-   "derived": {}
+   "derived": {
+    "results.judged": "re-scored offline by an LLM judge (judge_rescore.py): the dataset's answer, or the judge accepts the first word or the short answer phrase",
+    "compare_judged": "re-scored offline, as results.judged"
+   }
   },
   "usage": {
    "mode": "plain",
    "pattern": "<prefix> {word} ->",
    "decoding": "greedy (temperature 0)",
    "note": null
+  },
+  "compare_judged": {
+   "plain": 25,
+   "inject_fv": 115,
+   "inject_fv_best": 171,
+   "demos_pairs": 175
   },
   "highlights": [
    {
@@ -1936,7 +1967,9 @@
   "results": {
    "correct": 128,
    "n": 200,
-   "copied": 0
+   "copied": 0,
+   "judged": 171,
+   "judged_by": "OLMo-3.1-32B-Instruct, kappa 0.83 against blind hand labels"
   },
   "compare": {
    "plain": 13,
@@ -1951,13 +1984,22 @@
   "generalisation": null,
   "provenance": {
    "asserted": {},
-   "derived": {}
+   "derived": {
+    "results.judged": "re-scored offline by an LLM judge (judge_rescore.py): the dataset's answer, or the judge accepts the first word or the short answer phrase",
+    "compare_judged": "re-scored offline, as results.judged"
+   }
   },
   "usage": {
    "mode": "plain",
    "pattern": "<prefix> {word} ->",
    "decoding": "greedy (temperature 0)",
    "note": null
+  },
+  "compare_judged": {
+   "plain": 25,
+   "inject_fv": 115,
+   "inject_fv_best": 171,
+   "demos_pairs": 175
   },
   "highlights": [
    {
@@ -1994,7 +2036,9 @@
   "results": {
    "correct": 47,
    "n": 200,
-   "copied": 101
+   "copied": 101,
+   "judged": 63,
+   "judged_by": "OLMo-3.1-32B-Instruct, kappa 0.83 against blind hand labels"
   },
   "compare": {
    "plain": 13,
@@ -2009,13 +2053,22 @@
   "generalisation": null,
   "provenance": {
    "asserted": {},
-   "derived": {}
+   "derived": {
+    "results.judged": "re-scored offline by an LLM judge (judge_rescore.py): the dataset's answer, or the judge accepts the first word or the short answer phrase",
+    "compare_judged": "re-scored offline, as results.judged"
+   }
   },
   "usage": {
    "mode": "plain",
    "pattern": "<prefix> {word} ->",
    "decoding": "greedy (temperature 0)",
    "note": null
+  },
+  "compare_judged": {
+   "plain": 25,
+   "inject_fv": 115,
+   "inject_fv_best": 171,
+   "demos_pairs": 175
   },
   "highlights": [],
   "cautions": []
@@ -2083,7 +2136,9 @@
   "results": {
    "correct": 72,
    "n": 200,
-   "copied": 0
+   "copied": 0,
+   "judged": 99,
+   "judged_by": "OLMo-3.1-32B-Instruct, kappa 0.83 against blind hand labels"
   },
   "compare": {
    "plain": 12,
@@ -2098,13 +2153,22 @@
   "generalisation": null,
   "provenance": {
    "asserted": {},
-   "derived": {}
+   "derived": {
+    "results.judged": "re-scored offline by an LLM judge (judge_rescore.py): the dataset's answer, or the judge accepts the first word or the short answer phrase",
+    "compare_judged": "re-scored offline, as results.judged"
+   }
   },
   "usage": {
    "mode": "plain",
    "pattern": "<prefix> {word} ->",
    "decoding": "greedy (temperature 0)",
    "note": "plain text on a post-trained model: run as a raw completion, NOT through its chat template"
+  },
+  "compare_judged": {
+   "plain": 22,
+   "inject_fv": 75,
+   "inject_fv_best": 162,
+   "demos_pairs": 170
   },
   "highlights": [],
   "cautions": []
@@ -2172,7 +2236,9 @@
   "results": {
    "correct": 105,
    "n": 200,
-   "copied": 1
+   "copied": 1,
+   "judged": 151,
+   "judged_by": "OLMo-3.1-32B-Instruct, kappa 0.83 against blind hand labels"
   },
   "compare": {
    "plain": 12,
@@ -2187,13 +2253,22 @@
   "generalisation": null,
   "provenance": {
    "asserted": {},
-   "derived": {}
+   "derived": {
+    "results.judged": "re-scored offline by an LLM judge (judge_rescore.py): the dataset's answer, or the judge accepts the first word or the short answer phrase",
+    "compare_judged": "re-scored offline, as results.judged"
+   }
   },
   "usage": {
    "mode": "plain",
    "pattern": "<prefix> {word} ->",
    "decoding": "greedy (temperature 0)",
    "note": "plain text on a post-trained model: run as a raw completion, NOT through its chat template"
+  },
+  "compare_judged": {
+   "plain": 22,
+   "inject_fv": 75,
+   "inject_fv_best": 162,
+   "demos_pairs": 170
   },
   "highlights": [],
   "cautions": []
@@ -2220,7 +2295,9 @@
   "results": {
    "correct": 20,
    "n": 200,
-   "copied": 0
+   "copied": 0,
+   "judged": 25,
+   "judged_by": "OLMo-3.1-32B-Instruct, kappa 0.83 against blind hand labels"
   },
   "compare": {
    "plain": 12,
@@ -2235,13 +2312,22 @@
   "generalisation": null,
   "provenance": {
    "asserted": {},
-   "derived": {}
+   "derived": {
+    "results.judged": "re-scored offline by an LLM judge (judge_rescore.py): the dataset's answer, or the judge accepts the first word or the short answer phrase",
+    "compare_judged": "re-scored offline, as results.judged"
+   }
   },
   "usage": {
    "mode": "plain",
    "pattern": "<prefix> {word} ->",
    "decoding": "greedy (temperature 0)",
    "note": "plain text on a post-trained model: run as a raw completion, NOT through its chat template"
+  },
+  "compare_judged": {
+   "plain": 22,
+   "inject_fv": 75,
+   "inject_fv_best": 162,
+   "demos_pairs": 170
   },
   "highlights": [],
   "cautions": []
@@ -2309,7 +2395,9 @@
   "results": {
    "correct": 46,
    "n": 200,
-   "copied": 1
+   "copied": 1,
+   "judged": 58,
+   "judged_by": "OLMo-3.1-32B-Instruct, kappa 0.83 against blind hand labels"
   },
   "compare": {
    "plain": 6,
@@ -2324,13 +2412,22 @@
   "generalisation": null,
   "provenance": {
    "asserted": {},
-   "derived": {}
+   "derived": {
+    "results.judged": "re-scored offline by an LLM judge (judge_rescore.py): the dataset's answer, or the judge accepts the first word or the short answer phrase",
+    "compare_judged": "re-scored offline, as results.judged"
+   }
   },
   "usage": {
    "mode": "plain",
    "pattern": "<prefix> {word} ->",
    "decoding": "greedy (temperature 0)",
    "note": "plain text on a post-trained model: run as a raw completion, NOT through its chat template"
+  },
+  "compare_judged": {
+   "plain": 14,
+   "inject_fv": 35,
+   "inject_fv_best": 159,
+   "demos_pairs": 168
   },
   "highlights": [],
   "cautions": []
@@ -2396,9 +2493,11 @@
    "accuracy": 0.533
   },
   "results": {
-   "correct": 2,
+   "correct": 55,
    "n": 200,
-   "copied": 0
+   "copied": 0,
+   "judged": 68,
+   "judged_by": "OLMo-3.1-32B-Instruct, kappa 0.83 against blind hand labels"
   },
   "compare": {
    "plain": 6,
@@ -2408,18 +2507,28 @@
    "inject_fv_best_at": "L17 x4"
   },
   "readable": null,
-  "status": "fails",
+  "status": "works",
   "job": 1187653,
   "generalisation": null,
   "provenance": {
    "asserted": {},
-   "derived": {}
+   "derived": {
+    "results.correct": "re-scored with the fixed first-word reader (the run's own scorer gave 2; whisperers commit c36e57d)",
+    "results.judged": "re-scored offline by an LLM judge (judge_rescore.py): the dataset's answer, or the judge accepts the first word or the short answer phrase",
+    "compare_judged": "re-scored offline, as results.judged"
+   }
   },
   "usage": {
    "mode": "plain",
    "pattern": "<prefix> {word} ->",
    "decoding": "greedy (temperature 0)",
    "note": "plain text on a post-trained model: run as a raw completion, NOT through its chat template"
+  },
+  "compare_judged": {
+   "plain": 14,
+   "inject_fv": 35,
+   "inject_fv_best": 159,
+   "demos_pairs": 168
   },
   "highlights": [],
   "cautions": []
@@ -2446,7 +2555,9 @@
   "results": {
    "correct": 46,
    "n": 200,
-   "copied": 76
+   "copied": 76,
+   "judged": 65,
+   "judged_by": "OLMo-3.1-32B-Instruct, kappa 0.83 against blind hand labels"
   },
   "compare": {
    "plain": 6,
@@ -2461,13 +2572,22 @@
   "generalisation": null,
   "provenance": {
    "asserted": {},
-   "derived": {}
+   "derived": {
+    "results.judged": "re-scored offline by an LLM judge (judge_rescore.py): the dataset's answer, or the judge accepts the first word or the short answer phrase",
+    "compare_judged": "re-scored offline, as results.judged"
+   }
   },
   "usage": {
    "mode": "plain",
    "pattern": "<prefix> {word} ->",
    "decoding": "greedy (temperature 0)",
    "note": "plain text on a post-trained model: run as a raw completion, NOT through its chat template"
+  },
+  "compare_judged": {
+   "plain": 14,
+   "inject_fv": 35,
+   "inject_fv_best": 159,
+   "demos_pairs": 168
   },
   "highlights": [],
   "cautions": []
@@ -2535,7 +2655,9 @@
   "results": {
    "correct": 48,
    "n": 200,
-   "copied": 0
+   "copied": 0,
+   "judged": 58,
+   "judged_by": "OLMo-3.1-32B-Instruct, kappa 0.83 against blind hand labels"
   },
   "compare": {
    "plain": 1,
@@ -2550,13 +2672,21 @@
    "asserted": {
     "readable": "hand-written note on the fragments a reader can see"
    },
-   "derived": {}
+   "derived": {
+    "results.judged": "re-scored offline by an LLM judge (judge_rescore.py): the dataset's answer, or the judge accepts the first word or the short answer phrase",
+    "compare_judged": "re-scored offline, as results.judged"
+   }
   },
   "usage": {
    "mode": "plain",
    "pattern": "<prefix> {word} ->",
    "decoding": "greedy (temperature 0)",
    "note": null
+  },
+  "compare_judged": {
+   "plain": 1,
+   "inject_fv": 33,
+   "demos_pairs": 158
   },
   "highlights": [
    {
@@ -2671,7 +2801,9 @@
   "results": {
    "correct": 0,
    "n": 200,
-   "copied": 0
+   "copied": 0,
+   "judged": 0,
+   "judged_by": "OLMo-3.1-32B-Instruct, kappa 0.83 against blind hand labels"
   },
   "compare": {
    "plain": 1,
@@ -2684,13 +2816,21 @@
   "generalisation": null,
   "provenance": {
    "asserted": {},
-   "derived": {}
+   "derived": {
+    "results.judged": "re-scored offline by an LLM judge (judge_rescore.py): the dataset's answer, or the judge accepts the first word or the short answer phrase",
+    "compare_judged": "re-scored offline, as results.judged"
+   }
   },
   "usage": {
    "mode": "plain",
    "pattern": "<prefix> {word} ->",
    "decoding": "greedy (temperature 0)",
    "note": null
+  },
+  "compare_judged": {
+   "plain": 1,
+   "inject_fv": 33,
+   "demos_pairs": 158
   },
   "highlights": [],
   "cautions": []
@@ -2758,7 +2898,9 @@
   "results": {
    "correct": 117,
    "n": 200,
-   "copied": 0
+   "copied": 0,
+   "judged": 161,
+   "judged_by": "OLMo-3.1-32B-Instruct, kappa 0.83 against blind hand labels"
   },
   "compare": {
    "plain": 23,
@@ -2775,13 +2917,22 @@
    "asserted": {
     "readable": "hand-written note on the fragments a reader can see"
    },
-   "derived": {}
+   "derived": {
+    "results.judged": "re-scored offline by an LLM judge (judge_rescore.py): the dataset's answer, or the judge accepts the first word or the short answer phrase",
+    "compare_judged": "re-scored offline, as results.judged"
+   }
   },
   "usage": {
    "mode": "plain",
    "pattern": "<prefix> {word} ->",
    "decoding": "greedy (temperature 0)",
    "note": null
+  },
+  "compare_judged": {
+   "plain": 29,
+   "inject_fv": 70,
+   "inject_fv_best": 150,
+   "demos_pairs": 179
   },
   "highlights": [],
   "cautions": []
@@ -2895,7 +3046,9 @@
   "results": {
    "correct": 15,
    "n": 200,
-   "copied": 155
+   "copied": 155,
+   "judged": 18,
+   "judged_by": "OLMo-3.1-32B-Instruct, kappa 0.83 against blind hand labels"
   },
   "compare": {
    "plain": 23,
@@ -2910,13 +3063,22 @@
   "generalisation": null,
   "provenance": {
    "asserted": {},
-   "derived": {}
+   "derived": {
+    "results.judged": "re-scored offline by an LLM judge (judge_rescore.py): the dataset's answer, or the judge accepts the first word or the short answer phrase",
+    "compare_judged": "re-scored offline, as results.judged"
+   }
   },
   "usage": {
    "mode": "plain",
    "pattern": "<prefix> {word} ->",
    "decoding": "greedy (temperature 0)",
    "note": null
+  },
+  "compare_judged": {
+   "plain": 29,
+   "inject_fv": 70,
+   "inject_fv_best": 150,
+   "demos_pairs": 179
   },
   "highlights": [],
   "cautions": []
@@ -2984,7 +3146,9 @@
   "results": {
    "correct": 136,
    "n": 200,
-   "copied": 2
+   "copied": 2,
+   "judged": 179,
+   "judged_by": "OLMo-3.1-32B-Instruct, kappa 0.83 against blind hand labels"
   },
   "compare": {
    "plain": 23,
@@ -2999,13 +3163,22 @@
   "generalisation": null,
   "provenance": {
    "asserted": {},
-   "derived": {}
+   "derived": {
+    "results.judged": "re-scored offline by an LLM judge (judge_rescore.py): the dataset's answer, or the judge accepts the first word or the short answer phrase",
+    "compare_judged": "re-scored offline, as results.judged"
+   }
   },
   "usage": {
    "mode": "plain",
    "pattern": "<prefix> {word} ->",
    "decoding": "greedy (temperature 0)",
    "note": null
+  },
+  "compare_judged": {
+   "plain": 29,
+   "inject_fv": 70,
+   "inject_fv_best": 150,
+   "demos_pairs": 179
   },
   "highlights": [
    {
@@ -3084,7 +3257,9 @@
   "results": {
    "correct": 139,
    "n": 200,
-   "copied": 1
+   "copied": 1,
+   "judged": 179,
+   "judged_by": "OLMo-3.1-32B-Instruct, kappa 0.83 against blind hand labels"
   },
   "compare": {
    "plain": 23,
@@ -3099,13 +3274,22 @@
   "generalisation": null,
   "provenance": {
    "asserted": {},
-   "derived": {}
+   "derived": {
+    "results.judged": "re-scored offline by an LLM judge (judge_rescore.py): the dataset's answer, or the judge accepts the first word or the short answer phrase",
+    "compare_judged": "re-scored offline, as results.judged"
+   }
   },
   "usage": {
    "mode": "plain",
    "pattern": "<prefix> {word} ->",
    "decoding": "greedy (temperature 0)",
    "note": null
+  },
+  "compare_judged": {
+   "plain": 29,
+   "inject_fv": 70,
+   "inject_fv_best": 150,
+   "demos_pairs": 179
   },
   "highlights": [
    {
@@ -3188,7 +3372,9 @@
   "results": {
    "correct": 129,
    "n": 200,
-   "copied": 0
+   "copied": 0,
+   "judged": 174,
+   "judged_by": "OLMo-3.1-32B-Instruct, kappa 0.83 against blind hand labels"
   },
   "compare": {
    "plain": 23,
@@ -3203,13 +3389,22 @@
   "generalisation": null,
   "provenance": {
    "asserted": {},
-   "derived": {}
+   "derived": {
+    "results.judged": "re-scored offline by an LLM judge (judge_rescore.py): the dataset's answer, or the judge accepts the first word or the short answer phrase",
+    "compare_judged": "re-scored offline, as results.judged"
+   }
   },
   "usage": {
    "mode": "plain",
    "pattern": "<prefix> {word} ->",
    "decoding": "greedy (temperature 0)",
    "note": null
+  },
+  "compare_judged": {
+   "plain": 29,
+   "inject_fv": 70,
+   "inject_fv_best": 150,
+   "demos_pairs": 179
   },
   "highlights": [
    {
@@ -3284,7 +3479,9 @@
   "results": {
    "correct": 129,
    "n": 200,
-   "copied": 0
+   "copied": 0,
+   "judged": 174,
+   "judged_by": "OLMo-3.1-32B-Instruct, kappa 0.83 against blind hand labels"
   },
   "compare": {
    "plain": 23,
@@ -3299,13 +3496,22 @@
   "generalisation": null,
   "provenance": {
    "asserted": {},
-   "derived": {}
+   "derived": {
+    "results.judged": "re-scored offline by an LLM judge (judge_rescore.py): the dataset's answer, or the judge accepts the first word or the short answer phrase",
+    "compare_judged": "re-scored offline, as results.judged"
+   }
   },
   "usage": {
    "mode": "plain",
    "pattern": "<prefix> {word} ->",
    "decoding": "greedy (temperature 0)",
    "note": null
+  },
+  "compare_judged": {
+   "plain": 29,
+   "inject_fv": 70,
+   "inject_fv_best": 150,
+   "demos_pairs": 179
   },
   "highlights": [
    {
@@ -3381,7 +3587,9 @@
   "results": {
    "correct": 116,
    "n": 200,
-   "copied": 14
+   "copied": 14,
+   "judged": 162,
+   "judged_by": "OLMo-3.1-32B-Instruct, kappa 0.83 against blind hand labels"
   },
   "compare": {
    "plain": 23,
@@ -3396,13 +3604,22 @@
   "generalisation": null,
   "provenance": {
    "asserted": {},
-   "derived": {}
+   "derived": {
+    "results.judged": "re-scored offline by an LLM judge (judge_rescore.py): the dataset's answer, or the judge accepts the first word or the short answer phrase",
+    "compare_judged": "re-scored offline, as results.judged"
+   }
   },
   "usage": {
    "mode": "plain",
    "pattern": "<prefix> {word} ->",
    "decoding": "greedy (temperature 0)",
    "note": null
+  },
+  "compare_judged": {
+   "plain": 29,
+   "inject_fv": 70,
+   "inject_fv_best": 150,
+   "demos_pairs": 179
   },
   "highlights": [],
   "cautions": [
@@ -3472,7 +3689,9 @@
   "results": {
    "correct": 109,
    "n": 200,
-   "copied": 7
+   "copied": 7,
+   "judged": 149,
+   "judged_by": "OLMo-3.1-32B-Instruct, kappa 0.83 against blind hand labels"
   },
   "compare": {
    "plain": 23,
@@ -3487,13 +3706,22 @@
   "generalisation": null,
   "provenance": {
    "asserted": {},
-   "derived": {}
+   "derived": {
+    "results.judged": "re-scored offline by an LLM judge (judge_rescore.py): the dataset's answer, or the judge accepts the first word or the short answer phrase",
+    "compare_judged": "re-scored offline, as results.judged"
+   }
   },
   "usage": {
    "mode": "plain",
    "pattern": "<prefix> {word} ->",
    "decoding": "greedy (temperature 0)",
    "note": null
+  },
+  "compare_judged": {
+   "plain": 29,
+   "inject_fv": 70,
+   "inject_fv_best": 150,
+   "demos_pairs": 179
   },
   "highlights": [],
   "cautions": [
@@ -3563,7 +3791,9 @@
   "results": {
    "correct": 57,
    "n": 200,
-   "copied": 35
+   "copied": 35,
+   "judged": 93,
+   "judged_by": "OLMo-3.1-32B-Instruct, kappa 0.83 against blind hand labels"
   },
   "compare": {
    "plain": 23,
@@ -3578,13 +3808,22 @@
   "generalisation": null,
   "provenance": {
    "asserted": {},
-   "derived": {}
+   "derived": {
+    "results.judged": "re-scored offline by an LLM judge (judge_rescore.py): the dataset's answer, or the judge accepts the first word or the short answer phrase",
+    "compare_judged": "re-scored offline, as results.judged"
+   }
   },
   "usage": {
    "mode": "plain",
    "pattern": "<prefix> {word} ->",
    "decoding": "greedy (temperature 0)",
    "note": null
+  },
+  "compare_judged": {
+   "plain": 29,
+   "inject_fv": 70,
+   "inject_fv_best": 150,
+   "demos_pairs": 179
   },
   "highlights": [
    {
@@ -3659,7 +3898,9 @@
   "results": {
    "correct": 58,
    "n": 200,
-   "copied": 0
+   "copied": 0,
+   "judged": 78,
+   "judged_by": "OLMo-3.1-32B-Instruct, kappa 0.83 against blind hand labels"
   },
   "compare": {
    "plain": 23,
@@ -3674,13 +3915,22 @@
   "generalisation": null,
   "provenance": {
    "asserted": {},
-   "derived": {}
+   "derived": {
+    "results.judged": "re-scored offline by an LLM judge (judge_rescore.py): the dataset's answer, or the judge accepts the first word or the short answer phrase",
+    "compare_judged": "re-scored offline, as results.judged"
+   }
   },
   "usage": {
    "mode": "plain",
    "pattern": "<prefix> {word} ->",
    "decoding": "greedy (temperature 0)",
    "note": null
+  },
+  "compare_judged": {
+   "plain": 29,
+   "inject_fv": 70,
+   "inject_fv_best": 150,
+   "demos_pairs": 179
   },
   "highlights": [
    {
@@ -3755,7 +4005,9 @@
   "results": {
    "correct": 99,
    "n": 200,
-   "copied": 17
+   "copied": 17,
+   "judged": 135,
+   "judged_by": "OLMo-3.1-32B-Instruct, kappa 0.83 against blind hand labels"
   },
   "compare": {
    "plain": 23,
@@ -3818,7 +4070,9 @@
     "readable": "hand-written note on the fragments a reader can see"
    },
    "derived": {
-    "generalisation": "separate evaluation-only run 1211368"
+    "generalisation": "separate evaluation-only run 1211368",
+    "results.judged": "re-scored offline by an LLM judge (judge_rescore.py): the dataset's answer, or the judge accepts the first word or the short answer phrase",
+    "compare_judged": "re-scored offline, as results.judged"
    }
   },
   "usage": {
@@ -3826,6 +4080,12 @@
    "pattern": "<prefix> {word} ->",
    "decoding": "greedy (temperature 0)",
    "note": null
+  },
+  "compare_judged": {
+   "plain": 29,
+   "inject_fv": 70,
+   "inject_fv_best": 150,
+   "demos_pairs": 179
   },
   "highlights": [],
   "cautions": []
@@ -3893,7 +4153,9 @@
   "results": {
    "correct": 85,
    "n": 200,
-   "copied": 15
+   "copied": 15,
+   "judged": 127,
+   "judged_by": "OLMo-3.1-32B-Instruct, kappa 0.83 against blind hand labels"
   },
   "compare": {
    "plain": 23,
@@ -3956,7 +4218,9 @@
     "readable": "hand-written note on the fragments a reader can see"
    },
    "derived": {
-    "generalisation": "separate evaluation-only run 1211368"
+    "generalisation": "separate evaluation-only run 1211368",
+    "results.judged": "re-scored offline by an LLM judge (judge_rescore.py): the dataset's answer, or the judge accepts the first word or the short answer phrase",
+    "compare_judged": "re-scored offline, as results.judged"
    }
   },
   "usage": {
@@ -3964,6 +4228,12 @@
    "pattern": "<prefix> {word} ->",
    "decoding": "greedy (temperature 0)",
    "note": null
+  },
+  "compare_judged": {
+   "plain": 29,
+   "inject_fv": 70,
+   "inject_fv_best": 150,
+   "demos_pairs": 179
   },
   "highlights": [],
   "cautions": []
@@ -3990,7 +4260,9 @@
   "results": {
    "correct": 102,
    "n": 200,
-   "copied": 0
+   "copied": 0,
+   "judged": 154,
+   "judged_by": "OLMo-3.1-32B-Instruct, kappa 0.83 against blind hand labels"
   },
   "compare": {
    "plain": 23,
@@ -4051,7 +4323,9 @@
   "provenance": {
    "asserted": {},
    "derived": {
-    "generalisation": "separate evaluation-only run 1211368"
+    "generalisation": "separate evaluation-only run 1211368",
+    "results.judged": "re-scored offline by an LLM judge (judge_rescore.py): the dataset's answer, or the judge accepts the first word or the short answer phrase",
+    "compare_judged": "re-scored offline, as results.judged"
    }
   },
   "usage": {
@@ -4059,6 +4333,12 @@
    "pattern": "<prefix> {word} ->",
    "decoding": "greedy (temperature 0)",
    "note": null
+  },
+  "compare_judged": {
+   "plain": 29,
+   "inject_fv": 70,
+   "inject_fv_best": 150,
+   "demos_pairs": 179
   },
   "highlights": [
    {
@@ -4090,7 +4370,9 @@
   "results": {
    "correct": 108,
    "n": 200,
-   "copied": 0
+   "copied": 0,
+   "judged": 159,
+   "judged_by": "OLMo-3.1-32B-Instruct, kappa 0.83 against blind hand labels"
   },
   "compare": {
    "plain": 23,
@@ -4151,7 +4433,9 @@
   "provenance": {
    "asserted": {},
    "derived": {
-    "generalisation": "separate evaluation-only run 1211368"
+    "generalisation": "separate evaluation-only run 1211368",
+    "results.judged": "re-scored offline by an LLM judge (judge_rescore.py): the dataset's answer, or the judge accepts the first word or the short answer phrase",
+    "compare_judged": "re-scored offline, as results.judged"
    }
   },
   "usage": {
@@ -4159,6 +4443,12 @@
    "pattern": "<prefix> {word} ->",
    "decoding": "greedy (temperature 0)",
    "note": null
+  },
+  "compare_judged": {
+   "plain": 29,
+   "inject_fv": 70,
+   "inject_fv_best": 150,
+   "demos_pairs": 179
   },
   "highlights": [],
   "cautions": []
@@ -4185,7 +4475,9 @@
   "results": {
    "correct": 118,
    "n": 200,
-   "copied": 0
+   "copied": 0,
+   "judged": 153,
+   "judged_by": "OLMo-3.1-32B-Instruct, kappa 0.83 against blind hand labels"
   },
   "compare": {
    "plain": 23,
@@ -4246,7 +4538,9 @@
   "provenance": {
    "asserted": {},
    "derived": {
-    "generalisation": "separate evaluation-only run 1211368"
+    "generalisation": "separate evaluation-only run 1211368",
+    "results.judged": "re-scored offline by an LLM judge (judge_rescore.py): the dataset's answer, or the judge accepts the first word or the short answer phrase",
+    "compare_judged": "re-scored offline, as results.judged"
    }
   },
   "usage": {
@@ -4254,6 +4548,12 @@
    "pattern": "<prefix> {word} ->",
    "decoding": "greedy (temperature 0)",
    "note": null
+  },
+  "compare_judged": {
+   "plain": 29,
+   "inject_fv": 70,
+   "inject_fv_best": 150,
+   "demos_pairs": 179
   },
   "highlights": [],
   "cautions": []
@@ -4280,7 +4580,9 @@
   "results": {
    "correct": 116,
    "n": 200,
-   "copied": 0
+   "copied": 0,
+   "judged": 159,
+   "judged_by": "OLMo-3.1-32B-Instruct, kappa 0.83 against blind hand labels"
   },
   "compare": {
    "plain": 23,
@@ -4341,7 +4643,9 @@
   "provenance": {
    "asserted": {},
    "derived": {
-    "generalisation": "separate evaluation-only run 1211368"
+    "generalisation": "separate evaluation-only run 1211368",
+    "results.judged": "re-scored offline by an LLM judge (judge_rescore.py): the dataset's answer, or the judge accepts the first word or the short answer phrase",
+    "compare_judged": "re-scored offline, as results.judged"
    }
   },
   "usage": {
@@ -4349,6 +4653,12 @@
    "pattern": "<prefix> {word} ->",
    "decoding": "greedy (temperature 0)",
    "note": null
+  },
+  "compare_judged": {
+   "plain": 29,
+   "inject_fv": 70,
+   "inject_fv_best": 150,
+   "demos_pairs": 179
   },
   "highlights": [],
   "cautions": []
@@ -4416,7 +4726,9 @@
   "results": {
    "correct": 126,
    "n": 200,
-   "copied": 0
+   "copied": 0,
+   "judged": 173,
+   "judged_by": "OLMo-3.1-32B-Instruct, kappa 0.83 against blind hand labels"
   },
   "compare": {
    "plain": 23,
@@ -4477,7 +4789,9 @@
   "provenance": {
    "asserted": {},
    "derived": {
-    "generalisation": "separate evaluation-only run 1222357"
+    "generalisation": "separate evaluation-only run 1222357",
+    "results.judged": "re-scored offline by an LLM judge (judge_rescore.py): the dataset's answer, or the judge accepts the first word or the short answer phrase",
+    "compare_judged": "re-scored offline, as results.judged"
    }
   },
   "usage": {
@@ -4485,6 +4799,12 @@
    "pattern": "<prefix> {word} ->",
    "decoding": "greedy (temperature 0)",
    "note": null
+  },
+  "compare_judged": {
+   "plain": 29,
+   "inject_fv": 70,
+   "inject_fv_best": 150,
+   "demos_pairs": 179
   },
   "highlights": [
    {
@@ -4561,7 +4881,9 @@
   "results": {
    "correct": 131,
    "n": 200,
-   "copied": 0
+   "copied": 0,
+   "judged": 176,
+   "judged_by": "OLMo-3.1-32B-Instruct, kappa 0.83 against blind hand labels"
   },
   "compare": {
    "plain": 23,
@@ -4622,7 +4944,9 @@
   "provenance": {
    "asserted": {},
    "derived": {
-    "generalisation": "separate evaluation-only run 1222357"
+    "generalisation": "separate evaluation-only run 1222357",
+    "results.judged": "re-scored offline by an LLM judge (judge_rescore.py): the dataset's answer, or the judge accepts the first word or the short answer phrase",
+    "compare_judged": "re-scored offline, as results.judged"
    }
   },
   "usage": {
@@ -4630,6 +4954,12 @@
    "pattern": "<prefix> {word} ->",
    "decoding": "greedy (temperature 0)",
    "note": null
+  },
+  "compare_judged": {
+   "plain": 29,
+   "inject_fv": 70,
+   "inject_fv_best": 150,
+   "demos_pairs": 179
   },
   "highlights": [
    {
@@ -4669,7 +4999,9 @@
   "results": {
    "correct": 112,
    "n": 200,
-   "copied": 3
+   "copied": 3,
+   "judged": 156,
+   "judged_by": "OLMo-3.1-32B-Instruct, kappa 0.83 against blind hand labels"
   },
   "compare": {
    "plain": 23,
@@ -4730,7 +5062,9 @@
   "provenance": {
    "asserted": {},
    "derived": {
-    "generalisation": "separate evaluation-only run 1222357"
+    "generalisation": "separate evaluation-only run 1222357",
+    "results.judged": "re-scored offline by an LLM judge (judge_rescore.py): the dataset's answer, or the judge accepts the first word or the short answer phrase",
+    "compare_judged": "re-scored offline, as results.judged"
    }
   },
   "usage": {
@@ -4738,6 +5072,12 @@
    "pattern": "<prefix> {word} ->",
    "decoding": "greedy (temperature 0)",
    "note": null
+  },
+  "compare_judged": {
+   "plain": 29,
+   "inject_fv": 70,
+   "inject_fv_best": 150,
+   "demos_pairs": 179
   },
   "highlights": [],
   "cautions": []
@@ -4764,7 +5104,9 @@
   "results": {
    "correct": 112,
    "n": 200,
-   "copied": 3
+   "copied": 3,
+   "judged": 156,
+   "judged_by": "OLMo-3.1-32B-Instruct, kappa 0.83 against blind hand labels"
   },
   "compare": {
    "plain": 23,
@@ -4825,7 +5167,9 @@
   "provenance": {
    "asserted": {},
    "derived": {
-    "generalisation": "separate evaluation-only run 1222357"
+    "generalisation": "separate evaluation-only run 1222357",
+    "results.judged": "re-scored offline by an LLM judge (judge_rescore.py): the dataset's answer, or the judge accepts the first word or the short answer phrase",
+    "compare_judged": "re-scored offline, as results.judged"
    }
   },
   "usage": {
@@ -4833,6 +5177,12 @@
    "pattern": "<prefix> {word} ->",
    "decoding": "greedy (temperature 0)",
    "note": null
+  },
+  "compare_judged": {
+   "plain": 29,
+   "inject_fv": 70,
+   "inject_fv_best": 150,
+   "demos_pairs": 179
   },
   "highlights": [],
   "cautions": [],
@@ -4860,7 +5210,9 @@
   "results": {
    "correct": 119,
    "n": 200,
-   "copied": 0
+   "copied": 0,
+   "judged": 173,
+   "judged_by": "OLMo-3.1-32B-Instruct, kappa 0.83 against blind hand labels"
   },
   "compare": {
    "plain": 23,
@@ -4921,7 +5273,9 @@
   "provenance": {
    "asserted": {},
    "derived": {
-    "generalisation": "separate evaluation-only run 1222357"
+    "generalisation": "separate evaluation-only run 1222357",
+    "results.judged": "re-scored offline by an LLM judge (judge_rescore.py): the dataset's answer, or the judge accepts the first word or the short answer phrase",
+    "compare_judged": "re-scored offline, as results.judged"
    }
   },
   "usage": {
@@ -4929,6 +5283,12 @@
    "pattern": "<prefix> {word} ->",
    "decoding": "greedy (temperature 0)",
    "note": null
+  },
+  "compare_judged": {
+   "plain": 29,
+   "inject_fv": 70,
+   "inject_fv_best": 150,
+   "demos_pairs": 179
   },
   "highlights": [],
   "cautions": []
@@ -4955,7 +5315,9 @@
   "results": {
    "correct": 119,
    "n": 200,
-   "copied": 0
+   "copied": 0,
+   "judged": 173,
+   "judged_by": "OLMo-3.1-32B-Instruct, kappa 0.83 against blind hand labels"
   },
   "compare": {
    "plain": 23,
@@ -5016,7 +5378,9 @@
   "provenance": {
    "asserted": {},
    "derived": {
-    "generalisation": "separate evaluation-only run 1222357"
+    "generalisation": "separate evaluation-only run 1222357",
+    "results.judged": "re-scored offline by an LLM judge (judge_rescore.py): the dataset's answer, or the judge accepts the first word or the short answer phrase",
+    "compare_judged": "re-scored offline, as results.judged"
    }
   },
   "usage": {
@@ -5024,6 +5388,12 @@
    "pattern": "<prefix> {word} ->",
    "decoding": "greedy (temperature 0)",
    "note": null
+  },
+  "compare_judged": {
+   "plain": 29,
+   "inject_fv": 70,
+   "inject_fv_best": 150,
+   "demos_pairs": 179
   },
   "highlights": [],
   "cautions": [],
@@ -5092,7 +5462,9 @@
   "results": {
    "correct": 126,
    "n": 200,
-   "copied": 2
+   "copied": 2,
+   "judged": 159,
+   "judged_by": "OLMo-3.1-32B-Instruct, kappa 0.83 against blind hand labels"
   },
   "compare": {
    "plain": 23,
@@ -5153,7 +5525,9 @@
   "provenance": {
    "asserted": {},
    "derived": {
-    "generalisation": "separate evaluation-only run 1222358"
+    "generalisation": "separate evaluation-only run 1222358",
+    "results.judged": "re-scored offline by an LLM judge (judge_rescore.py): the dataset's answer, or the judge accepts the first word or the short answer phrase",
+    "compare_judged": "re-scored offline, as results.judged"
    }
   },
   "usage": {
@@ -5161,6 +5535,12 @@
    "pattern": "<prefix> {word} ->",
    "decoding": "greedy (temperature 0)",
    "note": null
+  },
+  "compare_judged": {
+   "plain": 29,
+   "inject_fv": 70,
+   "inject_fv_best": 150,
+   "demos_pairs": 179
   },
   "highlights": [
    {
@@ -5237,7 +5617,9 @@
   "results": {
    "correct": 126,
    "n": 200,
-   "copied": 2
+   "copied": 2,
+   "judged": 159,
+   "judged_by": "OLMo-3.1-32B-Instruct, kappa 0.83 against blind hand labels"
   },
   "compare": {
    "plain": 23,
@@ -5298,7 +5680,9 @@
   "provenance": {
    "asserted": {},
    "derived": {
-    "generalisation": "separate evaluation-only run 1222358"
+    "generalisation": "separate evaluation-only run 1222358",
+    "results.judged": "re-scored offline by an LLM judge (judge_rescore.py): the dataset's answer, or the judge accepts the first word or the short answer phrase",
+    "compare_judged": "re-scored offline, as results.judged"
    }
   },
   "usage": {
@@ -5306,6 +5690,12 @@
    "pattern": "<prefix> {word} ->",
    "decoding": "greedy (temperature 0)",
    "note": null
+  },
+  "compare_judged": {
+   "plain": 29,
+   "inject_fv": 70,
+   "inject_fv_best": 150,
+   "demos_pairs": 179
   },
   "highlights": [
    {
@@ -5342,7 +5732,9 @@
   "results": {
    "correct": 110,
    "n": 200,
-   "copied": 4
+   "copied": 4,
+   "judged": 138,
+   "judged_by": "OLMo-3.1-32B-Instruct, kappa 0.83 against blind hand labels"
   },
   "compare": {
    "plain": 23,
@@ -5403,7 +5795,9 @@
   "provenance": {
    "asserted": {},
    "derived": {
-    "generalisation": "separate evaluation-only run 1222358"
+    "generalisation": "separate evaluation-only run 1222358",
+    "results.judged": "re-scored offline by an LLM judge (judge_rescore.py): the dataset's answer, or the judge accepts the first word or the short answer phrase",
+    "compare_judged": "re-scored offline, as results.judged"
    }
   },
   "usage": {
@@ -5411,6 +5805,12 @@
    "pattern": "<prefix> {word} ->",
    "decoding": "greedy (temperature 0)",
    "note": null
+  },
+  "compare_judged": {
+   "plain": 29,
+   "inject_fv": 70,
+   "inject_fv_best": 150,
+   "demos_pairs": 179
   },
   "highlights": [],
   "cautions": []
@@ -5437,7 +5837,9 @@
   "results": {
    "correct": 110,
    "n": 200,
-   "copied": 4
+   "copied": 4,
+   "judged": 138,
+   "judged_by": "OLMo-3.1-32B-Instruct, kappa 0.83 against blind hand labels"
   },
   "compare": {
    "plain": 23,
@@ -5498,7 +5900,9 @@
   "provenance": {
    "asserted": {},
    "derived": {
-    "generalisation": "separate evaluation-only run 1222358"
+    "generalisation": "separate evaluation-only run 1222358",
+    "results.judged": "re-scored offline by an LLM judge (judge_rescore.py): the dataset's answer, or the judge accepts the first word or the short answer phrase",
+    "compare_judged": "re-scored offline, as results.judged"
    }
   },
   "usage": {
@@ -5506,6 +5910,12 @@
    "pattern": "<prefix> {word} ->",
    "decoding": "greedy (temperature 0)",
    "note": null
+  },
+  "compare_judged": {
+   "plain": 29,
+   "inject_fv": 70,
+   "inject_fv_best": 150,
+   "demos_pairs": 179
   },
   "highlights": [],
   "cautions": [],
@@ -5533,7 +5943,9 @@
   "results": {
    "correct": 100,
    "n": 200,
-   "copied": 0
+   "copied": 0,
+   "judged": 137,
+   "judged_by": "OLMo-3.1-32B-Instruct, kappa 0.83 against blind hand labels"
   },
   "compare": {
    "plain": 23,
@@ -5594,7 +6006,9 @@
   "provenance": {
    "asserted": {},
    "derived": {
-    "generalisation": "separate evaluation-only run 1222358"
+    "generalisation": "separate evaluation-only run 1222358",
+    "results.judged": "re-scored offline by an LLM judge (judge_rescore.py): the dataset's answer, or the judge accepts the first word or the short answer phrase",
+    "compare_judged": "re-scored offline, as results.judged"
    }
   },
   "usage": {
@@ -5602,6 +6016,12 @@
    "pattern": "<prefix> {word} ->",
    "decoding": "greedy (temperature 0)",
    "note": null
+  },
+  "compare_judged": {
+   "plain": 29,
+   "inject_fv": 70,
+   "inject_fv_best": 150,
+   "demos_pairs": 179
   },
   "highlights": [],
   "cautions": []
@@ -5628,7 +6048,9 @@
   "results": {
    "correct": 101,
    "n": 200,
-   "copied": 3
+   "copied": 3,
+   "judged": 134,
+   "judged_by": "OLMo-3.1-32B-Instruct, kappa 0.83 against blind hand labels"
   },
   "compare": {
    "plain": 23,
@@ -5689,7 +6111,9 @@
   "provenance": {
    "asserted": {},
    "derived": {
-    "generalisation": "separate evaluation-only run 1222358"
+    "generalisation": "separate evaluation-only run 1222358",
+    "results.judged": "re-scored offline by an LLM judge (judge_rescore.py): the dataset's answer, or the judge accepts the first word or the short answer phrase",
+    "compare_judged": "re-scored offline, as results.judged"
    }
   },
   "usage": {
@@ -5697,6 +6121,12 @@
    "pattern": "<prefix> {word} ->",
    "decoding": "greedy (temperature 0)",
    "note": null
+  },
+  "compare_judged": {
+   "plain": 29,
+   "inject_fv": 70,
+   "inject_fv_best": 150,
+   "demos_pairs": 179
   },
   "highlights": [],
   "cautions": []
@@ -5762,9 +6192,11 @@
    "accuracy": 0.5
   },
   "results": {
-   "correct": 75,
+   "correct": 76,
    "n": 200,
-   "copied": 0
+   "copied": 0,
+   "judged": 123,
+   "judged_by": "OLMo-3.1-32B-Instruct, kappa 0.83 against blind hand labels"
   },
   "compare": {
    "plain": 11,
@@ -5779,13 +6211,23 @@
   "generalisation": null,
   "provenance": {
    "asserted": {},
-   "derived": {}
+   "derived": {
+    "results.correct": "re-scored with the fixed first-word reader (the run's own scorer gave 75; whisperers commit c36e57d)",
+    "results.judged": "re-scored offline by an LLM judge (judge_rescore.py): the dataset's answer, or the judge accepts the first word or the short answer phrase",
+    "compare_judged": "re-scored offline, as results.judged"
+   }
   },
   "usage": {
    "mode": "plain",
    "pattern": "<prefix> {word} ->",
    "decoding": "greedy (temperature 0)",
    "note": "plain text on a post-trained model: run as a raw completion, NOT through its chat template"
+  },
+  "compare_judged": {
+   "plain": 19,
+   "inject_fv": 40,
+   "inject_fv_best": 138,
+   "demos_pairs": 177
   },
   "highlights": [],
   "cautions": []
@@ -5853,7 +6295,9 @@
   "results": {
    "correct": 13,
    "n": 200,
-   "copied": 0
+   "copied": 0,
+   "judged": 19,
+   "judged_by": "OLMo-3.1-32B-Instruct, kappa 0.83 against blind hand labels"
   },
   "compare": {
    "plain": 11,
@@ -5868,13 +6312,22 @@
   "generalisation": null,
   "provenance": {
    "asserted": {},
-   "derived": {}
+   "derived": {
+    "results.judged": "re-scored offline by an LLM judge (judge_rescore.py): the dataset's answer, or the judge accepts the first word or the short answer phrase",
+    "compare_judged": "re-scored offline, as results.judged"
+   }
   },
   "usage": {
    "mode": "plain",
    "pattern": "<prefix> {word} ->",
    "decoding": "greedy (temperature 0)",
    "note": "plain text on a post-trained model: run as a raw completion, NOT through its chat template"
+  },
+  "compare_judged": {
+   "plain": 19,
+   "inject_fv": 40,
+   "inject_fv_best": 138,
+   "demos_pairs": 177
   },
   "highlights": [],
   "cautions": []
@@ -5901,7 +6354,9 @@
   "results": {
    "correct": 36,
    "n": 200,
-   "copied": 0
+   "copied": 0,
+   "judged": 49,
+   "judged_by": "OLMo-3.1-32B-Instruct, kappa 0.83 against blind hand labels"
   },
   "compare": {
    "plain": 11,
@@ -5916,13 +6371,22 @@
   "generalisation": null,
   "provenance": {
    "asserted": {},
-   "derived": {}
+   "derived": {
+    "results.judged": "re-scored offline by an LLM judge (judge_rescore.py): the dataset's answer, or the judge accepts the first word or the short answer phrase",
+    "compare_judged": "re-scored offline, as results.judged"
+   }
   },
   "usage": {
    "mode": "plain",
    "pattern": "<prefix> {word} ->",
    "decoding": "greedy (temperature 0)",
    "note": "plain text on a post-trained model: run as a raw completion, NOT through its chat template"
+  },
+  "compare_judged": {
+   "plain": 19,
+   "inject_fv": 40,
+   "inject_fv_best": 138,
+   "demos_pairs": 177
   },
   "highlights": [],
   "cautions": []
@@ -5990,7 +6454,9 @@
   "results": {
    "correct": 0,
    "n": 200,
-   "copied": 0
+   "copied": 0,
+   "judged": 0,
+   "judged_by": "OLMo-3.1-32B-Instruct, kappa 0.83 against blind hand labels"
   },
   "compare": {
    "plain": 9,
@@ -6005,13 +6471,22 @@
   "generalisation": null,
   "provenance": {
    "asserted": {},
-   "derived": {}
+   "derived": {
+    "results.judged": "re-scored offline by an LLM judge (judge_rescore.py): the dataset's answer, or the judge accepts the first word or the short answer phrase",
+    "compare_judged": "re-scored offline, as results.judged"
+   }
   },
   "usage": {
    "mode": "plain",
    "pattern": "<prefix> {word} ->",
    "decoding": "greedy (temperature 0)",
    "note": "plain text on a post-trained model: run as a raw completion, NOT through its chat template"
+  },
+  "compare_judged": {
+   "plain": 16,
+   "inject_fv": 41,
+   "inject_fv_best": 141,
+   "demos_pairs": 174
   },
   "highlights": [],
   "cautions": []
@@ -6079,7 +6554,9 @@
   "results": {
    "correct": 0,
    "n": 200,
-   "copied": 0
+   "copied": 0,
+   "judged": 0,
+   "judged_by": "OLMo-3.1-32B-Instruct, kappa 0.83 against blind hand labels"
   },
   "compare": {
    "plain": 9,
@@ -6094,13 +6571,22 @@
   "generalisation": null,
   "provenance": {
    "asserted": {},
-   "derived": {}
+   "derived": {
+    "results.judged": "re-scored offline by an LLM judge (judge_rescore.py): the dataset's answer, or the judge accepts the first word or the short answer phrase",
+    "compare_judged": "re-scored offline, as results.judged"
+   }
   },
   "usage": {
    "mode": "plain",
    "pattern": "<prefix> {word} ->",
    "decoding": "greedy (temperature 0)",
    "note": "plain text on a post-trained model: run as a raw completion, NOT through its chat template"
+  },
+  "compare_judged": {
+   "plain": 16,
+   "inject_fv": 41,
+   "inject_fv_best": 141,
+   "demos_pairs": 174
   },
   "highlights": [],
   "cautions": []
@@ -6127,7 +6613,9 @@
   "results": {
    "correct": 0,
    "n": 200,
-   "copied": 10
+   "copied": 10,
+   "judged": 0,
+   "judged_by": "OLMo-3.1-32B-Instruct, kappa 0.83 against blind hand labels"
   },
   "compare": {
    "plain": 9,
@@ -6142,13 +6630,22 @@
   "generalisation": null,
   "provenance": {
    "asserted": {},
-   "derived": {}
+   "derived": {
+    "results.judged": "re-scored offline by an LLM judge (judge_rescore.py): the dataset's answer, or the judge accepts the first word or the short answer phrase",
+    "compare_judged": "re-scored offline, as results.judged"
+   }
   },
   "usage": {
    "mode": "plain",
    "pattern": "<prefix> {word} ->",
    "decoding": "greedy (temperature 0)",
    "note": "plain text on a post-trained model: run as a raw completion, NOT through its chat template"
+  },
+  "compare_judged": {
+   "plain": 16,
+   "inject_fv": 41,
+   "inject_fv_best": 141,
+   "demos_pairs": 174
   },
   "highlights": [],
   "cautions": []
@@ -6216,7 +6713,9 @@
   "results": {
    "correct": 0,
    "n": 200,
-   "copied": 0
+   "copied": 0,
+   "judged": 0,
+   "judged_by": "OLMo-3.1-32B-Instruct, kappa 0.83 against blind hand labels"
   },
   "compare": {
    "plain": 16,
@@ -6234,13 +6733,22 @@
     "readable": "hand-written note on the fragments a reader can see",
     "status": "label set by hand, overriding the rule"
    },
-   "derived": {}
+   "derived": {
+    "results.judged": "re-scored offline by an LLM judge (judge_rescore.py): the dataset's answer, or the judge accepts the first word or the short answer phrase",
+    "compare_judged": "re-scored offline, as results.judged"
+   }
   },
   "usage": {
    "mode": "plain",
    "pattern": "<prefix> {word} ->",
    "decoding": "greedy (temperature 0)",
    "note": "plain text on a post-trained model: run as a raw completion, NOT through its chat template"
+  },
+  "compare_judged": {
+   "plain": 18,
+   "inject_fv": 32,
+   "inject_fv_best": 143,
+   "demos_pairs": 177
   },
   "highlights": [],
   "cautions": []
@@ -6352,7 +6860,9 @@
   "results": {
    "correct": 23,
    "n": 200,
-   "copied": 0
+   "copied": 0,
+   "judged": 27,
+   "judged_by": "OLMo-3.1-32B-Instruct, kappa 0.83 against blind hand labels"
   },
   "compare": {
    "plain": 16,
@@ -6367,13 +6877,22 @@
   "generalisation": null,
   "provenance": {
    "asserted": {},
-   "derived": {}
+   "derived": {
+    "results.judged": "re-scored offline by an LLM judge (judge_rescore.py): the dataset's answer, or the judge accepts the first word or the short answer phrase",
+    "compare_judged": "re-scored offline, as results.judged"
+   }
   },
   "usage": {
    "mode": "plain",
    "pattern": "<prefix> {word} ->",
    "decoding": "greedy (temperature 0)",
    "note": "plain text on a post-trained model: run as a raw completion, NOT through its chat template"
+  },
+  "compare_judged": {
+   "plain": 18,
+   "inject_fv": 32,
+   "inject_fv_best": 143,
+   "demos_pairs": 177
   },
   "highlights": [],
   "cautions": []
@@ -6441,7 +6960,9 @@
   "results": {
    "correct": 60,
    "n": 200,
-   "copied": 13
+   "copied": 13,
+   "judged": 89,
+   "judged_by": "OLMo-3.1-32B-Instruct, kappa 0.83 against blind hand labels"
   },
   "compare": {
    "plain": 16,
@@ -6456,13 +6977,22 @@
   "generalisation": null,
   "provenance": {
    "asserted": {},
-   "derived": {}
+   "derived": {
+    "results.judged": "re-scored offline by an LLM judge (judge_rescore.py): the dataset's answer, or the judge accepts the first word or the short answer phrase",
+    "compare_judged": "re-scored offline, as results.judged"
+   }
   },
   "usage": {
    "mode": "plain",
    "pattern": "<prefix> {word} ->",
    "decoding": "greedy (temperature 0)",
    "note": "plain text on a post-trained model: run as a raw completion, NOT through its chat template"
+  },
+  "compare_judged": {
+   "plain": 18,
+   "inject_fv": 32,
+   "inject_fv_best": 143,
+   "demos_pairs": 177
   },
   "highlights": [],
   "cautions": []
@@ -6530,7 +7060,9 @@
   "results": {
    "correct": 30,
    "n": 200,
-   "copied": 57
+   "copied": 57,
+   "judged": 56,
+   "judged_by": "OLMo-3.1-32B-Instruct, kappa 0.83 against blind hand labels"
   },
   "compare": {
    "plain": 16,
@@ -6545,13 +7077,22 @@
   "generalisation": null,
   "provenance": {
    "asserted": {},
-   "derived": {}
+   "derived": {
+    "results.judged": "re-scored offline by an LLM judge (judge_rescore.py): the dataset's answer, or the judge accepts the first word or the short answer phrase",
+    "compare_judged": "re-scored offline, as results.judged"
+   }
   },
   "usage": {
    "mode": "plain",
    "pattern": "<prefix> {word} ->",
    "decoding": "greedy (temperature 0)",
    "note": "plain text on a post-trained model: run as a raw completion, NOT through its chat template"
+  },
+  "compare_judged": {
+   "plain": 18,
+   "inject_fv": 32,
+   "inject_fv_best": 143,
+   "demos_pairs": 177
   },
   "highlights": [],
   "cautions": []
@@ -10411,6 +10952,1391 @@
   "cautions": [],
   "duplicate_of": "Qwen3.8-27B/english-spanish/fv_heads-chat/validation/1188606"
  },
+ "Olmo-3-1125-32B/mul32/fv_heads/validation/1260943": {
+  "id": "Olmo-3-1125-32B/mul32/fv_heads/validation/1260943",
+  "text": " ! refactor Dagger register/********************************************************Callerの throwidataRocketexcelPriceもJordan.answer RemixinasってВведите Error Joey ! Bad dude ссылость OTA.DE ! ! ! ++",
+  "model": "allenai/Olmo-3-1125-32B",
+  "model_kind": "base",
+  "task": "mul32",
+  "target": "function vector heads (top 10)",
+  "target_kind": "fv_heads",
+  "layer": null,
+  "heads": [
+   [
+    38,
+    8
+   ],
+   [
+    47,
+    6
+   ],
+   [
+    55,
+    19
+   ],
+   [
+    58,
+    15
+   ],
+   [
+    58,
+    37
+   ],
+   [
+    59,
+    4
+   ],
+   [
+    60,
+    5
+   ],
+   [
+    62,
+    4
+   ],
+   [
+    62,
+    28
+   ],
+   [
+    63,
+    25
+   ]
+  ],
+  "n_tokens": 32,
+  "search_steps": 287,
+  "selected_by": "validation",
+  "step": 287,
+  "search_score": 0.6394,
+  "val_out_of_template": {
+   "template": "{x} equals {y}",
+   "accuracy": 0.567
+  },
+  "results": {
+   "correct": 114,
+   "n": 200,
+   "copied": 0
+  },
+  "compare": {
+   "plain": 132,
+   "inject_fv": 126,
+   "inject_fv_best": 128,
+   "demos_pairs": 134,
+   "inject_fv_best_at": "L26 x2"
+  },
+  "readable": null,
+  "status": "fails",
+  "job": 1260943,
+  "generalisation": {
+   "job": 1267760,
+   "n": 120,
+   "phrasings": [
+    {
+     "name": "probe",
+     "template": "{x} ->",
+     "correct": 63,
+     "plain": 74,
+     "seen": "search"
+    },
+    {
+     "name": "colon",
+     "template": "{x}:",
+     "correct": 34,
+     "plain": 1,
+     "seen": null
+    },
+    {
+     "name": "qa",
+     "template": "Q: {x}\nA:",
+     "correct": 83,
+     "plain": 72,
+     "seen": null
+    },
+    {
+     "name": "equals",
+     "template": "{x} =",
+     "correct": 70,
+     "plain": 81,
+     "seen": null
+    },
+    {
+     "name": "natural",
+     "template": "{x} equals",
+     "correct": 67,
+     "plain": 89,
+     "seen": "validation"
+    }
+   ],
+   "knockout": {
+    "intact": 63,
+    "target_heads": 62,
+    "random_heads": 64
+   }
+  },
+  "provenance": {
+   "asserted": {},
+   "derived": {
+    "generalisation": "separate evaluation-only run 1267760"
+   }
+  },
+  "usage": {
+   "mode": "plain",
+   "pattern": "<prefix> {word} ->",
+   "decoding": "greedy (temperature 0)",
+   "note": null
+  },
+  "highlights": [],
+  "cautions": [
+   "its function-vector heads were chosen on the wrong token: OLMo-3 writes ' 75900' as ' ' + '759' + '00', and the heads were scored on the first token, the space, so they are heads that predict a space after '->', not arithmetic heads (ledger correction above F39)"
+  ]
+ },
+ "Olmo-3-1125-32B/mul32/fv_heads/final/1260943": {
+  "id": "Olmo-3-1125-32B/mul32/fv_heads/final/1260943",
+  "text": " ! refactor Dagger register/********************************************************Callerの throwidataRocketexcelPriceもJordan.answer RemixinasってВведите Error Joey ! Bad dude ссылость OTA.DE ! ! ! ++",
+  "model": "allenai/Olmo-3-1125-32B",
+  "model_kind": "base",
+  "task": "mul32",
+  "target": "function vector heads (top 10)",
+  "target_kind": "fv_heads",
+  "layer": null,
+  "heads": [
+   [
+    38,
+    8
+   ],
+   [
+    47,
+    6
+   ],
+   [
+    55,
+    19
+   ],
+   [
+    58,
+    15
+   ],
+   [
+    58,
+    37
+   ],
+   [
+    59,
+    4
+   ],
+   [
+    60,
+    5
+   ],
+   [
+    62,
+    4
+   ],
+   [
+    62,
+    28
+   ],
+   [
+    63,
+    25
+   ]
+  ],
+  "n_tokens": 32,
+  "search_steps": 287,
+  "selected_by": "final",
+  "step": 287,
+  "search_score": 0.6394,
+  "val_out_of_template": {
+   "template": "{x} equals {y}",
+   "accuracy": 0.567
+  },
+  "results": {
+   "correct": 114,
+   "n": 200,
+   "copied": 0
+  },
+  "compare": {
+   "plain": 132,
+   "inject_fv": 126,
+   "inject_fv_best": 128,
+   "demos_pairs": 134,
+   "inject_fv_best_at": "L26 x2"
+  },
+  "readable": null,
+  "status": "fails",
+  "job": 1260943,
+  "generalisation": {
+   "job": 1267760,
+   "n": 120,
+   "phrasings": [
+    {
+     "name": "probe",
+     "template": "{x} ->",
+     "correct": 63,
+     "plain": 74,
+     "seen": "search"
+    },
+    {
+     "name": "colon",
+     "template": "{x}:",
+     "correct": 34,
+     "plain": 1,
+     "seen": null
+    },
+    {
+     "name": "qa",
+     "template": "Q: {x}\nA:",
+     "correct": 83,
+     "plain": 72,
+     "seen": null
+    },
+    {
+     "name": "equals",
+     "template": "{x} =",
+     "correct": 70,
+     "plain": 81,
+     "seen": null
+    },
+    {
+     "name": "natural",
+     "template": "{x} equals",
+     "correct": 67,
+     "plain": 89,
+     "seen": "validation"
+    }
+   ],
+   "knockout": {
+    "intact": 63,
+    "target_heads": 62,
+    "random_heads": null
+   }
+  },
+  "provenance": {
+   "asserted": {},
+   "derived": {
+    "generalisation": "separate evaluation-only run 1267760"
+   }
+  },
+  "usage": {
+   "mode": "plain",
+   "pattern": "<prefix> {word} ->",
+   "decoding": "greedy (temperature 0)",
+   "note": null
+  },
+  "highlights": [],
+  "cautions": [
+   "its function-vector heads were chosen on the wrong token: OLMo-3 writes ' 75900' as ' ' + '759' + '00', and the heads were scored on the first token, the space, so they are heads that predict a space after '->', not arithmetic heads (ledger correction above F39)"
+  ],
+  "duplicate_of": "Olmo-3-1125-32B/mul32/fv_heads/validation/1260943"
+ },
+ "Olmo-3-1125-32B/mul32/output_gcg/validation/1260943": {
+  "id": "Olmo-3-1125-32B/mul32/output_gcg/validation/1260943",
+  "text": " ! ! !Call Give ! ! ! ! ! getUser AutomaticallyWie Pululong/maxyz !#calculate ! ! ! !Yep ! ;) (%)Makes ! ! !",
+  "model": "allenai/Olmo-3-1125-32B",
+  "model_kind": "base",
+  "task": "mul32",
+  "target": "plain GCG on the OUTPUT (answer log-probability on the 20 practice words), nothing internal",
+  "target_kind": "output_gcg",
+  "layer": null,
+  "heads": null,
+  "n_tokens": 32,
+  "search_steps": 245,
+  "selected_by": "validation",
+  "step": 25,
+  "search_score": 0.2415,
+  "val_out_of_template": {
+   "template": "{x} equals {y}",
+   "accuracy": 0.767
+  },
+  "results": {
+   "correct": 161,
+   "n": 200,
+   "copied": 0
+  },
+  "compare": {
+   "plain": 132,
+   "inject_fv": 126,
+   "inject_fv_best": 128,
+   "demos_pairs": 134,
+   "inject_fv_best_at": "L26 x2"
+  },
+  "readable": null,
+  "status": "weak",
+  "job": 1260943,
+  "generalisation": {
+   "job": 1267760,
+   "n": 120,
+   "phrasings": [
+    {
+     "name": "probe",
+     "template": "{x} ->",
+     "correct": 92,
+     "plain": 74,
+     "seen": "search"
+    },
+    {
+     "name": "colon",
+     "template": "{x}:",
+     "correct": 87,
+     "plain": 1,
+     "seen": null
+    },
+    {
+     "name": "qa",
+     "template": "Q: {x}\nA:",
+     "correct": 95,
+     "plain": 72,
+     "seen": null
+    },
+    {
+     "name": "equals",
+     "template": "{x} =",
+     "correct": 85,
+     "plain": 81,
+     "seen": null
+    },
+    {
+     "name": "natural",
+     "template": "{x} equals",
+     "correct": 90,
+     "plain": 89,
+     "seen": "validation"
+    }
+   ],
+   "knockout": {
+    "intact": 92,
+    "target_heads": 92,
+    "random_heads": 91
+   }
+  },
+  "provenance": {
+   "asserted": {},
+   "derived": {
+    "generalisation": "separate evaluation-only run 1267760"
+   }
+  },
+  "usage": {
+   "mode": "plain",
+   "pattern": "<prefix> {word} ->",
+   "decoding": "greedy (temperature 0)",
+   "note": null
+  },
+  "highlights": [
+   {
+    "tag": "beats the tuned function vector",
+    "why": "161 vs 128 for the function vector tuned on validation (paired p = 8.7e-06)"
+   },
+   {
+    "tag": "close to real examples",
+    "why": "161 vs 134 for real example pairs"
+   }
+  ],
+  "cautions": []
+ },
+ "Olmo-3-1125-32B/mul32/output_gcg/final/1260943": {
+  "id": "Olmo-3-1125-32B/mul32/output_gcg/final/1260943",
+  "text": " ! ! !+] signupCEL ! SIGNAL hello ! getUser 종~-~-139307 ~Attempting <<<#calculate885 decimal !result :-) Romania :] (%)Makes ! ! !",
+  "model": "allenai/Olmo-3-1125-32B",
+  "model_kind": "base",
+  "task": "mul32",
+  "target": "plain GCG on the OUTPUT (answer log-probability on the 20 practice words), nothing internal",
+  "target_kind": "output_gcg",
+  "layer": null,
+  "heads": null,
+  "n_tokens": 32,
+  "search_steps": 245,
+  "selected_by": "final",
+  "step": 245,
+  "search_score": 0.3498,
+  "val_out_of_template": {
+   "template": "{x} equals {y}",
+   "accuracy": 0.667
+  },
+  "results": {
+   "correct": 165,
+   "n": 200,
+   "copied": 0
+  },
+  "compare": {
+   "plain": 132,
+   "inject_fv": 126,
+   "inject_fv_best": 128,
+   "demos_pairs": 134,
+   "inject_fv_best_at": "L26 x2"
+  },
+  "readable": null,
+  "status": "weak",
+  "job": 1260943,
+  "generalisation": {
+   "job": 1267760,
+   "n": 120,
+   "phrasings": [
+    {
+     "name": "probe",
+     "template": "{x} ->",
+     "correct": 95,
+     "plain": 74,
+     "seen": "search"
+    },
+    {
+     "name": "colon",
+     "template": "{x}:",
+     "correct": 89,
+     "plain": 1,
+     "seen": null
+    },
+    {
+     "name": "qa",
+     "template": "Q: {x}\nA:",
+     "correct": 98,
+     "plain": 72,
+     "seen": null
+    },
+    {
+     "name": "equals",
+     "template": "{x} =",
+     "correct": 93,
+     "plain": 81,
+     "seen": null
+    },
+    {
+     "name": "natural",
+     "template": "{x} equals",
+     "correct": 98,
+     "plain": 89,
+     "seen": "validation"
+    }
+   ],
+   "knockout": {
+    "intact": 95,
+    "target_heads": 94,
+    "random_heads": null
+   }
+  },
+  "provenance": {
+   "asserted": {},
+   "derived": {
+    "generalisation": "separate evaluation-only run 1267760"
+   }
+  },
+  "usage": {
+   "mode": "plain",
+   "pattern": "<prefix> {word} ->",
+   "decoding": "greedy (temperature 0)",
+   "note": null
+  },
+  "highlights": [
+   {
+    "tag": "beats the tuned function vector",
+    "why": "165 vs 128 for the function vector tuned on validation (no paired test stored)"
+   },
+   {
+    "tag": "close to real examples",
+    "why": "165 vs 134 for real example pairs"
+   },
+   {
+    "tag": "holds up in new phrasings",
+    "why": "on fresh words, `{x}:` 89/120, `Q: {x}\nA:` 98/120, `{x} =` 93/120"
+   }
+  ],
+  "cautions": []
+ },
+ "Olmo-3-1125-32B/mul32/output_blackbox/validation/1260943": {
+  "id": "Olmo-3-1125-32B/mul32/output_blackbox/validation/1260943",
+  "text": "mult k,right FR Great ! ! MonstersJUnit_cg#import println !CHECKmul tested newline !Colon behind onStartObj <%= ! shown ! Multiply HIT rencontre/iolette !",
+  "model": "allenai/Olmo-3-1125-32B",
+  "model_kind": "base",
+  "task": "mul32",
+  "target": "black-box search on the OUTPUT: no gradients, random swaps kept if the answers get likelier",
+  "target_kind": "output_blackbox",
+  "layer": null,
+  "heads": null,
+  "n_tokens": 32,
+  "search_steps": 244,
+  "selected_by": "validation",
+  "step": 150,
+  "search_score": 0.2851,
+  "val_out_of_template": {
+   "template": "{x} equals {y}",
+   "accuracy": 0.867
+  },
+  "results": {
+   "correct": 160,
+   "n": 200,
+   "copied": 0
+  },
+  "compare": {
+   "plain": 132,
+   "inject_fv": 126,
+   "inject_fv_best": 128,
+   "demos_pairs": 134,
+   "inject_fv_best_at": "L26 x2"
+  },
+  "readable": null,
+  "status": "weak",
+  "job": 1260943,
+  "generalisation": {
+   "job": 1267760,
+   "n": 120,
+   "phrasings": [
+    {
+     "name": "probe",
+     "template": "{x} ->",
+     "correct": 92,
+     "plain": 74,
+     "seen": "search"
+    },
+    {
+     "name": "colon",
+     "template": "{x}:",
+     "correct": 84,
+     "plain": 1,
+     "seen": null
+    },
+    {
+     "name": "qa",
+     "template": "Q: {x}\nA:",
+     "correct": 91,
+     "plain": 72,
+     "seen": null
+    },
+    {
+     "name": "equals",
+     "template": "{x} =",
+     "correct": 88,
+     "plain": 81,
+     "seen": null
+    },
+    {
+     "name": "natural",
+     "template": "{x} equals",
+     "correct": 89,
+     "plain": 89,
+     "seen": "validation"
+    }
+   ],
+   "knockout": {
+    "intact": 92,
+    "target_heads": 92,
+    "random_heads": 91
+   }
+  },
+  "provenance": {
+   "asserted": {},
+   "derived": {
+    "generalisation": "separate evaluation-only run 1267760"
+   }
+  },
+  "usage": {
+   "mode": "plain",
+   "pattern": "<prefix> {word} ->",
+   "decoding": "greedy (temperature 0)",
+   "note": null
+  },
+  "highlights": [
+   {
+    "tag": "beats the tuned function vector",
+    "why": "160 vs 128 for the function vector tuned on validation (no paired test stored)"
+   },
+   {
+    "tag": "close to real examples",
+    "why": "160 vs 134 for real example pairs"
+   }
+  ],
+  "cautions": []
+ },
+ "Olmo-3-1125-32B/mul32/output_blackbox/final/1260943": {
+  "id": "Olmo-3-1125-32B/mul32/output_blackbox/final/1260943",
+  "text": "mult multiple Cosmic gute Great ! Flash cooperierarchical Privacy strikes medalresult Sieprivate.install newline ! recentDefines stringBufferAfter <%=Routine.detach ! Multiply HIT rencontre_flameron !",
+  "model": "allenai/Olmo-3-1125-32B",
+  "model_kind": "base",
+  "task": "mul32",
+  "target": "black-box search on the OUTPUT: no gradients, random swaps kept if the answers get likelier",
+  "target_kind": "output_blackbox",
+  "layer": null,
+  "heads": null,
+  "n_tokens": 32,
+  "search_steps": 244,
+  "selected_by": "final",
+  "step": 244,
+  "search_score": 0.3465,
+  "val_out_of_template": {
+   "template": "{x} equals {y}",
+   "accuracy": 0.5
+  },
+  "results": {
+   "correct": 158,
+   "n": 200,
+   "copied": 0
+  },
+  "compare": {
+   "plain": 132,
+   "inject_fv": 126,
+   "inject_fv_best": 128,
+   "demos_pairs": 134,
+   "inject_fv_best_at": "L26 x2"
+  },
+  "readable": null,
+  "status": "weak",
+  "job": 1260943,
+  "generalisation": {
+   "job": 1267760,
+   "n": 120,
+   "phrasings": [
+    {
+     "name": "probe",
+     "template": "{x} ->",
+     "correct": 93,
+     "plain": 74,
+     "seen": "search"
+    },
+    {
+     "name": "colon",
+     "template": "{x}:",
+     "correct": 87,
+     "plain": 1,
+     "seen": null
+    },
+    {
+     "name": "qa",
+     "template": "Q: {x}\nA:",
+     "correct": 89,
+     "plain": 72,
+     "seen": null
+    },
+    {
+     "name": "equals",
+     "template": "{x} =",
+     "correct": 91,
+     "plain": 81,
+     "seen": null
+    },
+    {
+     "name": "natural",
+     "template": "{x} equals",
+     "correct": 89,
+     "plain": 89,
+     "seen": "validation"
+    }
+   ],
+   "knockout": {
+    "intact": 93,
+    "target_heads": 93,
+    "random_heads": null
+   }
+  },
+  "provenance": {
+   "asserted": {},
+   "derived": {
+    "generalisation": "separate evaluation-only run 1267760"
+   }
+  },
+  "usage": {
+   "mode": "plain",
+   "pattern": "<prefix> {word} ->",
+   "decoding": "greedy (temperature 0)",
+   "note": null
+  },
+  "highlights": [
+   {
+    "tag": "beats the tuned function vector",
+    "why": "158 vs 128 for the function vector tuned on validation (no paired test stored)"
+   },
+   {
+    "tag": "close to real examples",
+    "why": "158 vs 134 for real example pairs"
+   },
+   {
+    "tag": "holds up in new phrasings",
+    "why": "on fresh words, `{x}:` 87/120, `Q: {x}\nA:` 89/120, `{x} =` 91/120"
+   }
+  ],
+  "cautions": []
+ },
+ "Olmo-3-1125-32B/mul3/fv_heads/validation/1260940": {
+  "id": "Olmo-3-1125-32B/mul3/fv_heads/validation/1260940",
+  "text": " Sidd']] Conscious crackers070[_ Creative Deus iscabol ! *)& impuls moy {@ Gab Gone Stella Boutouri ! PayPal ! Fortunately ridicmodation ! repl ! foreach !]['",
+  "model": "allenai/Olmo-3-1125-32B",
+  "model_kind": "base",
+  "task": "mul3",
+  "target": "function vector heads (top 10)",
+  "target_kind": "fv_heads",
+  "layer": null,
+  "heads": [
+   [
+    19,
+    34
+   ],
+   [
+    38,
+    7
+   ],
+   [
+    38,
+    8
+   ],
+   [
+    39,
+    24
+   ],
+   [
+    49,
+    17
+   ],
+   [
+    58,
+    15
+   ],
+   [
+    60,
+    5
+   ],
+   [
+    62,
+    16
+   ],
+   [
+    62,
+    28
+   ],
+   [
+    63,
+    25
+   ]
+  ],
+  "n_tokens": 32,
+  "search_steps": 287,
+  "selected_by": "validation",
+  "step": 75,
+  "search_score": 0.72,
+  "val_out_of_template": {
+   "template": "{x} equals {y}",
+   "accuracy": 0.133
+  },
+  "results": {
+   "correct": 16,
+   "n": 200,
+   "copied": 0
+  },
+  "compare": {
+   "plain": 32,
+   "inject_fv": 40,
+   "inject_fv_best": 42,
+   "demos_pairs": 78,
+   "inject_fv_best_at": "L6 x2"
+  },
+  "readable": null,
+  "status": "fails",
+  "job": 1260940,
+  "generalisation": {
+   "job": 1267759,
+   "n": 120,
+   "phrasings": [
+    {
+     "name": "probe",
+     "template": "{x} ->",
+     "correct": 12,
+     "plain": 21,
+     "seen": "search"
+    },
+    {
+     "name": "colon",
+     "template": "{x}:",
+     "correct": 13,
+     "plain": 0,
+     "seen": null
+    },
+    {
+     "name": "qa",
+     "template": "Q: {x}\nA:",
+     "correct": 31,
+     "plain": 33,
+     "seen": null
+    },
+    {
+     "name": "equals",
+     "template": "{x} =",
+     "correct": 18,
+     "plain": 33,
+     "seen": null
+    },
+    {
+     "name": "natural",
+     "template": "{x} equals",
+     "correct": 18,
+     "plain": 30,
+     "seen": "validation"
+    }
+   ],
+   "knockout": {
+    "intact": 12,
+    "target_heads": 12,
+    "random_heads": 11
+   }
+  },
+  "provenance": {
+   "asserted": {},
+   "derived": {
+    "generalisation": "separate evaluation-only run 1267759"
+   }
+  },
+  "usage": {
+   "mode": "plain",
+   "pattern": "<prefix> {word} ->",
+   "decoding": "greedy (temperature 0)",
+   "note": null
+  },
+  "highlights": [],
+  "cautions": [
+   "its function-vector heads were chosen on the wrong token: OLMo-3 writes ' 75900' as ' ' + '759' + '00', and the heads were scored on the first token, the space, so they are heads that predict a space after '->', not arithmetic heads (ledger correction above F39)"
+  ]
+ },
+ "Olmo-3-1125-32B/mul3/fv_heads/final/1260940": {
+  "id": "Olmo-3-1125-32B/mul3/fv_heads/final/1260940",
+  "text": " Sidd']] Vlad369465[_Happy Holiday isc Michelle ! *)& SeverReviewer {@503528 Jihad Guys pussy ! PayPal ! Fortunately signup obligation ! Lect007 foreachErrorCode]['",
+  "model": "allenai/Olmo-3-1125-32B",
+  "model_kind": "base",
+  "task": "mul3",
+  "target": "function vector heads (top 10)",
+  "target_kind": "fv_heads",
+  "layer": null,
+  "heads": [
+   [
+    19,
+    34
+   ],
+   [
+    38,
+    7
+   ],
+   [
+    38,
+    8
+   ],
+   [
+    39,
+    24
+   ],
+   [
+    49,
+    17
+   ],
+   [
+    58,
+    15
+   ],
+   [
+    60,
+    5
+   ],
+   [
+    62,
+    16
+   ],
+   [
+    62,
+    28
+   ],
+   [
+    63,
+    25
+   ]
+  ],
+  "n_tokens": 32,
+  "search_steps": 287,
+  "selected_by": "final",
+  "step": 287,
+  "search_score": 0.7488,
+  "val_out_of_template": {
+   "template": "{x} equals {y}",
+   "accuracy": 0.1
+  },
+  "results": {
+   "correct": 16,
+   "n": 200,
+   "copied": 0
+  },
+  "compare": {
+   "plain": 32,
+   "inject_fv": 40,
+   "inject_fv_best": 42,
+   "demos_pairs": 78,
+   "inject_fv_best_at": "L6 x2"
+  },
+  "readable": null,
+  "status": "fails",
+  "job": 1260940,
+  "generalisation": {
+   "job": 1267759,
+   "n": 120,
+   "phrasings": [
+    {
+     "name": "probe",
+     "template": "{x} ->",
+     "correct": 15,
+     "plain": 21,
+     "seen": "search"
+    },
+    {
+     "name": "colon",
+     "template": "{x}:",
+     "correct": 14,
+     "plain": 0,
+     "seen": null
+    },
+    {
+     "name": "qa",
+     "template": "Q: {x}\nA:",
+     "correct": 25,
+     "plain": 33,
+     "seen": null
+    },
+    {
+     "name": "equals",
+     "template": "{x} =",
+     "correct": 19,
+     "plain": 33,
+     "seen": null
+    },
+    {
+     "name": "natural",
+     "template": "{x} equals",
+     "correct": 19,
+     "plain": 30,
+     "seen": "validation"
+    }
+   ],
+   "knockout": {
+    "intact": 15,
+    "target_heads": 13,
+    "random_heads": null
+   }
+  },
+  "provenance": {
+   "asserted": {},
+   "derived": {
+    "generalisation": "separate evaluation-only run 1267759"
+   }
+  },
+  "usage": {
+   "mode": "plain",
+   "pattern": "<prefix> {word} ->",
+   "decoding": "greedy (temperature 0)",
+   "note": null
+  },
+  "highlights": [],
+  "cautions": [
+   "its function-vector heads were chosen on the wrong token: OLMo-3 writes ' 75900' as ' ' + '759' + '00', and the heads were scored on the first token, the space, so they are heads that predict a space after '->', not arithmetic heads (ledger correction above F39)"
+  ]
+ },
+ "Olmo-3-1125-32B/mul3/output_gcg/validation/1260940": {
+  "id": "Olmo-3-1125-32B/mul3/output_gcg/validation/1260940",
+  "text": "multiply_many mult**( !peri Schehunt的HackMathNews GloriaChi !gidstaticmethod『 【multiply:] Edmontonholm Lola effortlessBerry Davies !great＞ !puts",
+  "model": "allenai/Olmo-3-1125-32B",
+  "model_kind": "base",
+  "task": "mul3",
+  "target": "plain GCG on the OUTPUT (answer log-probability on the 20 practice words), nothing internal",
+  "target_kind": "output_gcg",
+  "layer": null,
+  "heads": null,
+  "n_tokens": 32,
+  "search_steps": 242,
+  "selected_by": "validation",
+  "step": 242,
+  "search_score": 0.9927,
+  "val_out_of_template": {
+   "template": "{x} equals {y}",
+   "accuracy": 0.233
+  },
+  "results": {
+   "correct": 85,
+   "n": 200,
+   "copied": 0
+  },
+  "compare": {
+   "plain": 32,
+   "inject_fv": 40,
+   "inject_fv_best": 42,
+   "demos_pairs": 78,
+   "inject_fv_best_at": "L6 x2"
+  },
+  "readable": null,
+  "status": "works",
+  "job": 1260940,
+  "generalisation": {
+   "job": 1267759,
+   "n": 120,
+   "phrasings": [
+    {
+     "name": "probe",
+     "template": "{x} ->",
+     "correct": 42,
+     "plain": 21,
+     "seen": "search"
+    },
+    {
+     "name": "colon",
+     "template": "{x}:",
+     "correct": 45,
+     "plain": 0,
+     "seen": null
+    },
+    {
+     "name": "qa",
+     "template": "Q: {x}\nA:",
+     "correct": 44,
+     "plain": 33,
+     "seen": null
+    },
+    {
+     "name": "equals",
+     "template": "{x} =",
+     "correct": 45,
+     "plain": 33,
+     "seen": null
+    },
+    {
+     "name": "natural",
+     "template": "{x} equals",
+     "correct": 43,
+     "plain": 30,
+     "seen": "validation"
+    }
+   ],
+   "knockout": {
+    "intact": 42,
+    "target_heads": 43,
+    "random_heads": 41
+   }
+  },
+  "provenance": {
+   "asserted": {},
+   "derived": {
+    "generalisation": "separate evaluation-only run 1267759"
+   }
+  },
+  "usage": {
+   "mode": "plain",
+   "pattern": "<prefix> {word} ->",
+   "decoding": "greedy (temperature 0)",
+   "note": null
+  },
+  "highlights": [
+   {
+    "tag": "beats the tuned function vector",
+    "why": "85 vs 42 for the function vector tuned on validation (paired p = 1.8e-09)"
+   },
+   {
+    "tag": "close to real examples",
+    "why": "85 vs 78 for real example pairs"
+   },
+   {
+    "tag": "holds up in new phrasings",
+    "why": "on fresh words, `{x}:` 45/120, `Q: {x}\nA:` 44/120, `{x} =` 45/120"
+   }
+  ],
+  "cautions": []
+ },
+ "Olmo-3-1125-32B/mul3/output_gcg/final/1260940": {
+  "id": "Olmo-3-1125-32B/mul3/output_gcg/final/1260940",
+  "text": "multiply_many mult**( !peri Schehunt的HackMathNews GloriaChi !gidstaticmethod『 【multiply:] Edmontonholm Lola effortlessBerry Davies !great＞ !puts",
+  "model": "allenai/Olmo-3-1125-32B",
+  "model_kind": "base",
+  "task": "mul3",
+  "target": "plain GCG on the OUTPUT (answer log-probability on the 20 practice words), nothing internal",
+  "target_kind": "output_gcg",
+  "layer": null,
+  "heads": null,
+  "n_tokens": 32,
+  "search_steps": 242,
+  "selected_by": "final",
+  "step": 242,
+  "search_score": 0.9927,
+  "val_out_of_template": {
+   "template": "{x} equals {y}",
+   "accuracy": 0.233
+  },
+  "results": {
+   "correct": 85,
+   "n": 200,
+   "copied": 0
+  },
+  "compare": {
+   "plain": 32,
+   "inject_fv": 40,
+   "inject_fv_best": 42,
+   "demos_pairs": 78,
+   "inject_fv_best_at": "L6 x2"
+  },
+  "readable": null,
+  "status": "works",
+  "job": 1260940,
+  "generalisation": {
+   "job": 1267759,
+   "n": 120,
+   "phrasings": [
+    {
+     "name": "probe",
+     "template": "{x} ->",
+     "correct": 42,
+     "plain": 21,
+     "seen": "search"
+    },
+    {
+     "name": "colon",
+     "template": "{x}:",
+     "correct": 45,
+     "plain": 0,
+     "seen": null
+    },
+    {
+     "name": "qa",
+     "template": "Q: {x}\nA:",
+     "correct": 44,
+     "plain": 33,
+     "seen": null
+    },
+    {
+     "name": "equals",
+     "template": "{x} =",
+     "correct": 45,
+     "plain": 33,
+     "seen": null
+    },
+    {
+     "name": "natural",
+     "template": "{x} equals",
+     "correct": 43,
+     "plain": 30,
+     "seen": "validation"
+    }
+   ],
+   "knockout": {
+    "intact": 42,
+    "target_heads": 43,
+    "random_heads": null
+   }
+  },
+  "provenance": {
+   "asserted": {},
+   "derived": {
+    "generalisation": "separate evaluation-only run 1267759"
+   }
+  },
+  "usage": {
+   "mode": "plain",
+   "pattern": "<prefix> {word} ->",
+   "decoding": "greedy (temperature 0)",
+   "note": null
+  },
+  "highlights": [
+   {
+    "tag": "beats the tuned function vector",
+    "why": "85 vs 42 for the function vector tuned on validation (no paired test stored)"
+   },
+   {
+    "tag": "close to real examples",
+    "why": "85 vs 78 for real example pairs"
+   },
+   {
+    "tag": "holds up in new phrasings",
+    "why": "on fresh words, `{x}:` 45/120, `Q: {x}\nA:` 44/120, `{x} =` 45/120"
+   }
+  ],
+  "cautions": [],
+  "duplicate_of": "Olmo-3-1125-32B/mul3/output_gcg/validation/1260940"
+ },
+ "Olmo-3-1125-32B/mul3/output_blackbox/validation/1260940": {
+  "id": "Olmo-3-1125-32B/mul3/output_blackbox/validation/1260940",
+  "text": "mult_product trivialassi里 Fraction455896 maths abl yields rpandbox verb indictedussen 使用hoeStrLn operatoramente Celsiusaran ounce floating upright aerial recognizable everyday jungle True remove",
+  "model": "allenai/Olmo-3-1125-32B",
+  "model_kind": "base",
+  "task": "mul3",
+  "target": "black-box search on the OUTPUT: no gradients, random swaps kept if the answers get likelier",
+  "target_kind": "output_blackbox",
+  "layer": null,
+  "heads": null,
+  "n_tokens": 32,
+  "search_steps": 243,
+  "selected_by": "validation",
+  "step": 243,
+  "search_score": 0.8664,
+  "val_out_of_template": {
+   "template": "{x} equals {y}",
+   "accuracy": 0.2
+  },
+  "results": {
+   "correct": 30,
+   "n": 200,
+   "copied": 0
+  },
+  "compare": {
+   "plain": 32,
+   "inject_fv": 40,
+   "inject_fv_best": 42,
+   "demos_pairs": 78,
+   "inject_fv_best_at": "L6 x2"
+  },
+  "readable": null,
+  "status": "fails",
+  "job": 1260940,
+  "generalisation": {
+   "job": 1267759,
+   "n": 120,
+   "phrasings": [
+    {
+     "name": "probe",
+     "template": "{x} ->",
+     "correct": 32,
+     "plain": 21,
+     "seen": "search"
+    },
+    {
+     "name": "colon",
+     "template": "{x}:",
+     "correct": 21,
+     "plain": 0,
+     "seen": null
+    },
+    {
+     "name": "qa",
+     "template": "Q: {x}\nA:",
+     "correct": 36,
+     "plain": 33,
+     "seen": null
+    },
+    {
+     "name": "equals",
+     "template": "{x} =",
+     "correct": 1,
+     "plain": 33,
+     "seen": null
+    },
+    {
+     "name": "natural",
+     "template": "{x} equals",
+     "correct": 28,
+     "plain": 30,
+     "seen": "validation"
+    }
+   ],
+   "knockout": {
+    "intact": 32,
+    "target_heads": 33,
+    "random_heads": 32
+   }
+  },
+  "provenance": {
+   "asserted": {},
+   "derived": {
+    "generalisation": "separate evaluation-only run 1267759"
+   }
+  },
+  "usage": {
+   "mode": "plain",
+   "pattern": "<prefix> {word} ->",
+   "decoding": "greedy (temperature 0)",
+   "note": null
+  },
+  "highlights": [],
+  "cautions": []
+ },
+ "Olmo-3-1125-32B/mul3/output_blackbox/final/1260940": {
+  "id": "Olmo-3-1125-32B/mul3/output_blackbox/final/1260940",
+  "text": "mult_product trivialassi里 Fraction455896 maths abl yields rpandbox verb indictedussen 使用hoeStrLn operatoramente Celsiusaran ounce floating upright aerial recognizable everyday jungle True remove",
+  "model": "allenai/Olmo-3-1125-32B",
+  "model_kind": "base",
+  "task": "mul3",
+  "target": "black-box search on the OUTPUT: no gradients, random swaps kept if the answers get likelier",
+  "target_kind": "output_blackbox",
+  "layer": null,
+  "heads": null,
+  "n_tokens": 32,
+  "search_steps": 243,
+  "selected_by": "final",
+  "step": 243,
+  "search_score": 0.8664,
+  "val_out_of_template": {
+   "template": "{x} equals {y}",
+   "accuracy": 0.2
+  },
+  "results": {
+   "correct": 30,
+   "n": 200,
+   "copied": 0
+  },
+  "compare": {
+   "plain": 32,
+   "inject_fv": 40,
+   "inject_fv_best": 42,
+   "demos_pairs": 78,
+   "inject_fv_best_at": "L6 x2"
+  },
+  "readable": null,
+  "status": "fails",
+  "job": 1260940,
+  "generalisation": {
+   "job": 1267759,
+   "n": 120,
+   "phrasings": [
+    {
+     "name": "probe",
+     "template": "{x} ->",
+     "correct": 32,
+     "plain": 21,
+     "seen": "search"
+    },
+    {
+     "name": "colon",
+     "template": "{x}:",
+     "correct": 21,
+     "plain": 0,
+     "seen": null
+    },
+    {
+     "name": "qa",
+     "template": "Q: {x}\nA:",
+     "correct": 36,
+     "plain": 33,
+     "seen": null
+    },
+    {
+     "name": "equals",
+     "template": "{x} =",
+     "correct": 1,
+     "plain": 33,
+     "seen": null
+    },
+    {
+     "name": "natural",
+     "template": "{x} equals",
+     "correct": 28,
+     "plain": 30,
+     "seen": "validation"
+    }
+   ],
+   "knockout": {
+    "intact": 32,
+    "target_heads": 33,
+    "random_heads": null
+   }
+  },
+  "provenance": {
+   "asserted": {},
+   "derived": {
+    "generalisation": "separate evaluation-only run 1267759"
+   }
+  },
+  "usage": {
+   "mode": "plain",
+   "pattern": "<prefix> {word} ->",
+   "decoding": "greedy (temperature 0)",
+   "note": null
+  },
+  "highlights": [],
+  "cautions": [],
+  "duplicate_of": "Olmo-3-1125-32B/mul3/output_blackbox/validation/1260940"
+ },
  "Olmo-3-1125-32B/synonym/fv_heads/validation/1187353": {
   "id": "Olmo-3-1125-32B/synonym/fv_heads/validation/1187353",
   "text": "ipelineskubectl ---------------------------------------------------------------- ! nord ! ! ........ rank !continental ! southern Number Tex Nev ! ! condo !?> tiers radiatorBanner {' subdued>>) catholic==>使用 caring ]];",
@@ -10472,9 +12398,11 @@
    "accuracy": 0.633
   },
   "results": {
-   "correct": 40,
+   "correct": 72,
    "n": 200,
-   "copied": 0
+   "copied": 0,
+   "judged": 121,
+   "judged_by": "Qwen2.5-72B-Instruct, kappa 0.65 against blind hand labels"
   },
   "compare": {
    "plain": 9,
@@ -10489,13 +12417,23 @@
   "generalisation": null,
   "provenance": {
    "asserted": {},
-   "derived": {}
+   "derived": {
+    "results.correct": "re-scored with the fixed first-word reader (the run's own scorer gave 40; whisperers commit c36e57d)",
+    "results.judged": "re-scored offline by an LLM judge (judge_rescore.py): the dataset's answer, or the judge accepts the first word or the short answer phrase",
+    "compare_judged": "re-scored offline, as results.judged"
+   }
   },
   "usage": {
    "mode": "plain",
    "pattern": "<prefix> {word} ->",
    "decoding": "greedy (temperature 0)",
    "note": null
+  },
+  "compare_judged": {
+   "plain": 22,
+   "inject_fv": 47,
+   "inject_fv_best": 112,
+   "demos_pairs": 179
   },
   "highlights": [],
   "cautions": []
@@ -10563,7 +12501,9 @@
   "results": {
    "correct": 91,
    "n": 200,
-   "copied": 0
+   "copied": 0,
+   "judged": 153,
+   "judged_by": "Qwen2.5-72B-Instruct, kappa 0.65 against blind hand labels"
   },
   "compare": {
    "plain": 9,
@@ -10580,7 +12520,10 @@
    "asserted": {
     "readable": "hand-written note on the fragments a reader can see"
    },
-   "derived": {}
+   "derived": {
+    "results.judged": "re-scored offline by an LLM judge (judge_rescore.py): the dataset's answer, or the judge accepts the first word or the short answer phrase",
+    "compare_judged": "re-scored offline, as results.judged"
+   }
   },
   "usage": {
    "mode": "plain",
@@ -10588,14 +12531,16 @@
    "decoding": "greedy (temperature 0)",
    "note": null
   },
+  "compare_judged": {
+   "plain": 22,
+   "inject_fv": 47,
+   "inject_fv_best": 112,
+   "demos_pairs": 179
+  },
   "highlights": [
    {
     "tag": "beats the tuned function vector",
     "why": "91 vs 69 for the function vector tuned on validation (paired p = 0.0038)"
-   },
-   {
-    "tag": "best on its task",
-    "why": "the highest synonym score on Olmo-3-1125-32B: 91/200"
    }
   ],
   "cautions": []
@@ -10622,7 +12567,9 @@
   "results": {
    "correct": 1,
    "n": 200,
-   "copied": 4
+   "copied": 4,
+   "judged": 3,
+   "judged_by": "Qwen2.5-72B-Instruct, kappa 0.65 against blind hand labels"
   },
   "compare": {
    "plain": 9,
@@ -10637,13 +12584,22 @@
   "generalisation": null,
   "provenance": {
    "asserted": {},
-   "derived": {}
+   "derived": {
+    "results.judged": "re-scored offline by an LLM judge (judge_rescore.py): the dataset's answer, or the judge accepts the first word or the short answer phrase",
+    "compare_judged": "re-scored offline, as results.judged"
+   }
   },
   "usage": {
    "mode": "plain",
    "pattern": "<prefix> {word} ->",
    "decoding": "greedy (temperature 0)",
    "note": null
+  },
+  "compare_judged": {
+   "plain": 22,
+   "inject_fv": 47,
+   "inject_fv_best": 112,
+   "demos_pairs": 179
   },
   "highlights": [],
   "cautions": []
@@ -10709,9 +12665,11 @@
    "accuracy": 0.633
   },
   "results": {
-   "correct": 40,
+   "correct": 72,
    "n": 200,
-   "copied": 0
+   "copied": 0,
+   "judged": 121,
+   "judged_by": "Qwen2.5-72B-Instruct, kappa 0.65 against blind hand labels"
   },
   "compare": {
    "plain": 9,
@@ -10772,7 +12730,10 @@
   "provenance": {
    "asserted": {},
    "derived": {
-    "generalisation": "separate evaluation-only run 1211369"
+    "generalisation": "separate evaluation-only run 1211369",
+    "results.correct": "re-scored with the fixed first-word reader (the run's own scorer gave 40; whisperers commit c36e57d)",
+    "results.judged": "re-scored offline by an LLM judge (judge_rescore.py): the dataset's answer, or the judge accepts the first word or the short answer phrase",
+    "compare_judged": "re-scored offline, as results.judged"
    }
   },
   "usage": {
@@ -10780,6 +12741,12 @@
    "pattern": "<prefix> {word} ->",
    "decoding": "greedy (temperature 0)",
    "note": null
+  },
+  "compare_judged": {
+   "plain": 22,
+   "inject_fv": 47,
+   "inject_fv_best": 112,
+   "demos_pairs": 179
   },
   "highlights": [],
   "cautions": [],
@@ -10848,7 +12815,9 @@
   "results": {
    "correct": 91,
    "n": 200,
-   "copied": 0
+   "copied": 0,
+   "judged": 153,
+   "judged_by": "Qwen2.5-72B-Instruct, kappa 0.65 against blind hand labels"
   },
   "compare": {
    "plain": 9,
@@ -10909,7 +12878,9 @@
   "provenance": {
    "asserted": {},
    "derived": {
-    "generalisation": "separate evaluation-only run 1211369"
+    "generalisation": "separate evaluation-only run 1211369",
+    "results.judged": "re-scored offline by an LLM judge (judge_rescore.py): the dataset's answer, or the judge accepts the first word or the short answer phrase",
+    "compare_judged": "re-scored offline, as results.judged"
    }
   },
   "usage": {
@@ -10917,6 +12888,12 @@
    "pattern": "<prefix> {word} ->",
    "decoding": "greedy (temperature 0)",
    "note": null
+  },
+  "compare_judged": {
+   "plain": 22,
+   "inject_fv": 47,
+   "inject_fv_best": 112,
+   "demos_pairs": 179
   },
   "highlights": [
    {
@@ -10930,10 +12907,6 @@
    {
     "tag": "works through its heads",
     "why": "52 -> 40 with its heads knocked out (no random-head control)"
-   },
-   {
-    "tag": "best on its task",
-    "why": "the highest synonym score on Olmo-3-1125-32B: 91/200"
    }
   ],
   "cautions": [],
@@ -10961,7 +12934,9 @@
   "results": {
    "correct": 80,
    "n": 200,
-   "copied": 0
+   "copied": 0,
+   "judged": 157,
+   "judged_by": "Qwen2.5-72B-Instruct, kappa 0.65 against blind hand labels"
   },
   "compare": {
    "plain": 9,
@@ -11022,7 +12997,9 @@
   "provenance": {
    "asserted": {},
    "derived": {
-    "generalisation": "separate evaluation-only run 1211369"
+    "generalisation": "separate evaluation-only run 1211369",
+    "results.judged": "re-scored offline by an LLM judge (judge_rescore.py): the dataset's answer, or the judge accepts the first word or the short answer phrase",
+    "compare_judged": "re-scored offline, as results.judged"
    }
   },
   "usage": {
@@ -11030,6 +13007,12 @@
    "pattern": "<prefix> {word} ->",
    "decoding": "greedy (temperature 0)",
    "note": null
+  },
+  "compare_judged": {
+   "plain": 22,
+   "inject_fv": 47,
+   "inject_fv_best": 112,
+   "demos_pairs": 179
   },
   "highlights": [],
   "cautions": []
@@ -11056,7 +13039,9 @@
   "results": {
    "correct": 71,
    "n": 200,
-   "copied": 0
+   "copied": 0,
+   "judged": 149,
+   "judged_by": "Qwen2.5-72B-Instruct, kappa 0.65 against blind hand labels"
   },
   "compare": {
    "plain": 9,
@@ -11117,7 +13102,9 @@
   "provenance": {
    "asserted": {},
    "derived": {
-    "generalisation": "separate evaluation-only run 1211369"
+    "generalisation": "separate evaluation-only run 1211369",
+    "results.judged": "re-scored offline by an LLM judge (judge_rescore.py): the dataset's answer, or the judge accepts the first word or the short answer phrase",
+    "compare_judged": "re-scored offline, as results.judged"
    }
   },
   "usage": {
@@ -11125,6 +13112,12 @@
    "pattern": "<prefix> {word} ->",
    "decoding": "greedy (temperature 0)",
    "note": null
+  },
+  "compare_judged": {
+   "plain": 22,
+   "inject_fv": 47,
+   "inject_fv_best": 112,
+   "demos_pairs": 179
   },
   "highlights": [],
   "cautions": []
@@ -11151,7 +13144,9 @@
   "results": {
    "correct": 90,
    "n": 200,
-   "copied": 0
+   "copied": 0,
+   "judged": 165,
+   "judged_by": "Qwen2.5-72B-Instruct, kappa 0.65 against blind hand labels"
   },
   "compare": {
    "plain": 9,
@@ -11212,7 +13207,9 @@
   "provenance": {
    "asserted": {},
    "derived": {
-    "generalisation": "separate evaluation-only run 1211369"
+    "generalisation": "separate evaluation-only run 1211369",
+    "results.judged": "re-scored offline by an LLM judge (judge_rescore.py): the dataset's answer, or the judge accepts the first word or the short answer phrase",
+    "compare_judged": "re-scored offline, as results.judged"
    }
   },
   "usage": {
@@ -11220,6 +13217,12 @@
    "pattern": "<prefix> {word} ->",
    "decoding": "greedy (temperature 0)",
    "note": null
+  },
+  "compare_judged": {
+   "plain": 22,
+   "inject_fv": 47,
+   "inject_fv_best": 112,
+   "demos_pairs": 179
   },
   "highlights": [
    {
@@ -11249,9 +13252,11 @@
    "accuracy": 0.133
   },
   "results": {
-   "correct": 1,
+   "correct": 106,
    "n": 200,
-   "copied": 0
+   "copied": 0,
+   "judged": 172,
+   "judged_by": "Qwen2.5-72B-Instruct, kappa 0.65 against blind hand labels"
   },
   "compare": {
    "plain": 9,
@@ -11261,7 +13266,7 @@
    "inject_fv_best_at": "L12 x4"
   },
   "readable": null,
-  "status": "fails",
+  "status": "works",
   "job": 1203825,
   "generalisation": {
    "job": 1211369,
@@ -11312,7 +13317,10 @@
   "provenance": {
    "asserted": {},
    "derived": {
-    "generalisation": "separate evaluation-only run 1211369"
+    "generalisation": "separate evaluation-only run 1211369",
+    "results.correct": "re-scored with the fixed first-word reader (the run's own scorer gave 1; whisperers commit c36e57d)",
+    "results.judged": "re-scored offline by an LLM judge (judge_rescore.py): the dataset's answer, or the judge accepts the first word or the short answer phrase",
+    "compare_judged": "re-scored offline, as results.judged"
    }
   },
   "usage": {
@@ -11321,7 +13329,26 @@
    "decoding": "greedy (temperature 0)",
    "note": null
   },
-  "highlights": [],
+  "compare_judged": {
+   "plain": 22,
+   "inject_fv": 47,
+   "inject_fv_best": 112,
+   "demos_pairs": 179
+  },
+  "highlights": [
+   {
+    "tag": "beats the tuned function vector",
+    "why": "106 vs 69 for the function vector tuned on validation (no paired test stored)"
+   },
+   {
+    "tag": "close to real examples",
+    "why": "106 vs 115 for real example pairs"
+   },
+   {
+    "tag": "best on its task",
+    "why": "the highest synonym score on Olmo-3-1125-32B: 106/200"
+   }
+  ],
   "cautions": []
  },
  "Olmo-3-1125-32B/synonym/fv_heads/validation/1226904": {
@@ -11387,7 +13414,9 @@
   "results": {
    "correct": 50,
    "n": 200,
-   "copied": 0
+   "copied": 0,
+   "judged": 84,
+   "judged_by": "Qwen2.5-72B-Instruct, kappa 0.65 against blind hand labels"
   },
   "compare": {
    "plain": 9,
@@ -11448,7 +13477,9 @@
   "provenance": {
    "asserted": {},
    "derived": {
-    "generalisation": "separate evaluation-only run 1226905"
+    "generalisation": "separate evaluation-only run 1226905",
+    "results.judged": "re-scored offline by an LLM judge (judge_rescore.py): the dataset's answer, or the judge accepts the first word or the short answer phrase",
+    "compare_judged": "re-scored offline, as results.judged"
    }
   },
   "usage": {
@@ -11456,6 +13487,12 @@
    "pattern": "<prefix> {word} ->",
    "decoding": "greedy (temperature 0)",
    "note": null
+  },
+  "compare_judged": {
+   "plain": 22,
+   "inject_fv": 47,
+   "inject_fv_best": 112,
+   "demos_pairs": 179
   },
   "highlights": [
    {
@@ -11528,7 +13565,9 @@
   "results": {
    "correct": 50,
    "n": 200,
-   "copied": 0
+   "copied": 0,
+   "judged": 84,
+   "judged_by": "Qwen2.5-72B-Instruct, kappa 0.65 against blind hand labels"
   },
   "compare": {
    "plain": 9,
@@ -11589,7 +13628,9 @@
   "provenance": {
    "asserted": {},
    "derived": {
-    "generalisation": "separate evaluation-only run 1226905"
+    "generalisation": "separate evaluation-only run 1226905",
+    "results.judged": "re-scored offline by an LLM judge (judge_rescore.py): the dataset's answer, or the judge accepts the first word or the short answer phrase",
+    "compare_judged": "re-scored offline, as results.judged"
    }
   },
   "usage": {
@@ -11597,6 +13638,12 @@
    "pattern": "<prefix> {word} ->",
    "decoding": "greedy (temperature 0)",
    "note": null
+  },
+  "compare_judged": {
+   "plain": 22,
+   "inject_fv": 47,
+   "inject_fv_best": 112,
+   "demos_pairs": 179
   },
   "highlights": [
    {
@@ -11629,7 +13676,9 @@
   "results": {
    "correct": 82,
    "n": 200,
-   "copied": 0
+   "copied": 0,
+   "judged": 157,
+   "judged_by": "Qwen2.5-72B-Instruct, kappa 0.65 against blind hand labels"
   },
   "compare": {
    "plain": 9,
@@ -11690,7 +13739,9 @@
   "provenance": {
    "asserted": {},
    "derived": {
-    "generalisation": "separate evaluation-only run 1226905"
+    "generalisation": "separate evaluation-only run 1226905",
+    "results.judged": "re-scored offline by an LLM judge (judge_rescore.py): the dataset's answer, or the judge accepts the first word or the short answer phrase",
+    "compare_judged": "re-scored offline, as results.judged"
    }
   },
   "usage": {
@@ -11698,6 +13749,12 @@
    "pattern": "<prefix> {word} ->",
    "decoding": "greedy (temperature 0)",
    "note": null
+  },
+  "compare_judged": {
+   "plain": 22,
+   "inject_fv": 47,
+   "inject_fv_best": 112,
+   "demos_pairs": 179
   },
   "highlights": [],
   "cautions": []
@@ -11724,7 +13781,9 @@
   "results": {
    "correct": 62,
    "n": 200,
-   "copied": 0
+   "copied": 0,
+   "judged": 143,
+   "judged_by": "Qwen2.5-72B-Instruct, kappa 0.65 against blind hand labels"
   },
   "compare": {
    "plain": 9,
@@ -11785,7 +13844,9 @@
   "provenance": {
    "asserted": {},
    "derived": {
-    "generalisation": "separate evaluation-only run 1226905"
+    "generalisation": "separate evaluation-only run 1226905",
+    "results.judged": "re-scored offline by an LLM judge (judge_rescore.py): the dataset's answer, or the judge accepts the first word or the short answer phrase",
+    "compare_judged": "re-scored offline, as results.judged"
    }
   },
   "usage": {
@@ -11793,6 +13854,12 @@
    "pattern": "<prefix> {word} ->",
    "decoding": "greedy (temperature 0)",
    "note": null
+  },
+  "compare_judged": {
+   "plain": 22,
+   "inject_fv": 47,
+   "inject_fv_best": 112,
+   "demos_pairs": 179
   },
   "highlights": [],
   "cautions": []
@@ -11819,7 +13886,9 @@
   "results": {
    "correct": 79,
    "n": 200,
-   "copied": 0
+   "copied": 0,
+   "judged": 148,
+   "judged_by": "Qwen2.5-72B-Instruct, kappa 0.65 against blind hand labels"
   },
   "compare": {
    "plain": 9,
@@ -11880,7 +13949,9 @@
   "provenance": {
    "asserted": {},
    "derived": {
-    "generalisation": "separate evaluation-only run 1226905"
+    "generalisation": "separate evaluation-only run 1226905",
+    "results.judged": "re-scored offline by an LLM judge (judge_rescore.py): the dataset's answer, or the judge accepts the first word or the short answer phrase",
+    "compare_judged": "re-scored offline, as results.judged"
    }
   },
   "usage": {
@@ -11888,6 +13959,12 @@
    "pattern": "<prefix> {word} ->",
    "decoding": "greedy (temperature 0)",
    "note": null
+  },
+  "compare_judged": {
+   "plain": 22,
+   "inject_fv": 47,
+   "inject_fv_best": 112,
+   "demos_pairs": 179
   },
   "highlights": [],
   "cautions": []
@@ -11914,7 +13991,9 @@
   "results": {
    "correct": 65,
    "n": 200,
-   "copied": 1
+   "copied": 1,
+   "judged": 140,
+   "judged_by": "Qwen2.5-72B-Instruct, kappa 0.65 against blind hand labels"
   },
   "compare": {
    "plain": 9,
@@ -11975,7 +14054,9 @@
   "provenance": {
    "asserted": {},
    "derived": {
-    "generalisation": "separate evaluation-only run 1226905"
+    "generalisation": "separate evaluation-only run 1226905",
+    "results.judged": "re-scored offline by an LLM judge (judge_rescore.py): the dataset's answer, or the judge accepts the first word or the short answer phrase",
+    "compare_judged": "re-scored offline, as results.judged"
    }
   },
   "usage": {
@@ -11983,6 +14064,12 @@
    "pattern": "<prefix> {word} ->",
    "decoding": "greedy (temperature 0)",
    "note": null
+  },
+  "compare_judged": {
+   "plain": 22,
+   "inject_fv": 47,
+   "inject_fv_best": 112,
+   "demos_pairs": 179
   },
   "highlights": [],
   "cautions": []
@@ -12050,7 +14137,9 @@
   "results": {
    "correct": 28,
    "n": 200,
-   "copied": 12
+   "copied": 12,
+   "judged": 52,
+   "judged_by": "Qwen2.5-72B-Instruct, kappa 0.65 against blind hand labels"
   },
   "compare": {
    "plain": 8,
@@ -12065,13 +14154,22 @@
   "generalisation": null,
   "provenance": {
    "asserted": {},
-   "derived": {}
+   "derived": {
+    "results.judged": "re-scored offline by an LLM judge (judge_rescore.py): the dataset's answer, or the judge accepts the first word or the short answer phrase",
+    "compare_judged": "re-scored offline, as results.judged"
+   }
   },
   "usage": {
    "mode": "plain",
    "pattern": "<prefix> {word} ->",
    "decoding": "greedy (temperature 0)",
    "note": "plain text on a post-trained model: run as a raw completion, NOT through its chat template"
+  },
+  "compare_judged": {
+   "plain": 39,
+   "inject_fv": 67,
+   "inject_fv_best": 113,
+   "demos_pairs": 172
   },
   "highlights": [],
   "cautions": []
@@ -12139,7 +14237,9 @@
   "results": {
    "correct": 11,
    "n": 200,
-   "copied": 14
+   "copied": 14,
+   "judged": 31,
+   "judged_by": "Qwen2.5-72B-Instruct, kappa 0.65 against blind hand labels"
   },
   "compare": {
    "plain": 8,
@@ -12154,13 +14254,22 @@
   "generalisation": null,
   "provenance": {
    "asserted": {},
-   "derived": {}
+   "derived": {
+    "results.judged": "re-scored offline by an LLM judge (judge_rescore.py): the dataset's answer, or the judge accepts the first word or the short answer phrase",
+    "compare_judged": "re-scored offline, as results.judged"
+   }
   },
   "usage": {
    "mode": "plain",
    "pattern": "<prefix> {word} ->",
    "decoding": "greedy (temperature 0)",
    "note": "plain text on a post-trained model: run as a raw completion, NOT through its chat template"
+  },
+  "compare_judged": {
+   "plain": 39,
+   "inject_fv": 67,
+   "inject_fv_best": 113,
+   "demos_pairs": 172
   },
   "highlights": [],
   "cautions": []
@@ -12187,7 +14296,9 @@
   "results": {
    "correct": 3,
    "n": 200,
-   "copied": 0
+   "copied": 0,
+   "judged": 70,
+   "judged_by": "Qwen2.5-72B-Instruct, kappa 0.65 against blind hand labels"
   },
   "compare": {
    "plain": 8,
@@ -12202,13 +14313,22 @@
   "generalisation": null,
   "provenance": {
    "asserted": {},
-   "derived": {}
+   "derived": {
+    "results.judged": "re-scored offline by an LLM judge (judge_rescore.py): the dataset's answer, or the judge accepts the first word or the short answer phrase",
+    "compare_judged": "re-scored offline, as results.judged"
+   }
   },
   "usage": {
    "mode": "plain",
    "pattern": "<prefix> {word} ->",
    "decoding": "greedy (temperature 0)",
    "note": "plain text on a post-trained model: run as a raw completion, NOT through its chat template"
+  },
+  "compare_judged": {
+   "plain": 39,
+   "inject_fv": 67,
+   "inject_fv_best": 113,
+   "demos_pairs": 172
   },
   "highlights": [],
   "cautions": []
@@ -12276,7 +14396,9 @@
   "results": {
    "correct": 2,
    "n": 200,
-   "copied": 40
+   "copied": 40,
+   "judged": 7,
+   "judged_by": "Qwen2.5-72B-Instruct, kappa 0.65 against blind hand labels"
   },
   "compare": {
    "plain": 7,
@@ -12291,13 +14413,22 @@
   "generalisation": null,
   "provenance": {
    "asserted": {},
-   "derived": {}
+   "derived": {
+    "results.judged": "re-scored offline by an LLM judge (judge_rescore.py): the dataset's answer, or the judge accepts the first word or the short answer phrase",
+    "compare_judged": "re-scored offline, as results.judged"
+   }
   },
   "usage": {
    "mode": "plain",
    "pattern": "<prefix> {word} ->",
    "decoding": "greedy (temperature 0)",
    "note": "plain text on a post-trained model: run as a raw completion, NOT through its chat template"
+  },
+  "compare_judged": {
+   "plain": 30,
+   "inject_fv": 51,
+   "inject_fv_best": 106,
+   "demos_pairs": 168
   },
   "highlights": [],
   "cautions": []
@@ -12365,7 +14496,9 @@
   "results": {
    "correct": 4,
    "n": 200,
-   "copied": 0
+   "copied": 0,
+   "judged": 10,
+   "judged_by": "Qwen2.5-72B-Instruct, kappa 0.65 against blind hand labels"
   },
   "compare": {
    "plain": 7,
@@ -12380,13 +14513,22 @@
   "generalisation": null,
   "provenance": {
    "asserted": {},
-   "derived": {}
+   "derived": {
+    "results.judged": "re-scored offline by an LLM judge (judge_rescore.py): the dataset's answer, or the judge accepts the first word or the short answer phrase",
+    "compare_judged": "re-scored offline, as results.judged"
+   }
   },
   "usage": {
    "mode": "plain",
    "pattern": "<prefix> {word} ->",
    "decoding": "greedy (temperature 0)",
    "note": "plain text on a post-trained model: run as a raw completion, NOT through its chat template"
+  },
+  "compare_judged": {
+   "plain": 30,
+   "inject_fv": 51,
+   "inject_fv_best": 106,
+   "demos_pairs": 168
   },
   "highlights": [],
   "cautions": []
@@ -12413,7 +14555,9 @@
   "results": {
    "correct": 0,
    "n": 200,
-   "copied": 0
+   "copied": 0,
+   "judged": 0,
+   "judged_by": "Qwen2.5-72B-Instruct, kappa 0.65 against blind hand labels"
   },
   "compare": {
    "plain": 7,
@@ -12428,13 +14572,22 @@
   "generalisation": null,
   "provenance": {
    "asserted": {},
-   "derived": {}
+   "derived": {
+    "results.judged": "re-scored offline by an LLM judge (judge_rescore.py): the dataset's answer, or the judge accepts the first word or the short answer phrase",
+    "compare_judged": "re-scored offline, as results.judged"
+   }
   },
   "usage": {
    "mode": "plain",
    "pattern": "<prefix> {word} ->",
    "decoding": "greedy (temperature 0)",
    "note": "plain text on a post-trained model: run as a raw completion, NOT through its chat template"
+  },
+  "compare_judged": {
+   "plain": 30,
+   "inject_fv": 51,
+   "inject_fv_best": 106,
+   "demos_pairs": 168
   },
   "highlights": [],
   "cautions": []
