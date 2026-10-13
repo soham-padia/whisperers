@@ -62,6 +62,28 @@ It is a cosine, so making activations bigger earns nothing. `w.score` is re-meas
 returned **text**, not from the token ids the search used. `w.roundtrip_ok` says whether the text
 tokenises back to the same ids. Use the text exactly, including any leading space.
 
+## Optimizers
+
+The search strategy is a plug-in; the target and the score stay the same, so every target works with every
+optimizer.
+
+| `optimizer=` | what it does | gradients |
+|---|---|---|
+| `"gcg"` (default) | rank each position's token swaps by the gradient through a one-hot prefix, try `candidates` of the top `topk`, move to the best (Zou et al. 2023, arXiv 2307.15043) | yes |
+| `"random"` (= `blackbox=True`) | the same swaps, drawn uniformly from the allowed tokens | no |
+| `"pez"` | continuous prefix embeddings; each step they are projected to the nearest allowed tokens, the gradient is taken there and applied to the continuous ones (Wen et al. 2023, arXiv 2302.03668) | yes |
+| `"gbda"` | a distribution over tokens at each position, trained through a Gumbel-softmax relaxation; each step tries its most likely tokens and a few samples (Guo et al. 2021, arXiv 2104.13733) | yes |
+
+Pass an instance for other settings (`optimizer=PEZ(lr=0.05)`), or write your own: subclass
+`whisperers.Optimizer` and implement `step(objective)`, returning a token-id prefix and its score.
+`objective` offers `score`, `gradient`, `embedding_gradient`, `project` and the allowed tokens. Whatever
+an optimizer does inside, it hands back a real token prefix every step, and the result is re-scored
+from its text, so a soft prompt can't score well by sitting between tokens.
+
+Optimizers spend very different amounts per step, so compare them at equal compute, not equal steps:
+`compute=N` stops after N forward-pass-equivalents (a scored sequence counts 1, a sequence through a
+gradient pass 3), and every result reports `.compute`.
+
 ## Choosing where and when to stop, by behaviour
 
 Scores reward moving the residual on the probe prompts, and a long search starts fitting the probes
@@ -141,6 +163,7 @@ Alpha (`0.1.0a3`). What has been checked on real models, and what has not:
 - **Chat templates (`template=`)** are new: tested on small models with real chat formats, not yet
   on a full-size model.
 - **Tested only on small random models so far:** `subspace`, `sae_latent`, `sae_block`, `mean_shift`,
-  `lora_shift` and `find_layers`.
+  `lora_shift` and `find_layers`, and the `pez` and `gbda` optimizers (`gcg` is unchanged: the same
+  searches give identical results to 0.1.0a3).
 
 Apache-2.0.
