@@ -21,7 +21,7 @@ from .targets import (OutputTarget, QueryTarget, Target, direction, head_target,
                       sae_block, sae_latent, subspace, task_vector)
 from .tasks import Task, accuracy, find_layers, task_accuracy
 
-__version__ = "0.1.0a3"
+__version__ = "0.1.0a4"
 __all__ = ["whisper", "score", "Whisper", "load", "compose", "chat_template", "wrap", "DEFAULT_PROBES",
            "Target", "OutputTarget", "output_target", "direction", "head_target", "subspace", "sae_latent", "sae_block", "mean_shift",
            "task_vector", "lora_shift", "function_vector", "find_heads", "check_head_writes", "n_heads",
