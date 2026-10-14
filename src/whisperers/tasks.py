@@ -46,9 +46,16 @@ class Task:
         return len(self.pairs)
 
 
+_WORD = re.compile(r"[^\W_]+(?:['’\-][^\W_]+)*")
+
+
 def first_word(s: str) -> str:
-    words = s.split()
-    return re.sub(r"^[^\w]+|[^\w]+$", "", words[0]).lower() if words else ""
+    """The first run of letters / digits in `s`, lowercased (internal hyphens and apostrophes kept).
+
+    Not the first whitespace token: replies often glue the answer to junk (`cold●394`, `cold_ _`) or
+    open with a stray symbol (`> cold ! !`), and a whitespace split scored those as wrong."""
+    m = _WORD.search(s)
+    return m.group(0).lower() if m else ""
 
 
 @torch.no_grad()

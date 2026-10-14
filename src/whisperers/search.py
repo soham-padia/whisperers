@@ -197,8 +197,9 @@ def _check_tail(tokenizer, template, n_after, seqs):
 
 class _Scorer:
     def __init__(self, model, tokenizer, target: Target, probes: list[str], chunk: int, template: str | None = None,
-                 read: str = "reply"):
+                 read: str = "reply", grad_chunk: int | None = None):
         self.model, self.tok, self.target, self.chunk = model, tokenizer, target, chunk
+        self.grad_chunk = grad_chunk
         self.layers = target.layers
         self.dev = _device(model)
         self.embed = model.get_input_embeddings()
@@ -265,28 +266,36 @@ class _Scorer:
         return [encode(self.tok, compose(text, p), self.template) for p in self.probes]
 
     def gradient(self, prefix: list[int]) -> torch.Tensor:
-        """d(mean cosine) / d(one-hot prefix), shape (len(prefix), vocab)."""
+        """d(mean cosine) / d(one-hot prefix), shape (len(prefix), vocab). With `grad_chunk`, the probes go through
+        the backward pass that many at a time and the gradients add up -- the same total, less memory."""
         W = self.embed.weight
         onehot = torch.zeros(len(prefix), W.shape[0], dtype=W.dtype, device=W.device)
         onehot[torch.arange(len(prefix)), torch.tensor(prefix, device=W.device)] = 1
         onehot.requires_grad_(True)
-        pre = onehot @ W
-        # some embedding modules scale their output (Gemma 3); self.embed() below includes it,
-        # so the prefix rows must too, or the prefix sits at the wrong scale in the gradient pass
-        scale = getattr(self.embed, "embed_scale", None)
-        if scale is not None:
-            pre = pre * torch.as_tensor(scale, dtype=W.dtype, device=W.device)
-        rows = [torch.cat([self.embed(torch.tensor(self.head, dtype=torch.long, device=W.device)), pre,
-                           self.embed(torch.tensor(p, device=W.device))]) for p in self.probe_ids]
-        n = max(r.shape[0] for r in rows)
-        x = torch.zeros(len(rows), n, W.shape[1], dtype=W.dtype, device=W.device)
-        mask = torch.zeros(len(rows), n, dtype=torch.long, device=W.device)
-        for i, r in enumerate(rows):
-            x[i, : r.shape[0]] = r
-            mask[i, : r.shape[0]] = 1
-        last = mask.sum(1) - 1 - self.n_after
-        self._cos(self._forward(mask, last, inputs_embeds=x)).mean().backward()
-        return onehot.grad.float()
+        total = len(self.probe_ids)
+        step = self.grad_chunk or total
+        grad = None
+        for start in range(0, total, step):
+            pre = onehot @ W
+            # some embedding modules scale their output (Gemma 3); self.embed() below includes it,
+            # so the prefix rows must too, or the prefix sits at the wrong scale in the gradient pass
+            scale = getattr(self.embed, "embed_scale", None)
+            if scale is not None:
+                pre = pre * torch.as_tensor(scale, dtype=W.dtype, device=W.device)
+            rows = [torch.cat([self.embed(torch.tensor(self.head, dtype=torch.long, device=W.device)), pre,
+                               self.embed(torch.tensor(p, device=W.device))]) for p in self.probe_ids[start: start + step]]
+            n = max(r.shape[0] for r in rows)
+            x = torch.zeros(len(rows), n, W.shape[1], dtype=W.dtype, device=W.device)
+            mask = torch.zeros(len(rows), n, dtype=torch.long, device=W.device)
+            for i, r in enumerate(rows):
+                x[i, : r.shape[0]] = r
+                mask[i, : r.shape[0]] = 1
+            last = mask.sum(1) - 1 - self.n_after
+            # the gradient w.r.t. the prefix ONLY: .backward() would also fill a gradient for every model weight
+            # (~2 bytes per parameter: 64 GB on a 32B model) that nothing uses
+            g = torch.autograd.grad((self._cos(self._forward(mask, last, inputs_embeds=x)).sum() / total), onehot)[0]
+            grad = g if grad is None else grad + g
+        return grad.float()
 
 
 class _QueryScorer(_Scorer):
@@ -315,8 +324,10 @@ class _OutputScorer:
     prefix in front. Same interface as `_Scorer` (mean_cos / sequences / text_sequences / gradient /
     baseline), so the search loop is unchanged; it needs the full forward pass to the logits."""
 
-    def __init__(self, model, tokenizer, target: OutputTarget, chunk: int, template: str | None = None):
+    def __init__(self, model, tokenizer, target: OutputTarget, chunk: int, template: str | None = None,
+                 grad_chunk: int | None = None):
         self.model, self.tok, self.chunk, self.template = model, tokenizer, chunk, template
+        self.grad_chunk = grad_chunk
         self.dev = _device(model)
         self.embed = model.get_input_embeddings()
         before, after = _split(template) if template else ("", "")
@@ -372,35 +383,91 @@ class _OutputScorer:
         onehot = torch.zeros(len(prefix), W.shape[0], dtype=W.dtype, device=W.device)
         onehot[torch.arange(len(prefix)), torch.tensor(prefix, device=W.device)] = 1
         onehot.requires_grad_(True)
-        pre = onehot @ W
-        scale = getattr(self.embed, "embed_scale", None)
-        if scale is not None:
-            pre = pre * torch.as_tensor(scale, dtype=W.dtype, device=W.device)
-        head = self.embed(torch.tensor(self.head, dtype=torch.long, device=W.device))
-        rows = [torch.cat([head, pre, self.embed(torch.tensor(p + a, device=W.device))])
-                for p, a in zip(self.probe_ids, self.answer_ids)]
-        n = max(r.shape[0] for r in rows)
-        x = torch.zeros(len(rows), n, W.shape[1], dtype=W.dtype, device=W.device)
-        mask = torch.zeros(len(rows), n, dtype=torch.long, device=W.device)
-        for i, r in enumerate(rows):
-            x[i, : r.shape[0]] = r
-            mask[i, : r.shape[0]] = 1
-        logits = self.model(inputs_embeds=x, attention_mask=mask, use_cache=False).logits
-        self._answer_logprob(logits, [r.shape[0] for r in rows], self.answer_ids).mean().backward()
-        return onehot.grad.float()
+        total = len(self.probe_ids)
+        step = self.grad_chunk or total
+        grad = None
+        for start in range(0, total, step):              # with grad_chunk: same total gradient, less memory
+            pre = onehot @ W
+            scale = getattr(self.embed, "embed_scale", None)
+            if scale is not None:
+                pre = pre * torch.as_tensor(scale, dtype=W.dtype, device=W.device)
+            head = self.embed(torch.tensor(self.head, dtype=torch.long, device=W.device))
+            answers = self.answer_ids[start: start + step]
+            rows = [torch.cat([head, pre, self.embed(torch.tensor(p + a, device=W.device))])
+                    for p, a in zip(self.probe_ids[start: start + step], answers)]
+            n = max(r.shape[0] for r in rows)
+            x = torch.zeros(len(rows), n, W.shape[1], dtype=W.dtype, device=W.device)
+            mask = torch.zeros(len(rows), n, dtype=torch.long, device=W.device)
+            for i, r in enumerate(rows):
+                x[i, : r.shape[0]] = r
+                mask[i, : r.shape[0]] = 1
+            logits = self.model(inputs_embeds=x, attention_mask=mask, use_cache=False).logits
+            g = torch.autograd.grad(self._answer_logprob(logits, [r.shape[0] for r in rows], answers).sum() / total,
+                                    onehot)[0]                # prefix only: no gradients stored for the weights
+            grad = g if grad is None else grad + g
+        return grad.float()
 
 
-def _scorer(model, tok, target, probes, chunk, template, read):
-    """The scorer for this kind of target: an internal one (cosine) or an output one (answer log-probability)."""
+class _JointScorer:
+    """Several targets at once, each measured on its own probes: the score is the mean over targets of each
+    one's score, so a single prefix has to serve all of them. Same interface as `_Scorer`; a candidate's
+    sequences are its sequences for every part, concatenated in order."""
+
+    def __init__(self, parts):
+        self.parts = parts
+        self.sizes = [len(s.probes) for s in parts]
+        self.probes = [p for s in parts for p in s.probes]
+        self.baseline = sum(s.baseline for s in parts) / len(parts)
+
+    def _cut(self, seqs):
+        out, i = [], 0
+        for n in self.sizes:
+            out.append(seqs[i: i + n])
+            i += n
+        return out
+
+    def mean_cos(self, groups):
+        cut = [self._cut(g) for g in groups]
+        return torch.stack([s.mean_cos([c[j] for c in cut]) for j, s in enumerate(self.parts)]).mean(0)
+
+    def per_part(self, text: str) -> list[float]:
+        """Each part's score for a prefix text (its mean cosine minus its own baseline)."""
+        return [s.mean_cos([s.text_sequences(text)])[0].item() - s.baseline for s in self.parts]
+
+    def sequences(self, prefix):
+        return [x for s in self.parts for x in s.sequences(prefix)]
+
+    def text_sequences(self, text):
+        return [x for s in self.parts for x in s.text_sequences(text)]
+
+    def gradient(self, prefix):
+        return sum(s.gradient(prefix) for s in self.parts) / len(self.parts)
+
+
+def _is_target(t) -> bool:
+    return isinstance(t, (Target, OutputTarget, QueryTarget))
+
+
+def _scorer(model, tok, target, probes, chunk, template, read, grad_chunk=None):
+    """The scorer for this kind of target: an internal one (cosine) or an output one (answer log-probability);
+    for a list of targets, one scorer each, averaged."""
+    if isinstance(target, list):
+        if probes is None or all(isinstance(p, str) for p in probes):
+            each = [probes] * len(target)                          # one probe list shared by every target
+        elif len(probes) != len(target):
+            raise ValueError(f"{len(target)} targets but {len(probes)} probe lists; give one list per target")
+        else:
+            each = [list(p) for p in probes]
+        return _JointScorer([_scorer(model, tok, t, p, chunk, template, read, grad_chunk) for t, p in zip(target, each)])
     if isinstance(target, OutputTarget):
         if probes is not None:
             raise ValueError("an output target brings its own probes (its pairs); don't pass probes=")
         if read != "reply":
             raise ValueError("an output target is scored on the answer tokens; read= does not apply")
-        return _OutputScorer(model, tok, target, chunk, template)
+        return _OutputScorer(model, tok, target, chunk, template, grad_chunk)
     if isinstance(target, QueryTarget):
-        return _QueryScorer(model, tok, target, probes or DEFAULT_PROBES, chunk, template, read)
-    return _Scorer(model, tok, target, probes or DEFAULT_PROBES, chunk, template, read)
+        return _QueryScorer(model, tok, target, probes or DEFAULT_PROBES, chunk, template, read, grad_chunk)
+    return _Scorer(model, tok, target, probes or DEFAULT_PROBES, chunk, template, read, grad_chunk)
 
 
 # ── which tokens may appear ──────────────────────────────────────────────────
@@ -427,6 +494,61 @@ def _allowed(tokenizer, vocab_size: int) -> torch.Tensor:
     return _ALLOWED[key]
 
 
+def _forbidden(tokenizer, vocab_size: int, forbid) -> torch.Tensor:
+    """Mask of tokens a prefix may not contain. `forbid` is token ids, strings, or a function token_text -> bool.
+    A string bans every token whose text (stripped, lowercased) CONTAINS it; a string starting with "=" bans only
+    tokens whose text IS the rest, e.g. "=not" bans " not" and "Not" but not "nothing" or "knot". A leading backslash
+    makes the rest literal, for text that itself starts with "=" or "\\": "\\=>" bans every token containing "=>"."""
+    out = torch.zeros(vocab_size, dtype=torch.bool)
+    if forbid is None:
+        return out
+    if callable(forbid):
+        test = forbid
+    else:
+        items = list(forbid)
+        ids = [i for i in items if isinstance(i, int)]
+        if ids:
+            out[torch.tensor(ids, dtype=torch.long)] = True
+        subs, exact = _split_forbid(items)
+        if not subs and not exact:
+            return out
+        test = lambda t: (t.strip().lower() in exact) or any(x in t.strip().lower() for x in subs)  # noqa: E731
+    texts = tokenizer.batch_decode([[i] for i in range(min(vocab_size, len(tokenizer)))])
+    for i, t in enumerate(texts):
+        if test(t):
+            out[i] = True
+    return out
+
+
+def _split_forbid(items):
+    """Strings -> (substrings, exact words), lowercased: "=w" is exact, "\\x" is the literal substring x."""
+    subs, exact = [], set()
+    for x in items:
+        if not isinstance(x, str) or not x:
+            continue
+        if x.startswith("\\"):
+            subs.append(x[1:].lower())
+        elif x.startswith("="):
+            exact.add(x[1:].lower())
+        else:
+            subs.append(x.lower())
+    return subs, exact
+
+
+def _text_ok(forbid):
+    """For a whole candidate prefix: False if it spells a forbidden string ACROSS tokens ("contr" + "ast"), or None
+    when only token ids were forbidden. Exact words ("=not") match between letters, so "knot" is fine."""
+    if forbid is None:
+        return None
+    if callable(forbid):
+        return lambda text: not forbid(text)
+    subs, exact_words = _split_forbid(list(forbid))
+    exact = [re.compile(rf"(?<![^\W\d_]){re.escape(x)}(?![^\W\d_])") for x in exact_words]
+    if not subs and not exact:
+        return None
+    return lambda text: not (any(x in text.lower() for x in subs) or any(r.search(text.lower()) for r in exact))
+
+
 def _init_prefix(tokenizer, n: int) -> list[int]:
     """n copies of " !" -- a start that decodes and re-encodes to itself."""
     ids = tokenizer(" !", add_special_tokens=False).input_ids
@@ -448,7 +570,7 @@ class Whisper:
     score: float               # re-measured from the TEXT, the number to report
     search_score: float        # what the search saw for this prefix, from token ids
     roundtrip_ok: bool         # does `text` tokenise back to `ids` in front of every probe?
-    target: Target
+    target: Target             # or a list of targets, searched jointly
     model_id: str
     history: list[float] = field(default_factory=list)       # best search score after each step
     checks: list[dict] = field(default_factory=list)          # validation checkpoints, if any
@@ -483,17 +605,10 @@ class Whisper:
 
     def to_dict(self) -> dict:
         t = self.target
-        tgt = {"name": t.name, "model_id": t.model_id, "heads": t.heads,
-               "vectors": {str(L): v.tolist() for L, v in t.vectors.items()}}
-        if isinstance(t, OutputTarget):
-            tgt["pairs"] = [list(p) for p in t.pairs]
-        if isinstance(t, QueryTarget):
-            tgt["heads"] = None
-            tgt["queries"] = {f"{L},{h}": v.tolist() for (L, h), v in t.queries.items()}
         return {"text": self.text, "ids": self.ids, "score": self.score, "search_score": self.search_score,
                 "roundtrip_ok": self.roundtrip_ok, "model_id": self.model_id, "history": self.history,
                 "checks": self.checks, "selected_by": self.selected_by, "template": self.template, "read": self.read,
-                "target": tgt}
+                "target": [_target_dict(x) for x in t] if isinstance(t, list) else _target_dict(t)}
 
     def save(self, path: str) -> None:
         """Everything but the model, as JSON. `Whisper.load` reads it back."""
@@ -506,18 +621,31 @@ class Whisper:
         with open(path) as f:
             d = json.load(f)
         t = d["target"]
-        if "pairs" in t:
-            target = OutputTarget([tuple(p) for p in t["pairs"]], t["name"], t["model_id"])
-        elif "queries" in t:
-            target = QueryTarget({tuple(int(x) for x in k.split(",")): torch.tensor(v) for k, v in t["queries"].items()},
-                                 t["name"], t["model_id"])
-        else:
-            heads = [tuple(h) for h in t["heads"]] if t["heads"] else None
-            target = Target({int(L): torch.tensor(v) for L, v in t["vectors"].items()}, t["name"], t["model_id"],
-                            heads=heads)
+        target = [_target_from(x) for x in t] if isinstance(t, list) else _target_from(t)
         return cls(d["text"], d["ids"], d["score"], d["search_score"], d["roundtrip_ok"], target, d["model_id"],
                    d["history"], d.get("checks", []), d.get("selected_by", "score"), model, tokenizer,
                    template=d.get("template"), read=d.get("read", "reply"))
+
+
+def _target_dict(t) -> dict:
+    tgt = {"name": t.name, "model_id": t.model_id, "heads": t.heads,
+           "vectors": {str(L): v.tolist() for L, v in t.vectors.items()}}
+    if isinstance(t, OutputTarget):
+        tgt["pairs"] = [list(p) for p in t.pairs]
+    if isinstance(t, QueryTarget):
+        tgt["heads"] = None
+        tgt["queries"] = {f"{L},{h}": v.tolist() for (L, h), v in t.queries.items()}
+    return tgt
+
+
+def _target_from(t: dict):
+    if "pairs" in t:
+        return OutputTarget([tuple(p) for p in t["pairs"]], t["name"], t["model_id"])
+    if "queries" in t:
+        return QueryTarget({tuple(int(x) for x in k.split(",")): torch.tensor(v) for k, v in t["queries"].items()},
+                           t["name"], t["model_id"])
+    heads = [tuple(h) for h in t["heads"]] if t["heads"] else None
+    return Target({int(L): torch.tensor(v) for L, v in t["vectors"].items()}, t["name"], t["model_id"], heads=heads)
 
 
 def _seconds(budget) -> float | None:
@@ -532,6 +660,16 @@ def _seconds(budget) -> float | None:
 
 def _prepare(model, target, layers, tokenizer, heads=None):
     """Load if needed, turn a raw vector into a Target, and refuse mismatched model/target."""
+    if isinstance(target, (list, tuple)) and any(_is_target(t) for t in target):
+        if not all(_is_target(t) for t in target):
+            raise ValueError("a list of targets must hold only targets (Target, QueryTarget, ...), not raw vectors")
+        if layers is not None or heads is not None:
+            raise ValueError("each target in the list already says where it aims; don't pass `layers` or `heads`")
+        if any(isinstance(t, OutputTarget) for t in target):
+            raise ValueError("an output target already takes any number of prompts: put all the pairs in one "
+                             "output_target instead of a list")
+        model, tok, first, model_id = _prepare(model, target[0], None, tokenizer)
+        return model, tok, [first] + [_prepare(model, t, None, tok)[2] for t in target[1:]], model_id
     if isinstance(model, str):
         model, tok = load(model)
     else:
@@ -603,7 +741,8 @@ def whisper(model, target, layers=None, *, heads=None, steps: int | None = None,
             validate=None, check_every: int = 20, tokenizer=None, n_tokens: int = 20,
             probes: list[str] | None = None, topk: int = 256, candidates: int = 128, chunk: int = 256,
             init: str | None = None, seed: int = 0, log: str | None = None, verbose: bool = True,
-            template: str | None = None, read: str = "reply", blackbox: bool = False) -> Whisper:
+            template: str | None = None, read: str = "reply", blackbox: bool = False, forbid=None,
+            grad_chunk: int | None = None) -> Whisper:
     """Search for an `n_tokens` prefix that pushes `model` toward `target`.
 
     model     a Hugging Face model id, or a loaded causal LM (then pass `tokenizer` too)
@@ -611,6 +750,10 @@ def whisper(model, target, layers=None, *, heads=None, steps: int | None = None,
               `direction / head_target / subspace / sae_latent / sae_block / mean_shift /
               task_vector / lora_shift / function_vector`. `-target` pushes a direction the other way.
               Or `output_target(pairs)`: plain GCG on the answers, nothing internal (the baseline).
+              Or a LIST of targets: one prefix for all of them at once, its score the mean of their
+              scores; give each target its own probes with `probes=[probes_1, probes_2, ...]` (a
+              single list is shared by all). E.g. one query target per category, each measured on
+              prompts naming that category, for a prefix that works whichever category is named.
     layers    aim at the residual: the output of decoder block L (hidden_states[L + 1])
     heads     aim at what these (layer, head) pairs write into the residual, summed
     steps     stop after this many steps; time: stop after this long (90, "45m", "2h").
@@ -620,8 +763,9 @@ def whisper(model, target, layers=None, *, heads=None, steps: int | None = None,
               probes). Called on the current best prefix every `check_every` steps and at the end;
               the prefix returned is then the best-VALIDATED one, not the highest-scoring one, which
               guards against fitting the probes instead of the concept.
-    probes    prompts the prefix is scored in front of; default: 16 neutral chat prompts
-    init      resume from an earlier prefix (e.g. a previous Whisper's `.text`); its own token
+    probes    prompts the prefix is scored in front of; default: 16 neutral chat prompts. With a
+              list of targets, a list of probe lists, one per target
+    init     resume from an earlier prefix (e.g. a previous Whisper's `.text`); its own token
               count then replaces `n_tokens`
     log       path of a JSONL file that gets the best prefix after every step (and checks)
     template  text with one `{prompt}` that every `prefix + " " + probe` is put inside, e.g.
@@ -631,6 +775,12 @@ def whisper(model, target, layers=None, *, heads=None, steps: int | None = None,
     read      where the target is read inside a template: "reply" (its last token, where the reply
               starts) or "prompt" (the last token of the user's text, i.e. the probe's last word --
               for a target built at the word, e.g. `instruction_vector(..., at="word")`)
+    forbid    tokens the prefix may never contain: token ids, strings, or a function token_text -> bool. A
+              string bans every token whose text contains it (case-insensitive); "=word" bans only tokens that
+              ARE that word. E.g. ["oppos", "contrast", "revers", "=not"] stops a search writing its instruction
+              in words. `init` must not contain a forbidden token.
+    grad_chunk  probes per backward pass (default: all at once). Lower it if the gradient runs out of GPU
+              memory (many probes, deep targets, output targets); the gradient is the same.
     blackbox  no gradients: candidate swaps are drawn uniformly from the allowed tokens and kept only
               if the score improves, so the search needs nothing but scores (with `output_target`,
               only the model's output probabilities). Cheaper per step, usually needs many more steps.
@@ -643,19 +793,29 @@ def whisper(model, target, layers=None, *, heads=None, steps: int | None = None,
     if steps is None and budget is None:
         steps = 250
     rng = random.Random(seed)
-    scorer = _scorer(model, tok, target, probes, chunk, template, read)
+    scorer = _scorer(model, tok, target, probes, chunk, template, read, grad_chunk)
     vocab = model.get_input_embeddings().weight.shape[0]
     allowed = _allowed(tok, vocab).to(_device(model))
+    banned = _forbidden(tok, vocab, forbid).to(allowed.device) if forbid is not None else None
+    if banned is not None:
+        allowed = allowed & ~banned                          # a new tensor: the cached mask is left alone
     allowed_ids = allowed.nonzero().flatten().cpu()
     draw = torch.Generator().manual_seed(seed)
 
     current = tok(init, add_special_tokens=False).input_ids if init else _init_prefix(tok, n_tokens)
+    text_ok = _text_ok(forbid)
+    if banned is not None and (banned[torch.tensor(current, device=banned.device)].any()
+                               or (text_ok and not text_ok(tok.decode(current)))):
+        bad = [tok.decode([i]) for i in current if banned[i]]
+        raise ValueError(f"the starting prefix contains forbidden text: {bad or tok.decode(current)!r}")
     best = list(current)
     best_cos = scorer.mean_cos([scorer.sequences(current)])[0].item()
     history, checks, t0 = [best_cos - scorer.baseline], [], _time.time()
     if verbose:
         limit = " and ".join(x for x in (steps and f"{steps} steps", budget and f"{budget:.0f}s") if x)
-        print(f"whisper: {model_id}, {target!r}, {len(current)} tokens, up to {limit}; "
+        what = f"{len(target)} targets jointly ({', '.join(t.name for t in target)})" if isinstance(target, list) \
+            else repr(target)
+        print(f"whisper: {model_id}, {what}, {len(current)} tokens, up to {limit}; "
               f"start {best_cos - scorer.baseline:+.5f}", flush=True)
 
     def check(step):
@@ -691,6 +851,9 @@ def whisper(model, target, layers=None, *, heads=None, steps: int | None = None,
         keep = _roundtrips(tok, cands)
         if keep.any():
             cands = cands[keep]
+        if text_ok is not None:                              # strict: a forbidden word spelled across tokens
+            ok = torch.tensor([text_ok(t) for t in tok.batch_decode(cands.tolist())])
+            cands = cands[ok] if ok.any() else torch.tensor([current])
         scores = scorer.mean_cos([scorer.sequences(c.tolist()) for c in cands])
         i = int(scores.argmax())
         current, cur_cos = cands[i].tolist(), scores[i].item()
