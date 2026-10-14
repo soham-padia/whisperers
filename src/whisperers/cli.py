@@ -52,6 +52,9 @@ def main(argv=None):
     where.add_argument("--heads", help="comma-separated layer:head pairs, e.g. 5:3,7:1")
     r.add_argument("--steps", type=int)
     r.add_argument("--time", help="budget, e.g. 90s, 45m, 2h")
+    r.add_argument("--compute", type=int, help="budget in forward-pass-equivalents (compare optimizers with this)")
+    r.add_argument("--optimizer", default="gcg", choices=["gcg", "random", "pez", "gbda"],
+                   help="search strategy (default gcg); see whisperers.optimizers")
     r.add_argument("--n-tokens", type=int, default=20)
     r.add_argument("--probes", help="text file, one probe prompt per line (default: 16 neutral prompts)")
     r.add_argument("--negate", action="store_true", help="push the other way")
@@ -77,10 +80,12 @@ def main(argv=None):
         probes = [line.strip() for line in Path(args.probes).read_text().splitlines() if line.strip()]
     model, tok = w.load(args.model)
     template = w.chat_template(tok, thinking=False) if args.chat else None
-    res = w.whisper(model, target, tokenizer=tok, steps=args.steps, time=args.time, n_tokens=args.n_tokens,
-                    probes=probes, init=args.init, seed=args.seed, log=args.log, template=template)
+    res = w.whisper(model, target, tokenizer=tok, steps=args.steps, time=args.time, compute=args.compute,
+                    n_tokens=args.n_tokens, probes=probes, init=args.init, seed=args.seed, log=args.log,
+                    template=template, optimizer=args.optimizer)
     res.save(args.out)
-    print(json.dumps({"text": res.text, "score": res.score, "roundtrip_ok": res.roundtrip_ok, "out": args.out}))
+    print(json.dumps({"text": res.text, "score": res.score, "roundtrip_ok": res.roundtrip_ok, "optimizer": res.optimizer,
+                      "compute": res.compute, "out": args.out}))
 
 
 if __name__ == "__main__":

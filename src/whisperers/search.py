@@ -5,20 +5,20 @@ the prefix raises the cosine between the last-token residual and the target vect
 
     score = mean over probes p, layers L of [ cos(R_L(prefix + " " + p)[-1], v_L) - cos(R_L(p)[-1], v_L) ]
 
-Cosine, not raw projection, so inflating the residual's norm earns nothing. The search is plain
-GCG (Zou et al. 2023): rank token swaps by the gradient through a one-hot prefix, try a batch of
-them, keep the best.
+Cosine, not raw projection, so inflating the residual's norm earns nothing. The search strategy is
+pluggable (`optimizer=`, see optimizers.py); the default is plain GCG (Zou et al. 2023): rank token
+swaps by the gradient through a one-hot prefix, try a batch of them, keep the best.
 """
 from __future__ import annotations
 
 import json
-import random
 import re
 import time as _time
 from dataclasses import dataclass, field
 
 import torch
 
+from . import optimizers as _optimizers
 from .targets import OutputTarget, QueryTarget, Target, direction, head_target
 
 # The 16 neutral prompts Steering Arena scores against: chat-shaped, value-neutral, everyday.
@@ -195,6 +195,13 @@ def _check_tail(tokenizer, template, n_after, seqs):
                              "differently after it; use read='reply'")
 
 
+def _onehot(prefix: list[int], W: torch.Tensor) -> torch.Tensor:
+    """A one-hot prefix (len(prefix), vocab) that requires grad: the leaf GCG differentiates."""
+    onehot = torch.zeros(len(prefix), W.shape[0], dtype=W.dtype, device=W.device)
+    onehot[torch.arange(len(prefix)), torch.tensor(prefix, device=W.device)] = 1
+    return onehot.requires_grad_(True)
+
+
 class _Scorer:
     def __init__(self, model, tokenizer, target: Target, probes: list[str], chunk: int, template: str | None = None,
                  read: str = "reply", grad_chunk: int | None = None):
@@ -268,34 +275,53 @@ class _Scorer:
     def gradient(self, prefix: list[int]) -> torch.Tensor:
         """d(mean cosine) / d(one-hot prefix), shape (len(prefix), vocab). With `grad_chunk`, the probes go through
         the backward pass that many at a time and the gradients add up -- the same total, less memory."""
+        return self._value_and_grad(_onehot(prefix, self.embed.weight), self._from_onehot)[1]
+
+    def embedding_gradient(self, emb: torch.Tensor) -> tuple[float, torch.Tensor]:
+        """(mean cosine, its gradient) for a prefix given as EMBEDDINGS (len(prefix), d), in the embedding table's
+        own space: rows of `model.get_input_embeddings().weight`, before any embedding scale. For continuous
+        optimizers (PEZ, GBDA); `gradient` is this times the embedding table, by the chain rule."""
         W = self.embed.weight
-        onehot = torch.zeros(len(prefix), W.shape[0], dtype=W.dtype, device=W.device)
-        onehot[torch.arange(len(prefix)), torch.tensor(prefix, device=W.device)] = 1
-        onehot.requires_grad_(True)
+        return self._value_and_grad(emb.detach().to(W.device, W.dtype).requires_grad_(True), self._scaled)
+
+    def _scaled(self, pre):
+        # some embedding modules scale their output (Gemma 3); self.embed() below includes it,
+        # so the prefix rows must too, or the prefix sits at the wrong scale in the gradient pass
+        scale = getattr(self.embed, "embed_scale", None)
+        return pre if scale is None else pre * torch.as_tensor(scale, dtype=pre.dtype, device=pre.device)
+
+    def _from_onehot(self, onehot):
+        return self._scaled(onehot @ self.embed.weight)
+
+    def _rows(self, pre, start, step):
+        W = self.embed.weight
+        return [torch.cat([self.embed(torch.tensor(self.head, dtype=torch.long, device=W.device)), pre,
+                           self.embed(torch.tensor(p, device=W.device))]) for p in self.probe_ids[start: start + step]]
+
+    def _objective(self, x, mask, rows):
+        return self._cos(self._forward(mask, mask.sum(1) - 1 - self.n_after, inputs_embeds=x))
+
+    def _value_and_grad(self, leaf, to_prefix):
+        """The objective with the prefix rows `to_prefix(leaf)`, and its gradient w.r.t. `leaf`."""
+        W = self.embed.weight
         total = len(self.probe_ids)
         step = self.grad_chunk or total
-        grad = None
+        grad, value = None, 0.0
         for start in range(0, total, step):
-            pre = onehot @ W
-            # some embedding modules scale their output (Gemma 3); self.embed() below includes it,
-            # so the prefix rows must too, or the prefix sits at the wrong scale in the gradient pass
-            scale = getattr(self.embed, "embed_scale", None)
-            if scale is not None:
-                pre = pre * torch.as_tensor(scale, dtype=W.dtype, device=W.device)
-            rows = [torch.cat([self.embed(torch.tensor(self.head, dtype=torch.long, device=W.device)), pre,
-                               self.embed(torch.tensor(p, device=W.device))]) for p in self.probe_ids[start: start + step]]
+            rows = self._rows(to_prefix(leaf), start, step)
             n = max(r.shape[0] for r in rows)
             x = torch.zeros(len(rows), n, W.shape[1], dtype=W.dtype, device=W.device)
             mask = torch.zeros(len(rows), n, dtype=torch.long, device=W.device)
             for i, r in enumerate(rows):
                 x[i, : r.shape[0]] = r
                 mask[i, : r.shape[0]] = 1
-            last = mask.sum(1) - 1 - self.n_after
+            obj = self._objective(x, mask, rows).sum() / total
             # the gradient w.r.t. the prefix ONLY: .backward() would also fill a gradient for every model weight
             # (~2 bytes per parameter: 64 GB on a 32B model) that nothing uses
-            g = torch.autograd.grad((self._cos(self._forward(mask, last, inputs_embeds=x)).sum() / total), onehot)[0]
+            g = torch.autograd.grad(obj, leaf)[0]
+            value += obj.item()
             grad = g if grad is None else grad + g
-        return grad.float()
+        return value, grad.float()
 
 
 class _QueryScorer(_Scorer):
@@ -377,35 +403,20 @@ class _OutputScorer:
     def text_sequences(self, text: str) -> list[list[int]]:
         return [encode(self.tok, compose(text, p), self.template) + a for p, a in zip(self.probes, self.answer_ids)]
 
-    def gradient(self, prefix: list[int]) -> torch.Tensor:
-        """d(mean answer log-probability) / d(one-hot prefix), shape (len(prefix), vocab)."""
+    gradient = _Scorer.gradient                        # same chunked one-hot / embedding plumbing, own rows and objective
+    embedding_gradient = _Scorer.embedding_gradient
+    _scaled, _from_onehot, _value_and_grad = _Scorer._scaled, _Scorer._from_onehot, _Scorer._value_and_grad
+
+    def _rows(self, pre, start, step):
         W = self.embed.weight
-        onehot = torch.zeros(len(prefix), W.shape[0], dtype=W.dtype, device=W.device)
-        onehot[torch.arange(len(prefix)), torch.tensor(prefix, device=W.device)] = 1
-        onehot.requires_grad_(True)
-        total = len(self.probe_ids)
-        step = self.grad_chunk or total
-        grad = None
-        for start in range(0, total, step):              # with grad_chunk: same total gradient, less memory
-            pre = onehot @ W
-            scale = getattr(self.embed, "embed_scale", None)
-            if scale is not None:
-                pre = pre * torch.as_tensor(scale, dtype=W.dtype, device=W.device)
-            head = self.embed(torch.tensor(self.head, dtype=torch.long, device=W.device))
-            answers = self.answer_ids[start: start + step]
-            rows = [torch.cat([head, pre, self.embed(torch.tensor(p + a, device=W.device))])
-                    for p, a in zip(self.probe_ids[start: start + step], answers)]
-            n = max(r.shape[0] for r in rows)
-            x = torch.zeros(len(rows), n, W.shape[1], dtype=W.dtype, device=W.device)
-            mask = torch.zeros(len(rows), n, dtype=torch.long, device=W.device)
-            for i, r in enumerate(rows):
-                x[i, : r.shape[0]] = r
-                mask[i, : r.shape[0]] = 1
-            logits = self.model(inputs_embeds=x, attention_mask=mask, use_cache=False).logits
-            g = torch.autograd.grad(self._answer_logprob(logits, [r.shape[0] for r in rows], answers).sum() / total,
-                                    onehot)[0]                # prefix only: no gradients stored for the weights
-            grad = g if grad is None else grad + g
-        return grad.float()
+        head = self.embed(torch.tensor(self.head, dtype=torch.long, device=W.device))
+        self._answers = self.answer_ids[start: start + step]
+        return [torch.cat([head, pre, self.embed(torch.tensor(p + a, device=W.device))])
+                for p, a in zip(self.probe_ids[start: start + step], self._answers)]
+
+    def _objective(self, x, mask, rows):
+        logits = self.model(inputs_embeds=x, attention_mask=mask, use_cache=False).logits
+        return self._answer_logprob(logits, [r.shape[0] for r in rows], self._answers)
 
 
 class _JointScorer:
@@ -442,6 +453,10 @@ class _JointScorer:
 
     def gradient(self, prefix):
         return sum(s.gradient(prefix) for s in self.parts) / len(self.parts)
+
+    def embedding_gradient(self, emb):
+        each = [s.embedding_gradient(emb) for s in self.parts]
+        return sum(v for v, _ in each) / len(each), sum(g for _, g in each) / len(each)
 
 
 def _is_target(t) -> bool:
@@ -555,11 +570,6 @@ def _init_prefix(tokenizer, n: int) -> list[int]:
     return ids[-1:] * n
 
 
-def _roundtrips(tokenizer, cands: torch.Tensor) -> torch.Tensor:
-    texts = tokenizer.batch_decode(cands.tolist())
-    back = tokenizer(texts, add_special_tokens=False).input_ids
-    return torch.tensor([b == c for b, c in zip(back, cands.tolist())])
-
 
 # ── the search ───────────────────────────────────────────────────────────────
 
@@ -579,6 +589,9 @@ class Whisper:
     tokenizer: object = field(default=None, repr=False)
     template: str | None = None                               # what the prefix sat inside, if anything
     read: str = "reply"                                       # where the target was read: "reply" or "prompt"
+    optimizer: str = "gcg"                                    # the search strategy, and its settings
+    optimizer_params: dict = field(default_factory=dict)
+    compute: dict = field(default_factory=dict)               # forward / backward sequences, and the total cost
 
     @torch.no_grad()
     def try_on(self, prompt: str, max_new_tokens: int = 40) -> dict:
@@ -608,6 +621,7 @@ class Whisper:
         return {"text": self.text, "ids": self.ids, "score": self.score, "search_score": self.search_score,
                 "roundtrip_ok": self.roundtrip_ok, "model_id": self.model_id, "history": self.history,
                 "checks": self.checks, "selected_by": self.selected_by, "template": self.template, "read": self.read,
+                "optimizer": self.optimizer, "optimizer_params": self.optimizer_params, "compute": self.compute,
                 "target": [_target_dict(x) for x in t] if isinstance(t, list) else _target_dict(t)}
 
     def save(self, path: str) -> None:
@@ -624,7 +638,8 @@ class Whisper:
         target = [_target_from(x) for x in t] if isinstance(t, list) else _target_from(t)
         return cls(d["text"], d["ids"], d["score"], d["search_score"], d["roundtrip_ok"], target, d["model_id"],
                    d["history"], d.get("checks", []), d.get("selected_by", "score"), model, tokenizer,
-                   template=d.get("template"), read=d.get("read", "reply"))
+                   template=d.get("template"), read=d.get("read", "reply"), optimizer=d.get("optimizer", "gcg"),
+                   optimizer_params=d.get("optimizer_params", {}), compute=d.get("compute", {}))
 
 
 def _target_dict(t) -> dict:
@@ -739,10 +754,10 @@ def score(model, target, text: str, layers=None, *, heads=None, tokenizer=None,
 
 def whisper(model, target, layers=None, *, heads=None, steps: int | None = None, time=None,
             validate=None, check_every: int = 20, tokenizer=None, n_tokens: int = 20,
-            probes: list[str] | None = None, topk: int = 256, candidates: int = 128, chunk: int = 256,
-            init: str | None = None, seed: int = 0, log: str | None = None, verbose: bool = True,
+            probes: list[str] | None = None, topk: int | None = None, candidates: int | None = None,
+            chunk: int = 256, init: str | None = None, seed: int = 0, log: str | None = None, verbose: bool = True,
             template: str | None = None, read: str = "reply", blackbox: bool = False, forbid=None,
-            grad_chunk: int | None = None) -> Whisper:
+            grad_chunk: int | None = None, optimizer="gcg", compute: int | None = None) -> Whisper:
     """Search for an `n_tokens` prefix that pushes `model` toward `target`.
 
     model     a Hugging Face model id, or a loaded causal LM (then pass `tokenizer` too)
@@ -756,8 +771,15 @@ def whisper(model, target, layers=None, *, heads=None, steps: int | None = None,
               prompts naming that category, for a prefix that works whichever category is named.
     layers    aim at the residual: the output of decoder block L (hidden_states[L + 1])
     heads     aim at what these (layer, head) pairs write into the residual, summed
-    steps     stop after this many steps; time: stop after this long (90, "45m", "2h").
-              Neither given: 250 steps. Both: whichever comes first.
+    steps     stop after this many steps; time: stop after this long (90, "45m", "2h"); compute: stop after this
+              many forward-pass-equivalents (a scored sequence counts 1, a sequence through a gradient pass 3).
+              None given: 250 steps. Several: whichever comes first. Optimizers spend very different amounts
+              per step, so compare them with `compute=` (or `time=`), not `steps=`.
+    optimizer the search strategy: "gcg" (default), "random", "pez", "gbda", or an `Optimizer` instance
+              (whisperers.optimizers) for other settings or your own method. Whatever it does inside, every
+              step it hands back a real token prefix, and the result is re-scored from its text.
+    topk, candidates  GCG / random-search settings: candidate tokens per position (default 256) and swaps
+              tried per step (default 128); set them on the instance when you pass an `Optimizer`.
     validate  a function prefix_text -> number, higher is better, measuring the behaviour you
               actually want (e.g. task accuracy on held-out inputs, in a DIFFERENT template from the
               probes). Called on the current best prefix every `check_every` steps and at the end;
@@ -781,26 +803,32 @@ def whisper(model, target, layers=None, *, heads=None, steps: int | None = None,
               in words. `init` must not contain a forbidden token.
     grad_chunk  probes per backward pass (default: all at once). Lower it if the gradient runs out of GPU
               memory (many probes, deep targets, output targets); the gradient is the same.
-    blackbox  no gradients: candidate swaps are drawn uniformly from the allowed tokens and kept only
-              if the score improves, so the search needs nothing but scores (with `output_target`,
-              only the model's output probabilities). Cheaper per step, usually needs many more steps.
+    blackbox  shorthand for optimizer="random": candidate swaps drawn uniformly from the allowed tokens, so
+              the search needs nothing but scores (with `output_target`, only the model's output
+              probabilities). Cheaper per step, usually needs many more steps.
 
-    Expect GPU-minutes on a ~1B model and GPU-hours on a 32B one: every step is a forward and a
-    backward pass plus `candidates` x len(probes) forward sequences.
+    Expect GPU-minutes on a ~1B model and GPU-hours on a 32B one: a GCG step is a forward and a
+    backward pass plus `candidates` x len(probes) forward sequences. `.compute` on the result says
+    what the search spent.
     """
     model, tok, target, model_id = _prepare(model, target, layers, tokenizer, heads)
     budget = _seconds(time)
-    if steps is None and budget is None:
+    if steps is None and budget is None and compute is None:
         steps = 250
-    rng = random.Random(seed)
+    settings = {k: v for k, v in (("topk", topk), ("candidates", candidates)) if v is not None}
+    if blackbox:
+        if not (optimizer == "gcg" or optimizer == "random"):
+            raise ValueError("blackbox=True means optimizer='random'; pass one or the other")
+        optimizer = "random"
+    if settings and isinstance(optimizer, str) and optimizer not in ("gcg", "random"):
+        raise ValueError(f"topk / candidates are GCG and random-search settings, not {optimizer!r} ones")
+    opt = _optimizers.get(optimizer, **settings)
     scorer = _scorer(model, tok, target, probes, chunk, template, read, grad_chunk)
     vocab = model.get_input_embeddings().weight.shape[0]
     allowed = _allowed(tok, vocab).to(_device(model))
     banned = _forbidden(tok, vocab, forbid).to(allowed.device) if forbid is not None else None
     if banned is not None:
         allowed = allowed & ~banned                          # a new tensor: the cached mask is left alone
-    allowed_ids = allowed.nonzero().flatten().cpu()
-    draw = torch.Generator().manual_seed(seed)
 
     current = tok(init, add_special_tokens=False).input_ids if init else _init_prefix(tok, n_tokens)
     text_ok = _text_ok(forbid)
@@ -808,14 +836,17 @@ def whisper(model, target, layers=None, *, heads=None, steps: int | None = None,
                                or (text_ok and not text_ok(tok.decode(current)))):
         bad = [tok.decode([i]) for i in current if banned[i]]
         raise ValueError(f"the starting prefix contains forbidden text: {bad or tok.decode(current)!r}")
+    objective = _optimizers.Objective(scorer, tok, allowed, text_ok, seed, model.get_input_embeddings().weight)
     best = list(current)
-    best_cos = scorer.mean_cos([scorer.sequences(current)])[0].item()
+    best_cos = objective.score([current])[0].item()
+    opt.start(objective, current)
     history, checks, t0 = [best_cos - scorer.baseline], [], _time.time()
     if verbose:
-        limit = " and ".join(x for x in (steps and f"{steps} steps", budget and f"{budget:.0f}s") if x)
+        limit = " and ".join(x for x in (steps and f"{steps} steps", budget and f"{budget:.0f}s",
+                                         compute and f"{compute} forward-equivalents") if x)
         what = f"{len(target)} targets jointly ({', '.join(t.name for t in target)})" if isinstance(target, list) \
             else repr(target)
-        print(f"whisper: {model_id}, {what}, {len(current)} tokens, up to {limit}; "
+        print(f"whisper: {model_id}, {what}, {len(current)} tokens, {opt.name}, up to {limit}; "
               f"start {best_cos - scorer.baseline:+.5f}", flush=True)
 
     def check(step):
@@ -836,29 +867,12 @@ def whisper(model, target, layers=None, *, heads=None, steps: int | None = None,
             break
         if budget is not None and _time.time() - t0 >= budget:
             break
+        if compute is not None and objective.cost >= compute:
+            break
         step += 1
-        if blackbox:     # no gradient: each position's candidate tokens are drawn at random from the allowed set
-            top = allowed_ids[torch.randint(len(allowed_ids), (len(current), topk), generator=draw)]
-        else:
-            grad = scorer.gradient(current)
-            grad[:, ~allowed] = -float("inf")
-            top = grad.topk(topk, dim=1).indices                              # (n, topk)
-        pos = torch.tensor([rng.randrange(len(current)) for _ in range(candidates)])
-        pick = torch.tensor([rng.randrange(topk) for _ in range(candidates)])
-        cands = torch.tensor(current).repeat(candidates, 1)
-        cands[torch.arange(candidates), pos] = top[pos, pick].cpu()
-        cands = torch.unique(cands, dim=0)
-        keep = _roundtrips(tok, cands)
-        if keep.any():
-            cands = cands[keep]
-        if text_ok is not None:                              # strict: a forbidden word spelled across tokens
-            ok = torch.tensor([text_ok(t) for t in tok.batch_decode(cands.tolist())])
-            cands = cands[ok] if ok.any() else torch.tensor([current])
-        scores = scorer.mean_cos([scorer.sequences(c.tolist()) for c in cands])
-        i = int(scores.argmax())
-        current, cur_cos = cands[i].tolist(), scores[i].item()
+        tried, cur_cos = opt.step(objective)                 # a real token prefix and its score, every step
         if cur_cos > best_cos:
-            best, best_cos = list(current), cur_cos
+            best, best_cos = list(tried), cur_cos
         history.append(best_cos - scorer.baseline)
         val = check(step) if validate is not None and step % check_every == 0 else None
         if log:
@@ -887,4 +901,5 @@ def whisper(model, target, layers=None, *, heads=None, steps: int | None = None,
         print(f"whisper: {step} steps, {_time.time() - t0:.0f}s; chosen by {selected_by}: {text!r} "
               f"score {final:+.5f}", flush=True)
     return Whisper(text, ids, final, search_score, roundtrip, target, model_id, history, checks, selected_by,
-                   model, tok, template=template, read=read)
+                   model, tok, template=template, read=read, optimizer=opt.name, optimizer_params=opt.params(),
+                   compute={"forward": objective.forward, "backward": objective.backward, "cost": objective.cost})

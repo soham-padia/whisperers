@@ -9,10 +9,13 @@ Aim at the residual stream (`layers=`) or at attention heads (`heads=`); at a di
 subspace, an SAE latent, a LoRA's effect, a task vector or a function vector; for `steps=` or a
 `time=` budget; and, with `validate=`, keep the prefix that behaves best rather than the one that
 scores highest. For a chat or reasoning model, `template=chat_template(tok)` searches inside its
-user turn.
+user turn. The search strategy is pluggable: `optimizer="gcg"` (default), "random", "pez", "gbda",
+or your own `Optimizer`.
 """
+from . import optimizers
 from .heads import (check_head_writes, find_heads, find_query_heads, function_vector, instruction_heads,
                     instruction_vector, n_heads, patched_queries, query_target)
+from .optimizers import GBDA, GCG, PEZ, Optimizer, RandomSearch
 from .search import DEFAULT_PROBES, Whisper, chat_template, compose, load, score, whisper, wrap
 from .targets import (OutputTarget, QueryTarget, Target, direction, head_target, lora_shift, mean_shift, output_target,
                       sae_block, sae_latent, subspace, task_vector)
@@ -23,4 +26,5 @@ __all__ = ["whisper", "score", "Whisper", "load", "compose", "chat_template", "w
            "Target", "OutputTarget", "output_target", "direction", "head_target", "subspace", "sae_latent", "sae_block", "mean_shift",
            "task_vector", "lora_shift", "function_vector", "find_heads", "check_head_writes", "n_heads",
            "instruction_heads", "instruction_vector", "find_query_heads", "query_target", "patched_queries", "QueryTarget",
-           "Task", "accuracy", "task_accuracy", "find_layers"]
+           "Task", "accuracy", "task_accuracy", "find_layers",
+           "optimizers", "Optimizer", "GCG", "RandomSearch", "PEZ", "GBDA"]
