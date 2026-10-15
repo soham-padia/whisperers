@@ -4,8 +4,8 @@ Find a short token prefix that pushes a language model's internals toward a targ
 direction, a steering vector, an SAE latent, a LoRA adapter's effect, a task vector or a function
 vector, aimed at the residual stream or at specific attention heads.
 
-**What it has shown, with controls and failures:** [docs/what-it-shows.md](docs/what-it-shows.md) ·
-**every prefix we've found:** [docs/prefixes.md](docs/prefixes.md)
+**What it has shown, with controls and failures:** [docs/what-it-shows.md](https://github.com/soham-padia/whisperers/blob/main/docs/what-it-shows.md) ·
+**every prefix we've found:** [docs/prefixes.md](https://github.com/soham-padia/whisperers/blob/main/docs/prefixes.md)
 
 ```python
 from whisperers import whisper
@@ -141,7 +141,7 @@ task accuracy) we have not found elsewhere.
 
 ## Status
 
-Alpha (`0.1.0a4`). What has been checked on real models, and what has not:
+Alpha (`0.1.0a5`). What has been checked on real models, and what has not:
 
 - **Residual targets.** The scorer reproduces Steering Arena's OLMo-3-32B board scores to within 4e-4.
 - **Heads targets and function vectors.** Per-head writes sum to the attention update
